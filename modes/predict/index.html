@@ -287,13 +287,13 @@
 <nav aria-label="Image and Video Formats" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#image-formats">
-    Image Formats
+<a class="md-nav__link" href="#images">
+    Images
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#video-formats">
-    Video Formats
+<a class="md-nav__link" href="#videos">
+    Videos
   </a>
 </li>
 </ul>
@@ -330,7 +330,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#plotting-results">
-    Plotting results
+    Plotting Results
   </a>
 </li>
 <li class="md-nav__item">
@@ -460,13 +460,13 @@
 <nav aria-label="Image and Video Formats" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#image-formats">
-    Image Formats
+<a class="md-nav__link" href="#images">
+    Images
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#video-formats">
-    Video Formats
+<a class="md-nav__link" href="#videos">
+    Videos
   </a>
 </li>
 </ul>
@@ -503,7 +503,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#plotting-results">
-    Plotting results
+    Plotting Results
   </a>
 </li>
 <li class="md-nav__item">
@@ -2555,7 +2555,7 @@
 </table>
 <h2 id="image-and-video-formats">Image and Video Formats</h2>
 <p>YOLOv8 supports various image and video formats, as specified in <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/data/utils.py">data/utils.py</a>. See the tables below for the valid suffixes and example predict commands.</p>
-<h3 id="image-formats">Image Formats</h3>
+<h3 id="images">Images</h3>
 <p>The below table contains valid Ultralytics image formats.</p>
 <table>
 <thead>
@@ -2618,7 +2618,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="video-formats">Video Formats</h3>
+<h3 id="videos">Videos</h3>
 <p>The below table contains valid Ultralytics video formats.</p>
 <table>
 <thead>
@@ -2692,111 +2692,472 @@
 </tbody>
 </table>
 <h2 id="working-with-results">Working with Results</h2>
-<p>The <code>Results</code> object contains the following components:</p>
-<ul>
-<li><code>Results.boxes</code>: <code>Boxes</code> object with properties and methods for manipulating bounding boxes</li>
-<li><code>Results.masks</code>: <code>Masks</code> object for indexing masks or getting segment coordinates</li>
-<li><code>Results.keypoints</code>: <code>Keypoints</code> object for with properties and methods for manipulating predicted keypoints.</li>
-<li><code>Results.probs</code>: <code>Probs</code> object for containing class probabilities.</li>
-<li><code>Results.orig_img</code>: Original image loaded in memory</li>
-<li><code>Results.path</code>: <code>Path</code> containing the path to the input image</li>
-</ul>
-<p>Each result is composed of a <code>torch.Tensor</code> by default, which allows for easy manipulation:</p>
+<p>All Ultralytics <code>predict()</code> calls will return a list of <code>Results</code> objects:</p>
 <div class="admonition example">
 <p class="admonition-title">Results</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
-<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
-<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">'cpu'</span><span class="p">)</span>
-<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="c1"># Load a pretrained YOLOv8n model</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="c1"># Run inference on an image</span>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># list of 1 Results object</span>
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">([</span><span class="s1">'bus.jpg'</span><span class="p">,</span> <span class="s1">'zidane.jpg'</span><span class="p">])</span>  <span class="c1"># list of 2 Results objects</span>
 </code></pre></div>
 </div>
+<p><code>Results</code> objects have the following attributes:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>orig_img</code></td>
+<td><code>numpy.ndarray</code></td>
+<td>The original image as a numpy array.</td>
+</tr>
+<tr>
+<td><code>orig_shape</code></td>
+<td><code>tuple</code></td>
+<td>The original image shape in (height, width) format.</td>
+</tr>
+<tr>
+<td><code>boxes</code></td>
+<td><code>Boxes, optional</code></td>
+<td>A Boxes object containing the detection bounding boxes.</td>
+</tr>
+<tr>
+<td><code>masks</code></td>
+<td><code>Masks, optional</code></td>
+<td>A Masks object containing the detection masks.</td>
+</tr>
+<tr>
+<td><code>probs</code></td>
+<td><code>Probs, optional</code></td>
+<td>A Probs object containing probabilities of each class for classification task.</td>
+</tr>
+<tr>
+<td><code>keypoints</code></td>
+<td><code>Keypoints, optional</code></td>
+<td>A Keypoints object containing detected keypoints for each object.</td>
+</tr>
+<tr>
+<td><code>speed</code></td>
+<td><code>dict</code></td>
+<td>A dictionary of preprocess, inference, and postprocess speeds in milliseconds per image.</td>
+</tr>
+<tr>
+<td><code>names</code></td>
+<td><code>dict</code></td>
+<td>A dictionary of class names.</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td><code>str</code></td>
+<td>The path to the image file.</td>
+</tr>
+</tbody>
+</table>
+<p><code>Results</code> objects have the following methods:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__getitem__()</code></td>
+<td><code>Results</code></td>
+<td>Return a Results object for the specified index.</td>
+</tr>
+<tr>
+<td><code>__len__()</code></td>
+<td><code>int</code></td>
+<td>Return the number of detections in the Results object.</td>
+</tr>
+<tr>
+<td><code>update()</code></td>
+<td><code>None</code></td>
+<td>Update the boxes, masks, and probs attributes of the Results object.</td>
+</tr>
+<tr>
+<td><code>cpu()</code></td>
+<td><code>Results</code></td>
+<td>Return a copy of the Results object with all tensors on CPU memory.</td>
+</tr>
+<tr>
+<td><code>numpy()</code></td>
+<td><code>Results</code></td>
+<td>Return a copy of the Results object with all tensors as numpy arrays.</td>
+</tr>
+<tr>
+<td><code>cuda()</code></td>
+<td><code>Results</code></td>
+<td>Return a copy of the Results object with all tensors on GPU memory.</td>
+</tr>
+<tr>
+<td><code>to()</code></td>
+<td><code>Results</code></td>
+<td>Return a copy of the Results object with tensors on the specified device and dtype.</td>
+</tr>
+<tr>
+<td><code>new()</code></td>
+<td><code>Results</code></td>
+<td>Return a new Results object with the same image, path, and names.</td>
+</tr>
+<tr>
+<td><code>keys()</code></td>
+<td><code>List[str]</code></td>
+<td>Return a list of non-empty attribute names.</td>
+</tr>
+<tr>
+<td><code>plot()</code></td>
+<td><code>numpy.ndarray</code></td>
+<td>Plots the detection results. Returns a numpy array of the annotated image.</td>
+</tr>
+<tr>
+<td><code>verbose()</code></td>
+<td><code>str</code></td>
+<td>Return log string for each task.</td>
+</tr>
+<tr>
+<td><code>save_txt()</code></td>
+<td><code>None</code></td>
+<td>Save predictions into a txt file.</td>
+</tr>
+<tr>
+<td><code>save_crop()</code></td>
+<td><code>None</code></td>
+<td>Save cropped predictions to <code>save_dir/cls/file_name.jpg</code>.</td>
+</tr>
+<tr>
+<td><code>pandas()</code></td>
+<td><code>None</code></td>
+<td>Convert the object to a pandas DataFrame (not yet implemented).</td>
+</tr>
+<tr>
+<td><code>tojson()</code></td>
+<td><code>None</code></td>
+<td>Convert the object to JSON format.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details see the <code>Results</code> class <a href="../../reference/engine/results/#-results">documentation</a>.</p>
 <h3 id="boxes">Boxes</h3>
-<p><code>Boxes</code> object can be used to index, manipulate, and convert bounding boxes to different formats. Box format conversion operations are cached, meaning they're only calculated once per object, and those values are reused for future calls.</p>
-<ul>
-<li>Indexing a <code>Boxes</code> object returns a <code>Boxes</code> object:</li>
-</ul>
+<p><code>Boxes</code> object can be used to index, manipulate, and convert bounding boxes to different formats.</p>
 <div class="admonition example">
 <p class="admonition-title">Boxes</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span>
-<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">box</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># returns one box</span>
-<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">box</span><span class="o">.</span><span class="n">xyxy</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="c1"># Load a pretrained YOLOv8n model</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="c1"># Run inference on an image</span>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a>
+<a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="c1"># View results</span>
+<a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">boxes</span><span class="p">)</span>  <span class="c1"># print the Boxes object containing the detection bounding boxes</span>
 </code></pre></div>
 </div>
-<ul>
-<li>Properties and conversions</li>
-</ul>
-<div class="admonition example">
-<p class="admonition-title">Boxes Properties</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span>  <span class="c1"># box with xyxy format, (N, 4)</span>
-<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">boxes</span><span class="o">.</span><span class="n">xywh</span>  <span class="c1"># box with xywh format, (N, 4)</span>
-<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">boxes</span><span class="o">.</span><span class="n">xyxyn</span>  <span class="c1"># box with xyxy format but normalized, (N, 4)</span>
-<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">boxes</span><span class="o">.</span><span class="n">xywhn</span>  <span class="c1"># box with xywh format but normalized, (N, 4)</span>
-<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="n">boxes</span><span class="o">.</span><span class="n">conf</span>  <span class="c1"># confidence score, (N, )</span>
-<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span>  <span class="c1"># cls, (N, )</span>
-<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="n">boxes</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># raw bboxes tensor, (N, 6) or boxes.boxes</span>
-</code></pre></div>
-</div>
-<h3 id="masks">Masks</h3>
-<p><code>Masks</code> object can be used index, manipulate and convert masks to segments. The segment conversion operation is cached.</p>
-<div class="admonition example">
-<p class="admonition-title">Masks</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
-<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">masks</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span>  <span class="c1"># Masks object</span>
-<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">masks</span><span class="o">.</span><span class="n">xy</span>  <span class="c1"># x, y segments (pixels), List[segment] * N</span>
-<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">masks</span><span class="o">.</span><span class="n">xyn</span>  <span class="c1"># x, y segments (normalized), List[segment] * N</span>
-<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="n">masks</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># raw masks tensor, (N, H, W) or masks.masks</span>
-</code></pre></div>
-</div>
-<h3 id="keypoints">Keypoints</h3>
-<p><code>Keypoints</code> object can be used index, manipulate and normalize coordinates. The keypoint conversion operation is cached.</p>
-<div class="admonition example">
-<p class="admonition-title">Keypoints</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
-<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">keypoints</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keypoints</span>  <span class="c1"># Masks object</span>
-<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="n">keypoints</span><span class="o">.</span><span class="n">xy</span>  <span class="c1"># x, y keypoints (pixels), (num_dets, num_kpts, 2/3), the last dimension can be 2 or 3, depends the model.</span>
-<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">keypoints</span><span class="o">.</span><span class="n">xyn</span>  <span class="c1"># x, y keypoints (normalized), (num_dets, num_kpts, 2/3)</span>
-<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="n">keypoints</span><span class="o">.</span><span class="n">conf</span>  <span class="c1"># confidence score(num_dets, num_kpts) of each keypoint if the last dimension is 3.</span>
-<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="n">keypoints</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># raw keypoints tensor, (num_dets, num_kpts, 2/3)</span>
-</code></pre></div>
-</div>
-<h3 id="probs">Probs</h3>
-<p><code>Probs</code> object can be used index, get <code>top1</code> and <code>top5</code> indices and scores of classification.</p>
-<div class="admonition example">
-<p class="admonition-title">Probs</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
-<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">probs</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">probs</span>  <span class="c1"># cls prob, (num_class, )</span>
-<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="n">probs</span><span class="o">.</span><span class="n">top5</span>    <span class="c1"># The top5 indices of classification, List[Int] * 5.</span>
-<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">probs</span><span class="o">.</span><span class="n">top1</span>    <span class="c1"># The top1 indices of classification, a value with Int type.</span>
-<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">probs</span><span class="o">.</span><span class="n">top5conf</span>  <span class="c1"># The top5 scores of classification, a tensor with shape (5, ).</span>
-<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="n">probs</span><span class="o">.</span><span class="n">top1conf</span>  <span class="c1"># The top1 scores of classification. a value with torch.tensor type.</span>
-<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="n">keypoints</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># raw probs tensor, (num_class, )</span>
-</code></pre></div>
-</div>
-<p>Class reference documentation for <code>Results</code> module and its components can be found <a href="../../reference/engine/results/">here</a></p>
-<h2 id="plotting-results">Plotting results</h2>
-<p>You can use <code>plot()</code> function of <code>Result</code> object to plot results on in image object. It plots all components(boxes, masks, classification probabilities, etc.) found in the results object.</p>
-<div class="admonition example">
-<p class="admonition-title">Plotting</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
-<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="c1"># Load a pretrained YOLOv8n model</span>
-<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
-<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>
-<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="c1"># Run inference on 'bus.jpg'</span>
-<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># results list</span>
-<a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a>
-<a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="c1"># Show the results</span>
-<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>  <span class="c1"># plot a BGR numpy array of predictions</span>
-<a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a>    <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># show RGB image</span>
-</code></pre></div>
-</div>
+<p>Here is a table for the <code>Boxes</code> class methods and properties, including their name, type, and description:</p>
 <table>
 <thead>
 <tr>
 <th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cpu()</code></td>
+<td>Method</td>
+<td>Move the object to CPU memory.</td>
+</tr>
+<tr>
+<td><code>numpy()</code></td>
+<td>Method</td>
+<td>Convert the object to a numpy array.</td>
+</tr>
+<tr>
+<td><code>cuda()</code></td>
+<td>Method</td>
+<td>Move the object to CUDA memory.</td>
+</tr>
+<tr>
+<td><code>to()</code></td>
+<td>Method</td>
+<td>Move the object to the specified device.</td>
+</tr>
+<tr>
+<td><code>xyxy</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the boxes in xyxy format.</td>
+</tr>
+<tr>
+<td><code>conf</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the confidence values of the boxes.</td>
+</tr>
+<tr>
+<td><code>cls</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the class values of the boxes.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the track IDs of the boxes (if available).</td>
+</tr>
+<tr>
+<td><code>xywh</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the boxes in xywh format.</td>
+</tr>
+<tr>
+<td><code>xyxyn</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the boxes in xyxy format normalized by original image size.</td>
+</tr>
+<tr>
+<td><code>xywhn</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the boxes in xywh format normalized by original image size.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details see the <code>Boxes</code> class <a href="../../reference/engine/results/#boxes">documentation</a>.</p>
+<h3 id="masks">Masks</h3>
+<p><code>Masks</code> object can be used index, manipulate and convert masks to segments.</p>
+<div class="admonition example">
+<p class="admonition-title">Masks</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1"># Load a pretrained YOLOv8n-seg Segment model</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-seg.pt'</span><span class="p">)</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>
+<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="c1"># Run inference on an image</span>
+<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a>
+<a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="c1"># View results</span>
+<a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span>  <span class="c1"># print the Masks object containing the detected instance masks</span>
+</code></pre></div>
+</div>
+<p>Here is a table for the <code>Masks</code> class methods and properties, including their name, type, and description:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cpu()</code></td>
+<td>Method</td>
+<td>Returns the masks tensor on CPU memory.</td>
+</tr>
+<tr>
+<td><code>numpy()</code></td>
+<td>Method</td>
+<td>Returns the masks tensor as a numpy array.</td>
+</tr>
+<tr>
+<td><code>cuda()</code></td>
+<td>Method</td>
+<td>Returns the masks tensor on GPU memory.</td>
+</tr>
+<tr>
+<td><code>to()</code></td>
+<td>Method</td>
+<td>Returns the masks tensor with the specified device and dtype.</td>
+</tr>
+<tr>
+<td><code>pandas()</code></td>
+<td>Method</td>
+<td>Returns the object as a pandas DataFrame (not yet implemented).</td>
+</tr>
+<tr>
+<td><code>xyn</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>A list of normalized segments represented as tensors.</td>
+</tr>
+<tr>
+<td><code>xy</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>A list of segments in pixel coordinates represented as tensors.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details see the <code>Masks</code> class <a href="../../reference/engine/results/#masks">documentation</a>.</p>
+<h3 id="keypoints">Keypoints</h3>
+<p><code>Keypoints</code> object can be used index, manipulate and normalize coordinates.</p>
+<div class="admonition example">
+<p class="admonition-title">Keypoints</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="c1"># Load a pretrained YOLOv8n-pose Pose model</span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-pose.pt'</span><span class="p">)</span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="c1"># Run inference on an image</span>
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a>
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="c1"># View results</span>
+<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">keypoints</span><span class="p">)</span>  <span class="c1"># print the Keypoints object containing the detected keypoints</span>
+</code></pre></div>
+</div>
+<p>Here is a table for the <code>Keypoints</code> class methods and properties, including their name, type, and description:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cpu()</code></td>
+<td>Method</td>
+<td>Returns the keypoints tensor on CPU memory.</td>
+</tr>
+<tr>
+<td><code>numpy()</code></td>
+<td>Method</td>
+<td>Returns the keypoints tensor as a numpy array.</td>
+</tr>
+<tr>
+<td><code>cuda()</code></td>
+<td>Method</td>
+<td>Returns the keypoints tensor on GPU memory.</td>
+</tr>
+<tr>
+<td><code>to()</code></td>
+<td>Method</td>
+<td>Returns the keypoints tensor with the specified device and dtype.</td>
+</tr>
+<tr>
+<td><code>xyn</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>A list of normalized keypoints represented as tensors.</td>
+</tr>
+<tr>
+<td><code>xy</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>A list of keypoints in pixel coordinates represented as tensors.</td>
+</tr>
+<tr>
+<td><code>conf</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Returns confidence values of keypoints if available, else None.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details see the <code>Keypoints</code> class <a href="../../reference/engine/results/#keypoints">documentation</a>.</p>
+<h3 id="probs">Probs</h3>
+<p><code>Probs</code> object can be used index, get <code>top1</code> and <code>top5</code> indices and scores of classification.</p>
+<div class="admonition example">
+<p class="admonition-title">Probs</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="c1"># Load a pretrained YOLOv8n-cls Classify model</span>
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-cls.pt'</span><span class="p">)</span>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>
+<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="c1"># Run inference on an image</span>
+<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a>
+<a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="c1"># View results</span>
+<a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span>  <span class="c1"># print the Probs object containing the detected class probabilities</span>
+</code></pre></div>
+</div>
+<p>Here's a table summarizing the methods and properties for the <code>Probs</code> class:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cpu()</code></td>
+<td>Method</td>
+<td>Returns a copy of the probs tensor on CPU memory.</td>
+</tr>
+<tr>
+<td><code>numpy()</code></td>
+<td>Method</td>
+<td>Returns a copy of the probs tensor as a numpy array.</td>
+</tr>
+<tr>
+<td><code>cuda()</code></td>
+<td>Method</td>
+<td>Returns a copy of the probs tensor on GPU memory.</td>
+</tr>
+<tr>
+<td><code>to()</code></td>
+<td>Method</td>
+<td>Returns a copy of the probs tensor with the specified device and dtype.</td>
+</tr>
+<tr>
+<td><code>top1</code></td>
+<td>Property <code>int</code></td>
+<td>Index of the top 1 class.</td>
+</tr>
+<tr>
+<td><code>top5</code></td>
+<td>Property <code>list[int]</code></td>
+<td>Indices of the top 5 classes.</td>
+</tr>
+<tr>
+<td><code>top1conf</code></td>
+<td>Property <code>torch.Tensor</code></td>
+<td>Confidence of the top 1 class.</td>
+</tr>
+<tr>
+<td><code>top5conf</code></td>
+<td>Property <code>torch.Tensor</code></td>
+<td>Confidences of the top 5 classes.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details see the <code>Probs</code> class <a href="../../reference/engine/results/#probs">documentation</a>.</p>
+<h2 id="plotting-results">Plotting Results</h2>
+<p>You can the <code>plot()</code> method of a <code>Result</code> objects to plot predictions. It plots all prediction types (boxes, masks, keypoints, probabilities, etc.) contained in the <code>Results</code> object.</p>
+<div class="admonition example">
+<p class="admonition-title">Plotting</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="c1"># Load a pretrained YOLOv8n model</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="c1"># Run inference on 'bus.jpg'</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a>
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="c1"># Show the results</span>
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>  <span class="c1"># plot a BGR numpy array of predictions</span>
+<a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a>    <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># show RGB image</span>
+</code></pre></div>
+<p>The <code>plot()</code> method has the following arguments available:</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
 <th>Type</th>
 <th>Description</th>
 <th>Default</th>
@@ -2883,49 +3244,50 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="streaming-source-for-loop">Streaming Source <code>for</code>-loop</h2>
 <p>Here's a Python script using OpenCV (<code>cv2</code>) and YOLOv8 to run inference on video frames. This script assumes you have already installed the necessary packages (<code>opencv-python</code> and <code>ultralytics</code>).</p>
 <div class="admonition example">
 <p class="admonition-title">Streaming for-loop</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
-<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>
-<a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="c1"># Load the YOLOv8 model</span>
-<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
-<a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>
-<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="c1"># Open the video file</span>
-<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/your/video/file.mp4"</span>
-<a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
-<a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a>
-<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="c1"># Loop through the video frames</span>
-<a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-23-13" id="__codelineno-23-13" name="__codelineno-23-13"></a>    <span class="c1"># Read a frame from the video</span>
-<a href="#__codelineno-23-14" id="__codelineno-23-14" name="__codelineno-23-14"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-23-15" id="__codelineno-23-15" name="__codelineno-23-15"></a>
-<a href="#__codelineno-23-16" id="__codelineno-23-16" name="__codelineno-23-16"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-23-17" id="__codelineno-23-17" name="__codelineno-23-17"></a>        <span class="c1"># Run YOLOv8 inference on the frame</span>
-<a href="#__codelineno-23-18" id="__codelineno-23-18" name="__codelineno-23-18"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-<a href="#__codelineno-23-19" id="__codelineno-23-19" name="__codelineno-23-19"></a>
-<a href="#__codelineno-23-20" id="__codelineno-23-20" name="__codelineno-23-20"></a>        <span class="c1"># Visualize the results on the frame</span>
-<a href="#__codelineno-23-21" id="__codelineno-23-21" name="__codelineno-23-21"></a>        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<a href="#__codelineno-23-22" id="__codelineno-23-22" name="__codelineno-23-22"></a>
-<a href="#__codelineno-23-23" id="__codelineno-23-23" name="__codelineno-23-23"></a>        <span class="c1"># Display the annotated frame</span>
-<a href="#__codelineno-23-24" id="__codelineno-23-24" name="__codelineno-23-24"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLOv8 Inference"</span><span class="p">,</span> <span class="n">annotated_frame</span><span class="p">)</span>
-<a href="#__codelineno-23-25" id="__codelineno-23-25" name="__codelineno-23-25"></a>
-<a href="#__codelineno-23-26" id="__codelineno-23-26" name="__codelineno-23-26"></a>        <span class="c1"># Break the loop if 'q' is pressed</span>
-<a href="#__codelineno-23-27" id="__codelineno-23-27" name="__codelineno-23-27"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
-<a href="#__codelineno-23-28" id="__codelineno-23-28" name="__codelineno-23-28"></a>            <span class="k">break</span>
-<a href="#__codelineno-23-29" id="__codelineno-23-29" name="__codelineno-23-29"></a>    <span class="k">else</span><span class="p">:</span>
-<a href="#__codelineno-23-30" id="__codelineno-23-30" name="__codelineno-23-30"></a>        <span class="c1"># Break the loop if the end of the video is reached</span>
-<a href="#__codelineno-23-31" id="__codelineno-23-31" name="__codelineno-23-31"></a>        <span class="k">break</span>
-<a href="#__codelineno-23-32" id="__codelineno-23-32" name="__codelineno-23-32"></a>
-<a href="#__codelineno-23-33" id="__codelineno-23-33" name="__codelineno-23-33"></a><span class="c1"># Release the video capture object and close the display window</span>
-<a href="#__codelineno-23-34" id="__codelineno-23-34" name="__codelineno-23-34"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-23-35" id="__codelineno-23-35" name="__codelineno-23-35"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="c1"># Load the YOLOv8 model</span>
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>
+<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="c1"># Open the video file</span>
+<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/your/video/file.mp4"</span>
+<a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
+<a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a>
+<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="c1"># Loop through the video frames</span>
+<a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a>    <span class="c1"># Read a frame from the video</span>
+<a href="#__codelineno-22-14" id="__codelineno-22-14" name="__codelineno-22-14"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-22-15" id="__codelineno-22-15" name="__codelineno-22-15"></a>
+<a href="#__codelineno-22-16" id="__codelineno-22-16" name="__codelineno-22-16"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-22-17" id="__codelineno-22-17" name="__codelineno-22-17"></a>        <span class="c1"># Run YOLOv8 inference on the frame</span>
+<a href="#__codelineno-22-18" id="__codelineno-22-18" name="__codelineno-22-18"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<a href="#__codelineno-22-19" id="__codelineno-22-19" name="__codelineno-22-19"></a>
+<a href="#__codelineno-22-20" id="__codelineno-22-20" name="__codelineno-22-20"></a>        <span class="c1"># Visualize the results on the frame</span>
+<a href="#__codelineno-22-21" id="__codelineno-22-21" name="__codelineno-22-21"></a>        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<a href="#__codelineno-22-22" id="__codelineno-22-22" name="__codelineno-22-22"></a>
+<a href="#__codelineno-22-23" id="__codelineno-22-23" name="__codelineno-22-23"></a>        <span class="c1"># Display the annotated frame</span>
+<a href="#__codelineno-22-24" id="__codelineno-22-24" name="__codelineno-22-24"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLOv8 Inference"</span><span class="p">,</span> <span class="n">annotated_frame</span><span class="p">)</span>
+<a href="#__codelineno-22-25" id="__codelineno-22-25" name="__codelineno-22-25"></a>
+<a href="#__codelineno-22-26" id="__codelineno-22-26" name="__codelineno-22-26"></a>        <span class="c1"># Break the loop if 'q' is pressed</span>
+<a href="#__codelineno-22-27" id="__codelineno-22-27" name="__codelineno-22-27"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
+<a href="#__codelineno-22-28" id="__codelineno-22-28" name="__codelineno-22-28"></a>            <span class="k">break</span>
+<a href="#__codelineno-22-29" id="__codelineno-22-29" name="__codelineno-22-29"></a>    <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-22-30" id="__codelineno-22-30" name="__codelineno-22-30"></a>        <span class="c1"># Break the loop if the end of the video is reached</span>
+<a href="#__codelineno-22-31" id="__codelineno-22-31" name="__codelineno-22-31"></a>        <span class="k">break</span>
+<a href="#__codelineno-22-32" id="__codelineno-22-32" name="__codelineno-22-32"></a>
+<a href="#__codelineno-22-33" id="__codelineno-22-33" name="__codelineno-22-33"></a><span class="c1"># Release the video capture object and close the display window</span>
+<a href="#__codelineno-22-34" id="__codelineno-22-34" name="__codelineno-22-34"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-22-35" id="__codelineno-22-35" name="__codelineno-22-35"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <p>This script will run predictions on each frame of the video, visualize the results, and display them in a window. The loop can be exited by pressing 'q'.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (21), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (27), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
