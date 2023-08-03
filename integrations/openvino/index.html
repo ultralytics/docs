@@ -1,0 +1,2960 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Discover the power of deploying your Ultralytics YOLOv8 model using OpenVINO format for up to 10x speedup vs PyTorch." name="description"/>
+<meta content="Ultralytics" name="author"/>
+<link href="https://docs.ultralytics.com/integrations/openvino/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../ray-tune/" rel="next"/>
+<link href="../../assets/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.18" name="generator"/>
+<title>OpenVINO - Ultralytics YOLOv8 Docs</title>
+<link href="../../assets/stylesheets/main.26e3688c.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Helvetica";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/style.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+<meta content="OpenVINO" name="title"/><meta content="ultralytics docs, YOLOv8, export YOLOv8, YOLOv8 model deployment, exporting YOLOv8, OpenVINO, OpenVINO format" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/openvino" property="og:url"/><meta content="OpenVINO" property="og:title"/><meta content="Discover the power of deploying your Ultralytics YOLOv8 model using OpenVINO format for up to 10x speedup vs PyTorch." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/252345644-0cf84257-4b34-404c-b7ce-eb73dfbcaff1.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/openvino" property="twitter:url"/><meta content="OpenVINO" property="twitter:title"/><meta content="Discover the power of deploying your Ultralytics YOLOv8 model using OpenVINO format for up to 10x speedup vs PyTorch." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/252345644-0cf84257-4b34-404c-b7ce-eb73dfbcaff1.png" property="twitter:image"/></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#usage-examples">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
+<img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Ultralytics YOLOv8 Docs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              OpenVINO
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Share">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ultralytics/ultralytics" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ultralytics/ultralytics
+  </div>
+</a>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../quickstart/">
+      Quickstart
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../modes/">
+        Modes
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../tasks/">
+        Tasks
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../models/">
+        Models
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../datasets/">
+        Datasets
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../guides/">
+        Guides
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../">
+        Integrations
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../usage/cli/">
+        Usage
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../yolov5/">
+        YOLOv5
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../hub/">
+        Ultralytics HUB
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../reference/cfg/__init__/">
+        Reference
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../help/">
+        Help
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
+<img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+</a>
+    Ultralytics YOLOv8 Docs
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ultralytics/ultralytics" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ultralytics/ultralytics
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../..">Home</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../quickstart/">
+        Quickstart
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../modes/">Modes</a>
+<label for="__nav_1_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_3">
+<span class="md-nav__icon md-icon"></span>
+          Modes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/train/">
+        Train
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/val/">
+        Val
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/predict/">
+        Predict
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/export/">
+        Export
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/track/">
+        Track
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/benchmark/">
+        Benchmark
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../tasks/">Tasks</a>
+<label for="__nav_1_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_4">
+<span class="md-nav__icon md-icon"></span>
+          Tasks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/detect/">
+        Detect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/segment/">
+        Segment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/classify/">
+        Classify
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/pose/">
+        Pose
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../quickstart/">
+        Quickstart
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../modes/">Modes</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Modes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/train/">
+        Train
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/val/">
+        Val
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/predict/">
+        Predict
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/export/">
+        Export
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/track/">
+        Track
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/benchmark/">
+        Benchmark
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../tasks/">Tasks</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Tasks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/detect/">
+        Detect
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/segment/">
+        Segment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/classify/">
+        Classify
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/pose/">
+        Pose
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../models/">Models</a>
+<label for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Models
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/yolov3/">
+        YOLOv3
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/yolov4/">
+        YOLOv4
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/yolov5/">
+        YOLOv5
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/yolov6/">
+        YOLOv6
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/yolov7/">
+        YOLOv7
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/yolov8/">
+        YOLOv8
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/sam/">
+        SAM (Segment Anything Model)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/mobile-sam/">
+        MobileSAM (Mobile Segment Anything Model)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/fast-sam/">
+        FastSAM (Fast Segment Anything Model)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/yolo-nas/">
+        YOLO-NAS (Neural Architecture Search)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/rtdetr/">
+        RT-DETR (Realtime Detection Transformer)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../datasets/">Datasets</a>
+<label for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Datasets
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../datasets/detect/">Detection</a>
+<label for="__nav_6_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_2">
+<span class="md-nav__icon md-icon"></span>
+          Detection
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/argoverse/">
+        Argoverse
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/coco/">
+        COCO
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/coco8/">
+        COCO8
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/globalwheat2020/">
+        GlobalWheat2020
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/objects365/">
+        Objects365
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/sku-110k/">
+        SKU-110K
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/visdrone/">
+        VisDrone
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/voc/">
+        VOC
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/xview/">
+        xView
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../datasets/segment/">Segmentation</a>
+<label for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Segmentation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/segment/coco/">
+        COCO
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/segment/coco8-seg/">
+        COCO8-seg
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../datasets/pose/">Pose</a>
+<label for="__nav_6_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_4">
+<span class="md-nav__icon md-icon"></span>
+          Pose
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/pose/coco/">
+        COCO
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/pose/coco8-pose/">
+        COCO8-pose
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../datasets/classify/">Classification</a>
+<label for="__nav_6_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_5">
+<span class="md-nav__icon md-icon"></span>
+          Classification
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/classify/caltech101/">
+        Caltech 101
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/classify/caltech256/">
+        Caltech 256
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/classify/cifar10/">
+        CIFAR-10
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/classify/cifar100/">
+        CIFAR-100
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/classify/fashion-mnist/">
+        Fashion-MNIST
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/classify/imagenet/">
+        ImageNet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/classify/imagenet10/">
+        ImageNet-10
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/classify/imagenette/">
+        Imagenette
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/classify/imagewoof/">
+        Imagewoof
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/classify/mnist/">
+        MNIST
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../datasets/track/">Multi-Object Tracking</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_6">
+<span class="md-nav__icon md-icon"></span>
+          Multi-Object Tracking
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../guides/">Guides</a>
+<label for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../guides/kfold-cross-validation/">
+        K-Fold Cross Validation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">Integrations</a>
+<label for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          Integrations
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          OpenVINO
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        OpenVINO
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage-examples">
+    Usage Examples
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arguments">
+    Arguments
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#benefits-of-openvino">
+    Benefits of OpenVINO
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#openvino-export-structure">
+    OpenVINO Export Structure
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-openvino-export-in-deployment">
+    Using OpenVINO Export in Deployment
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#openvino-yolov8-benchmarks">
+    OpenVINO YOLOv8 Benchmarks
+  </a>
+<nav aria-label="OpenVINO YOLOv8 Benchmarks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#intel-flex-gpu">
+    Intel Flex GPU
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#intel-arc-gpu">
+    Intel Arc GPU
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#intel-xeon-cpu">
+    Intel Xeon CPU
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#intel-core-cpu">
+    Intel Core CPU
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reproduce-our-results">
+    Reproduce Our Results
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ray-tune/">
+        Ray Tune
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Usage
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Usage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../usage/cli/">
+        CLI
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../usage/python/">
+        Python
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../usage/callbacks/">
+        Callbacks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../usage/cfg/">
+        Configuration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../usage/engine/">
+        Advanced Customization
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_10" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../yolov5/">YOLOv5</a>
+<label for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          YOLOv5
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/quickstart_tutorial/">
+        Quickstart
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_10_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+          Environments
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_3">
+<span class="md-nav__icon md-icon"></span>
+          Environments
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/environments/aws_quickstart_tutorial/">
+        Amazon Web Services (AWS)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/environments/google_cloud_quickstart_tutorial/">
+        Google Cloud (GCP)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/environments/docker_image_quickstart_tutorial/">
+        Docker Image
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_10_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="0">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_4">
+<span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/train_custom_data/">
+        Train Custom Data
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/tips_for_best_training_results/">
+        Tips for Best Training Results
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/multi_gpu_training/">
+        Multi-GPU Training
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/pytorch_hub_model_loading/">
+        PyTorch Hub
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_export/">
+        TFLite, ONNX, CoreML, TensorRT Export
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/running_on_jetson_nano/">
+        NVIDIA Jetson Nano Deployment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/test_time_augmentation/">
+        Test-Time Augmentation (TTA)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_ensembling/">
+        Model Ensembling
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_pruning_and_sparsity/">
+        Pruning/Sparsity Tutorial
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/hyperparameter_evolution/">
+        Hyperparameter evolution
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/transfer_learning_with_frozen_layers/">
+        Transfer learning with frozen layers
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/architecture_description/">
+        Architecture Summary
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/roboflow_datasets_integration/">
+        Roboflow Datasets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/neural_magic_pruning_quantization/">
+        Neural Magic's DeepSparse
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/comet_logging_integration/">
+        Comet Logging
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../yolov5/tutorials/clearml_logging_integration/">
+        Clearml Logging
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../hub/">Ultralytics HUB</a>
+<label for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Ultralytics HUB
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hub/quickstart/">
+        Quickstart
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hub/datasets/">
+        Datasets
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hub/projects/">
+        Projects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hub/models/">
+        Models
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hub/integrations/">
+        Integrations
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11_7" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../hub/app/">Ultralytics HUB App</a>
+<label for="__nav_11_7">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_11_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_7">
+<span class="md-nav__icon md-icon"></span>
+          Ultralytics HUB App
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hub/app/ios/">
+        iOS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hub/app/android/">
+        Android
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hub/inference_api/">
+        Inference API
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_1" id="__nav_12_1_label" tabindex="0">
+          cfg
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_12_1">
+<span class="md-nav__icon md-icon"></span>
+          cfg
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/cfg/__init__/">
+        __init__
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_2" id="__nav_12_2_label" tabindex="0">
+          data
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_12_2">
+<span class="md-nav__icon md-icon"></span>
+          data
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/data/annotator/">
+        annotator
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/data/augment/">
+        augment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/data/base/">
+        base
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/data/build/">
+        build
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/data/converter/">
+        converter
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/data/dataset/">
+        dataset
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/data/loaders/">
+        loaders
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/data/utils/">
+        utils
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_3" id="__nav_12_3_label" tabindex="0">
+          engine
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_12_3">
+<span class="md-nav__icon md-icon"></span>
+          engine
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/engine/exporter/">
+        exporter
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/engine/model/">
+        model
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/engine/predictor/">
+        predictor
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/engine/results/">
+        results
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/engine/trainer/">
+        trainer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/engine/validator/">
+        validator
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_4" id="__nav_12_4_label" tabindex="0">
+          hub
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_12_4">
+<span class="md-nav__icon md-icon"></span>
+          hub
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/hub/__init__/">
+        __init__
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/hub/auth/">
+        auth
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/hub/session/">
+        session
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/hub/utils/">
+        utils
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5" id="__nav_12_5_label" tabindex="0">
+          models
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_12_5">
+<span class="md-nav__icon md-icon"></span>
+          models
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5_1" id="__nav_12_5_1_label" tabindex="0">
+          fastsam
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_12_5_1">
+<span class="md-nav__icon md-icon"></span>
+          fastsam
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/fastsam/model/">
+        model
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/fastsam/predict/">
+        predict
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/fastsam/prompt/">
+        prompt
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/fastsam/utils/">
+        utils
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/fastsam/val/">
+        val
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5_2" id="__nav_12_5_2_label" tabindex="0">
+          nas
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_12_5_2">
+<span class="md-nav__icon md-icon"></span>
+          nas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/nas/model/">
+        model
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/nas/predict/">
+        predict
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/nas/val/">
+        val
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5_3" id="__nav_12_5_3_label" tabindex="0">
+          rtdetr
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_12_5_3">
+<span class="md-nav__icon md-icon"></span>
+          rtdetr
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/rtdetr/model/">
+        model
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/rtdetr/predict/">
+        predict
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/rtdetr/train/">
+        train
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/rtdetr/val/">
+        val
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5_4" id="__nav_12_5_4_label" tabindex="0">
+          sam
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_12_5_4">
+<span class="md-nav__icon md-icon"></span>
+          sam
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/sam/amg/">
+        amg
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/sam/build/">
+        build
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/sam/model/">
+        model
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5_4_4" id="__nav_12_5_4_4_label" tabindex="0">
+          modules
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_4_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_12_5_4_4">
+<span class="md-nav__icon md-icon"></span>
+          modules
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/sam/modules/decoders/">
+        decoders
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/sam/modules/encoders/">
+        encoders
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/sam/modules/sam/">
+        sam
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/sam/modules/tiny_encoder/">
+        tiny_encoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/sam/modules/transformer/">
+        transformer
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/sam/predict/">
+        predict
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5_5" id="__nav_12_5_5_label" tabindex="0">
+          utils
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_12_5_5">
+<span class="md-nav__icon md-icon"></span>
+          utils
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/utils/loss/">
+        loss
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/utils/ops/">
+        ops
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5_6" id="__nav_12_5_6_label" tabindex="0">
+          yolo
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_12_5_6">
+<span class="md-nav__icon md-icon"></span>
+          yolo
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_6_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5_6_1" id="__nav_12_5_6_1_label" tabindex="0">
+          classify
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_6_1_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_12_5_6_1">
+<span class="md-nav__icon md-icon"></span>
+          classify
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/predict/">
+        predict
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/train/">
+        train
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/val/">
+        val
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5_6_2" id="__nav_12_5_6_2_label" tabindex="0">
+          detect
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_6_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_12_5_6_2">
+<span class="md-nav__icon md-icon"></span>
+          detect
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/predict/">
+        predict
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/train/">
+        train
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/val/">
+        val
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/model/">
+        model
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_6_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5_6_4" id="__nav_12_5_6_4_label" tabindex="0">
+          pose
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_6_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_12_5_6_4">
+<span class="md-nav__icon md-icon"></span>
+          pose
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/predict/">
+        predict
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/train/">
+        train
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/val/">
+        val
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_6_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_5_6_5" id="__nav_12_5_6_5_label" tabindex="0">
+          segment
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_6_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_12_5_6_5">
+<span class="md-nav__icon md-icon"></span>
+          segment
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/predict/">
+        predict
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/train/">
+        train
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/val/">
+        val
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_6" id="__nav_12_6_label" tabindex="0">
+          nn
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_12_6">
+<span class="md-nav__icon md-icon"></span>
+          nn
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/nn/autobackend/">
+        autobackend
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_6_2" id="__nav_12_6_2_label" tabindex="0">
+          modules
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_6_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_12_6_2">
+<span class="md-nav__icon md-icon"></span>
+          modules
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/nn/modules/block/">
+        block
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/nn/modules/conv/">
+        conv
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/nn/modules/head/">
+        head
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/nn/modules/transformer/">
+        transformer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/nn/modules/utils/">
+        utils
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/nn/tasks/">
+        tasks
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_7" id="__nav_12_7_label" tabindex="0">
+          trackers
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_12_7">
+<span class="md-nav__icon md-icon"></span>
+          trackers
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/trackers/basetrack/">
+        basetrack
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/trackers/bot_sort/">
+        bot_sort
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/trackers/byte_tracker/">
+        byte_tracker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/trackers/track/">
+        track
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_7_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_7_5" id="__nav_12_7_5_label" tabindex="0">
+          utils
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_7_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_12_7_5">
+<span class="md-nav__icon md-icon"></span>
+          utils
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/trackers/utils/gmc/">
+        gmc
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/trackers/utils/kalman_filter/">
+        kalman_filter
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/trackers/utils/matching/">
+        matching
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_8" id="__nav_12_8_label" tabindex="0">
+          utils
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_12_8">
+<span class="md-nav__icon md-icon"></span>
+          utils
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/__init__/">
+        __init__
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/autobatch/">
+        autobatch
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/benchmarks/">
+        benchmarks
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_8_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12_8_4" id="__nav_12_8_4_label" tabindex="0">
+          callbacks
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_8_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_12_8_4">
+<span class="md-nav__icon md-icon"></span>
+          callbacks
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/callbacks/base/">
+        base
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/callbacks/clearml/">
+        clearml
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/callbacks/comet/">
+        comet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/callbacks/dvc/">
+        dvc
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/callbacks/hub/">
+        hub
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/callbacks/mlflow/">
+        mlflow
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/callbacks/neptune/">
+        neptune
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/callbacks/raytune/">
+        raytune
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/callbacks/tensorboard/">
+        tensorboard
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/callbacks/wb/">
+        wb
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/checks/">
+        checks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/dist/">
+        dist
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/downloads/">
+        downloads
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/errors/">
+        errors
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/files/">
+        files
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/instance/">
+        instance
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/loss/">
+        loss
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/metrics/">
+        metrics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/ops/">
+        ops
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/patches/">
+        patches
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/plotting/">
+        plotting
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/tal/">
+        tal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/torch_utils/">
+        torch_utils
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/tuner/">
+        tuner
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../help/">Help</a>
+<label for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+          Help
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../help/FAQ/">
+        Frequently Asked Questions (FAQ)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../help/contributing/">
+        Contributing Guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../help/CI/">
+        Continuous Integration (CI) Guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../help/CLA/">
+        Contributor License Agreement (CLA)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../help/minimum_reproducible_example/">
+        Minimum Reproducible Example (MRE) Guide
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../help/code_of_conduct/">
+        Code of Conduct
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../help/environmental-health-safety/">
+        Environmental, Health and Safety (EHS) Policy
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../SECURITY/">
+        Security Policy
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/integrations/openvino.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
+</a>
+<h1>OpenVINO</h1>
+<p><img src="https://user-images.githubusercontent.com/26833433/252345644-0cf84257-4b34-404c-b7ce-eb73dfbcaff1.png" width="1024"/></p>
+<p><strong>Export mode</strong> is used for exporting a YOLOv8 model to a format that can be used for deployment. In this guide, we specifically cover exporting to OpenVINO, which can provide up to 3x <a href="https://docs.openvino.ai/2023.0/openvino_docs_OV_UG_supported_plugins_CPU.html">CPU</a> speedup as well as accelerating on other Intel hardware (<a href="https://docs.openvino.ai/2023.0/openvino_docs_OV_UG_supported_plugins_GPU.html">iGPU</a>, <a href="https://docs.openvino.ai/2023.0/openvino_docs_OV_UG_supported_plugins_GPU.html">dGPU</a>, <a href="https://docs.openvino.ai/2022.3/openvino_docs_OV_UG_supported_plugins_VPU.html">VPU</a>, etc.).</p>
+<p>OpenVINO, short for Open Visual Inference &amp; Neural Network Optimization toolkit, is a comprehensive toolkit for optimizing and deploying AI inference models. Even though the name contains Visual, OpenVINO also supports various additional tasks including language, audio, time series, etc.</p>
+<h2 id="usage-examples">Usage Examples</h2>
+<p>Export a YOLOv8n model to OpenVINO format and run inference with the exported model.</p>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a YOLOv8n PyTorch model</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Export the model</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'openvino'</span><span class="p">)</span>  <span class="c1"># creates 'yolov8n_openvino_model/'</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Load the exported OpenVINO model</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">ov_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n_openvino_model/'</span><span class="p">)</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># Run inference</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">ov_model</span><span class="p">(</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Export a YOLOv8n PyTorch model to OpenVINO format</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>openvino<span class="w">  </span><span class="c1"># creates 'yolov8n_openvino_model/'</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Run inference with the exported model</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n_openvino_model<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</div>
+<h2 id="arguments">Arguments</h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format</code></td>
+<td><code>'openvino'</code></td>
+<td>format to export to</td>
+</tr>
+<tr>
+<td><code>imgsz</code></td>
+<td><code>640</code></td>
+<td>image size as scalar or (h, w) list, i.e. (640, 480)</td>
+</tr>
+<tr>
+<td><code>half</code></td>
+<td><code>False</code></td>
+<td>FP16 quantization</td>
+</tr>
+</tbody>
+</table>
+<h2 id="benefits-of-openvino">Benefits of OpenVINO</h2>
+<ol>
+<li><strong>Performance</strong>: OpenVINO delivers high-performance inference by utilizing the power of Intel CPUs, integrated and discrete GPUs, and FPGAs.</li>
+<li><strong>Support for Heterogeneous Execution</strong>: OpenVINO provides an API to write once and deploy on any supported Intel hardware (CPU, GPU, FPGA, VPU, etc.).</li>
+<li><strong>Model Optimizer</strong>: OpenVINO provides a Model Optimizer that imports, converts, and optimizes models from popular deep learning frameworks such as PyTorch, TensorFlow, TensorFlow Lite, Keras, ONNX, PaddlePaddle, and Caffe.</li>
+<li><strong>Ease of Use</strong>: The toolkit comes with more than <a href="https://github.com/openvinotoolkit/openvino_notebooks">80 tutorial notebooks</a> (including <a href="https://github.com/openvinotoolkit/openvino_notebooks/tree/main/notebooks/230-yolov8-optimization">YOLOv8 optimization</a>) teaching different aspects of the toolkit.</li>
+</ol>
+<h2 id="openvino-export-structure">OpenVINO Export Structure</h2>
+<p>When you export a model to OpenVINO format, it results in a directory containing the following:</p>
+<ol>
+<li><strong>XML file</strong>: Describes the network topology.</li>
+<li><strong>BIN file</strong>: Contains the weights and biases binary data.</li>
+<li><strong>Mapping file</strong>: Holds mapping of original model output tensors to OpenVINO tensor names.</li>
+</ol>
+<p>You can use these files to run inference with the OpenVINO Inference Engine.</p>
+<h2 id="using-openvino-export-in-deployment">Using OpenVINO Export in Deployment</h2>
+<p>Once you have the OpenVINO files, you can use the OpenVINO Runtime to run the model. The Runtime provides a unified API to inference across all supported Intel hardware. It also provides advanced capabilities like load balancing across Intel hardware and asynchronous execution. For more information on running the inference, refer to the <a href="https://docs.openvino.ai/2023.0/openvino_docs_OV_UG_OV_Runtime_User_Guide.html">Inference with OpenVINO Runtime Guide</a>.</p>
+<p>Remember, you'll need the XML and BIN files as well as any application-specific settings like input size, scale factor for normalization, etc., to correctly set up and use the model with the Runtime.</p>
+<p>In your deployment application, you would typically do the following steps:</p>
+<ol>
+<li>Initialize OpenVINO by creating <code>core = Core()</code>.</li>
+<li>Load the model using the <code>core.read_model()</code> method.</li>
+<li>Compile the model using the <code>core.compile_model()</code> function.</li>
+<li>Prepare the input (image, text, audio, etc.).</li>
+<li>Run inference using <code>compiled_model(input_data)</code>.</li>
+</ol>
+<p>For more detailed steps and code snippets, refer to the <a href="https://docs.openvino.ai/">OpenVINO documentation</a> or <a href="https://github.com/openvinotoolkit/openvino_notebooks/blob/main/notebooks/002-openvino-api/002-openvino-api.ipynb">API tutorial</a>.</p>
+<h2 id="openvino-yolov8-benchmarks">OpenVINO YOLOv8 Benchmarks</h2>
+<p>YOLOv8 benchmarks below were run by the Ultralytics team on 4 different model formats measuring speed and accuracy: PyTorch, TorchScript, ONNX and OpenVINO. Benchmarks were run on Intel Flex and Arc GPUs, and on Intel Xeon CPUs at FP32 precision (with the <code>half=False</code> argument).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The benchmarking results below are for reference and might vary based on the exact hardware and software configuration of a system, as well as the current workload of the system at the time the benchmarks are run.</p>
+<p>All benchmarks run with <code>openvino</code> python package version <a href="https://pypi.org/project/openvino/2023.0.1/">2023.0.1</a>.</p>
+</div>
+<h3 id="intel-flex-gpu">Intel Flex GPU</h3>
+<p>The Intel® Data Center GPU Flex Series is a versatile and robust solution designed for the intelligent visual cloud. This GPU supports a wide array of workloads including media streaming, cloud gaming, AI visual inference, and virtual desktop Infrastructure workloads. It stands out for its open architecture and built-in support for the AV1 encode, providing a standards-based software stack for high-performance, cross-architecture applications. The Flex Series GPU is optimized for density and quality, offering high reliability, availability, and scalability.</p>
+<p>Benchmarks below run on Intel® Data Center GPU Flex 170 at FP32 precision.</p>
+<div align="center">
+<img src="https://user-images.githubusercontent.com/26833433/253741543-62659bf8-1765-4d0b-b71c-8a4f9885506a.jpg" width="800"/>
+</div>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Format</th>
+<th>Status</th>
+<th>Size (MB)</th>
+<th>mAP50-95(B)</th>
+<th>Inference time (ms/im)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YOLOv8n</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>6.2</td>
+<td>0.3709</td>
+<td>21.79</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>12.4</td>
+<td>0.3704</td>
+<td>23.24</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>12.2</td>
+<td>0.3704</td>
+<td>37.22</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>12.3</td>
+<td>0.3703</td>
+<td>3.29</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>21.5</td>
+<td>0.4471</td>
+<td>31.89</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>42.9</td>
+<td>0.4472</td>
+<td>32.71</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>42.8</td>
+<td>0.4472</td>
+<td>43.42</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>42.9</td>
+<td>0.4470</td>
+<td>3.92</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>49.7</td>
+<td>0.5013</td>
+<td>50.75</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>99.2</td>
+<td>0.4999</td>
+<td>47.90</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>99.0</td>
+<td>0.4999</td>
+<td>63.16</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>49.8</td>
+<td>0.4997</td>
+<td>7.11</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>83.7</td>
+<td>0.5293</td>
+<td>77.45</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>167.2</td>
+<td>0.5268</td>
+<td>85.71</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>166.8</td>
+<td>0.5268</td>
+<td>88.94</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>167.0</td>
+<td>0.5264</td>
+<td>9.37</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>130.5</td>
+<td>0.5404</td>
+<td>100.09</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>260.7</td>
+<td>0.5371</td>
+<td>114.64</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>260.4</td>
+<td>0.5371</td>
+<td>110.32</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>260.6</td>
+<td>0.5367</td>
+<td>15.02</td>
+</tr>
+</tbody>
+</table>
+<p>This table represents the benchmark results for five different models (YOLOv8n, YOLOv8s, YOLOv8m, YOLOv8l, YOLOv8x) across four different formats (PyTorch, TorchScript, ONNX, OpenVINO), giving us the status, size, mAP50-95(B) metric, and inference time for each combination.</p>
+<h3 id="intel-arc-gpu">Intel Arc GPU</h3>
+<p>Intel® Arc™ represents Intel's foray into the dedicated GPU market. The Arc™ series, designed to compete with leading GPU manufacturers like AMD and Nvidia, caters to both the laptop and desktop markets. The series includes mobile versions for compact devices like laptops, and larger, more powerful versions for desktop computers.</p>
+<p>The Arc™ series is divided into three categories: Arc™ 3, Arc™ 5, and Arc™ 7, with each number indicating the performance level. Each category includes several models, and the 'M' in the GPU model name signifies a mobile, integrated variant.</p>
+<p>Early reviews have praised the Arc™ series, particularly the integrated A770M GPU, for its impressive graphics performance. The availability of the Arc™ series varies by region, and additional models are expected to be released soon. Intel® Arc™ GPUs offer high-performance solutions for a range of computing needs, from gaming to content creation.</p>
+<p>Benchmarks below run on Intel® Arc 770 GPU at FP32 precision.</p>
+<div align="center">
+<img src="https://user-images.githubusercontent.com/26833433/253741545-8530388f-8fd1-44f7-a4ae-f875d59dc282.jpg" width="800"/>
+</div>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Format</th>
+<th>Status</th>
+<th>Size (MB)</th>
+<th>metrics/mAP50-95(B)</th>
+<th>Inference time (ms/im)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YOLOv8n</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>6.2</td>
+<td>0.3709</td>
+<td>88.79</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>12.4</td>
+<td>0.3704</td>
+<td>102.66</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>12.2</td>
+<td>0.3704</td>
+<td>57.98</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>12.3</td>
+<td>0.3703</td>
+<td>8.52</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>21.5</td>
+<td>0.4471</td>
+<td>189.83</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>42.9</td>
+<td>0.4472</td>
+<td>227.58</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>42.7</td>
+<td>0.4472</td>
+<td>142.03</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>42.9</td>
+<td>0.4469</td>
+<td>9.19</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>49.7</td>
+<td>0.5013</td>
+<td>411.64</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>99.2</td>
+<td>0.4999</td>
+<td>517.12</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>98.9</td>
+<td>0.4999</td>
+<td>298.68</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>99.1</td>
+<td>0.4996</td>
+<td>12.55</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>83.7</td>
+<td>0.5293</td>
+<td>725.73</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>167.1</td>
+<td>0.5268</td>
+<td>892.83</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>166.8</td>
+<td>0.5268</td>
+<td>576.11</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>167.0</td>
+<td>0.5262</td>
+<td>17.62</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>130.5</td>
+<td>0.5404</td>
+<td>988.92</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>260.7</td>
+<td>0.5371</td>
+<td>1186.42</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>260.4</td>
+<td>0.5371</td>
+<td>768.90</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>260.6</td>
+<td>0.5367</td>
+<td>19</td>
+</tr>
+</tbody>
+</table>
+<h3 id="intel-xeon-cpu">Intel Xeon CPU</h3>
+<p>The Intel® Xeon® CPU is a high-performance, server-grade processor designed for complex and demanding workloads. From high-end cloud computing and virtualization to artificial intelligence and machine learning applications, Xeon® CPUs provide the power, reliability, and flexibility required for today's data centers.</p>
+<p>Notably, Xeon® CPUs deliver high compute density and scalability, making them ideal for both small businesses and large enterprises. By choosing Intel® Xeon® CPUs, organizations can confidently handle their most demanding computing tasks and foster innovation while maintaining cost-effectiveness and operational efficiency.</p>
+<p>Benchmarks below run on 4th Gen Intel® Xeon® Scalable CPU at FP32 precision.</p>
+<div align="center">
+<img src="https://user-images.githubusercontent.com/26833433/253741546-dcd8e52a-fc38-424f-b87e-c8365b6f28dc.jpg" width="800"/>
+</div>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Format</th>
+<th>Status</th>
+<th>Size (MB)</th>
+<th>metrics/mAP50-95(B)</th>
+<th>Inference time (ms/im)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YOLOv8n</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>6.2</td>
+<td>0.3709</td>
+<td>24.36</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>12.4</td>
+<td>0.3704</td>
+<td>23.93</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>12.2</td>
+<td>0.3704</td>
+<td>39.86</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>12.3</td>
+<td>0.3704</td>
+<td>11.34</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>21.5</td>
+<td>0.4471</td>
+<td>33.77</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>42.9</td>
+<td>0.4472</td>
+<td>34.84</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>42.8</td>
+<td>0.4472</td>
+<td>43.23</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>42.9</td>
+<td>0.4471</td>
+<td>13.86</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>49.7</td>
+<td>0.5013</td>
+<td>53.91</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>99.2</td>
+<td>0.4999</td>
+<td>53.51</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>99.0</td>
+<td>0.4999</td>
+<td>64.16</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>99.1</td>
+<td>0.4996</td>
+<td>28.79</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>83.7</td>
+<td>0.5293</td>
+<td>75.78</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>167.2</td>
+<td>0.5268</td>
+<td>79.13</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>166.8</td>
+<td>0.5268</td>
+<td>88.45</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>167.0</td>
+<td>0.5263</td>
+<td>56.23</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>130.5</td>
+<td>0.5404</td>
+<td>96.60</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>260.7</td>
+<td>0.5371</td>
+<td>114.28</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>260.4</td>
+<td>0.5371</td>
+<td>111.02</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>260.6</td>
+<td>0.5371</td>
+<td>83.28</td>
+</tr>
+</tbody>
+</table>
+<h3 id="intel-core-cpu">Intel Core CPU</h3>
+<p>The Intel® Core® series is a range of high-performance processors by Intel. The lineup includes Core i3 (entry-level), Core i5 (mid-range), Core i7 (high-end), and Core i9 (extreme performance). Each series caters to different computing needs and budgets, from everyday tasks to demanding professional workloads. With each new generation, improvements are made to performance, energy efficiency, and features.</p>
+<p>Benchmarks below run on 13th Gen Intel® Core® i7-13700H CPU at FP32 precision.</p>
+<div align="center">
+<img src="https://user-images.githubusercontent.com/26833433/254559985-727bfa43-93fa-4fec-a417-800f869f3f9e.jpg" width="800"/>
+</div>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Format</th>
+<th>Status</th>
+<th>Size (MB)</th>
+<th>metrics/mAP50-95(B)</th>
+<th>Inference time (ms/im)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YOLOv8n</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>6.2</td>
+<td>0.4478</td>
+<td>104.61</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>12.4</td>
+<td>0.4525</td>
+<td>112.39</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>12.2</td>
+<td>0.4525</td>
+<td>28.02</td>
+</tr>
+<tr>
+<td>YOLOv8n</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>12.3</td>
+<td>0.4504</td>
+<td>23.53</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>21.5</td>
+<td>0.5885</td>
+<td>194.83</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>43.0</td>
+<td>0.5962</td>
+<td>202.01</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>42.8</td>
+<td>0.5962</td>
+<td>65.74</td>
+</tr>
+<tr>
+<td>YOLOv8s</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>42.9</td>
+<td>0.5966</td>
+<td>38.66</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>49.7</td>
+<td>0.6101</td>
+<td>355.23</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>99.2</td>
+<td>0.6120</td>
+<td>424.78</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>99.0</td>
+<td>0.6120</td>
+<td>173.39</td>
+</tr>
+<tr>
+<td>YOLOv8m</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>99.1</td>
+<td>0.6091</td>
+<td>69.80</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>83.7</td>
+<td>0.6591</td>
+<td>593.00</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>167.2</td>
+<td>0.6580</td>
+<td>697.54</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>166.8</td>
+<td>0.6580</td>
+<td>342.15</td>
+</tr>
+<tr>
+<td>YOLOv8l</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>167.0</td>
+<td>0.0708</td>
+<td>117.69</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>130.5</td>
+<td>0.6651</td>
+<td>804.65</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>TorchScript</td>
+<td>✅</td>
+<td>260.8</td>
+<td>0.6650</td>
+<td>921.46</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>ONNX</td>
+<td>✅</td>
+<td>260.4</td>
+<td>0.6650</td>
+<td>526.66</td>
+</tr>
+<tr>
+<td>YOLOv8x</td>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>260.6</td>
+<td>0.6619</td>
+<td>158.73</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reproduce-our-results">Reproduce Our Results</h2>
+<p>To reproduce the Ultralytics benchmarks above on all export <a href="../../modes/export/">formats</a> run this code:</p>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Load a YOLOv8n PyTorch model</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Benchmark YOLOv8n speed and accuracy on the COCO128 dataset for all all export formats</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">results</span><span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">benchmarks</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco128.yaml'</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Benchmark YOLOv8n speed and accuracy on the COCO128 dataset for all all export formats</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>yolo<span class="w"> </span>benchmark<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco128.yaml
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<p>Note that benchmarking results might vary based on the exact hardware and software configuration of a system, as well as the current workload of the system at the time the benchmarks are run. For the most reliable results use a dataset with a large number of images, i.e. <code>data='coco128.yaml' (128 val images), or</code>data='coco.yaml'` (5000 val images).</p>
+</div>
+<h2 id="conclusion">Conclusion</h2>
+<p>The benchmarking results clearly demonstrate the benefits of exporting the YOLOv8 model to the OpenVINO format. Across different models and hardware platforms, the OpenVINO format consistently outperforms other formats in terms of inference speed while maintaining comparable accuracy.</p>
+<p>For the Intel® Data Center GPU Flex Series, the OpenVINO format was able to deliver inference speeds almost 10 times faster than the original PyTorch format. On the Xeon CPU, the OpenVINO format was twice as fast as the PyTorch format. The accuracy of the models remained nearly identical across the different formats.</p>
+<p>The benchmarks underline the effectiveness of OpenVINO as a tool for deploying deep learning models. By converting models to the OpenVINO format, developers can achieve significant performance improvements, making it easier to deploy these models in real-world applications.</p>
+<p>For more detailed information and instructions on using OpenVINO, refer to the <a href="https://docs.openvinotoolkit.org/latest/index.html">official OpenVINO documentation</a>.</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-07-25, Updated 2023-07-28<br/>Authors: <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<style>
+                .share-button:hover {
+                    filter: brightness(1.2);
+                }
+                .share-buttons {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            </style>
+<div class="share-buttons">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/openvino', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
+                </button>
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/openvino', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
+                </button>
+</div>
+<h2 id="__comments">Comments</h2>
+<!-- Insert Giscus code snippet from https://giscus.app/ here -->
+<script async="" crossorigin="anonymous" data-category="Docs" data-category-id="DIC_kwDOH-jzvc4CWLkL" data-emit-metadata="0" data-input-position="bottom" data-lang="en" data-mapping="title" data-reactions-enabled="1" data-repo="ultralytics/ultralytics" data-repo-id="R_kgDOH-jzvQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+</script>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Ultralytics Integrations" class="md-footer__link md-footer__link--prev" href="../" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Ultralytics Integrations
+              </div>
+</div>
+</a>
+<a aria-label="Next: Ray Tune" class="md-footer__link md-footer__link--next" href="../ray-tune/" rel="next">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Ray Tune
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+<a href="https://ultralytics.com" target="_blank">© 2023 Ultralytics Inc.</a> All rights reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ultralytics" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/ultralytics/" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+<a class="md-social__link" href="https://twitter.com/ultralytics" rel="noopener" target="_blank" title="twitter.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.youtube.com/ultralytics" rel="noopener" target="_blank" title="www.youtube.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+</a>
+<a class="md-social__link" href="https://hub.docker.com/r/ultralytics/ultralytics/" rel="noopener" target="_blank" title="hub.docker.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"></path></svg>
+</a>
+<a class="md-social__link" href="https://pypi.org/project/ultralytics/" rel="noopener" target="_blank" title="pypi.org">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"></path></svg>
+</a>
+<a class="md-social__link" href="https://ultralytics.com/discord" rel="noopener" target="_blank" title="ultralytics.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
+</body>
+</html>
