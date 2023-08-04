@@ -2838,18 +2838,13 @@
 <td>Save cropped predictions to <code>save_dir/cls/file_name.jpg</code>.</td>
 </tr>
 <tr>
-<td><code>pandas()</code></td>
-<td><code>None</code></td>
-<td>Convert the object to a pandas DataFrame (not yet implemented).</td>
-</tr>
-<tr>
 <td><code>tojson()</code></td>
 <td><code>None</code></td>
 <td>Convert the object to JSON format.</td>
 </tr>
 </tbody>
 </table>
-<p>For more details see the <code>Results</code> class <a href="../../reference/engine/results/#-results">documentation</a>.</p>
+<p>For more details see the <code>Results</code> class <a href="../../reference/engine/results/">documentation</a>.</p>
 <h3 id="boxes">Boxes</h3>
 <p><code>Boxes</code> object can be used to index, manipulate, and convert bounding boxes to different formats.</p>
 <div class="admonition example">
@@ -2934,7 +2929,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more details see the <code>Boxes</code> class <a href="../../reference/engine/results/#boxes">documentation</a>.</p>
+<p>For more details see the <code>Boxes</code> class <a href="../../reference/engine/results/">documentation</a>.</p>
 <h3 id="masks">Masks</h3>
 <p><code>Masks</code> object can be used index, manipulate and convert masks to segments.</p>
 <div class="admonition example">
@@ -2983,11 +2978,6 @@
 <td>Returns the masks tensor with the specified device and dtype.</td>
 </tr>
 <tr>
-<td><code>pandas()</code></td>
-<td>Method</td>
-<td>Returns the object as a pandas DataFrame (not yet implemented).</td>
-</tr>
-<tr>
 <td><code>xyn</code></td>
 <td>Property (<code>torch.Tensor</code>)</td>
 <td>A list of normalized segments represented as tensors.</td>
@@ -2999,7 +2989,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more details see the <code>Masks</code> class <a href="../../reference/engine/results/#masks">documentation</a>.</p>
+<p>For more details see the <code>Masks</code> class <a href="../../reference/engine/results/">documentation</a>.</p>
 <h3 id="keypoints">Keypoints</h3>
 <p><code>Keypoints</code> object can be used index, manipulate and normalize coordinates.</p>
 <div class="admonition example">
@@ -3064,7 +3054,7 @@
 </tr>
 </tbody>
 </table>
-<p>For more details see the <code>Keypoints</code> class <a href="../../reference/engine/results/#keypoints">documentation</a>.</p>
+<p>For more details see the <code>Keypoints</code> class <a href="../../reference/engine/results/">documentation</a>.</p>
 <h3 id="probs">Probs</h3>
 <p><code>Probs</code> object can be used index, get <code>top1</code> and <code>top5</code> indices and scores of classification.</p>
 <div class="admonition example">
@@ -3114,29 +3104,29 @@
 </tr>
 <tr>
 <td><code>top1</code></td>
-<td>Property <code>int</code></td>
+<td>Property (<code>int</code>)</td>
 <td>Index of the top 1 class.</td>
 </tr>
 <tr>
 <td><code>top5</code></td>
-<td>Property <code>list[int]</code></td>
+<td>Property (<code>list[int]</code>)</td>
 <td>Indices of the top 5 classes.</td>
 </tr>
 <tr>
 <td><code>top1conf</code></td>
-<td>Property <code>torch.Tensor</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
 <td>Confidence of the top 1 class.</td>
 </tr>
 <tr>
 <td><code>top5conf</code></td>
-<td>Property <code>torch.Tensor</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
 <td>Confidences of the top 5 classes.</td>
 </tr>
 </tbody>
 </table>
-<p>For more details see the <code>Probs</code> class <a href="../../reference/engine/results/#probs">documentation</a>.</p>
+<p>For more details see the <code>Probs</code> class <a href="../../reference/engine/results/">documentation</a>.</p>
 <h2 id="plotting-results">Plotting Results</h2>
-<p>You can the <code>plot()</code> method of a <code>Result</code> objects to plot predictions. It plots all prediction types (boxes, masks, keypoints, probabilities, etc.) contained in the <code>Results</code> object.</p>
+<p>You can use the <code>plot()</code> method of a <code>Result</code> objects to visualize predictions. It plots all prediction types (boxes, masks, keypoints, probabilities, etc.) contained in the <code>Results</code> object onto a numpy array that can then be shown or saved.</p>
 <div class="admonition example">
 <p class="admonition-title">Plotting</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
@@ -3150,8 +3140,10 @@
 <a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a>
 <a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="c1"># Show the results</span>
 <a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>  <span class="c1"># plot a BGR numpy array of predictions</span>
-<a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a>    <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># show RGB image</span>
+<a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a>    <span class="n">im_array</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>  <span class="c1"># plot a BGR numpy array of predictions</span>
+<a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># RGB PIL image</span>
+<a href="#__codelineno-21-14" id="__codelineno-21-14" name="__codelineno-21-14"></a>    <span class="n">im</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># show image</span>
+<a href="#__codelineno-21-15" id="__codelineno-21-15" name="__codelineno-21-15"></a>    <span class="n">im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'results.jpg'</span><span class="p">)</span>  <span class="c1"># save image</span>
 </code></pre></div>
 <p>The <code>plot()</code> method has the following arguments available:</p>
 <table>
@@ -3287,7 +3279,7 @@
 </code></pre></div>
 </div>
 <p>This script will run predictions on each frame of the video, visualize the results, and display them in a window. The loop can be exited by pressing 'q'.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (27), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (19), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
