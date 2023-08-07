@@ -24,14 +24,14 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="K-Fold Cross Validation" name="title"/><meta content="K-Fold cross validation, Ultralytics, YOLO detection format, Python, sklearn, object detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/kfold-cross-validation" property="og:url"/><meta content="K-Fold Cross Validation" property="og:title"/><meta content="An in-depth guide demonstrating the implementation of K-Fold Cross Validation with the Ultralytics ecosystem for object detection datasets, leveraging Python, YOLO, and sklearn." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/kfold-cross-validation" property="twitter:url"/><meta content="K-Fold Cross Validation" property="twitter:title"/><meta content="An in-depth guide demonstrating the implementation of K-Fold Cross Validation with the Ultralytics ecosystem for object detection datasets, leveraging Python, YOLO, and sklearn." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
+<meta content="K-Fold Cross Validation" name="title"/><meta content="K-Fold cross validation, Ultralytics, YOLO detection format, Python, sklearn, object detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/kfold-cross-validation" property="og:url"/><meta content="K-Fold Cross Validation" property="og:title"/><meta content="An in-depth guide demonstrating the implementation of K-Fold Cross Validation with the Ultralytics ecosystem for object detection datasets, leveraging Python, YOLO, and sklearn." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/258589390-8d815058-ece8-48b9-a94e-0e1ab53ea0f6.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/kfold-cross-validation" property="twitter:url"/><meta content="K-Fold Cross Validation" property="twitter:title"/><meta content="An in-depth guide demonstrating the implementation of K-Fold Cross Validation with the Ultralytics ecosystem for object detection datasets, leveraging Python, YOLO, and sklearn." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/258589390-8d815058-ece8-48b9-a94e-0e1ab53ea0f6.png" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#k-fold-cross-validation-in-the-ultralytics-ecosystem">
+<a class="md-skip" href="#k-fold-cross-validation-with-ultralytics">
           Skip to content
         </a>
 </div>
@@ -530,6 +530,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../datasets/detect/objects365/">
         Objects365
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/open-images-v7/">
+        OpenImagesV7
       </a>
 </li>
 <li class="md-nav__item">
@@ -1943,9 +1948,12 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/guides/kfold-cross-validation.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="k-fold-cross-validation-in-the-ultralytics-ecosystem">K-Fold Cross Validation in the Ultralytics Ecosystem</h1>
+<h1 id="k-fold-cross-validation-with-ultralytics">K-Fold Cross Validation with Ultralytics</h1>
 <h2 id="introduction">Introduction</h2>
 <p>This comprehensive guide illustrates the implementation of K-Fold Cross Validation for object detection datasets within the Ultralytics ecosystem. We'll leverage the YOLO detection format and key Python libraries such as sklearn, pandas, and PyYaml to guide you through the necessary setup, the process of generating feature vectors, and the execution of a K-Fold dataset split.</p>
+<p align="center">
+<img alt="K-Fold Cross Validation Overview" src="https://user-images.githubusercontent.com/26833433/258589390-8d815058-ece8-48b9-a94e-0e1ab53ea0f6.png" width="800"/>
+</p>
 <p>Whether your project involves the Fruit Detection dataset or a custom data source, this tutorial aims to help you comprehend and apply K-Fold Cross Validation to bolster the reliability and robustness of your machine learning models. While we're applying <code>k=5</code> folds for this tutorial, keep in mind that the optimal number of folds can vary depending on your dataset and the specifics of your project.</p>
 <p>Without further ado, let's dive in!</p>
 <h2 id="setup">Setup</h2>
@@ -2216,7 +2224,7 @@
 <p>Finally, we implemented the actual model training using each split in a loop, saving our training results for further analysis and comparison.</p>
 <p>This technique of K-Fold cross-validation is a robust way of making the most out of your available data, and it helps to ensure that your model performance is reliable and consistent across different data subsets. This results in a more generalizable and reliable model that is less likely to overfit to specific data patterns.</p>
 <p>Remember that although we used YOLO in this guide, these steps are mostly transferable to other machine learning models. Understanding these steps allows you to apply cross-validation effectively in your own machine learning projects. Happy coding!</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-07-28, Updated 2023-07-30<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-07-28, Updated 2023-08-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

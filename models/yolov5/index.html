@@ -576,6 +576,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/open-images-v7/">
+        OpenImagesV7
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../datasets/detect/sku-110k/">
         SKU-110K
       </a>
@@ -1940,18 +1945,18 @@
 </a>
 <h1 id="yolov5">YOLOv5</h1>
 <h2 id="overview">Overview</h2>
-<p>YOLOv5u is an enhanced version of the <a href="https://github.com/ultralytics/yolov5">YOLOv5</a> object detection model from Ultralytics. This iteration incorporates the anchor-free, objectness-free split head that is featured in the <a href="../yolov8/">YOLOv8</a> models. Although it maintains the same backbone and neck architecture as YOLOv5, YOLOv5u provides an improved accuracy-speed tradeoff for object detection tasks, making it a robust choice for numerous applications.</p>
+<p>YOLOv5u represents an advancement in object detection methodologies. Originating from the foundational architecture of the <a href="https://github.com/ultralytics/yolov5">YOLOv5</a> model developed by Ultralytics, YOLOv5u integrates the anchor-free, objectness-free split head, a feature previously introduced in the <a href="../yolov8/">YOLOv8</a> models. This adaptation refines the model's architecture, leading to an improved accuracy-speed tradeoff in object detection tasks. Given the empirical results and its derived features, YOLOv5u provides an efficient alternative for those seeking robust solutions in both research and practical applications.</p>
 <p><img alt="Ultralytics YOLOv5" src="https://raw.githubusercontent.com/ultralytics/assets/main/yolov5/v70/splash.png"/></p>
 <h2 id="key-features">Key Features</h2>
 <ul>
 <li>
-<p><strong>Anchor-free Split Ultralytics Head:</strong> YOLOv5u replaces the conventional anchor-based detection head with an anchor-free split Ultralytics head, boosting performance in object detection tasks.</p>
+<p><strong>Anchor-free Split Ultralytics Head:</strong> Traditional object detection models rely on predefined anchor boxes to predict object locations. However, YOLOv5u modernizes this approach. By adopting an anchor-free split Ultralytics head, it ensures a more flexible and adaptive detection mechanism, consequently enhancing the performance in diverse scenarios.</p>
 </li>
 <li>
-<p><strong>Optimized Accuracy-Speed Tradeoff:</strong> By delivering a better balance between accuracy and speed, YOLOv5u is suitable for a diverse range of real-time applications, from autonomous driving to video surveillance.</p>
+<p><strong>Optimized Accuracy-Speed Tradeoff:</strong> Speed and accuracy often pull in opposite directions. But YOLOv5u challenges this tradeoff. It offers a calibrated balance, ensuring real-time detections without compromising on accuracy. This feature is particularly invaluable for applications that demand swift responses, such as autonomous vehicles, robotics, and real-time video analytics.</p>
 </li>
 <li>
-<p><strong>Variety of Pre-trained Models:</strong> YOLOv5u includes numerous pre-trained models for tasks like Inference, Validation, and Training, providing the flexibility to tackle various object detection challenges.</p>
+<p><strong>Variety of Pre-trained Models:</strong> Understanding that different tasks require different toolsets, YOLOv5u provides a plethora of pre-trained models. Whether you're focusing on Inference, Validation, or Training, there's a tailor-made model awaiting you. This variety ensures you're not just using a one-size-fits-all solution, but a model specifically fine-tuned for your unique challenge.</p>
 </li>
 </ul>
 <h2 id="supported-tasks">Supported Tasks</h2>
@@ -1998,11 +2003,14 @@
 <p class="admonition-title">Performance</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Detection</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-block"></div>
+</div>
+</input></div>
 <table>
 <thead>
 <tr>
 <th>Model</th>
+<th>YAML</th>
 <th>size<br/><sup>(pixels)</sup></th>
 <th>mAP<sup>val<br/>50-95</sup></th>
 <th>Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
@@ -2013,7 +2021,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5nu.pt">YOLOv5nu</a></td>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5nu.pt">yolov5nu.pt</a></td>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v5/yolov5.yaml">yolov5n.yaml</a></td>
 <td>640</td>
 <td>34.3</td>
 <td>73.6</td>
@@ -2022,7 +2031,8 @@
 <td>7.7</td>
 </tr>
 <tr>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5su.pt">YOLOv5su</a></td>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5su.pt">yolov5su.pt</a></td>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v5/yolov5.yaml">yolov5s.yaml</a></td>
 <td>640</td>
 <td>43.0</td>
 <td>120.7</td>
@@ -2031,7 +2041,8 @@
 <td>24.0</td>
 </tr>
 <tr>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5mu.pt">YOLOv5mu</a></td>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5mu.pt">yolov5mu.pt</a></td>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v5/yolov5.yaml">yolov5m.yaml</a></td>
 <td>640</td>
 <td>49.0</td>
 <td>233.9</td>
@@ -2040,7 +2051,8 @@
 <td>64.2</td>
 </tr>
 <tr>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5lu.pt">YOLOv5lu</a></td>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5lu.pt">yolov5lu.pt</a></td>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v5/yolov5.yaml">yolov5l.yaml</a></td>
 <td>640</td>
 <td>52.2</td>
 <td>408.4</td>
@@ -2049,7 +2061,8 @@
 <td>135.0</td>
 </tr>
 <tr>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5xu.pt">YOLOv5xu</a></td>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5xu.pt">yolov5xu.pt</a></td>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v5/yolov5.yaml">yolov5x.yaml</a></td>
 <td>640</td>
 <td>53.2</td>
 <td>763.2</td>
@@ -2065,9 +2078,11 @@
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5n6u.pt">YOLOv5n6u</a></td>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5n6u.pt">yolov5n6u.pt</a></td>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v5/yolov5-p6.yaml">yolov5n6.yaml</a></td>
 <td>1280</td>
 <td>42.1</td>
 <td>211.0</td>
@@ -2076,7 +2091,8 @@
 <td>7.8</td>
 </tr>
 <tr>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5s6u.pt">YOLOv5s6u</a></td>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5s6u.pt">yolov5s6u.pt</a></td>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v5/yolov5-p6.yaml">yolov5s6.yaml</a></td>
 <td>1280</td>
 <td>48.6</td>
 <td>422.6</td>
@@ -2085,7 +2101,8 @@
 <td>24.6</td>
 </tr>
 <tr>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5m6u.pt">YOLOv5m6u</a></td>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5m6u.pt">yolov5m6u.pt</a></td>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v5/yolov5-p6.yaml">yolov5m6.yaml</a></td>
 <td>1280</td>
 <td>53.6</td>
 <td>810.9</td>
@@ -2094,7 +2111,8 @@
 <td>65.7</td>
 </tr>
 <tr>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5l6u.pt">YOLOv5l6u</a></td>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5l6u.pt">yolov5l6u.pt</a></td>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v5/yolov5-p6.yaml">yolov5l6.yaml</a></td>
 <td>1280</td>
 <td>55.7</td>
 <td>1470.9</td>
@@ -2103,7 +2121,8 @@
 <td>137.4</td>
 </tr>
 <tr>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5x6u.pt">YOLOv5x6u</a></td>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov5x6u.pt">yolov5x6u.pt</a></td>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/models/v5/yolov5-p6.yaml">yolov5x6.yaml</a></td>
 <td>1280</td>
 <td>56.8</td>
 <td>2436.5</td>
@@ -2114,37 +2133,45 @@
 </tbody>
 </table>
 </div>
-</div>
-</input></div>
-</div>
 <h2 id="usage">Usage</h2>
 <p>You can use YOLOv5u for object detection tasks using the Ultralytics repository. The following is a sample code snippet showing how to use YOLOv5u model for inference:</p>
+<div class="admonition example">
+<p>This example provides simple inference code for YOLOv5. For more options including handling inference results see <a href="../../modes/predict/">Predict</a> mode. For using YOLOv5 with additional modes see <a href="../../modes/train/">Train</a>, <a href="../../modes/val/">Val</a> and <a href="../../modes/export/">Export</a>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load the model</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov5n.pt'</span><span class="p">)</span>  <span class="c1"># load a pretrained model</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a COCO-pretrained YOLOv5n model</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov5nu.pt'</span><span class="p">)</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Perform inference</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">)</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Print the results</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">results</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Run inference on the 'bus.jpg' image</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'path/to/bus.jpg'</span><span class="p">)</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Load a COCO-pretrained YOLOv5n model and run inference on the 'bus.jpg' image</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov5nu.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/bus.jpg
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</div>
 <h2 id="citations-and-acknowledgments">Citations and Acknowledgments</h2>
 <p>If you use YOLOv5 or YOLOv5u in your research, please cite the Ultralytics YOLOv5 repository as follows:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nc">@software</span><span class="p">{</span><span class="nl">yolov5</span><span class="p">,</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Ultralytics YOLOv5}</span><span class="p">,</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Glenn Jocher}</span><span class="p">,</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2020}</span><span class="p">,</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{7.0}</span><span class="p">,</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">  </span><span class="na">license</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{AGPL-3.0}</span><span class="p">,</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/ultralytics/yolov5}</span><span class="p">,</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">  </span><span class="na">doi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{10.5281/zenodo.3908559}</span><span class="p">,</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">  </span><span class="na">orcid</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{0000-0001-5950-6979}</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nc">@software</span><span class="p">{</span><span class="nl">yolov5</span><span class="p">,</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Ultralytics YOLOv5}</span><span class="p">,</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Glenn Jocher}</span><span class="p">,</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2020}</span><span class="p">,</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{7.0}</span><span class="p">,</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">  </span><span class="na">license</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{AGPL-3.0}</span><span class="p">,</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/ultralytics/yolov5}</span><span class="p">,</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">  </span><span class="na">doi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{10.5281/zenodo.3908559}</span><span class="p">,</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">  </span><span class="na">orcid</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{0000-0001-5950-6979}</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="p">}</span>
 </code></pre></div>
 <p>Special thanks to Glenn Jocher and the Ultralytics team for their work on developing and maintaining the YOLOv5 and YOLOv5u models.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-01, Updated 2023-07-23<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (9), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-01, Updated 2023-08-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (11), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

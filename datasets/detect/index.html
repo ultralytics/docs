@@ -533,6 +533,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="open-images-v7/">
+        OpenImagesV7
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="sku-110k/">
         SKU-110K
       </a>
@@ -1916,7 +1921,7 @@
 <a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">  </span><span class="nt">78</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hair drier</span>
 <a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">  </span><span class="nt">79</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toothbrush</span>
 </code></pre></div>
-<p>Labels for this format should be exported to YOLO format with one <code>*.txt</code> file per image. If there are no objects in an image, no <code>*.txt</code> file is required. The <code>*.txt</code> file should be formatted with one row per object in <code>class x_center y_center width height</code> format. Box coordinates must be in <strong>normalized xywh</strong> format (from 0 - 1). If your boxes are in pixels, you should divide <code>x_center</code> and <code>width</code> by image width, and <code>y_center</code> and <code>height</code> by image height. Class numbers should be zero-indexed (start with 0).</p>
+<p>Labels for this format should be exported to YOLO format with one <code>*.txt</code> file per image. If there are no objects in an image, no <code>*.txt</code> file is required. The <code>*.txt</code> file should be formatted with one row per object in <code>class x_center y_center width height</code> format. Box coordinates must be in <strong>normalized xywh</strong> format (from 0 to 1). If your boxes are in pixels, you should divide <code>x_center</code> and <code>width</code> by image width, and <code>y_center</code> and <code>height</code> by image height. Class numbers should be zero-indexed (start with 0).</p>
 <p align="center"><img src="https://user-images.githubusercontent.com/26833433/91506361-c7965000-e886-11ea-8291-c72b98c25eec.jpg" width="750"/></p>
 <p>The label file corresponding to the above image contains 2 persons (class <code>0</code>) and a tie (class <code>27</code>):</p>
 <p align="center"><img src="https://user-images.githubusercontent.com/26833433/112467037-d2568c00-8d66-11eb-8796-55402ac0d62f.png" width="428"/></p>
@@ -1934,12 +1939,12 @@
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco128.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco128.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -1953,6 +1958,7 @@
 <li><a href="coco8/"><strong>COCO8</strong></a>: A smaller subset of the COCO dataset, COCO8 is more lightweight and faster to train.</li>
 <li><a href="globalwheat2020/"><strong>GlobalWheat2020</strong></a>: A dataset containing images of wheat heads for the Global Wheat Challenge 2020.</li>
 <li><a href="objects365/"><strong>Objects365</strong></a>: A large-scale object detection dataset with 365 object categories and 600k images, aimed at advancing object detection research.</li>
+<li><a href="open-images-v7/"><strong>OpenImagesV7</strong></a>: A comprehensive dataset by Google with 1.7M train images and 42k validation images.</li>
 <li><a href="sku-110k/"><strong>SKU-110K</strong></a>: A dataset containing images of densely packed retail products, intended for retail environment object detection.</li>
 <li><a href="visdrone/"><strong>VisDrone</strong></a>: A dataset focusing on drone-based images, containing various object categories like cars, pedestrians, and cyclists.</li>
 <li><a href="voc/"><strong>VOC</strong></a>: PASCAL VOC is a popular object detection dataset with 20 object categories including vehicles, animals, and furniture.</li>
@@ -1969,7 +1975,7 @@
 </code></pre></div>
 <p>This conversion tool can be used to convert the COCO dataset or any dataset in the COCO format to the Ultralytics YOLO format.</p>
 <p>Remember to double-check if the dataset you want to use is compatible with your model and follows the necessary format conventions. Properly formatted datasets are crucial for training successful object detection models.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-08, Updated 2023-07-23<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-08, Updated 2023-08-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

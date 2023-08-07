@@ -533,6 +533,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/open-images-v7/">
+        OpenImagesV7
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../datasets/detect/sku-110k/">
         SKU-110K
       </a>
@@ -1957,7 +1962,9 @@
 <h2 id="accelerate-tuning-with-ultralytics-yolov8-and-ray-tune">Accelerate Tuning with Ultralytics YOLOv8 and Ray Tune</h2>
 <p><a href="https://ultralytics.com">Ultralytics YOLOv8</a> incorporates Ray Tune for hyperparameter tuning, streamlining the optimization of YOLOv8 model hyperparameters. With Ray Tune, you can utilize advanced search strategies, parallelism, and early stopping to expedite the tuning process.</p>
 <h3 id="ray-tune">Ray Tune</h3>
-<p><img alt="Ray Tune Overview" src="https://docs.ray.io/en/latest/_images/tune_overview.png"/></p>
+<p align="center">
+<img alt="Ray Tune Overview" src="https://docs.ray.io/en/latest/_images/tune_overview.png" width="640"/>
+</p>
 <p><a href="https://docs.ray.io/en/latest/tune/index.html">Ray Tune</a> is a hyperparameter tuning library designed for efficiency and flexibility. It supports various search strategies, parallelism, and early stopping strategies, and seamlessly integrates with popular machine learning frameworks, including Ultralytics YOLOv8.</p>
 <h3 id="integration-with-weights-biases">Integration with Weights &amp; Biases</h3>
 <p>YOLOv8 also allows optional integration with <a href="https://wandb.ai/site">Weights &amp; Biases</a> for monitoring the tuning process.</p>
@@ -1977,8 +1984,11 @@
 <p class="admonition-title">Usage</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">)</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a YOLOv8n model</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Start tuning hyperparameters for YOLOv8n training on the COCO128 dataset</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <h2 id="tune-method-parameters"><code>tune()</code> Method Parameters</h2>
@@ -1995,37 +2005,37 @@
 <tbody>
 <tr>
 <td><code>data</code></td>
-<td>str</td>
+<td><code>str</code></td>
 <td>The dataset configuration file (in YAML format) to run the tuner on. This file should specify the training and validation data paths, as well as other dataset-specific settings.</td>
 <td></td>
 </tr>
 <tr>
 <td><code>space</code></td>
-<td>dict, optional</td>
+<td><code>dict, optional</code></td>
 <td>A dictionary defining the hyperparameter search space for Ray Tune. Each key corresponds to a hyperparameter name, and the value specifies the range of values to explore during tuning. If not provided, YOLOv8 uses a default search space with various hyperparameters.</td>
 <td></td>
 </tr>
 <tr>
 <td><code>grace_period</code></td>
-<td>int, optional</td>
+<td><code>int, optional</code></td>
 <td>The grace period in epochs for the <a href="https://docs.ray.io/en/latest/tune/api/schedulers.html">ASHA scheduler</a> in Ray Tune. The scheduler will not terminate any trial before this number of epochs, allowing the model to have some minimum training before making a decision on early stopping.</td>
 <td>10</td>
 </tr>
 <tr>
 <td><code>gpu_per_trial</code></td>
-<td>int, optional</td>
+<td><code>int, optional</code></td>
 <td>The number of GPUs to allocate per trial during tuning. This helps manage GPU usage, particularly in multi-GPU environments. If not provided, the tuner will use all available GPUs.</td>
 <td>None</td>
 </tr>
 <tr>
 <td><code>max_samples</code></td>
-<td>int, optional</td>
+<td><code>int, optional</code></td>
 <td>The maximum number of trials to run during tuning. This parameter helps control the total number of hyperparameter combinations tested, ensuring the tuning process does not run indefinitely.</td>
 <td>10</td>
 </tr>
 <tr>
 <td><code>**train_args</code></td>
-<td>dict, optional</td>
+<td><code>dict, optional</code></td>
 <td>Additional arguments to pass to the <code>train()</code> method during tuning. These arguments can include settings like the number of training epochs, batch size, and other training-specific configurations.</td>
 <td>{}</td>
 </tr>
@@ -2044,107 +2054,107 @@
 </thead>
 <tbody>
 <tr>
-<td>lr0</td>
+<td><code>lr0</code></td>
 <td><code>tune.uniform(1e-5, 1e-1)</code></td>
 <td>Initial learning rate</td>
 </tr>
 <tr>
-<td>lrf</td>
+<td><code>lrf</code></td>
 <td><code>tune.uniform(0.01, 1.0)</code></td>
 <td>Final learning rate factor</td>
 </tr>
 <tr>
-<td>momentum</td>
+<td><code>momentum</code></td>
 <td><code>tune.uniform(0.6, 0.98)</code></td>
 <td>Momentum</td>
 </tr>
 <tr>
-<td>weight_decay</td>
+<td><code>weight_decay</code></td>
 <td><code>tune.uniform(0.0, 0.001)</code></td>
 <td>Weight decay</td>
 </tr>
 <tr>
-<td>warmup_epochs</td>
+<td><code>warmup_epochs</code></td>
 <td><code>tune.uniform(0.0, 5.0)</code></td>
 <td>Warmup epochs</td>
 </tr>
 <tr>
-<td>warmup_momentum</td>
+<td><code>warmup_momentum</code></td>
 <td><code>tune.uniform(0.0, 0.95)</code></td>
 <td>Warmup momentum</td>
 </tr>
 <tr>
-<td>box</td>
+<td><code>box</code></td>
 <td><code>tune.uniform(0.02, 0.2)</code></td>
 <td>Box loss weight</td>
 </tr>
 <tr>
-<td>cls</td>
+<td><code>cls</code></td>
 <td><code>tune.uniform(0.2, 4.0)</code></td>
 <td>Class loss weight</td>
 </tr>
 <tr>
-<td>hsv_h</td>
+<td><code>hsv_h</code></td>
 <td><code>tune.uniform(0.0, 0.1)</code></td>
 <td>Hue augmentation range</td>
 </tr>
 <tr>
-<td>hsv_s</td>
+<td><code>hsv_s</code></td>
 <td><code>tune.uniform(0.0, 0.9)</code></td>
 <td>Saturation augmentation range</td>
 </tr>
 <tr>
-<td>hsv_v</td>
+<td><code>hsv_v</code></td>
 <td><code>tune.uniform(0.0, 0.9)</code></td>
 <td>Value (brightness) augmentation range</td>
 </tr>
 <tr>
-<td>degrees</td>
+<td><code>degrees</code></td>
 <td><code>tune.uniform(0.0, 45.0)</code></td>
 <td>Rotation augmentation range (degrees)</td>
 </tr>
 <tr>
-<td>translate</td>
+<td><code>translate</code></td>
 <td><code>tune.uniform(0.0, 0.9)</code></td>
 <td>Translation augmentation range</td>
 </tr>
 <tr>
-<td>scale</td>
+<td><code>scale</code></td>
 <td><code>tune.uniform(0.0, 0.9)</code></td>
 <td>Scaling augmentation range</td>
 </tr>
 <tr>
-<td>shear</td>
+<td><code>shear</code></td>
 <td><code>tune.uniform(0.0, 10.0)</code></td>
 <td>Shear augmentation range (degrees)</td>
 </tr>
 <tr>
-<td>perspective</td>
+<td><code>perspective</code></td>
 <td><code>tune.uniform(0.0, 0.001)</code></td>
 <td>Perspective augmentation range</td>
 </tr>
 <tr>
-<td>flipud</td>
+<td><code>flipud</code></td>
 <td><code>tune.uniform(0.0, 1.0)</code></td>
 <td>Vertical flip augmentation probability</td>
 </tr>
 <tr>
-<td>fliplr</td>
+<td><code>fliplr</code></td>
 <td><code>tune.uniform(0.0, 1.0)</code></td>
 <td>Horizontal flip augmentation probability</td>
 </tr>
 <tr>
-<td>mosaic</td>
+<td><code>mosaic</code></td>
 <td><code>tune.uniform(0.0, 1.0)</code></td>
 <td>Mosaic augmentation probability</td>
 </tr>
 <tr>
-<td>mixup</td>
+<td><code>mixup</code></td>
 <td><code>tune.uniform(0.0, 1.0)</code></td>
 <td>Mixup augmentation probability</td>
 </tr>
 <tr>
-<td>copy_paste</td>
+<td><code>copy_paste</code></td>
 <td><code>tune.uniform(0.0, 1.0)</code></td>
 <td>Copy-paste augmentation probability</td>
 </tr>
@@ -2203,7 +2213,7 @@
 <h2 id="summary">Summary</h2>
 <p>In this documentation, we covered common workflows to analyze the results of experiments run with Ray Tune using Ultralytics. The key steps include loading the experiment results from a directory, performing basic experiment-level and trial-level analysis and plotting metrics.</p>
 <p>Explore further by looking into Ray Tune’s <a href="https://docs.ray.io/en/latest/tune/examples/tune_analyze_results.html">Analyze Results</a> docs page to get the most out of your hyperparameter tuning experiments.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-07-25, Updated 2023-08-02<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-07-25, Updated 2023-08-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -581,6 +581,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../open-images-v7/">
+        OpenImagesV7
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../sku-110k/">
         SKU-110K
       </a>
@@ -1945,6 +1950,10 @@
 </a>
 <h1 id="argoverse-dataset">Argoverse Dataset</h1>
 <p>The <a href="https://www.argoverse.org/">Argoverse</a> dataset is a collection of data designed to support research in autonomous driving tasks, such as 3D tracking, motion forecasting, and stereo depth estimation. Developed by Argo AI, the dataset provides a wide range of high-quality sensor data, including high-resolution images, LiDAR point clouds, and map data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Argoverse dataset *.zip file required for training was removed from Amazon S3 after the shutdown of Argo AI by Ford, but we have made it available for manual download on <a href="https://drive.google.com/file/d/1st9qW3BeIwQsnR0t8mRpvbsSWIo16ACi/view?usp=drive_link">Google Drive</a>.</p>
+</div>
 <h2 id="key-features">Key Features</h2>
 <ul>
 <li>Argoverse contains over 290K labeled 3D object tracks and 5 million object instances across 1,263 distinct scenes.</li>
@@ -1971,7 +1980,7 @@
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># parent</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># ├── ultralytics</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># └── datasets</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1">#     └── Argoverse  ← downloads here (31.3 GB)</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1">#     └── Argoverse  ← downloads here (31.5 GB)</span>
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
 <a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
@@ -2028,16 +2037,16 @@
 <a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">              </span><span class="no">f.writelines(labels[k])</span>
 <a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a>
 <a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a>
-<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">  </span><span class="no"># Download</span>
+<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">  </span><span class="no"># Download 'https://argoverse-hd.s3.us-east-2.amazonaws.com/Argoverse-HD-Full.zip' (deprecated S3 link)</span>
 <a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">  </span><span class="no">dir = Path(yaml['path'])  # dataset root dir</span>
-<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">  </span><span class="no">urls = ['https://argoverse-hd.s3.us-east-2.amazonaws.com/Argoverse-HD-Full.zip']</span>
+<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">  </span><span class="no">urls = ['https://drive.google.com/file/d/1st9qW3BeIwQsnR0t8mRpvbsSWIo16ACi/view?usp=drive_link']</span>
 <a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">  </span><span class="no">download(urls, dir=dir)</span>
 <a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a>
 <a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">  </span><span class="no"># Convert</span>
 <a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">  </span><span class="no">annotations_dir = 'Argoverse-HD/annotations/'</span>
 <a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">  </span><span class="no">(dir / 'Argoverse-1.1' / 'tracking').rename(dir / 'Argoverse-1.1' / 'images')  # rename 'tracking' to 'images'</span>
 <a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">  </span><span class="no">for d in "train.json", "val.json":</span>
-<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">      </span><span class="no">argoverse2yolo(dir / annotations_dir / d)  # convert VisDrone annotations to YOLO labels</span>
+<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">      </span><span class="no">argoverse2yolo(dir / annotations_dir / d)  # convert Argoverse annotations to YOLO labels</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>
@@ -2082,7 +2091,7 @@
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="p">}</span>
 </code></pre></div>
 <p>We would like to acknowledge Argo AI for creating and maintaining the Argoverse dataset as a valuable resource for the autonomous driving research community. For more information about the Argoverse dataset and its creators, visit the <a href="https://www.argoverse.org/">Argoverse dataset website</a>.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-08, Updated 2023-07-23<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-08, Updated 2023-08-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
