@@ -11,9 +11,9 @@
 <link href="../loss/" rel="prev"/>
 <link href="../ops/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.4.3, mkdocs-material-9.1.18" name="generator"/>
+<meta content="mkdocs-1.5.2, mkdocs-material-9.1.21" name="generator"/>
 <title>metrics - Ultralytics YOLOv8 Docs</title>
-<link href="../../../assets/stylesheets/main.26e3688c.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -2664,7 +2664,7 @@
 </div>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.utils.metrics.ConfusionMatrix.plot">
-<code class="highlight language-python"><span class="n">plot</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">plot</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
 <p>Plot the confusion matrix using seaborn and save it to a file.</p>
@@ -2718,7 +2718,7 @@
 </div>
 </td>
 <td>
-<em>required</em>
+<code>()</code>
 </td>
 </tr>
 <tr>
@@ -3489,7 +3489,7 @@ update(results): Update metric attributes with new evaluation results.</p>
 <tbody>
 <tr>
 <td>
-<code><span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span>, list</code>
+<code>(<span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span>, list)</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3521,7 +3521,7 @@ update(results): Update metric attributes with new evaluation results.</p>
 <tbody>
 <tr>
 <td>
-<code><span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span>, list</code>
+<code>(<span title="numpy">np</span>.<span title="numpy.ndarray">ndarray</span>, list)</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3883,7 +3883,7 @@ update(results): Update metric attributes with new evaluation results.</p>
 </div>
 </td>
 <td>
-<em>required</em>
+<code>()</code>
 </td>
 </tr>
 </tbody>
@@ -4347,7 +4347,7 @@ results_dict: Returns a dictionary that maps detection metric keys to their comp
 </div>
 </td>
 <td>
-<em>required</em>
+<code>()</code>
 </td>
 </tr>
 </tbody>
@@ -4996,7 +4996,7 @@ results_dict: Returns the dictionary containing all the detection and segmentati
 </div>
 </td>
 <td>
-<em>required</em>
+<code>()</code>
 </td>
 </tr>
 </tbody>
@@ -6643,7 +6643,7 @@ Based on https://github.com/pytorch/vision/blob/master/torchvision/ops/boxes.py<
 <hr/>
 <div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.plot_pr_curve">
-<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">plot_pr_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'pr_curve.png'</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">plot_pr_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'pr_curve.png'</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
 <p>Plots a precision-recall curve.</p>
@@ -6701,7 +6701,7 @@ Based on https://github.com/pytorch/vision/blob/master/torchvision/ops/boxes.py<
 <hr/>
 <div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.plot_mc_curve">
-<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">plot_mc_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'mc_curve.png'</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">'Confidence'</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">'Metric'</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">plot_mc_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'mc_curve.png'</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">'Confidence'</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">'Metric'</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
 <p>Plots a metric-confidence curve.</p>
@@ -6915,7 +6915,7 @@ Based on https://github.com/pytorch/vision/blob/master/torchvision/ops/boxes.py<
 <hr/>
 <div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.ap_per_class">
-<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">ap_per_class</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(),</span> <span class="n">names</span><span class="o">=</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">ap_per_class</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(),</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
 <p>Computes the average precision per class for object detection evaluation.</p>
@@ -7039,7 +7039,7 @@ Based on https://github.com/pytorch/vision/blob/master/torchvision/ops/boxes.py<
 </div>
 </td>
 <td>
-<em>required</em>
+<code>()</code>
 </td>
 </tr>
 <tr>
