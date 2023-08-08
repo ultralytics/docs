@@ -2044,7 +2044,7 @@
 <a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">              </span><span class="no">xmlbox = obj.find('bndbox')</span>
 <a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">              </span><span class="no">bb = convert_box((w, h), [float(xmlbox.find(x).text) for x in ('xmin', 'xmax', 'ymin', 'ymax')])</span>
 <a href="#__codelineno-0-74" id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="w">              </span><span class="no">cls_id = names.index(cls)  # class id</span>
-<a href="#__codelineno-0-75" id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="w">              </span><span class="no">out_file.write(" ".join([str(a) for a in (cls_id, *bb)]) + '\n')</span>
+<a href="#__codelineno-0-75" id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="w">              </span><span class="no">out_file.write(" ".join(str(a) for a in (cls_id, *bb)) + '\n')</span>
 <a href="#__codelineno-0-76" id="__codelineno-0-76" name="__codelineno-0-76"></a>
 <a href="#__codelineno-0-77" id="__codelineno-0-77" name="__codelineno-0-77"></a>
 <a href="#__codelineno-0-78" id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="w">  </span><span class="no"># Download</span>

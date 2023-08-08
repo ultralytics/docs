@@ -2413,7 +2413,12 @@
 <span class="normal"><a href="#__codelineno-0-489">489</a></span>
 <span class="normal"><a href="#__codelineno-0-490">490</a></span>
 <span class="normal"><a href="#__codelineno-0-491">491</a></span>
-<span class="normal"><a href="#__codelineno-0-492">492</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="k">class</span> <span class="nc">AutoBackend</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-492">492</a></span>
+<span class="normal"><a href="#__codelineno-0-493">493</a></span>
+<span class="normal"><a href="#__codelineno-0-494">494</a></span>
+<span class="normal"><a href="#__codelineno-0-495">495</a></span>
+<span class="normal"><a href="#__codelineno-0-496">496</a></span>
+<span class="normal"><a href="#__codelineno-0-497">497</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="k">class</span> <span class="nc">AutoBackend</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>                 <span class="n">weights</span><span class="o">=</span><span class="s1">'yolov8n.pt'</span><span class="p">,</span>
@@ -2443,7 +2448,7 @@
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">            | ONNX Runtime          | *.onnx           |</span>
 <a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">            | ONNX OpenCV DNN       | *.onnx dnn=True  |</span>
 <a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">            | OpenVINO              | *.xml            |</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">            | CoreML                | *.mlmodel        |</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">            | CoreML                | *.mlpackage      |</span>
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">            | TensorRT              | *.engine         |</span>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">            | TensorFlow SavedModel | *_saved_model    |</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">            | TensorFlow GraphDef   | *.pb             |</span>
@@ -2860,11 +2865,16 @@
 <a id="__codelineno-0-485" name="__codelineno-0-485"></a>        <span class="n">sf</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">export_formats</span><span class="p">()</span><span class="o">.</span><span class="n">Suffix</span><span class="p">)</span>  <span class="c1"># export suffixes</span>
 <a id="__codelineno-0-486" name="__codelineno-0-486"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_url</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
 <a id="__codelineno-0-487" name="__codelineno-0-487"></a>            <span class="n">check_suffix</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">sf</span><span class="p">)</span>  <span class="c1"># checks</span>
-<a id="__codelineno-0-488" name="__codelineno-0-488"></a>        <span class="n">url</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  <span class="c1"># if url may be Triton inference server</span>
-<a id="__codelineno-0-489" name="__codelineno-0-489"></a>        <span class="n">types</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sf</span><span class="p">]</span>
-<a id="__codelineno-0-490" name="__codelineno-0-490"></a>        <span class="n">types</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="n">types</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>  <span class="c1"># tflite &amp;= not edgetpu</span>
-<a id="__codelineno-0-491" name="__codelineno-0-491"></a>        <span class="n">triton</span> <span class="o">=</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">types</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">([</span><span class="nb">any</span><span class="p">(</span><span class="n">s</span> <span class="ow">in</span> <span class="n">url</span><span class="o">.</span><span class="n">scheme</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'http'</span><span class="p">,</span> <span class="s1">'grpc'</span><span class="p">]),</span> <span class="n">url</span><span class="o">.</span><span class="n">netloc</span><span class="p">])</span>
-<a id="__codelineno-0-492" name="__codelineno-0-492"></a>        <span class="k">return</span> <span class="n">types</span> <span class="o">+</span> <span class="p">[</span><span class="n">triton</span><span class="p">]</span>
+<a id="__codelineno-0-488" name="__codelineno-0-488"></a>        <span class="n">name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+<a id="__codelineno-0-489" name="__codelineno-0-489"></a>        <span class="n">types</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="ow">in</span> <span class="n">name</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sf</span><span class="p">]</span>
+<a id="__codelineno-0-490" name="__codelineno-0-490"></a>        <span class="n">types</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">|=</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.mlmodel'</span><span class="p">)</span>  <span class="c1"># retain support for older Apple CoreML *.mlmodel formats</span>
+<a id="__codelineno-0-491" name="__codelineno-0-491"></a>        <span class="n">types</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="ow">not</span> <span class="n">types</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>  <span class="c1"># tflite &amp;= not edgetpu</span>
+<a id="__codelineno-0-492" name="__codelineno-0-492"></a>        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">types</span><span class="p">):</span>
+<a id="__codelineno-0-493" name="__codelineno-0-493"></a>            <span class="n">triton</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-494" name="__codelineno-0-494"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-495" name="__codelineno-0-495"></a>            <span class="n">url</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  <span class="c1"># if url may be Triton inference server</span>
+<a id="__codelineno-0-496" name="__codelineno-0-496"></a>            <span class="n">triton</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="nb">any</span><span class="p">(</span><span class="n">s</span> <span class="ow">in</span> <span class="n">url</span><span class="o">.</span><span class="n">scheme</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'http'</span><span class="p">,</span> <span class="s1">'grpc'</span><span class="p">]),</span> <span class="n">url</span><span class="o">.</span><span class="n">netloc</span><span class="p">])</span>
+<a id="__codelineno-0-497" name="__codelineno-0-497"></a>        <span class="k">return</span> <span class="n">types</span> <span class="o">+</span> <span class="p">[</span><span class="n">triton</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -3017,7 +3027,7 @@
 </tr>
 <tr>
 <td>CoreML</td>
-<td>*.mlmodel</td>
+<td>*.mlpackage</td>
 </tr>
 <tr>
 <td>TensorRT</td>
@@ -3350,7 +3360,7 @@
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">        | ONNX Runtime          | *.onnx           |</span>
 <a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        | ONNX OpenCV DNN       | *.onnx dnn=True  |</span>
 <a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        | OpenVINO              | *.xml            |</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        | CoreML                | *.mlmodel        |</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        | CoreML                | *.mlpackage      |</span>
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        | TensorRT              | *.engine         |</span>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        | TensorFlow SavedModel | *_saved_model    |</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">        | TensorFlow GraphDef   | *.pb             |</span>
