@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to manage Ultralytics HUB projects. Understand effective strategies to create, share, edit, delete, and compare models in an organized workspace." name="description"/>
+<meta content="Dive deep into various oriented bounding box (OBB) dataset formats compatible with the Ultralytics YOLO model. Grasp the nuances of using and converting datasets to this format." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/hub/projects/" rel="canonical"/>
-<link href="../datasets/" rel="prev"/>
-<link href="../models/" rel="next"/>
+<link href="https://docs.ultralytics.com/datasets/obb/" rel="canonical"/>
+<link href="../classify/mnist/" rel="prev"/>
+<link href="dota-v2/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.2, mkdocs-material-9.1.21" name="generator"/>
-<title>Projects - Ultralytics YOLOv8 Docs</title>
+<title>Oriented Bounding Box Datasets Overview - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -24,14 +24,14 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Projects" name="title"/><meta content="Ultralytics, HUB projects, Create project, Edit project, Share project, Delete project, Compare Models, Model Management" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/projects" property="og:url"/><meta content="Projects" property="og:title"/><meta content="Learn how to manage Ultralytics HUB projects. Understand effective strategies to create, share, edit, delete, and compare models in an organized workspace." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_create_project_1.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/projects" property="twitter:url"/><meta content="Projects" property="twitter:title"/><meta content="Learn how to manage Ultralytics HUB projects. Understand effective strategies to create, share, edit, delete, and compare models in an organized workspace." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_create_project_1.jpg" property="twitter:image"/></head>
+<meta content="Oriented Bounding Box Datasets Overview" name="title"/><meta content="Ultralytics, YOLO, oriented bounding boxes, OBB, dataset formats, label formats, DOTA v2, data conversion" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/obb" property="og:url"/><meta content="Oriented Bounding Box Datasets Overview" property="og:title"/><meta content="Dive deep into various oriented bounding box (OBB) dataset formats compatible with the Ultralytics YOLO model. Grasp the nuances of using and converting datasets to this format." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/259471881-59020fe2-09a4-4dcc-acce-9b0f7cfa40ee.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/obb" property="twitter:url"/><meta content="Oriented Bounding Box Datasets Overview" property="twitter:title"/><meta content="Dive deep into various oriented bounding box (OBB) dataset formats compatible with the Ultralytics YOLO model. Grasp the nuances of using and converting datasets to this format." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/259471881-59020fe2-09a4-4dcc-acce-9b0f7cfa40ee.png" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ultralytics-hub-projects">
+<a class="md-skip" href="#oriented-bounding-box-datasets-overview">
           Skip to content
         </a>
 </div>
@@ -55,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Projects
+              Oriented Bounding Box Datasets Overview
             
           </span>
 </div>
@@ -145,7 +145,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../datasets/">
+<a class="md-tabs__link md-tabs__link--active" href="../">
         Datasets
       </a>
 </li>
@@ -170,7 +170,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../">
+<a class="md-tabs__link" href="../../hub/">
         Ultralytics HUB
       </a>
 </li>
@@ -479,15 +479,15 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../datasets/">Datasets</a>
+<a href="../">Datasets</a>
 <label for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
           Datasets
@@ -496,7 +496,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../datasets/detect/">Detection</a>
+<a href="../detect/">Detection</a>
 <label for="__nav_6_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -508,52 +508,52 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/argoverse/">
+<a class="md-nav__link" href="../detect/argoverse/">
         Argoverse
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/coco/">
+<a class="md-nav__link" href="../detect/coco/">
         COCO
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/coco8/">
+<a class="md-nav__link" href="../detect/coco8/">
         COCO8
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/globalwheat2020/">
+<a class="md-nav__link" href="../detect/globalwheat2020/">
         GlobalWheat2020
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/objects365/">
+<a class="md-nav__link" href="../detect/objects365/">
         Objects365
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/open-images-v7/">
+<a class="md-nav__link" href="../detect/open-images-v7/">
         OpenImagesV7
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/sku-110k/">
+<a class="md-nav__link" href="../detect/sku-110k/">
         SKU-110K
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/visdrone/">
+<a class="md-nav__link" href="../detect/visdrone/">
         VisDrone
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/voc/">
+<a class="md-nav__link" href="../detect/voc/">
         VOC
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/xview/">
+<a class="md-nav__link" href="../detect/xview/">
         xView
       </a>
 </li>
@@ -563,7 +563,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../datasets/segment/">Segmentation</a>
+<a href="../segment/">Segmentation</a>
 <label for="__nav_6_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -575,12 +575,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/segment/coco/">
+<a class="md-nav__link" href="../segment/coco/">
         COCO
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/segment/coco8-seg/">
+<a class="md-nav__link" href="../segment/coco8-seg/">
         COCO8-seg
       </a>
 </li>
@@ -590,7 +590,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../datasets/pose/">Pose</a>
+<a href="../pose/">Pose</a>
 <label for="__nav_6_4">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -602,12 +602,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/pose/coco/">
+<a class="md-nav__link" href="../pose/coco/">
         COCO
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/pose/coco8-pose/">
+<a class="md-nav__link" href="../pose/coco8-pose/">
         COCO8-pose
       </a>
 </li>
@@ -617,7 +617,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../datasets/classify/">Classification</a>
+<a href="../classify/">Classification</a>
 <label for="__nav_6_5">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -629,74 +629,74 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/caltech101/">
+<a class="md-nav__link" href="../classify/caltech101/">
         Caltech 101
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/caltech256/">
+<a class="md-nav__link" href="../classify/caltech256/">
         Caltech 256
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/cifar10/">
+<a class="md-nav__link" href="../classify/cifar10/">
         CIFAR-10
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/cifar100/">
+<a class="md-nav__link" href="../classify/cifar100/">
         CIFAR-100
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/fashion-mnist/">
+<a class="md-nav__link" href="../classify/fashion-mnist/">
         Fashion-MNIST
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/imagenet/">
+<a class="md-nav__link" href="../classify/imagenet/">
         ImageNet
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/imagenet10/">
+<a class="md-nav__link" href="../classify/imagenet10/">
         ImageNet-10
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/imagenette/">
+<a class="md-nav__link" href="../classify/imagenette/">
         Imagenette
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/imagewoof/">
+<a class="md-nav__link" href="../classify/imagewoof/">
         Imagewoof
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/mnist/">
+<a class="md-nav__link" href="../classify/mnist/">
         MNIST
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_6" type="checkbox"/>
-<div class="md-nav__link md-nav__link--index">
-<a href="../../datasets/obb/">Oriented Bounding Boxes (OBB)</a>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_6_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index md-nav__link--active">
+<a href="./">Oriented Bounding Boxes (OBB)</a>
 <label for="__nav_6_6">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_6_6_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_6_6_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_6_6">
 <span class="md-nav__icon md-icon"></span>
           Oriented Bounding Boxes (OBB)
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/obb/dota-v2/">
+<a class="md-nav__link" href="dota-v2/">
         DOTAv2
       </a>
 </li>
@@ -706,7 +706,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_7" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../datasets/track/">Multi-Object Tracking</a>
+<a href="../track/">Multi-Object Tracking</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_6_7_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_6_7">
@@ -956,97 +956,49 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">Ultralytics HUB</a>
+<a href="../../hub/">Ultralytics HUB</a>
 <label for="__nav_11">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_11">
 <span class="md-nav__icon md-icon"></span>
           Ultralytics HUB
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../quickstart/">
+<a class="md-nav__link" href="../../hub/quickstart/">
         Quickstart
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/">
+<a class="md-nav__link" href="../../hub/datasets/">
         Datasets
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Projects
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hub/projects/">
         Projects
       </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#create-project">
-    Create Project
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#share-project">
-    Share Project
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#edit-project">
-    Edit Project
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#delete-project">
-    Delete Project
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#compare-models">
-    Compare Models
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#reorder-models">
-    Reorder Models
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#transfer-models">
-    Transfer Models
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../models/">
+<a class="md-nav__link" href="../../hub/models/">
         Models
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../integrations/">
+<a class="md-nav__link" href="../../hub/integrations/">
         Integrations
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11_7" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../app/">Ultralytics HUB App</a>
+<a href="../../hub/app/">Ultralytics HUB App</a>
 <label for="__nav_11_7">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -1058,12 +1010,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../app/ios/">
+<a class="md-nav__link" href="../../hub/app/ios/">
         iOS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../app/android/">
+<a class="md-nav__link" href="../../hub/app/android/">
         Android
       </a>
 </li>
@@ -1071,7 +1023,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../inference_api/">
+<a class="md-nav__link" href="../../hub/inference_api/">
         Inference API
       </a>
 </li>
@@ -1967,120 +1919,61 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/hub/projects.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/datasets/obb/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="ultralytics-hub-projects">Ultralytics HUB Projects</h1>
-<p>Ultralytics HUB projects provide an effective solution for consolidating and managing your models. If you are working with several models that perform similar tasks or have related purposes, Ultralytics HUB projects allow you to group these models together.</p>
-<p>This creates a unified and organized workspace that facilitates easier model management, comparison and development. Having similar models or various iterations together can facilitate rapid benchmarking, as you can compare their effectiveness. This can lead to faster, more insightful iterative development and refinement of your models.</p>
-<h2 id="create-project">Create Project</h2>
-<p>Navigate to the <a href="https://hub.ultralytics.com/projects">Projects</a> page by clicking on the <strong>Projects</strong> button in the sidebar.</p>
-<p><img alt="Ultralytics HUB screenshot of the Home page with an arrow pointing to the Projects button in the sidebar" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_create_project_1.jpg"/></p>
-<details class="tip">
-<summary>Tip</summary>
-<p>You can also create a project directly from the <a href="https://hub.ultralytics.com/home">Home</a> page.</p>
-<p><img alt="Ultralytics HUB screenshot of the Home page with an arrow pointing to the Create Project card" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_create_project_2.jpg"/></p>
-</details>
-<p>Click on the <strong>Create Project</strong> button on the top right of the page. This action will trigger the <strong>Create Project</strong> dialog, opening up a suite of options for tailoring your project to your needs.</p>
-<p><img alt="Ultralytics HUB screenshot of the Projects page with an arrow pointing to the Create Project button" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_create_project_3.jpg"/></p>
-<p>Type the name of your project in the <em>Project name</em> field or keep the default name and finalize the project creation with a single click.</p>
-<p>You have the additional option to enrich your project with a description and a unique image, enhancing its recognizability on the Projects page.</p>
-<p>When you're happy with your project configuration, click <strong>Create</strong>.</p>
-<p><img alt="Ultralytics HUB screenshot of the Create Project dialog with an arrow pointing to the Create button" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_create_project_4.jpg"/></p>
-<p>After your project is created, you will be able to access it from the Projects page.</p>
-<p><img alt="Ultralytics HUB screenshot of the Projects page with an arrow pointing to one of the projects" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_create_project_5.jpg"/></p>
-<p>Next, <a href="https://docs.ultralytics.com/hub/models/#train-model">train a model</a> inside your project.</p>
-<p><img alt="Ultralytics HUB screenshot of the Project page with an arrow pointing to the Train Model button" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_create_project_6.jpg"/></p>
-<h2 id="share-project">Share Project</h2>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Ultralytics HUB's sharing functionality provides a convenient way to share projects with others. This feature is designed to accommodate both existing Ultralytics HUB users and those who have yet to create an account.</p>
+<h1 id="oriented-bounding-box-datasets-overview">Oriented Bounding Box Datasets Overview</h1>
+<p>Training a precise object detection model with oriented bounding boxes (OBB) requires a thorough dataset. This guide elucidates the various OBB dataset formats compatible with the Ultralytics YOLO model, offering insights into their structure, application, and methods for format conversions.</p>
+<h2 id="supported-obb-dataset-formats">Supported OBB Dataset Formats</h2>
+<h3 id="yolo-obb-format">YOLO OBB Format</h3>
+<p>The YOLO OBB format designates bounding boxes by their four corner points with coordinates normalized between 0 and 1. It follows this format:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>class_index,<span class="w"> </span>x1,<span class="w"> </span>y1,<span class="w"> </span>x2,<span class="w"> </span>y2,<span class="w"> </span>x3,<span class="w"> </span>y3,<span class="w"> </span>x4,<span class="w"> </span>y4
+</code></pre></div>
+<p>Internally, YOLO processes losses and outputs in the <code>xywhr</code> format, which represents the bounding box's center point (xy), width, height, and rotation.</p>
+<p align="center"><img src="https://user-images.githubusercontent.com/26833433/259471881-59020fe2-09a4-4dcc-acce-9b0f7cfa40ee.png" width="800"/></p>
+<p>An example of a <code>*.txt</code> label file for the above image, which contains an object of class <code>0</code> in OBB format, could look like:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="m">0</span><span class="w"> </span><span class="m">0</span>.780811<span class="w"> </span><span class="m">0</span>.743961<span class="w"> </span><span class="m">0</span>.782371<span class="w"> </span><span class="m">0</span>.74686<span class="w"> </span><span class="m">0</span>.777691<span class="w"> </span><span class="m">0</span>.752174<span class="w"> </span><span class="m">0</span>.776131<span class="w"> </span><span class="m">0</span>.749758
+</code></pre></div>
+<h2 id="usage">Usage</h2>
+<p>To train a model using these OBB formats:</p>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Create a new YOLOv8n-OBB model from scratch</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-obb.yaml'</span><span class="p">)</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Train the model on the DOTAv2 dataset</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'DOTAv2.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+</code></pre></div>
 </div>
-<details class="note">
-<summary>Note</summary>
-<p>You have control over the general access of your projects.</p>
-<p>You can choose to set the general access to "Private", in which case, only you will have access to it. Alternatively, you can set the general access to "Unlisted" which grants viewing access to anyone who has the direct link to the project, regardless of whether they have an Ultralytics HUB account or not.</p>
-</details>
-<p>Navigate to the Project page of the project you want to share, open the project actions dropdown and click on the <strong>Share</strong> option. This action will trigger the <strong>Share Project</strong> dialog.</p>
-<p><img alt="Ultralytics HUB screenshot of the Project page with an arrow pointing to the Share option" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_share_project_1.jpg"/></p>
-<details class="tip">
-<summary>Tip</summary>
-<p>You can also share a project directly from the <a href="https://hub.ultralytics.com/projects">Projects</a> page.</p>
-<p><img alt="Ultralytics HUB screenshot of the Projects page with an arrow pointing to the Share option of one of the projects" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_share_project_2.jpg"/></p>
-</details>
-<p>Set the general access to "Unlisted" and click <strong>Save</strong>.</p>
-<p><img alt="Ultralytics HUB screenshot of the Share Project dialog with an arrow pointing to the dropdown and one to the Save button" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_share_project_3.jpg"/></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>When changing the general access of a project, the general access of the models inside the project will be changed as well.</p>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Train a new YOLOv8n-OBB model on the DOTAv2 dataset</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>DOTAv2.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+</code></pre></div>
 </div>
-<p>Now, anyone who has the direct link to your project can view it.</p>
-<details class="tip">
-<summary>Tip</summary>
-<p>You can easily click on the project's link shown in the <strong>Share Project</strong> dialog to copy it.</p>
-<p><img alt="Ultralytics HUB screenshot of the Share Project dialog with an arrow pointing to the project's link" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_share_project_4.jpg"/></p>
-</details>
-<h2 id="edit-project">Edit Project</h2>
-<p>Navigate to the Project page of the project you want to edit, open the project actions dropdown and click on the <strong>Edit</strong> option. This action will trigger the <strong>Update Project</strong> dialog.</p>
-<p><img alt="Ultralytics HUB screenshot of the Project page with an arrow pointing to the Edit option" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_edit_project_1.jpg"/></p>
-<details class="tip">
-<summary>Tip</summary>
-<p>You can also edit a project directly from the <a href="https://hub.ultralytics.com/projects">Projects</a> page.</p>
-<p><img alt="Ultralytics HUB screenshot of the Projects page with an arrow pointing to the Edit option of one of the projects" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_edit_project_2.jpg"/></p>
-</details>
-<p>Apply the desired modifications to your project and then confirm the changes by clicking <strong>Save</strong>.</p>
-<p><img alt="Ultralytics HUB screenshot of the Update Project dialog with an arrow pointing to the Save button" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_edit_project_3.jpg"/></p>
-<h2 id="delete-project">Delete Project</h2>
-<p>Navigate to the Project page of the project you want to delete, open the project actions dropdown and click on the <strong>Delete</strong> option. This action will delete the project.</p>
-<p><img alt="Ultralytics HUB screenshot of the Project page with an arrow pointing to the Delete option" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_delete_project_1.jpg"/></p>
-<details class="tip">
-<summary>Tip</summary>
-<p>You can also delete a project directly from the <a href="https://hub.ultralytics.com/projects">Projects</a> page.</p>
-<p><img alt="Ultralytics HUB screenshot of the Projects page with an arrow pointing to the Delete option of one of the projects" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_delete_project_2.jpg"/></p>
-</details>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>When deleting a project, the the models inside the project will be deleted as well.</p>
 </div>
-<details class="note">
-<summary>Note</summary>
-<p>If you change your mind, you can restore the project from the <a href="https://hub.ultralytics.com/trash">Trash</a> page.</p>
-<p><img alt="Ultralytics HUB screenshot of the Trash page with an arrow pointing to the Restore option of one of the projects" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_delete_project_3.jpg"/></p>
-</details>
-<h2 id="compare-models">Compare Models</h2>
-<p>Navigate to the Project page of the project where the models you want to compare are located. To use the model comparison feature, click on the <strong>Charts</strong> tab.</p>
-<p><img alt="Ultralytics HUB screenshot of the Project page with an arrow pointing to the Charts tab" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_compare_models_1.jpg"/></p>
-<p>This will display all the relevant charts. Each chart corresponds to a different metric and contains the performance of each model for that metric. The models are represented by different colors and you can hover over each data point to get more information.</p>
-<p><img alt="Ultralytics HUB screenshot of the Charts tab inside the Project page" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_compare_models_2.jpg"/></p>
-<details class="tip">
-<summary>Tip</summary>
-<p>Each chart can be enlarged for better visualization.</p>
-<p><img alt="Ultralytics HUB screenshot of the Charts tab inside the Project page with an arrow pointing to the expand icon" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_compare_models_3.jpg"/></p>
-<p><img alt="Ultralytics HUB screenshot of the Charts tab inside the Project page with one of the charts expanded" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_compare_models_4.jpg"/></p>
-</details>
-<details class="tip">
-<summary>Tip</summary>
-<p>You have the flexibility to customize your view by selectively hiding certain models. This feature allows you to concentrate on the models of interest.</p>
-<p><img alt="Ultralytics HUB screenshot of the Charts tab inside the Project page with an arrow pointing to the hide/unhide icon of one of the model" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_compare_models_5.jpg"/></p>
-</details>
-<h2 id="reorder-models">Reorder Models</h2>
-<details class="note">
-<summary>Note</summary>
-<p>Ultralytics HUB's reordering functionality works only inside projects you own.</p>
-</details>
-<p>Navigate to the Project page of the project where the models you want to reorder are located. Click on the designated reorder icon of the model you want to move and drag it to the desired location.</p>
-<p><img alt="Ultralytics HUB screenshot of the Project page with an arrow pointing to the reorder icon" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_reorder_models_1.jpg"/></p>
-<h2 id="transfer-models">Transfer Models</h2>
-<p>Navigate to the Project page of the project where the model you want to mode is located, open the project actions dropdown and click on the <strong>Transfer</strong> option. This action will trigger the <strong>Transfer Model</strong> dialog.</p>
-<p><img alt="Ultralytics HUB screenshot of the Project page with an arrow pointing to the Transfer option of one of the models" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_transfer_models_1.jpg"/></p>
-<details class="tip">
-<summary>Tip</summary>
-<p>You can also transfer a model directly from the <a href="https://hub.ultralytics.com/models">Models</a> page.</p>
-<p><img alt="Ultralytics HUB screenshot of the Models page with an arrow pointing to the Transfer option of one of the models" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_transfer_models_2.jpg"/></p>
-</details>
-<p>Select the project you want to transfer the model to and click <strong>Save</strong>.</p>
-<p><img alt="Ultralytics HUB screenshot of the Transfer Model dialog with an arrow pointing to the dropdown and one to the Save button" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/projects/hub_transfer_models_3.jpg"/></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-06, Updated 2023-07-23<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (2)</div>
+</input></input></div>
+</div>
+<h2 id="supported-datasets">Supported Datasets</h2>
+<p>Currently, the following datasets with Oriented Bounding Boxes are supported:</p>
+<ul>
+<li><a href="dota-v2/"><strong>DOTA v2</strong></a>: DOTA (A Large-scale Dataset for Object Detection in Aerial Images) version 2, emphasizes detection from aerial perspectives and contains oriented bounding boxes with 1.7 million instances and 11,268 images.</li>
+</ul>
+<h3 id="incorporating-your-own-obb-dataset">Incorporating your own OBB dataset</h3>
+<p>For those looking to introduce their own datasets with oriented bounding boxes, ensure compatibility with the "YOLO OBB format" mentioned above. Convert your annotations to this required format and detail the paths, classes, and class names in a corresponding YAML configuration file.</p>
+<h2 id="convert-label-formats">Convert Label Formats</h2>
+<h3 id="dota-dataset-format-to-yolo-obb-format">DOTA Dataset Format to YOLO OBB Format</h3>
+<p>Transitioning labels from the DOTA dataset format to the YOLO OBB format can be achieved with this script:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">convert_dota_to_yolo_obb</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">convert_dota_to_yolo_obb</span><span class="p">(</span><span class="s1">'path/to/DOTA'</span><span class="p">)</span>
+</code></pre></div>
+<p>This conversion mechanism is instrumental for datasets in the DOTA format, ensuring alignment with the Ultralytics YOLO OBB format.</p>
+<p>It's imperative to validate the compatibility of the dataset with your model and adhere to the necessary format conventions. Properly structured datasets are pivotal for training efficient object detection models with oriented bounding boxes.</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-08-10, Updated 2023-08-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2091,10 +1984,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/hub/projects', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/datasets/obb', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/hub/projects', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/datasets/obb', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -2142,7 +2035,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Datasets" class="md-footer__link md-footer__link--prev" href="../datasets/" rel="prev">
+<a aria-label="Previous: MNIST" class="md-footer__link md-footer__link--prev" href="../classify/mnist/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2151,17 +2044,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                Datasets
+                MNIST
               </div>
 </div>
 </a>
-<a aria-label="Next: Models" class="md-footer__link md-footer__link--next" href="../models/" rel="next">
+<a aria-label="Next: DOTAv2" class="md-footer__link md-footer__link--next" href="dota-v2/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Models
+                DOTAv2
               </div>
 </div>
 <div class="md-footer__button md-icon">

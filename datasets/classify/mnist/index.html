@@ -9,7 +9,7 @@
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/datasets/classify/mnist/" rel="canonical"/>
 <link href="../imagewoof/" rel="prev"/>
-<link href="../../track/" rel="next"/>
+<link href="../../obb/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.2, mkdocs-material-9.1.21" name="generator"/>
 <title>MNIST - Ultralytics YOLOv8 Docs</title>
@@ -732,10 +732,32 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_6" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../track/">Multi-Object Tracking</a>
+<a href="../../obb/">Oriented Bounding Boxes (OBB)</a>
+<label for="__nav_6_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_6_6_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_6_6">
+<span class="md-nav__icon md-icon"></span>
+          Oriented Bounding Boxes (OBB)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../obb/dota-v2/">
+        DOTAv2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_7" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../track/">Multi-Object Tracking</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_7">
 <span class="md-nav__icon md-icon"></span>
           Multi-Object Tracking
         </label>
@@ -1980,7 +2002,7 @@
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-cls.pt'</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'mnist'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'mnist'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1998,6 +2020,10 @@
 <h2 id="citations-and-acknowledgments">Citations and Acknowledgments</h2>
 <p>If you use the MNIST dataset in your</p>
 <p>research or development work, please cite the following paper:</p>
+<div class="admonition note">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">lecun2010mnist</span><span class="p">,</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">         </span><span class="na">title</span><span class="p">=</span><span class="s">{MNIST handwritten digit database}</span><span class="p">,</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">         </span><span class="na">author</span><span class="p">=</span><span class="s">{LeCun, Yann and Cortes, Corinna and Burges, CJ}</span><span class="p">,</span>
@@ -2006,8 +2032,12 @@
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">         </span><span class="na">year</span><span class="p">=</span><span class="s">{2010}</span>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="p">}</span>
 </code></pre></div>
+</div>
+</div>
+</input></div>
+</div>
 <p>We would like to acknowledge Yann LeCun, Corinna Cortes, and Christopher J.C. Burges for creating and maintaining the MNIST dataset as a valuable resource for the machine learning and computer vision research community. For more information about the MNIST dataset and its creators, visit the <a href="http://yann.lecun.com/exdb/mnist/">MNIST dataset website</a>.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-08, Updated 2023-07-23<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-08, Updated 2023-08-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2082,13 +2112,13 @@
               </div>
 </div>
 </a>
-<a aria-label="Next: Multi-object Tracking Datasets Overview" class="md-footer__link md-footer__link--next" href="../../track/" rel="next">
+<a aria-label="Next: Oriented Bounding Box Datasets Overview" class="md-footer__link md-footer__link--next" href="../../obb/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Multi-object Tracking Datasets Overview
+                Oriented Bounding Box Datasets Overview
               </div>
 </div>
 <div class="md-footer__button md-icon">
