@@ -2171,20 +2171,20 @@
 <tr>
 <td>OpenCV</td>
 <td><code>cv2.imread('im.jpg')</code></td>
-<td><code>np.ndarray</code> of <code>uint8 (0-255)</code></td>
-<td>HWC format with BGR channels.</td>
+<td><code>np.ndarray</code></td>
+<td>HWC format with BGR channels <code>uint8 (0-255)</code>.</td>
 </tr>
 <tr>
 <td>numpy</td>
 <td><code>np.zeros((640,1280,3))</code></td>
-<td><code>np.ndarray</code> of <code>uint8 (0-255)</code></td>
-<td>HWC format with BGR channels.</td>
+<td><code>np.ndarray</code></td>
+<td>HWC format with BGR channels <code>uint8 (0-255)</code>.</td>
 </tr>
 <tr>
 <td>torch</td>
 <td><code>torch.zeros(16,3,320,640)</code></td>
-<td><code>torch.Tensor</code> of <code>float32 (0.0-1.0)</code></td>
-<td>BCHW format with RGB channels.</td>
+<td><code>torch.Tensor</code></td>
+<td>BCHW format with RGB channels <code>float32 (0.0-1.0)</code>.</td>
 </tr>
 <tr>
 <td>CSV</td>
@@ -2222,12 +2222,18 @@
 <td><code>str</code></td>
 <td>URL for streaming protocols such as RTSP, RTMP, or an IP address.</td>
 </tr>
+<tr>
+<td>multi-stream ✅</td>
+<td><code>'list.streams'</code></td>
+<td><code>str</code> or <code>Path</code></td>
+<td><code>*.streams</code> text file with one stream URL per row, i.e. 8 streams will run at batch-size 8.</td>
+</tr>
 </tbody>
 </table>
 <p>Below are code examples for using each source type:</p>
 <div class="admonition example">
 <p class="admonition-title">Prediction sources</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><input id="__tabbed_2_9" name="__tabbed_2" type="radio"><input id="__tabbed_2_10" name="__tabbed_2" type="radio"><input id="__tabbed_2_11" name="__tabbed_2" type="radio"><input id="__tabbed_2_12" name="__tabbed_2" type="radio"><input id="__tabbed_2_13" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">image</label><label for="__tabbed_2_2">screenshot</label><label for="__tabbed_2_3">URL</label><label for="__tabbed_2_4">PIL</label><label for="__tabbed_2_5">OpenCV</label><label for="__tabbed_2_6">numpy</label><label for="__tabbed_2_7">torch</label><label for="__tabbed_2_8">CSV</label><label for="__tabbed_2_9">video</label><label for="__tabbed_2_10">directory</label><label for="__tabbed_2_11">glob</label><label for="__tabbed_2_12">YouTube</label><label for="__tabbed_2_13">Stream</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><input id="__tabbed_2_9" name="__tabbed_2" type="radio"><input id="__tabbed_2_10" name="__tabbed_2" type="radio"><input id="__tabbed_2_11" name="__tabbed_2" type="radio"><input id="__tabbed_2_12" name="__tabbed_2" type="radio"><input id="__tabbed_2_13" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">image</label><label for="__tabbed_2_2">screenshot</label><label for="__tabbed_2_3">URL</label><label for="__tabbed_2_4">PIL</label><label for="__tabbed_2_5">OpenCV</label><label for="__tabbed_2_6">numpy</label><label for="__tabbed_2_7">torch</label><label for="__tabbed_2_8">CSV</label><label for="__tabbed_2_9">video</label><label for="__tabbed_2_10">directory</label><label for="__tabbed_2_11">glob</label><label for="__tabbed_2_12">YouTube</label><label for="__tabbed_2_13">Streams</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Run inference on an image file.
@@ -2406,17 +2412,20 @@
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
-<p>Run inference on remote streaming sources using RTSP, RTMP, and IP address protocols.
+<p>Run inference on remote streaming sources using RTSP, RTMP, and IP address protocols. If mutliple streams are provided in a <code>*.streams</code> text file then batched inference will run, i.e. 8 streams will run at batch-size 8, otherwise single streams will run at batch-size 1.
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
 <a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="c1"># Load a pretrained YOLOv8n model</span>
 <a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
 <a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>
-<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="c1"># Define source as RTSP, RTMP or IP streaming address</span>
-<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'rtsp://example.com/media.mp4'</span>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="c1"># Single stream with batch-size 1 inference</span>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'rtsp://example.com/media.mp4'</span>  <span class="c1"># RTSP, RTMP or IP streaming address</span>
 <a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a>
-<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
+<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="c1"># Multiple streams with batched inference (i.e. batch-size 8 for 8 streams)</span>
+<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'path/to/list.streams'</span>  <span class="c1"># *.streams text file with one streaming address per row</span>
+<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a>
+<a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="c1"># Run inference on the source</span>
+<a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
 </code></pre></div></p>
 </div>
 </div>
@@ -3306,7 +3315,7 @@
 </code></pre></div>
 </div>
 <p>This script will run predictions on each frame of the video, visualize the results, and display them in a window. The loop can be exited by pressing 'q'.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (21), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (22), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
