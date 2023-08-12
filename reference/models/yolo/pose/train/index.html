@@ -1994,7 +1994,8 @@
             Bases: <code><span title="ultralytics.models.yolo">yolo</span>.<span title="ultralytics.models.yolo.detect">detect</span>.<a class="autorefs autorefs-internal" title="ultralytics.models.yolo.detect.DetectionTrainer" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer">DetectionTrainer</a></code></p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
 <span class="normal"><a href="#__codelineno-0-13">13</a></span>
 <span class="normal"><a href="#__codelineno-0-14">14</a></span>
 <span class="normal"><a href="#__codelineno-0-15">15</a></span>
@@ -2043,58 +2044,57 @@
 <span class="normal"><a href="#__codelineno-0-58">58</a></span>
 <span class="normal"><a href="#__codelineno-0-59">59</a></span>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
-<span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">class</span> <span class="nc">PoseTrainer</span><span class="p">(</span><span class="n">yolo</span><span class="o">.</span><span class="n">detect</span><span class="o">.</span><span class="n">DetectionTrainer</span><span class="p">):</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">        </span><span class="sd">"""Initialize a PoseTrainer object with specified configurations and overrides."""</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>            <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="n">overrides</span><span class="p">[</span><span class="s1">'task'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'pose'</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'mps'</span><span class="p">:</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"WARNING ⚠️ Apple MPS known Pose bug. Recommend 'device=cpu' for Pose models. "</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>                           <span class="s1">'See https://github.com/ultralytics/ultralytics/issues/4031.'</span><span class="p">)</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">        </span><span class="sd">"""Get pose estimation model with specified configuration and weights."""</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">PoseModel</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'nc'</span><span class="p">],</span> <span class="n">data_kpt_shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'kpt_shape'</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>            <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="k">return</span> <span class="n">model</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="k">def</span> <span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">        </span><span class="sd">"""Sets keypoints shape attribute of PoseModel."""</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">set_model_attributes</span><span class="p">()</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">kpt_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'kpt_shape'</span><span class="p">]</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>    <span class="k">def</span> <span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">        </span><span class="sd">"""Returns an instance of the PoseValidator class for validation."""</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s1">'box_loss'</span><span class="p">,</span> <span class="s1">'pose_loss'</span><span class="p">,</span> <span class="s1">'kobj_loss'</span><span class="p">,</span> <span class="s1">'cls_loss'</span><span class="p">,</span> <span class="s1">'dfl_loss'</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="k">return</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PoseValidator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="k">def</span> <span class="nf">plot_training_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">        </span><span class="sd">"""Plot a batch of training samples with annotated class labels, bounding boxes, and keypoints."""</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="n">images</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'img'</span><span class="p">]</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="n">kpts</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'keypoints'</span><span class="p">]</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="bp">cls</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">bboxes</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'bboxes'</span><span class="p">]</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="n">paths</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'im_file'</span><span class="p">]</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'batch_idx'</span><span class="p">]</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="n">plot_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>                    <span class="n">batch_idx</span><span class="p">,</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>                    <span class="bp">cls</span><span class="p">,</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>                    <span class="n">bboxes</span><span class="p">,</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>                    <span class="n">kpts</span><span class="o">=</span><span class="n">kpts</span><span class="p">,</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>                    <span class="n">paths</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>                    <span class="n">fname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">'train_batch</span><span class="si">{</span><span class="n">ni</span><span class="si">}</span><span class="s1">.jpg'</span><span class="p">,</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>                    <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">def</span> <span class="nf">plot_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">        </span><span class="sd">"""Plots training/val metrics."""</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="n">plot_results</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">csv</span><span class="p">,</span> <span class="n">pose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>  <span class="c1"># save results.png</span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">class</span> <span class="nc">PoseTrainer</span><span class="p">(</span><span class="n">yolo</span><span class="o">.</span><span class="n">detect</span><span class="o">.</span><span class="n">DetectionTrainer</span><span class="p">):</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">        </span><span class="sd">"""Initialize a PoseTrainer object with specified configurations and overrides."""</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>            <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="n">overrides</span><span class="p">[</span><span class="s1">'task'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'pose'</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'mps'</span><span class="p">:</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"WARNING ⚠️ Apple MPS known Pose bug. Recommend 'device=cpu' for Pose models. "</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>                           <span class="s1">'See https://github.com/ultralytics/ultralytics/issues/4031.'</span><span class="p">)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">        </span><span class="sd">"""Get pose estimation model with specified configuration and weights."""</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">PoseModel</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'nc'</span><span class="p">],</span> <span class="n">data_kpt_shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'kpt_shape'</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>            <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="k">return</span> <span class="n">model</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="k">def</span> <span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">        </span><span class="sd">"""Sets keypoints shape attribute of PoseModel."""</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">set_model_attributes</span><span class="p">()</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">kpt_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'kpt_shape'</span><span class="p">]</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="k">def</span> <span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">        </span><span class="sd">"""Returns an instance of the PoseValidator class for validation."""</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s1">'box_loss'</span><span class="p">,</span> <span class="s1">'pose_loss'</span><span class="p">,</span> <span class="s1">'kobj_loss'</span><span class="p">,</span> <span class="s1">'cls_loss'</span><span class="p">,</span> <span class="s1">'dfl_loss'</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="k">return</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PoseValidator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="k">def</span> <span class="nf">plot_training_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">        </span><span class="sd">"""Plot a batch of training samples with annotated class labels, bounding boxes, and keypoints."""</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="n">images</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'img'</span><span class="p">]</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="n">kpts</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'keypoints'</span><span class="p">]</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="bp">cls</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="n">bboxes</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'bboxes'</span><span class="p">]</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">paths</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'im_file'</span><span class="p">]</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'batch_idx'</span><span class="p">]</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="n">plot_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>                    <span class="n">batch_idx</span><span class="p">,</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>                    <span class="bp">cls</span><span class="p">,</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>                    <span class="n">bboxes</span><span class="p">,</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>                    <span class="n">kpts</span><span class="o">=</span><span class="n">kpts</span><span class="p">,</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>                    <span class="n">paths</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>                    <span class="n">fname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">'train_batch</span><span class="si">{</span><span class="n">ni</span><span class="si">}</span><span class="s1">.jpg'</span><span class="p">,</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>                    <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="k">def</span> <span class="nf">plot_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">        </span><span class="sd">"""Plots training/val metrics."""</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="n">plot_results</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">csv</span><span class="p">,</span> <span class="n">pose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>  <span class="c1"># save results.png</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2106,7 +2106,8 @@
 <p>Initialize a PoseTrainer object with specified configurations and overrides.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
 <span class="normal"><a href="#__codelineno-0-15">15</a></span>
 <span class="normal"><a href="#__codelineno-0-16">16</a></span>
 <span class="normal"><a href="#__codelineno-0-17">17</a></span>
@@ -2114,17 +2115,16 @@
 <span class="normal"><a href="#__codelineno-0-19">19</a></span>
 <span class="normal"><a href="#__codelineno-0-20">20</a></span>
 <span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="sd">"""Initialize a PoseTrainer object with specified configurations and overrides."""</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="n">overrides</span><span class="p">[</span><span class="s1">'task'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'pose'</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'mps'</span><span class="p">:</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"WARNING ⚠️ Apple MPS known Pose bug. Recommend 'device=cpu' for Pose models. "</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>                       <span class="s1">'See https://github.com/ultralytics/ultralytics/issues/4031.'</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="sd">"""Initialize a PoseTrainer object with specified configurations and overrides."""</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="n">overrides</span><span class="p">[</span><span class="s1">'task'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'pose'</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'mps'</span><span class="p">:</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"WARNING ⚠️ Apple MPS known Pose bug. Recommend 'device=cpu' for Pose models. "</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>                       <span class="s1">'See https://github.com/ultralytics/ultralytics/issues/4031.'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2137,19 +2137,19 @@
 <p>Get pose estimation model with specified configuration and weights.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
 <span class="normal"><a href="#__codelineno-0-26">26</a></span>
 <span class="normal"><a href="#__codelineno-0-27">27</a></span>
 <span class="normal"><a href="#__codelineno-0-28">28</a></span>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="sd">"""Get pose estimation model with specified configuration and weights."""</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">PoseModel</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'nc'</span><span class="p">],</span> <span class="n">data_kpt_shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'kpt_shape'</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="k">return</span> <span class="n">model</span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">    </span><span class="sd">"""Get pose estimation model with specified configuration and weights."""</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">PoseModel</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'nc'</span><span class="p">],</span> <span class="n">data_kpt_shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'kpt_shape'</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="k">return</span> <span class="n">model</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2162,13 +2162,13 @@
 <p>Returns an instance of the PoseValidator class for validation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
 <span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="k">def</span> <span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">    </span><span class="sd">"""Returns an instance of the PoseValidator class for validation."""</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s1">'box_loss'</span><span class="p">,</span> <span class="s1">'pose_loss'</span><span class="p">,</span> <span class="s1">'kobj_loss'</span><span class="p">,</span> <span class="s1">'cls_loss'</span><span class="p">,</span> <span class="s1">'dfl_loss'</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="k">return</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PoseValidator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="k">def</span> <span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">    </span><span class="sd">"""Returns an instance of the PoseValidator class for validation."""</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s1">'box_loss'</span><span class="p">,</span> <span class="s1">'pose_loss'</span><span class="p">,</span> <span class="s1">'kobj_loss'</span><span class="p">,</span> <span class="s1">'cls_loss'</span><span class="p">,</span> <span class="s1">'dfl_loss'</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="k">return</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PoseValidator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2181,11 +2181,11 @@
 <p>Plots training/val metrics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-60">60</a></span>
-<span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="k">def</span> <span class="nf">plot_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">    </span><span class="sd">"""Plots training/val metrics."""</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="n">plot_results</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">csv</span><span class="p">,</span> <span class="n">pose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>  <span class="c1"># save results.png</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="k">def</span> <span class="nf">plot_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">    </span><span class="sd">"""Plots training/val metrics."""</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="n">plot_results</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">csv</span><span class="p">,</span> <span class="n">pose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>  <span class="c1"># save results.png</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2198,7 +2198,8 @@
 <p>Plot a batch of training samples with annotated class labels, bounding boxes, and keypoints.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
 <span class="normal"><a href="#__codelineno-0-44">44</a></span>
 <span class="normal"><a href="#__codelineno-0-45">45</a></span>
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
@@ -2212,23 +2213,22 @@
 <span class="normal"><a href="#__codelineno-0-54">54</a></span>
 <span class="normal"><a href="#__codelineno-0-55">55</a></span>
 <span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="k">def</span> <span class="nf">plot_training_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">    </span><span class="sd">"""Plot a batch of training samples with annotated class labels, bounding boxes, and keypoints."""</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="n">images</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'img'</span><span class="p">]</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="n">kpts</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'keypoints'</span><span class="p">]</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="bp">cls</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="n">bboxes</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'bboxes'</span><span class="p">]</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">paths</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'im_file'</span><span class="p">]</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'batch_idx'</span><span class="p">]</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="n">plot_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>                <span class="n">batch_idx</span><span class="p">,</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>                <span class="bp">cls</span><span class="p">,</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>                <span class="n">bboxes</span><span class="p">,</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>                <span class="n">kpts</span><span class="o">=</span><span class="n">kpts</span><span class="p">,</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>                <span class="n">paths</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>                <span class="n">fname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">'train_batch</span><span class="si">{</span><span class="n">ni</span><span class="si">}</span><span class="s1">.jpg'</span><span class="p">,</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>                <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="k">def</span> <span class="nf">plot_training_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">    </span><span class="sd">"""Plot a batch of training samples with annotated class labels, bounding boxes, and keypoints."""</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="n">images</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'img'</span><span class="p">]</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="n">kpts</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'keypoints'</span><span class="p">]</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="bp">cls</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="n">bboxes</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'bboxes'</span><span class="p">]</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="n">paths</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'im_file'</span><span class="p">]</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'batch_idx'</span><span class="p">]</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="n">plot_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>                <span class="n">batch_idx</span><span class="p">,</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>                <span class="bp">cls</span><span class="p">,</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>                <span class="n">bboxes</span><span class="p">,</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>                <span class="n">kpts</span><span class="o">=</span><span class="n">kpts</span><span class="p">,</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>                <span class="n">paths</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>                <span class="n">fname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">'train_batch</span><span class="si">{</span><span class="n">ni</span><span class="si">}</span><span class="s1">.jpg'</span><span class="p">,</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>                <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2241,13 +2241,13 @@
 <p>Sets keypoints shape attribute of PoseModel.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">def</span> <span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">    </span><span class="sd">"""Sets keypoints shape attribute of PoseModel."""</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">set_model_attributes</span><span class="p">()</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">kpt_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'kpt_shape'</span><span class="p">]</span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="k">def</span> <span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">    </span><span class="sd">"""Sets keypoints shape attribute of PoseModel."""</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">set_model_attributes</span><span class="p">()</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">kpt_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'kpt_shape'</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2264,7 +2264,8 @@
 <p>Train the YOLO model on the given data and device.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
 <span class="normal"><a href="#__codelineno-0-66">66</a></span>
 <span class="normal"><a href="#__codelineno-0-67">67</a></span>
 <span class="normal"><a href="#__codelineno-0-68">68</a></span>
@@ -2275,20 +2276,19 @@
 <span class="normal"><a href="#__codelineno-0-73">73</a></span>
 <span class="normal"><a href="#__codelineno-0-74">74</a></span>
 <span class="normal"><a href="#__codelineno-0-75">75</a></span>
-<span class="normal"><a href="#__codelineno-0-76">76</a></span>
-<span class="normal"><a href="#__codelineno-0-77">77</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">use_python</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">    </span><span class="sd">"""Train the YOLO model on the given data and device."""</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="ow">or</span> <span class="s1">'yolov8n-pose.yaml'</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">data</span> <span class="ow">or</span> <span class="s1">'coco8-pose.yaml'</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="n">device</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">device</span> <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">device</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">''</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="k">if</span> <span class="n">use_python</span><span class="p">:</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>        <span class="n">YOLO</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="n">trainer</span> <span class="o">=</span> <span class="n">PoseTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">use_python</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">    </span><span class="sd">"""Train the YOLO model on the given data and device."""</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="ow">or</span> <span class="s1">'yolov8n-pose.yaml'</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">data</span> <span class="ow">or</span> <span class="s1">'coco8-pose.yaml'</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="n">device</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">device</span> <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">device</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">''</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="k">if</span> <span class="n">use_python</span><span class="p">:</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>        <span class="n">YOLO</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="n">trainer</span> <span class="o">=</span> <span class="n">PoseTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

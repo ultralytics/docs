@@ -1991,7 +1991,7 @@
 <span class="normal"><a href="#__codelineno-0-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">class</span> <span class="nc">DetectionPredictor</span><span class="p">(</span><span class="n">BasePredictor</span><span class="p">):</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">        </span><span class="sd">"""Postprocesses predictions and returns a list of Results objects."""</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">        </span><span class="sd">"""Post-processes predictions and returns a list of Results objects."""</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="n">preds</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">non_max_suppression</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>                                        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>                                        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">iou</span><span class="p">,</span>
@@ -2016,7 +2016,7 @@
 <code class="highlight language-python"><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Postprocesses predictions and returns a list of Results objects.</p>
+<p>Post-processes predictions and returns a list of Results objects.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-12">12</a></span>
@@ -2037,7 +2037,7 @@
 <span class="normal"><a href="#__codelineno-0-27">27</a></span>
 <span class="normal"><a href="#__codelineno-0-28">28</a></span>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="sd">"""Postprocesses predictions and returns a list of Results objects."""</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="sd">"""Post-processes predictions and returns a list of Results objects."""</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="n">preds</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">non_max_suppression</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>                                    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>                                    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">iou</span><span class="p">,</span>

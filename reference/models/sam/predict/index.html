@@ -2697,7 +2697,7 @@
 <a id="__codelineno-0-310" name="__codelineno-0-310"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">done_warmup</span> <span class="o">=</span> <span class="kc">True</span>
 <a id="__codelineno-0-311" name="__codelineno-0-311"></a>
 <a id="__codelineno-0-312" name="__codelineno-0-312"></a>    <span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
-<a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="w">        </span><span class="sd">"""Postprocesses inference output predictions to create detection masks for objects."""</span>
+<a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="w">        </span><span class="sd">"""Post-processes inference output predictions to create detection masks for objects."""</span>
 <a id="__codelineno-0-314" name="__codelineno-0-314"></a>        <span class="c1"># (N, 1, H, W), (N, 1)</span>
 <a id="__codelineno-0-315" name="__codelineno-0-315"></a>        <span class="n">pred_masks</span><span class="p">,</span> <span class="n">pred_scores</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 <a id="__codelineno-0-316" name="__codelineno-0-316"></a>        <span class="n">pred_bboxes</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment_all</span> <span class="k">else</span> <span class="kc">None</span>
@@ -3460,7 +3460,7 @@ a subsequent iteration as mask input.</p>
 <code class="highlight language-python"><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Postprocesses inference output predictions to create detection masks for objects.</p>
+<p>Post-processes inference output predictions to create detection masks for objects.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-312">312</a></span>
@@ -3485,7 +3485,7 @@ a subsequent iteration as mask input.</p>
 <span class="normal"><a href="#__codelineno-0-331">331</a></span>
 <span class="normal"><a href="#__codelineno-0-332">332</a></span>
 <span class="normal"><a href="#__codelineno-0-333">333</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-312" name="__codelineno-0-312"></a><span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
-<a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="w">    </span><span class="sd">"""Postprocesses inference output predictions to create detection masks for objects."""</span>
+<a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="w">    </span><span class="sd">"""Post-processes inference output predictions to create detection masks for objects."""</span>
 <a id="__codelineno-0-314" name="__codelineno-0-314"></a>    <span class="c1"># (N, 1, H, W), (N, 1)</span>
 <a id="__codelineno-0-315" name="__codelineno-0-315"></a>    <span class="n">pred_masks</span><span class="p">,</span> <span class="n">pred_scores</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 <a id="__codelineno-0-316" name="__codelineno-0-316"></a>    <span class="n">pred_bboxes</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment_all</span> <span class="k">else</span> <span class="kc">None</span>
