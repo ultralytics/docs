@@ -2419,33 +2419,65 @@
 <h3 id="comet">Comet</h3>
 <p><a href="https://www.comet.ml/site/">Comet</a> is a platform that allows data scientists and developers to track, compare, explain and optimize experiments and models. It provides functionalities such as real-time metrics, code diffs, and hyperparameters tracking.</p>
 <p>To use Comet:</p>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># pip install comet_ml</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kn">import</span> <span class="nn">comet_ml</span>
 <a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">comet_ml</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 </code></pre></div>
+</div>
+</div>
+</input></div>
+</div>
 <p>Remember to sign in to your Comet account on their website and get your API key. You will need to add this to your environment variables or your script to log your experiments.</p>
 <h3 id="clearml">ClearML</h3>
 <p><a href="https://www.clear.ml/">ClearML</a> is an open-source platform that automates tracking of experiments and helps with efficient sharing of resources. It is designed to help teams manage, execute, and reproduce their ML work more efficiently.</p>
 <p>To use ClearML:</p>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># pip install clearml</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kn">import</span> <span class="nn">clearml</span>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">clearml</span><span class="o">.</span><span class="n">browser_login</span><span class="p">()</span>
 </code></pre></div>
+</div>
+</div>
+</input></div>
+</div>
 <p>After running this script, you will need to sign in to your ClearML account on the browser and authenticate your session.</p>
 <h3 id="tensorboard">TensorBoard</h3>
 <p><a href="https://www.tensorflow.org/tensorboard">TensorBoard</a> is a visualization toolkit for TensorFlow. It allows you to visualize your TensorFlow graph, plot quantitative metrics about the execution of your graph, and show additional data like images that pass through it.</p>
 <p>To use TensorBoard in <a href="https://colab.research.google.com/github/ultralytics/ultralytics/blob/main/examples/tutorial.ipynb">Google Colab</a>:</p>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>load_ext<span class="w"> </span>tensorboard
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>tensorboard<span class="w"> </span>--logdir<span class="w"> </span>ultralytics/runs<span class="w">  </span><span class="c1"># replace with 'runs' directory</span>
 </code></pre></div>
+</div>
+</div>
+</input></div>
+</div>
 <p>To use TensorBoard locally run the below command and view results at http://localhost:6006/.</p>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"><div class="tabbed-labels"><label for="__tabbed_8_1">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>tensorboard<span class="w"> </span>--logdir<span class="w"> </span>ultralytics/runs<span class="w">  </span><span class="c1"># replace with 'runs' directory</span>
 </code></pre></div>
+</div>
+</div>
+</input></div>
+</div>
 <p>This will load TensorBoard and direct it to the directory where your training logs are saved.</p>
 <p>After setting up your logger, you can then proceed with your model training. All training metrics will be automatically logged in your chosen platform, and you can access these logs to monitor your model's performance over time, compare different models, and identify areas for improvement.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (20), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-13<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (21), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
