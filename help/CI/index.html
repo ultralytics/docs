@@ -1881,9 +1881,54 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Continuous Integration (CI) Guide
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Continuous Integration (CI) Guide
       </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ci-actions">
+    CI Actions
+  </a>
+<nav aria-label="CI Actions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ci-results">
+    CI Results
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#code-coverage">
+    Code Coverage
+  </a>
+<nav aria-label="Code Coverage" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#integration-with-codecovio">
+    Integration with codecov.io
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#coverage-results">
+    Coverage Results
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../CLA/">
@@ -1925,7 +1970,8 @@
 </a>
 <h1 id="continuous-integration-ci">Continuous Integration (CI)</h1>
 <p>Continuous Integration (CI) is an essential aspect of software development which involves integrating changes and testing them automatically. CI allows us to maintain high-quality code by catching issues early and often in the development process. At Ultralytics, we use various CI tests to ensure the quality and integrity of our codebase.</p>
-<p>Here's a brief description of our CI tests:</p>
+<h2 id="ci-actions">CI Actions</h2>
+<p>Here's a brief description of our CI actions:</p>
 <ul>
 <li><strong>CI:</strong> This is our primary CI test that involves running unit tests, linting checks, and sometimes more comprehensive tests depending on the repository.</li>
 <li><strong>Docker Deployment:</strong> This test checks the deployment of the project using Docker to ensure the Dockerfile and related scripts are working correctly.</li>
@@ -1933,6 +1979,7 @@
 <li><strong>CodeQL:</strong> CodeQL is a tool from GitHub that performs semantic analysis on our code, helping to find potential security vulnerabilities and maintain high-quality code.</li>
 <li><strong>PyPi Publishing:</strong> This test checks if the project can be packaged and published to PyPi without any errors.</li>
 </ul>
+<h3 id="ci-results">CI Results</h3>
 <p>Below is the table showing the status of these CI tests for our main repositories:</p>
 <table>
 <thead>
@@ -1991,8 +2038,32 @@
 <p>Each badge shows the status of the last run of the corresponding CI test on the <code>main</code> branch of the respective repository. If a test fails, the badge will display a "failing" status, and if it passes, it will display a "passing" status.</p>
 <p>If you notice a test failing, it would be a great help if you could report it through a GitHub issue in the respective repository.</p>
 <p>Remember, a successful CI test does not mean that everything is perfect. It is always recommended to manually review the code before deployment or merging changes.</p>
-<p>Happy coding!</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-22, Updated 2023-07-23<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<h2 id="code-coverage">Code Coverage</h2>
+<p>Code coverage is a metric that represents the percentage of your codebase that is executed when your tests run. It provides insight into how well your tests exercise your code and can be crucial in identifying untested parts of your application. A high code coverage percentage is often associated with a lower likelihood of bugs. However, it's essential to understand that code coverage doesn't guarantee the absence of defects. It merely indicates which parts of the code have been executed by the tests.</p>
+<h3 id="integration-with-codecovio">Integration with <a href="https://codecov.io/">codecov.io</a></h3>
+<p>At Ultralytics, we have integrated our repositories with <a href="https://codecov.io/">codecov.io</a>, a popular online platform for measuring and visualizing code coverage. Codecov provides detailed insights, coverage comparisons between commits, and visual overlays directly on your code, indicating which lines were covered.</p>
+<p>By integrating with Codecov, we aim to maintain and improve the quality of our code by focusing on areas that might be prone to errors or need further testing.</p>
+<h3 id="coverage-results">Coverage Results</h3>
+<p>To quickly get a glimpse of the code coverage status of the <code>ultralytics</code> python package, we have included a badge and and sunburst visual of the <code>ultralytics</code> coverage results. These images show the percentage of code covered by our tests, offering an at-a-glance metric of our testing efforts. For full details please see https://codecov.io/github/ultralytics/ultralytics.</p>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Code Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/ultralytics/ultralytics">ultralytics</a></td>
+<td><a href="https://codecov.io/gh/ultralytics/ultralytics"><img alt="codecov" src="https://codecov.io/gh/ultralytics/ultralytics/branch/main/graph/badge.svg?token=HHW7IIVFVY"/></a></td>
+</tr>
+</tbody>
+</table>
+<p>In the sunburst graphic below, the inner-most circle is the entire project, moving away from the center are folders then, finally, a single file. The size and color of each slice is representing the number of statements and the coverage, respectively.</p>
+<p><a href="https://codecov.io/github/ultralytics/ultralytics">
+<img alt="Ultralytics Codecov Image" src="https://codecov.io/gh/ultralytics/ultralytics/branch/main/graphs/sunburst.svg?token=HHW7IIVFVY"/>
+</a></p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-22, Updated 2023-08-13<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
