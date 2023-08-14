@@ -1964,9 +1964,7 @@
             Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.engine.model.Model" href="../../../engine/model/#ultralytics.engine.model.Model">Model</a></code></p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/nas/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-25">25</a></span>
 <span class="normal"><a href="#__codelineno-0-26">26</a></span>
 <span class="normal"><a href="#__codelineno-0-27">27</a></span>
 <span class="normal"><a href="#__codelineno-0-28">28</a></span>
@@ -2000,43 +1998,45 @@
 <span class="normal"><a href="#__codelineno-0-56">56</a></span>
 <span class="normal"><a href="#__codelineno-0-57">57</a></span>
 <span class="normal"><a href="#__codelineno-0-58">58</a></span>
-<span class="normal"><a href="#__codelineno-0-59">59</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="k">class</span> <span class="nc">NAS</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'yolo_nas_s.pt'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'.yml'</span><span class="p">),</span> <span class="s1">'YOLO-NAS models only support pre-trained models.'</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">)</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="nd">@smart_inference_mode</span><span class="p">()</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="c1"># Load or create new NAS model</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="kn">import</span> <span class="nn">super_gradients</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="n">suffix</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="k">if</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s1">'.pt'</span><span class="p">:</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="k">elif</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">super_gradients</span><span class="o">.</span><span class="n">training</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">pretrained_weights</span><span class="o">=</span><span class="s1">'coco'</span><span class="p">)</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="c1"># Standardize model</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fuse</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">stride</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">32</span><span class="p">])</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_class_names</span><span class="p">))</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">is_fused</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="kc">False</span>  <span class="c1"># for info()</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">yaml</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># for info()</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pt_path</span> <span class="o">=</span> <span class="n">weights</span>  <span class="c1"># for export()</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s1">'detect'</span>  <span class="c1"># for export()</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        Logs model info.</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">            detailed (bool): Show detailed information about model.</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">            verbose (bool): Controls verbosity.</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        """</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="k">return</span> <span class="n">model_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="n">detailed</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="k">return</span> <span class="p">{</span><span class="s1">'detect'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'predictor'</span><span class="p">:</span> <span class="n">NASPredictor</span><span class="p">,</span> <span class="s1">'validator'</span><span class="p">:</span> <span class="n">NASValidator</span><span class="p">}}</span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="k">class</span> <span class="nc">NAS</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'yolo_nas_s.pt'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'.yml'</span><span class="p">),</span> <span class="s1">'YOLO-NAS models only support pre-trained models.'</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">)</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="c1"># Load or create new NAS model</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="kn">import</span> <span class="nn">super_gradients</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">suffix</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="k">if</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s1">'.pt'</span><span class="p">:</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="k">elif</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">super_gradients</span><span class="o">.</span><span class="n">training</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">pretrained_weights</span><span class="o">=</span><span class="s1">'coco'</span><span class="p">)</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="c1"># Standardize model</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fuse</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">stride</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">32</span><span class="p">])</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_class_names</span><span class="p">))</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">is_fused</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="kc">False</span>  <span class="c1"># for info()</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">yaml</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># for info()</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pt_path</span> <span class="o">=</span> <span class="n">weights</span>  <span class="c1"># for export()</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s1">'detect'</span>  <span class="c1"># for export()</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        Logs model info.</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">            detailed (bool): Show detailed information about model.</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">            verbose (bool): Controls verbosity.</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">        """</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="k">return</span> <span class="n">model_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="n">detailed</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="k">return</span> <span class="p">{</span><span class="s1">'detect'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'predictor'</span><span class="p">:</span> <span class="n">NASPredictor</span><span class="p">,</span> <span class="s1">'validator'</span><span class="p">:</span> <span class="n">NASValidator</span><span class="p">}}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2089,23 +2089,23 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/nas/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-49">49</a></span>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
 <span class="normal"><a href="#__codelineno-0-52">52</a></span>
 <span class="normal"><a href="#__codelineno-0-53">53</a></span>
 <span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    Logs model info.</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        detailed (bool): Show detailed information about model.</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        verbose (bool): Controls verbosity.</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    """</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="k">return</span> <span class="n">model_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="n">detailed</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    Logs model info.</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        detailed (bool): Show detailed information about model.</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">        verbose (bool): Controls verbosity.</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    """</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="k">return</span> <span class="n">model_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="n">detailed</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

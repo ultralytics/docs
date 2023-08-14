@@ -2570,7 +2570,8 @@
 <span class="normal"><a href="#__codelineno-0-320">320</a></span>
 <span class="normal"><a href="#__codelineno-0-321">321</a></span>
 <span class="normal"><a href="#__codelineno-0-322">322</a></span>
-<span class="normal"><a href="#__codelineno-0-323">323</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="k">class</span> <span class="nc">BaseValidator</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-323">323</a></span>
+<span class="normal"><a href="#__codelineno-0-324">324</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="k">class</span> <span class="nc">BaseValidator</span><span class="p">:</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    BaseValidator</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a>
@@ -2837,24 +2838,25 @@
 <a id="__codelineno-0-303" name="__codelineno-0-303"></a>
 <a id="__codelineno-0-304" name="__codelineno-0-304"></a>    <span class="k">def</span> <span class="nf">on_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="w">        </span><span class="sd">"""Registers plots (e.g. to be consumed in callbacks)"""</span>
-<a id="__codelineno-0-306" name="__codelineno-0-306"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'data'</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s1">'timestamp'</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()}</span>
-<a id="__codelineno-0-307" name="__codelineno-0-307"></a>
-<a id="__codelineno-0-308" name="__codelineno-0-308"></a>    <span class="c1"># TODO: may need to put these following functions into callback</span>
-<a id="__codelineno-0-309" name="__codelineno-0-309"></a>    <span class="k">def</span> <span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
-<a id="__codelineno-0-310" name="__codelineno-0-310"></a><span class="w">        </span><span class="sd">"""Plots validation samples during training."""</span>
-<a id="__codelineno-0-311" name="__codelineno-0-311"></a>        <span class="k">pass</span>
-<a id="__codelineno-0-312" name="__codelineno-0-312"></a>
-<a id="__codelineno-0-313" name="__codelineno-0-313"></a>    <span class="k">def</span> <span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
-<a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="w">        </span><span class="sd">"""Plots YOLO model predictions on batch images."""</span>
-<a id="__codelineno-0-315" name="__codelineno-0-315"></a>        <span class="k">pass</span>
-<a id="__codelineno-0-316" name="__codelineno-0-316"></a>
-<a id="__codelineno-0-317" name="__codelineno-0-317"></a>    <span class="k">def</span> <span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-318" name="__codelineno-0-318"></a><span class="w">        </span><span class="sd">"""Convert predictions to JSON format."""</span>
-<a id="__codelineno-0-319" name="__codelineno-0-319"></a>        <span class="k">pass</span>
-<a id="__codelineno-0-320" name="__codelineno-0-320"></a>
-<a id="__codelineno-0-321" name="__codelineno-0-321"></a>    <span class="k">def</span> <span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
-<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="w">        </span><span class="sd">"""Evaluate and return JSON format of prediction statistics."""</span>
-<a id="__codelineno-0-323" name="__codelineno-0-323"></a>        <span class="k">pass</span>
+<a id="__codelineno-0-306" name="__codelineno-0-306"></a>        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<a id="__codelineno-0-307" name="__codelineno-0-307"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'data'</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s1">'timestamp'</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()}</span>
+<a id="__codelineno-0-308" name="__codelineno-0-308"></a>
+<a id="__codelineno-0-309" name="__codelineno-0-309"></a>    <span class="c1"># TODO: may need to put these following functions into callback</span>
+<a id="__codelineno-0-310" name="__codelineno-0-310"></a>    <span class="k">def</span> <span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="w">        </span><span class="sd">"""Plots validation samples during training."""</span>
+<a id="__codelineno-0-312" name="__codelineno-0-312"></a>        <span class="k">pass</span>
+<a id="__codelineno-0-313" name="__codelineno-0-313"></a>
+<a id="__codelineno-0-314" name="__codelineno-0-314"></a>    <span class="k">def</span> <span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="w">        </span><span class="sd">"""Plots YOLO model predictions on batch images."""</span>
+<a id="__codelineno-0-316" name="__codelineno-0-316"></a>        <span class="k">pass</span>
+<a id="__codelineno-0-317" name="__codelineno-0-317"></a>
+<a id="__codelineno-0-318" name="__codelineno-0-318"></a>    <span class="k">def</span> <span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="w">        </span><span class="sd">"""Convert predictions to JSON format."""</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a>        <span class="k">pass</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a>
+<a id="__codelineno-0-322" name="__codelineno-0-322"></a>    <span class="k">def</span> <span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
+<a id="__codelineno-0-323" name="__codelineno-0-323"></a><span class="w">        </span><span class="sd">"""Evaluate and return JSON format of prediction statistics."""</span>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a>        <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -3332,11 +3334,11 @@ if trainer is passed (trainer gets priority).</p>
 <p>Evaluate and return JSON format of prediction statistics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-321">321</a></span>
-<span class="normal"><a href="#__codelineno-0-322">322</a></span>
-<span class="normal"><a href="#__codelineno-0-323">323</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="k">def</span> <span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
-<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="w">    </span><span class="sd">"""Evaluate and return JSON format of prediction statistics."""</span>
-<a id="__codelineno-0-323" name="__codelineno-0-323"></a>    <span class="k">pass</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-322">322</a></span>
+<span class="normal"><a href="#__codelineno-0-323">323</a></span>
+<span class="normal"><a href="#__codelineno-0-324">324</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="k">def</span> <span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
+<a id="__codelineno-0-323" name="__codelineno-0-323"></a><span class="w">    </span><span class="sd">"""Evaluate and return JSON format of prediction statistics."""</span>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3575,9 +3577,11 @@ if trainer is passed (trainer gets priority).</p>
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-304">304</a></span>
 <span class="normal"><a href="#__codelineno-0-305">305</a></span>
-<span class="normal"><a href="#__codelineno-0-306">306</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="k">def</span> <span class="nf">on_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-306">306</a></span>
+<span class="normal"><a href="#__codelineno-0-307">307</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="k">def</span> <span class="nf">on_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="w">    </span><span class="sd">"""Registers plots (e.g. to be consumed in callbacks)"""</span>
-<a id="__codelineno-0-306" name="__codelineno-0-306"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'data'</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s1">'timestamp'</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()}</span>
+<a id="__codelineno-0-306" name="__codelineno-0-306"></a>    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<a id="__codelineno-0-307" name="__codelineno-0-307"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'data'</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s1">'timestamp'</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3590,11 +3594,11 @@ if trainer is passed (trainer gets priority).</p>
 <p>Plots YOLO model predictions on batch images.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-313">313</a></span>
-<span class="normal"><a href="#__codelineno-0-314">314</a></span>
-<span class="normal"><a href="#__codelineno-0-315">315</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="k">def</span> <span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
-<a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="w">    </span><span class="sd">"""Plots YOLO model predictions on batch images."""</span>
-<a id="__codelineno-0-315" name="__codelineno-0-315"></a>    <span class="k">pass</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-314">314</a></span>
+<span class="normal"><a href="#__codelineno-0-315">315</a></span>
+<span class="normal"><a href="#__codelineno-0-316">316</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="k">def</span> <span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="w">    </span><span class="sd">"""Plots YOLO model predictions on batch images."""</span>
+<a id="__codelineno-0-316" name="__codelineno-0-316"></a>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3607,11 +3611,11 @@ if trainer is passed (trainer gets priority).</p>
 <p>Plots validation samples during training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-309">309</a></span>
-<span class="normal"><a href="#__codelineno-0-310">310</a></span>
-<span class="normal"><a href="#__codelineno-0-311">311</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-309" name="__codelineno-0-309"></a><span class="k">def</span> <span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
-<a id="__codelineno-0-310" name="__codelineno-0-310"></a><span class="w">    </span><span class="sd">"""Plots validation samples during training."""</span>
-<a id="__codelineno-0-311" name="__codelineno-0-311"></a>    <span class="k">pass</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-310">310</a></span>
+<span class="normal"><a href="#__codelineno-0-311">311</a></span>
+<span class="normal"><a href="#__codelineno-0-312">312</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-310" name="__codelineno-0-310"></a><span class="k">def</span> <span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="w">    </span><span class="sd">"""Plots validation samples during training."""</span>
+<a id="__codelineno-0-312" name="__codelineno-0-312"></a>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3641,11 +3645,11 @@ if trainer is passed (trainer gets priority).</p>
 <p>Convert predictions to JSON format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-317">317</a></span>
-<span class="normal"><a href="#__codelineno-0-318">318</a></span>
-<span class="normal"><a href="#__codelineno-0-319">319</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-317" name="__codelineno-0-317"></a><span class="k">def</span> <span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-318" name="__codelineno-0-318"></a><span class="w">    </span><span class="sd">"""Convert predictions to JSON format."""</span>
-<a id="__codelineno-0-319" name="__codelineno-0-319"></a>    <span class="k">pass</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-318">318</a></span>
+<span class="normal"><a href="#__codelineno-0-319">319</a></span>
+<span class="normal"><a href="#__codelineno-0-320">320</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-318" name="__codelineno-0-318"></a><span class="k">def</span> <span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="w">    </span><span class="sd">"""Convert predictions to JSON format."""</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

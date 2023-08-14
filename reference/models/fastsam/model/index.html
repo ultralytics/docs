@@ -1963,11 +1963,13 @@
 <p class="doc doc-class-bases">
             Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.engine.model.Model" href="../../../engine/model/#ultralytics.engine.model.Model">Model</a></code></p>
 <p>FastSAM model interface.</p>
-<details class="usage---predict" open="">
-<summary>Usage - Predict</summary>
-<p>from ultralytics import FastSAM</p>
-<p>model = FastSAM('last.pt')
-results = model.predict('ultralytics/assets/bus.jpg')</p>
+<details class="example" open="">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">FastSAM</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">FastSAM</span><span class="p">(</span><span class="s1">'last.pt'</span><span class="p">)</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">'ultralytics/assets/bus.jpg'</span><span class="p">)</span>
+</code></pre></div>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/model.py</code></summary>
@@ -1991,27 +1993,31 @@ results = model.predict('ultralytics/assets/bus.jpg')</p>
 <span class="normal"><a href="#__codelineno-0-28">28</a></span>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
 <span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">class</span> <span class="nc">FastSAM</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">class</span> <span class="nc">FastSAM</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    FastSAM model interface.</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    Usage - Predict:</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">        from ultralytics import FastSAM</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        model = FastSAM('last.pt')</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">        results = model.predict('ultralytics/assets/bus.jpg')</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    """</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'FastSAM-x.pt'</span><span class="p">):</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">        </span><span class="sd">"""Call the __init__ method of the parent class (YOLO) with the updated default model"""</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="k">if</span> <span class="n">model</span> <span class="o">==</span> <span class="s1">'FastSAM.pt'</span><span class="p">:</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>            <span class="n">model</span> <span class="o">=</span> <span class="s1">'FastSAM-x.pt'</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'.yml'</span><span class="p">),</span> <span class="s1">'FastSAM models only support pre-trained models.'</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'segment'</span><span class="p">)</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="k">return</span> <span class="p">{</span><span class="s1">'segment'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'predictor'</span><span class="p">:</span> <span class="n">FastSAMPredictor</span><span class="p">,</span> <span class="s1">'validator'</span><span class="p">:</span> <span class="n">FastSAMValidator</span><span class="p">}}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">        from ultralytics import FastSAM</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">        model = FastSAM('last.pt')</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        results = model.predict('ultralytics/assets/bus.jpg')</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    """</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'FastSAM-x.pt'</span><span class="p">):</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">        </span><span class="sd">"""Call the __init__ method of the parent class (YOLO) with the updated default model"""</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'FastSAM.pt'</span><span class="p">:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>            <span class="n">model</span> <span class="o">=</span> <span class="s1">'FastSAM-x.pt'</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'.yml'</span><span class="p">),</span> <span class="s1">'FastSAM models only support pre-trained models.'</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'segment'</span><span class="p">)</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="k">return</span> <span class="p">{</span><span class="s1">'segment'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'predictor'</span><span class="p">:</span> <span class="n">FastSAMPredictor</span><span class="p">,</span> <span class="s1">'validator'</span><span class="p">:</span> <span class="n">FastSAMValidator</span><span class="p">}}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2023,17 +2029,17 @@ results = model.predict('ultralytics/assets/bus.jpg')</p>
 <p>Call the <strong>init</strong> method of the parent class (YOLO) with the updated default model</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-24">24</a></span>
 <span class="normal"><a href="#__codelineno-0-25">25</a></span>
 <span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'FastSAM-x.pt'</span><span class="p">):</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="sd">"""Call the __init__ method of the parent class (YOLO) with the updated default model"""</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="k">if</span> <span class="n">model</span> <span class="o">==</span> <span class="s1">'FastSAM.pt'</span><span class="p">:</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="n">model</span> <span class="o">=</span> <span class="s1">'FastSAM-x.pt'</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'.yml'</span><span class="p">),</span> <span class="s1">'FastSAM models only support pre-trained models.'</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'segment'</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'FastSAM-x.pt'</span><span class="p">):</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">    </span><span class="sd">"""Call the __init__ method of the parent class (YOLO) with the updated default model"""</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'FastSAM.pt'</span><span class="p">:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="n">model</span> <span class="o">=</span> <span class="s1">'FastSAM-x.pt'</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'.yml'</span><span class="p">),</span> <span class="s1">'FastSAM models only support pre-trained models.'</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'segment'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
