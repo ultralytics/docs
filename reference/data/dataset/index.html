@@ -1544,6 +1544,16 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.data.dataset.load_dataset_cache_file">
+    load_dataset_cache_file()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.data.dataset.save_dataset_cache_file">
+    save_dataset_cache_file()
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -4075,7 +4085,67 @@
 </div>
 </div>
 </div><p><br/><br/></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-07-16, Updated 2023-08-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="ultralytics.data.dataset.load_dataset_cache_file">
+<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">load_dataset_cache_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Load an Ultralytics *.cache dictionary from path.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-302">302</a></span>
+<span class="normal"><a href="#__codelineno-0-303">303</a></span>
+<span class="normal"><a href="#__codelineno-0-304">304</a></span>
+<span class="normal"><a href="#__codelineno-0-305">305</a></span>
+<span class="normal"><a href="#__codelineno-0-306">306</a></span>
+<span class="normal"><a href="#__codelineno-0-307">307</a></span>
+<span class="normal"><a href="#__codelineno-0-308">308</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="k">def</span> <span class="nf">load_dataset_cache_file</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="w">    </span><span class="sd">"""Load an Ultralytics *.cache dictionary from path."""</span>
+<a id="__codelineno-0-304" name="__codelineno-0-304"></a>    <span class="kn">import</span> <span class="nn">gc</span>
+<a id="__codelineno-0-305" name="__codelineno-0-305"></a>    <span class="n">gc</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>  <span class="c1"># reduce pickle load time https://github.com/ultralytics/ultralytics/pull/1585</span>
+<a id="__codelineno-0-306" name="__codelineno-0-306"></a>    <span class="n">cache</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>  <span class="c1"># load dict</span>
+<a id="__codelineno-0-307" name="__codelineno-0-307"></a>    <span class="n">gc</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
+<a id="__codelineno-0-308" name="__codelineno-0-308"></a>    <span class="k">return</span> <span class="n">cache</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><p><br/><br/></p>
+<hr/>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="ultralytics.data.dataset.save_dataset_cache_file">
+<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">save_dataset_cache_file</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span></code>
+</h2>
+<div class="doc doc-contents first">
+<p>Save an Ultralytics dataset *.cache dictionary x to path.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-311">311</a></span>
+<span class="normal"><a href="#__codelineno-0-312">312</a></span>
+<span class="normal"><a href="#__codelineno-0-313">313</a></span>
+<span class="normal"><a href="#__codelineno-0-314">314</a></span>
+<span class="normal"><a href="#__codelineno-0-315">315</a></span>
+<span class="normal"><a href="#__codelineno-0-316">316</a></span>
+<span class="normal"><a href="#__codelineno-0-317">317</a></span>
+<span class="normal"><a href="#__codelineno-0-318">318</a></span>
+<span class="normal"><a href="#__codelineno-0-319">319</a></span>
+<span class="normal"><a href="#__codelineno-0-320">320</a></span>
+<span class="normal"><a href="#__codelineno-0-321">321</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="k">def</span> <span class="nf">save_dataset_cache_file</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-0-312" name="__codelineno-0-312"></a><span class="w">    </span><span class="sd">"""Save an Ultralytics dataset *.cache dictionary x to path."""</span>
+<a id="__codelineno-0-313" name="__codelineno-0-313"></a>    <span class="n">x</span><span class="p">[</span><span class="s1">'version'</span><span class="p">]</span> <span class="o">=</span> <span class="n">DATASET_CACHE_VERSION</span>  <span class="c1"># add cache version</span>
+<a id="__codelineno-0-314" name="__codelineno-0-314"></a>    <span class="k">if</span> <span class="n">is_dir_writeable</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="p">):</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a>        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<a id="__codelineno-0-316" name="__codelineno-0-316"></a>            <span class="n">path</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>  <span class="c1"># remove *.cache file if exists</span>
+<a id="__codelineno-0-317" name="__codelineno-0-317"></a>        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>  <span class="c1"># save cache for next time</span>
+<a id="__codelineno-0-318" name="__codelineno-0-318"></a>        <span class="n">path</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">'.cache.npy'</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># remove .npy suffix</span>
+<a id="__codelineno-0-319" name="__codelineno-0-319"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">New cache created: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">WARNING ⚠️ Cache directory </span><span class="si">{</span><span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s1"> is not writeable, cache not saved.'</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><p><br/><br/></p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-07-16, Updated 2023-08-24<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

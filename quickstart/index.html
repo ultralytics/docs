@@ -2629,52 +2629,64 @@
 <div class="tabbed-block">
 <p>Install the <code>ultralytics</code> package using pip, or update an existing installation by running <code>pip install -U ultralytics</code>. Visit the Python Package Index (PyPI) for more details on the <code>ultralytics</code> package: <a href="https://pypi.org/project/ultralytics/">https://pypi.org/project/ultralytics/</a>.</p>
 <p><a href="https://badge.fury.io/py/ultralytics"><img alt="PyPI version" src="https://badge.fury.io/py/ultralytics.svg"/></a> <a href="https://pepy.tech/project/ultralytics"><img alt="Downloads" src="https://static.pepy.tech/badge/ultralytics"/></a></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the ultralytics package using pip</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the ultralytics package from PyPI</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+</code></pre></div>
+<p>You can also install the <code>ultralytics</code> package directly from the GitHub repository. This might be useful if you want the latest development version. Make sure to have the Git command-line tool installed on your system. The <code>@main</code> command installs the <code>main</code> branch and may be modified to another branch, i.e. <code>@my-branch</code>, or removed alltogether to default to <code>main</code> branch.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Install the ultralytics package from GitHub</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/ultralytics/ultralytics.git@main
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Conda is an alternative package manager to pip which may also be used for installation. Visit Anaconda for more details at <a href="https://anaconda.org/conda-forge/ultralytics">https://anaconda.org/conda-forge/ultralytics</a>. Ultralytics feedstock repository for updating the conda package is at <a href="https://github.com/conda-forge/ultralytics-feedstock/">https://github.com/conda-forge/ultralytics-feedstock/</a>.</p>
 <p><a href="https://anaconda.org/conda-forge/ultralytics"><img alt="Conda Recipe" src="https://img.shields.io/badge/recipe-ultralytics-green.svg"/></a> <a href="https://anaconda.org/conda-forge/ultralytics"><img alt="Conda Downloads" src="https://img.shields.io/conda/dn/conda-forge/ultralytics.svg"/></a> <a href="https://anaconda.org/conda-forge/ultralytics"><img alt="Conda Version" src="https://img.shields.io/conda/vn/conda-forge/ultralytics.svg"/></a> <a href="https://anaconda.org/conda-forge/ultralytics"><img alt="Conda Platforms" src="https://img.shields.io/conda/pn/conda-forge/ultralytics.svg"/></a></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Install the ultralytics package using conda</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Install the ultralytics package using conda</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ultralytics
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are installing in a CUDA environment best practice is to install <code>ultralytics</code>, <code>pytorch</code> and <code>pytorch-cuda</code> in the same command to allow the conda package manager to resolve any conflicts, or else to install <code>pytorch-cuda</code> last to allow it override the CPU-specific <code>pytorch</code> package if necesary.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Install all packages together using conda</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia<span class="w"> </span>ultralytics<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Install all packages together using conda</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia<span class="w"> </span>ultralytics<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>
 </code></pre></div></p>
 </div>
 </div>
 <div class="tabbed-block">
 <p>Clone the <code>ultralytics</code> repository if you are interested in contributing to the development or wish to experiment with the latest source code. After cloning, navigate into the directory and install the package in editable mode <code>-e</code> using pip.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Clone the ultralytics repository</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/ultralytics
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Navigate to the cloned directory</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="nb">cd</span><span class="w"> </span>ultralytics
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># Install the package in editable mode for development</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Clone the ultralytics repository</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/ultralytics
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># Navigate to the cloned directory</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="nb">cd</span><span class="w"> </span>ultralytics
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># Install the package in editable mode for development</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
-<p>Utilize Docker to execute the <code>ultralytics</code> package in an isolated container. By employing the official <code>ultralytics</code> image from <a href="https://hub.docker.com/r/ultralytics/ultralytics">Docker Hub</a>, you can avoid local installation. Below are the commands to get the latest image and execute it:</p>
+<p>Utilize Docker to effortlessly execute the <code>ultralytics</code> package in an isolated container, ensuring consistent and smooth performance across various environments. By choosing one of the official <code>ultralytics</code> images from <a href="https://hub.docker.com/r/ultralytics/ultralytics">Docker Hub</a>, you not only avoid the complexity of local installation but also benefit from access to a verified working environment. Ultralytics offers 5 main supported Docker images, each designed to provide high compatibility and efficiency for different platforms and use cases:</p>
 <p><a href="https://hub.docker.com/r/ultralytics/ultralytics"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/ultralytics?logo=docker"/></a></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Set image name as a variable</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># Pull the latest ultralytics image from Docker Hub</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># Run the ultralytics image in a container with GPU support</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
+<ul>
+<li><strong>Dockerfile:</strong> GPU image recommended for training.</li>
+<li><strong>Dockerfile-arm64:</strong> Optimized for ARM64 architecture, allowing deployment on devices like Raspberry Pi and other ARM64-based platforms.</li>
+<li><strong>Dockerfile-cpu:</strong> Ubuntu-based CPU-only version suitable for inference and environments without GPUs.</li>
+<li><strong>Dockerfile-jetson:</strong> Tailored for NVIDIA Jetson devices, integrating GPU support optimized for these platforms.</li>
+<li><strong>Dockerfile-python:</strong> Minimal image with just Python and necessary dependencies, ideal for lightweight applications and development.</li>
+</ul>
+<p>Below are the commands to get the latest image and execute it:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Set image name as a variable</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># Pull the latest ultralytics image from Docker Hub</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># Run the ultralytics image in a container with GPU support</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>The above command initializes a Docker container with the latest <code>ultralytics</code> image. The <code>-it</code> flag assigns a pseudo-TTY and maintains stdin open, enabling you to interact with the container. The <code>--ipc=host</code> flag sets the IPC (Inter-Process Communication) namespace to the host, which is essential for sharing memory between processes. The <code>--gpus all</code> flag enables access to all available GPUs inside the container, which is crucial for tasks that require GPU computation.</p>
 <p>Note: To work with files on your local machine within the container, use Docker volumes for mounting a local directory into the container:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Mount local directory to a directory inside the container</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Mount local directory to a directory inside the container</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>Alter <code>/path/on/host</code> with the directory path on your local machine, and <code>/path/in/container</code> with the desired path inside the Docker container for accessibility.</p>
 </div>
@@ -2698,42 +2710,42 @@ CLI requires no customization or Python code. You can simply run all tasks from 
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Ultralytics <code>yolo</code> commands use the following syntax:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>yolo<span class="w"> </span>TASK<span class="w"> </span>MODE<span class="w"> </span>ARGS
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>Where<span class="w">   </span>TASK<span class="w"> </span><span class="o">(</span>optional<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span><span class="o">[</span>detect,<span class="w"> </span>segment,<span class="w"> </span>classify<span class="o">]</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">        </span>MODE<span class="w"> </span><span class="o">(</span>required<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span><span class="o">[</span>train,<span class="w"> </span>val,<span class="w"> </span>predict,<span class="w"> </span>export,<span class="w"> </span>track<span class="o">]</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span>ARGS<span class="w"> </span><span class="o">(</span>optional<span class="o">)</span><span class="w"> </span>are<span class="w"> </span>any<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>custom<span class="w"> </span><span class="s1">'arg=value'</span><span class="w"> </span>pairs<span class="w"> </span>like<span class="w"> </span><span class="s1">'imgsz=320'</span><span class="w"> </span>that<span class="w"> </span>override<span class="w"> </span>defaults.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>yolo<span class="w"> </span>TASK<span class="w"> </span>MODE<span class="w"> </span>ARGS
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>Where<span class="w">   </span>TASK<span class="w"> </span><span class="o">(</span>optional<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span><span class="o">[</span>detect,<span class="w"> </span>segment,<span class="w"> </span>classify<span class="o">]</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">        </span>MODE<span class="w"> </span><span class="o">(</span>required<span class="o">)</span><span class="w"> </span>is<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span><span class="o">[</span>train,<span class="w"> </span>val,<span class="w"> </span>predict,<span class="w"> </span>export,<span class="w"> </span>track<span class="o">]</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">        </span>ARGS<span class="w"> </span><span class="o">(</span>optional<span class="o">)</span><span class="w"> </span>are<span class="w"> </span>any<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>custom<span class="w"> </span><span class="s1">'arg=value'</span><span class="w"> </span>pairs<span class="w"> </span>like<span class="w"> </span><span class="s1">'imgsz=320'</span><span class="w"> </span>that<span class="w"> </span>override<span class="w"> </span>defaults.
 </code></pre></div>
 See all ARGS in the full <a href="../usage/cfg/">Configuration Guide</a> or with <code>yolo cfg</code></p>
 </div>
 <div class="tabbed-block">
 <p>Train a detection model for 10 epochs with an initial learning_rate of 0.01
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco128.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco128.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Predict a YouTube video using a pretrained segmentation model at image size 320:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://youtu.be/Zgi9g1ksQHc'</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">320</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://youtu.be/Zgi9g1ksQHc'</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">320</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Val a pretrained detection model at batch-size 1 and image size 640:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco128.yaml<span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco128.yaml<span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Export a YOLOv8n classification model to ONNX format at image size 224 by 128 (no TASK required)
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-cls.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">224</span>,128
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-cls.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">224</span>,128
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run special commands to see version, view settings, run checks and more:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>yolo<span class="w"> </span><span class="nb">help</span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>yolo<span class="w"> </span>checks
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>yolo<span class="w"> </span>version
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>yolo<span class="w"> </span>settings
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>yolo<span class="w"> </span>copy-cfg
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>yolo<span class="w"> </span>cfg
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>yolo<span class="w"> </span><span class="nb">help</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>yolo<span class="w"> </span>checks
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>yolo<span class="w"> </span>version
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>yolo<span class="w"> </span>settings
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>yolo<span class="w"> </span>copy-cfg
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>yolo<span class="w"> </span>cfg
 </code></pre></div></p>
 </div>
 </div>
@@ -2754,25 +2766,25 @@ See all ARGS in the full <a href="../usage/cfg/">Configuration Guide</a> or with
 <p>For example, users can load a model, train it, evaluate its performance on a validation set, and even export it to ONNX format with just a few lines of code. Check out the <a href="../usage/python/">Python Guide</a> to learn more about using YOLOv8 within your Python projects.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="c1"># Create a new YOLO model from scratch</span>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.yaml'</span><span class="p">)</span>
-<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="c1"># Load a pretrained YOLO model (recommended for training)</span>
-<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
-<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>
-<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="c1"># Train the model using the 'coco128.yaml' dataset for 3 epochs</span>
-<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco128.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a>
-<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="c1"># Evaluate the model's performance on the validation set</span>
-<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">()</span>
-<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a>
-<a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="c1"># Perform object detection on an image using the model</span>
-<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span><span class="p">)</span>
-<a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a>
-<a href="#__codelineno-12-18" id="__codelineno-12-18" name="__codelineno-12-18"></a><span class="c1"># Export the model to ONNX format</span>
-<a href="#__codelineno-12-19" id="__codelineno-12-19" name="__codelineno-12-19"></a><span class="n">success</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'onnx'</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1"># Create a new YOLO model from scratch</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.yaml'</span><span class="p">)</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="c1"># Load a pretrained YOLO model (recommended for training)</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a>
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="c1"># Train the model using the 'coco128.yaml' dataset for 3 epochs</span>
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco128.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a>
+<a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="c1"># Evaluate the model's performance on the validation set</span>
+<a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">()</span>
+<a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a>
+<a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="c1"># Perform object detection on an image using the model</span>
+<a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-13-17" id="__codelineno-13-17" name="__codelineno-13-17"></a>
+<a href="#__codelineno-13-18" id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="c1"># Export the model to ONNX format</span>
+<a href="#__codelineno-13-19" id="__codelineno-13-19" name="__codelineno-13-19"></a><span class="n">success</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'onnx'</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p><a class="md-button md-button--primary" href="../usage/python/">Python Guide</a></p>
@@ -2786,18 +2798,18 @@ See all ARGS in the full <a href="../usage/cfg/">Configuration Guide</a> or with
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>You can use Python to view your settings. Start by importing the <code>settings</code> object from the <code>ultralytics</code> module. Print and return settings using the following commands:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">settings</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1"># View all settings</span>
-<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>
-<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="c1"># Return a specific setting</span>
-<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="n">value</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s1">'runs_dir'</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">settings</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="c1"># View all settings</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="c1"># Return a specific setting</span>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">value</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s1">'runs_dir'</span><span class="p">]</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Alternatively, the command-line interface allows you to check your settings with a simple command:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>yolo<span class="w"> </span>settings
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>yolo<span class="w"> </span>settings
 </code></pre></div></p>
 </div>
 </div>
@@ -2811,28 +2823,28 @@ See all ARGS in the full <a href="../usage/cfg/">Configuration Guide</a> or with
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Within the Python environment, call the <code>update</code> method on the <code>settings</code> object to change your settings:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">settings</span>
-<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
-<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1"># Update a setting</span>
-<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'runs_dir'</span><span class="p">:</span> <span class="s1">'/path/to/runs'</span><span class="p">})</span>
-<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>
-<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="c1"># Update multiple settings</span>
-<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'runs_dir'</span><span class="p">:</span> <span class="s1">'/path/to/runs'</span><span class="p">,</span> <span class="s1">'tensorboard'</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
-<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a>
-<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="c1"># Reset settings to default values</span>
-<a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="n">settings</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">settings</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="c1"># Update a setting</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'runs_dir'</span><span class="p">:</span> <span class="s1">'/path/to/runs'</span><span class="p">})</span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="c1"># Update multiple settings</span>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'runs_dir'</span><span class="p">:</span> <span class="s1">'/path/to/runs'</span><span class="p">,</span> <span class="s1">'tensorboard'</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a>
+<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="c1"># Reset settings to default values</span>
+<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="n">settings</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>If you prefer using the command-line interface, the following commands will allow you to modify your settings:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1"># Update a setting</span>
-<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>yolo<span class="w"> </span>settings<span class="w"> </span><span class="nv">runs_dir</span><span class="o">=</span><span class="s1">'/path/to/runs'</span>
-<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>
-<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="c1"># Update multiple settings</span>
-<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>yolo<span class="w"> </span>settings<span class="w"> </span><span class="nv">runs_dir</span><span class="o">=</span><span class="s1">'/path/to/runs'</span><span class="w"> </span><span class="nv">tensorboard</span><span class="o">=</span>False
-<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a>
-<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="c1"># Reset settings to default values</span>
-<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a>yolo<span class="w"> </span>settings<span class="w"> </span>reset
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># Update a setting</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>yolo<span class="w"> </span>settings<span class="w"> </span><span class="nv">runs_dir</span><span class="o">=</span><span class="s1">'/path/to/runs'</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="c1"># Update multiple settings</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>yolo<span class="w"> </span>settings<span class="w"> </span><span class="nv">runs_dir</span><span class="o">=</span><span class="s1">'/path/to/runs'</span><span class="w"> </span><span class="nv">tensorboard</span><span class="o">=</span>False
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="c1"># Reset settings to default values</span>
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a>yolo<span class="w"> </span>settings<span class="w"> </span>reset
 </code></pre></div></p>
 </div>
 </div>
@@ -2949,7 +2961,7 @@ See all ARGS in the full <a href="../usage/cfg/">Configuration Guide</a> or with
 </tbody>
 </table>
 <p>As you navigate through your projects or experiments, be sure to revisit these settings to ensure that they are optimally configured for your needs.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2022-12-05, Updated 2023-08-14<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (17), <a href="https://github.com/shcheklein">shcheklein</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (4)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2022-12-05, Updated 2023-08-24<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (18), <a href="https://github.com/shcheklein">shcheklein</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
