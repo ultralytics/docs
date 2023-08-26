@@ -2514,8 +2514,7 @@
 <h1 id="instance-segmentation-datasets-overview">Instance Segmentation Datasets Overview</h1>
 <h2 id="supported-dataset-formats">Supported Dataset Formats</h2>
 <h3 id="ultralytics-yolo-format">Ultralytics YOLO format</h3>
-<p>** Label Format **</p>
-<p>The dataset format used for training YOLO segmentation models is as follows:</p>
+<p>The dataset label format used for training YOLO segmentation models is as follows:</p>
 <ol>
 <li>One text file per image: Each image in the dataset has a corresponding text file with the same name as the image file and the ".txt" extension.</li>
 <li>One row per object: Each row in the text file corresponds to one object instance in the image.</li>
@@ -2529,14 +2528,14 @@
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>&lt;class-index&gt; &lt;x1&gt; &lt;y1&gt; &lt;x2&gt; &lt;y2&gt; ... &lt;xn&gt; &lt;yn&gt;
 </code></pre></div>
 <p>In this format, <code>&lt;class-index&gt;</code> is the index of the class for the object, and <code>&lt;x1&gt; &lt;y1&gt; &lt;x2&gt; &lt;y2&gt; ... &lt;xn&gt; &lt;yn&gt;</code> are the bounding coordinates of the object's segmentation mask. The coordinates are separated by spaces.</p>
-<p>Here is an example of the YOLO dataset format for a single image with two object instances:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>0 0.6812 0.48541 0.67 0.4875 0.67656 0.487 0.675 0.489 0.66
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>1 0.5046 0.0 0.5015 0.004 0.4984 0.00416 0.4937 0.010 0.492 0.0104
+<p>Here is an example of the YOLO dataset format for a single image with two objects made up of a 3-point segment and a 5-point segment.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>0 0.681 0.485 0.670 0.487 0.676 0.487
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>1 0.504 0.000 0.501 0.004 0.498 0.004 0.493 0.010 0.492 0.0104
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul>
-<li>The length of each row does not have to be equal.</li>
+<li>The length of each row does <strong>not</strong> have to be equal.</li>
 <li>Each segmentation label must have a <strong>minimum of 3 xy points</strong>: <code>&lt;class-index&gt; &lt;x1&gt; &lt;y1&gt; &lt;x2&gt; &lt;y2&gt; &lt;x3&gt; &lt;y3&gt;</code></li>
 </ul>
 </div>
@@ -2592,20 +2591,36 @@
 <h2 id="port-or-convert-label-formats">Port or Convert Label Formats</h2>
 <h3 id="coco-dataset-format-to-yolo-format">COCO Dataset Format to YOLO Format</h3>
 <p>You can easily convert labels from the popular COCO dataset format to the YOLO format using the following code snippet:</p>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">convert_coco</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s1">'../coco/annotations/'</span><span class="p">,</span> <span class="n">use_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s1">'path/to/coco/annotations/'</span><span class="p">,</span> <span class="n">use_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
+</div>
+</div>
+</input></div>
+</div>
 <p>This conversion tool can be used to convert the COCO dataset or any dataset in the COCO format to the Ultralytics YOLO format.</p>
 <p>Remember to double-check if the dataset you want to use is compatible with your model and follows the necessary format conventions. Properly formatted datasets are crucial for training successful object detection models.</p>
 <h2 id="auto-annotation">Auto-Annotation</h2>
 <p>Auto-annotation is an essential feature that allows you to generate a segmentation dataset using a pre-trained detection model. It enables you to quickly and accurately annotate a large number of images without the need for manual labeling, saving time and effort.</p>
 <h3 id="generate-segmentation-dataset-using-a-detection-model">Generate Segmentation Dataset Using a Detection Model</h3>
 <p>To auto-annotate your dataset using the Ultralytics framework, you can use the <code>auto_annotate</code> function as shown below:</p>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.annotator</span> <span class="kn">import</span> <span class="n">auto_annotate</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">auto_annotate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span> <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolov8x.pt"</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s1">'sam_b.pt'</span><span class="p">)</span>
 </code></pre></div>
+</div>
+</div>
+</input></div>
+</div>
 <table>
 <thead>
 <tr>
@@ -2650,7 +2665,7 @@
 </table>
 <p>The <code>auto_annotate</code> function takes the path to your images, along with optional arguments for specifying the pre-trained detection and <a href="https://docs.ultralytics.com/models/sam">SAM segmentation models</a>, the device to run the models on, and the output directory for saving the annotated results.</p>
 <p>By leveraging the power of pre-trained models, auto-annotation can significantly reduce the time and effort required for creating high-quality segmentation datasets. This feature is particularly useful for researchers and developers working with large image collections, as it allows them to focus on model development and evaluation rather than manual annotation.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-08, Updated 2023-08-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (11), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-08, Updated 2023-08-26<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (12), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
