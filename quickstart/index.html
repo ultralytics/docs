@@ -2681,7 +2681,8 @@
 <a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>
 <a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># Run the ultralytics image in a container with GPU support</span>
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span><span class="w">  </span><span class="c1"># all GPUs</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span><span class="w">  </span><span class="c1"># specify GPUs</span>
 </code></pre></div>
 <p>The above command initializes a Docker container with the latest <code>ultralytics</code> image. The <code>-it</code> flag assigns a pseudo-TTY and maintains stdin open, enabling you to interact with the container. The <code>--ipc=host</code> flag sets the IPC (Inter-Process Communication) namespace to the host, which is essential for sharing memory between processes. The <code>--gpus all</code> flag enables access to all available GPUs inside the container, which is crucial for tasks that require GPU computation.</p>
 <p>Note: To work with files on your local machine within the container, use Docker volumes for mounting a local directory into the container:</p>
@@ -2961,7 +2962,7 @@ See all ARGS in the full <a href="../usage/cfg/">Configuration Guide</a> or with
 </tbody>
 </table>
 <p>As you navigate through your projects or experiments, be sure to revisit these settings to ensure that they are optimally configured for your needs.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2022-12-05, Updated 2023-08-24<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (18), <a href="https://github.com/shcheklein">shcheklein</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (4)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2022-12-05, Updated 2023-08-26<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (19), <a href="https://github.com/shcheklein">shcheklein</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
