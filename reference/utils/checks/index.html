@@ -4390,7 +4390,11 @@ results, so AMP will be disabled during training.</p>
 <span class="normal"><a href="#__codelineno-0-522">522</a></span>
 <span class="normal"><a href="#__codelineno-0-523">523</a></span>
 <span class="normal"><a href="#__codelineno-0-524">524</a></span>
-<span class="normal"><a href="#__codelineno-0-525">525</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-512" name="__codelineno-0-512"></a><span class="k">def</span> <span class="nf">cuda_device_count</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-525">525</a></span>
+<span class="normal"><a href="#__codelineno-0-526">526</a></span>
+<span class="normal"><a href="#__codelineno-0-527">527</a></span>
+<span class="normal"><a href="#__codelineno-0-528">528</a></span>
+<span class="normal"><a href="#__codelineno-0-529">529</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-512" name="__codelineno-0-512"></a><span class="k">def</span> <span class="nf">cuda_device_count</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a id="__codelineno-0-513" name="__codelineno-0-513"></a><span class="w">    </span><span class="sd">"""Get the number of NVIDIA GPUs available in the environment.</span>
 <a id="__codelineno-0-514" name="__codelineno-0-514"></a>
 <a id="__codelineno-0-515" name="__codelineno-0-515"></a><span class="sd">    Returns:</span>
@@ -4400,10 +4404,14 @@ results, so AMP will be disabled during training.</p>
 <a id="__codelineno-0-519" name="__codelineno-0-519"></a>        <span class="c1"># Run the nvidia-smi command and capture its output</span>
 <a id="__codelineno-0-520" name="__codelineno-0-520"></a>        <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s1">'nvidia-smi'</span><span class="p">,</span> <span class="s1">'--query-gpu=count'</span><span class="p">,</span> <span class="s1">'--format=csv,noheader,nounits'</span><span class="p">],</span>
 <a id="__codelineno-0-521" name="__codelineno-0-521"></a>                                         <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
-<a id="__codelineno-0-522" name="__codelineno-0-522"></a>        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-<a id="__codelineno-0-523" name="__codelineno-0-523"></a>    <span class="k">except</span> <span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">,</span> <span class="ne">FileNotFoundError</span><span class="p">):</span>
-<a id="__codelineno-0-524" name="__codelineno-0-524"></a>        <span class="c1"># If the command fails or nvidia-smi is not found, assume no GPUs are available</span>
-<a id="__codelineno-0-525" name="__codelineno-0-525"></a>        <span class="k">return</span> <span class="mi">0</span>
+<a id="__codelineno-0-522" name="__codelineno-0-522"></a>
+<a id="__codelineno-0-523" name="__codelineno-0-523"></a>        <span class="c1"># Take the first line and strip any leading/trailing white space</span>
+<a id="__codelineno-0-524" name="__codelineno-0-524"></a>        <span class="n">first_line</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-525" name="__codelineno-0-525"></a>
+<a id="__codelineno-0-526" name="__codelineno-0-526"></a>        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">first_line</span><span class="p">)</span>
+<a id="__codelineno-0-527" name="__codelineno-0-527"></a>    <span class="k">except</span> <span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">,</span> <span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+<a id="__codelineno-0-528" name="__codelineno-0-528"></a>        <span class="c1"># If the command fails, nvidia-smi is not found, or output is not an integer, assume no GPUs are available</span>
+<a id="__codelineno-0-529" name="__codelineno-0-529"></a>        <span class="k">return</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4438,19 +4446,19 @@ results, so AMP will be disabled during training.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-528">528</a></span>
-<span class="normal"><a href="#__codelineno-0-529">529</a></span>
-<span class="normal"><a href="#__codelineno-0-530">530</a></span>
-<span class="normal"><a href="#__codelineno-0-531">531</a></span>
-<span class="normal"><a href="#__codelineno-0-532">532</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-532">532</a></span>
 <span class="normal"><a href="#__codelineno-0-533">533</a></span>
-<span class="normal"><a href="#__codelineno-0-534">534</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-528" name="__codelineno-0-528"></a><span class="k">def</span> <span class="nf">cuda_is_available</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<a id="__codelineno-0-529" name="__codelineno-0-529"></a><span class="w">    </span><span class="sd">"""Check if CUDA is available in the environment.</span>
-<a id="__codelineno-0-530" name="__codelineno-0-530"></a>
-<a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="sd">        (bool): True if one or more NVIDIA GPUs are available, False otherwise.</span>
-<a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="sd">    """</span>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a>    <span class="k">return</span> <span class="n">cuda_device_count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="normal"><a href="#__codelineno-0-534">534</a></span>
+<span class="normal"><a href="#__codelineno-0-535">535</a></span>
+<span class="normal"><a href="#__codelineno-0-536">536</a></span>
+<span class="normal"><a href="#__codelineno-0-537">537</a></span>
+<span class="normal"><a href="#__codelineno-0-538">538</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="k">def</span> <span class="nf">cuda_is_available</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="w">    </span><span class="sd">"""Check if CUDA is available in the environment.</span>
+<a id="__codelineno-0-534" name="__codelineno-0-534"></a>
+<a id="__codelineno-0-535" name="__codelineno-0-535"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-536" name="__codelineno-0-536"></a><span class="sd">        (bool): True if one or more NVIDIA GPUs are available, False otherwise.</span>
+<a id="__codelineno-0-537" name="__codelineno-0-537"></a><span class="sd">    """</span>
+<a id="__codelineno-0-538" name="__codelineno-0-538"></a>    <span class="k">return</span> <span class="n">cuda_device_count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
