@@ -5012,48 +5012,10 @@ positional parameter size.</p>
 <code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">sam</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">encoders</span><span class="o">.</span><span class="n">window_partition</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">window_size</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
-<p>Partition into non-overlapping windows with padding if needed.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x</code></td>
-<td>
-<code>tensor</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>input tokens with [B, H, W, C].</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>window_size</code></td>
-<td>
-<code>int</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>window size.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+<p>Partition into non-overlapping windows with padding if needed.
+Args:
+    x (tensor): input tokens with [B, H, W, C].
+    window_size (int): window size.</p>
 <p><strong>Returns:</strong></p>
 <table>
 <thead>
@@ -5140,76 +5102,12 @@ positional parameter size.</p>
 <code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">sam</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">encoders</span><span class="o">.</span><span class="n">window_unpartition</span><span class="p">(</span><span class="n">windows</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">pad_hw</span><span class="p">,</span> <span class="n">hw</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
-<p>Window unpartition into original sequences and removing padding.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>windows</code></td>
-<td>
-<code>tensor</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>input tokens with [B * num_windows, window_size, window_size, C].</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>window_size</code></td>
-<td>
-<code>int</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>window size.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>pad_hw</code></td>
-<td>
-<code><span title="typing.Tuple">Tuple</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>padded height and width (Hp, Wp).</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>hw</code></td>
-<td>
-<code><span title="typing.Tuple">Tuple</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>original height and width (H, W) before padding.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+<p>Window unpartition into original sequences and removing padding.
+Args:
+    windows (tensor): input tokens with [B * num_windows, window_size, window_size, C].
+    window_size (int): window size.
+    pad_hw (Tuple): padded height and width (Hp, Wp).
+    hw (Tuple): original height and width (H, W) before padding.</p>
 <p><strong>Returns:</strong></p>
 <table>
 <thead>
@@ -5287,62 +5185,11 @@ positional parameter size.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Get relative positional embeddings according to the relative positions of
-    query and key sizes.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>q_size</code></td>
-<td>
-<code>int</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>size of query q.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>k_size</code></td>
-<td>
-<code>int</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>size of key k.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>rel_pos</code></td>
-<td>
-<code>Tensor</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>relative position embeddings (L, C).</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+    query and key sizes.
+Args:
+    q_size (int): size of query q.
+    k_size (int): size of key k.
+    rel_pos (Tensor): relative position embeddings (L, C).</p>
 <p><strong>Returns:</strong></p>
 <table>
 <thead>
@@ -5438,104 +5285,14 @@ positional parameter size.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Calculate decomposed Relative Positional Embeddings from :paper:<code>mvitv2</code>.
-https://github.com/facebookresearch/mvit/blob/19786631e330df9f3622e5402b4a419a263a2c80/mvit/models/attention.py   # noqa B950</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>attn</code></td>
-<td>
-<code>Tensor</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>attention map.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>q</code></td>
-<td>
-<code>Tensor</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>query q in the attention layer with shape (B, q_h * q_w, C).</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>rel_pos_h</code></td>
-<td>
-<code>Tensor</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>relative position embeddings (Lh, C) for height axis.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>rel_pos_w</code></td>
-<td>
-<code>Tensor</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>relative position embeddings (Lw, C) for width axis.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>q_size</code></td>
-<td>
-<code><span title="typing.Tuple">Tuple</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>spatial sequence size of query q with (q_h, q_w).</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>k_size</code></td>
-<td>
-<code><span title="typing.Tuple">Tuple</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>spatial sequence size of key k with (k_h, k_w).</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+https://github.com/facebookresearch/mvit/blob/19786631e330df9f3622e5402b4a419a263a2c80/mvit/models/attention.py   # noqa B950
+Args:
+    attn (Tensor): attention map.
+    q (Tensor): query q in the attention layer with shape (B, q_h * q_w, C).
+    rel_pos_h (Tensor): relative position embeddings (Lh, C) for height axis.
+    rel_pos_w (Tensor): relative position embeddings (Lw, C) for width axis.
+    q_size (Tuple): spatial sequence size of query q with (q_h, q_w).
+    k_size (Tuple): spatial sequence size of key k with (k_h, k_w).</p>
 <p><strong>Returns:</strong></p>
 <table>
 <thead>

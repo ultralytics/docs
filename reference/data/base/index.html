@@ -3460,16 +3460,14 @@
 <code class="highlight language-python"><span class="n">build_transforms</span><span class="p">(</span><span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Users can custom augmentations here</p>
-<details class="like" open="">
-<summary>like</summary>
-<p>if self.augment:
-    # Training transforms
-    return Compose([])
-else:
-    # Val transforms
-    return Compose([])</p>
-</details>
+<p>Users can custom augmentations here
+like:
+    if self.augment:
+        # Training transforms
+        return Compose([])
+    else:
+        # Val transforms
+        return Compose([])</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-261">261</a></span>
@@ -3701,20 +3699,18 @@ else:
 <code class="highlight language-python"><span class="n">get_labels</span><span class="p">()</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Users can custom their own format here.</p>
-<details class="make-sure-your-output-is-a-list-with-each-element-like-below" open="">
-<summary>Make sure your output is a list with each element like below</summary>
-<p>dict(
-    im_file=im_file,
-    shape=shape,  # format: (height, width)
-    cls=cls,
-    bboxes=bboxes, # xywh
-    segments=segments,  # xy
-    keypoints=keypoints, # xy
-    normalized=True, # or False
-    bbox_format="xyxy",  # or xywh, ltwh
-)</p>
-</details>
+<p>Users can custom their own format here.
+Make sure your output is a list with each element like below:
+    dict(
+        im_file=im_file,
+        shape=shape,  # format: (height, width)
+        cls=cls,
+        bboxes=bboxes, # xywh
+        segments=segments,  # xy
+        keypoints=keypoints, # xy
+        normalized=True, # or False
+        bbox_format="xyxy",  # or xywh, ltwh
+    )</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-273">273</a></span>

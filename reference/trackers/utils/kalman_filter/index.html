@@ -3252,23 +3252,16 @@ observation of the state space (linear observation model).</p>
 obtained from <code>chi2inv95</code>. If <code>only_position</code> is False, the chi-square distribution has 4 degrees of
 freedom, otherwise 2.</p>
 <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.gating_distance--parameters">Parameters</h5>
-<details class="mean-" open="">
-<summary>ndarray</summary>
-<p>Mean vector over the state distribution (8 dimensional).</p>
-</details>
-<details class="covariance-" open="">
-<summary>ndarray</summary>
-<p>Covariance of the state distribution (8x8 dimensional).</p>
-</details>
-<details class="measurements-" open="">
-<summary>ndarray</summary>
-<p>An Nx4 dimensional matrix of N measurements, each in format (x, y, a, h) where (x, y) is the bounding box
-center position, a the aspect ratio, and h the height.</p>
-</details>
-<details class="only_position-" open="">
-<summary>Optional[bool]</summary>
-<p>If True, distance computation is done with respect to the bounding box center position only.</p>
-</details> <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.gating_distance--returns">Returns</h5>
+<p>mean : ndarray
+    Mean vector over the state distribution (8 dimensional).
+covariance : ndarray
+    Covariance of the state distribution (8x8 dimensional).
+measurements : ndarray
+    An Nx4 dimensional matrix of N measurements, each in format (x, y, a, h) where (x, y) is the bounding box
+    center position, a the aspect ratio, and h the height.
+only_position : Optional[bool]
+    If True, distance computation is done with respect to the bounding box center position only.</p>
+<h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.gating_distance--returns">Returns</h5>
 <p>ndarray
     Returns an array of length N, where the i-th element contains the squared Mahalanobis distance between
     (mean, covariance) and <code>measurements[i]</code>.</p>
@@ -3360,11 +3353,10 @@ center position, a the aspect ratio, and h the height.</p>
 <div class="doc doc-contents">
 <p>Create track from unassociated measurement.</p>
 <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.initiate--parameters">Parameters</h5>
-<details class="measurement-" open="">
-<summary>ndarray</summary>
-<p>Bounding box coordinates (x, y, a, h) with center position (x, y),
-aspect ratio a, and height h.</p>
-</details> <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.initiate--returns">Returns</h5>
+<p>measurement : ndarray
+    Bounding box coordinates (x, y, a, h) with center position (x, y),
+    aspect ratio a, and height h.</p>
+<h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.initiate--returns">Returns</h5>
 <p>(ndarray, ndarray)
     Returns the mean vector (8 dimensional) and covariance matrix (8x8
     dimensional) of the new track. Unobserved velocities are initialized
@@ -3435,14 +3427,11 @@ aspect ratio a, and height h.</p>
 <div class="doc doc-contents">
 <p>Run Kalman filter prediction step (Vectorized version).</p>
 <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.multi_predict--parameters">Parameters</h5>
-<details class="mean-" open="">
-<summary>ndarray</summary>
-<p>The Nx8 dimensional mean matrix of the object states at the previous time step.</p>
-</details>
-<details class="covariance-" open="">
-<summary>ndarray</summary>
-<p>The Nx8x8 dimensional covariance matrix of the object states at the previous time step.</p>
-</details> <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.multi_predict--returns">Returns</h5>
+<p>mean : ndarray
+    The Nx8 dimensional mean matrix of the object states at the previous time step.
+covariance : ndarray
+    The Nx8x8 dimensional covariance matrix of the object states at the previous time step.</p>
+<h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.multi_predict--returns">Returns</h5>
 <p>(ndarray, ndarray)
     Returns the mean vector and covariance matrix of the predicted state. Unobserved velocities are
     initialized to 0 mean.</p>
@@ -3524,14 +3513,11 @@ aspect ratio a, and height h.</p>
 <div class="doc doc-contents">
 <p>Run Kalman filter prediction step.</p>
 <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.predict--parameters">Parameters</h5>
-<details class="mean-" open="">
-<summary>ndarray</summary>
-<p>The 8 dimensional mean vector of the object state at the previous time step.</p>
-</details>
-<details class="covariance-" open="">
-<summary>ndarray</summary>
-<p>The 8x8 dimensional covariance matrix of the object state at the previous time step.</p>
-</details> <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.predict--returns">Returns</h5>
+<p>mean : ndarray
+    The 8 dimensional mean vector of the object state at the previous time step.
+covariance : ndarray
+    The 8x8 dimensional covariance matrix of the object state at the previous time step.</p>
+<h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.predict--returns">Returns</h5>
 <p>(ndarray, ndarray)
     Returns the mean vector and covariance matrix of the predicted state. Unobserved velocities are
     initialized to 0 mean.</p>
@@ -3607,14 +3593,11 @@ aspect ratio a, and height h.</p>
 <div class="doc doc-contents">
 <p>Project state distribution to measurement space.</p>
 <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.project--parameters">Parameters</h5>
-<details class="mean-" open="">
-<summary>ndarray</summary>
-<p>The state's mean vector (8 dimensional array).</p>
-</details>
-<details class="covariance-" open="">
-<summary>ndarray</summary>
-<p>The state's covariance matrix (8x8 dimensional).</p>
-</details> <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.project--returns">Returns</h5>
+<p>mean : ndarray
+    The state's mean vector (8 dimensional array).
+covariance : ndarray
+    The state's covariance matrix (8x8 dimensional).</p>
+<h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.project--returns">Returns</h5>
 <p>(ndarray, ndarray)
     Returns the projected mean and covariance matrix of the given state estimate.</p>
 <details class="quote">
@@ -3677,19 +3660,14 @@ aspect ratio a, and height h.</p>
 <div class="doc doc-contents">
 <p>Run Kalman filter correction step.</p>
 <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.update--parameters">Parameters</h5>
-<details class="mean-" open="">
-<summary>ndarray</summary>
-<p>The predicted state's mean vector (8 dimensional).</p>
-</details>
-<details class="covariance-" open="">
-<summary>ndarray</summary>
-<p>The state's covariance matrix (8x8 dimensional).</p>
-</details>
-<details class="measurement-" open="">
-<summary>ndarray</summary>
-<p>The 4 dimensional measurement vector (x, y, a, h), where (x, y) is the center position, a the aspect
-ratio, and h the height of the bounding box.</p>
-</details> <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.update--returns">Returns</h5>
+<p>mean : ndarray
+    The predicted state's mean vector (8 dimensional).
+covariance : ndarray
+    The state's covariance matrix (8x8 dimensional).
+measurement : ndarray
+    The 4 dimensional measurement vector (x, y, a, h), where (x, y) is the center position, a the aspect
+    ratio, and h the height of the bounding box.</p>
+<h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.update--returns">Returns</h5>
 <p>(ndarray, ndarray)
     Returns the measurement-corrected state distribution.</p>
 <details class="quote">
@@ -4078,10 +4056,9 @@ observation of the state space (linear observation model).</p>
 <div class="doc doc-contents">
 <p>Create track from unassociated measurement.</p>
 <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.initiate--parameters">Parameters</h5>
-<details class="measurement-" open="">
-<summary>ndarray</summary>
-<p>Bounding box coordinates (x, y, w, h) with center position (x, y), width w, and height h.</p>
-</details> <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.initiate--returns">Returns</h5>
+<p>measurement : ndarray
+    Bounding box coordinates (x, y, w, h) with center position (x, y), width w, and height h.</p>
+<h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.initiate--returns">Returns</h5>
 <p>(ndarray, ndarray)
     Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of the new track.
     Unobserved velocities are initialized to 0 mean.</p>
@@ -4149,14 +4126,11 @@ observation of the state space (linear observation model).</p>
 <div class="doc doc-contents">
 <p>Run Kalman filter prediction step (Vectorized version).</p>
 <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.multi_predict--parameters">Parameters</h5>
-<details class="mean-" open="">
-<summary>ndarray</summary>
-<p>The Nx8 dimensional mean matrix of the object states at the previous time step.</p>
-</details>
-<details class="covariance-" open="">
-<summary>ndarray</summary>
-<p>The Nx8x8 dimensional covariance matrix of the object states at the previous time step.</p>
-</details> <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.multi_predict--returns">Returns</h5>
+<p>mean : ndarray
+    The Nx8 dimensional mean matrix of the object states at the previous time step.
+covariance : ndarray
+    The Nx8x8 dimensional covariance matrix of the object states at the previous time step.</p>
+<h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.multi_predict--returns">Returns</h5>
 <p>(ndarray, ndarray)
     Returns the mean vector and covariance matrix of the predicted state. Unobserved velocities are
     initialized to 0 mean.</p>
@@ -4238,14 +4212,11 @@ observation of the state space (linear observation model).</p>
 <div class="doc doc-contents">
 <p>Run Kalman filter prediction step.</p>
 <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.predict--parameters">Parameters</h5>
-<details class="mean-" open="">
-<summary>ndarray</summary>
-<p>The 8 dimensional mean vector of the object state at the previous time step.</p>
-</details>
-<details class="covariance-" open="">
-<summary>ndarray</summary>
-<p>The 8x8 dimensional covariance matrix of the object state at the previous time step.</p>
-</details> <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.predict--returns">Returns</h5>
+<p>mean : ndarray
+    The 8 dimensional mean vector of the object state at the previous time step.
+covariance : ndarray
+    The 8x8 dimensional covariance matrix of the object state at the previous time step.</p>
+<h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.predict--returns">Returns</h5>
 <p>(ndarray, ndarray)
     Returns the mean vector and covariance matrix of the predicted state. Unobserved velocities are
     initialized to 0 mean.</p>
@@ -4319,14 +4290,11 @@ observation of the state space (linear observation model).</p>
 <div class="doc doc-contents">
 <p>Project state distribution to measurement space.</p>
 <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.project--parameters">Parameters</h5>
-<details class="mean-" open="">
-<summary>ndarray</summary>
-<p>The state's mean vector (8 dimensional array).</p>
-</details>
-<details class="covariance-" open="">
-<summary>ndarray</summary>
-<p>The state's covariance matrix (8x8 dimensional).</p>
-</details> <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.project--returns">Returns</h5>
+<p>mean : ndarray
+    The state's mean vector (8 dimensional array).
+covariance : ndarray
+    The state's covariance matrix (8x8 dimensional).</p>
+<h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.project--returns">Returns</h5>
 <p>(ndarray, ndarray)
     Returns the projected mean and covariance matrix of the given state estimate.</p>
 <details class="quote">
@@ -4389,19 +4357,14 @@ observation of the state space (linear observation model).</p>
 <div class="doc doc-contents">
 <p>Run Kalman filter correction step.</p>
 <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.update--parameters">Parameters</h5>
-<details class="mean-" open="">
-<summary>ndarray</summary>
-<p>The predicted state's mean vector (8 dimensional).</p>
-</details>
-<details class="covariance-" open="">
-<summary>ndarray</summary>
-<p>The state's covariance matrix (8x8 dimensional).</p>
-</details>
-<details class="measurement-" open="">
-<summary>ndarray</summary>
-<p>The 4 dimensional measurement vector (x, y, w, h), where (x, y) is the center position, w the width,
-and h the height of the bounding box.</p>
-</details> <h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.update--returns">Returns</h5>
+<p>mean : ndarray
+    The predicted state's mean vector (8 dimensional).
+covariance : ndarray
+    The state's covariance matrix (8x8 dimensional).
+measurement : ndarray
+    The 4 dimensional measurement vector (x, y, w, h), where (x, y) is the center position, w the width,
+    and h the height of the bounding box.</p>
+<h5 id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.update--returns">Returns</h5>
 <p>(ndarray, ndarray)
     Returns the measurement-corrected state distribution.</p>
 <details class="quote">

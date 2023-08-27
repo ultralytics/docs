@@ -4038,13 +4038,12 @@ height)</code>, where the aspect ratio is <code>width / height</code>.</p>
 </h3>
 <div class="doc doc-contents">
 <p>DEPRECATED CODE in https://github.com/ultralytics/ultralytics/pull/1890/
-stracks = {t.track_id: t for t in tlista}</p>
-<details class="for-t-in-tlistb" open="">
-<summary>for t in tlistb</summary>
-<p>tid = t.track_id
-if stracks.get(tid, 0):
-    del stracks[tid]</p>
-</details> <p>return list(stracks.values())</p>
+stracks = {t.track_id: t for t in tlista}
+for t in tlistb:
+    tid = t.track_id
+    if stracks.get(tid, 0):
+        del stracks[tid]
+return list(stracks.values())</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-336">336</a></span>
