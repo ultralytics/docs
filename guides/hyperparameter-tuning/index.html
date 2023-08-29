@@ -5,33 +5,33 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Gain seamless experience in training and deploying your YOLOv5 and YOLOv8 models with Ultralytics HUB. Explore pre-trained models, templates and various integrations." name="description"/>
+<meta content="Dive into hyperparameter tuning in Ultralytics YOLO models. Learn how to optimize performance using the Tuner class and genetic evolution." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/hub/" rel="canonical"/>
-<link href="../yolov5/tutorials/clearml_logging_integration/" rel="prev"/>
-<link href="quickstart/" rel="next"/>
-<link href="../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.ultralytics.com/guides/hyperparameter-tuning/" rel="canonical"/>
+<link href="../kfold-cross-validation/" rel="prev"/>
+<link href="../../integrations/" rel="next"/>
+<link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.2, mkdocs-material-9.2.5" name="generator"/>
-<title>Ultralytics HUB - Ultralytics YOLOv8 Docs</title>
-<link href="../assets/stylesheets/main.0e669242.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
+<title>Hyperparameter Tuning - Ultralytics YOLOv8 Docs</title>
+<link href="../../assets/stylesheets/main.0e669242.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Helvetica";--md-code-font:"Roboto Mono"}</style>
-<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../stylesheets/style.css" rel="stylesheet"/>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/style.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Ultralytics HUB" name="title"/><meta content="Ultralytics HUB, YOLOv5, YOLOv8, model training, model deployment, pretrained models, model integrations" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub" property="og:url"/><meta content="Ultralytics HUB" property="og:title"/><meta content="Gain seamless experience in training and deploying your YOLOv5 and YOLOv8 models with Ultralytics HUB. Explore pre-trained models, templates and various integrations." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/im/ultralytics-hub.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub" property="twitter:url"/><meta content="Ultralytics HUB" property="twitter:title"/><meta content="Gain seamless experience in training and deploying your YOLOv5 and YOLOv8 models with Ultralytics HUB. Explore pre-trained models, templates and various integrations." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/im/ultralytics-hub.png" property="twitter:image"/></head>
+<meta content="Hyperparameter Tuning" name="title"/><meta content="Ultralytics, YOLO, Hyperparameter Tuning, Tuner Class, Genetic Evolution, Optimization" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/hyperparameter-tuning" property="og:url"/><meta content="Hyperparameter Tuning" property="og:title"/><meta content="Dive into hyperparameter tuning in Ultralytics YOLO models. Learn how to optimize performance using the Tuner class and genetic evolution." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/263858934-4f109a2f-82d9-4d08-8bd6-6fd1ff520bcd.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/hyperparameter-tuning" property="twitter:url"/><meta content="Hyperparameter Tuning" property="twitter:title"/><meta content="Dive into hyperparameter tuning in Ultralytics YOLO models. Learn how to optimize performance using the Tuner class and genetic evolution." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/263858934-4f109a2f-82d9-4d08-8bd6-6fd1ff520bcd.png" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ultralytics-hub">
+<a class="md-skip" href="#ultralytics-yolo-hyperparameter-tuning-guide">
           Skip to content
         </a>
 </div>
@@ -39,7 +39,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -55,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Ultralytics HUB
+              Hyperparameter Tuning
             
           </span>
 </div>
@@ -120,7 +120,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="..">
+<a class="md-tabs__link" href="../..">
           
   
     
@@ -130,7 +130,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../quickstart/">
+<a class="md-tabs__link" href="../../quickstart/">
         
   
     
@@ -140,7 +140,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../modes/">
+<a class="md-tabs__link" href="../../modes/">
           
   
     
@@ -150,7 +150,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../tasks/">
+<a class="md-tabs__link" href="../../tasks/">
           
   
     
@@ -160,7 +160,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../models/">
+<a class="md-tabs__link" href="../../models/">
           
   
     
@@ -170,7 +170,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../datasets/">
+<a class="md-tabs__link" href="../../datasets/">
           
   
     
@@ -179,8 +179,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../guides/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
           
   
     
@@ -190,7 +190,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../integrations/">
+<a class="md-tabs__link" href="../../integrations/">
           
   
     
@@ -200,7 +200,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../usage/cli/">
+<a class="md-tabs__link" href="../../usage/cli/">
           
   
     
@@ -210,7 +210,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../yolov5/">
+<a class="md-tabs__link" href="../../yolov5/">
           
   
     
@@ -219,8 +219,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="./">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../hub/">
           
   
     
@@ -230,7 +230,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../reference/cfg/__init__/">
+<a class="md-tabs__link" href="../../reference/cfg/__init__/">
           
   
     
@@ -240,7 +240,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../help/">
+<a class="md-tabs__link" href="../../help/">
           
   
     
@@ -261,7 +261,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLOv8 Docs
@@ -280,7 +280,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="..">
+<a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -296,7 +296,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../quickstart/">
+<a class="md-nav__link" href="../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -305,7 +305,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../modes/">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -321,42 +321,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/train/">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/benchmark/">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -368,7 +368,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../tasks/">
+<a class="md-nav__link" href="../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -384,28 +384,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tasks/detect/">
+<a class="md-nav__link" href="../../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tasks/segment/">
+<a class="md-nav__link" href="../../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tasks/classify/">
+<a class="md-nav__link" href="../../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tasks/pose/">
+<a class="md-nav__link" href="../../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -418,7 +418,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../quickstart/">
+<a class="md-nav__link" href="../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -427,7 +427,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../modes/">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -443,42 +443,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/train/">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../modes/benchmark/">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -490,7 +490,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../tasks/">
+<a class="md-nav__link" href="../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -506,28 +506,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tasks/detect/">
+<a class="md-nav__link" href="../../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tasks/segment/">
+<a class="md-nav__link" href="../../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tasks/classify/">
+<a class="md-nav__link" href="../../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tasks/pose/">
+<a class="md-nav__link" href="../../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -539,7 +539,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../models/">
+<a class="md-nav__link" href="../../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -555,77 +555,77 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../models/yolov3/">
+<a class="md-nav__link" href="../../models/yolov3/">
 <span class="md-ellipsis">
     YOLOv3
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../models/yolov4/">
+<a class="md-nav__link" href="../../models/yolov4/">
 <span class="md-ellipsis">
     YOLOv4
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../models/yolov5/">
+<a class="md-nav__link" href="../../models/yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../models/yolov6/">
+<a class="md-nav__link" href="../../models/yolov6/">
 <span class="md-ellipsis">
     YOLOv6
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../models/yolov7/">
+<a class="md-nav__link" href="../../models/yolov7/">
 <span class="md-ellipsis">
     YOLOv7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../models/yolov8/">
+<a class="md-nav__link" href="../../models/yolov8/">
 <span class="md-ellipsis">
     YOLOv8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../models/sam/">
+<a class="md-nav__link" href="../../models/sam/">
 <span class="md-ellipsis">
     SAM (Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../models/mobile-sam/">
+<a class="md-nav__link" href="../../models/mobile-sam/">
 <span class="md-ellipsis">
     MobileSAM (Mobile Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../models/fast-sam/">
+<a class="md-nav__link" href="../../models/fast-sam/">
 <span class="md-ellipsis">
     FastSAM (Fast Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../models/yolo-nas/">
+<a class="md-nav__link" href="../../models/yolo-nas/">
 <span class="md-ellipsis">
     YOLO-NAS (Neural Architecture Search)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../models/rtdetr/">
+<a class="md-nav__link" href="../../models/rtdetr/">
 <span class="md-ellipsis">
     RT-DETR (Realtime Detection Transformer)
   </span>
@@ -637,7 +637,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../datasets/">
+<a class="md-nav__link" href="../../datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -655,7 +655,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../datasets/detect/">
+<a class="md-nav__link" href="../../datasets/detect/">
 <span class="md-ellipsis">
     Detection
   </span>
@@ -671,70 +671,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/detect/argoverse/">
+<a class="md-nav__link" href="../../datasets/detect/argoverse/">
 <span class="md-ellipsis">
     Argoverse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/detect/coco/">
+<a class="md-nav__link" href="../../datasets/detect/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/detect/coco8/">
+<a class="md-nav__link" href="../../datasets/detect/coco8/">
 <span class="md-ellipsis">
     COCO8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/detect/globalwheat2020/">
+<a class="md-nav__link" href="../../datasets/detect/globalwheat2020/">
 <span class="md-ellipsis">
     GlobalWheat2020
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/detect/objects365/">
+<a class="md-nav__link" href="../../datasets/detect/objects365/">
 <span class="md-ellipsis">
     Objects365
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/detect/open-images-v7/">
+<a class="md-nav__link" href="../../datasets/detect/open-images-v7/">
 <span class="md-ellipsis">
     OpenImagesV7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/detect/sku-110k/">
+<a class="md-nav__link" href="../../datasets/detect/sku-110k/">
 <span class="md-ellipsis">
     SKU-110K
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/detect/visdrone/">
+<a class="md-nav__link" href="../../datasets/detect/visdrone/">
 <span class="md-ellipsis">
     VisDrone
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/detect/voc/">
+<a class="md-nav__link" href="../../datasets/detect/voc/">
 <span class="md-ellipsis">
     VOC
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/detect/xview/">
+<a class="md-nav__link" href="../../datasets/detect/xview/">
 <span class="md-ellipsis">
     xView
   </span>
@@ -746,7 +746,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../datasets/segment/">
+<a class="md-nav__link" href="../../datasets/segment/">
 <span class="md-ellipsis">
     Segmentation
   </span>
@@ -762,14 +762,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/segment/coco/">
+<a class="md-nav__link" href="../../datasets/segment/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/segment/coco8-seg/">
+<a class="md-nav__link" href="../../datasets/segment/coco8-seg/">
 <span class="md-ellipsis">
     COCO8-seg
   </span>
@@ -781,7 +781,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../datasets/pose/">
+<a class="md-nav__link" href="../../datasets/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -797,14 +797,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/pose/coco/">
+<a class="md-nav__link" href="../../datasets/pose/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/pose/coco8-pose/">
+<a class="md-nav__link" href="../../datasets/pose/coco8-pose/">
 <span class="md-ellipsis">
     COCO8-pose
   </span>
@@ -816,7 +816,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../datasets/classify/">
+<a class="md-nav__link" href="../../datasets/classify/">
 <span class="md-ellipsis">
     Classification
   </span>
@@ -832,70 +832,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/classify/caltech101/">
+<a class="md-nav__link" href="../../datasets/classify/caltech101/">
 <span class="md-ellipsis">
     Caltech 101
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/classify/caltech256/">
+<a class="md-nav__link" href="../../datasets/classify/caltech256/">
 <span class="md-ellipsis">
     Caltech 256
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/classify/cifar10/">
+<a class="md-nav__link" href="../../datasets/classify/cifar10/">
 <span class="md-ellipsis">
     CIFAR-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/classify/cifar100/">
+<a class="md-nav__link" href="../../datasets/classify/cifar100/">
 <span class="md-ellipsis">
     CIFAR-100
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/classify/fashion-mnist/">
+<a class="md-nav__link" href="../../datasets/classify/fashion-mnist/">
 <span class="md-ellipsis">
     Fashion-MNIST
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/classify/imagenet/">
+<a class="md-nav__link" href="../../datasets/classify/imagenet/">
 <span class="md-ellipsis">
     ImageNet
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/classify/imagenet10/">
+<a class="md-nav__link" href="../../datasets/classify/imagenet10/">
 <span class="md-ellipsis">
     ImageNet-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/classify/imagenette/">
+<a class="md-nav__link" href="../../datasets/classify/imagenette/">
 <span class="md-ellipsis">
     Imagenette
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/classify/imagewoof/">
+<a class="md-nav__link" href="../../datasets/classify/imagewoof/">
 <span class="md-ellipsis">
     Imagewoof
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/classify/mnist/">
+<a class="md-nav__link" href="../../datasets/classify/mnist/">
 <span class="md-ellipsis">
     MNIST
   </span>
@@ -907,7 +907,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../datasets/obb/">
+<a class="md-nav__link" href="../../datasets/obb/">
 <span class="md-ellipsis">
     Oriented Bounding Boxes (OBB)
   </span>
@@ -923,7 +923,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../datasets/obb/dota-v2/">
+<a class="md-nav__link" href="../../datasets/obb/dota-v2/">
 <span class="md-ellipsis">
     DOTAv2
   </span>
@@ -935,7 +935,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../datasets/track/">
+<a class="md-nav__link" href="../../datasets/track/">
 <span class="md-ellipsis">
     Multi-Object Tracking
   </span>
@@ -953,10 +953,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../guides/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -965,25 +965,122 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
             Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/kfold-cross-validation/">
+<a class="md-nav__link" href="../kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../guides/hyperparameter-tuning/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Hyperparameter Tuning
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Hyperparameter Tuning
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+<nav aria-label="Introduction" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-hyperparameters">
+    What are Hyperparameters?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#genetic-evolution-and-mutation">
+    Genetic Evolution and Mutation
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#preparing-for-hyperparameter-tuning">
+    Preparing for Hyperparameter Tuning
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#steps-involved">
+    Steps Involved
+  </a>
+<nav aria-label="Steps Involved" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#initialize-hyperparameters">
+    Initialize Hyperparameters
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mutate-hyperparameters">
+    Mutate Hyperparameters
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#train-model">
+    Train Model
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#evaluate-model">
+    Evaluate Model
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#log-results">
+    Log Results
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#repeat">
+    Repeat
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage-example">
+    Usage Example
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+<nav aria-label="Conclusion" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#further-reading">
+    Further Reading
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -991,7 +1088,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../integrations/">
+<a class="md-nav__link" href="../../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1007,14 +1104,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../integrations/openvino/">
+<a class="md-nav__link" href="../../integrations/openvino/">
 <span class="md-ellipsis">
     OpenVINO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../integrations/ray-tune/">
+<a class="md-nav__link" href="../../integrations/ray-tune/">
 <span class="md-ellipsis">
     Ray Tune
   </span>
@@ -1038,35 +1135,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../usage/cli/">
+<a class="md-nav__link" href="../../usage/cli/">
 <span class="md-ellipsis">
     CLI
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../usage/python/">
+<a class="md-nav__link" href="../../usage/python/">
 <span class="md-ellipsis">
     Python
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../usage/callbacks/">
+<a class="md-nav__link" href="../../usage/callbacks/">
 <span class="md-ellipsis">
     Callbacks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../usage/cfg/">
+<a class="md-nav__link" href="../../usage/cfg/">
 <span class="md-ellipsis">
     Configuration
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../usage/engine/">
+<a class="md-nav__link" href="../../usage/engine/">
 <span class="md-ellipsis">
     Advanced Customization
   </span>
@@ -1078,7 +1175,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_10" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../yolov5/">
+<a class="md-nav__link" href="../../yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
@@ -1094,7 +1191,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/quickstart_tutorial/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -1115,21 +1212,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/environments/aws_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/aws_quickstart_tutorial/">
 <span class="md-ellipsis">
     Amazon Web Services (AWS)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/environments/google_cloud_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/google_cloud_quickstart_tutorial/">
 <span class="md-ellipsis">
     Google Cloud (GCP)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/environments/docker_image_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/docker_image_quickstart_tutorial/">
 <span class="md-ellipsis">
     Docker Image
   </span>
@@ -1153,112 +1250,112 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/train_custom_data/">
+<a class="md-nav__link" href="../../yolov5/tutorials/train_custom_data/">
 <span class="md-ellipsis">
     Train Custom Data
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/tips_for_best_training_results/">
+<a class="md-nav__link" href="../../yolov5/tutorials/tips_for_best_training_results/">
 <span class="md-ellipsis">
     Tips for Best Training Results
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/multi_gpu_training/">
+<a class="md-nav__link" href="../../yolov5/tutorials/multi_gpu_training/">
 <span class="md-ellipsis">
     Multi-GPU Training
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/pytorch_hub_model_loading/">
+<a class="md-nav__link" href="../../yolov5/tutorials/pytorch_hub_model_loading/">
 <span class="md-ellipsis">
     PyTorch Hub
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/model_export/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_export/">
 <span class="md-ellipsis">
     TFLite, ONNX, CoreML, TensorRT Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/running_on_jetson_nano/">
+<a class="md-nav__link" href="../../yolov5/tutorials/running_on_jetson_nano/">
 <span class="md-ellipsis">
     NVIDIA Jetson Nano Deployment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/test_time_augmentation/">
+<a class="md-nav__link" href="../../yolov5/tutorials/test_time_augmentation/">
 <span class="md-ellipsis">
     Test-Time Augmentation (TTA)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/model_ensembling/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_ensembling/">
 <span class="md-ellipsis">
     Model Ensembling
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/model_pruning_and_sparsity/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_pruning_and_sparsity/">
 <span class="md-ellipsis">
     Pruning/Sparsity Tutorial
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/hyperparameter_evolution/">
+<a class="md-nav__link" href="../../yolov5/tutorials/hyperparameter_evolution/">
 <span class="md-ellipsis">
     Hyperparameter evolution
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/transfer_learning_with_frozen_layers/">
+<a class="md-nav__link" href="../../yolov5/tutorials/transfer_learning_with_frozen_layers/">
 <span class="md-ellipsis">
     Transfer learning with frozen layers
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/architecture_description/">
+<a class="md-nav__link" href="../../yolov5/tutorials/architecture_description/">
 <span class="md-ellipsis">
     Architecture Summary
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/roboflow_datasets_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/roboflow_datasets_integration/">
 <span class="md-ellipsis">
     Roboflow Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/neural_magic_pruning_quantization/">
+<a class="md-nav__link" href="../../yolov5/tutorials/neural_magic_pruning_quantization/">
 <span class="md-ellipsis">
     Neural Magic's DeepSparse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/comet_logging_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/comet_logging_integration/">
 <span class="md-ellipsis">
     Comet Logging
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/tutorials/clearml_logging_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/clearml_logging_integration/">
 <span class="md-ellipsis">
     Clearml Logging
   </span>
@@ -1270,54 +1367,54 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link md-nav__link--active" href="./">
+<a class="md-nav__link" href="../../hub/">
 <span class="md-ellipsis">
     Ultralytics HUB
   </span>
 </a>
-<label class="md-nav__link md-nav__link--active" for="__nav_11">
+<label class="md-nav__link" for="__nav_11">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_11">
 <span class="md-nav__icon md-icon"></span>
             Ultralytics HUB
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="quickstart/">
+<a class="md-nav__link" href="../../hub/quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="datasets/">
+<a class="md-nav__link" href="../../hub/datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="projects/">
+<a class="md-nav__link" href="../../hub/projects/">
 <span class="md-ellipsis">
     Projects
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="models/">
+<a class="md-nav__link" href="../../hub/models/">
 <span class="md-ellipsis">
     Models
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="integrations/">
+<a class="md-nav__link" href="../../hub/integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1326,7 +1423,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="app/">
+<a class="md-nav__link" href="../../hub/app/">
 <span class="md-ellipsis">
     Ultralytics HUB App
   </span>
@@ -1342,14 +1439,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="app/ios/">
+<a class="md-nav__link" href="../../hub/app/ios/">
 <span class="md-ellipsis">
     iOS
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="app/android/">
+<a class="md-nav__link" href="../../hub/app/android/">
 <span class="md-ellipsis">
     Android
   </span>
@@ -1359,7 +1456,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="inference_api/">
+<a class="md-nav__link" href="../../hub/inference_api/">
 <span class="md-ellipsis">
     Inference API
   </span>
@@ -1397,7 +1494,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/cfg/__init__/">
+<a class="md-nav__link" href="../../reference/cfg/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
@@ -1421,56 +1518,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/data/annotator/">
+<a class="md-nav__link" href="../../reference/data/annotator/">
 <span class="md-ellipsis">
     annotator
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/data/augment/">
+<a class="md-nav__link" href="../../reference/data/augment/">
 <span class="md-ellipsis">
     augment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/data/base/">
+<a class="md-nav__link" href="../../reference/data/base/">
 <span class="md-ellipsis">
     base
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/data/build/">
+<a class="md-nav__link" href="../../reference/data/build/">
 <span class="md-ellipsis">
     build
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/data/converter/">
+<a class="md-nav__link" href="../../reference/data/converter/">
 <span class="md-ellipsis">
     converter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/data/dataset/">
+<a class="md-nav__link" href="../../reference/data/dataset/">
 <span class="md-ellipsis">
     dataset
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/data/loaders/">
+<a class="md-nav__link" href="../../reference/data/loaders/">
 <span class="md-ellipsis">
     loaders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/data/utils/">
+<a class="md-nav__link" href="../../reference/data/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1494,49 +1591,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/engine/exporter/">
+<a class="md-nav__link" href="../../reference/engine/exporter/">
 <span class="md-ellipsis">
     exporter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/engine/model/">
+<a class="md-nav__link" href="../../reference/engine/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/engine/predictor/">
+<a class="md-nav__link" href="../../reference/engine/predictor/">
 <span class="md-ellipsis">
     predictor
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/engine/results/">
+<a class="md-nav__link" href="../../reference/engine/results/">
 <span class="md-ellipsis">
     results
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/engine/trainer/">
+<a class="md-nav__link" href="../../reference/engine/trainer/">
 <span class="md-ellipsis">
     trainer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/engine/tuner/">
+<a class="md-nav__link" href="../../reference/engine/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/engine/validator/">
+<a class="md-nav__link" href="../../reference/engine/validator/">
 <span class="md-ellipsis">
     validator
   </span>
@@ -1560,28 +1657,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/hub/__init__/">
+<a class="md-nav__link" href="../../reference/hub/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/hub/auth/">
+<a class="md-nav__link" href="../../reference/hub/auth/">
 <span class="md-ellipsis">
     auth
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/hub/session/">
+<a class="md-nav__link" href="../../reference/hub/session/">
 <span class="md-ellipsis">
     session
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/hub/utils/">
+<a class="md-nav__link" href="../../reference/hub/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1619,35 +1716,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/fastsam/model/">
+<a class="md-nav__link" href="../../reference/models/fastsam/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/fastsam/predict/">
+<a class="md-nav__link" href="../../reference/models/fastsam/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/fastsam/prompt/">
+<a class="md-nav__link" href="../../reference/models/fastsam/prompt/">
 <span class="md-ellipsis">
     prompt
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/fastsam/utils/">
+<a class="md-nav__link" href="../../reference/models/fastsam/utils/">
 <span class="md-ellipsis">
     utils
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/fastsam/val/">
+<a class="md-nav__link" href="../../reference/models/fastsam/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1671,21 +1768,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/nas/model/">
+<a class="md-nav__link" href="../../reference/models/nas/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/nas/predict/">
+<a class="md-nav__link" href="../../reference/models/nas/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/nas/val/">
+<a class="md-nav__link" href="../../reference/models/nas/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1709,28 +1806,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/rtdetr/model/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/rtdetr/predict/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/rtdetr/train/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/rtdetr/val/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1754,21 +1851,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/sam/amg/">
+<a class="md-nav__link" href="../../reference/models/sam/amg/">
 <span class="md-ellipsis">
     amg
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/sam/build/">
+<a class="md-nav__link" href="../../reference/models/sam/build/">
 <span class="md-ellipsis">
     build
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/sam/model/">
+<a class="md-nav__link" href="../../reference/models/sam/model/">
 <span class="md-ellipsis">
     model
   </span>
@@ -1789,35 +1886,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/sam/modules/decoders/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/decoders/">
 <span class="md-ellipsis">
     decoders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/sam/modules/encoders/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/encoders/">
 <span class="md-ellipsis">
     encoders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/sam/modules/sam/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/sam/">
 <span class="md-ellipsis">
     sam
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/sam/modules/tiny_encoder/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/tiny_encoder/">
 <span class="md-ellipsis">
     tiny_encoder
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/sam/modules/transformer/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/transformer/">
 <span class="md-ellipsis">
     transformer
   </span>
@@ -1827,7 +1924,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/sam/predict/">
+<a class="md-nav__link" href="../../reference/models/sam/predict/">
 <span class="md-ellipsis">
     predict
   </span>
@@ -1851,14 +1948,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/utils/loss/">
+<a class="md-nav__link" href="../../reference/models/utils/loss/">
 <span class="md-ellipsis">
     loss
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/utils/ops/">
+<a class="md-nav__link" href="../../reference/models/utils/ops/">
 <span class="md-ellipsis">
     ops
   </span>
@@ -1896,21 +1993,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/classify/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/classify/train/">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/classify/val/">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1934,21 +2031,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/detect/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/detect/train/">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/detect/val/">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1958,7 +2055,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/model/">
+<a class="md-nav__link" href="../../reference/models/yolo/model/">
 <span class="md-ellipsis">
     model
   </span>
@@ -1979,21 +2076,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/pose/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/pose/train/">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/pose/val/">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -2017,21 +2114,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/segment/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/segment/train/">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/models/yolo/segment/val/">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -2061,7 +2158,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/nn/autobackend/">
+<a class="md-nav__link" href="../../reference/nn/autobackend/">
 <span class="md-ellipsis">
     autobackend
   </span>
@@ -2082,35 +2179,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/nn/modules/block/">
+<a class="md-nav__link" href="../../reference/nn/modules/block/">
 <span class="md-ellipsis">
     block
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/nn/modules/conv/">
+<a class="md-nav__link" href="../../reference/nn/modules/conv/">
 <span class="md-ellipsis">
     conv
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/nn/modules/head/">
+<a class="md-nav__link" href="../../reference/nn/modules/head/">
 <span class="md-ellipsis">
     head
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/nn/modules/transformer/">
+<a class="md-nav__link" href="../../reference/nn/modules/transformer/">
 <span class="md-ellipsis">
     transformer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/nn/modules/utils/">
+<a class="md-nav__link" href="../../reference/nn/modules/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -2120,7 +2217,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/nn/tasks/">
+<a class="md-nav__link" href="../../reference/nn/tasks/">
 <span class="md-ellipsis">
     tasks
   </span>
@@ -2144,28 +2241,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/trackers/basetrack/">
+<a class="md-nav__link" href="../../reference/trackers/basetrack/">
 <span class="md-ellipsis">
     basetrack
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/trackers/bot_sort/">
+<a class="md-nav__link" href="../../reference/trackers/bot_sort/">
 <span class="md-ellipsis">
     bot_sort
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/trackers/byte_tracker/">
+<a class="md-nav__link" href="../../reference/trackers/byte_tracker/">
 <span class="md-ellipsis">
     byte_tracker
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/trackers/track/">
+<a class="md-nav__link" href="../../reference/trackers/track/">
 <span class="md-ellipsis">
     track
   </span>
@@ -2186,21 +2283,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/trackers/utils/gmc/">
+<a class="md-nav__link" href="../../reference/trackers/utils/gmc/">
 <span class="md-ellipsis">
     gmc
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/trackers/utils/kalman_filter/">
+<a class="md-nav__link" href="../../reference/trackers/utils/kalman_filter/">
 <span class="md-ellipsis">
     kalman_filter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/trackers/utils/matching/">
+<a class="md-nav__link" href="../../reference/trackers/utils/matching/">
 <span class="md-ellipsis">
     matching
   </span>
@@ -2227,21 +2324,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/__init__/">
+<a class="md-nav__link" href="../../reference/utils/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/autobatch/">
+<a class="md-nav__link" href="../../reference/utils/autobatch/">
 <span class="md-ellipsis">
     autobatch
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/benchmarks/">
+<a class="md-nav__link" href="../../reference/utils/benchmarks/">
 <span class="md-ellipsis">
     benchmarks
   </span>
@@ -2262,70 +2359,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/callbacks/base/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/base/">
 <span class="md-ellipsis">
     base
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/callbacks/clearml/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/clearml/">
 <span class="md-ellipsis">
     clearml
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/callbacks/comet/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/comet/">
 <span class="md-ellipsis">
     comet
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/callbacks/dvc/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/dvc/">
 <span class="md-ellipsis">
     dvc
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/callbacks/hub/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/hub/">
 <span class="md-ellipsis">
     hub
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/callbacks/mlflow/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/mlflow/">
 <span class="md-ellipsis">
     mlflow
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/callbacks/neptune/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/neptune/">
 <span class="md-ellipsis">
     neptune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/callbacks/raytune/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/raytune/">
 <span class="md-ellipsis">
     raytune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/callbacks/tensorboard/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/tensorboard/">
 <span class="md-ellipsis">
     tensorboard
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/callbacks/wb/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/wb/">
 <span class="md-ellipsis">
     wb
   </span>
@@ -2335,98 +2432,98 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/checks/">
+<a class="md-nav__link" href="../../reference/utils/checks/">
 <span class="md-ellipsis">
     checks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/dist/">
+<a class="md-nav__link" href="../../reference/utils/dist/">
 <span class="md-ellipsis">
     dist
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/downloads/">
+<a class="md-nav__link" href="../../reference/utils/downloads/">
 <span class="md-ellipsis">
     downloads
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/errors/">
+<a class="md-nav__link" href="../../reference/utils/errors/">
 <span class="md-ellipsis">
     errors
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/files/">
+<a class="md-nav__link" href="../../reference/utils/files/">
 <span class="md-ellipsis">
     files
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/instance/">
+<a class="md-nav__link" href="../../reference/utils/instance/">
 <span class="md-ellipsis">
     instance
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/loss/">
+<a class="md-nav__link" href="../../reference/utils/loss/">
 <span class="md-ellipsis">
     loss
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/metrics/">
+<a class="md-nav__link" href="../../reference/utils/metrics/">
 <span class="md-ellipsis">
     metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/ops/">
+<a class="md-nav__link" href="../../reference/utils/ops/">
 <span class="md-ellipsis">
     ops
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/patches/">
+<a class="md-nav__link" href="../../reference/utils/patches/">
 <span class="md-ellipsis">
     patches
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/plotting/">
+<a class="md-nav__link" href="../../reference/utils/plotting/">
 <span class="md-ellipsis">
     plotting
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/tal/">
+<a class="md-nav__link" href="../../reference/utils/tal/">
 <span class="md-ellipsis">
     tal
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/torch_utils/">
+<a class="md-nav__link" href="../../reference/utils/torch_utils/">
 <span class="md-ellipsis">
     torch_utils
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../reference/utils/tuner/">
+<a class="md-nav__link" href="../../reference/utils/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
@@ -2441,7 +2538,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../help/">
+<a class="md-nav__link" href="../../help/">
 <span class="md-ellipsis">
     Help
   </span>
@@ -2457,56 +2554,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../help/FAQ/">
+<a class="md-nav__link" href="../../help/FAQ/">
 <span class="md-ellipsis">
     Frequently Asked Questions (FAQ)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../help/contributing/">
+<a class="md-nav__link" href="../../help/contributing/">
 <span class="md-ellipsis">
     Contributing Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../help/CI/">
+<a class="md-nav__link" href="../../help/CI/">
 <span class="md-ellipsis">
     Continuous Integration (CI) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../help/CLA/">
+<a class="md-nav__link" href="../../help/CLA/">
 <span class="md-ellipsis">
     Contributor License Agreement (CLA)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../help/minimum_reproducible_example/">
+<a class="md-nav__link" href="../../help/minimum_reproducible_example/">
 <span class="md-ellipsis">
     Minimum Reproducible Example (MRE) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../help/code_of_conduct/">
+<a class="md-nav__link" href="../../help/code_of_conduct/">
 <span class="md-ellipsis">
     Code of Conduct
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../help/environmental-health-safety/">
+<a class="md-nav__link" href="../../help/environmental-health-safety/">
 <span class="md-ellipsis">
     Environmental, Health and Safety (EHS) Policy
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../SECURITY/">
+<a class="md-nav__link" href="../../SECURITY/">
 <span class="md-ellipsis">
     Security Policy
   </span>
@@ -2522,44 +2619,77 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/hub/index.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/guides/hyperparameter-tuning.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="ultralytics-hub">Ultralytics HUB</h1>
-<p><a href="https://bit.ly/ultralytics_hub" target="_blank">
-<img src="https://github.com/ultralytics/assets/raw/main/im/ultralytics-hub.png" width="100%"/></a>
-<br/>
-<br/></p>
-<div align="center">
-<a href="https://github.com/ultralytics/hub/actions/workflows/ci.yaml">
-<img alt="CI CPU" src="https://github.com/ultralytics/hub/actions/workflows/ci.yaml/badge.svg"/></a>
-<a href="https://colab.research.google.com/github/ultralytics/hub/blob/master/hub.ipynb">
-<img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>
-</div>
-<p><br/></p>
-<p>👋 Hello from the <a href="https://ultralytics.com/">Ultralytics</a> Team! We've been working hard these last few months to
-launch <a href="https://bit.ly/ultralytics_hub">Ultralytics HUB</a>, a new web tool for training and deploying all your YOLOv5 and YOLOv8 🚀
-models from one spot!</p>
+<h1 id="ultralytics-yolo-hyperparameter-tuning-guide">Ultralytics YOLO Hyperparameter Tuning Guide</h1>
 <h2 id="introduction">Introduction</h2>
-<p>HUB is designed to be user-friendly and intuitive, with a drag-and-drop interface that allows users to
-easily upload their data and train new models quickly. It offers a range of pre-trained models and
-templates to choose from, making it easy for users to get started with training their own models. Once a model is
-trained, it can be easily deployed and used for real-time object detection, instance segmentation and classification tasks.</p>
-<p>We hope that the resources here will help you get the most out of HUB. Please browse the HUB <a href="https://docs.ultralytics.com/hub">Docs</a> for details, raise an issue on <a href="https://github.com/ultralytics/hub/issues/new/choose">GitHub</a> for support, and join our <a href="https://ultralytics.com/discord">Discord</a> community for questions and discussions!</p>
+<p>Hyperparameter tuning is not just a one-time set-up but an iterative process aimed at optimizing the machine learning model's performance metrics, such as accuracy, precision, and recall. In the context of Ultralytics YOLO, these hyperparameters could range from learning rate to architectural details, such as the number of layers or types of activation functions used.</p>
+<h3 id="what-are-hyperparameters">What are Hyperparameters?</h3>
+<p>Hyperparameters are high-level, structural settings for the algorithm. They are set prior to the training phase and remain constant during it. Here are some commonly tuned hyperparameters in Ultralytics YOLO:</p>
 <ul>
-<li><a href="quickstart/"><strong>Quickstart</strong></a>. Start training and deploying YOLO models with HUB in seconds.</li>
-<li><a href="datasets/"><strong>Datasets: Preparing and Uploading</strong></a>. Learn how to prepare and upload your datasets to HUB in YOLO format.</li>
-<li><a href="projects/"><strong>Projects: Creating and Managing</strong></a>. Group your models into projects for improved organization.</li>
-<li><a href="models/"><strong>Models: Training and Exporting</strong></a>. Train YOLOv5 and YOLOv8 models on your custom datasets and export them to various formats for deployment.</li>
-<li><a href="integrations/"><strong>Integrations: Options</strong></a>. Explore different integration options for your trained models, such as TensorFlow, ONNX, OpenVINO, CoreML, and PaddlePaddle.</li>
-<li><a href="app/"><strong>Ultralytics HUB App</strong></a>. Learn about the Ultralytics App for iOS and Android, which allows you to run models directly on your mobile device.<ul>
-<li><a href="app/ios/"><strong>iOS</strong></a>. Learn about YOLO CoreML models accelerated on Apple's Neural Engine on iPhones and iPads.</li>
-<li><a href="app/android/"><strong>Android</strong></a>. Explore TFLite acceleration on mobile devices.</li>
+<li><strong>Learning Rate</strong>: Determines the step size at each iteration while moving towards a minimum in the loss function.</li>
+<li><strong>Batch Size</strong>: Number of training samples utilized in one iteration.</li>
+<li><strong>Number of Epochs</strong>: An epoch is one complete forward and backward pass of all the training examples.</li>
+<li><strong>Architecture Specifics</strong>: Such as anchor box sizes, number of layers, types of activation functions, etc.</li>
 </ul>
-</li>
-<li><a href="inference_api/"><strong>Inference API</strong></a>. Understand how to use the Inference API for running your trained models in the cloud to generate predictions.</li>
+<p align="center">
+<img alt="Hyperparameter Tuning Visual" src="https://user-images.githubusercontent.com/26833433/263858934-4f109a2f-82d9-4d08-8bd6-6fd1ff520bcd.png" width="1000"/>
+</p>
+<p>For a full list of augmentation hyperparameters used in YOLOv8 please refer to https://docs.ultralytics.com/usage/cfg/#augmentation.</p>
+<h3 id="genetic-evolution-and-mutation">Genetic Evolution and Mutation</h3>
+<p>Ultralytics YOLO uses genetic algorithms to optimize hyperparameters. Genetic algorithms are inspired by the mechanism of natural selection and genetics.</p>
+<ul>
+<li><strong>Mutation</strong>: In the context of Ultralytics YOLO, mutation helps in locally searching the hyperparameter space by applying small, random changes to existing hyperparameters, producing new candidates for evaluation.</li>
+<li><strong>Crossover</strong>: Although crossover is a popular genetic algorithm technique, it is not currently used in Ultralytics YOLO for hyperparameter tuning. The focus is mainly on mutation for generating new hyperparameter sets.</li>
 </ul>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-06, Updated 2023-07-24<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<h2 id="preparing-for-hyperparameter-tuning">Preparing for Hyperparameter Tuning</h2>
+<p>Before you begin the tuning process, it's important to:</p>
+<ol>
+<li><strong>Identify the Metrics</strong>: Determine the metrics you will use to evaluate the model's performance. This could be AP50, F1-score, or others.</li>
+<li><strong>Set the Tuning Budget</strong>: Define how much computational resources you're willing to allocate. Hyperparameter tuning can be computationally intensive.</li>
+</ol>
+<h2 id="steps-involved">Steps Involved</h2>
+<h3 id="initialize-hyperparameters">Initialize Hyperparameters</h3>
+<p>Start with a reasonable set of initial hyperparameters. This could either be the default hyperparameters set by Ultralytics YOLO or something based on your domain knowledge or previous experiments.</p>
+<h3 id="mutate-hyperparameters">Mutate Hyperparameters</h3>
+<p>Use the <code>_mutate</code> method to produce a new set of hyperparameters based on the existing set.</p>
+<h3 id="train-model">Train Model</h3>
+<p>Training is performed using the mutated set of hyperparameters. The training performance is then assessed.</p>
+<h3 id="evaluate-model">Evaluate Model</h3>
+<p>Use metrics like AP50, F1-score, or custom metrics to evaluate the model's performance.</p>
+<h3 id="log-results">Log Results</h3>
+<p>It's crucial to log both the performance metrics and the corresponding hyperparameters for future reference.</p>
+<h3 id="repeat">Repeat</h3>
+<p>The process is repeated until either the set number of iterations is reached or the performance metric is satisfactory.</p>
+<h2 id="usage-example">Usage Example</h2>
+<p>Here's how to use the <code>model.tune()</code> method to utilize the <code>Tuner</code> class for hyperparameter tuning:</p>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Initialize the YOLO model</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Perform hyperparameter tuning</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</input></div>
+</div>
+<h2 id="conclusion">Conclusion</h2>
+<p>The hyperparameter tuning process in Ultralytics YOLO is simplified yet powerful, thanks to its genetic algorithm-based approach focused on mutation. Following the steps outlined in this guide will assist you in systematically tuning your model to achieve better performance.</p>
+<h3 id="further-reading">Further Reading</h3>
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/Hyperparameter_optimization">Hyperparameter Optimization in Wikipedia</a></li>
+<li><a href="https://docs.ultralytics.com/yolov5/tutorials/hyperparameter_evolution/">YOLOv5 Hyperparameter Evolution Guide</a></li>
+<li><a href="https://docs.ultralytics.com/integrations/ray-tune/">Efficient Hyperparameter Tuning with Ray Tune and YOLOv8</a></li>
+</ol>
+<p>For deeper insights, you can explore the <code>Tuner</code> class source code and accompanying documentation. Should you have any questions, feature requests, or need further assistance, feel free to reach out to our support team.</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-08-29, Updated 2023-08-29<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2570,10 +2700,10 @@ trained, it can be easily deployed and used for real-time object detection, inst
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/hub', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/hyperparameter-tuning', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/hub', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/hyperparameter-tuning', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -2621,7 +2751,7 @@ trained, it can be easily deployed and used for real-time object detection, inst
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Clearml Logging" class="md-footer__link md-footer__link--prev" href="../yolov5/tutorials/clearml_logging_integration/" rel="prev">
+<a aria-label="Previous: K-Fold Cross Validation" class="md-footer__link md-footer__link--prev" href="../kfold-cross-validation/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2630,17 +2760,17 @@ trained, it can be easily deployed and used for real-time object detection, inst
                 Previous
               </span>
 <div class="md-ellipsis">
-                Clearml Logging
+                K-Fold Cross Validation
               </div>
 </div>
 </a>
-<a aria-label="Next: Quickstart" class="md-footer__link md-footer__link--next" href="quickstart/" rel="next">
+<a aria-label="Next: Ultralytics Integrations" class="md-footer__link md-footer__link--next" href="../../integrations/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Quickstart
+                Ultralytics Integrations
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2691,7 +2821,7 @@ trained, it can be easily deployed and used for real-time object detection, inst
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.78eede0e.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.78eede0e.min.js"></script>
 </body>
 </html>

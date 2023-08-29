@@ -978,6 +978,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../guides/hyperparameter-tuning/">
+<span class="md-ellipsis">
+    Hyperparameter Tuning
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1573,6 +1580,13 @@
 <a class="md-nav__link" href="../../reference/engine/trainer/">
 <span class="md-ellipsis">
     trainer
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/engine/tuner/">
+<span class="md-ellipsis">
+    tuner
   </span>
 </a>
 </li>
@@ -2567,10 +2581,8 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1>Configuration</h1>
-<p>YOLO settings and hyperparameters play a critical role in the model's performance, speed, and accuracy. These settings
-and hyperparameters can affect the model's behavior at various stages of the model development process, including
-training, validation, and prediction.</p>
-<p>YOLOv8 'yolo' CLI commands use the following syntax:</p>
+<p>YOLO settings and hyperparameters play a critical role in the model's performance, speed, and accuracy. These settings and hyperparameters can affect the model's behavior at various stages of the model development process, including training, validation, and prediction.</p>
+<p>YOLOv8 <code>yolo</code> CLI commands use the following syntax:</p>
 <div class="admonition example">
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label><label for="__tabbed_1_2">Python</label></div>
 <div class="tabbed-content">
@@ -2593,17 +2605,13 @@ training, validation, and prediction.</p>
 </div>
 <p>Where:</p>
 <ul>
-<li><code>TASK</code> (optional) is one of <code>[detect, segment, classify, pose]</code>. If it is not passed explicitly YOLOv8 will try to
-  guess
-  the <code>TASK</code> from the model type.</li>
+<li><code>TASK</code> (optional) is one of <code>[detect, segment, classify, pose]</code>. If it is not passed explicitly YOLOv8 will try to guess the <code>TASK</code> from the model type.</li>
 <li><code>MODE</code> (required) is one of <code>[train, val, predict, export, track, benchmark]</code></li>
-<li><code>ARGS</code> (optional) are any number of custom <code>arg=value</code> pairs like <code>imgsz=320</code> that override defaults.
-  For a full list of available <code>ARGS</code> see the <a href="./">Configuration</a> page and <code>defaults.yaml</code>
-  GitHub <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/default.yaml">source</a>.</li>
+<li><code>ARGS</code> (optional) are any number of custom <code>arg=value</code> pairs like <code>imgsz=320</code> that override defaults.</li>
 </ul>
+<p>For a full list of available <code>ARGS</code> see the <a href="./">Configuration</a> page and <code>defaults.yaml</code> GitHub <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/default.yaml">source</a>.</p>
 <h4 id="tasks">Tasks</h4>
-<p>YOLO models can be used for a variety of tasks, including detection, segmentation, classification and pose. These tasks
-differ in the type of output they produce and the specific problem they are designed to solve.</p>
+<p>YOLO models can be used for a variety of tasks, including detection, segmentation, classification and pose. These tasks differ in the type of output they produce and the specific problem they are designed to solve.</p>
 <p><strong>Detect</strong>: For identifying and localizing objects or regions of interest in an image or video.
 <strong>Segment</strong>: For dividing an image or video into regions or pixels that correspond to different objects or classes.
 <strong>Classify</strong>: For predicting the class label of an input image.
@@ -2626,8 +2634,7 @@ differ in the type of output they produce and the specific problem they are desi
 </table>
 <p><a class="md-button md-button--primary" href="../../tasks/">Tasks Guide</a></p>
 <h4 id="modes">Modes</h4>
-<p>YOLO models can be used in different modes depending on the specific problem you are trying to solve. These modes
-include:</p>
+<p>YOLO models can be used in different modes depending on the specific problem you are trying to solve. These modes include:</p>
 <p><strong>Train</strong>: For training a YOLOv8 model on a custom dataset.
 <strong>Val</strong>: For validating a YOLOv8 model after it has been trained.
 <strong>Predict</strong>: For making predictions using a trained YOLOv8 model on new images or videos.
@@ -3158,14 +3165,7 @@ include:</p>
 </table>
 <p><a class="md-button md-button--primary" href="../../modes/export/">Export Guide</a></p>
 <h2 id="augmentation">Augmentation</h2>
-<p>Augmentation settings for YOLO models refer to the various transformations and modifications
-applied to the training data to increase the diversity and size of the dataset. These settings can affect the model's
-performance, speed, and accuracy. Some common YOLO augmentation settings include the type and intensity of the
-transformations applied (e.g. random flips, rotations, cropping, color changes), the probability with which each
-transformation is applied, and the presence of additional features such as masks or multiple labels per box. Other
-factors that may affect the augmentation process include the size and composition of the original dataset and the
-specific task the model is being used for. It is important to carefully tune and experiment with these settings to
-ensure that the augmented dataset is diverse and representative enough to train a high-performing model.</p>
+<p>Augmentation settings for YOLO models refer to the various transformations and modifications applied to the training data to increase the diversity and size of the dataset. These settings can affect the model's performance, speed, and accuracy. Some common YOLO augmentation settings include the type and intensity of the transformations applied (e.g. random flips, rotations, cropping, color changes), the probability with which each transformation is applied, and the presence of additional features such as masks or multiple labels per box. Other factors that may affect the augmentation process include the size and composition of the original dataset and the specific task the model is being used for. It is important to carefully tune and experiment with these settings to ensure that the augmented dataset is diverse and representative enough to train a high-performing model.</p>
 <table>
 <thead>
 <tr>
@@ -3177,67 +3177,67 @@ ensure that the augmented dataset is diverse and representative enough to train 
 <tbody>
 <tr>
 <td><code>hsv_h</code></td>
-<td>0.015</td>
+<td><code>0.015</code></td>
 <td>image HSV-Hue augmentation (fraction)</td>
 </tr>
 <tr>
 <td><code>hsv_s</code></td>
-<td>0.7</td>
+<td><code>0.7</code></td>
 <td>image HSV-Saturation augmentation (fraction)</td>
 </tr>
 <tr>
 <td><code>hsv_v</code></td>
-<td>0.4</td>
+<td><code>0.4</code></td>
 <td>image HSV-Value augmentation (fraction)</td>
 </tr>
 <tr>
 <td><code>degrees</code></td>
-<td>0.0</td>
+<td><code>0.0</code></td>
 <td>image rotation (+/- deg)</td>
 </tr>
 <tr>
 <td><code>translate</code></td>
-<td>0.1</td>
+<td><code>0.1</code></td>
 <td>image translation (+/- fraction)</td>
 </tr>
 <tr>
 <td><code>scale</code></td>
-<td>0.5</td>
+<td><code>0.5</code></td>
 <td>image scale (+/- gain)</td>
 </tr>
 <tr>
 <td><code>shear</code></td>
-<td>0.0</td>
+<td><code>0.0</code></td>
 <td>image shear (+/- deg)</td>
 </tr>
 <tr>
 <td><code>perspective</code></td>
-<td>0.0</td>
+<td><code>0.0</code></td>
 <td>image perspective (+/- fraction), range 0-0.001</td>
 </tr>
 <tr>
 <td><code>flipud</code></td>
-<td>0.0</td>
+<td><code>0.0</code></td>
 <td>image flip up-down (probability)</td>
 </tr>
 <tr>
 <td><code>fliplr</code></td>
-<td>0.5</td>
+<td><code>0.5</code></td>
 <td>image flip left-right (probability)</td>
 </tr>
 <tr>
 <td><code>mosaic</code></td>
-<td>1.0</td>
+<td><code>1.0</code></td>
 <td>image mosaic (probability)</td>
 </tr>
 <tr>
 <td><code>mixup</code></td>
-<td>0.0</td>
+<td><code>0.0</code></td>
 <td>image mixup (probability)</td>
 </tr>
 <tr>
 <td><code>copy_paste</code></td>
-<td>0.0</td>
+<td><code>0.0</code></td>
 <td>segment copy-paste (probability)</td>
 </tr>
 </tbody>
@@ -3245,21 +3245,12 @@ ensure that the augmented dataset is diverse and representative enough to train 
 <h2 id="logging-checkpoints-plotting-and-file-management">Logging, checkpoints, plotting and file management</h2>
 <p>Logging, checkpoints, plotting, and file management are important considerations when training a YOLO model.</p>
 <ul>
-<li>Logging: It is often helpful to log various metrics and statistics during training to track the model's progress and
-  diagnose any issues that may arise. This can be done using a logging library such as TensorBoard or by writing log
-  messages to a file.</li>
-<li>Checkpoints: It is a good practice to save checkpoints of the model at regular intervals during training. This allows
-  you to resume training from a previous point if the training process is interrupted or if you want to experiment with
-  different training configurations.</li>
-<li>Plotting: Visualizing the model's performance and training progress can be helpful for understanding how the model is
-  behaving and identifying potential issues. This can be done using a plotting library such as matplotlib or by
-  generating plots using a logging library such as TensorBoard.</li>
-<li>File management: Managing the various files generated during the training process, such as model checkpoints, log
-  files, and plots, can be challenging. It is important to have a clear and organized file structure to keep track of
-  these files and make it easy to access and analyze them as needed.</li>
+<li>Logging: It is often helpful to log various metrics and statistics during training to track the model's progress and diagnose any issues that may arise. This can be done using a logging library such as TensorBoard or by writing log messages to a file.</li>
+<li>Checkpoints: It is a good practice to save checkpoints of the model at regular intervals during training. This allows you to resume training from a previous point if the training process is interrupted or if you want to experiment with different training configurations.</li>
+<li>Plotting: Visualizing the model's performance and training progress can be helpful for understanding how the model is behaving and identifying potential issues. This can be done using a plotting library such as matplotlib or by generating plots using a logging library such as TensorBoard.</li>
+<li>File management: Managing the various files generated during the training process, such as model checkpoints, log files, and plots, can be challenging. It is important to have a clear and organized file structure to keep track of these files and make it easy to access and analyze them as needed.</li>
 </ul>
-<p>Effective logging, checkpointing, plotting, and file management can help you keep track of the model's progress and make
-it easier to debug and optimize the training process.</p>
+<p>Effective logging, checkpointing, plotting, and file management can help you keep track of the model's progress and make it easier to debug and optimize the training process.</p>
 <table>
 <thead>
 <tr>
@@ -3296,7 +3287,7 @@ it easier to debug and optimize the training process.</p>
 </tr>
 </tbody>
 </table>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-28<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (22), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-29<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (23), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -978,6 +978,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../guides/hyperparameter-tuning/">
+<span class="md-ellipsis">
+    Hyperparameter Tuning
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1577,6 +1584,13 @@
 <a class="md-nav__link" href="../../reference/engine/trainer/">
 <span class="md-ellipsis">
     trainer
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/engine/tuner/">
+<span class="md-ellipsis">
+    tuner
   </span>
 </a>
 </li>
@@ -2585,6 +2599,9 @@
 <p>To install the required packages, run:</p>
 <div class="admonition tip">
 <p class="admonition-title">Installation</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install and update Ultralytics and Ray Tune packages</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>ultralytics<span class="w"> </span><span class="s2">"ray[tune]"</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
@@ -2592,17 +2609,26 @@
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>pip<span class="w"> </span>install<span class="w"> </span>wandb
 </code></pre></div>
 </div>
+</div>
+</input></div>
+</div>
 <h2 id="usage">Usage</h2>
 <div class="admonition example">
 <p class="admonition-title">Usage</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a YOLOv8n model</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Start tuning hyperparameters for YOLOv8n training on the COCO128 dataset</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">)</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Start tuning hyperparameters for YOLOv8n training on the COCO8 dataset</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
+</div>
+</div>
+</input></div>
 </div>
 <h2 id="tune-method-parameters"><code>tune()</code> Method Parameters</h2>
 <p>The <code>tune()</code> method in YOLOv8 provides an easy-to-use interface for hyperparameter tuning with Ray Tune. It accepts several arguments that allow you to customize the tuning process. Below is a detailed explanation of each parameter:</p>
@@ -2641,7 +2667,7 @@
 <td>None</td>
 </tr>
 <tr>
-<td><code>max_samples</code></td>
+<td><code>iterations</code></td>
 <td><code>int, optional</code></td>
 <td>The maximum number of trials to run during tuning. This parameter helps control the total number of hyperparameter combinations tested, ensuring the tuning process does not run indefinitely.</td>
 <td>10</td>
@@ -2785,7 +2811,8 @@
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Run Ray Tune on the model</span>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>                         <span class="n">space</span><span class="o">=</span><span class="p">{</span><span class="s2">"lr0"</span><span class="p">:</span> <span class="n">tune</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">)},</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>                         <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>                         <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>                         <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>In the code snippet above, we create a YOLO model with the "yolov8n.pt" pretrained weights. Then, we call the <code>tune()</code> method, specifying the dataset configuration with "coco128.yaml". We provide a custom search space for the initial learning rate <code>lr0</code> using a dictionary with the key "lr0" and the value <code>tune.uniform(1e-5, 1e-1)</code>. Finally, we pass additional training arguments, such as the number of epochs directly to the tune method as <code>epochs=50</code>.</p>
@@ -2826,7 +2853,7 @@
 <h2 id="summary">Summary</h2>
 <p>In this documentation, we covered common workflows to analyze the results of experiments run with Ray Tune using Ultralytics. The key steps include loading the experiment results from a directory, performing basic experiment-level and trial-level analysis and plotting metrics.</p>
 <p>Explore further by looking into Ray Tune’s <a href="https://docs.ray.io/en/latest/tune/examples/tune_analyze_results.html">Analyze Results</a> docs page to get the most out of your hyperparameter tuning experiments.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-07-25, Updated 2023-08-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-07-25, Updated 2023-08-29<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
