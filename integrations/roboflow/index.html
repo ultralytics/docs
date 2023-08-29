@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to profile speed and accuracy of YOLOv8 across various export formats; get insights on mAP50-95, accuracy_top5 metrics, and more." name="description"/>
+<meta content="Learn how to use Roboflow with Ultralytics for labeling and managing images for use in training, and for evaluating model performance." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/modes/benchmark/" rel="canonical"/>
-<link href="../track/" rel="prev"/>
-<link href="../../tasks/" rel="next"/>
+<link href="https://docs.ultralytics.com/integrations/roboflow/" rel="canonical"/>
+<link href="../ray-tune/" rel="prev"/>
+<link href="../../usage/cli/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.2, mkdocs-material-9.2.5" name="generator"/>
-<title>Benchmark - Ultralytics YOLOv8 Docs</title>
+<title>Roboflow - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.0e669242.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -24,14 +24,14 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Benchmark" name="title"/><meta content="Ultralytics, YOLOv8, benchmarking, speed profiling, accuracy profiling, mAP50-95, accuracy_top5, ONNX, OpenVINO, TensorRT, YOLO export formats" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/benchmark" property="og:url"/><meta content="Benchmark" property="og:title"/><meta content="Learn how to profile speed and accuracy of YOLOv8 across various export formats; get insights on mAP50-95, accuracy_top5 metrics, and more." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/benchmark" property="twitter:url"/><meta content="Benchmark" property="twitter:title"/><meta content="Learn how to profile speed and accuracy of YOLOv8 across various export formats; get insights on mAP50-95, accuracy_top5 metrics, and more." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/></head>
+<meta content="Roboflow" name="title"/><meta content="Ultralytics, YOLOv8, Roboflow, vector analysis, confusion matrix, data management, image labeling" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/roboflow" property="og:url"/><meta content="Roboflow" property="og:title"/><meta content="Learn how to use Roboflow with Ultralytics for labeling and managing images for use in training, and for evaluating model performance." property="og:description"/><meta content="https://media.roboflow.com/ultralytics/rf_universe.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/roboflow" property="twitter:url"/><meta content="Roboflow" property="twitter:title"/><meta content="Learn how to use Roboflow with Ultralytics for labeling and managing images for use in training, and for evaluating model performance." property="twitter:description"/><meta content="https://media.roboflow.com/ultralytics/rf_universe.png" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#usage-examples">
+<a class="md-skip" href="#roboflow">
           Skip to content
         </a>
 </div>
@@ -55,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Benchmark
+              Roboflow
             
           </span>
 </div>
@@ -139,8 +139,8 @@
 
       </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../modes/">
           
   
     
@@ -189,8 +189,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../integrations/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
           
   
     
@@ -305,7 +305,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -321,76 +321,46 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../train/">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Benchmark
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-examples">
-    Usage Examples
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#arguments">
-    Arguments
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#export-formats">
-    Export Formats
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -454,10 +424,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -466,83 +436,53 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
             Modes
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../train/">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Benchmark
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-examples">
-    Usage Examples
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#arguments">
-    Arguments
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#export-formats">
-    Export Formats
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -1048,10 +988,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../integrations/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1060,32 +1000,82 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
             Integrations
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/openvino/">
+<a class="md-nav__link" href="../openvino/">
 <span class="md-ellipsis">
     OpenVINO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/ray-tune/">
+<a class="md-nav__link" href="../ray-tune/">
 <span class="md-ellipsis">
     Ray Tune
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/roboflow/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Roboflow
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Roboflow
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#upload-convert-and-label-data-for-yolov8-format">
+    Upload, Convert and Label Data for YOLOv8 Format
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dataset-management-for-yolov8">
+    Dataset Management for YOLOv8
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#export-data-in-40-formats-for-model-training">
+    Export Data in 40+ Formats for Model Training
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#upload-custom-yolov8-model-weights-for-testing-and-deployment">
+    Upload Custom YOLOv8 Model Weights for Testing and Deployment
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-evaluate-yolov8-models">
+    How to Evaluate YOLOv8 Models
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#learning-resources">
+    Learning Resources
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#project-showcase">
+    Project Showcase
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -2589,200 +2579,163 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/modes/benchmark.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/integrations/roboflow.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1>Benchmark</h1>
-<p><img src="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" width="1024"/></p>
-<p><strong>Benchmark mode</strong> is used to profile the speed and accuracy of various export formats for YOLOv8. The benchmarks
-provide information on the size of the exported format, its <code>mAP50-95</code> metrics (for object detection, segmentation and pose)
-or <code>accuracy_top5</code> metrics (for classification), and the inference time in milliseconds per image across various export
-formats like ONNX, OpenVINO, TensorRT and others. This information can help users choose the optimal export format for
-their specific use case based on their requirements for speed and accuracy.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<h1 id="roboflow">Roboflow</h1>
+<p><a href="https://roboflow.com/?ref=ultralytics">Roboflow</a> has everything you need to build and deploy computer vision models. Connect Roboflow at any step in your pipeline with APIs and SDKs, or use the end-to-end interface to automate the entire process from image to inference. Whether you’re in need of <a href="https://roboflow.com/annotate?ref=ultralytics">data labeling</a>, <a href="https://roboflow.com/train?ref=ultralytics">model training</a>, or <a href="https://roboflow.com/deploy?ref=ultralytics">model deployment</a>, Roboflow gives you building blocks to bring custom computer vision solutions to your project.</p>
+<p>In this guide, we are going to showcase how to find, label, and organize data for use in training a custom Ultralytics YOLOv8 model. Use the table of contents below to jump directly to a specific section:</p>
 <ul>
-<li>Export to ONNX or OpenVINO for up to 3x CPU speedup.</li>
-<li>Export to TensorRT for up to 5x GPU speedup.</li>
+<li>Gather data for training a custom YOLOv8 model</li>
+<li>Upload, convert and label data for YOLOv8 format</li>
+<li>Pre-process and augment data for model robustness</li>
+<li>Dataset management for YOLOv8</li>
+<li>Export data in 40+ formats for model training</li>
+<li>Upload custom YOLOv8 model weights for testing and deployment</li>
+<li>Gather Data for Training a Custom YOLOv8 Model</li>
 </ul>
-</div>
-<h2 id="usage-examples">Usage Examples</h2>
-<p>Run YOLOv8n benchmarks on all supported export formats including ONNX, TensorRT etc. See Arguments section below for a
-full list of export arguments.</p>
-<div class="admonition example">
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.benchmarks</span> <span class="kn">import</span> <span class="n">benchmark</span>
+<p>Roboflow provides two services that can help you collect data for YOLOv8 models: <a href="https://universe.roboflow.com/?ref=ultralytics">Universe</a> and <a href="https://roboflow.com/collect?ref=ultralytics">Collect</a>.</p>
+<p>Universe is an online repository with over 250,000 vision datasets totalling over 100 million images.</p>
+<p align="center">
+<img alt="Roboflow Universe" src="https://media.roboflow.com/ultralytics/rf_universe.png" width="800">
+</img></p>
+<p>With a <a href="https://app.roboflow.com/?ref=ultralytics">free Roboflow account</a>, you can export any dataset available on Universe. To export a dataset, click the "Download this Dataset" button on any dataset.</p>
+<p align="center">
+<img alt="Roboflow Universe dataset export" src="https://media.roboflow.com/ultralytics/rf_dataset.png" width="800">
+</img></p>
+<p>For YOLOv8, select "YOLOv8" as the export format:</p>
+<p align="center">
+<img alt="Roboflow Universe dataset export" src="https://media.roboflow.com/ultralytics/rf_data_format.png" width="800"/>
+</p>
+<p>Universe also has a page that aggregates all <a href="https://universe.roboflow.com/search?q=model:yolov8">public fine-tuned YOLOv8 models uploaded to Roboflow</a>. You can use this page to explore pre-trained models you can use for testing or <a href="https://docs.roboflow.com/annotate/use-roboflow-annotate/model-assisted-labeling">for automated data labeling</a> or to prototype with <a href="https://roboflow.com/inference?ref=ultralytics">Roboflow inference</a>.</p>
+<p>If you want to gather images yourself, try <a href="https://github.com/roboflow/roboflow-collect">Collect</a>, an open source project that allows you to automatically gather images using a webcam on the edge. You can use text or image prompts with Collect to instruct what data should be collected, allowing you to capture only the useful data you need to build your vision model.</p>
+<h2 id="upload-convert-and-label-data-for-yolov8-format">Upload, Convert and Label Data for YOLOv8 Format</h2>
+<p><a href="https://docs.roboflow.com/annotate/use-roboflow-annotate">Roboflow Annotate</a> is an online annotation tool for use in labeling images for object detection, classification, and segmentation.</p>
+<p>To label data for a YOLOv8 object detection, instance segmentation, or classification model, first create a project in Roboflow.</p>
+<p align="center">
+<img alt="Create a Roboflow project" src="https://media.roboflow.com/ultralytics/rf_create_project.png" width="400"/>
+</p>
+<p>Next, upload your images, and any pre-existing annotations you have from other tools (<a href="https://roboflow.com/formats?ref=ultralytics">using one of the 40+ supported import formats</a>), into Roboflow.</p>
+<p align="center">
+<img alt="Upload images to Roboflow" src="https://media.roboflow.com/ultralytics/rf_upload_data.png" width="800"/>
+</p>
+<p>Select the batch of images you have uploaded on the Annotate page to which you are taken after uploading images. Then, click "Start Annotating" to label images.</p>
+<p>To label with bounding boxes, press the <code>B</code> key on your keyboard or click the box icon in the sidebar. Click on a point where you want to start your bounding box, then drag to create the box:</p>
+<p align="center">
+<img alt="Annotating an image in Roboflow" src="https://media.roboflow.com/ultralytics/rf_annotate.png" width="800"/>
+</p>
+<p>A pop-up will appear asking you to select a class for your annotation once you have created an annotation.</p>
+<p>To label with polygons, press the <code>P</code> key on your keyboard, or the polygon icon in the sidebar. With the polygon annotation tool enabled, click on individual points in the image to draw a polygon.</p>
+<p>Roboflow offers a SAM-based label assistant with which you can label images faster than ever. SAM (Segment Anything Model) is a state-of-the-art computer vision model that can precisely label images. With SAM, you can significantly speed up the image labeling process. Annotating images with polygons becomes as simple as a few clicks, rather than the tedious process of precisely clicking points around an object.</p>
+<p>To use the label assistant, click the cursor icon in the sidebar, SAM will be loaded for use in your project.</p>
+<p align="center">
+<img alt="Annotating an image in Roboflow with SAM-powered label assist" src="https://media.roboflow.com/ultralytics/rf_annotate_interactive.png" width="800"/>
+</p>
+<p>Hover over any object in the image and SAM will recommend an annotation. You can hover to find the right place to annotate, then click to create your annotation. To amend your annotation to be more or less specific, you can click inside or outside of the annotation SAM has created on the document.</p>
+<p>You can also add tags to images from the Tags panel in the sidebar. You can apply tags to data from a particular area, taken from a specific camera, and more. You can then use these tags to search through data for images matching a tag and generate versions of a dataset with images that contain a particular tag or set of tags.</p>
+<p align="center">
+<img alt="Adding tags to an image in Roboflow" src="https://media.roboflow.com/ultralytics/rf_tags.png" width="300"/>
+</p>
+<p>Models hosted on Roboflow can be used with Label Assist, an automated annotation tool that uses your YOLOv8 model to recommend annotations. To use Label Assist, first upload a YOLOv8 model to Roboflow (see instructions later in the guide). Then, click the magic wand icon in the left sidebar and select your model for use in Label Assist.</p>
+<p>Choose a model, then click "Continue" to enable Label Assist:</p>
+<p align="center">
+<img alt="Enabling Label Assist" src="https://media.roboflow.com/ultralytics/rf_label_assist.png" width="800"/>
+</p>
+<p>When you open new images for annotation, Label Assist will trigger and recommend annotations.</p>
+<p align="center">
+<img alt="ALabel Assist recommending an annotation" src="https://media.roboflow.com/ultralytics/rf_label_assist.png" width="800"/>
+</p>
+<h2 id="dataset-management-for-yolov8">Dataset Management for YOLOv8</h2>
+<p>Roboflow provides a suite of tools for understanding computer vision datasets.</p>
+<p>First, you can use dataset search to find images that meet a semantic text description (i.e. find all images that contain people), or that meet a specified label (i.e. the image is associated with a specific tag). To use dataset search, click "Dataset" in the sidebar. Then, input a search query using the search bar and associated filters at the top of the page.</p>
+<p>For example, the following text query finds images that contain people in a dataset:</p>
+<p align="center">
+<img alt="Searching for an image" src="https://media.roboflow.com/ultralytics/rf_dataset_management.png" width="800"/>
+</p>
+<p>You can narrow your search to images with a particular tag using the "Tags" selector:</p>
+<p align="center">
+<img alt="Filter images by tag" src="https://media.roboflow.com/ultralytics/rf_filter_by_tag.png" width="350"/>
+</p>
+<p>Before you start training a model with your dataset, we recommend using Roboflow <a href="https://docs.roboflow.com/datasets/dataset-health-check">Health Check</a>, a web tool that provides an insight into your dataset and how you can improve the dataset prior to training a vision model.</p>
+<p>To use Health Check, click the "Health Check" sidebar link. A list of statistics will appear that show the average size of images in your dataset, class balance, a heatmap of where annotations are in your images, and more.</p>
+<p align="center">
+<img alt="Roboflow Health Check analysis" src="https://media.roboflow.com/ultralytics/rf_dataset_health_check.png" width="800"/>
+</p>
+<p>Health Check may recommend changes to help enhance dataset performance. For example, the class balance feature may show that there is an imbalance in labels that, if solved, may boost performance or your model.</p>
+<h2 id="export-data-in-40-formats-for-model-training">Export Data in 40+ Formats for Model Training</h2>
+<p>To export your data, you will need a dataset version. A version is a state of your dataset frozen-in-time. To create a version, first click "Versions" in the sidebar. Then, click the "Create New Version" button. On this page, you will be able to choose augmentations and preprocessing steps to apply to your dataset:</p>
+<p align="center">
+<img alt="Creating a dataset version on Roboflow" src="https://media.roboflow.com/ultralytics/rf_generate_dataset.png" width="800"/>
+</p>
+<p>For each augmentation you select, a pop-up will appear allowing you to tune the augmentation to your needs. Here is an example of tuning a brightness augmentation within specified parameters:</p>
+<p align="center">
+<img alt="Applying augmentations to a dataset" src="https://media.roboflow.com/ultralytics/rf_augmentations.png" width="800"/>
+</p>
+<p>When your dataset version has been generated, you can export your data into a range of formats. Click the "Export Dataset" button on your dataset version page to export your data:</p>
+<p align="center">
+<img alt="Exporting a dataset" src="https://media.roboflow.com/ultralytics/rf_export_data.png" width="800"/>
+</p>
+<p>You are now ready to train YOLOv8 on a custom dataset. Follow this <a href="https://blog.roboflow.com/how-to-train-yolov8-on-a-custom-dataset/">written guide</a> and <a href="https://www.youtube.com/watch?v=wuZtUMEiKWY">YouTube video</a> for step-by-step instructions or refer to the <a href="https://docs.ultralytics.com/modes/train/">Ultralytics documentation</a>.</p>
+<h2 id="upload-custom-yolov8-model-weights-for-testing-and-deployment">Upload Custom YOLOv8 Model Weights for Testing and Deployment</h2>
+<p>Roboflow offers an infinitely scalable API for deployed models and SDKs for use with NVIDIA Jetsons, Luxonis OAKs, Raspberry Pis, GPU-based devices, and more.</p>
+<p>You can deploy YOLOv8 models by uploading YOLOv8 weights to Roboflow. You can do this in a few lines of Python code. Create a new Python file and add the following code:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">roboflow</span>  <span class="c1"># install with 'pip install roboflow'</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Benchmark on GPU</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">benchmark</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">'yolov8n.pt'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">roboflow</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">rf</span> <span class="o">=</span> <span class="n">roboflow</span><span class="o">.</span><span class="n">Roboflow</span><span class="p">()</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">project</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">workspace</span><span class="p">(</span><span class="n">WORKSPACE_ID</span><span class="p">)</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="s2">"football-players-detection-3zvbc"</span><span class="p">)</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">dataset</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="n">VERSION</span><span class="p">)</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"yolov8"</span><span class="p">)</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">project</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">version</span><span class="p">)</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">model_type</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">model_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HOME</span><span class="si">}</span><span class="s2">/runs/detect/train/"</span><span class="p">)</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>yolo<span class="w"> </span>benchmark<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span><span class="w"> </span><span class="nv">half</span><span class="o">=</span>False<span class="w"> </span><span class="nv">device</span><span class="o">=</span><span class="m">0</span>
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-</div>
-<h2 id="arguments">Arguments</h2>
-<p>Arguments such as <code>model</code>, <code>data</code>, <code>imgsz</code>, <code>half</code>, <code>device</code>, and <code>verbose</code> provide users with the flexibility to fine-tune
-the benchmarks to their specific needs and compare the performance of different export formats with ease.</p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>model</code></td>
-<td><code>None</code></td>
-<td>path to model file, i.e. yolov8n.pt, yolov8n.yaml</td>
-</tr>
-<tr>
-<td><code>data</code></td>
-<td><code>None</code></td>
-<td>path to YAML referencing the benchmarking dataset (under <code>val</code> label)</td>
-</tr>
-<tr>
-<td><code>imgsz</code></td>
-<td><code>640</code></td>
-<td>image size as scalar or (h, w) list, i.e. (640, 480)</td>
-</tr>
-<tr>
-<td><code>half</code></td>
-<td><code>False</code></td>
-<td>FP16 quantization</td>
-</tr>
-<tr>
-<td><code>int8</code></td>
-<td><code>False</code></td>
-<td>INT8 quantization</td>
-</tr>
-<tr>
-<td><code>device</code></td>
-<td><code>None</code></td>
-<td>device to run on, i.e. cuda device=0 or device=0,1,2,3 or device=cpu</td>
-</tr>
-<tr>
-<td><code>verbose</code></td>
-<td><code>False</code></td>
-<td>do not continue on error (bool), or val floor threshold (float)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="export-formats">Export Formats</h2>
-<p>Benchmarks will attempt to run automatically on all possible export formats below.</p>
-<table>
-<thead>
-<tr>
-<th>Format</th>
-<th><code>format</code> Argument</th>
-<th>Model</th>
-<th>Metadata</th>
-<th>Arguments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://pytorch.org/">PyTorch</a></td>
-<td>-</td>
-<td><code>yolov8n.pt</code></td>
-<td>✅</td>
-<td>-</td>
-</tr>
-<tr>
-<td><a href="https://pytorch.org/docs/stable/jit.html">TorchScript</a></td>
-<td><code>torchscript</code></td>
-<td><code>yolov8n.torchscript</code></td>
-<td>✅</td>
-<td><code>imgsz</code>, <code>optimize</code></td>
-</tr>
-<tr>
-<td><a href="https://onnx.ai/">ONNX</a></td>
-<td><code>onnx</code></td>
-<td><code>yolov8n.onnx</code></td>
-<td>✅</td>
-<td><code>imgsz</code>, <code>half</code>, <code>dynamic</code>, <code>simplify</code>, <code>opset</code></td>
-</tr>
-<tr>
-<td><a href="https://docs.openvino.ai/latest/index.html">OpenVINO</a></td>
-<td><code>openvino</code></td>
-<td><code>yolov8n_openvino_model/</code></td>
-<td>✅</td>
-<td><code>imgsz</code>, <code>half</code></td>
-</tr>
-<tr>
-<td><a href="https://developer.nvidia.com/tensorrt">TensorRT</a></td>
-<td><code>engine</code></td>
-<td><code>yolov8n.engine</code></td>
-<td>✅</td>
-<td><code>imgsz</code>, <code>half</code>, <code>dynamic</code>, <code>simplify</code>, <code>workspace</code></td>
-</tr>
-<tr>
-<td><a href="https://github.com/apple/coremltools">CoreML</a></td>
-<td><code>coreml</code></td>
-<td><code>yolov8n.mlpackage</code></td>
-<td>✅</td>
-<td><code>imgsz</code>, <code>half</code>, <code>int8</code>, <code>nms</code></td>
-</tr>
-<tr>
-<td><a href="https://www.tensorflow.org/guide/saved_model">TF SavedModel</a></td>
-<td><code>saved_model</code></td>
-<td><code>yolov8n_saved_model/</code></td>
-<td>✅</td>
-<td><code>imgsz</code>, <code>keras</code></td>
-</tr>
-<tr>
-<td><a href="https://www.tensorflow.org/api_docs/python/tf/Graph">TF GraphDef</a></td>
-<td><code>pb</code></td>
-<td><code>yolov8n.pb</code></td>
-<td>❌</td>
-<td><code>imgsz</code></td>
-</tr>
-<tr>
-<td><a href="https://www.tensorflow.org/lite">TF Lite</a></td>
-<td><code>tflite</code></td>
-<td><code>yolov8n.tflite</code></td>
-<td>✅</td>
-<td><code>imgsz</code>, <code>half</code>, <code>int8</code></td>
-</tr>
-<tr>
-<td><a href="https://coral.ai/docs/edgetpu/models-intro/">TF Edge TPU</a></td>
-<td><code>edgetpu</code></td>
-<td><code>yolov8n_edgetpu.tflite</code></td>
-<td>✅</td>
-<td><code>imgsz</code></td>
-</tr>
-<tr>
-<td><a href="https://www.tensorflow.org/js">TF.js</a></td>
-<td><code>tfjs</code></td>
-<td><code>yolov8n_web_model/</code></td>
-<td>✅</td>
-<td><code>imgsz</code></td>
-</tr>
-<tr>
-<td><a href="https://github.com/PaddlePaddle">PaddlePaddle</a></td>
-<td><code>paddle</code></td>
-<td><code>yolov8n_paddle_model/</code></td>
-<td>✅</td>
-<td><code>imgsz</code></td>
-</tr>
-<tr>
-<td><a href="https://github.com/Tencent/ncnn">ncnn</a></td>
-<td><code>ncnn</code></td>
-<td><code>yolov8n_ncnn_model/</code></td>
-<td>✅</td>
-<td><code>imgsz</code>, <code>half</code></td>
-</tr>
-</tbody>
-</table>
-<p>See full <code>export</code> details in the <a href="https://docs.ultralytics.com/modes/export/">Export</a> page.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-21<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (12), <a href="https://github.com/maianumerosky">maianumerosky</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
+<p>In this code, replace the project ID and version ID with the values for your account and project. <a href="https://docs.roboflow.com/api-reference/authentication#retrieve-an-api-key">Learn how to retrieve your Roboflow API key</a>.</p>
+<p>When you run the code above, you will be asked to authenticate. Then, your model will be uploaded and an API will be created for your project. This process can take up to 30 minutes to complete.</p>
+<p>To test your model and find deployment instructions for supported SDKs, go to the "Deploy" tab in the Roboflow sidebar. At the top of this page, a widget will appear with which you can test your model. You can use your webcam for live testing or upload images or videos.</p>
+<p align="center">
+<img alt="Running inference on an example image" src="https://media.roboflow.com/ultralytics/rf_test_project.png" width="800"/>
+</p>
+<p>You can also use your uploaded model as a <a href="https://docs.roboflow.com/annotate/use-roboflow-annotate/model-assisted-labeling">labeling assistant</a>. This feature uses your trained model to recommend annotations on images uploaded to Roboflow.</p>
+<h2 id="how-to-evaluate-yolov8-models">How to Evaluate YOLOv8 Models</h2>
+<p>Roboflow provides a range of features for use in evaluating models.</p>
+<p>Once you have uploaded a model to Roboflow, you can access our model evaluation tool, which provides a confusion matrix showing the performance of your model as well as an interactive vector analysis plot. These features can help you find opportunities to improve your model.</p>
+<p>To access a confusion matrix, go to your model page on the Roboflow dashboard, then click "View Detailed Evaluation":</p>
+<p align="center">
+<img alt="Start a Roboflow model evaluation" src="https://media.roboflow.com/ultralytics/rf_model_eval.png" width="800"/>
+</p>
+<p>A pop-up will appear showing a confusion matrix:</p>
+<p align="center">
+<img alt="A confusion matrix" src="https://media.roboflow.com/ultralytics/rf_confusion_matrix.png" width="800"/>
+</p>
+<p>Hover over a box on the confusion matrix to see the value associated with the box. Click on a box to see images in the respective category. Click on an image to view the model predictions and ground truth data associated with that image.</p>
+<p>For more insights, click Vector Analysis. This will show a scatter plot of the images in your dataset, calculated using CLIP. The closer images are in the plot, the more similar they are, semantically. Each image is represented as a dot with a color between white and red. The more red the dot, the worse the model performed.</p>
+<p align="center">
+<img alt="A vector analysis plot" src="https://media.roboflow.com/ultralytics/rf_vector_analysis.png" width="800"/>
+</p>
+<p>You can use Vector Analysis to:</p>
+<ul>
+<li>Find clusters of images;</li>
+<li>Identify clusters where the model performs poorly, and;</li>
+<li>Visualize commonalities between images on which the model performs poorly.</li>
+</ul>
+<h2 id="learning-resources">Learning Resources</h2>
+<p>Want to learn more about using Roboflow for creating YOLOv8 models? The following resources may be helpful in your work.</p>
+<ul>
+<li><a href="https://github.com/roboflow/notebooks/blob/main/notebooks/train-yolov8-object-detection-on-custom-dataset.ipynb">Train YOLOv8 on a Custom Dataset</a>: Follow our interactive notebook that shows you how to train a YOLOv8 model on a custom dataset.</li>
+<li><a href="https://autodistill.github.io/autodistill/">Autodistill</a>: Use large foundation vision models to label data for specific models. You can label images for use in training YOLOv8 classification, detection, and segmentation models with Autodistill.</li>
+<li><a href="https://roboflow.github.io/supervision/">Supervision</a>: A Python package with helpful utilities for use in working with computer vision models. You can use supervision to filter detections, compute confusion matrices, and more, all in a few lines of Python code.</li>
+<li><a href="https://blog.roboflow.com/">Roboflow Blog</a>: The Roboflow Blog features over 500 articles on computer vision, covering topics from how to train a YOLOv8 model to annotation best practices.</li>
+<li><a href="https://www.youtube.com/@Roboflow">Roboflow YouTube channel</a>: Browse dozens of in-depth computer vision guides on our YouTube channel, covering topics from training YOLOv8 models to automated image labeling.</li>
+</ul>
+<h2 id="project-showcase">Project Showcase</h2>
+<p>Below are a few of the many pieces of feedback we have received for using YOLOv8 and Roboflow together to create computer vision models.</p>
+<p align="center">
+<img alt="Showcase image" src="https://media.roboflow.com/ultralytics/rf_showcase_1.png" width="500"/>
+<img alt="Showcase image" src="https://media.roboflow.com/ultralytics/rf_showcase_2.png" width="500"/>
+<img alt="Showcase image" src="https://media.roboflow.com/ultralytics/rf_showcase_3.png" width="500"/>
+</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-08-29, Updated 2023-08-29<br/>Authors: <a href="https://github.com/capjamesg">capjamesg</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2793,10 +2746,10 @@ the benchmarks to their specific needs and compare the performance of different 
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/modes/benchmark', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/roboflow', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/modes/benchmark', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/roboflow', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -2844,7 +2797,7 @@ the benchmarks to their specific needs and compare the performance of different 
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Track" class="md-footer__link md-footer__link--prev" href="../track/" rel="prev">
+<a aria-label="Previous: Ray Tune" class="md-footer__link md-footer__link--prev" href="../ray-tune/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2853,17 +2806,17 @@ the benchmarks to their specific needs and compare the performance of different 
                 Previous
               </span>
 <div class="md-ellipsis">
-                Track
+                Ray Tune
               </div>
 </div>
 </a>
-<a aria-label="Next: Ultralytics YOLOv8 Tasks" class="md-footer__link md-footer__link--next" href="../../tasks/" rel="next">
+<a aria-label="Next: CLI" class="md-footer__link md-footer__link--next" href="../../usage/cli/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Ultralytics YOLOv8 Tasks
+                CLI
               </div>
 </div>
 <div class="md-footer__button md-icon">
