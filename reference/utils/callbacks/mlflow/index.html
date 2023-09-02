@@ -11,9 +11,9 @@
 <link href="../hub/" rel="prev"/>
 <link href="../neptune/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.2, mkdocs-material-9.2.6" name="generator"/>
+<meta content="mkdocs-1.5.2, mkdocs-material-9.2.7" name="generator"/>
 <title>mlflow - Ultralytics YOLOv8 Docs</title>
-<link href="../../../../assets/stylesheets/main.0e669242.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/main.046329b4.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -2576,8 +2576,7 @@
 <p>Logs training parameters to MLflow.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/mlflow.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-19">19</a></span>
 <span class="normal"><a href="#__codelineno-0-20">20</a></span>
 <span class="normal"><a href="#__codelineno-0-21">21</a></span>
 <span class="normal"><a href="#__codelineno-0-22">22</a></span>
@@ -2603,34 +2602,35 @@
 <span class="normal"><a href="#__codelineno-0-42">42</a></span>
 <span class="normal"><a href="#__codelineno-0-43">43</a></span>
 <span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="k">def</span> <span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="sd">"""Logs training parameters to MLflow."""</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="k">global</span> <span class="n">mlflow</span><span class="p">,</span> <span class="n">run</span><span class="p">,</span> <span class="n">experiment_name</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'MLFLOW_TRACKING_URI'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="n">mlflow</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="k">if</span> <span class="n">mlflow</span><span class="p">:</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="n">mlflow_location</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'MLFLOW_TRACKING_URI'</span><span class="p">]</span>  <span class="c1"># "http://192.168.xxx.xxx:5000"</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="n">mlflow_location</span><span class="p">)</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="n">experiment_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'MLFLOW_EXPERIMENT_NAME'</span><span class="p">)</span> <span class="ow">or</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">project</span> <span class="ow">or</span> <span class="s1">'/Shared/YOLOv8'</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="n">run_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'MLFLOW_RUN'</span><span class="p">)</span> <span class="ow">or</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="n">experiment</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">get_experiment_by_name</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">)</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="k">if</span> <span class="n">experiment</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>            <span class="n">mlflow</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">)</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">)</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s1">'MLFlow: '</span><span class="p">)</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="n">run</span><span class="p">,</span> <span class="n">active_run</span> <span class="o">=</span> <span class="n">mlflow</span><span class="p">,</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">active_run</span><span class="p">()</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">active_run</span><span class="p">:</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>                <span class="n">active_run</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="n">experiment</span><span class="o">.</span><span class="n">experiment_id</span><span class="p">,</span> <span class="n">run_name</span><span class="o">=</span><span class="n">run_name</span><span class="p">)</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">Using run_id(</span><span class="si">{</span><span class="n">active_run</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">run_id</span><span class="si">}</span><span class="s1">) at </span><span class="si">{</span><span class="n">mlflow_location</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>            <span class="n">run</span><span class="o">.</span><span class="n">log_params</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">Failing init - </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">Continuing without Mlflow'</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="k">def</span> <span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="sd">"""Logs training parameters to MLflow."""</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="k">global</span> <span class="n">mlflow</span><span class="p">,</span> <span class="n">run</span><span class="p">,</span> <span class="n">experiment_name</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'MLFLOW_TRACKING_URI'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="n">mlflow</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">if</span> <span class="n">mlflow</span><span class="p">:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="n">mlflow_location</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'MLFLOW_TRACKING_URI'</span><span class="p">]</span>  <span class="c1"># "http://192.168.xxx.xxx:5000"</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="n">mlflow_location</span><span class="p">)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="n">experiment_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'MLFLOW_EXPERIMENT_NAME'</span><span class="p">)</span> <span class="ow">or</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">project</span> <span class="ow">or</span> <span class="s1">'/Shared/YOLOv8'</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="n">run_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'MLFLOW_RUN'</span><span class="p">)</span> <span class="ow">or</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="n">experiment</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">get_experiment_by_name</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="k">if</span> <span class="n">experiment</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>            <span class="n">mlflow</span><span class="o">.</span><span class="n">create_experiment</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">)</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">)</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s1">'MLFlow: '</span><span class="p">)</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>            <span class="n">run</span><span class="p">,</span> <span class="n">active_run</span> <span class="o">=</span> <span class="n">mlflow</span><span class="p">,</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">active_run</span><span class="p">()</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">active_run</span><span class="p">:</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>                <span class="n">active_run</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">experiment_id</span><span class="o">=</span><span class="n">experiment</span><span class="o">.</span><span class="n">experiment_id</span><span class="p">,</span> <span class="n">run_name</span><span class="o">=</span><span class="n">run_name</span><span class="p">)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">Using run_id(</span><span class="si">{</span><span class="n">active_run</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">run_id</span><span class="si">}</span><span class="s1">) at </span><span class="si">{</span><span class="n">mlflow_location</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>            <span class="n">run</span><span class="o">.</span><span class="n">log_params</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">Failing init - </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">Continuing without Mlflow'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2644,15 +2644,15 @@
 <p>Logs training metrics to Mlflow.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/mlflow.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-49">49</a></span>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="k">def</span> <span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">    </span><span class="sd">"""Logs training metrics to Mlflow."""</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">if</span> <span class="n">mlflow</span><span class="p">:</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="n">metrics_dict</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">'[()]'</span><span class="p">,</span><span class="w"> </span><span class="s1">''</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="n">run</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="n">metrics_dict</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="k">def</span> <span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">    </span><span class="sd">"""Logs training metrics to Mlflow."""</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="k">if</span> <span class="n">mlflow</span><span class="p">:</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="n">metrics_dict</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">'[()]'</span><span class="p">,</span><span class="w"> </span><span class="s1">''</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="n">run</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="n">metrics_dict</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2666,23 +2666,23 @@
 <p>Called at end of train loop to log model artifact info.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/mlflow.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-56">56</a></span>
 <span class="normal"><a href="#__codelineno-0-57">57</a></span>
 <span class="normal"><a href="#__codelineno-0-58">58</a></span>
 <span class="normal"><a href="#__codelineno-0-59">59</a></span>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
 <span class="normal"><a href="#__codelineno-0-61">61</a></span>
 <span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="k">def</span> <span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">    </span><span class="sd">"""Called at end of train loop to log model artifact info."""</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="k">if</span> <span class="n">mlflow</span><span class="p">:</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="n">run</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="n">run</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="p">)</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="n">run</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">artifact_path</span><span class="o">=</span><span class="n">experiment_name</span><span class="p">,</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>                             <span class="n">code_path</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span><span class="p">)],</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>                             <span class="n">artifacts</span><span class="o">=</span><span class="p">{</span><span class="s1">'model_path'</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)},</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>                             <span class="n">python_model</span><span class="o">=</span><span class="n">run</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">PythonModel</span><span class="p">())</span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="k">def</span> <span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">    </span><span class="sd">"""Called at end of train loop to log model artifact info."""</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">if</span> <span class="n">mlflow</span><span class="p">:</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="n">run</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="n">run</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="p">)</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="n">run</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">artifact_path</span><span class="o">=</span><span class="n">experiment_name</span><span class="p">,</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>                             <span class="n">code_path</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span><span class="p">)],</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>                             <span class="n">artifacts</span><span class="o">=</span><span class="p">{</span><span class="s1">'model_path'</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)},</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>                             <span class="n">python_model</span><span class="o">=</span><span class="n">run</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">PythonModel</span><span class="p">())</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2787,6 +2787,6 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../../assets/javascripts/bundle.78eede0e.min.js"></script>
+<script src="../../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
 </body>
 </html>
