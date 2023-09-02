@@ -3777,7 +3777,7 @@ a successful download. Default: 1E0.</p>
 <a id="__codelineno-0-273" name="__codelineno-0-273"></a><span class="sd">    """</span>
 <a id="__codelineno-0-274" name="__codelineno-0-274"></a>
 <a id="__codelineno-0-275" name="__codelineno-0-275"></a>    <span class="c1"># Check if the URL is a Google Drive link</span>
-<a id="__codelineno-0-276" name="__codelineno-0-276"></a>    <span class="n">gdrive</span> <span class="o">=</span> <span class="s1">'drive.google.com'</span> <span class="ow">in</span> <span class="n">url</span>
+<a id="__codelineno-0-276" name="__codelineno-0-276"></a>    <span class="n">gdrive</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'https://drive.google.com/'</span><span class="p">)</span>
 <a id="__codelineno-0-277" name="__codelineno-0-277"></a>    <span class="k">if</span> <span class="n">gdrive</span><span class="p">:</span>
 <a id="__codelineno-0-278" name="__codelineno-0-278"></a>        <span class="n">url</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="n">get_google_drive_file_info</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <a id="__codelineno-0-279" name="__codelineno-0-279"></a>

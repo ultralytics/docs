@@ -2601,19 +2601,19 @@
 <p>Logs info before starting timer for upload rate limit.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
 <span class="normal"><a href="#__codelineno-0-12">12</a></span>
 <span class="normal"><a href="#__codelineno-0-13">13</a></span>
 <span class="normal"><a href="#__codelineno-0-14">14</a></span>
 <span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">def</span> <span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="sd">"""Logs info before starting timer for upload rate limit."""</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="n">session</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s1">'hub_session'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="k">if</span> <span class="n">session</span><span class="p">:</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="c1"># Start timer for upload rate limit</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s1">View model at </span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s1">/models/</span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">model_id</span><span class="si">}</span><span class="s1"> 🚀'</span><span class="p">)</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="n">session</span><span class="o">.</span><span class="n">timers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'metrics'</span><span class="p">:</span> <span class="n">time</span><span class="p">(),</span> <span class="s1">'ckpt'</span><span class="p">:</span> <span class="n">time</span><span class="p">()}</span>  <span class="c1"># start timer on session.rate_limit</span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">def</span> <span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="sd">"""Logs info before starting timer for upload rate limit."""</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="n">session</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s1">'hub_session'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="k">if</span> <span class="n">session</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="c1"># Start timer for upload rate limit</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s1">View model at </span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s1">/models/</span><span class="si">{</span><span class="n">session</span><span class="o">.</span><span class="n">model_id</span><span class="si">}</span><span class="s1"> 🚀'</span><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="n">session</span><span class="o">.</span><span class="n">timers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'metrics'</span><span class="p">:</span> <span class="n">time</span><span class="p">(),</span> <span class="s1">'ckpt'</span><span class="p">:</span> <span class="n">time</span><span class="p">()}</span>  <span class="c1"># start timer on session.rate_limit</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2627,7 +2627,8 @@
 <p>Uploads training progress metrics at the end of each epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
 <span class="normal"><a href="#__codelineno-0-21">21</a></span>
 <span class="normal"><a href="#__codelineno-0-22">22</a></span>
 <span class="normal"><a href="#__codelineno-0-23">23</a></span>
@@ -2639,13 +2640,14 @@
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
 <span class="normal"><a href="#__codelineno-0-30">30</a></span>
 <span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="k">def</span> <span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="sd">"""Uploads training progress metrics at the end of each epoch."""</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="n">session</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s1">'hub_session'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">if</span> <span class="n">session</span><span class="p">:</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="c1"># Upload metrics after val end</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="n">all_plots</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">'train'</span><span class="p">),</span> <span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">}</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="k">def</span> <span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="sd">"""Uploads training progress metrics at the end of each epoch."""</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="n">session</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s1">'hub_session'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="k">if</span> <span class="n">session</span><span class="p">:</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="c1"># Upload metrics after val end</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="n">all_plots</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">'train'</span><span class="p">),</span> <span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">}</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>            <span class="kn">from</span> <span class="nn">ultralytics.utils.torch_utils</span> <span class="kn">import</span> <span class="n">model_info_for_loggers</span>
 <a id="__codelineno-0-27" name="__codelineno-0-27"></a>            <span class="n">all_plots</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">all_plots</span><span class="p">,</span> <span class="o">**</span><span class="n">model_info_for_loggers</span><span class="p">(</span><span class="n">trainer</span><span class="p">)}</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="n">session</span><span class="o">.</span><span class="n">metrics_queue</span><span class="p">[</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">all_plots</span><span class="p">)</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="k">if</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">session</span><span class="o">.</span><span class="n">timers</span><span class="p">[</span><span class="s1">'metrics'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">rate_limits</span><span class="p">[</span><span class="s1">'metrics'</span><span class="p">]:</span>
