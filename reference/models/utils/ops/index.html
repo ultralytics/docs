@@ -2586,8 +2586,8 @@
             Bases: <code><span title="torch.Module">Module</span></code></p>
 <p>A module implementing the HungarianMatcher, which is a differentiable module to solve the assignment problem in
 an end-to-end fashion.</p>
-<p>HungarianMatcher performs optimal assignment over predicted and ground truth bounding boxes using a cost function
-that considers classification scores, bounding box coordinates, and optionally, mask predictions.</p>
+<p>HungarianMatcher performs optimal assignment over the predicted and ground truth bounding boxes using a cost
+function that considers classification scores, bounding box coordinates, and optionally, mask predictions.</p>
 <p><strong>Attributes:</strong></p>
 <table>
 <thead>
@@ -2605,7 +2605,7 @@ that considers classification scores, bounding box coordinates, and optionally, 
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary of cost coefficients for different components: 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
+<p>Dictionary of cost coefficients: 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
 </div>
 </td>
 </tr>
@@ -2679,7 +2679,8 @@ that considers classification scores, bounding box coordinates, and optionally, 
 <td><code>forward</code></td>
 <td>
 <div class="doc-md-description">
-<p>Computes the assignment</p>
+<p>Computes the
+assignment between predictions and ground truths for a batch.</p>
 </div>
 </td>
 </tr>
@@ -2799,11 +2800,11 @@ that considers classification scores, bounding box coordinates, and optionally, 
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    A module implementing the HungarianMatcher, which is a differentiable module to solve the assignment problem in</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    an end-to-end fashion.</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    HungarianMatcher performs optimal assignment over predicted and ground truth bounding boxes using a cost function</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    that considers classification scores, bounding box coordinates, and optionally, mask predictions.</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    HungarianMatcher performs optimal assignment over the predicted and ground truth bounding boxes using a cost</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    function that considers classification scores, bounding box coordinates, and optionally, mask predictions.</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    Attributes:</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        cost_gain (dict): Dictionary of cost coefficients for different components: 'class', 'bbox', 'giou', 'mask', and 'dice'.</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        cost_gain (dict): Dictionary of cost coefficients: 'class', 'bbox', 'giou', 'mask', and 'dice'.</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        use_fl (bool): Indicates whether to use Focal Loss for the classification cost calculation.</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        with_mask (bool): Indicates whether the model makes mask predictions.</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        num_sample_points (int): The number of sample points used in mask cost calculation.</span>
@@ -2811,8 +2812,8 @@ that considers classification scores, bounding box coordinates, and optionally, 
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        gamma (float): The gamma factor in Focal Loss calculation.</span>
 <a id="__codelineno-0-27" name="__codelineno-0-27"></a>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    Methods:</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        forward(pred_bboxes, pred_scores, gt_bboxes, gt_cls, gt_groups, masks=None, gt_mask=None): Computes the assignment</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        between predictions and ground truths for a batch.</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        forward(pred_bboxes, pred_scores, gt_bboxes, gt_cls, gt_groups, masks=None, gt_mask=None): Computes the</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">            assignment between predictions and ground truths for a batch.</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        _cost_mask(bs, num_gts, masks=None, gt_mask=None): Computes the mask cost and dice cost if masks are predicted.</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    """</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>
