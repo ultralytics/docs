@@ -11,7 +11,7 @@
 <link href="../../benchmarks/" rel="prev"/>
 <link href="../clearml/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.2, mkdocs-material-9.2.7" name="generator"/>
+<meta content="mkdocs-1.5.2, mkdocs-material-9.2.8" name="generator"/>
 <title>base - Ultralytics YOLOv8 Docs</title>
 <link href="../../../../assets/stylesheets/main.046329b4.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
@@ -982,6 +982,13 @@
 <a class="md-nav__link" href="../../../../guides/hyperparameter-tuning/">
 <span class="md-ellipsis">
     Hyperparameter Tuning
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../guides/sahi-tiled-inference/">
+<span class="md-ellipsis">
+    SAHI Tiled Inference
   </span>
 </a>
 </li>
@@ -3254,7 +3261,10 @@ of callback lists.</p>
 <span class="normal"><a href="#__codelineno-0-219">219</a></span>
 <span class="normal"><a href="#__codelineno-0-220">220</a></span>
 <span class="normal"><a href="#__codelineno-0-221">221</a></span>
-<span class="normal"><a href="#__codelineno-0-222">222</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-191" name="__codelineno-0-191"></a><span class="k">def</span> <span class="nf">add_integration_callbacks</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-222">222</a></span>
+<span class="normal"><a href="#__codelineno-0-223">223</a></span>
+<span class="normal"><a href="#__codelineno-0-224">224</a></span>
+<span class="normal"><a href="#__codelineno-0-225">225</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-191" name="__codelineno-0-191"></a><span class="k">def</span> <span class="nf">add_integration_callbacks</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
 <a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-193" name="__codelineno-0-193"></a><span class="sd">    Add integration callbacks from various sources to the instance's callbacks.</span>
 <a id="__codelineno-0-194" name="__codelineno-0-194"></a>
@@ -3264,28 +3274,31 @@ of callback lists.</p>
 <a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="sd">    """</span>
 <a id="__codelineno-0-199" name="__codelineno-0-199"></a>
 <a id="__codelineno-0-200" name="__codelineno-0-200"></a>    <span class="c1"># Load HUB callbacks</span>
-<a id="__codelineno-0-201" name="__codelineno-0-201"></a>    <span class="kn">from</span> <span class="nn">.hub</span> <span class="kn">import</span> <span class="n">callbacks</span>
-<a id="__codelineno-0-202" name="__codelineno-0-202"></a>
-<a id="__codelineno-0-203" name="__codelineno-0-203"></a>    <span class="c1"># Load training callbacks</span>
-<a id="__codelineno-0-204" name="__codelineno-0-204"></a>    <span class="k">if</span> <span class="s1">'Trainer'</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
-<a id="__codelineno-0-205" name="__codelineno-0-205"></a>        <span class="kn">from</span> <span class="nn">.clearml</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">clear_cb</span>
-<a id="__codelineno-0-206" name="__codelineno-0-206"></a>        <span class="kn">from</span> <span class="nn">.comet</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">comet_cb</span>
-<a id="__codelineno-0-207" name="__codelineno-0-207"></a>        <span class="kn">from</span> <span class="nn">.dvc</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">dvc_cb</span>
-<a id="__codelineno-0-208" name="__codelineno-0-208"></a>        <span class="kn">from</span> <span class="nn">.mlflow</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">mlflow_cb</span>
-<a id="__codelineno-0-209" name="__codelineno-0-209"></a>        <span class="kn">from</span> <span class="nn">.neptune</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">neptune_cb</span>
-<a id="__codelineno-0-210" name="__codelineno-0-210"></a>        <span class="kn">from</span> <span class="nn">.raytune</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">tune_cb</span>
-<a id="__codelineno-0-211" name="__codelineno-0-211"></a>        <span class="kn">from</span> <span class="nn">.tensorboard</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">tb_cb</span>
-<a id="__codelineno-0-212" name="__codelineno-0-212"></a>        <span class="kn">from</span> <span class="nn">.wb</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">wb_cb</span>
-<a id="__codelineno-0-213" name="__codelineno-0-213"></a>        <span class="n">callbacks</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="o">**</span><span class="n">clear_cb</span><span class="p">,</span> <span class="o">**</span><span class="n">comet_cb</span><span class="p">,</span> <span class="o">**</span><span class="n">dvc_cb</span><span class="p">,</span> <span class="o">**</span><span class="n">mlflow_cb</span><span class="p">,</span> <span class="o">**</span><span class="n">neptune_cb</span><span class="p">,</span> <span class="o">**</span><span class="n">tune_cb</span><span class="p">,</span> <span class="o">**</span><span class="n">tb_cb</span><span class="p">,</span> <span class="o">**</span><span class="n">wb_cb</span><span class="p">})</span>
-<a id="__codelineno-0-214" name="__codelineno-0-214"></a>
-<a id="__codelineno-0-215" name="__codelineno-0-215"></a>    <span class="c1"># Load export callbacks (patch to avoid CoreML protobuf error)</span>
-<a id="__codelineno-0-216" name="__codelineno-0-216"></a>    <span class="k">if</span> <span class="s1">'Exporter'</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
-<a id="__codelineno-0-217" name="__codelineno-0-217"></a>        <span class="kn">from</span> <span class="nn">.tensorboard</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">tb_cb</span>
-<a id="__codelineno-0-218" name="__codelineno-0-218"></a>        <span class="n">callbacks</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">tb_cb</span><span class="p">)</span>
-<a id="__codelineno-0-219" name="__codelineno-0-219"></a>
-<a id="__codelineno-0-220" name="__codelineno-0-220"></a>    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-221" name="__codelineno-0-221"></a>        <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>  <span class="c1"># prevent duplicate callbacks addition</span>
-<a id="__codelineno-0-222" name="__codelineno-0-222"></a>            <span class="n">instance</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>  <span class="c1"># callback[name].append(func)</span>
+<a id="__codelineno-0-201" name="__codelineno-0-201"></a>    <span class="kn">from</span> <span class="nn">.hub</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">hub_cb</span>
+<a id="__codelineno-0-202" name="__codelineno-0-202"></a>    <span class="n">callbacks_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">hub_cb</span><span class="p">]</span>
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a>
+<a id="__codelineno-0-204" name="__codelineno-0-204"></a>    <span class="c1"># Load training callbacks</span>
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a>    <span class="k">if</span> <span class="s1">'Trainer'</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
+<a id="__codelineno-0-206" name="__codelineno-0-206"></a>        <span class="kn">from</span> <span class="nn">.clearml</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">clear_cb</span>
+<a id="__codelineno-0-207" name="__codelineno-0-207"></a>        <span class="kn">from</span> <span class="nn">.comet</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">comet_cb</span>
+<a id="__codelineno-0-208" name="__codelineno-0-208"></a>        <span class="kn">from</span> <span class="nn">.dvc</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">dvc_cb</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a>        <span class="kn">from</span> <span class="nn">.mlflow</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">mlflow_cb</span>
+<a id="__codelineno-0-210" name="__codelineno-0-210"></a>        <span class="kn">from</span> <span class="nn">.neptune</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">neptune_cb</span>
+<a id="__codelineno-0-211" name="__codelineno-0-211"></a>        <span class="kn">from</span> <span class="nn">.raytune</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">tune_cb</span>
+<a id="__codelineno-0-212" name="__codelineno-0-212"></a>        <span class="kn">from</span> <span class="nn">.tensorboard</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">tb_cb</span>
+<a id="__codelineno-0-213" name="__codelineno-0-213"></a>        <span class="kn">from</span> <span class="nn">.wb</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">wb_cb</span>
+<a id="__codelineno-0-214" name="__codelineno-0-214"></a>        <span class="n">callbacks_list</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">clear_cb</span><span class="p">,</span> <span class="n">comet_cb</span><span class="p">,</span> <span class="n">dvc_cb</span><span class="p">,</span> <span class="n">mlflow_cb</span><span class="p">,</span> <span class="n">neptune_cb</span><span class="p">,</span> <span class="n">tune_cb</span><span class="p">,</span> <span class="n">tb_cb</span><span class="p">,</span> <span class="n">wb_cb</span><span class="p">])</span>
+<a id="__codelineno-0-215" name="__codelineno-0-215"></a>
+<a id="__codelineno-0-216" name="__codelineno-0-216"></a>    <span class="c1"># Load export callbacks (patch to avoid CoreML protobuf error)</span>
+<a id="__codelineno-0-217" name="__codelineno-0-217"></a>    <span class="k">if</span> <span class="s1">'Exporter'</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
+<a id="__codelineno-0-218" name="__codelineno-0-218"></a>        <span class="kn">from</span> <span class="nn">.tensorboard</span> <span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">tb_cb</span>
+<a id="__codelineno-0-219" name="__codelineno-0-219"></a>        <span class="n">callbacks_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tb_cb</span><span class="p">)</span>
+<a id="__codelineno-0-220" name="__codelineno-0-220"></a>
+<a id="__codelineno-0-221" name="__codelineno-0-221"></a>    <span class="c1"># Add the callbacks to the callbacks dictionary</span>
+<a id="__codelineno-0-222" name="__codelineno-0-222"></a>    <span class="k">for</span> <span class="n">callbacks</span> <span class="ow">in</span> <span class="n">callbacks_list</span><span class="p">:</span>
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-0-224" name="__codelineno-0-224"></a>            <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+<a id="__codelineno-0-225" name="__codelineno-0-225"></a>                <span class="n">instance</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

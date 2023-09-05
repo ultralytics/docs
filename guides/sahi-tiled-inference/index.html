@@ -5,33 +5,33 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore the guide to using the DetectionPredictor in Ultralytics YOLO. Learn how to predict, detect and analyze objects accurately." name="description"/>
+<meta content="A comprehensive guide on how to use YOLOv8 with SAHI for standard and sliced inference in object detection tasks." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/reference/models/yolo/detect/predict/" rel="canonical"/>
-<link href="../../classify/val/" rel="prev"/>
-<link href="../train/" rel="next"/>
-<link href="../../../../../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.ultralytics.com/guides/sahi-tiled-inference/" rel="canonical"/>
+<link href="../hyperparameter-tuning/" rel="prev"/>
+<link href="../../integrations/" rel="next"/>
+<link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.2, mkdocs-material-9.2.8" name="generator"/>
-<title>predict - Ultralytics YOLOv8 Docs</title>
-<link href="../../../../../assets/stylesheets/main.046329b4.min.css" rel="stylesheet"/>
-<link href="../../../../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
+<title>SAHI Tiled Inference - Ultralytics YOLOv8 Docs</title>
+<link href="../../assets/stylesheets/main.046329b4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Helvetica";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../../../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../../../../../stylesheets/style.css" rel="stylesheet"/>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/style.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="predict" name="title"/><meta content="Ultralytics, YOLO, DetectionPredictor, detect, predict, object detection, analysis" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/models/yolo/detect/predict" property="og:url"/><meta content="predict" property="og:title"/><meta content="Explore the guide to using the DetectionPredictor in Ultralytics YOLO. Learn how to predict, detect and analyze objects accurately." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/models/yolo/detect/predict" property="twitter:url"/><meta content="predict" property="twitter:title"/><meta content="Explore the guide to using the DetectionPredictor in Ultralytics YOLO. Learn how to predict, detect and analyze objects accurately." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
+<meta content="SAHI Tiled Inference" name="title"/><meta content="YOLOv8, SAHI, Sliced Inference, Object Detection, Ultralytics, Large Scale Image Analysis, High-Resolution Imagery" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/sahi-tiled-inference" property="og:url"/><meta content="SAHI Tiled Inference" property="og:title"/><meta content="A comprehensive guide on how to use YOLOv8 with SAHI for standard and sliced inference in object detection tasks." property="og:description"/><meta content="https://raw.githubusercontent.com/obss/sahi/main/resources/sliced_inference.gif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/sahi-tiled-inference" property="twitter:url"/><meta content="SAHI Tiled Inference" property="twitter:title"/><meta content="A comprehensive guide on how to use YOLOv8 with SAHI for standard and sliced inference in object detection tasks." property="twitter:description"/><meta content="https://raw.githubusercontent.com/obss/sahi/main/resources/sliced_inference.gif" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#reference-for-ultralyticsmodelsyolodetectpredictpy">
+<a class="md-skip" href="#ultralytics-docs-using-yolov8-with-sahi-for-sliced-inference">
           Skip to content
         </a>
 </div>
@@ -39,7 +39,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../../../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -55,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              predict
+              SAHI Tiled Inference
             
           </span>
 </div>
@@ -120,7 +120,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../..">
+<a class="md-tabs__link" href="../..">
           
   
     
@@ -130,7 +130,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../quickstart/">
+<a class="md-tabs__link" href="../../quickstart/">
         
   
     
@@ -140,7 +140,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../modes/">
+<a class="md-tabs__link" href="../../modes/">
           
   
     
@@ -150,7 +150,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../tasks/">
+<a class="md-tabs__link" href="../../tasks/">
           
   
     
@@ -160,7 +160,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../models/">
+<a class="md-tabs__link" href="../../models/">
           
   
     
@@ -170,7 +170,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../datasets/">
+<a class="md-tabs__link" href="../../datasets/">
           
   
     
@@ -179,8 +179,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../guides/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
           
   
     
@@ -190,7 +190,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../integrations/">
+<a class="md-tabs__link" href="../../integrations/">
           
   
     
@@ -200,7 +200,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../usage/cli/">
+<a class="md-tabs__link" href="../../usage/cli/">
           
   
     
@@ -210,7 +210,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../yolov5/">
+<a class="md-tabs__link" href="../../yolov5/">
           
   
     
@@ -220,7 +220,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../hub/">
+<a class="md-tabs__link" href="../../hub/">
           
   
     
@@ -229,8 +229,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../../../cfg/__init__/">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../reference/cfg/__init__/">
           
   
     
@@ -240,7 +240,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../../../help/">
+<a class="md-tabs__link" href="../../help/">
           
   
     
@@ -261,7 +261,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLOv8 Docs
@@ -280,7 +280,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../..">
+<a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -296,7 +296,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../quickstart/">
+<a class="md-nav__link" href="../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -305,7 +305,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../modes/">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -321,42 +321,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/train/">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/benchmark/">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -368,7 +368,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../tasks/">
+<a class="md-nav__link" href="../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -384,28 +384,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../tasks/detect/">
+<a class="md-nav__link" href="../../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../tasks/segment/">
+<a class="md-nav__link" href="../../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../tasks/classify/">
+<a class="md-nav__link" href="../../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../tasks/pose/">
+<a class="md-nav__link" href="../../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -418,7 +418,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../quickstart/">
+<a class="md-nav__link" href="../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -427,7 +427,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../modes/">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -443,42 +443,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/train/">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../modes/benchmark/">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -490,7 +490,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../tasks/">
+<a class="md-nav__link" href="../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -506,28 +506,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../tasks/detect/">
+<a class="md-nav__link" href="../../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../tasks/segment/">
+<a class="md-nav__link" href="../../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../tasks/classify/">
+<a class="md-nav__link" href="../../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../tasks/pose/">
+<a class="md-nav__link" href="../../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -539,7 +539,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../models/">
+<a class="md-nav__link" href="../../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -555,77 +555,77 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../models/yolov3/">
+<a class="md-nav__link" href="../../models/yolov3/">
 <span class="md-ellipsis">
     YOLOv3
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../models/yolov4/">
+<a class="md-nav__link" href="../../models/yolov4/">
 <span class="md-ellipsis">
     YOLOv4
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../models/yolov5/">
+<a class="md-nav__link" href="../../models/yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../models/yolov6/">
+<a class="md-nav__link" href="../../models/yolov6/">
 <span class="md-ellipsis">
     YOLOv6
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../models/yolov7/">
+<a class="md-nav__link" href="../../models/yolov7/">
 <span class="md-ellipsis">
     YOLOv7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../models/yolov8/">
+<a class="md-nav__link" href="../../models/yolov8/">
 <span class="md-ellipsis">
     YOLOv8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../models/sam/">
+<a class="md-nav__link" href="../../models/sam/">
 <span class="md-ellipsis">
     SAM (Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../models/mobile-sam/">
+<a class="md-nav__link" href="../../models/mobile-sam/">
 <span class="md-ellipsis">
     MobileSAM (Mobile Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../models/fast-sam/">
+<a class="md-nav__link" href="../../models/fast-sam/">
 <span class="md-ellipsis">
     FastSAM (Fast Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../models/yolo-nas/">
+<a class="md-nav__link" href="../../models/yolo-nas/">
 <span class="md-ellipsis">
     YOLO-NAS (Neural Architecture Search)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../models/rtdetr/">
+<a class="md-nav__link" href="../../models/rtdetr/">
 <span class="md-ellipsis">
     RT-DETR (Realtime Detection Transformer)
   </span>
@@ -637,7 +637,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../datasets/">
+<a class="md-nav__link" href="../../datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -655,7 +655,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../datasets/detect/">
+<a class="md-nav__link" href="../../datasets/detect/">
 <span class="md-ellipsis">
     Detection
   </span>
@@ -671,70 +671,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/detect/argoverse/">
+<a class="md-nav__link" href="../../datasets/detect/argoverse/">
 <span class="md-ellipsis">
     Argoverse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/detect/coco/">
+<a class="md-nav__link" href="../../datasets/detect/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/detect/coco8/">
+<a class="md-nav__link" href="../../datasets/detect/coco8/">
 <span class="md-ellipsis">
     COCO8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/detect/globalwheat2020/">
+<a class="md-nav__link" href="../../datasets/detect/globalwheat2020/">
 <span class="md-ellipsis">
     GlobalWheat2020
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/detect/objects365/">
+<a class="md-nav__link" href="../../datasets/detect/objects365/">
 <span class="md-ellipsis">
     Objects365
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/detect/open-images-v7/">
+<a class="md-nav__link" href="../../datasets/detect/open-images-v7/">
 <span class="md-ellipsis">
     OpenImagesV7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/detect/sku-110k/">
+<a class="md-nav__link" href="../../datasets/detect/sku-110k/">
 <span class="md-ellipsis">
     SKU-110K
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/detect/visdrone/">
+<a class="md-nav__link" href="../../datasets/detect/visdrone/">
 <span class="md-ellipsis">
     VisDrone
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/detect/voc/">
+<a class="md-nav__link" href="../../datasets/detect/voc/">
 <span class="md-ellipsis">
     VOC
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/detect/xview/">
+<a class="md-nav__link" href="../../datasets/detect/xview/">
 <span class="md-ellipsis">
     xView
   </span>
@@ -746,7 +746,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../datasets/segment/">
+<a class="md-nav__link" href="../../datasets/segment/">
 <span class="md-ellipsis">
     Segmentation
   </span>
@@ -762,14 +762,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/segment/coco/">
+<a class="md-nav__link" href="../../datasets/segment/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/segment/coco8-seg/">
+<a class="md-nav__link" href="../../datasets/segment/coco8-seg/">
 <span class="md-ellipsis">
     COCO8-seg
   </span>
@@ -781,7 +781,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../datasets/pose/">
+<a class="md-nav__link" href="../../datasets/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -797,14 +797,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/pose/coco/">
+<a class="md-nav__link" href="../../datasets/pose/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/pose/coco8-pose/">
+<a class="md-nav__link" href="../../datasets/pose/coco8-pose/">
 <span class="md-ellipsis">
     COCO8-pose
   </span>
@@ -816,7 +816,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../datasets/classify/">
+<a class="md-nav__link" href="../../datasets/classify/">
 <span class="md-ellipsis">
     Classification
   </span>
@@ -832,70 +832,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/classify/caltech101/">
+<a class="md-nav__link" href="../../datasets/classify/caltech101/">
 <span class="md-ellipsis">
     Caltech 101
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/classify/caltech256/">
+<a class="md-nav__link" href="../../datasets/classify/caltech256/">
 <span class="md-ellipsis">
     Caltech 256
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/classify/cifar10/">
+<a class="md-nav__link" href="../../datasets/classify/cifar10/">
 <span class="md-ellipsis">
     CIFAR-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/classify/cifar100/">
+<a class="md-nav__link" href="../../datasets/classify/cifar100/">
 <span class="md-ellipsis">
     CIFAR-100
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/classify/fashion-mnist/">
+<a class="md-nav__link" href="../../datasets/classify/fashion-mnist/">
 <span class="md-ellipsis">
     Fashion-MNIST
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/classify/imagenet/">
+<a class="md-nav__link" href="../../datasets/classify/imagenet/">
 <span class="md-ellipsis">
     ImageNet
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/classify/imagenet10/">
+<a class="md-nav__link" href="../../datasets/classify/imagenet10/">
 <span class="md-ellipsis">
     ImageNet-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/classify/imagenette/">
+<a class="md-nav__link" href="../../datasets/classify/imagenette/">
 <span class="md-ellipsis">
     Imagenette
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/classify/imagewoof/">
+<a class="md-nav__link" href="../../datasets/classify/imagewoof/">
 <span class="md-ellipsis">
     Imagewoof
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/classify/mnist/">
+<a class="md-nav__link" href="../../datasets/classify/mnist/">
 <span class="md-ellipsis">
     MNIST
   </span>
@@ -907,7 +907,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../datasets/obb/">
+<a class="md-nav__link" href="../../datasets/obb/">
 <span class="md-ellipsis">
     Oriented Bounding Boxes (OBB)
   </span>
@@ -923,7 +923,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../datasets/obb/dota-v2/">
+<a class="md-nav__link" href="../../datasets/obb/dota-v2/">
 <span class="md-ellipsis">
     DOTAv2
   </span>
@@ -935,7 +935,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../datasets/track/">
+<a class="md-nav__link" href="../../datasets/track/">
 <span class="md-ellipsis">
     Multi-Object Tracking
   </span>
@@ -953,10 +953,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../guides/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -965,32 +965,120 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
             Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../guides/kfold-cross-validation/">
+<a class="md-nav__link" href="../kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../guides/hyperparameter-tuning/">
+<a class="md-nav__link" href="../hyperparameter-tuning/">
 <span class="md-ellipsis">
     Hyperparameter Tuning
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../guides/sahi-tiled-inference/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    SAHI Tiled Inference
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     SAHI Tiled Inference
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#table-of-contents">
+    Table of Contents
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction-to-sahi">
+    Introduction to SAHI
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-sliced-inference">
+    What is Sliced Inference?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation-and-preparation">
+    Installation and Preparation
+  </a>
+<nav aria-label="Installation and Preparation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+    Installation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#import-modules-and-download-resources">
+    Import Modules and Download Resources
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard-inference-with-yolov8">
+    Standard Inference with YOLOv8
+  </a>
+<nav aria-label="Standard Inference with YOLOv8" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instantiate-the-model">
+    Instantiate the Model
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#perform-standard-prediction">
+    Perform Standard Prediction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#visualize-results">
+    Visualize Results
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sliced-inference-with-yolov8">
+    Sliced Inference with YOLOv8
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#handling-prediction-results">
+    Handling Prediction Results
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#batch-prediction">
+    Batch Prediction
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -998,7 +1086,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../integrations/">
+<a class="md-nav__link" href="../../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1014,21 +1102,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../integrations/openvino/">
+<a class="md-nav__link" href="../../integrations/openvino/">
 <span class="md-ellipsis">
     OpenVINO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../integrations/ray-tune/">
+<a class="md-nav__link" href="../../integrations/ray-tune/">
 <span class="md-ellipsis">
     Ray Tune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../integrations/roboflow/">
+<a class="md-nav__link" href="../../integrations/roboflow/">
 <span class="md-ellipsis">
     Roboflow
   </span>
@@ -1052,35 +1140,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../usage/cli/">
+<a class="md-nav__link" href="../../usage/cli/">
 <span class="md-ellipsis">
     CLI
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../usage/python/">
+<a class="md-nav__link" href="../../usage/python/">
 <span class="md-ellipsis">
     Python
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../usage/callbacks/">
+<a class="md-nav__link" href="../../usage/callbacks/">
 <span class="md-ellipsis">
     Callbacks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../usage/cfg/">
+<a class="md-nav__link" href="../../usage/cfg/">
 <span class="md-ellipsis">
     Configuration
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../usage/engine/">
+<a class="md-nav__link" href="../../usage/engine/">
 <span class="md-ellipsis">
     Advanced Customization
   </span>
@@ -1092,7 +1180,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_10" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../yolov5/">
+<a class="md-nav__link" href="../../yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
@@ -1108,7 +1196,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/quickstart_tutorial/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -1129,21 +1217,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/environments/aws_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/aws_quickstart_tutorial/">
 <span class="md-ellipsis">
     Amazon Web Services (AWS)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/environments/google_cloud_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/google_cloud_quickstart_tutorial/">
 <span class="md-ellipsis">
     Google Cloud (GCP)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/environments/docker_image_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/docker_image_quickstart_tutorial/">
 <span class="md-ellipsis">
     Docker Image
   </span>
@@ -1167,112 +1255,112 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/train_custom_data/">
+<a class="md-nav__link" href="../../yolov5/tutorials/train_custom_data/">
 <span class="md-ellipsis">
     Train Custom Data
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/tips_for_best_training_results/">
+<a class="md-nav__link" href="../../yolov5/tutorials/tips_for_best_training_results/">
 <span class="md-ellipsis">
     Tips for Best Training Results
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/multi_gpu_training/">
+<a class="md-nav__link" href="../../yolov5/tutorials/multi_gpu_training/">
 <span class="md-ellipsis">
     Multi-GPU Training
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/pytorch_hub_model_loading/">
+<a class="md-nav__link" href="../../yolov5/tutorials/pytorch_hub_model_loading/">
 <span class="md-ellipsis">
     PyTorch Hub
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/model_export/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_export/">
 <span class="md-ellipsis">
     TFLite, ONNX, CoreML, TensorRT Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/running_on_jetson_nano/">
+<a class="md-nav__link" href="../../yolov5/tutorials/running_on_jetson_nano/">
 <span class="md-ellipsis">
     NVIDIA Jetson Nano Deployment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/test_time_augmentation/">
+<a class="md-nav__link" href="../../yolov5/tutorials/test_time_augmentation/">
 <span class="md-ellipsis">
     Test-Time Augmentation (TTA)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/model_ensembling/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_ensembling/">
 <span class="md-ellipsis">
     Model Ensembling
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/model_pruning_and_sparsity/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_pruning_and_sparsity/">
 <span class="md-ellipsis">
     Pruning/Sparsity Tutorial
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/hyperparameter_evolution/">
+<a class="md-nav__link" href="../../yolov5/tutorials/hyperparameter_evolution/">
 <span class="md-ellipsis">
     Hyperparameter evolution
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/transfer_learning_with_frozen_layers/">
+<a class="md-nav__link" href="../../yolov5/tutorials/transfer_learning_with_frozen_layers/">
 <span class="md-ellipsis">
     Transfer learning with frozen layers
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/architecture_description/">
+<a class="md-nav__link" href="../../yolov5/tutorials/architecture_description/">
 <span class="md-ellipsis">
     Architecture Summary
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/roboflow_datasets_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/roboflow_datasets_integration/">
 <span class="md-ellipsis">
     Roboflow Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/neural_magic_pruning_quantization/">
+<a class="md-nav__link" href="../../yolov5/tutorials/neural_magic_pruning_quantization/">
 <span class="md-ellipsis">
     Neural Magic's DeepSparse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/comet_logging_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/comet_logging_integration/">
 <span class="md-ellipsis">
     Comet Logging
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../yolov5/tutorials/clearml_logging_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/clearml_logging_integration/">
 <span class="md-ellipsis">
     Clearml Logging
   </span>
@@ -1287,7 +1375,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../hub/">
+<a class="md-nav__link" href="../../hub/">
 <span class="md-ellipsis">
     Ultralytics HUB
   </span>
@@ -1303,35 +1391,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../hub/quickstart/">
+<a class="md-nav__link" href="../../hub/quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../hub/datasets/">
+<a class="md-nav__link" href="../../hub/datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../hub/projects/">
+<a class="md-nav__link" href="../../hub/projects/">
 <span class="md-ellipsis">
     Projects
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../hub/models/">
+<a class="md-nav__link" href="../../hub/models/">
 <span class="md-ellipsis">
     Models
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../hub/integrations/">
+<a class="md-nav__link" href="../../hub/integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1340,7 +1428,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../hub/app/">
+<a class="md-nav__link" href="../../hub/app/">
 <span class="md-ellipsis">
     Ultralytics HUB App
   </span>
@@ -1356,14 +1444,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../hub/app/ios/">
+<a class="md-nav__link" href="../../hub/app/ios/">
 <span class="md-ellipsis">
     iOS
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../hub/app/android/">
+<a class="md-nav__link" href="../../hub/app/android/">
 <span class="md-ellipsis">
     Android
   </span>
@@ -1373,7 +1461,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../hub/inference_api/">
+<a class="md-nav__link" href="../../hub/inference_api/">
 <span class="md-ellipsis">
     Inference API
   </span>
@@ -1382,15 +1470,15 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_12" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
 <span class="md-ellipsis">
     Reference
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_12">
 <span class="md-nav__icon md-icon"></span>
             Reference
@@ -1411,7 +1499,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../cfg/__init__/">
+<a class="md-nav__link" href="../../reference/cfg/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
@@ -1435,56 +1523,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../data/annotator/">
+<a class="md-nav__link" href="../../reference/data/annotator/">
 <span class="md-ellipsis">
     annotator
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../data/augment/">
+<a class="md-nav__link" href="../../reference/data/augment/">
 <span class="md-ellipsis">
     augment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../data/base/">
+<a class="md-nav__link" href="../../reference/data/base/">
 <span class="md-ellipsis">
     base
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../data/build/">
+<a class="md-nav__link" href="../../reference/data/build/">
 <span class="md-ellipsis">
     build
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../data/converter/">
+<a class="md-nav__link" href="../../reference/data/converter/">
 <span class="md-ellipsis">
     converter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../data/dataset/">
+<a class="md-nav__link" href="../../reference/data/dataset/">
 <span class="md-ellipsis">
     dataset
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../data/loaders/">
+<a class="md-nav__link" href="../../reference/data/loaders/">
 <span class="md-ellipsis">
     loaders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../data/utils/">
+<a class="md-nav__link" href="../../reference/data/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1508,49 +1596,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../engine/exporter/">
+<a class="md-nav__link" href="../../reference/engine/exporter/">
 <span class="md-ellipsis">
     exporter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../engine/model/">
+<a class="md-nav__link" href="../../reference/engine/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../engine/predictor/">
+<a class="md-nav__link" href="../../reference/engine/predictor/">
 <span class="md-ellipsis">
     predictor
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../engine/results/">
+<a class="md-nav__link" href="../../reference/engine/results/">
 <span class="md-ellipsis">
     results
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../engine/trainer/">
+<a class="md-nav__link" href="../../reference/engine/trainer/">
 <span class="md-ellipsis">
     trainer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../engine/tuner/">
+<a class="md-nav__link" href="../../reference/engine/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../engine/validator/">
+<a class="md-nav__link" href="../../reference/engine/validator/">
 <span class="md-ellipsis">
     validator
   </span>
@@ -1574,28 +1662,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../hub/__init__/">
+<a class="md-nav__link" href="../../reference/hub/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../hub/auth/">
+<a class="md-nav__link" href="../../reference/hub/auth/">
 <span class="md-ellipsis">
     auth
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../hub/session/">
+<a class="md-nav__link" href="../../reference/hub/session/">
 <span class="md-ellipsis">
     session
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../hub/utils/">
+<a class="md-nav__link" href="../../reference/hub/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1604,15 +1692,15 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_12_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12_5" id="__nav_12_5_label" tabindex="0">
 <span class="md-ellipsis">
     models
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_12_5_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_12_5">
 <span class="md-nav__icon md-icon"></span>
             models
@@ -1633,35 +1721,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fastsam/model/">
+<a class="md-nav__link" href="../../reference/models/fastsam/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fastsam/predict/">
+<a class="md-nav__link" href="../../reference/models/fastsam/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fastsam/prompt/">
+<a class="md-nav__link" href="../../reference/models/fastsam/prompt/">
 <span class="md-ellipsis">
     prompt
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fastsam/utils/">
+<a class="md-nav__link" href="../../reference/models/fastsam/utils/">
 <span class="md-ellipsis">
     utils
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../fastsam/val/">
+<a class="md-nav__link" href="../../reference/models/fastsam/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1685,21 +1773,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../nas/model/">
+<a class="md-nav__link" href="../../reference/models/nas/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../nas/predict/">
+<a class="md-nav__link" href="../../reference/models/nas/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../nas/val/">
+<a class="md-nav__link" href="../../reference/models/nas/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1723,28 +1811,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../rtdetr/model/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../rtdetr/predict/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../rtdetr/train/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../rtdetr/val/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1768,21 +1856,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sam/amg/">
+<a class="md-nav__link" href="../../reference/models/sam/amg/">
 <span class="md-ellipsis">
     amg
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sam/build/">
+<a class="md-nav__link" href="../../reference/models/sam/build/">
 <span class="md-ellipsis">
     build
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sam/model/">
+<a class="md-nav__link" href="../../reference/models/sam/model/">
 <span class="md-ellipsis">
     model
   </span>
@@ -1803,35 +1891,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sam/modules/decoders/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/decoders/">
 <span class="md-ellipsis">
     decoders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sam/modules/encoders/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/encoders/">
 <span class="md-ellipsis">
     encoders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sam/modules/sam/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/sam/">
 <span class="md-ellipsis">
     sam
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sam/modules/tiny_encoder/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/tiny_encoder/">
 <span class="md-ellipsis">
     tiny_encoder
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sam/modules/transformer/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/transformer/">
 <span class="md-ellipsis">
     transformer
   </span>
@@ -1841,7 +1929,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../sam/predict/">
+<a class="md-nav__link" href="../../reference/models/sam/predict/">
 <span class="md-ellipsis">
     predict
   </span>
@@ -1865,14 +1953,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../utils/loss/">
+<a class="md-nav__link" href="../../reference/models/utils/loss/">
 <span class="md-ellipsis">
     loss
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../utils/ops/">
+<a class="md-nav__link" href="../../reference/models/utils/ops/">
 <span class="md-ellipsis">
     ops
   </span>
@@ -1881,15 +1969,15 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_12_5_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12_5_6" id="__nav_12_5_6_label" tabindex="0">
 <span class="md-ellipsis">
     yolo
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_12_5_6_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_6_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_12_5_6">
 <span class="md-nav__icon md-icon"></span>
             yolo
@@ -1910,21 +1998,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/train/">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/val/">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1933,65 +2021,36 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_12_5_6_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_5_6_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12_5_6_2" id="__nav_12_5_6_2_label" tabindex="0">
 <span class="md-ellipsis">
     detect
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_12_5_6_2_label" class="md-nav" data-md-level="4">
+<nav aria-expanded="false" aria-labelledby="__nav_12_5_6_2_label" class="md-nav" data-md-level="4">
 <label class="md-nav__title" for="__nav_12_5_6_2">
 <span class="md-nav__icon md-icon"></span>
             detect
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    predict
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.models.yolo.detect.predict.DetectionPredictor">
-    DetectionPredictor
-  </a>
-<nav aria-label="DetectionPredictor" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.models.yolo.detect.predict.DetectionPredictor.postprocess">
-    postprocess()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../train/">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../val/">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -2001,7 +2060,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../model/">
+<a class="md-nav__link" href="../../reference/models/yolo/model/">
 <span class="md-ellipsis">
     model
   </span>
@@ -2022,21 +2081,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../pose/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../pose/train/">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../pose/val/">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -2060,21 +2119,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../segment/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../segment/train/">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../segment/val/">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -2104,7 +2163,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../nn/autobackend/">
+<a class="md-nav__link" href="../../reference/nn/autobackend/">
 <span class="md-ellipsis">
     autobackend
   </span>
@@ -2125,35 +2184,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../nn/modules/block/">
+<a class="md-nav__link" href="../../reference/nn/modules/block/">
 <span class="md-ellipsis">
     block
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../nn/modules/conv/">
+<a class="md-nav__link" href="../../reference/nn/modules/conv/">
 <span class="md-ellipsis">
     conv
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../nn/modules/head/">
+<a class="md-nav__link" href="../../reference/nn/modules/head/">
 <span class="md-ellipsis">
     head
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../nn/modules/transformer/">
+<a class="md-nav__link" href="../../reference/nn/modules/transformer/">
 <span class="md-ellipsis">
     transformer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../nn/modules/utils/">
+<a class="md-nav__link" href="../../reference/nn/modules/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -2163,7 +2222,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../nn/tasks/">
+<a class="md-nav__link" href="../../reference/nn/tasks/">
 <span class="md-ellipsis">
     tasks
   </span>
@@ -2187,28 +2246,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../trackers/basetrack/">
+<a class="md-nav__link" href="../../reference/trackers/basetrack/">
 <span class="md-ellipsis">
     basetrack
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../trackers/bot_sort/">
+<a class="md-nav__link" href="../../reference/trackers/bot_sort/">
 <span class="md-ellipsis">
     bot_sort
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../trackers/byte_tracker/">
+<a class="md-nav__link" href="../../reference/trackers/byte_tracker/">
 <span class="md-ellipsis">
     byte_tracker
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../trackers/track/">
+<a class="md-nav__link" href="../../reference/trackers/track/">
 <span class="md-ellipsis">
     track
   </span>
@@ -2229,21 +2288,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../trackers/utils/gmc/">
+<a class="md-nav__link" href="../../reference/trackers/utils/gmc/">
 <span class="md-ellipsis">
     gmc
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../trackers/utils/kalman_filter/">
+<a class="md-nav__link" href="../../reference/trackers/utils/kalman_filter/">
 <span class="md-ellipsis">
     kalman_filter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../trackers/utils/matching/">
+<a class="md-nav__link" href="../../reference/trackers/utils/matching/">
 <span class="md-ellipsis">
     matching
   </span>
@@ -2270,21 +2329,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/__init__/">
+<a class="md-nav__link" href="../../reference/utils/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/autobatch/">
+<a class="md-nav__link" href="../../reference/utils/autobatch/">
 <span class="md-ellipsis">
     autobatch
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/benchmarks/">
+<a class="md-nav__link" href="../../reference/utils/benchmarks/">
 <span class="md-ellipsis">
     benchmarks
   </span>
@@ -2305,70 +2364,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/callbacks/base/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/base/">
 <span class="md-ellipsis">
     base
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/callbacks/clearml/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/clearml/">
 <span class="md-ellipsis">
     clearml
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/callbacks/comet/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/comet/">
 <span class="md-ellipsis">
     comet
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/callbacks/dvc/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/dvc/">
 <span class="md-ellipsis">
     dvc
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/callbacks/hub/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/hub/">
 <span class="md-ellipsis">
     hub
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/callbacks/mlflow/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/mlflow/">
 <span class="md-ellipsis">
     mlflow
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/callbacks/neptune/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/neptune/">
 <span class="md-ellipsis">
     neptune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/callbacks/raytune/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/raytune/">
 <span class="md-ellipsis">
     raytune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/callbacks/tensorboard/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/tensorboard/">
 <span class="md-ellipsis">
     tensorboard
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/callbacks/wb/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/wb/">
 <span class="md-ellipsis">
     wb
   </span>
@@ -2378,98 +2437,98 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/checks/">
+<a class="md-nav__link" href="../../reference/utils/checks/">
 <span class="md-ellipsis">
     checks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/dist/">
+<a class="md-nav__link" href="../../reference/utils/dist/">
 <span class="md-ellipsis">
     dist
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/downloads/">
+<a class="md-nav__link" href="../../reference/utils/downloads/">
 <span class="md-ellipsis">
     downloads
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/errors/">
+<a class="md-nav__link" href="../../reference/utils/errors/">
 <span class="md-ellipsis">
     errors
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/files/">
+<a class="md-nav__link" href="../../reference/utils/files/">
 <span class="md-ellipsis">
     files
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/instance/">
+<a class="md-nav__link" href="../../reference/utils/instance/">
 <span class="md-ellipsis">
     instance
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/loss/">
+<a class="md-nav__link" href="../../reference/utils/loss/">
 <span class="md-ellipsis">
     loss
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/metrics/">
+<a class="md-nav__link" href="../../reference/utils/metrics/">
 <span class="md-ellipsis">
     metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/ops/">
+<a class="md-nav__link" href="../../reference/utils/ops/">
 <span class="md-ellipsis">
     ops
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/patches/">
+<a class="md-nav__link" href="../../reference/utils/patches/">
 <span class="md-ellipsis">
     patches
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/plotting/">
+<a class="md-nav__link" href="../../reference/utils/plotting/">
 <span class="md-ellipsis">
     plotting
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/tal/">
+<a class="md-nav__link" href="../../reference/utils/tal/">
 <span class="md-ellipsis">
     tal
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/torch_utils/">
+<a class="md-nav__link" href="../../reference/utils/torch_utils/">
 <span class="md-ellipsis">
     torch_utils
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../utils/tuner/">
+<a class="md-nav__link" href="../../reference/utils/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
@@ -2484,7 +2543,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../../../help/">
+<a class="md-nav__link" href="../../help/">
 <span class="md-ellipsis">
     Help
   </span>
@@ -2500,56 +2559,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../help/FAQ/">
+<a class="md-nav__link" href="../../help/FAQ/">
 <span class="md-ellipsis">
     Frequently Asked Questions (FAQ)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../help/contributing/">
+<a class="md-nav__link" href="../../help/contributing/">
 <span class="md-ellipsis">
     Contributing Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../help/CI/">
+<a class="md-nav__link" href="../../help/CI/">
 <span class="md-ellipsis">
     Continuous Integration (CI) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../help/CLA/">
+<a class="md-nav__link" href="../../help/CLA/">
 <span class="md-ellipsis">
     Contributor License Agreement (CLA)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../help/minimum_reproducible_example/">
+<a class="md-nav__link" href="../../help/minimum_reproducible_example/">
 <span class="md-ellipsis">
     Minimum Reproducible Example (MRE) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../help/code_of_conduct/">
+<a class="md-nav__link" href="../../help/code_of_conduct/">
 <span class="md-ellipsis">
     Code of Conduct
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../help/environmental-health-safety/">
+<a class="md-nav__link" href="../../help/environmental-health-safety/">
 <span class="md-ellipsis">
     Environmental, Health and Safety (EHS) Policy
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../SECURITY/">
+<a class="md-nav__link" href="../../SECURITY/">
 <span class="md-ellipsis">
     Security Policy
   </span>
@@ -2565,158 +2624,110 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/reference/models/yolo/detect/predict.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/guides/sahi-tiled-inference.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="reference-for-ultralyticsmodelsyolodetectpredictpy">Reference for <code>ultralytics/models/yolo/detect/predict.py</code></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Full source code for this file is available at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/models/yolo/detect/predict.py">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/models/yolo/detect/predict.py</a>. Help us fix any issues you see by submitting a <a href="https://docs.ultralytics.com/help/contributing/">Pull Request</a> 🛠️. Thank you 🙏!</p>
-</div>
-<hr/>
-<div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="ultralytics.models.yolo.detect.predict.DetectionPredictor">
-<code>ultralytics.models.yolo.detect.predict.DetectionPredictor</code>
-</h2>
-<div class="doc doc-contents first">
-<p class="doc doc-class-bases">
-            Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.engine.predictor.BasePredictor" href="../../../../engine/predictor/#ultralytics.engine.predictor.BasePredictor">BasePredictor</a></code></p>
-<p>A class extending the BasePredictor class for prediction based on a detection model.</p>
-<details class="example" open="">
-<summary>Example</summary>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics.utils</span> <span class="kn">import</span> <span class="n">ASSETS</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">ultralytics.models.yolo.detect</span> <span class="kn">import</span> <span class="n">DetectionPredictor</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">'yolov8n.pt'</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">ASSETS</span><span class="p">)</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">predictor</span> <span class="o">=</span> <span class="n">DetectionPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">predictor</span><span class="o">.</span><span class="n">predict_cli</span><span class="p">()</span>
+<h1 id="ultralytics-docs-using-yolov8-with-sahi-for-sliced-inference">Ultralytics Docs: Using YOLOv8 with SAHI for Sliced Inference</h1>
+<p>Welcome to the Ultralytics documentation on how to use YOLOv8 with SAHI (Slicing Aided Hyper Inference). In this comprehensive guide, we'll discuss what SAHI is, the benefits of sliced inference, and how to use SAHI with YOLOv8 for object detection tasks.</p>
+<p><img alt="SAHI Sliced Inference" src="https://raw.githubusercontent.com/obss/sahi/main/resources/sliced_inference.gif"/></p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#introduction-to-sahi">Introduction to SAHI</a></li>
+<li><a href="#what-is-sliced-inference">What is Sliced Inference?</a></li>
+<li><a href="#installation-and-preparation">Installation and Preparation</a></li>
+<li><a href="#standard-inference-with-yolov8">Standard Inference with YOLOv8</a></li>
+<li><a href="#sliced-inference-with-yolov8">Sliced Inference with YOLOv8</a></li>
+<li><a href="#handling-prediction-results">Handling Prediction Results</a></li>
+<li><a href="#batch-prediction">Batch Prediction</a></li>
+</ol>
+<h2 id="introduction-to-sahi">Introduction to SAHI</h2>
+<p>SAHI is a powerful library aimed at performing efficient and accurate object detection over slices of an image, particularly useful for large scale and high-resolution imagery. It integrates seamlessly with YOLO models and allows for a more efficient usage of computational resources.</p>
+<h2 id="what-is-sliced-inference">What is Sliced Inference?</h2>
+<p>Sliced Inference is a technique that divides a large image into smaller slices, performs object detection on each slice, and then aggregates the results back onto the original image. This method is especially beneficial when dealing with high-resolution images as it significantly reduces the computational load without sacrificing detection accuracy.</p>
+<h2 id="installation-and-preparation">Installation and Preparation</h2>
+<h3 id="installation">Installation</h3>
+<p>To get started, install the latest versions of SAHI and Ultralytics:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>ultralytics<span class="w"> </span>sahi
 </code></pre></div>
-</details>
-<details class="quote">
-<summary>Source code in <code>ultralytics/models/yolo/detect/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span>
-<span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">class</span> <span class="nc">DetectionPredictor</span><span class="p">(</span><span class="n">BasePredictor</span><span class="p">):</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="sd">    A class extending the BasePredictor class for prediction based on a detection model.</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    Example:</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">        ```python</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">        from ultralytics.utils import ASSETS</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">        from ultralytics.models.yolo.detect import DetectionPredictor</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">        args = dict(model='yolov8n.pt', source=ASSETS)</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        predictor = DetectionPredictor(overrides=args)</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">        predictor.predict_cli()</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        ```</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    """</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="sd">"""Post-processes predictions and returns a list of Results objects."""</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="n">preds</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">non_max_suppression</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>                                        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>                                        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">iou</span><span class="p">,</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>                                        <span class="n">agnostic</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">agnostic_nms</span><span class="p">,</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>                                        <span class="n">max_det</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">max_det</span><span class="p">,</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>                                        <span class="n">classes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">classes</span><span class="p">)</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># input images are a torch.Tensor, not a list</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>            <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">preds</span><span class="p">):</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="n">orig_img</span> <span class="o">=</span> <span class="n">orig_imgs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>            <span class="n">img_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="n">pred</span><span class="p">))</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="k">return</span> <span class="n">results</span>
-</code></pre></div></td></tr></table></div>
-</details>
-<div class="doc doc-children">
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.predict.DetectionPredictor.postprocess">
-<code class="highlight language-python"><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">)</span></code>
-</h3>
-<div class="doc doc-contents">
-<p>Post-processes predictions and returns a list of Results objects.</p>
-<details class="quote">
-<summary>Source code in <code>ultralytics/models/yolo/detect/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span><span class="sd">"""Post-processes predictions and returns a list of Results objects."""</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="n">preds</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">non_max_suppression</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>                                    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>                                    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">iou</span><span class="p">,</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>                                    <span class="n">agnostic</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">agnostic_nms</span><span class="p">,</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>                                    <span class="n">max_det</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">max_det</span><span class="p">,</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>                                    <span class="n">classes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">classes</span><span class="p">)</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># input images are a torch.Tensor, not a list</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">preds</span><span class="p">):</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="n">orig_img</span> <span class="o">=</span> <span class="n">orig_imgs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="n">img_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="n">pred</span><span class="p">))</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="k">return</span> <span class="n">results</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div><p><br/><br/></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-07-16, Updated 2023-08-20<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<h3 id="import-modules-and-download-resources">Import Modules and Download Resources</h3>
+<p>Here's how to import the necessary modules and download a YOLOv8 model and some test images:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">sahi.utils.yolov8</span> <span class="kn">import</span> <span class="n">download_yolov8s_model</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">sahi</span> <span class="kn">import</span> <span class="n">AutoDetectionModel</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">sahi.utils.cv</span> <span class="kn">import</span> <span class="n">read_image</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kn">from</span> <span class="nn">sahi.utils.file</span> <span class="kn">import</span> <span class="n">download_from_url</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="kn">from</span> <span class="nn">sahi.predict</span> <span class="kn">import</span> <span class="n">get_prediction</span><span class="p">,</span> <span class="n">get_sliced_prediction</span><span class="p">,</span> <span class="n">predict</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Download YOLOv8 model</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">yolov8_model_path</span> <span class="o">=</span> <span class="s2">"models/yolov8s.pt"</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">download_yolov8s_model</span><span class="p">(</span><span class="n">yolov8_model_path</span><span class="p">)</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="c1"># Download test images</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="n">download_from_url</span><span class="p">(</span><span class="s1">'https://raw.githubusercontent.com/obss/sahi/main/demo/demo_data/small-vehicles1.jpeg'</span><span class="p">,</span> <span class="s1">'demo_data/small-vehicles1.jpeg'</span><span class="p">)</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="n">download_from_url</span><span class="p">(</span><span class="s1">'https://raw.githubusercontent.com/obss/sahi/main/demo/demo_data/terrain2.png'</span><span class="p">,</span> <span class="s1">'demo_data/terrain2.png'</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="standard-inference-with-yolov8">Standard Inference with YOLOv8</h2>
+<h3 id="instantiate-the-model">Instantiate the Model</h3>
+<p>You can instantiate a YOLOv8 model for object detection like this:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">detection_model</span> <span class="o">=</span> <span class="n">AutoDetectionModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>    <span class="n">model_type</span><span class="o">=</span><span class="s1">'yolov8'</span><span class="p">,</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    <span class="n">model_path</span><span class="o">=</span><span class="n">yolov8_model_path</span><span class="p">,</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>    <span class="n">confidence_threshold</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="n">device</span><span class="o">=</span><span class="s2">"cpu"</span><span class="p">,</span>  <span class="c1"># or 'cuda:0'</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="p">)</span>
+</code></pre></div>
+<h3 id="perform-standard-prediction">Perform Standard Prediction</h3>
+<p>Perform standard inference using an image path or a numpy image.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># With an image path</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">get_prediction</span><span class="p">(</span><span class="s2">"demo_data/small-vehicles1.jpeg"</span><span class="p">,</span> <span class="n">detection_model</span><span class="p">)</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># With a numpy image</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">result</span> <span class="o">=</span> <span class="n">get_prediction</span><span class="p">(</span><span class="n">read_image</span><span class="p">(</span><span class="s2">"demo_data/small-vehicles1.jpeg"</span><span class="p">),</span> <span class="n">detection_model</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="visualize-results">Visualize Results</h3>
+<p>Export and visualize the predicted bounding boxes and masks:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">result</span><span class="o">.</span><span class="n">export_visuals</span><span class="p">(</span><span class="n">export_dir</span><span class="o">=</span><span class="s2">"demo_data/"</span><span class="p">)</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">Image</span><span class="p">(</span><span class="s2">"demo_data/prediction_visual.png"</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="sliced-inference-with-yolov8">Sliced Inference with YOLOv8</h2>
+<p>Perform sliced inference by specifying the slice dimensions and overlap ratios:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">result</span> <span class="o">=</span> <span class="n">get_sliced_prediction</span><span class="p">(</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>    <span class="s2">"demo_data/small-vehicles1.jpeg"</span><span class="p">,</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>    <span class="n">detection_model</span><span class="p">,</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span class="n">slice_height</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="n">slice_width</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="n">overlap_height_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="n">overlap_width_ratio</span><span class="o">=</span><span class="mf">0.2</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="p">)</span>
+</code></pre></div>
+<h2 id="handling-prediction-results">Handling Prediction Results</h2>
+<p>SAHI provides a <code>PredictionResult</code> object, which can be converted into various annotation formats:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Access the object prediction list</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">object_prediction_list</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">object_prediction_list</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># Convert to COCO annotation, COCO prediction, imantics, and fiftyone formats</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="n">result</span><span class="o">.</span><span class="n">to_coco_annotations</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="n">result</span><span class="o">.</span><span class="n">to_coco_predictions</span><span class="p">(</span><span class="n">image_id</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">result</span><span class="o">.</span><span class="n">to_imantics_annotations</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="n">result</span><span class="o">.</span><span class="n">to_fiftyone_detections</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="batch-prediction">Batch Prediction</h2>
+<p>For batch prediction on a directory of images:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">predict</span><span class="p">(</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span class="n">model_type</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="n">model_path</span><span class="o">=</span><span class="s2">"path/to/yolov8n.pt"</span><span class="p">,</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="n">model_device</span><span class="o">=</span><span class="s2">"cpu"</span><span class="p">,</span>  <span class="c1"># or 'cuda:0'</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="n">model_confidence_threshold</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="n">source</span><span class="o">=</span><span class="s2">"path/to/dir"</span><span class="p">,</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="n">slice_height</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="n">slice_width</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a>    <span class="n">overlap_height_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a>    <span class="n">overlap_width_ratio</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="p">)</span>
+</code></pre></div>
+<p>That's it! Now you're equipped to use YOLOv8 with SAHI for both standard and sliced inference.</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-09-05, Updated 2023-09-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2727,13 +2738,46 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/models/yolo/detect/predict', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/sahi-tiled-inference', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/models/yolo/detect/predict', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/sahi-tiled-inference', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
+<h2 id="__comments">Comments</h2>
+<!-- Insert Giscus code snippet from https://giscus.app/ here -->
+<script async="" crossorigin="anonymous" data-category="Docs" data-category-id="DIC_kwDOH-jzvc4CWLkL" data-emit-metadata="0" data-input-position="top" data-lang="en" data-mapping="title" data-reactions-enabled="1" data-repo="ultralytics/ultralytics" data-repo-id="R_kgDOH-jzvQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+</script>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -2745,7 +2789,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: val" class="md-footer__link md-footer__link--prev" href="../../classify/val/" rel="prev">
+<a aria-label="Previous: Hyperparameter Tuning" class="md-footer__link md-footer__link--prev" href="../hyperparameter-tuning/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2754,17 +2798,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                val
+                Hyperparameter Tuning
               </div>
 </div>
 </a>
-<a aria-label="Next: train" class="md-footer__link md-footer__link--next" href="../train/" rel="next">
+<a aria-label="Next: Ultralytics Integrations" class="md-footer__link md-footer__link--next" href="../../integrations/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                train
+                Ultralytics Integrations
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2815,7 +2859,7 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
 </body>
 </html>

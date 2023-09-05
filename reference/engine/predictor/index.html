@@ -11,7 +11,7 @@
 <link href="../model/" rel="prev"/>
 <link href="../results/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.2, mkdocs-material-9.2.7" name="generator"/>
+<meta content="mkdocs-1.5.2, mkdocs-material-9.2.8" name="generator"/>
 <title>predictor - Ultralytics YOLOv8 Docs</title>
 <link href="../../../assets/stylesheets/main.046329b4.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
@@ -982,6 +982,13 @@
 <a class="md-nav__link" href="../../../guides/hyperparameter-tuning/">
 <span class="md-ellipsis">
     Hyperparameter Tuning
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/sahi-tiled-inference/">
+<span class="md-ellipsis">
+    SAHI Tiled Inference
   </span>
 </a>
 </li>
@@ -3127,11 +3134,11 @@
 <a id="__codelineno-0-121" name="__codelineno-0-121"></a>            <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># contiguous</span>
 <a id="__codelineno-0-122" name="__codelineno-0-122"></a>            <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 <a id="__codelineno-0-123" name="__codelineno-0-123"></a>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a>        <span class="n">img</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">img</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">im</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
 <a id="__codelineno-0-126" name="__codelineno-0-126"></a>        <span class="k">if</span> <span class="n">not_tensor</span><span class="p">:</span>
-<a id="__codelineno-0-127" name="__codelineno-0-127"></a>            <span class="n">img</span> <span class="o">/=</span> <span class="mi">255</span>  <span class="c1"># 0 - 255 to 0.0 - 1.0</span>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a>        <span class="k">return</span> <span class="n">img</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>            <span class="n">im</span> <span class="o">/=</span> <span class="mi">255</span>  <span class="c1"># 0 - 255 to 0.0 - 1.0</span>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a>        <span class="k">return</span> <span class="n">im</span>
 <a id="__codelineno-0-129" name="__codelineno-0-129"></a>
 <a id="__codelineno-0-130" name="__codelineno-0-130"></a>    <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <a id="__codelineno-0-131" name="__codelineno-0-131"></a>        <span class="n">visualize</span> <span class="o">=</span> <span class="n">increment_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span>
@@ -3715,11 +3722,11 @@
 <a id="__codelineno-0-121" name="__codelineno-0-121"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># contiguous</span>
 <a id="__codelineno-0-122" name="__codelineno-0-122"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 <a id="__codelineno-0-123" name="__codelineno-0-123"></a>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="n">img</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>    <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">img</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">im</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
 <a id="__codelineno-0-126" name="__codelineno-0-126"></a>    <span class="k">if</span> <span class="n">not_tensor</span><span class="p">:</span>
-<a id="__codelineno-0-127" name="__codelineno-0-127"></a>        <span class="n">img</span> <span class="o">/=</span> <span class="mi">255</span>  <span class="c1"># 0 - 255 to 0.0 - 1.0</span>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a>    <span class="k">return</span> <span class="n">img</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>        <span class="n">im</span> <span class="o">/=</span> <span class="mi">255</span>  <span class="c1"># 0 - 255 to 0.0 - 1.0</span>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a>    <span class="k">return</span> <span class="n">im</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
