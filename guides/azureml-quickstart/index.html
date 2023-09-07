@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Azure Machine Learning YOLOv8 quickstart" name="description"/>
+<meta content="Step-by-step Quickstart Guide to Running YOLOv8 Object Detection Models on AzureML for Fast Prototyping and Testing" name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/guides/azureml-quickstart/" rel="canonical"/>
 <link href="../sahi-tiled-inference/" rel="prev"/>
-<link href="../../integrations/" rel="next"/>
+<link href="../conda-quickstart/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.2, mkdocs-material-9.2.8" name="generator"/>
 <title>AzureML Quickstart - Ultralytics YOLOv8 Docs</title>
@@ -24,7 +24,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="AzureML Quickstart" name="title"/><meta content="Ultralytics, YOLO, Deep Learning, Object detection, quickstart, Azure, AzureML" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/azureml-quickstart" property="og:url"/><meta content="AzureML Quickstart" property="og:title"/><meta content="Azure Machine Learning YOLOv8 quickstart" property="og:description"/><meta content="https://github.com/ouphi/ultralytics/assets/17216799/3e92fcc0-a08e-41a4-af81-d289cfe3b8f2" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/azureml-quickstart" property="twitter:url"/><meta content="AzureML Quickstart" property="twitter:title"/><meta content="Azure Machine Learning YOLOv8 quickstart" property="twitter:description"/><meta content="https://github.com/ouphi/ultralytics/assets/17216799/3e92fcc0-a08e-41a4-af81-d289cfe3b8f2" property="twitter:image"/></head>
+<meta content="AzureML Quickstart" name="title"/><meta content="Ultralytics, YOLOv8, Object Detection, Azure Machine Learning, Quickstart Guide, Prototype, Compute Instance, Terminal, Notebook, IPython Kernel, CLI, Python SDK" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/azureml-quickstart" property="og:url"/><meta content="AzureML Quickstart" property="og:title"/><meta content="Step-by-step Quickstart Guide to Running YOLOv8 Object Detection Models on AzureML for Fast Prototyping and Testing" property="og:description"/><meta content="https://github.com/ouphi/ultralytics/assets/17216799/3e92fcc0-a08e-41a4-af81-d289cfe3b8f2" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/azureml-quickstart" property="twitter:url"/><meta content="AzureML Quickstart" property="twitter:title"/><meta content="Step-by-step Quickstart Guide to Running YOLOv8 Object Detection Models on AzureML for Fast Prototyping and Testing" property="twitter:description"/><meta content="https://github.com/ouphi/ultralytics/assets/17216799/3e92fcc0-a08e-41a4-af81-d289cfe3b8f2" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -1012,6 +1012,21 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-azure">
+    What is Azure?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-azure-machine-learning-azureml">
+    What is Azure Machine Learning (AzureML)?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-azureml-benefit-yolo-users">
+    How Does AzureML Benefit YOLO Users?
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#prerequisites">
     Prerequisites
   </a>
@@ -1054,8 +1069,20 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#explore-more-with-azureml">
+    Explore More with AzureML
+  </a>
+</li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../conda-quickstart/">
+<span class="md-ellipsis">
+    Conda Quickstart
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -2612,22 +2639,30 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1 id="yolov8-on-azureml">YOLOv8 🚀 on AzureML</h1>
-<p>Note that this guide is only for quick trials from a compute terminal or from a Notebook. If you want to unlock the full power AzureML, you can find the documentation to:</p>
+<h2 id="what-is-azure">What is Azure?</h2>
+<p><a href="https://azure.microsoft.com/">Azure</a> is Microsoft's cloud computing platform, designed to help organizations move their workloads to the cloud from on-premises data centers. With the full spectrum of cloud services including those for computing, databases, analytics, machine learning, and networking, users can pick and choose from these services to develop and scale new applications, or run existing applications, in the public cloud.</p>
+<h2 id="what-is-azure-machine-learning-azureml">What is Azure Machine Learning (AzureML)?</h2>
+<p>Azure Machine Learning, commonly referred to as AzureML, is a fully managed cloud service that enables data scientists and developers to efficiently embed predictive analytics into their applications, helping organizations use massive data sets and bring all the benefits of the cloud to machine learning. AzureML offers a variety of services and capabilities aimed at making machine learning accessible, easy to use, and scalable. It provides capabilities like automated machine learning, drag-and-drop model training, as well as a robust Python SDK so that developers can make the most out of their machine learning models.</p>
+<h2 id="how-does-azureml-benefit-yolo-users">How Does AzureML Benefit YOLO Users?</h2>
+<p>For users of YOLO (You Only Look Once), AzureML provides a robust, scalable, and efficient platform to both train and deploy machine learning models. Whether you are looking to run quick prototypes or scale up to handle more extensive data, AzureML's flexible and user-friendly environment offers various tools and services to fit your needs. You can leverage AzureML to:</p>
 <ul>
-<li><a href="https://learn.microsoft.com/azure/machine-learning/how-to-create-data-assets">Create a data asset</a></li>
-<li><a href="https://learn.microsoft.com/azure/machine-learning/how-to-train-model">Create an AzureML job</a></li>
-<li><a href="https://learn.microsoft.com/azure/machine-learning/how-to-manage-models">Register a model</a></li>
-<li><a href="https://medium.com/@ouphi/how-to-train-the-yolov8-model-with-azure-machine-learning-python-sdk-8268696be8ba">Train YOLOv8 with the AzureML Python SDK</a></li>
-<li><a href="https://medium.com/@ouphi/how-to-train-the-yolov8-model-with-azureml-and-the-az-cli-73d3c870ba8e">Train YOLOv8 with the Azureml cli</a></li>
+<li>Easily manage large datasets and computational resources for training.</li>
+<li>Utilize built-in tools for data preprocessing, feature selection, and model training.</li>
+<li>Collaborate more efficiently with capabilities for MLOps (Machine Learning Operations), including but not limited to monitoring, auditing, and versioning of models and data.</li>
 </ul>
+<p>In the subsequent sections, you will find a quickstart guide detailing how to run YOLOv8 object detection models using AzureML, either from a compute terminal or a notebook.</p>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>You need an <a href="https://learn.microsoft.com/azure/machine-learning/concept-workspace?view=azureml-api-2">AzureML workspace</a>.</p>
+<p>Before you can get started, make sure you have access to an AzureML workspace. If you don't have one, you can create a new <a href="https://learn.microsoft.com/azure/machine-learning/concept-workspace?view=azureml-api-2">AzureML workspace</a> by following Azure's official documentation. This workspace acts as a centralized place to manage all AzureML resources.</p>
 <h2 id="create-a-compute-instance">Create a compute instance</h2>
 <p>From your AzureML workspace, select Compute &gt; Compute instances &gt; New, select the instance with the resources you need.</p>
-<p><img alt="create-compute-arrow" src="https://github.com/ouphi/ultralytics/assets/17216799/3e92fcc0-a08e-41a4-af81-d289cfe3b8f2" width="1741"/></p>
+<p align="center">
+<img alt="Create Azure Compute Instance" src="https://github.com/ouphi/ultralytics/assets/17216799/3e92fcc0-a08e-41a4-af81-d289cfe3b8f2" width="1280"/>
+</p>
 <h2 id="quickstart-from-terminal">Quickstart from Terminal</h2>
 <p>Start your compute and open a Terminal:</p>
-<p><img alt="open-terminal" src="https://github.com/ouphi/ultralytics/assets/17216799/635152f1-f4a3-4261-b111-d416cb5ef357"/></p>
+<p align="center">
+<img alt="Open Terminal" src="https://github.com/ouphi/ultralytics/assets/17216799/635152f1-f4a3-4261-b111-d416cb5ef357" width="480"/>
+</p>
 <h3 id="create-virtualenv">Create virtualenv</h3>
 <p>Create your conda virtualenv and install pip in it:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>yolov8env<span class="w"> </span>-y
@@ -2651,7 +2686,9 @@
 <h2 id="quickstart-from-a-notebook">Quickstart from a Notebook</h2>
 <h3 id="create-a-new-ipython-kernel">Create a new IPython kernel</h3>
 <p>Open the compute Terminal.</p>
-<p><img alt="open-terminal" src="https://github.com/ouphi/ultralytics/assets/17216799/635152f1-f4a3-4261-b111-d416cb5ef357"/></p>
+<p align="center">
+<img alt="Open Terminal" src="https://github.com/ouphi/ultralytics/assets/17216799/635152f1-f4a3-4261-b111-d416cb5ef357" width="480"/>
+</p>
 <p>From your compute terminal, you need to create a new ipykernel that will be used by your notebook to manage your dependencies:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>yolov8env<span class="w"> </span>-y
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>yolov8env
@@ -2686,7 +2723,18 @@
 <a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>  <span class="c1"># predict on an image</span>
 <a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="n">path</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>  <span class="c1"># export the model to ONNX format</span>
 </code></pre></div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-09-07, Updated 2023-09-07<br/>Authors: <a href="https://github.com/ouphi">ouphi</a> (1)</div>
+<p>You can use either the Ultralytics CLI or Python interface for running YOLOv8 tasks, as described in the terminal section above.</p>
+<p>By following these steps, you should be able to get YOLOv8 running quickly on AzureML for quick trials. For more advanced uses, you may refer to the full AzureML documentation linked at the beginning of this guide.</p>
+<h2 id="explore-more-with-azureml">Explore More with AzureML</h2>
+<p>This guide serves as an introduction to get you up and running with YOLOv8 on AzureML. However, it only scratches the surface of what AzureML can offer. To delve deeper and unlock the full potential of AzureML for your machine learning projects, consider exploring the following resources:</p>
+<ul>
+<li><a href="https://learn.microsoft.com/azure/machine-learning/how-to-create-data-assets">Create a Data Asset</a>: Learn how to set up and manage your data assets effectively within the AzureML environment.</li>
+<li><a href="https://learn.microsoft.com/azure/machine-learning/how-to-train-model">Initiate an AzureML Job</a>: Get a comprehensive understanding of how to kickstart your machine learning training jobs on AzureML.</li>
+<li><a href="https://learn.microsoft.com/azure/machine-learning/how-to-manage-models">Register a Model</a>: Familiarize yourself with model management practices including registration, versioning, and deployment.</li>
+<li><a href="https://medium.com/@ouphi/how-to-train-the-yolov8-model-with-azure-machine-learning-python-sdk-8268696be8ba">Train YOLOv8 with AzureML Python SDK</a>: Explore a step-by-step guide on using the AzureML Python SDK to train your YOLOv8 models.</li>
+<li><a href="https://medium.com/@ouphi/how-to-train-the-yolov8-model-with-azureml-and-the-az-cli-73d3c870ba8e">Train YOLOv8 with AzureML CLI</a>: Discover how to utilize the command-line interface for streamlined training and management of YOLOv8 models on AzureML.</li>
+</ul>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-09-07, Updated 2023-09-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/ouphi">ouphi</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2761,13 +2809,13 @@
               </div>
 </div>
 </a>
-<a aria-label="Next: Ultralytics Integrations" class="md-footer__link md-footer__link--next" href="../../integrations/" rel="next">
+<a aria-label="Next: Conda Quickstart" class="md-footer__link md-footer__link--next" href="../conda-quickstart/" rel="next">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Ultralytics Integrations
+                Conda Quickstart
               </div>
 </div>
 <div class="md-footer__button md-icon">

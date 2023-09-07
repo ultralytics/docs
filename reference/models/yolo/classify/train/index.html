@@ -999,6 +999,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../guides/conda-quickstart/">
+<span class="md-ellipsis">
+    Conda Quickstart
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2849,7 +2856,7 @@
 <a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="k">return</span> <span class="n">model</span>
 <a id="__codelineno-0-59" name="__codelineno-0-59"></a>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">def</span> <span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">        </span><span class="sd">"""load/create/download model for any task"""</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">        </span><span class="sd">"""Load, create or download model for any task."""</span>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>  <span class="c1"># if model is loaded beforehand. No setup needed</span>
 <a id="__codelineno-0-63" name="__codelineno-0-63"></a>            <span class="k">return</span>
 <a id="__codelineno-0-64" name="__codelineno-0-64"></a>
@@ -2922,13 +2929,13 @@
 <a id="__codelineno-0-131" name="__codelineno-0-131"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">best</span><span class="p">:</span>
 <a id="__codelineno-0-132" name="__codelineno-0-132"></a>            <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
 <a id="__codelineno-0-133" name="__codelineno-0-133"></a>                <span class="n">strip_optimizer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># strip optimizers</span>
-<a id="__codelineno-0-134" name="__codelineno-0-134"></a>                <span class="c1"># TODO: validate best.pt after training completes</span>
-<a id="__codelineno-0-135" name="__codelineno-0-135"></a>                <span class="c1"># if f is self.best:</span>
-<a id="__codelineno-0-136" name="__codelineno-0-136"></a>                <span class="c1">#     LOGGER.info(f'\nValidating {f}...')</span>
-<a id="__codelineno-0-137" name="__codelineno-0-137"></a>                <span class="c1">#     self.validator.args.save_json = True</span>
-<a id="__codelineno-0-138" name="__codelineno-0-138"></a>                <span class="c1">#     self.metrics = self.validator(model=f)</span>
-<a id="__codelineno-0-139" name="__codelineno-0-139"></a>                <span class="c1">#     self.metrics.pop('fitness', None)</span>
-<a id="__codelineno-0-140" name="__codelineno-0-140"></a>                <span class="c1">#     self.run_callbacks('on_fit_epoch_end')</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a>                <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">best</span><span class="p">:</span>
+<a id="__codelineno-0-135" name="__codelineno-0-135"></a>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Validating </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s1">...'</span><span class="p">)</span>
+<a id="__codelineno-0-136" name="__codelineno-0-136"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">data</span>
+<a id="__codelineno-0-137" name="__codelineno-0-137"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span>
+<a id="__codelineno-0-138" name="__codelineno-0-138"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+<a id="__codelineno-0-139" name="__codelineno-0-139"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">'fitness'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-0-140" name="__codelineno-0-140"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks</span><span class="p">(</span><span class="s1">'on_fit_epoch_end'</span><span class="p">)</span>
 <a id="__codelineno-0-141" name="__codelineno-0-141"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Results saved to </span><span class="si">{</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'bold'</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-142" name="__codelineno-0-142"></a>
 <a id="__codelineno-0-143" name="__codelineno-0-143"></a>    <span class="k">def</span> <span class="nf">plot_training_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
@@ -2994,13 +3001,13 @@
 <a id="__codelineno-0-131" name="__codelineno-0-131"></a>    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">best</span><span class="p">:</span>
 <a id="__codelineno-0-132" name="__codelineno-0-132"></a>        <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
 <a id="__codelineno-0-133" name="__codelineno-0-133"></a>            <span class="n">strip_optimizer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># strip optimizers</span>
-<a id="__codelineno-0-134" name="__codelineno-0-134"></a>            <span class="c1"># TODO: validate best.pt after training completes</span>
-<a id="__codelineno-0-135" name="__codelineno-0-135"></a>            <span class="c1"># if f is self.best:</span>
-<a id="__codelineno-0-136" name="__codelineno-0-136"></a>            <span class="c1">#     LOGGER.info(f'\nValidating {f}...')</span>
-<a id="__codelineno-0-137" name="__codelineno-0-137"></a>            <span class="c1">#     self.validator.args.save_json = True</span>
-<a id="__codelineno-0-138" name="__codelineno-0-138"></a>            <span class="c1">#     self.metrics = self.validator(model=f)</span>
-<a id="__codelineno-0-139" name="__codelineno-0-139"></a>            <span class="c1">#     self.metrics.pop('fitness', None)</span>
-<a id="__codelineno-0-140" name="__codelineno-0-140"></a>            <span class="c1">#     self.run_callbacks('on_fit_epoch_end')</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a>            <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">best</span><span class="p">:</span>
+<a id="__codelineno-0-135" name="__codelineno-0-135"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Validating </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s1">...'</span><span class="p">)</span>
+<a id="__codelineno-0-136" name="__codelineno-0-136"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">data</span>
+<a id="__codelineno-0-137" name="__codelineno-0-137"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span>
+<a id="__codelineno-0-138" name="__codelineno-0-138"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+<a id="__codelineno-0-139" name="__codelineno-0-139"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">'fitness'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-0-140" name="__codelineno-0-140"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks</span><span class="p">(</span><span class="s1">'on_fit_epoch_end'</span><span class="p">)</span>
 <a id="__codelineno-0-141" name="__codelineno-0-141"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Results saved to </span><span class="si">{</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'bold'</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -3239,7 +3246,7 @@ segmentation &amp; detection</p>
 <code class="highlight language-python"><span class="n">setup_model</span><span class="p">()</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>load/create/download model for any task</p>
+<p>Load, create or download model for any task.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/classify/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-60">60</a></span>
@@ -3262,7 +3269,7 @@ segmentation &amp; detection</p>
 <span class="normal"><a href="#__codelineno-0-77">77</a></span>
 <span class="normal"><a href="#__codelineno-0-78">78</a></span>
 <span class="normal"><a href="#__codelineno-0-79">79</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="k">def</span> <span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">    </span><span class="sd">"""load/create/download model for any task"""</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">    </span><span class="sd">"""Load, create or download model for any task."""</span>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>  <span class="c1"># if model is loaded beforehand. No setup needed</span>
 <a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="k">return</span>
 <a id="__codelineno-0-64" name="__codelineno-0-64"></a>
