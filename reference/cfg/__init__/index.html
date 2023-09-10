@@ -3624,7 +3624,9 @@ Then it calls the CLI function with the composed cfg</p>
 <span class="normal"><a href="#__codelineno-0-443">443</a></span>
 <span class="normal"><a href="#__codelineno-0-444">444</a></span>
 <span class="normal"><a href="#__codelineno-0-445">445</a></span>
-<span class="normal"><a href="#__codelineno-0-446">446</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="k">def</span> <span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-446">446</a></span>
+<span class="normal"><a href="#__codelineno-0-447">447</a></span>
+<span class="normal"><a href="#__codelineno-0-448">448</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="k">def</span> <span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
 <a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-316" name="__codelineno-0-316"></a><span class="sd">    This function is the ultralytics package entrypoint, it's responsible for parsing the command line arguments passed</span>
 <a id="__codelineno-0-317" name="__codelineno-0-317"></a><span class="sd">    to the package.</span>
@@ -3755,8 +3757,10 @@ Then it calls the CLI function with the composed cfg</p>
 <a id="__codelineno-0-442" name="__codelineno-0-442"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'format' is missing. Using default 'format=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'format'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
 <a id="__codelineno-0-443" name="__codelineno-0-443"></a>
 <a id="__codelineno-0-444" name="__codelineno-0-444"></a>    <span class="c1"># Run command in python</span>
-<a id="__codelineno-0-445" name="__codelineno-0-445"></a>    <span class="c1"># getattr(model, mode)(**vars(get_cfg(overrides=overrides)))  # default args using default.yaml</span>
-<a id="__codelineno-0-446" name="__codelineno-0-446"></a>    <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mode</span><span class="p">)(</span><span class="o">**</span><span class="n">overrides</span><span class="p">)</span>  <span class="c1"># default args from model</span>
+<a id="__codelineno-0-445" name="__codelineno-0-445"></a>    <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mode</span><span class="p">)(</span><span class="o">**</span><span class="n">overrides</span><span class="p">)</span>  <span class="c1"># default args from model</span>
+<a id="__codelineno-0-446" name="__codelineno-0-446"></a>
+<a id="__codelineno-0-447" name="__codelineno-0-447"></a>    <span class="c1"># Show help</span>
+<a id="__codelineno-0-448" name="__codelineno-0-448"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'💡 Learn more at https://docs.ultralytics.com/modes/</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3770,17 +3774,17 @@ Then it calls the CLI function with the composed cfg</p>
 <p>Copy and create a new default configuration file with '_copy' appended to its name.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-450">450</a></span>
-<span class="normal"><a href="#__codelineno-0-451">451</a></span>
-<span class="normal"><a href="#__codelineno-0-452">452</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-452">452</a></span>
 <span class="normal"><a href="#__codelineno-0-453">453</a></span>
 <span class="normal"><a href="#__codelineno-0-454">454</a></span>
-<span class="normal"><a href="#__codelineno-0-455">455</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-450" name="__codelineno-0-450"></a><span class="k">def</span> <span class="nf">copy_default_cfg</span><span class="p">():</span>
-<a id="__codelineno-0-451" name="__codelineno-0-451"></a><span class="w">    </span><span class="sd">"""Copy and create a new default configuration file with '_copy' appended to its name."""</span>
-<a id="__codelineno-0-452" name="__codelineno-0-452"></a>    <span class="n">new_file</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="n">DEFAULT_CFG_PATH</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'_copy.yaml'</span><span class="p">)</span>
-<a id="__codelineno-0-453" name="__codelineno-0-453"></a>    <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">DEFAULT_CFG_PATH</span><span class="p">,</span> <span class="n">new_file</span><span class="p">)</span>
-<a id="__codelineno-0-454" name="__codelineno-0-454"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">DEFAULT_CFG_PATH</span><span class="si">}</span><span class="s1"> copied to </span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span>
-<a id="__codelineno-0-455" name="__codelineno-0-455"></a>                <span class="sa">f</span><span class="s2">"Example YOLO command with this new custom cfg:</span><span class="se">\n</span><span class="s2">    yolo cfg='</span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="s2">' imgsz=320 batch=8"</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-455">455</a></span>
+<span class="normal"><a href="#__codelineno-0-456">456</a></span>
+<span class="normal"><a href="#__codelineno-0-457">457</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-452" name="__codelineno-0-452"></a><span class="k">def</span> <span class="nf">copy_default_cfg</span><span class="p">():</span>
+<a id="__codelineno-0-453" name="__codelineno-0-453"></a><span class="w">    </span><span class="sd">"""Copy and create a new default configuration file with '_copy' appended to its name."""</span>
+<a id="__codelineno-0-454" name="__codelineno-0-454"></a>    <span class="n">new_file</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="n">DEFAULT_CFG_PATH</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'_copy.yaml'</span><span class="p">)</span>
+<a id="__codelineno-0-455" name="__codelineno-0-455"></a>    <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">DEFAULT_CFG_PATH</span><span class="p">,</span> <span class="n">new_file</span><span class="p">)</span>
+<a id="__codelineno-0-456" name="__codelineno-0-456"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">DEFAULT_CFG_PATH</span><span class="si">}</span><span class="s1"> copied to </span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="se">\n</span><span class="s1">'</span>
+<a id="__codelineno-0-457" name="__codelineno-0-457"></a>                <span class="sa">f</span><span class="s2">"Example YOLO command with this new custom cfg:</span><span class="se">\n</span><span class="s2">    yolo cfg='</span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="s2">' imgsz=320 batch=8"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

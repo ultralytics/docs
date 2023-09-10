@@ -3084,7 +3084,7 @@ This is useful when we want to modify settings of dataset while training.</p>
 <hr/>
 <div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="ultralytics.data.build.load_inference_source">
-<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">build</span><span class="o">.</span><span class="n">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stream_buffer</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">build</span><span class="o">.</span><span class="n">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
 <p>Loads an inference source for object detection and applies necessary transformations.</p>
@@ -3142,7 +3142,7 @@ This is useful when we want to modify settings of dataset while training.</p>
 </td>
 </tr>
 <tr>
-<td><code>stream_buffer</code></td>
+<td><code>buffer</code></td>
 <td>
 <code>bool</code>
 </td>
@@ -3213,7 +3213,7 @@ This is useful when we want to modify settings of dataset while training.</p>
 <span class="normal"><a href="#__codelineno-0-168">168</a></span>
 <span class="normal"><a href="#__codelineno-0-169">169</a></span>
 <span class="normal"><a href="#__codelineno-0-170">170</a></span>
-<span class="normal"><a href="#__codelineno-0-171">171</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-138" name="__codelineno-0-138"></a><span class="k">def</span> <span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stream_buffer</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-171">171</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-138" name="__codelineno-0-138"></a><span class="k">def</span> <span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <a id="__codelineno-0-139" name="__codelineno-0-139"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-140" name="__codelineno-0-140"></a><span class="sd">    Loads an inference source for object detection and applies necessary transformations.</span>
 <a id="__codelineno-0-141" name="__codelineno-0-141"></a>
@@ -3221,7 +3221,7 @@ This is useful when we want to modify settings of dataset while training.</p>
 <a id="__codelineno-0-143" name="__codelineno-0-143"></a><span class="sd">        source (str, Path, Tensor, PIL.Image, np.ndarray): The input source for inference.</span>
 <a id="__codelineno-0-144" name="__codelineno-0-144"></a><span class="sd">        imgsz (int, optional): The size of the image for inference. Default is 640.</span>
 <a id="__codelineno-0-145" name="__codelineno-0-145"></a><span class="sd">        vid_stride (int, optional): The frame interval for video sources. Default is 1.</span>
-<a id="__codelineno-0-146" name="__codelineno-0-146"></a><span class="sd">        stream_buffer (bool, optional): Determined whether stream frames will be buffered. Default is False.</span>
+<a id="__codelineno-0-146" name="__codelineno-0-146"></a><span class="sd">        buffer (bool, optional): Determined whether stream frames will be buffered. Default is False.</span>
 <a id="__codelineno-0-147" name="__codelineno-0-147"></a>
 <a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="sd">        dataset (Dataset): A dataset object for the specified input source.</span>
@@ -3235,7 +3235,7 @@ This is useful when we want to modify settings of dataset while training.</p>
 <a id="__codelineno-0-157" name="__codelineno-0-157"></a>    <span class="k">elif</span> <span class="n">in_memory</span><span class="p">:</span>
 <a id="__codelineno-0-158" name="__codelineno-0-158"></a>        <span class="n">dataset</span> <span class="o">=</span> <span class="n">source</span>
 <a id="__codelineno-0-159" name="__codelineno-0-159"></a>    <span class="k">elif</span> <span class="n">webcam</span><span class="p">:</span>
-<a id="__codelineno-0-160" name="__codelineno-0-160"></a>        <span class="n">dataset</span> <span class="o">=</span> <span class="n">LoadStreams</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="n">vid_stride</span><span class="p">,</span> <span class="n">stream_buffer</span><span class="o">=</span><span class="n">stream_buffer</span><span class="p">)</span>
+<a id="__codelineno-0-160" name="__codelineno-0-160"></a>        <span class="n">dataset</span> <span class="o">=</span> <span class="n">LoadStreams</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="n">vid_stride</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">buffer</span><span class="p">)</span>
 <a id="__codelineno-0-161" name="__codelineno-0-161"></a>    <span class="k">elif</span> <span class="n">screenshot</span><span class="p">:</span>
 <a id="__codelineno-0-162" name="__codelineno-0-162"></a>        <span class="n">dataset</span> <span class="o">=</span> <span class="n">LoadScreenshots</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="n">imgsz</span><span class="p">)</span>
 <a id="__codelineno-0-163" name="__codelineno-0-163"></a>    <span class="k">elif</span> <span class="n">from_img</span><span class="p">:</span>
