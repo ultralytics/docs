@@ -31,7 +31,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#inference-sources">
+<a class="md-skip" href="#model-prediction-with-ultralytics-yolo">
           Skip to content
         </a>
 </div>
@@ -225,7 +225,7 @@
   
     
   
-  Ultralytics HUB
+  HUB
 
         </a>
 </li>
@@ -353,6 +353,25 @@
       Table of contents
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-use-ultralytics-yolo-for-inference">
+    Why Use Ultralytics YOLO for Inference?
+  </a>
+<nav aria-label="Why Use Ultralytics YOLO for Inference?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-predict-mode">
+    Key Features of Predict Mode
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#inference-sources">
     Inference Sources
@@ -558,6 +577,25 @@
       Table of contents
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-use-ultralytics-yolo-for-inference">
+    Why Use Ultralytics YOLO for Inference?
+  </a>
+<nav aria-label="Why Use Ultralytics YOLO for Inference?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-predict-mode">
+    Key Features of Predict Mode
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#inference-sources">
     Inference Sources
@@ -1476,7 +1514,7 @@
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../hub/">
 <span class="md-ellipsis">
-    Ultralytics HUB
+    HUB
   </span>
 </a>
 <label class="md-nav__link" for="__nav_11">
@@ -1486,7 +1524,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_11">
 <span class="md-nav__icon md-icon"></span>
-            Ultralytics HUB
+            HUB
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -2726,9 +2764,34 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/modes/predict.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1>Predict</h1>
+<h1 id="model-prediction-with-ultralytics-yolo">Model Prediction with Ultralytics YOLO</h1>
 <p><img src="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" width="1024"/></p>
-<p>YOLOv8 <strong>predict mode</strong> can generate predictions for various tasks, returning either a list of <code>Results</code> objects or a memory-efficient generator of <code>Results</code> objects when using the streaming mode. Enable streaming mode by passing <code>stream=True</code> in the predictor's call method.</p>
+<h2 id="introduction">Introduction</h2>
+<p>In the world of machine learning and computer vision, the process of making sense out of visual data is called 'inference' or 'prediction'. Ultralytics YOLOv8 offers a powerful feature known as <strong>predict mode</strong> that is tailored for high-performance, real-time inference on a wide range of data sources.</p>
+<p align="center">
+<br/>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/QtsI0TnwDZs?si=ljesw75cMO2Eas14" title="YouTube video player" width="720">
+</iframe>
+<br/>
+<strong>Watch:</strong> How to Extract the Outputs from Ultralytics YOLOv8 Model for Custom Projects.
+</p>
+<h2 id="why-use-ultralytics-yolo-for-inference">Why Use Ultralytics YOLO for Inference?</h2>
+<p>Here's why you should consider YOLOv8's predict mode for your various inference needs:</p>
+<ul>
+<li><strong>Versatility:</strong> Capable of making inferences on images, videos, and even live streams.</li>
+<li><strong>Performance:</strong> Engineered for real-time, high-speed processing without sacrificing accuracy.</li>
+<li><strong>Ease of Use:</strong> Intuitive Python and CLI interfaces for rapid deployment and testing.</li>
+<li><strong>Highly Customizable:</strong> Various settings and parameters to tune the model's inference behavior according to your specific requirements.</li>
+</ul>
+<h3 id="key-features-of-predict-mode">Key Features of Predict Mode</h3>
+<p>YOLOv8's predict mode is designed to be robust and versatile, featuring:</p>
+<ul>
+<li><strong>Multiple Data Source Compatibility:</strong> Whether your data is in the form of individual images, a collection of images, video files, or real-time video streams, predict mode has you covered.</li>
+<li><strong>Streaming Mode:</strong> Use the streaming feature to generate a memory-efficient generator of <code>Results</code> objects. Enable this by setting <code>stream=True</code> in the predictor's call method.</li>
+<li><strong>Batch Processing:</strong> The ability to process multiple images or video frames in a single batch, further speeding up inference time.</li>
+<li><strong>Integration Friendly:</strong> Easily integrate with existing data pipelines and other software components, thanks to its flexible API.</li>
+</ul>
+<p>Ultralytics YOLO models return either a Python list of <code>Results</code> objects, or a memory-efficient Python generator of <code>Results</code> objects when <code>stream=True</code> is passed to the model during inference:</p>
 <div class="admonition example">
 <p class="admonition-title">Predict</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Return a list with <code>stream=False</code></label><label for="__tabbed_1_2">Return a generator with <code>stream=True</code></label></div>
@@ -3963,7 +4026,7 @@
 </code></pre></div>
 </div>
 <p>This script will run predictions on each frame of the video, visualize the results, and display them in a window. The loop can be exited by pressing 'q'.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-09-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (26), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-09-13<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (27), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -31,7 +31,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#models">
+<a class="md-skip" href="#instance-segmentation">
           Skip to content
         </a>
 </div>
@@ -225,7 +225,7 @@
   
     
   
-  Ultralytics HUB
+  HUB
 
         </a>
 </li>
@@ -1408,7 +1408,7 @@
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../hub/">
 <span class="md-ellipsis">
-    Ultralytics HUB
+    HUB
   </span>
 </a>
 <label class="md-nav__link" for="__nav_11">
@@ -1418,7 +1418,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_11">
 <span class="md-nav__icon md-icon"></span>
-            Ultralytics HUB
+            HUB
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -2658,24 +2658,24 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/tasks/segment.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1>Segment</h1>
-<p>Instance segmentation goes a step further than object detection and involves identifying individual objects in an image
-and segmenting them from the rest of the image.</p>
+<h1 id="instance-segmentation">Instance Segmentation</h1>
 <p><img src="https://user-images.githubusercontent.com/26833433/243418644-7df320b8-098d-47f1-85c5-26604d761286.png" width="1024"/></p>
-<p>The output of an instance segmentation model is a set of masks or
-contours that outline each object in the image, along with class labels and confidence scores for each object. Instance
-segmentation is useful when you need to know not only where objects are in an image, but also what their exact shape is.</p>
+<p>Instance segmentation goes a step further than object detection and involves identifying individual objects in an image and segmenting them from the rest of the image.</p>
+<p>The output of an instance segmentation model is a set of masks or contours that outline each object in the image, along with class labels and confidence scores for each object. Instance segmentation is useful when you need to know not only where objects are in an image, but also what their exact shape is.</p>
+<p align="center">
+<br/>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/o4Zd-IeMlSY?si=37nusCzDTd74Obsp" title="YouTube video player" width="720">
+</iframe>
+<br/>
+<strong>Watch:</strong> Run Segmentation with Pre-Trained Ultralytics YOLOv8 Model in Python.
+</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>YOLOv8 Segment models use the <code>-seg</code> suffix, i.e. <code>yolov8n-seg.pt</code> and are pretrained on <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml">COCO</a>.</p>
 </div>
 <h2 id="models"><a href="https://github.com/ultralytics/ultralytics/tree/main/ultralytics/cfg/models/v8">Models</a></h2>
-<p>YOLOv8 pretrained Segment models are shown here. Detect, Segment and Pose models are pretrained on
-the <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml">COCO</a> dataset, while Classify
-models are pretrained on
-the <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/ImageNet.yaml">ImageNet</a> dataset.</p>
-<p><a href="https://github.com/ultralytics/ultralytics/tree/main/ultralytics/cfg/models">Models</a> download automatically from the latest
-Ultralytics <a href="https://github.com/ultralytics/assets/releases">release</a> on first use.</p>
+<p>YOLOv8 pretrained Segment models are shown here. Detect, Segment and Pose models are pretrained on the <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml">COCO</a> dataset, while Classify models are pretrained on the <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/ImageNet.yaml">ImageNet</a> dataset.</p>
+<p><a href="https://github.com/ultralytics/ultralytics/tree/main/ultralytics/cfg/models">Models</a> download automatically from the latest Ultralytics <a href="https://github.com/ultralytics/assets/releases">release</a> on first use.</p>
 <table>
 <thead>
 <tr>
@@ -2750,8 +2750,7 @@ Ultralytics <a href="https://github.com/ultralytics/assets/releases">release</a>
   <br/>Reproduce by <code>yolo val segment data=coco128-seg.yaml batch=1 device=0|cpu</code></li>
 </ul>
 <h2 id="train">Train</h2>
-<p>Train YOLOv8n-seg on the COCO128-seg dataset for 100 epochs at image size 640. For a full list of available
-arguments see the <a href="../../usage/cfg/">Configuration</a> page.</p>
+<p>Train YOLOv8n-seg on the COCO128-seg dataset for 100 epochs at image size 640. For a full list of available arguments see the <a href="../../usage/cfg/">Configuration</a> page.</p>
 <div class="admonition example">
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
@@ -2865,8 +2864,7 @@ retains it's training <code>data</code> and arguments as model attributes.</p>
 </div>
 </input></input></div>
 </div>
-<p>Available YOLOv8-seg export formats are in the table below. You can predict or validate directly on exported models,
-i.e. <code>yolo predict model=yolov8n-seg.onnx</code>. Usage examples are shown for your model after export completes.</p>
+<p>Available YOLOv8-seg export formats are in the table below. You can predict or validate directly on exported models, i.e. <code>yolo predict model=yolov8n-seg.onnx</code>. Usage examples are shown for your model after export completes.</p>
 <table>
 <thead>
 <tr>
@@ -2972,7 +2970,7 @@ i.e. <code>yolo predict model=yolov8n-seg.onnx</code>. Usage examples are shown 
 </tbody>
 </table>
 <p>See full <code>export</code> details in the <a href="https://docs.ultralytics.com/modes/export/">Export</a> page.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (20), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-09-13<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (21), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

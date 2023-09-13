@@ -31,7 +31,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#usage-examples">
+<a class="md-skip" href="#model-benchmarking-with-ultralytics-yolo">
           Skip to content
         </a>
 </div>
@@ -225,7 +225,7 @@
   
     
   
-  Ultralytics HUB
+  HUB
 
         </a>
 </li>
@@ -374,6 +374,30 @@
       Table of contents
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-is-benchmarking-crucial">
+    Why Is Benchmarking Crucial?
+  </a>
+<nav aria-label="Why Is Benchmarking Crucial?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-metrics-in-benchmark-mode">
+    Key Metrics in Benchmark Mode
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#supported-export-formats">
+    Supported Export Formats
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage-examples">
     Usage Examples
@@ -526,6 +550,30 @@
       Table of contents
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-is-benchmarking-crucial">
+    Why Is Benchmarking Crucial?
+  </a>
+<nav aria-label="Why Is Benchmarking Crucial?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-metrics-in-benchmark-mode">
+    Key Metrics in Benchmark Mode
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#supported-export-formats">
+    Supported Export Formats
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage-examples">
     Usage Examples
@@ -1370,7 +1418,7 @@
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../hub/">
 <span class="md-ellipsis">
-    Ultralytics HUB
+    HUB
   </span>
 </a>
 <label class="md-nav__link" for="__nav_11">
@@ -1380,7 +1428,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_11">
 <span class="md-nav__icon md-icon"></span>
-            Ultralytics HUB
+            HUB
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -2620,13 +2668,30 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/modes/benchmark.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1>Benchmark</h1>
+<h1 id="model-benchmarking-with-ultralytics-yolo">Model Benchmarking with Ultralytics YOLO</h1>
 <p><img src="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" width="1024"/></p>
-<p><strong>Benchmark mode</strong> is used to profile the speed and accuracy of various export formats for YOLOv8. The benchmarks
-provide information on the size of the exported format, its <code>mAP50-95</code> metrics (for object detection, segmentation and pose)
-or <code>accuracy_top5</code> metrics (for classification), and the inference time in milliseconds per image across various export
-formats like ONNX, OpenVINO, TensorRT and others. This information can help users choose the optimal export format for
-their specific use case based on their requirements for speed and accuracy.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Once your model is trained and validated, the next logical step is to evaluate its performance in various real-world scenarios. Benchmark mode in Ultralytics YOLOv8 serves this purpose by providing a robust framework for assessing the speed and accuracy of your model across a range of export formats.</p>
+<h2 id="why-is-benchmarking-crucial">Why Is Benchmarking Crucial?</h2>
+<ul>
+<li><strong>Informed Decisions:</strong> Gain insights into the trade-offs between speed and accuracy.</li>
+<li><strong>Resource Allocation:</strong> Understand how different export formats perform on different hardware.</li>
+<li><strong>Optimization:</strong> Learn which export format offers the best performance for your specific use case.</li>
+<li><strong>Cost Efficiency:</strong> Make more efficient use of hardware resources based on benchmark results.</li>
+</ul>
+<h3 id="key-metrics-in-benchmark-mode">Key Metrics in Benchmark Mode</h3>
+<ul>
+<li><strong>mAP50-95:</strong> For object detection, segmentation, and pose estimation.</li>
+<li><strong>accuracy_top5:</strong> For image classification.</li>
+<li><strong>Inference Time:</strong> Time taken for each image in milliseconds.</li>
+</ul>
+<h3 id="supported-export-formats">Supported Export Formats</h3>
+<ul>
+<li><strong>ONNX:</strong> For optimal CPU performance</li>
+<li><strong>TensorRT:</strong> For maximal GPU efficiency</li>
+<li><strong>OpenVINO:</strong> For Intel hardware optimization</li>
+<li><strong>CoreML, TensorFlow SavedModel, and More:</strong> For diverse deployment needs.</li>
+</ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul>
@@ -2635,8 +2700,7 @@ their specific use case based on their requirements for speed and accuracy.</p>
 </ul>
 </div>
 <h2 id="usage-examples">Usage Examples</h2>
-<p>Run YOLOv8n benchmarks on all supported export formats including ONNX, TensorRT etc. See Arguments section below for a
-full list of export arguments.</p>
+<p>Run YOLOv8n benchmarks on all supported export formats including ONNX, TensorRT etc. See Arguments section below for a full list of export arguments.</p>
 <div class="admonition example">
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
@@ -2655,8 +2719,7 @@ full list of export arguments.</p>
 </input></input></div>
 </div>
 <h2 id="arguments">Arguments</h2>
-<p>Arguments such as <code>model</code>, <code>data</code>, <code>imgsz</code>, <code>half</code>, <code>device</code>, and <code>verbose</code> provide users with the flexibility to fine-tune
-the benchmarks to their specific needs and compare the performance of different export formats with ease.</p>
+<p>Arguments such as <code>model</code>, <code>data</code>, <code>imgsz</code>, <code>half</code>, <code>device</code>, and <code>verbose</code> provide users with the flexibility to fine-tune the benchmarks to their specific needs and compare the performance of different export formats with ease.</p>
 <table>
 <thead>
 <tr>
@@ -2810,7 +2873,7 @@ the benchmarks to their specific needs and compare the performance of different 
 </tbody>
 </table>
 <p>See full <code>export</code> details in the <a href="https://docs.ultralytics.com/modes/export/">Export</a> page.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-08-21<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (12), <a href="https://github.com/maianumerosky">maianumerosky</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-09-13<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (13), <a href="https://github.com/maianumerosky">maianumerosky</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
