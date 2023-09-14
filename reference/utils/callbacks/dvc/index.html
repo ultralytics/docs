@@ -2633,27 +2633,27 @@
 <div class="doc doc-contents first">
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
 <span class="normal"><a href="#__codelineno-0-38">38</a></span>
 <span class="normal"><a href="#__codelineno-0-39">39</a></span>
 <span class="normal"><a href="#__codelineno-0-40">40</a></span>
 <span class="normal"><a href="#__codelineno-0-41">41</a></span>
 <span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="k">def</span> <span class="nf">_log_images</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="k">if</span> <span class="n">live</span><span class="p">:</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="n">name</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="c1"># Group images by batch to enable sliders in UI</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="k">if</span> <span class="n">m</span> <span class="o">:=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">'_batch(\d+)'</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>            <span class="n">ni</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>            <span class="n">new_stem</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'_batch(\d+)'</span><span class="p">,</span> <span class="s1">'_batch'</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>            <span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">new_stem</span><span class="p">)</span> <span class="o">/</span> <span class="n">ni</span><span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">suffix</span><span class="p">)</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="n">live</span><span class="o">.</span><span class="n">log_image</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">path</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">def</span> <span class="nf">_log_images</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">if</span> <span class="n">live</span><span class="p">:</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">name</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="c1"># Group images by batch to enable sliders in UI</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="k">if</span> <span class="n">m</span> <span class="o">:=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">'_batch(\d+)'</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>            <span class="n">ni</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>            <span class="n">new_stem</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'_batch(\d+)'</span><span class="p">,</span> <span class="s1">'_batch'</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>            <span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">new_stem</span><span class="p">)</span> <span class="o">/</span> <span class="n">ni</span><span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">suffix</span><span class="p">)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="n">live</span><span class="o">.</span><span class="n">log_image</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">path</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2666,17 +2666,17 @@
 <div class="doc doc-contents first">
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="k">def</span> <span class="nf">_log_plots</span><span class="p">(</span><span class="n">plots</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">params</span> <span class="ow">in</span> <span class="n">plots</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'timestamp'</span><span class="p">]</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="k">if</span> <span class="n">_processed_plots</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">!=</span> <span class="n">timestamp</span><span class="p">:</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>            <span class="n">_log_images</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">prefix</span><span class="p">)</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>            <span class="n">_processed_plots</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">timestamp</span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="k">def</span> <span class="nf">_log_plots</span><span class="p">(</span><span class="n">plots</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">params</span> <span class="ow">in</span> <span class="n">plots</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">'timestamp'</span><span class="p">]</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="k">if</span> <span class="n">_processed_plots</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">!=</span> <span class="n">timestamp</span><span class="p">:</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>            <span class="n">_log_images</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">prefix</span><span class="p">)</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>            <span class="n">_processed_plots</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">timestamp</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2689,7 +2689,10 @@
 <div class="doc doc-contents first">
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span>
 <span class="normal"><a href="#__codelineno-0-58">58</a></span>
 <span class="normal"><a href="#__codelineno-0-59">59</a></span>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
@@ -2699,23 +2702,20 @@
 <span class="normal"><a href="#__codelineno-0-64">64</a></span>
 <span class="normal"><a href="#__codelineno-0-65">65</a></span>
 <span class="normal"><a href="#__codelineno-0-66">66</a></span>
-<span class="normal"><a href="#__codelineno-0-67">67</a></span>
-<span class="normal"><a href="#__codelineno-0-68">68</a></span>
-<span class="normal"><a href="#__codelineno-0-69">69</a></span>
-<span class="normal"><a href="#__codelineno-0-70">70</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="k">def</span> <span class="nf">_log_confusion_matrix</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="n">targets</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="n">preds</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="n">matrix</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">matrix</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">validator</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">if</span> <span class="n">validator</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s1">'detect'</span><span class="p">:</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="n">names</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">'background'</span><span class="p">]</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="k">for</span> <span class="n">ti</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)):</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="k">for</span> <span class="n">pi</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pred</span><span class="p">):</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>            <span class="n">targets</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">names</span><span class="p">[</span><span class="n">ti</span><span class="p">]]</span> <span class="o">*</span> <span class="n">num</span><span class="p">)</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>            <span class="n">preds</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">names</span><span class="p">[</span><span class="n">pi</span><span class="p">]]</span> <span class="o">*</span> <span class="n">num</span><span class="p">)</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="n">live</span><span class="o">.</span><span class="n">log_sklearn_plot</span><span class="p">(</span><span class="s1">'confusion_matrix'</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'cf.json'</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="k">def</span> <span class="nf">_log_confusion_matrix</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="n">targets</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="n">preds</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="n">matrix</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">matrix</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">validator</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="k">if</span> <span class="n">validator</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s1">'detect'</span><span class="p">:</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="n">names</span> <span class="o">+=</span> <span class="p">[</span><span class="s1">'background'</span><span class="p">]</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">for</span> <span class="n">ti</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)):</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="k">for</span> <span class="n">pi</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pred</span><span class="p">):</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>            <span class="n">targets</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">names</span><span class="p">[</span><span class="n">ti</span><span class="p">]]</span> <span class="o">*</span> <span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>            <span class="n">preds</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">names</span><span class="p">[</span><span class="n">pi</span><span class="p">]]</span> <span class="o">*</span> <span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="n">live</span><span class="o">.</span><span class="n">log_sklearn_plot</span><span class="p">(</span><span class="s1">'confusion_matrix'</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'cf.json'</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2728,23 +2728,19 @@
 <div class="doc doc-contents first">
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-73">73</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-70">70</a></span>
+<span class="normal"><a href="#__codelineno-0-71">71</a></span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span>
 <span class="normal"><a href="#__codelineno-0-74">74</a></span>
 <span class="normal"><a href="#__codelineno-0-75">75</a></span>
-<span class="normal"><a href="#__codelineno-0-76">76</a></span>
-<span class="normal"><a href="#__codelineno-0-77">77</a></span>
-<span class="normal"><a href="#__codelineno-0-78">78</a></span>
-<span class="normal"><a href="#__codelineno-0-79">79</a></span>
-<span class="normal"><a href="#__codelineno-0-80">80</a></span>
-<span class="normal"><a href="#__codelineno-0-81">81</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="k">def</span> <span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="k">global</span> <span class="n">live</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="n">live</span> <span class="o">=</span> <span class="n">dvclive</span><span class="o">.</span><span class="n">Live</span><span class="p">(</span><span class="n">save_dvc_exp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache_images</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>            <span class="sa">f</span><span class="s1">'DVCLive is detected and auto logging is enabled (can be disabled in the </span><span class="si">{</span><span class="n">SETTINGS</span><span class="o">.</span><span class="n">file</span><span class="si">}</span><span class="s1"> with `dvc: false`).'</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>        <span class="p">)</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'WARNING ⚠️ DVCLive installed but not initialized correctly, not logging this run. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="k">def</span> <span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="k">global</span> <span class="n">live</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>        <span class="n">live</span> <span class="o">=</span> <span class="n">dvclive</span><span class="o">.</span><span class="n">Live</span><span class="p">(</span><span class="n">save_dvc_exp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache_images</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"DVCLive is detected and auto logging is enabled (run 'yolo settings dvc=False' to disable)."</span><span class="p">)</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'WARNING ⚠️ DVCLive installed but not initialized correctly, not logging this run. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2757,9 +2753,9 @@
 <div class="doc doc-contents first">
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-84">84</a></span>
-<span class="normal"><a href="#__codelineno-0-85">85</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="k">def</span> <span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="s1">'train'</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-79">79</a></span>
+<span class="normal"><a href="#__codelineno-0-80">80</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="k">def</span> <span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="s1">'train'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2772,11 +2768,11 @@
 <div class="doc doc-contents first">
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-88">88</a></span>
-<span class="normal"><a href="#__codelineno-0-89">89</a></span>
-<span class="normal"><a href="#__codelineno-0-90">90</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="k">def</span> <span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="k">if</span> <span class="n">live</span><span class="p">:</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>        <span class="n">live</span><span class="o">.</span><span class="n">log_params</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-83">83</a></span>
+<span class="normal"><a href="#__codelineno-0-84">84</a></span>
+<span class="normal"><a href="#__codelineno-0-85">85</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="k">def</span> <span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="k">if</span> <span class="n">live</span><span class="p">:</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="n">live</span><span class="o">.</span><span class="n">log_params</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2789,11 +2785,11 @@
 <div class="doc doc-contents first">
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-93">93</a></span>
-<span class="normal"><a href="#__codelineno-0-94">94</a></span>
-<span class="normal"><a href="#__codelineno-0-95">95</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="k">def</span> <span class="nf">on_train_epoch_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>    <span class="k">global</span> <span class="n">_training_epoch</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="n">_training_epoch</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-88">88</a></span>
+<span class="normal"><a href="#__codelineno-0-89">89</a></span>
+<span class="normal"><a href="#__codelineno-0-90">90</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="k">def</span> <span class="nf">on_train_epoch_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="k">global</span> <span class="n">_training_epoch</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="n">_training_epoch</span> <span class="o">=</span> <span class="kc">True</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2806,7 +2802,12 @@
 <div class="doc doc-contents first">
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-0-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-0-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-0-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
 <span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
 <span class="normal"><a href="#__codelineno-0-100">100</a></span>
 <span class="normal"><a href="#__codelineno-0-101">101</a></span>
@@ -2817,28 +2818,23 @@
 <span class="normal"><a href="#__codelineno-0-106">106</a></span>
 <span class="normal"><a href="#__codelineno-0-107">107</a></span>
 <span class="normal"><a href="#__codelineno-0-108">108</a></span>
-<span class="normal"><a href="#__codelineno-0-109">109</a></span>
-<span class="normal"><a href="#__codelineno-0-110">110</a></span>
-<span class="normal"><a href="#__codelineno-0-111">111</a></span>
-<span class="normal"><a href="#__codelineno-0-112">112</a></span>
-<span class="normal"><a href="#__codelineno-0-113">113</a></span>
-<span class="normal"><a href="#__codelineno-0-114">114</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="k">def</span> <span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>    <span class="k">global</span> <span class="n">_training_epoch</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="k">if</span> <span class="n">live</span> <span class="ow">and</span> <span class="n">_training_epoch</span><span class="p">:</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="n">all_metrics</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">'train'</span><span class="p">),</span> <span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="p">}</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>        <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">all_metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>            <span class="n">live</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-109">109</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="k">def</span> <span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a>    <span class="k">global</span> <span class="n">_training_epoch</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="k">if</span> <span class="n">live</span> <span class="ow">and</span> <span class="n">_training_epoch</span><span class="p">:</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a>        <span class="n">all_metrics</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">'train'</span><span class="p">),</span> <span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="p">}</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">all_metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a>            <span class="n">live</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>            <span class="kn">from</span> <span class="nn">ultralytics.utils.torch_utils</span> <span class="kn">import</span> <span class="n">model_info_for_loggers</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>            <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">model_info_for_loggers</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>                <span class="n">live</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <a id="__codelineno-0-104" name="__codelineno-0-104"></a>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>            <span class="kn">from</span> <span class="nn">ultralytics.utils.torch_utils</span> <span class="kn">import</span> <span class="n">model_info_for_loggers</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>            <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">model_info_for_loggers</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-108" name="__codelineno-0-108"></a>                <span class="n">live</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a>        <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="s1">'train'</span><span class="p">)</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a>        <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="s1">'val'</span><span class="p">)</span>
-<a id="__codelineno-0-112" name="__codelineno-0-112"></a>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a>        <span class="n">live</span><span class="o">.</span><span class="n">next_step</span><span class="p">()</span>
-<a id="__codelineno-0-114" name="__codelineno-0-114"></a>        <span class="n">_training_epoch</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="s1">'train'</span><span class="p">)</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>        <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="s1">'val'</span><span class="p">)</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a>        <span class="n">live</span><span class="o">.</span><span class="n">next_step</span><span class="p">()</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>        <span class="n">_training_epoch</span> <span class="o">=</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2851,7 +2847,12 @@
 <div class="doc doc-contents first">
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-117">117</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-112">112</a></span>
+<span class="normal"><a href="#__codelineno-0-113">113</a></span>
+<span class="normal"><a href="#__codelineno-0-114">114</a></span>
+<span class="normal"><a href="#__codelineno-0-115">115</a></span>
+<span class="normal"><a href="#__codelineno-0-116">116</a></span>
+<span class="normal"><a href="#__codelineno-0-117">117</a></span>
 <span class="normal"><a href="#__codelineno-0-118">118</a></span>
 <span class="normal"><a href="#__codelineno-0-119">119</a></span>
 <span class="normal"><a href="#__codelineno-0-120">120</a></span>
@@ -2860,26 +2861,21 @@
 <span class="normal"><a href="#__codelineno-0-123">123</a></span>
 <span class="normal"><a href="#__codelineno-0-124">124</a></span>
 <span class="normal"><a href="#__codelineno-0-125">125</a></span>
-<span class="normal"><a href="#__codelineno-0-126">126</a></span>
-<span class="normal"><a href="#__codelineno-0-127">127</a></span>
-<span class="normal"><a href="#__codelineno-0-128">128</a></span>
-<span class="normal"><a href="#__codelineno-0-129">129</a></span>
-<span class="normal"><a href="#__codelineno-0-130">130</a></span>
-<span class="normal"><a href="#__codelineno-0-131">131</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="k">def</span> <span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-118" name="__codelineno-0-118"></a>    <span class="k">if</span> <span class="n">live</span><span class="p">:</span>
-<a id="__codelineno-0-119" name="__codelineno-0-119"></a>        <span class="c1"># At the end log the best metrics. It runs validator on the best model internally.</span>
-<a id="__codelineno-0-120" name="__codelineno-0-120"></a>        <span class="n">all_metrics</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">'train'</span><span class="p">),</span> <span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="p">}</span>
-<a id="__codelineno-0-121" name="__codelineno-0-121"></a>        <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">all_metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-122" name="__codelineno-0-122"></a>            <span class="n">live</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a>        <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="s1">'val'</span><span class="p">)</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>        <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="s1">'val'</span><span class="p">)</span>
-<a id="__codelineno-0-126" name="__codelineno-0-126"></a>        <span class="n">_log_confusion_matrix</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="p">)</span>
-<a id="__codelineno-0-127" name="__codelineno-0-127"></a>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<a id="__codelineno-0-129" name="__codelineno-0-129"></a>            <span class="n">live</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'model'</span><span class="p">)</span>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a>        <span class="n">live</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-126">126</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="k">def</span> <span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="k">if</span> <span class="n">live</span><span class="p">:</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a>        <span class="c1"># At the end log the best metrics. It runs validator on the best model internally.</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115"></a>        <span class="n">all_metrics</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">'train'</span><span class="p">),</span> <span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="o">**</span><span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="p">}</span>
+<a id="__codelineno-0-116" name="__codelineno-0-116"></a>        <span class="k">for</span> <span class="n">metric</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">all_metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117"></a>            <span class="n">live</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a>        <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="s1">'val'</span><span class="p">)</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a>        <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="s1">'val'</span><span class="p">)</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a>        <span class="n">_log_confusion_matrix</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="p">)</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122"></a>
+<a id="__codelineno-0-123" name="__codelineno-0-123"></a>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>            <span class="n">live</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'model'</span><span class="p">)</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a>
+<a id="__codelineno-0-126" name="__codelineno-0-126"></a>        <span class="n">live</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
