@@ -11,9 +11,9 @@
 <link href="../exporter/" rel="prev"/>
 <link href="../predictor/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.2, mkdocs-material-9.3.1" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.3.2" name="generator"/>
 <title>model - Ultralytics YOLOv8 Docs</title>
-<link href="../../../assets/stylesheets/main.046329b4.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.30068a00.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -1633,6 +1633,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.engine.model.Model.predict">
     predict()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.engine.model.Model.reset_callbacks">
+    reset_callbacks()
   </a>
 </li>
 <li class="md-nav__item">
@@ -3743,16 +3748,16 @@ Logs the model info.</p>
 <a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="w">        </span><span class="sd">"""Clear all event callbacks."""</span>
 <a id="__codelineno-0-393" name="__codelineno-0-393"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <a id="__codelineno-0-394" name="__codelineno-0-394"></a>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a>    <span class="k">def</span> <span class="nf">_reset_ckpt_args</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="w">        </span><span class="sd">"""Reset arguments when loading a PyTorch model."""</span>
-<a id="__codelineno-0-398" name="__codelineno-0-398"></a>        <span class="n">include</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'imgsz'</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">,</span> <span class="s1">'task'</span><span class="p">,</span> <span class="s1">'single_cls'</span><span class="p">}</span>  <span class="c1"># only remember these arguments when loading a PyTorch model</span>
-<a id="__codelineno-0-399" name="__codelineno-0-399"></a>        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">include</span><span class="p">}</span>
-<a id="__codelineno-0-400" name="__codelineno-0-400"></a>
-<a id="__codelineno-0-401" name="__codelineno-0-401"></a>    <span class="k">def</span> <span class="nf">_reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-402" name="__codelineno-0-402"></a><span class="w">        </span><span class="sd">"""Reset all registered callbacks."""</span>
-<a id="__codelineno-0-403" name="__codelineno-0-403"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<a id="__codelineno-0-404" name="__codelineno-0-404"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+<a id="__codelineno-0-395" name="__codelineno-0-395"></a>    <span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="w">        </span><span class="sd">"""Reset all registered callbacks."""</span>
+<a id="__codelineno-0-397" name="__codelineno-0-397"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-0-398" name="__codelineno-0-398"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+<a id="__codelineno-0-399" name="__codelineno-0-399"></a>
+<a id="__codelineno-0-400" name="__codelineno-0-400"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-401" name="__codelineno-0-401"></a>    <span class="k">def</span> <span class="nf">_reset_ckpt_args</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<a id="__codelineno-0-402" name="__codelineno-0-402"></a><span class="w">        </span><span class="sd">"""Reset arguments when loading a PyTorch model."""</span>
+<a id="__codelineno-0-403" name="__codelineno-0-403"></a>        <span class="n">include</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'imgsz'</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">,</span> <span class="s1">'task'</span><span class="p">,</span> <span class="s1">'single_cls'</span><span class="p">}</span>  <span class="c1"># only remember these arguments when loading a PyTorch model</span>
+<a id="__codelineno-0-404" name="__codelineno-0-404"></a>        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">include</span><span class="p">}</span>
 <a id="__codelineno-0-405" name="__codelineno-0-405"></a>
 <a id="__codelineno-0-406" name="__codelineno-0-406"></a>    <span class="c1"># def __getattr__(self, attr):</span>
 <a id="__codelineno-0-407" name="__codelineno-0-407"></a>    <span class="c1">#    """Raises error if object has no requested attribute."""</span>
@@ -4479,6 +4484,25 @@ Logs the model info.</p>
 <a id="__codelineno-0-234" name="__codelineno-0-234"></a>    <span class="k">if</span> <span class="n">prompts</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">,</span> <span class="s1">'set_prompts'</span><span class="p">):</span>  <span class="c1"># for SAM-type models</span>
 <a id="__codelineno-0-235" name="__codelineno-0-235"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">set_prompts</span><span class="p">(</span><span class="n">prompts</span><span class="p">)</span>
 <a id="__codelineno-0-236" name="__codelineno-0-236"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">predict_cli</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_cli</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.engine.model.Model.reset_callbacks">
+<code class="highlight language-python"><span class="n">reset_callbacks</span><span class="p">()</span></code>
+</h3>
+<div class="doc doc-contents">
+<p>Reset all registered callbacks.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/engine/model.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-395">395</a></span>
+<span class="normal"><a href="#__codelineno-0-396">396</a></span>
+<span class="normal"><a href="#__codelineno-0-397">397</a></span>
+<span class="normal"><a href="#__codelineno-0-398">398</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-395" name="__codelineno-0-395"></a><span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="w">    </span><span class="sd">"""Reset all registered callbacks."""</span>
+<a id="__codelineno-0-397" name="__codelineno-0-397"></a>    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-0-398" name="__codelineno-0-398"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
