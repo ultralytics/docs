@@ -11,10 +11,10 @@
 <link href="../../data/utils/" rel="prev"/>
 <link href="../model/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.3.2" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.1" name="generator"/>
 <title>exporter - Ultralytics YOLOv8 Docs</title>
-<link href="../../../assets/stylesheets/main.30068a00.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.72749a73.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.a5377069.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Helvetica";--md-code-font:"Roboto Mono"}</style>
@@ -1003,6 +1003,13 @@
 <a class="md-nav__link" href="../../../guides/conda-quickstart/">
 <span class="md-ellipsis">
     Conda Quickstart
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/docker-quickstart/">
+<span class="md-ellipsis">
+    Docker Quickstart
   </span>
 </a>
 </li>
@@ -3996,7 +4003,7 @@
 <a id="__codelineno-0-507" name="__codelineno-0-507"></a>    <span class="k">def</span> <span class="nf">export_coreml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'CoreML:'</span><span class="p">)):</span>
 <a id="__codelineno-0-508" name="__codelineno-0-508"></a><span class="w">        </span><span class="sd">"""YOLOv8 CoreML export."""</span>
 <a id="__codelineno-0-509" name="__codelineno-0-509"></a>        <span class="n">mlmodel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'mlmodel'</span>  <span class="c1"># legacy *.mlmodel export format requested</span>
-<a id="__codelineno-0-510" name="__codelineno-0-510"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s1">'coremltools&gt;=6.0,&lt;=6.2'</span> <span class="k">if</span> <span class="n">mlmodel</span> <span class="k">else</span> <span class="s1">'coremltools&gt;=7.0.b1'</span><span class="p">)</span>
+<a id="__codelineno-0-510" name="__codelineno-0-510"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s1">'coremltools&gt;=6.0,&lt;=6.2'</span> <span class="k">if</span> <span class="n">mlmodel</span> <span class="k">else</span> <span class="s1">'coremltools&gt;=7.0'</span><span class="p">)</span>
 <a id="__codelineno-0-511" name="__codelineno-0-511"></a>        <span class="kn">import</span> <span class="nn">coremltools</span> <span class="k">as</span> <span class="nn">ct</span>  <span class="c1"># noqa</span>
 <a id="__codelineno-0-512" name="__codelineno-0-512"></a>
 <a id="__codelineno-0-513" name="__codelineno-0-513"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1"> starting export with coremltools </span><span class="si">{</span><span class="n">ct</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s1">...'</span><span class="p">)</span>
@@ -4137,7 +4144,7 @@
 <a id="__codelineno-0-648" name="__codelineno-0-648"></a>            <span class="n">check_requirements</span><span class="p">(</span><span class="sa">f</span><span class="s2">"tensorflow</span><span class="si">{</span><span class="s1">'-macos'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">MACOS</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'-aarch64'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">ARM64</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">''</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">cuda</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'-cpu'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-649" name="__codelineno-0-649"></a>            <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>  <span class="c1"># noqa</span>
 <a id="__codelineno-0-650" name="__codelineno-0-650"></a>        <span class="n">check_requirements</span><span class="p">(</span>
-<a id="__codelineno-0-651" name="__codelineno-0-651"></a>            <span class="p">(</span><span class="s1">'onnx'</span><span class="p">,</span> <span class="s1">'onnx2tf&gt;=1.15.4'</span><span class="p">,</span> <span class="s1">'sng4onnx&gt;=1.0.1'</span><span class="p">,</span> <span class="s1">'onnxsim&gt;=0.4.33'</span><span class="p">,</span> <span class="s1">'onnx_graphsurgeon&gt;=0.3.26'</span><span class="p">,</span>
+<a id="__codelineno-0-651" name="__codelineno-0-651"></a>            <span class="p">(</span><span class="s1">'onnx'</span><span class="p">,</span> <span class="s1">'onnx2tf&gt;=1.15.4,&lt;=1.17.5'</span><span class="p">,</span> <span class="s1">'sng4onnx&gt;=1.0.1'</span><span class="p">,</span> <span class="s1">'onnxsim&gt;=0.4.33'</span><span class="p">,</span> <span class="s1">'onnx_graphsurgeon&gt;=0.3.26'</span><span class="p">,</span>
 <a id="__codelineno-0-652" name="__codelineno-0-652"></a>             <span class="s1">'tflite_support'</span><span class="p">,</span> <span class="s1">'onnxruntime-gpu'</span> <span class="k">if</span> <span class="n">cuda</span> <span class="k">else</span> <span class="s1">'onnxruntime'</span><span class="p">),</span>
 <a id="__codelineno-0-653" name="__codelineno-0-653"></a>            <span class="n">cmds</span><span class="o">=</span><span class="s1">'--extra-index-url https://pypi.ngc.nvidia.com'</span><span class="p">)</span>  <span class="c1"># onnx_graphsurgeon only on NVIDIA</span>
 <a id="__codelineno-0-654" name="__codelineno-0-654"></a>
@@ -4974,7 +4981,7 @@
 <a id="__codelineno-0-507" name="__codelineno-0-507"></a><span class="k">def</span> <span class="nf">export_coreml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'CoreML:'</span><span class="p">)):</span>
 <a id="__codelineno-0-508" name="__codelineno-0-508"></a><span class="w">    </span><span class="sd">"""YOLOv8 CoreML export."""</span>
 <a id="__codelineno-0-509" name="__codelineno-0-509"></a>    <span class="n">mlmodel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'mlmodel'</span>  <span class="c1"># legacy *.mlmodel export format requested</span>
-<a id="__codelineno-0-510" name="__codelineno-0-510"></a>    <span class="n">check_requirements</span><span class="p">(</span><span class="s1">'coremltools&gt;=6.0,&lt;=6.2'</span> <span class="k">if</span> <span class="n">mlmodel</span> <span class="k">else</span> <span class="s1">'coremltools&gt;=7.0.b1'</span><span class="p">)</span>
+<a id="__codelineno-0-510" name="__codelineno-0-510"></a>    <span class="n">check_requirements</span><span class="p">(</span><span class="s1">'coremltools&gt;=6.0,&lt;=6.2'</span> <span class="k">if</span> <span class="n">mlmodel</span> <span class="k">else</span> <span class="s1">'coremltools&gt;=7.0'</span><span class="p">)</span>
 <a id="__codelineno-0-511" name="__codelineno-0-511"></a>    <span class="kn">import</span> <span class="nn">coremltools</span> <span class="k">as</span> <span class="nn">ct</span>  <span class="c1"># noqa</span>
 <a id="__codelineno-0-512" name="__codelineno-0-512"></a>
 <a id="__codelineno-0-513" name="__codelineno-0-513"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1"> starting export with coremltools </span><span class="si">{</span><span class="n">ct</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s1">...'</span><span class="p">)</span>
@@ -5800,7 +5807,7 @@
 <a id="__codelineno-0-648" name="__codelineno-0-648"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="sa">f</span><span class="s2">"tensorflow</span><span class="si">{</span><span class="s1">'-macos'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">MACOS</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'-aarch64'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">ARM64</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">''</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">cuda</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'-cpu'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-649" name="__codelineno-0-649"></a>        <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>  <span class="c1"># noqa</span>
 <a id="__codelineno-0-650" name="__codelineno-0-650"></a>    <span class="n">check_requirements</span><span class="p">(</span>
-<a id="__codelineno-0-651" name="__codelineno-0-651"></a>        <span class="p">(</span><span class="s1">'onnx'</span><span class="p">,</span> <span class="s1">'onnx2tf&gt;=1.15.4'</span><span class="p">,</span> <span class="s1">'sng4onnx&gt;=1.0.1'</span><span class="p">,</span> <span class="s1">'onnxsim&gt;=0.4.33'</span><span class="p">,</span> <span class="s1">'onnx_graphsurgeon&gt;=0.3.26'</span><span class="p">,</span>
+<a id="__codelineno-0-651" name="__codelineno-0-651"></a>        <span class="p">(</span><span class="s1">'onnx'</span><span class="p">,</span> <span class="s1">'onnx2tf&gt;=1.15.4,&lt;=1.17.5'</span><span class="p">,</span> <span class="s1">'sng4onnx&gt;=1.0.1'</span><span class="p">,</span> <span class="s1">'onnxsim&gt;=0.4.33'</span><span class="p">,</span> <span class="s1">'onnx_graphsurgeon&gt;=0.3.26'</span><span class="p">,</span>
 <a id="__codelineno-0-652" name="__codelineno-0-652"></a>         <span class="s1">'tflite_support'</span><span class="p">,</span> <span class="s1">'onnxruntime-gpu'</span> <span class="k">if</span> <span class="n">cuda</span> <span class="k">else</span> <span class="s1">'onnxruntime'</span><span class="p">),</span>
 <a id="__codelineno-0-653" name="__codelineno-0-653"></a>        <span class="n">cmds</span><span class="o">=</span><span class="s1">'--extra-index-url https://pypi.ngc.nvidia.com'</span><span class="p">)</span>  <span class="c1"># onnx_graphsurgeon only on NVIDIA</span>
 <a id="__codelineno-0-654" name="__codelineno-0-654"></a>
@@ -6379,7 +6386,7 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
 </body>
 </html>
