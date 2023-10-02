@@ -11,9 +11,9 @@
 <link href="../callbacks/wb/" rel="prev"/>
 <link href="../dist/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.2" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.3" name="generator"/>
 <title>checks - Ultralytics YOLOv8 Docs</title>
-<link href="../../../assets/stylesheets/main.d451bc0e.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.79e020e9.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.a5377069.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -4453,7 +4453,11 @@ Torchvision versions.</p>
 <span class="normal"><a href="#__codelineno-0-518">518</a></span>
 <span class="normal"><a href="#__codelineno-0-519">519</a></span>
 <span class="normal"><a href="#__codelineno-0-520">520</a></span>
-<span class="normal"><a href="#__codelineno-0-521">521</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="k">def</span> <span class="nf">collect_system_info</span><span class="p">():</span>
+<span class="normal"><a href="#__codelineno-0-521">521</a></span>
+<span class="normal"><a href="#__codelineno-0-522">522</a></span>
+<span class="normal"><a href="#__codelineno-0-523">523</a></span>
+<span class="normal"><a href="#__codelineno-0-524">524</a></span>
+<span class="normal"><a href="#__codelineno-0-525">525</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="k">def</span> <span class="nf">collect_system_info</span><span class="p">():</span>
 <a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="w">    </span><span class="sd">"""Collect and print relevant system information including OS, Python, RAM, CPU, and CUDA."""</span>
 <a id="__codelineno-0-502" name="__codelineno-0-502"></a>
 <a id="__codelineno-0-503" name="__codelineno-0-503"></a>    <span class="kn">import</span> <span class="nn">psutil</span>
@@ -4472,9 +4476,13 @@ Torchvision versions.</p>
 <a id="__codelineno-0-516" name="__codelineno-0-516"></a>                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'CUDA'</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}{</span><span class="n">torch</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">cuda</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">torch</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="kc">None</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-517" name="__codelineno-0-517"></a>
 <a id="__codelineno-0-518" name="__codelineno-0-518"></a>    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">parse_requirements</span><span class="p">(</span><span class="n">package</span><span class="o">=</span><span class="s1">'ultralytics'</span><span class="p">):</span>
-<a id="__codelineno-0-519" name="__codelineno-0-519"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<a id="__codelineno-0-520" name="__codelineno-0-520"></a>        <span class="n">is_met</span> <span class="o">=</span> <span class="s1">'✅ '</span> <span class="k">if</span> <span class="n">check_version</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">specifier</span><span class="p">))</span> <span class="k">else</span> <span class="s1">'❌ '</span>
-<a id="__codelineno-0-521" name="__codelineno-0-521"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">name</span><span class="si">:</span><span class="s1">&lt;20</span><span class="si">}{</span><span class="n">is_met</span><span class="si">}{</span><span class="n">current</span><span class="si">}{</span><span class="n">r</span><span class="o">.</span><span class="n">specifier</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<a id="__codelineno-0-519" name="__codelineno-0-519"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-520" name="__codelineno-0-520"></a>            <span class="n">current</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<a id="__codelineno-0-521" name="__codelineno-0-521"></a>            <span class="n">is_met</span> <span class="o">=</span> <span class="s1">'✅ '</span> <span class="k">if</span> <span class="n">check_version</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">specifier</span><span class="p">),</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">else</span> <span class="s1">'❌ '</span>
+<a id="__codelineno-0-522" name="__codelineno-0-522"></a>        <span class="k">except</span> <span class="n">metadata</span><span class="o">.</span><span class="n">PackageNotFoundError</span><span class="p">:</span>
+<a id="__codelineno-0-523" name="__codelineno-0-523"></a>            <span class="n">current</span> <span class="o">=</span> <span class="s1">'(not installed)'</span>
+<a id="__codelineno-0-524" name="__codelineno-0-524"></a>            <span class="n">is_met</span> <span class="o">=</span> <span class="s1">'❌ '</span>
+<a id="__codelineno-0-525" name="__codelineno-0-525"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">name</span><span class="si">:</span><span class="s1">&lt;20</span><span class="si">}{</span><span class="n">is_met</span><span class="si">}{</span><span class="n">current</span><span class="si">}{</span><span class="n">r</span><span class="o">.</span><span class="n">specifier</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4547,11 +4555,7 @@ results, so AMP will be disabled during training.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-524">524</a></span>
-<span class="normal"><a href="#__codelineno-0-525">525</a></span>
-<span class="normal"><a href="#__codelineno-0-526">526</a></span>
-<span class="normal"><a href="#__codelineno-0-527">527</a></span>
-<span class="normal"><a href="#__codelineno-0-528">528</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-528">528</a></span>
 <span class="normal"><a href="#__codelineno-0-529">529</a></span>
 <span class="normal"><a href="#__codelineno-0-530">530</a></span>
 <span class="normal"><a href="#__codelineno-0-531">531</a></span>
@@ -4597,57 +4601,61 @@ results, so AMP will be disabled during training.</p>
 <span class="normal"><a href="#__codelineno-0-571">571</a></span>
 <span class="normal"><a href="#__codelineno-0-572">572</a></span>
 <span class="normal"><a href="#__codelineno-0-573">573</a></span>
-<span class="normal"><a href="#__codelineno-0-574">574</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-524" name="__codelineno-0-524"></a><span class="k">def</span> <span class="nf">check_amp</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
-<a id="__codelineno-0-525" name="__codelineno-0-525"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-526" name="__codelineno-0-526"></a><span class="sd">    This function checks the PyTorch Automatic Mixed Precision (AMP) functionality of a YOLOv8 model.</span>
-<a id="__codelineno-0-527" name="__codelineno-0-527"></a><span class="sd">    If the checks fail, it means there are anomalies with AMP on the system that may cause NaN losses or zero-mAP</span>
-<a id="__codelineno-0-528" name="__codelineno-0-528"></a><span class="sd">    results, so AMP will be disabled during training.</span>
-<a id="__codelineno-0-529" name="__codelineno-0-529"></a>
-<a id="__codelineno-0-530" name="__codelineno-0-530"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="sd">        model (nn.Module): A YOLOv8 model instance.</span>
-<a id="__codelineno-0-532" name="__codelineno-0-532"></a>
-<a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="sd">    Example:</span>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">        ```python</span>
-<a id="__codelineno-0-535" name="__codelineno-0-535"></a><span class="sd">        from ultralytics import YOLO</span>
-<a id="__codelineno-0-536" name="__codelineno-0-536"></a><span class="sd">        from ultralytics.utils.checks import check_amp</span>
-<a id="__codelineno-0-537" name="__codelineno-0-537"></a>
-<a id="__codelineno-0-538" name="__codelineno-0-538"></a><span class="sd">        model = YOLO('yolov8n.pt').model.cuda()</span>
-<a id="__codelineno-0-539" name="__codelineno-0-539"></a><span class="sd">        check_amp(model)</span>
-<a id="__codelineno-0-540" name="__codelineno-0-540"></a><span class="sd">        ```</span>
+<span class="normal"><a href="#__codelineno-0-574">574</a></span>
+<span class="normal"><a href="#__codelineno-0-575">575</a></span>
+<span class="normal"><a href="#__codelineno-0-576">576</a></span>
+<span class="normal"><a href="#__codelineno-0-577">577</a></span>
+<span class="normal"><a href="#__codelineno-0-578">578</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-528" name="__codelineno-0-528"></a><span class="k">def</span> <span class="nf">check_amp</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<a id="__codelineno-0-529" name="__codelineno-0-529"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-530" name="__codelineno-0-530"></a><span class="sd">    This function checks the PyTorch Automatic Mixed Precision (AMP) functionality of a YOLOv8 model.</span>
+<a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="sd">    If the checks fail, it means there are anomalies with AMP on the system that may cause NaN losses or zero-mAP</span>
+<a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="sd">    results, so AMP will be disabled during training.</span>
+<a id="__codelineno-0-533" name="__codelineno-0-533"></a>
+<a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-535" name="__codelineno-0-535"></a><span class="sd">        model (nn.Module): A YOLOv8 model instance.</span>
+<a id="__codelineno-0-536" name="__codelineno-0-536"></a>
+<a id="__codelineno-0-537" name="__codelineno-0-537"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-538" name="__codelineno-0-538"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-539" name="__codelineno-0-539"></a><span class="sd">        from ultralytics import YOLO</span>
+<a id="__codelineno-0-540" name="__codelineno-0-540"></a><span class="sd">        from ultralytics.utils.checks import check_amp</span>
 <a id="__codelineno-0-541" name="__codelineno-0-541"></a>
-<a id="__codelineno-0-542" name="__codelineno-0-542"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-543" name="__codelineno-0-543"></a><span class="sd">        (bool): Returns True if the AMP functionality works correctly with YOLOv8 model, else False.</span>
-<a id="__codelineno-0-544" name="__codelineno-0-544"></a><span class="sd">    """</span>
-<a id="__codelineno-0-545" name="__codelineno-0-545"></a>    <span class="n">device</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span>  <span class="c1"># get model device</span>
-<a id="__codelineno-0-546" name="__codelineno-0-546"></a>    <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'cpu'</span><span class="p">,</span> <span class="s1">'mps'</span><span class="p">):</span>
-<a id="__codelineno-0-547" name="__codelineno-0-547"></a>        <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># AMP only used on CUDA devices</span>
-<a id="__codelineno-0-548" name="__codelineno-0-548"></a>
-<a id="__codelineno-0-549" name="__codelineno-0-549"></a>    <span class="k">def</span> <span class="nf">amp_allclose</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
-<a id="__codelineno-0-550" name="__codelineno-0-550"></a><span class="w">        </span><span class="sd">"""All close FP32 vs AMP results."""</span>
-<a id="__codelineno-0-551" name="__codelineno-0-551"></a>        <span class="n">a</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># FP32 inference</span>
-<a id="__codelineno-0-552" name="__codelineno-0-552"></a>        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">amp</span><span class="o">.</span><span class="n">autocast</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-553" name="__codelineno-0-553"></a>            <span class="n">b</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># AMP inference</span>
-<a id="__codelineno-0-554" name="__codelineno-0-554"></a>        <span class="k">del</span> <span class="n">m</span>
-<a id="__codelineno-0-555" name="__codelineno-0-555"></a>        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span> <span class="ow">and</span> <span class="n">torch</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">atol</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># close to 0.5 absolute tolerance</span>
-<a id="__codelineno-0-556" name="__codelineno-0-556"></a>
-<a id="__codelineno-0-557" name="__codelineno-0-557"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">ASSETS</span> <span class="o">/</span> <span class="s1">'bus.jpg'</span>  <span class="c1"># image to check</span>
-<a id="__codelineno-0-558" name="__codelineno-0-558"></a>    <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s1">'AMP: '</span><span class="p">)</span>
-<a id="__codelineno-0-559" name="__codelineno-0-559"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">running Automatic Mixed Precision (AMP) checks with YOLOv8n...'</span><span class="p">)</span>
-<a id="__codelineno-0-560" name="__codelineno-0-560"></a>    <span class="n">warning_msg</span> <span class="o">=</span> <span class="s2">"Setting 'amp=True'. If you experience zero-mAP or NaN losses you can disable AMP with amp=False."</span>
-<a id="__codelineno-0-561" name="__codelineno-0-561"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-562" name="__codelineno-0-562"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-0-563" name="__codelineno-0-563"></a>        <span class="k">assert</span> <span class="n">amp_allclose</span><span class="p">(</span><span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">),</span> <span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-564" name="__codelineno-0-564"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">checks passed ✅'</span><span class="p">)</span>
-<a id="__codelineno-0-565" name="__codelineno-0-565"></a>    <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
-<a id="__codelineno-0-566" name="__codelineno-0-566"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">checks skipped ⚠️, offline and unable to download YOLOv8n. </span><span class="si">{</span><span class="n">warning_msg</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<a id="__codelineno-0-567" name="__codelineno-0-567"></a>    <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
-<a id="__codelineno-0-568" name="__codelineno-0-568"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">checks skipped ⚠️. '</span>
-<a id="__codelineno-0-569" name="__codelineno-0-569"></a>                       <span class="sa">f</span><span class="s1">'Unable to load YOLOv8n due to possible Ultralytics package modifications. </span><span class="si">{</span><span class="n">warning_msg</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<a id="__codelineno-0-570" name="__codelineno-0-570"></a>    <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
-<a id="__codelineno-0-571" name="__codelineno-0-571"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">checks failed ❌. Anomalies were detected with AMP on your system that may lead to '</span>
-<a id="__codelineno-0-572" name="__codelineno-0-572"></a>                       <span class="sa">f</span><span class="s1">'NaN losses or zero-mAP results, so AMP will be disabled during training.'</span><span class="p">)</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a>        <span class="k">return</span> <span class="kc">False</span>
-<a id="__codelineno-0-574" name="__codelineno-0-574"></a>    <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-0-542" name="__codelineno-0-542"></a><span class="sd">        model = YOLO('yolov8n.pt').model.cuda()</span>
+<a id="__codelineno-0-543" name="__codelineno-0-543"></a><span class="sd">        check_amp(model)</span>
+<a id="__codelineno-0-544" name="__codelineno-0-544"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-545" name="__codelineno-0-545"></a>
+<a id="__codelineno-0-546" name="__codelineno-0-546"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-547" name="__codelineno-0-547"></a><span class="sd">        (bool): Returns True if the AMP functionality works correctly with YOLOv8 model, else False.</span>
+<a id="__codelineno-0-548" name="__codelineno-0-548"></a><span class="sd">    """</span>
+<a id="__codelineno-0-549" name="__codelineno-0-549"></a>    <span class="n">device</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span>  <span class="c1"># get model device</span>
+<a id="__codelineno-0-550" name="__codelineno-0-550"></a>    <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'cpu'</span><span class="p">,</span> <span class="s1">'mps'</span><span class="p">):</span>
+<a id="__codelineno-0-551" name="__codelineno-0-551"></a>        <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># AMP only used on CUDA devices</span>
+<a id="__codelineno-0-552" name="__codelineno-0-552"></a>
+<a id="__codelineno-0-553" name="__codelineno-0-553"></a>    <span class="k">def</span> <span class="nf">amp_allclose</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<a id="__codelineno-0-554" name="__codelineno-0-554"></a><span class="w">        </span><span class="sd">"""All close FP32 vs AMP results."""</span>
+<a id="__codelineno-0-555" name="__codelineno-0-555"></a>        <span class="n">a</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># FP32 inference</span>
+<a id="__codelineno-0-556" name="__codelineno-0-556"></a>        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">amp</span><span class="o">.</span><span class="n">autocast</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-557" name="__codelineno-0-557"></a>            <span class="n">b</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># AMP inference</span>
+<a id="__codelineno-0-558" name="__codelineno-0-558"></a>        <span class="k">del</span> <span class="n">m</span>
+<a id="__codelineno-0-559" name="__codelineno-0-559"></a>        <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span> <span class="ow">and</span> <span class="n">torch</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">atol</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># close to 0.5 absolute tolerance</span>
+<a id="__codelineno-0-560" name="__codelineno-0-560"></a>
+<a id="__codelineno-0-561" name="__codelineno-0-561"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">ASSETS</span> <span class="o">/</span> <span class="s1">'bus.jpg'</span>  <span class="c1"># image to check</span>
+<a id="__codelineno-0-562" name="__codelineno-0-562"></a>    <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s1">'AMP: '</span><span class="p">)</span>
+<a id="__codelineno-0-563" name="__codelineno-0-563"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">running Automatic Mixed Precision (AMP) checks with YOLOv8n...'</span><span class="p">)</span>
+<a id="__codelineno-0-564" name="__codelineno-0-564"></a>    <span class="n">warning_msg</span> <span class="o">=</span> <span class="s2">"Setting 'amp=True'. If you experience zero-mAP or NaN losses you can disable AMP with amp=False."</span>
+<a id="__codelineno-0-565" name="__codelineno-0-565"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-566" name="__codelineno-0-566"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-0-567" name="__codelineno-0-567"></a>        <span class="k">assert</span> <span class="n">amp_allclose</span><span class="p">(</span><span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">),</span> <span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-568" name="__codelineno-0-568"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">checks passed ✅'</span><span class="p">)</span>
+<a id="__codelineno-0-569" name="__codelineno-0-569"></a>    <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
+<a id="__codelineno-0-570" name="__codelineno-0-570"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">checks skipped ⚠️, offline and unable to download YOLOv8n. </span><span class="si">{</span><span class="n">warning_msg</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<a id="__codelineno-0-571" name="__codelineno-0-571"></a>    <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
+<a id="__codelineno-0-572" name="__codelineno-0-572"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">checks skipped ⚠️. '</span>
+<a id="__codelineno-0-573" name="__codelineno-0-573"></a>                       <span class="sa">f</span><span class="s1">'Unable to load YOLOv8n due to possible Ultralytics package modifications. </span><span class="si">{</span><span class="n">warning_msg</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<a id="__codelineno-0-574" name="__codelineno-0-574"></a>    <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+<a id="__codelineno-0-575" name="__codelineno-0-575"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s1">checks failed ❌. Anomalies were detected with AMP on your system that may lead to '</span>
+<a id="__codelineno-0-576" name="__codelineno-0-576"></a>                       <span class="sa">f</span><span class="s1">'NaN losses or zero-mAP results, so AMP will be disabled during training.'</span><span class="p">)</span>
+<a id="__codelineno-0-577" name="__codelineno-0-577"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-0-578" name="__codelineno-0-578"></a>    <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4661,15 +4669,15 @@ results, so AMP will be disabled during training.</p>
 <p>Return human-readable git description, i.e. v5.0-5-g3e25f1e https://git-scm.com/docs/git-describe.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-577">577</a></span>
-<span class="normal"><a href="#__codelineno-0-578">578</a></span>
-<span class="normal"><a href="#__codelineno-0-579">579</a></span>
-<span class="normal"><a href="#__codelineno-0-580">580</a></span>
-<span class="normal"><a href="#__codelineno-0-581">581</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-577" name="__codelineno-0-577"></a><span class="k">def</span> <span class="nf">git_describe</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">ROOT</span><span class="p">):</span>  <span class="c1"># path must be a directory</span>
-<a id="__codelineno-0-578" name="__codelineno-0-578"></a><span class="w">    </span><span class="sd">"""Return human-readable git description, i.e. v5.0-5-g3e25f1e https://git-scm.com/docs/git-describe."""</span>
-<a id="__codelineno-0-579" name="__codelineno-0-579"></a>    <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-<a id="__codelineno-0-580" name="__codelineno-0-580"></a>        <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="sa">f</span><span class="s1">'git -C </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1"> describe --tags --long --always'</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-581" name="__codelineno-0-581"></a>    <span class="k">return</span> <span class="s1">''</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-581">581</a></span>
+<span class="normal"><a href="#__codelineno-0-582">582</a></span>
+<span class="normal"><a href="#__codelineno-0-583">583</a></span>
+<span class="normal"><a href="#__codelineno-0-584">584</a></span>
+<span class="normal"><a href="#__codelineno-0-585">585</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-581" name="__codelineno-0-581"></a><span class="k">def</span> <span class="nf">git_describe</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">ROOT</span><span class="p">):</span>  <span class="c1"># path must be a directory</span>
+<a id="__codelineno-0-582" name="__codelineno-0-582"></a><span class="w">    </span><span class="sd">"""Return human-readable git description, i.e. v5.0-5-g3e25f1e https://git-scm.com/docs/git-describe."""</span>
+<a id="__codelineno-0-583" name="__codelineno-0-583"></a>    <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<a id="__codelineno-0-584" name="__codelineno-0-584"></a>        <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="sa">f</span><span class="s1">'git -C </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1"> describe --tags --long --always'</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-585" name="__codelineno-0-585"></a>    <span class="k">return</span> <span class="s1">''</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4683,11 +4691,7 @@ results, so AMP will be disabled during training.</p>
 <p>Print function arguments (optional args dict).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-584">584</a></span>
-<span class="normal"><a href="#__codelineno-0-585">585</a></span>
-<span class="normal"><a href="#__codelineno-0-586">586</a></span>
-<span class="normal"><a href="#__codelineno-0-587">587</a></span>
-<span class="normal"><a href="#__codelineno-0-588">588</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-588">588</a></span>
 <span class="normal"><a href="#__codelineno-0-589">589</a></span>
 <span class="normal"><a href="#__codelineno-0-590">590</a></span>
 <span class="normal"><a href="#__codelineno-0-591">591</a></span>
@@ -4700,24 +4704,28 @@ results, so AMP will be disabled during training.</p>
 <span class="normal"><a href="#__codelineno-0-598">598</a></span>
 <span class="normal"><a href="#__codelineno-0-599">599</a></span>
 <span class="normal"><a href="#__codelineno-0-600">600</a></span>
-<span class="normal"><a href="#__codelineno-0-601">601</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-584" name="__codelineno-0-584"></a><span class="k">def</span> <span class="nf">print_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_func</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<a id="__codelineno-0-585" name="__codelineno-0-585"></a><span class="w">    </span><span class="sd">"""Print function arguments (optional args dict)."""</span>
-<a id="__codelineno-0-586" name="__codelineno-0-586"></a>
-<a id="__codelineno-0-587" name="__codelineno-0-587"></a>    <span class="k">def</span> <span class="nf">strip_auth</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-<a id="__codelineno-0-588" name="__codelineno-0-588"></a><span class="w">        </span><span class="sd">"""Clean longer Ultralytics HUB URLs by stripping potential authentication information."""</span>
-<a id="__codelineno-0-589" name="__codelineno-0-589"></a>        <span class="k">return</span> <span class="n">clean_url</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'http'</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="k">else</span> <span class="n">v</span>
+<span class="normal"><a href="#__codelineno-0-601">601</a></span>
+<span class="normal"><a href="#__codelineno-0-602">602</a></span>
+<span class="normal"><a href="#__codelineno-0-603">603</a></span>
+<span class="normal"><a href="#__codelineno-0-604">604</a></span>
+<span class="normal"><a href="#__codelineno-0-605">605</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-588" name="__codelineno-0-588"></a><span class="k">def</span> <span class="nf">print_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_func</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-0-589" name="__codelineno-0-589"></a><span class="w">    </span><span class="sd">"""Print function arguments (optional args dict)."""</span>
 <a id="__codelineno-0-590" name="__codelineno-0-590"></a>
-<a id="__codelineno-0-591" name="__codelineno-0-591"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_back</span>  <span class="c1"># previous frame</span>
-<a id="__codelineno-0-592" name="__codelineno-0-592"></a>    <span class="n">file</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getframeinfo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-593" name="__codelineno-0-593"></a>    <span class="k">if</span> <span class="n">args</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># get args automatically</span>
-<a id="__codelineno-0-594" name="__codelineno-0-594"></a>        <span class="n">args</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">frm</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getargvalues</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-595" name="__codelineno-0-595"></a>        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">frm</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">args</span><span class="p">}</span>
-<a id="__codelineno-0-596" name="__codelineno-0-596"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-597" name="__codelineno-0-597"></a>        <span class="n">file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">ROOT</span><span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
-<a id="__codelineno-0-598" name="__codelineno-0-598"></a>    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-<a id="__codelineno-0-599" name="__codelineno-0-599"></a>        <span class="n">file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
-<a id="__codelineno-0-600" name="__codelineno-0-600"></a>    <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">: '</span> <span class="k">if</span> <span class="n">show_file</span> <span class="k">else</span> <span class="s1">''</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">func</span><span class="si">}</span><span class="s1">: '</span> <span class="k">if</span> <span class="n">show_func</span> <span class="k">else</span> <span class="s1">''</span><span class="p">)</span>
-<a id="__codelineno-0-601" name="__codelineno-0-601"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">colorstr</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">strip_auth</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<a id="__codelineno-0-591" name="__codelineno-0-591"></a>    <span class="k">def</span> <span class="nf">strip_auth</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<a id="__codelineno-0-592" name="__codelineno-0-592"></a><span class="w">        </span><span class="sd">"""Clean longer Ultralytics HUB URLs by stripping potential authentication information."""</span>
+<a id="__codelineno-0-593" name="__codelineno-0-593"></a>        <span class="k">return</span> <span class="n">clean_url</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'http'</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="k">else</span> <span class="n">v</span>
+<a id="__codelineno-0-594" name="__codelineno-0-594"></a>
+<a id="__codelineno-0-595" name="__codelineno-0-595"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_back</span>  <span class="c1"># previous frame</span>
+<a id="__codelineno-0-596" name="__codelineno-0-596"></a>    <span class="n">file</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getframeinfo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-597" name="__codelineno-0-597"></a>    <span class="k">if</span> <span class="n">args</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># get args automatically</span>
+<a id="__codelineno-0-598" name="__codelineno-0-598"></a>        <span class="n">args</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">frm</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getargvalues</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-599" name="__codelineno-0-599"></a>        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">frm</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">args</span><span class="p">}</span>
+<a id="__codelineno-0-600" name="__codelineno-0-600"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-601" name="__codelineno-0-601"></a>        <span class="n">file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">ROOT</span><span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+<a id="__codelineno-0-602" name="__codelineno-0-602"></a>    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<a id="__codelineno-0-603" name="__codelineno-0-603"></a>        <span class="n">file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
+<a id="__codelineno-0-604" name="__codelineno-0-604"></a>    <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">: '</span> <span class="k">if</span> <span class="n">show_file</span> <span class="k">else</span> <span class="s1">''</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">func</span><span class="si">}</span><span class="s1">: '</span> <span class="k">if</span> <span class="n">show_func</span> <span class="k">else</span> <span class="s1">''</span><span class="p">)</span>
+<a id="__codelineno-0-605" name="__codelineno-0-605"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">colorstr</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">strip_auth</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4752,11 +4760,7 @@ results, so AMP will be disabled during training.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-604">604</a></span>
-<span class="normal"><a href="#__codelineno-0-605">605</a></span>
-<span class="normal"><a href="#__codelineno-0-606">606</a></span>
-<span class="normal"><a href="#__codelineno-0-607">607</a></span>
-<span class="normal"><a href="#__codelineno-0-608">608</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-608">608</a></span>
 <span class="normal"><a href="#__codelineno-0-609">609</a></span>
 <span class="normal"><a href="#__codelineno-0-610">610</a></span>
 <span class="normal"><a href="#__codelineno-0-611">611</a></span>
@@ -4769,24 +4773,28 @@ results, so AMP will be disabled during training.</p>
 <span class="normal"><a href="#__codelineno-0-618">618</a></span>
 <span class="normal"><a href="#__codelineno-0-619">619</a></span>
 <span class="normal"><a href="#__codelineno-0-620">620</a></span>
-<span class="normal"><a href="#__codelineno-0-621">621</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-604" name="__codelineno-0-604"></a><span class="k">def</span> <span class="nf">cuda_device_count</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-0-605" name="__codelineno-0-605"></a><span class="w">    </span><span class="sd">"""Get the number of NVIDIA GPUs available in the environment.</span>
-<a id="__codelineno-0-606" name="__codelineno-0-606"></a>
-<a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="sd">        (int): The number of NVIDIA GPUs available.</span>
-<a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">    """</span>
-<a id="__codelineno-0-610" name="__codelineno-0-610"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-611" name="__codelineno-0-611"></a>        <span class="c1"># Run the nvidia-smi command and capture its output</span>
-<a id="__codelineno-0-612" name="__codelineno-0-612"></a>        <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s1">'nvidia-smi'</span><span class="p">,</span> <span class="s1">'--query-gpu=count'</span><span class="p">,</span> <span class="s1">'--format=csv,noheader,nounits'</span><span class="p">],</span>
-<a id="__codelineno-0-613" name="__codelineno-0-613"></a>                                         <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
-<a id="__codelineno-0-614" name="__codelineno-0-614"></a>
-<a id="__codelineno-0-615" name="__codelineno-0-615"></a>        <span class="c1"># Take the first line and strip any leading/trailing white space</span>
-<a id="__codelineno-0-616" name="__codelineno-0-616"></a>        <span class="n">first_line</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-617" name="__codelineno-0-617"></a>
-<a id="__codelineno-0-618" name="__codelineno-0-618"></a>        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">first_line</span><span class="p">)</span>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a>    <span class="k">except</span> <span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">,</span> <span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a>        <span class="c1"># If the command fails, nvidia-smi is not found, or output is not an integer, assume no GPUs are available</span>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a>        <span class="k">return</span> <span class="mi">0</span>
+<span class="normal"><a href="#__codelineno-0-621">621</a></span>
+<span class="normal"><a href="#__codelineno-0-622">622</a></span>
+<span class="normal"><a href="#__codelineno-0-623">623</a></span>
+<span class="normal"><a href="#__codelineno-0-624">624</a></span>
+<span class="normal"><a href="#__codelineno-0-625">625</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="k">def</span> <span class="nf">cuda_device_count</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="w">    </span><span class="sd">"""Get the number of NVIDIA GPUs available in the environment.</span>
+<a id="__codelineno-0-610" name="__codelineno-0-610"></a>
+<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-612" name="__codelineno-0-612"></a><span class="sd">        (int): The number of NVIDIA GPUs available.</span>
+<a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="sd">    """</span>
+<a id="__codelineno-0-614" name="__codelineno-0-614"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-615" name="__codelineno-0-615"></a>        <span class="c1"># Run the nvidia-smi command and capture its output</span>
+<a id="__codelineno-0-616" name="__codelineno-0-616"></a>        <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">([</span><span class="s1">'nvidia-smi'</span><span class="p">,</span> <span class="s1">'--query-gpu=count'</span><span class="p">,</span> <span class="s1">'--format=csv,noheader,nounits'</span><span class="p">],</span>
+<a id="__codelineno-0-617" name="__codelineno-0-617"></a>                                         <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
+<a id="__codelineno-0-618" name="__codelineno-0-618"></a>
+<a id="__codelineno-0-619" name="__codelineno-0-619"></a>        <span class="c1"># Take the first line and strip any leading/trailing white space</span>
+<a id="__codelineno-0-620" name="__codelineno-0-620"></a>        <span class="n">first_line</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a>        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">first_line</span><span class="p">)</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a>    <span class="k">except</span> <span class="p">(</span><span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">,</span> <span class="ne">FileNotFoundError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+<a id="__codelineno-0-624" name="__codelineno-0-624"></a>        <span class="c1"># If the command fails, nvidia-smi is not found, or output is not an integer, assume no GPUs are available</span>
+<a id="__codelineno-0-625" name="__codelineno-0-625"></a>        <span class="k">return</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4821,19 +4829,19 @@ results, so AMP will be disabled during training.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-624">624</a></span>
-<span class="normal"><a href="#__codelineno-0-625">625</a></span>
-<span class="normal"><a href="#__codelineno-0-626">626</a></span>
-<span class="normal"><a href="#__codelineno-0-627">627</a></span>
-<span class="normal"><a href="#__codelineno-0-628">628</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-628">628</a></span>
 <span class="normal"><a href="#__codelineno-0-629">629</a></span>
-<span class="normal"><a href="#__codelineno-0-630">630</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-624" name="__codelineno-0-624"></a><span class="k">def</span> <span class="nf">cuda_is_available</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<a id="__codelineno-0-625" name="__codelineno-0-625"></a><span class="w">    </span><span class="sd">"""Check if CUDA is available in the environment.</span>
-<a id="__codelineno-0-626" name="__codelineno-0-626"></a>
-<a id="__codelineno-0-627" name="__codelineno-0-627"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-628" name="__codelineno-0-628"></a><span class="sd">        (bool): True if one or more NVIDIA GPUs are available, False otherwise.</span>
-<a id="__codelineno-0-629" name="__codelineno-0-629"></a><span class="sd">    """</span>
-<a id="__codelineno-0-630" name="__codelineno-0-630"></a>    <span class="k">return</span> <span class="n">cuda_device_count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="normal"><a href="#__codelineno-0-630">630</a></span>
+<span class="normal"><a href="#__codelineno-0-631">631</a></span>
+<span class="normal"><a href="#__codelineno-0-632">632</a></span>
+<span class="normal"><a href="#__codelineno-0-633">633</a></span>
+<span class="normal"><a href="#__codelineno-0-634">634</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-628" name="__codelineno-0-628"></a><span class="k">def</span> <span class="nf">cuda_is_available</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-629" name="__codelineno-0-629"></a><span class="w">    </span><span class="sd">"""Check if CUDA is available in the environment.</span>
+<a id="__codelineno-0-630" name="__codelineno-0-630"></a>
+<a id="__codelineno-0-631" name="__codelineno-0-631"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-632" name="__codelineno-0-632"></a><span class="sd">        (bool): True if one or more NVIDIA GPUs are available, False otherwise.</span>
+<a id="__codelineno-0-633" name="__codelineno-0-633"></a><span class="sd">    """</span>
+<a id="__codelineno-0-634" name="__codelineno-0-634"></a>    <span class="k">return</span> <span class="n">cuda_device_count</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4862,8 +4870,8 @@ results, so AMP will be disabled during training.</p>
 </div>
 <button class="md-top md-icon" data-md-component="top" hidden="" type="button">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
-            Back to top
-          </button>
+  Back to top
+</button>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
@@ -4938,6 +4946,6 @@ results, so AMP will be disabled during training.</p>
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.726fbb30.min.js"></script>
+<script src="../../../assets/javascripts/bundle.6eac0284.min.js"></script>
 </body>
 </html>
