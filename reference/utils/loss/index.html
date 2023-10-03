@@ -2558,6 +2558,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.loss.v8PoseLoss.calculate_keypoints_loss">
+    calculate_keypoints_loss()
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.utils.loss.v8PoseLoss.kpts_decode">
     kpts_decode()
   </a>
@@ -3107,10 +3112,10 @@
 <a id="__codelineno-0-99" name="__codelineno-0-99"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">,</span> <span class="n">gt_kpts</span><span class="p">,</span> <span class="n">kpt_mask</span><span class="p">,</span> <span class="n">area</span><span class="p">):</span>
 <a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="w">        </span><span class="sd">"""Calculates keypoint loss factor and Euclidean distance loss for predicted and actual keypoints."""</span>
 <a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">pred_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">gt_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">pred_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">gt_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>        <span class="n">kpt_loss_factor</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kpt_mask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kpt_mask</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kpt_mask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">)</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>        <span class="n">kpt_loss_factor</span> <span class="o">=</span> <span class="n">kpt_mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kpt_mask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">)</span>
 <a id="__codelineno-0-103" name="__codelineno-0-103"></a>        <span class="c1"># e = d / (2 * (area * self.sigmas) ** 2 + 1e-9)  # from formula</span>
 <a id="__codelineno-0-104" name="__codelineno-0-104"></a>        <span class="n">e</span> <span class="o">=</span> <span class="n">d</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmas</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">area</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># from cocoeval</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="k">return</span> <span class="n">kpt_loss_factor</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">))</span> <span class="o">*</span> <span class="n">kpt_mask</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="k">return</span> <span class="p">(</span><span class="n">kpt_loss_factor</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">))</span> <span class="o">*</span> <span class="n">kpt_mask</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -3131,10 +3136,10 @@
 <span class="normal"><a href="#__codelineno-0-105">105</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">,</span> <span class="n">gt_kpts</span><span class="p">,</span> <span class="n">kpt_mask</span><span class="p">,</span> <span class="n">area</span><span class="p">):</span>
 <a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="w">    </span><span class="sd">"""Calculates keypoint loss factor and Euclidean distance loss for predicted and actual keypoints."""</span>
 <a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">pred_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">gt_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">pred_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">gt_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="n">kpt_loss_factor</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kpt_mask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kpt_mask</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kpt_mask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">)</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="n">kpt_loss_factor</span> <span class="o">=</span> <span class="n">kpt_mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kpt_mask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">)</span>
 <a id="__codelineno-0-103" name="__codelineno-0-103"></a>    <span class="c1"># e = d / (2 * (area * self.sigmas) ** 2 + 1e-9)  # from formula</span>
 <a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="n">e</span> <span class="o">=</span> <span class="n">d</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmas</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">area</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># from cocoeval</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="k">return</span> <span class="n">kpt_loss_factor</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">))</span> <span class="o">*</span> <span class="n">kpt_mask</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">kpt_loss_factor</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">))</span> <span class="o">*</span> <span class="n">kpt_mask</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4005,7 +4010,61 @@
 <span class="normal"><a href="#__codelineno-0-383">383</a></span>
 <span class="normal"><a href="#__codelineno-0-384">384</a></span>
 <span class="normal"><a href="#__codelineno-0-385">385</a></span>
-<span class="normal"><a href="#__codelineno-0-386">386</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="k">class</span> <span class="nc">v8PoseLoss</span><span class="p">(</span><span class="n">v8DetectionLoss</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-386">386</a></span>
+<span class="normal"><a href="#__codelineno-0-387">387</a></span>
+<span class="normal"><a href="#__codelineno-0-388">388</a></span>
+<span class="normal"><a href="#__codelineno-0-389">389</a></span>
+<span class="normal"><a href="#__codelineno-0-390">390</a></span>
+<span class="normal"><a href="#__codelineno-0-391">391</a></span>
+<span class="normal"><a href="#__codelineno-0-392">392</a></span>
+<span class="normal"><a href="#__codelineno-0-393">393</a></span>
+<span class="normal"><a href="#__codelineno-0-394">394</a></span>
+<span class="normal"><a href="#__codelineno-0-395">395</a></span>
+<span class="normal"><a href="#__codelineno-0-396">396</a></span>
+<span class="normal"><a href="#__codelineno-0-397">397</a></span>
+<span class="normal"><a href="#__codelineno-0-398">398</a></span>
+<span class="normal"><a href="#__codelineno-0-399">399</a></span>
+<span class="normal"><a href="#__codelineno-0-400">400</a></span>
+<span class="normal"><a href="#__codelineno-0-401">401</a></span>
+<span class="normal"><a href="#__codelineno-0-402">402</a></span>
+<span class="normal"><a href="#__codelineno-0-403">403</a></span>
+<span class="normal"><a href="#__codelineno-0-404">404</a></span>
+<span class="normal"><a href="#__codelineno-0-405">405</a></span>
+<span class="normal"><a href="#__codelineno-0-406">406</a></span>
+<span class="normal"><a href="#__codelineno-0-407">407</a></span>
+<span class="normal"><a href="#__codelineno-0-408">408</a></span>
+<span class="normal"><a href="#__codelineno-0-409">409</a></span>
+<span class="normal"><a href="#__codelineno-0-410">410</a></span>
+<span class="normal"><a href="#__codelineno-0-411">411</a></span>
+<span class="normal"><a href="#__codelineno-0-412">412</a></span>
+<span class="normal"><a href="#__codelineno-0-413">413</a></span>
+<span class="normal"><a href="#__codelineno-0-414">414</a></span>
+<span class="normal"><a href="#__codelineno-0-415">415</a></span>
+<span class="normal"><a href="#__codelineno-0-416">416</a></span>
+<span class="normal"><a href="#__codelineno-0-417">417</a></span>
+<span class="normal"><a href="#__codelineno-0-418">418</a></span>
+<span class="normal"><a href="#__codelineno-0-419">419</a></span>
+<span class="normal"><a href="#__codelineno-0-420">420</a></span>
+<span class="normal"><a href="#__codelineno-0-421">421</a></span>
+<span class="normal"><a href="#__codelineno-0-422">422</a></span>
+<span class="normal"><a href="#__codelineno-0-423">423</a></span>
+<span class="normal"><a href="#__codelineno-0-424">424</a></span>
+<span class="normal"><a href="#__codelineno-0-425">425</a></span>
+<span class="normal"><a href="#__codelineno-0-426">426</a></span>
+<span class="normal"><a href="#__codelineno-0-427">427</a></span>
+<span class="normal"><a href="#__codelineno-0-428">428</a></span>
+<span class="normal"><a href="#__codelineno-0-429">429</a></span>
+<span class="normal"><a href="#__codelineno-0-430">430</a></span>
+<span class="normal"><a href="#__codelineno-0-431">431</a></span>
+<span class="normal"><a href="#__codelineno-0-432">432</a></span>
+<span class="normal"><a href="#__codelineno-0-433">433</a></span>
+<span class="normal"><a href="#__codelineno-0-434">434</a></span>
+<span class="normal"><a href="#__codelineno-0-435">435</a></span>
+<span class="normal"><a href="#__codelineno-0-436">436</a></span>
+<span class="normal"><a href="#__codelineno-0-437">437</a></span>
+<span class="normal"><a href="#__codelineno-0-438">438</a></span>
+<span class="normal"><a href="#__codelineno-0-439">439</a></span>
+<span class="normal"><a href="#__codelineno-0-440">440</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="k">class</span> <span class="nc">v8PoseLoss</span><span class="p">(</span><span class="n">v8DetectionLoss</span><span class="p">):</span>
 <a id="__codelineno-0-300" name="__codelineno-0-300"></a><span class="w">    </span><span class="sd">"""Criterion class for computing training losses."""</span>
 <a id="__codelineno-0-301" name="__codelineno-0-301"></a>
 <a id="__codelineno-0-302" name="__codelineno-0-302"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>  <span class="c1"># model must be de-paralleled</span>
@@ -4063,36 +4122,90 @@
 <a id="__codelineno-0-354" name="__codelineno-0-354"></a>            <span class="n">keypoints</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'keypoints'</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
 <a id="__codelineno-0-355" name="__codelineno-0-355"></a>            <span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <a id="__codelineno-0-356" name="__codelineno-0-356"></a>            <span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-357" name="__codelineno-0-357"></a>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
-<a id="__codelineno-0-358" name="__codelineno-0-358"></a>                <span class="k">if</span> <span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">():</span>
-<a id="__codelineno-0-359" name="__codelineno-0-359"></a>                    <span class="n">idx</span> <span class="o">=</span> <span class="n">target_gt_idx</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-<a id="__codelineno-0-360" name="__codelineno-0-360"></a>                    <span class="n">gt_kpt</span> <span class="o">=</span> <span class="n">keypoints</span><span class="p">[</span><span class="n">batch_idx</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">i</span><span class="p">][</span><span class="n">idx</span><span class="p">]</span>  <span class="c1"># (n, 51)</span>
-<a id="__codelineno-0-361" name="__codelineno-0-361"></a>                    <span class="n">gt_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="n">stride_tensor</span><span class="p">[</span><span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-<a id="__codelineno-0-362" name="__codelineno-0-362"></a>                    <span class="n">gt_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="n">stride_tensor</span><span class="p">[</span><span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-<a id="__codelineno-0-363" name="__codelineno-0-363"></a>                    <span class="n">area</span> <span class="o">=</span> <span class="n">xyxy2xywh</span><span class="p">(</span><span class="n">target_bboxes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]])[:,</span> <span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-364" name="__codelineno-0-364"></a>                    <span class="n">pred_kpt</span> <span class="o">=</span> <span class="n">pred_kpts</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-<a id="__codelineno-0-365" name="__codelineno-0-365"></a>                    <span class="n">kpt_mask</span> <span class="o">=</span> <span class="n">gt_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
-<a id="__codelineno-0-366" name="__codelineno-0-366"></a>                    <span class="n">loss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoint_loss</span><span class="p">(</span><span class="n">pred_kpt</span><span class="p">,</span> <span class="n">gt_kpt</span><span class="p">,</span> <span class="n">kpt_mask</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>  <span class="c1"># pose loss</span>
-<a id="__codelineno-0-367" name="__codelineno-0-367"></a>                    <span class="c1"># kpt_score loss</span>
-<a id="__codelineno-0-368" name="__codelineno-0-368"></a>                    <span class="k">if</span> <span class="n">pred_kpt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-<a id="__codelineno-0-369" name="__codelineno-0-369"></a>                        <span class="n">loss</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bce_pose</span><span class="p">(</span><span class="n">pred_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">kpt_mask</span><span class="o">.</span><span class="n">float</span><span class="p">())</span>  <span class="c1"># keypoint obj loss</span>
-<a id="__codelineno-0-370" name="__codelineno-0-370"></a>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a>        <span class="n">loss</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">box</span>  <span class="c1"># box gain</span>
-<a id="__codelineno-0-372" name="__codelineno-0-372"></a>        <span class="n">loss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">pose</span> <span class="o">/</span> <span class="n">batch_size</span>  <span class="c1"># pose gain</span>
-<a id="__codelineno-0-373" name="__codelineno-0-373"></a>        <span class="n">loss</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">kobj</span> <span class="o">/</span> <span class="n">batch_size</span>  <span class="c1"># kobj gain</span>
-<a id="__codelineno-0-374" name="__codelineno-0-374"></a>        <span class="n">loss</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">cls</span>  <span class="c1"># cls gain</span>
-<a id="__codelineno-0-375" name="__codelineno-0-375"></a>        <span class="n">loss</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">dfl</span>  <span class="c1"># dfl gain</span>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a>
-<a id="__codelineno-0-377" name="__codelineno-0-377"></a>        <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
-<a id="__codelineno-0-378" name="__codelineno-0-378"></a>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a>    <span class="k">def</span> <span class="nf">kpts_decode</span><span class="p">(</span><span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">):</span>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="w">        </span><span class="sd">"""Decodes predicted keypoints to image coordinates."""</span>
-<a id="__codelineno-0-382" name="__codelineno-0-382"></a>        <span class="n">y</span> <span class="o">=</span> <span class="n">pred_kpts</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
-<a id="__codelineno-0-383" name="__codelineno-0-383"></a>        <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">2.0</span>
-<a id="__codelineno-0-384" name="__codelineno-0-384"></a>        <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">anchor_points</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">-</span> <span class="mf">0.5</span>
-<a id="__codelineno-0-385" name="__codelineno-0-385"></a>        <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">anchor_points</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="mf">0.5</span>
-<a id="__codelineno-0-386" name="__codelineno-0-386"></a>        <span class="k">return</span> <span class="n">y</span>
+<a id="__codelineno-0-357" name="__codelineno-0-357"></a>
+<a id="__codelineno-0-358" name="__codelineno-0-358"></a>            <span class="n">loss</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">loss</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_keypoints_loss</span><span class="p">(</span><span class="n">fg_mask</span><span class="p">,</span> <span class="n">target_gt_idx</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span>
+<a id="__codelineno-0-359" name="__codelineno-0-359"></a>                                                             <span class="n">stride_tensor</span><span class="p">,</span> <span class="n">target_bboxes</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">)</span>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a>
+<a id="__codelineno-0-361" name="__codelineno-0-361"></a>        <span class="n">loss</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">box</span>  <span class="c1"># box gain</span>
+<a id="__codelineno-0-362" name="__codelineno-0-362"></a>        <span class="n">loss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">pose</span>  <span class="c1"># pose gain</span>
+<a id="__codelineno-0-363" name="__codelineno-0-363"></a>        <span class="n">loss</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">kobj</span>  <span class="c1"># kobj gain</span>
+<a id="__codelineno-0-364" name="__codelineno-0-364"></a>        <span class="n">loss</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">cls</span>  <span class="c1"># cls gain</span>
+<a id="__codelineno-0-365" name="__codelineno-0-365"></a>        <span class="n">loss</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">dfl</span>  <span class="c1"># dfl gain</span>
+<a id="__codelineno-0-366" name="__codelineno-0-366"></a>
+<a id="__codelineno-0-367" name="__codelineno-0-367"></a>        <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
+<a id="__codelineno-0-368" name="__codelineno-0-368"></a>
+<a id="__codelineno-0-369" name="__codelineno-0-369"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-370" name="__codelineno-0-370"></a>    <span class="k">def</span> <span class="nf">kpts_decode</span><span class="p">(</span><span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">):</span>
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="w">        </span><span class="sd">"""Decodes predicted keypoints to image coordinates."""</span>
+<a id="__codelineno-0-372" name="__codelineno-0-372"></a>        <span class="n">y</span> <span class="o">=</span> <span class="n">pred_kpts</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+<a id="__codelineno-0-373" name="__codelineno-0-373"></a>        <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">2.0</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a>        <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">anchor_points</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">-</span> <span class="mf">0.5</span>
+<a id="__codelineno-0-375" name="__codelineno-0-375"></a>        <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">anchor_points</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="mf">0.5</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a>        <span class="k">return</span> <span class="n">y</span>
+<a id="__codelineno-0-377" name="__codelineno-0-377"></a>
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a>    <span class="k">def</span> <span class="nf">calculate_keypoints_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">masks</span><span class="p">,</span> <span class="n">target_gt_idx</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">stride_tensor</span><span class="p">,</span> <span class="n">target_bboxes</span><span class="p">,</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a>                                 <span class="n">pred_kpts</span><span class="p">):</span>
+<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="sd">        Calculate the keypoints loss for the model.</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a>
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a><span class="sd">        This function calculates the keypoints loss and keypoints object loss for a given batch. The keypoints loss is</span>
+<a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="sd">        based on the difference between the predicted keypoints and ground truth keypoints. The keypoints object loss is</span>
+<a id="__codelineno-0-385" name="__codelineno-0-385"></a><span class="sd">        a binary classification loss that classifies whether a keypoint is present or not.</span>
+<a id="__codelineno-0-386" name="__codelineno-0-386"></a>
+<a id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="sd">            masks (torch.Tensor): Binary mask tensor indicating object presence, shape (BS, N_anchors).</span>
+<a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="sd">            target_gt_idx (torch.Tensor): Index tensor mapping anchors to ground truth objects, shape (BS, N_anchors).</span>
+<a id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="sd">            keypoints (torch.Tensor): Ground truth keypoints, shape (N_kpts_in_batch, N_kpts_per_object, kpts_dim).</span>
+<a id="__codelineno-0-391" name="__codelineno-0-391"></a><span class="sd">            batch_idx (torch.Tensor): Batch index tensor for keypoints, shape (N_kpts_in_batch, 1).</span>
+<a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="sd">            stride_tensor (torch.Tensor): Stride tensor for anchors, shape (N_anchors, 1).</span>
+<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="sd">            target_bboxes (torch.Tensor): Ground truth boxes in (x1, y1, x2, y2) format, shape (BS, N_anchors, 4).</span>
+<a id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="sd">            pred_kpts (torch.Tensor): Predicted keypoints, shape (BS, N_anchors, N_kpts_per_object, kpts_dim).</span>
+<a id="__codelineno-0-395" name="__codelineno-0-395"></a>
+<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="sd">            (tuple): Returns a tuple containing:</span>
+<a id="__codelineno-0-398" name="__codelineno-0-398"></a><span class="sd">                - kpts_loss (torch.Tensor): The keypoints loss.</span>
+<a id="__codelineno-0-399" name="__codelineno-0-399"></a><span class="sd">                - kpts_obj_loss (torch.Tensor): The keypoints object loss.</span>
+<a id="__codelineno-0-400" name="__codelineno-0-400"></a><span class="sd">        """</span>
+<a id="__codelineno-0-401" name="__codelineno-0-401"></a>        <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch_idx</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<a id="__codelineno-0-402" name="__codelineno-0-402"></a>        <span class="n">batch_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span>
+<a id="__codelineno-0-403" name="__codelineno-0-403"></a>
+<a id="__codelineno-0-404" name="__codelineno-0-404"></a>        <span class="c1"># Find the maximum number of keypoints in a single image</span>
+<a id="__codelineno-0-405" name="__codelineno-0-405"></a>        <span class="n">max_kpts</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">batch_idx</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<a id="__codelineno-0-406" name="__codelineno-0-406"></a>
+<a id="__codelineno-0-407" name="__codelineno-0-407"></a>        <span class="c1"># Create a tensor to hold batched keypoints</span>
+<a id="__codelineno-0-408" name="__codelineno-0-408"></a>        <span class="n">batched_keypoints</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_kpts</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a>                                        <span class="n">device</span><span class="o">=</span><span class="n">keypoints</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-410" name="__codelineno-0-410"></a>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>        <span class="c1"># TODO: any idea how to vectorize this?</span>
+<a id="__codelineno-0-412" name="__codelineno-0-412"></a>        <span class="c1"># Fill batched_keypoints with keypoints based on batch_idx</span>
+<a id="__codelineno-0-413" name="__codelineno-0-413"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
+<a id="__codelineno-0-414" name="__codelineno-0-414"></a>            <span class="n">keypoints_i</span> <span class="o">=</span> <span class="n">keypoints</span><span class="p">[</span><span class="n">batch_idx</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-0-415" name="__codelineno-0-415"></a>            <span class="n">batched_keypoints</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="n">keypoints_i</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">keypoints_i</span>
+<a id="__codelineno-0-416" name="__codelineno-0-416"></a>
+<a id="__codelineno-0-417" name="__codelineno-0-417"></a>        <span class="c1"># Expand dimensions of target_gt_idx to match the shape of batched_keypoints</span>
+<a id="__codelineno-0-418" name="__codelineno-0-418"></a>        <span class="n">target_gt_idx_expanded</span> <span class="o">=</span> <span class="n">target_gt_idx</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>
+<a id="__codelineno-0-420" name="__codelineno-0-420"></a>        <span class="c1"># Use target_gt_idx_expanded to select keypoints from batched_keypoints</span>
+<a id="__codelineno-0-421" name="__codelineno-0-421"></a>        <span class="n">selected_keypoints</span> <span class="o">=</span> <span class="n">batched_keypoints</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>            <span class="mi">1</span><span class="p">,</span> <span class="n">target_gt_idx_expanded</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<a id="__codelineno-0-423" name="__codelineno-0-423"></a>
+<a id="__codelineno-0-424" name="__codelineno-0-424"></a>        <span class="c1"># Divide coordinates by stride</span>
+<a id="__codelineno-0-425" name="__codelineno-0-425"></a>        <span class="n">selected_keypoints</span> <span class="o">/=</span> <span class="n">stride_tensor</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-426" name="__codelineno-0-426"></a>
+<a id="__codelineno-0-427" name="__codelineno-0-427"></a>        <span class="n">kpts_loss</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-428" name="__codelineno-0-428"></a>        <span class="n">kpts_obj_loss</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-429" name="__codelineno-0-429"></a>
+<a id="__codelineno-0-430" name="__codelineno-0-430"></a>        <span class="k">if</span> <span class="n">masks</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+<a id="__codelineno-0-431" name="__codelineno-0-431"></a>            <span class="n">gt_kpt</span> <span class="o">=</span> <span class="n">selected_keypoints</span><span class="p">[</span><span class="n">masks</span><span class="p">]</span>
+<a id="__codelineno-0-432" name="__codelineno-0-432"></a>            <span class="n">area</span> <span class="o">=</span> <span class="n">xyxy2xywh</span><span class="p">(</span><span class="n">target_bboxes</span><span class="p">[</span><span class="n">masks</span><span class="p">])[:,</span> <span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-433" name="__codelineno-0-433"></a>            <span class="n">pred_kpt</span> <span class="o">=</span> <span class="n">pred_kpts</span><span class="p">[</span><span class="n">masks</span><span class="p">]</span>
+<a id="__codelineno-0-434" name="__codelineno-0-434"></a>            <span class="n">kpt_mask</span> <span class="o">=</span> <span class="n">gt_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">gt_kpt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">gt_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-435" name="__codelineno-0-435"></a>            <span class="n">kpts_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoint_loss</span><span class="p">(</span><span class="n">pred_kpt</span><span class="p">,</span> <span class="n">gt_kpt</span><span class="p">,</span> <span class="n">kpt_mask</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>  <span class="c1"># pose loss</span>
+<a id="__codelineno-0-436" name="__codelineno-0-436"></a>
+<a id="__codelineno-0-437" name="__codelineno-0-437"></a>            <span class="k">if</span> <span class="n">pred_kpt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-0-438" name="__codelineno-0-438"></a>                <span class="n">kpts_obj_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bce_pose</span><span class="p">(</span><span class="n">pred_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">kpt_mask</span><span class="o">.</span><span class="n">float</span><span class="p">())</span>  <span class="c1"># keypoint obj loss</span>
+<a id="__codelineno-0-439" name="__codelineno-0-439"></a>
+<a id="__codelineno-0-440" name="__codelineno-0-440"></a>        <span class="k">return</span> <span class="n">kpts_loss</span><span class="p">,</span> <span class="n">kpts_obj_loss</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -4160,17 +4273,7 @@
 <span class="normal"><a href="#__codelineno-0-364">364</a></span>
 <span class="normal"><a href="#__codelineno-0-365">365</a></span>
 <span class="normal"><a href="#__codelineno-0-366">366</a></span>
-<span class="normal"><a href="#__codelineno-0-367">367</a></span>
-<span class="normal"><a href="#__codelineno-0-368">368</a></span>
-<span class="normal"><a href="#__codelineno-0-369">369</a></span>
-<span class="normal"><a href="#__codelineno-0-370">370</a></span>
-<span class="normal"><a href="#__codelineno-0-371">371</a></span>
-<span class="normal"><a href="#__codelineno-0-372">372</a></span>
-<span class="normal"><a href="#__codelineno-0-373">373</a></span>
-<span class="normal"><a href="#__codelineno-0-374">374</a></span>
-<span class="normal"><a href="#__codelineno-0-375">375</a></span>
-<span class="normal"><a href="#__codelineno-0-376">376</a></span>
-<span class="normal"><a href="#__codelineno-0-377">377</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-367">367</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <a id="__codelineno-0-312" name="__codelineno-0-312"></a><span class="w">    </span><span class="sd">"""Calculate the total loss and detach it."""</span>
 <a id="__codelineno-0-313" name="__codelineno-0-313"></a>    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># box, cls, dfl, kpt_location, kpt_visibility</span>
 <a id="__codelineno-0-314" name="__codelineno-0-314"></a>    <span class="n">feats</span><span class="p">,</span> <span class="n">pred_kpts</span> <span class="o">=</span> <span class="n">preds</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -4216,27 +4319,291 @@
 <a id="__codelineno-0-354" name="__codelineno-0-354"></a>        <span class="n">keypoints</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'keypoints'</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
 <a id="__codelineno-0-355" name="__codelineno-0-355"></a>        <span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <a id="__codelineno-0-356" name="__codelineno-0-356"></a>        <span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-357" name="__codelineno-0-357"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
-<a id="__codelineno-0-358" name="__codelineno-0-358"></a>            <span class="k">if</span> <span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">():</span>
-<a id="__codelineno-0-359" name="__codelineno-0-359"></a>                <span class="n">idx</span> <span class="o">=</span> <span class="n">target_gt_idx</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-<a id="__codelineno-0-360" name="__codelineno-0-360"></a>                <span class="n">gt_kpt</span> <span class="o">=</span> <span class="n">keypoints</span><span class="p">[</span><span class="n">batch_idx</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">i</span><span class="p">][</span><span class="n">idx</span><span class="p">]</span>  <span class="c1"># (n, 51)</span>
-<a id="__codelineno-0-361" name="__codelineno-0-361"></a>                <span class="n">gt_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="n">stride_tensor</span><span class="p">[</span><span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-<a id="__codelineno-0-362" name="__codelineno-0-362"></a>                <span class="n">gt_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="n">stride_tensor</span><span class="p">[</span><span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-<a id="__codelineno-0-363" name="__codelineno-0-363"></a>                <span class="n">area</span> <span class="o">=</span> <span class="n">xyxy2xywh</span><span class="p">(</span><span class="n">target_bboxes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]])[:,</span> <span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-364" name="__codelineno-0-364"></a>                <span class="n">pred_kpt</span> <span class="o">=</span> <span class="n">pred_kpts</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">fg_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-<a id="__codelineno-0-365" name="__codelineno-0-365"></a>                <span class="n">kpt_mask</span> <span class="o">=</span> <span class="n">gt_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>
-<a id="__codelineno-0-366" name="__codelineno-0-366"></a>                <span class="n">loss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoint_loss</span><span class="p">(</span><span class="n">pred_kpt</span><span class="p">,</span> <span class="n">gt_kpt</span><span class="p">,</span> <span class="n">kpt_mask</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>  <span class="c1"># pose loss</span>
-<a id="__codelineno-0-367" name="__codelineno-0-367"></a>                <span class="c1"># kpt_score loss</span>
-<a id="__codelineno-0-368" name="__codelineno-0-368"></a>                <span class="k">if</span> <span class="n">pred_kpt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-<a id="__codelineno-0-369" name="__codelineno-0-369"></a>                    <span class="n">loss</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bce_pose</span><span class="p">(</span><span class="n">pred_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">kpt_mask</span><span class="o">.</span><span class="n">float</span><span class="p">())</span>  <span class="c1"># keypoint obj loss</span>
-<a id="__codelineno-0-370" name="__codelineno-0-370"></a>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">box</span>  <span class="c1"># box gain</span>
-<a id="__codelineno-0-372" name="__codelineno-0-372"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">pose</span> <span class="o">/</span> <span class="n">batch_size</span>  <span class="c1"># pose gain</span>
-<a id="__codelineno-0-373" name="__codelineno-0-373"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">kobj</span> <span class="o">/</span> <span class="n">batch_size</span>  <span class="c1"># kobj gain</span>
-<a id="__codelineno-0-374" name="__codelineno-0-374"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">cls</span>  <span class="c1"># cls gain</span>
-<a id="__codelineno-0-375" name="__codelineno-0-375"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">dfl</span>  <span class="c1"># dfl gain</span>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a>
-<a id="__codelineno-0-377" name="__codelineno-0-377"></a>    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
+<a id="__codelineno-0-357" name="__codelineno-0-357"></a>
+<a id="__codelineno-0-358" name="__codelineno-0-358"></a>        <span class="n">loss</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">loss</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_keypoints_loss</span><span class="p">(</span><span class="n">fg_mask</span><span class="p">,</span> <span class="n">target_gt_idx</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span>
+<a id="__codelineno-0-359" name="__codelineno-0-359"></a>                                                         <span class="n">stride_tensor</span><span class="p">,</span> <span class="n">target_bboxes</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">)</span>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a>
+<a id="__codelineno-0-361" name="__codelineno-0-361"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">box</span>  <span class="c1"># box gain</span>
+<a id="__codelineno-0-362" name="__codelineno-0-362"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">pose</span>  <span class="c1"># pose gain</span>
+<a id="__codelineno-0-363" name="__codelineno-0-363"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">kobj</span>  <span class="c1"># kobj gain</span>
+<a id="__codelineno-0-364" name="__codelineno-0-364"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">cls</span>  <span class="c1"># cls gain</span>
+<a id="__codelineno-0-365" name="__codelineno-0-365"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">dfl</span>  <span class="c1"># dfl gain</span>
+<a id="__codelineno-0-366" name="__codelineno-0-366"></a>
+<a id="__codelineno-0-367" name="__codelineno-0-367"></a>    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.utils.loss.v8PoseLoss.calculate_keypoints_loss">
+<code class="highlight language-python"><span class="n">calculate_keypoints_loss</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">target_gt_idx</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">stride_tensor</span><span class="p">,</span> <span class="n">target_bboxes</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">)</span></code>
+</h3>
+<div class="doc doc-contents">
+<p>Calculate the keypoints loss for the model.</p>
+<p>This function calculates the keypoints loss and keypoints object loss for a given batch. The keypoints loss is
+based on the difference between the predicted keypoints and ground truth keypoints. The keypoints object loss is
+a binary classification loss that classifies whether a keypoint is present or not.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>masks</code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Binary mask tensor indicating object presence, shape (BS, N_anchors).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>target_gt_idx</code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Index tensor mapping anchors to ground truth objects, shape (BS, N_anchors).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>keypoints</code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Ground truth keypoints, shape (N_kpts_in_batch, N_kpts_per_object, kpts_dim).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>batch_idx</code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Batch index tensor for keypoints, shape (N_kpts_in_batch, 1).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>stride_tensor</code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Stride tensor for anchors, shape (N_anchors, 1).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>target_bboxes</code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Ground truth boxes in (x1, y1, x2, y2) format, shape (BS, N_anchors, 4).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>pred_kpts</code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Predicted keypoints, shape (BS, N_anchors, N_kpts_per_object, kpts_dim).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>tuple</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Returns a tuple containing:
+- kpts_loss (torch.Tensor): The keypoints loss.
+- kpts_obj_loss (torch.Tensor): The keypoints object loss.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-378">378</a></span>
+<span class="normal"><a href="#__codelineno-0-379">379</a></span>
+<span class="normal"><a href="#__codelineno-0-380">380</a></span>
+<span class="normal"><a href="#__codelineno-0-381">381</a></span>
+<span class="normal"><a href="#__codelineno-0-382">382</a></span>
+<span class="normal"><a href="#__codelineno-0-383">383</a></span>
+<span class="normal"><a href="#__codelineno-0-384">384</a></span>
+<span class="normal"><a href="#__codelineno-0-385">385</a></span>
+<span class="normal"><a href="#__codelineno-0-386">386</a></span>
+<span class="normal"><a href="#__codelineno-0-387">387</a></span>
+<span class="normal"><a href="#__codelineno-0-388">388</a></span>
+<span class="normal"><a href="#__codelineno-0-389">389</a></span>
+<span class="normal"><a href="#__codelineno-0-390">390</a></span>
+<span class="normal"><a href="#__codelineno-0-391">391</a></span>
+<span class="normal"><a href="#__codelineno-0-392">392</a></span>
+<span class="normal"><a href="#__codelineno-0-393">393</a></span>
+<span class="normal"><a href="#__codelineno-0-394">394</a></span>
+<span class="normal"><a href="#__codelineno-0-395">395</a></span>
+<span class="normal"><a href="#__codelineno-0-396">396</a></span>
+<span class="normal"><a href="#__codelineno-0-397">397</a></span>
+<span class="normal"><a href="#__codelineno-0-398">398</a></span>
+<span class="normal"><a href="#__codelineno-0-399">399</a></span>
+<span class="normal"><a href="#__codelineno-0-400">400</a></span>
+<span class="normal"><a href="#__codelineno-0-401">401</a></span>
+<span class="normal"><a href="#__codelineno-0-402">402</a></span>
+<span class="normal"><a href="#__codelineno-0-403">403</a></span>
+<span class="normal"><a href="#__codelineno-0-404">404</a></span>
+<span class="normal"><a href="#__codelineno-0-405">405</a></span>
+<span class="normal"><a href="#__codelineno-0-406">406</a></span>
+<span class="normal"><a href="#__codelineno-0-407">407</a></span>
+<span class="normal"><a href="#__codelineno-0-408">408</a></span>
+<span class="normal"><a href="#__codelineno-0-409">409</a></span>
+<span class="normal"><a href="#__codelineno-0-410">410</a></span>
+<span class="normal"><a href="#__codelineno-0-411">411</a></span>
+<span class="normal"><a href="#__codelineno-0-412">412</a></span>
+<span class="normal"><a href="#__codelineno-0-413">413</a></span>
+<span class="normal"><a href="#__codelineno-0-414">414</a></span>
+<span class="normal"><a href="#__codelineno-0-415">415</a></span>
+<span class="normal"><a href="#__codelineno-0-416">416</a></span>
+<span class="normal"><a href="#__codelineno-0-417">417</a></span>
+<span class="normal"><a href="#__codelineno-0-418">418</a></span>
+<span class="normal"><a href="#__codelineno-0-419">419</a></span>
+<span class="normal"><a href="#__codelineno-0-420">420</a></span>
+<span class="normal"><a href="#__codelineno-0-421">421</a></span>
+<span class="normal"><a href="#__codelineno-0-422">422</a></span>
+<span class="normal"><a href="#__codelineno-0-423">423</a></span>
+<span class="normal"><a href="#__codelineno-0-424">424</a></span>
+<span class="normal"><a href="#__codelineno-0-425">425</a></span>
+<span class="normal"><a href="#__codelineno-0-426">426</a></span>
+<span class="normal"><a href="#__codelineno-0-427">427</a></span>
+<span class="normal"><a href="#__codelineno-0-428">428</a></span>
+<span class="normal"><a href="#__codelineno-0-429">429</a></span>
+<span class="normal"><a href="#__codelineno-0-430">430</a></span>
+<span class="normal"><a href="#__codelineno-0-431">431</a></span>
+<span class="normal"><a href="#__codelineno-0-432">432</a></span>
+<span class="normal"><a href="#__codelineno-0-433">433</a></span>
+<span class="normal"><a href="#__codelineno-0-434">434</a></span>
+<span class="normal"><a href="#__codelineno-0-435">435</a></span>
+<span class="normal"><a href="#__codelineno-0-436">436</a></span>
+<span class="normal"><a href="#__codelineno-0-437">437</a></span>
+<span class="normal"><a href="#__codelineno-0-438">438</a></span>
+<span class="normal"><a href="#__codelineno-0-439">439</a></span>
+<span class="normal"><a href="#__codelineno-0-440">440</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="k">def</span> <span class="nf">calculate_keypoints_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">masks</span><span class="p">,</span> <span class="n">target_gt_idx</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">stride_tensor</span><span class="p">,</span> <span class="n">target_bboxes</span><span class="p">,</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a>                             <span class="n">pred_kpts</span><span class="p">):</span>
+<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="sd">    Calculate the keypoints loss for the model.</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a>
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a><span class="sd">    This function calculates the keypoints loss and keypoints object loss for a given batch. The keypoints loss is</span>
+<a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="sd">    based on the difference between the predicted keypoints and ground truth keypoints. The keypoints object loss is</span>
+<a id="__codelineno-0-385" name="__codelineno-0-385"></a><span class="sd">    a binary classification loss that classifies whether a keypoint is present or not.</span>
+<a id="__codelineno-0-386" name="__codelineno-0-386"></a>
+<a id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="sd">        masks (torch.Tensor): Binary mask tensor indicating object presence, shape (BS, N_anchors).</span>
+<a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="sd">        target_gt_idx (torch.Tensor): Index tensor mapping anchors to ground truth objects, shape (BS, N_anchors).</span>
+<a id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="sd">        keypoints (torch.Tensor): Ground truth keypoints, shape (N_kpts_in_batch, N_kpts_per_object, kpts_dim).</span>
+<a id="__codelineno-0-391" name="__codelineno-0-391"></a><span class="sd">        batch_idx (torch.Tensor): Batch index tensor for keypoints, shape (N_kpts_in_batch, 1).</span>
+<a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="sd">        stride_tensor (torch.Tensor): Stride tensor for anchors, shape (N_anchors, 1).</span>
+<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="sd">        target_bboxes (torch.Tensor): Ground truth boxes in (x1, y1, x2, y2) format, shape (BS, N_anchors, 4).</span>
+<a id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="sd">        pred_kpts (torch.Tensor): Predicted keypoints, shape (BS, N_anchors, N_kpts_per_object, kpts_dim).</span>
+<a id="__codelineno-0-395" name="__codelineno-0-395"></a>
+<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="sd">        (tuple): Returns a tuple containing:</span>
+<a id="__codelineno-0-398" name="__codelineno-0-398"></a><span class="sd">            - kpts_loss (torch.Tensor): The keypoints loss.</span>
+<a id="__codelineno-0-399" name="__codelineno-0-399"></a><span class="sd">            - kpts_obj_loss (torch.Tensor): The keypoints object loss.</span>
+<a id="__codelineno-0-400" name="__codelineno-0-400"></a><span class="sd">    """</span>
+<a id="__codelineno-0-401" name="__codelineno-0-401"></a>    <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch_idx</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<a id="__codelineno-0-402" name="__codelineno-0-402"></a>    <span class="n">batch_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span>
+<a id="__codelineno-0-403" name="__codelineno-0-403"></a>
+<a id="__codelineno-0-404" name="__codelineno-0-404"></a>    <span class="c1"># Find the maximum number of keypoints in a single image</span>
+<a id="__codelineno-0-405" name="__codelineno-0-405"></a>    <span class="n">max_kpts</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">batch_idx</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<a id="__codelineno-0-406" name="__codelineno-0-406"></a>
+<a id="__codelineno-0-407" name="__codelineno-0-407"></a>    <span class="c1"># Create a tensor to hold batched keypoints</span>
+<a id="__codelineno-0-408" name="__codelineno-0-408"></a>    <span class="n">batched_keypoints</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_kpts</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a>                                    <span class="n">device</span><span class="o">=</span><span class="n">keypoints</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-410" name="__codelineno-0-410"></a>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>    <span class="c1"># TODO: any idea how to vectorize this?</span>
+<a id="__codelineno-0-412" name="__codelineno-0-412"></a>    <span class="c1"># Fill batched_keypoints with keypoints based on batch_idx</span>
+<a id="__codelineno-0-413" name="__codelineno-0-413"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">batch_size</span><span class="p">):</span>
+<a id="__codelineno-0-414" name="__codelineno-0-414"></a>        <span class="n">keypoints_i</span> <span class="o">=</span> <span class="n">keypoints</span><span class="p">[</span><span class="n">batch_idx</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-0-415" name="__codelineno-0-415"></a>        <span class="n">batched_keypoints</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="n">keypoints_i</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">keypoints_i</span>
+<a id="__codelineno-0-416" name="__codelineno-0-416"></a>
+<a id="__codelineno-0-417" name="__codelineno-0-417"></a>    <span class="c1"># Expand dimensions of target_gt_idx to match the shape of batched_keypoints</span>
+<a id="__codelineno-0-418" name="__codelineno-0-418"></a>    <span class="n">target_gt_idx_expanded</span> <span class="o">=</span> <span class="n">target_gt_idx</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>
+<a id="__codelineno-0-420" name="__codelineno-0-420"></a>    <span class="c1"># Use target_gt_idx_expanded to select keypoints from batched_keypoints</span>
+<a id="__codelineno-0-421" name="__codelineno-0-421"></a>    <span class="n">selected_keypoints</span> <span class="o">=</span> <span class="n">batched_keypoints</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>        <span class="mi">1</span><span class="p">,</span> <span class="n">target_gt_idx_expanded</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<a id="__codelineno-0-423" name="__codelineno-0-423"></a>
+<a id="__codelineno-0-424" name="__codelineno-0-424"></a>    <span class="c1"># Divide coordinates by stride</span>
+<a id="__codelineno-0-425" name="__codelineno-0-425"></a>    <span class="n">selected_keypoints</span> <span class="o">/=</span> <span class="n">stride_tensor</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-426" name="__codelineno-0-426"></a>
+<a id="__codelineno-0-427" name="__codelineno-0-427"></a>    <span class="n">kpts_loss</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-428" name="__codelineno-0-428"></a>    <span class="n">kpts_obj_loss</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-429" name="__codelineno-0-429"></a>
+<a id="__codelineno-0-430" name="__codelineno-0-430"></a>    <span class="k">if</span> <span class="n">masks</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+<a id="__codelineno-0-431" name="__codelineno-0-431"></a>        <span class="n">gt_kpt</span> <span class="o">=</span> <span class="n">selected_keypoints</span><span class="p">[</span><span class="n">masks</span><span class="p">]</span>
+<a id="__codelineno-0-432" name="__codelineno-0-432"></a>        <span class="n">area</span> <span class="o">=</span> <span class="n">xyxy2xywh</span><span class="p">(</span><span class="n">target_bboxes</span><span class="p">[</span><span class="n">masks</span><span class="p">])[:,</span> <span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-433" name="__codelineno-0-433"></a>        <span class="n">pred_kpt</span> <span class="o">=</span> <span class="n">pred_kpts</span><span class="p">[</span><span class="n">masks</span><span class="p">]</span>
+<a id="__codelineno-0-434" name="__codelineno-0-434"></a>        <span class="n">kpt_mask</span> <span class="o">=</span> <span class="n">gt_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">gt_kpt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">gt_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-435" name="__codelineno-0-435"></a>        <span class="n">kpts_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoint_loss</span><span class="p">(</span><span class="n">pred_kpt</span><span class="p">,</span> <span class="n">gt_kpt</span><span class="p">,</span> <span class="n">kpt_mask</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>  <span class="c1"># pose loss</span>
+<a id="__codelineno-0-436" name="__codelineno-0-436"></a>
+<a id="__codelineno-0-437" name="__codelineno-0-437"></a>        <span class="k">if</span> <span class="n">pred_kpt</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-0-438" name="__codelineno-0-438"></a>            <span class="n">kpts_obj_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bce_pose</span><span class="p">(</span><span class="n">pred_kpt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">kpt_mask</span><span class="o">.</span><span class="n">float</span><span class="p">())</span>  <span class="c1"># keypoint obj loss</span>
+<a id="__codelineno-0-439" name="__codelineno-0-439"></a>
+<a id="__codelineno-0-440" name="__codelineno-0-440"></a>    <span class="k">return</span> <span class="n">kpts_loss</span><span class="p">,</span> <span class="n">kpts_obj_loss</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4252,21 +4619,21 @@
 <p>Decodes predicted keypoints to image coordinates.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-379">379</a></span>
-<span class="normal"><a href="#__codelineno-0-380">380</a></span>
-<span class="normal"><a href="#__codelineno-0-381">381</a></span>
-<span class="normal"><a href="#__codelineno-0-382">382</a></span>
-<span class="normal"><a href="#__codelineno-0-383">383</a></span>
-<span class="normal"><a href="#__codelineno-0-384">384</a></span>
-<span class="normal"><a href="#__codelineno-0-385">385</a></span>
-<span class="normal"><a href="#__codelineno-0-386">386</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="nd">@staticmethod</span>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="k">def</span> <span class="nf">kpts_decode</span><span class="p">(</span><span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">):</span>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="w">    </span><span class="sd">"""Decodes predicted keypoints to image coordinates."""</span>
-<a id="__codelineno-0-382" name="__codelineno-0-382"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">pred_kpts</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
-<a id="__codelineno-0-383" name="__codelineno-0-383"></a>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">2.0</span>
-<a id="__codelineno-0-384" name="__codelineno-0-384"></a>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">anchor_points</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">-</span> <span class="mf">0.5</span>
-<a id="__codelineno-0-385" name="__codelineno-0-385"></a>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">anchor_points</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="mf">0.5</span>
-<a id="__codelineno-0-386" name="__codelineno-0-386"></a>    <span class="k">return</span> <span class="n">y</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-369">369</a></span>
+<span class="normal"><a href="#__codelineno-0-370">370</a></span>
+<span class="normal"><a href="#__codelineno-0-371">371</a></span>
+<span class="normal"><a href="#__codelineno-0-372">372</a></span>
+<span class="normal"><a href="#__codelineno-0-373">373</a></span>
+<span class="normal"><a href="#__codelineno-0-374">374</a></span>
+<span class="normal"><a href="#__codelineno-0-375">375</a></span>
+<span class="normal"><a href="#__codelineno-0-376">376</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-369" name="__codelineno-0-369"></a><span class="nd">@staticmethod</span>
+<a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="k">def</span> <span class="nf">kpts_decode</span><span class="p">(</span><span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">):</span>
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="w">    </span><span class="sd">"""Decodes predicted keypoints to image coordinates."""</span>
+<a id="__codelineno-0-372" name="__codelineno-0-372"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">pred_kpts</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+<a id="__codelineno-0-373" name="__codelineno-0-373"></a>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">2.0</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">anchor_points</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">-</span> <span class="mf">0.5</span>
+<a id="__codelineno-0-375" name="__codelineno-0-375"></a>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">anchor_points</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="mf">0.5</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a>    <span class="k">return</span> <span class="n">y</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4283,21 +4650,21 @@
 <p>Criterion class for computing training losses.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-389">389</a></span>
-<span class="normal"><a href="#__codelineno-0-390">390</a></span>
-<span class="normal"><a href="#__codelineno-0-391">391</a></span>
-<span class="normal"><a href="#__codelineno-0-392">392</a></span>
-<span class="normal"><a href="#__codelineno-0-393">393</a></span>
-<span class="normal"><a href="#__codelineno-0-394">394</a></span>
-<span class="normal"><a href="#__codelineno-0-395">395</a></span>
-<span class="normal"><a href="#__codelineno-0-396">396</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="k">class</span> <span class="nc">v8ClassificationLoss</span><span class="p">:</span>
-<a id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="w">    </span><span class="sd">"""Criterion class for computing training losses."""</span>
-<a id="__codelineno-0-391" name="__codelineno-0-391"></a>
-<a id="__codelineno-0-392" name="__codelineno-0-392"></a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="w">        </span><span class="sd">"""Compute the classification loss between predictions and true labels."""</span>
-<a id="__codelineno-0-394" name="__codelineno-0-394"></a>        <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">],</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">'sum'</span><span class="p">)</span> <span class="o">/</span> <span class="mi">64</span>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a>        <span class="n">loss_items</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a>        <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">loss_items</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-443">443</a></span>
+<span class="normal"><a href="#__codelineno-0-444">444</a></span>
+<span class="normal"><a href="#__codelineno-0-445">445</a></span>
+<span class="normal"><a href="#__codelineno-0-446">446</a></span>
+<span class="normal"><a href="#__codelineno-0-447">447</a></span>
+<span class="normal"><a href="#__codelineno-0-448">448</a></span>
+<span class="normal"><a href="#__codelineno-0-449">449</a></span>
+<span class="normal"><a href="#__codelineno-0-450">450</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="k">class</span> <span class="nc">v8ClassificationLoss</span><span class="p">:</span>
+<a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="w">    </span><span class="sd">"""Criterion class for computing training losses."""</span>
+<a id="__codelineno-0-445" name="__codelineno-0-445"></a>
+<a id="__codelineno-0-446" name="__codelineno-0-446"></a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="w">        </span><span class="sd">"""Compute the classification loss between predictions and true labels."""</span>
+<a id="__codelineno-0-448" name="__codelineno-0-448"></a>        <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">],</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">'sum'</span><span class="p">)</span> <span class="o">/</span> <span class="mi">64</span>
+<a id="__codelineno-0-449" name="__codelineno-0-449"></a>        <span class="n">loss_items</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+<a id="__codelineno-0-450" name="__codelineno-0-450"></a>        <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">loss_items</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -4309,15 +4676,15 @@
 <p>Compute the classification loss between predictions and true labels.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-392">392</a></span>
-<span class="normal"><a href="#__codelineno-0-393">393</a></span>
-<span class="normal"><a href="#__codelineno-0-394">394</a></span>
-<span class="normal"><a href="#__codelineno-0-395">395</a></span>
-<span class="normal"><a href="#__codelineno-0-396">396</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="w">    </span><span class="sd">"""Compute the classification loss between predictions and true labels."""</span>
-<a id="__codelineno-0-394" name="__codelineno-0-394"></a>    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">],</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">'sum'</span><span class="p">)</span> <span class="o">/</span> <span class="mi">64</span>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a>    <span class="n">loss_items</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a>    <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">loss_items</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-446">446</a></span>
+<span class="normal"><a href="#__codelineno-0-447">447</a></span>
+<span class="normal"><a href="#__codelineno-0-448">448</a></span>
+<span class="normal"><a href="#__codelineno-0-449">449</a></span>
+<span class="normal"><a href="#__codelineno-0-450">450</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-446" name="__codelineno-0-446"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="w">    </span><span class="sd">"""Compute the classification loss between predictions and true labels."""</span>
+<a id="__codelineno-0-448" name="__codelineno-0-448"></a>    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">],</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">'sum'</span><span class="p">)</span> <span class="o">/</span> <span class="mi">64</span>
+<a id="__codelineno-0-449" name="__codelineno-0-449"></a>    <span class="n">loss_items</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+<a id="__codelineno-0-450" name="__codelineno-0-450"></a>    <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">loss_items</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
