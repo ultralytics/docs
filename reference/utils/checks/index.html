@@ -1020,6 +1020,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/raspberry-pi/">
+<span class="md-ellipsis">
+    Raspberry Pi
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -4289,7 +4296,7 @@ Torchvision versions.</p>
 <a id="__codelineno-0-431" name="__codelineno-0-431"></a>    <span class="n">file</span> <span class="o">=</span> <span class="n">check_yolov5u_filename</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>  <span class="c1"># yolov5n -&gt; yolov5nu</span>
 <a id="__codelineno-0-432" name="__codelineno-0-432"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">'://'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()):</span>  <span class="c1"># exists ('://' check required in Windows Python&lt;3.10)</span>
 <a id="__codelineno-0-433" name="__codelineno-0-433"></a>        <span class="k">return</span> <span class="n">file</span>
-<a id="__codelineno-0-434" name="__codelineno-0-434"></a>    <span class="k">elif</span> <span class="n">download</span> <span class="ow">and</span> <span class="n">file</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s1">'https://'</span><span class="p">,</span> <span class="s1">'http://'</span><span class="p">,</span> <span class="s1">'rtsp://'</span><span class="p">,</span> <span class="s1">'rtmp://'</span><span class="p">)):</span>  <span class="c1"># download</span>
+<a id="__codelineno-0-434" name="__codelineno-0-434"></a>    <span class="k">elif</span> <span class="n">download</span> <span class="ow">and</span> <span class="n">file</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s1">'https://'</span><span class="p">,</span> <span class="s1">'http://'</span><span class="p">,</span> <span class="s1">'rtsp://'</span><span class="p">,</span> <span class="s1">'rtmp://'</span><span class="p">,</span> <span class="s1">'tcp://'</span><span class="p">)):</span>  <span class="c1"># download</span>
 <a id="__codelineno-0-435" name="__codelineno-0-435"></a>        <span class="n">url</span> <span class="o">=</span> <span class="n">file</span>  <span class="c1"># warning: Pathlib turns :// -&gt; :/</span>
 <a id="__codelineno-0-436" name="__codelineno-0-436"></a>        <span class="n">file</span> <span class="o">=</span> <span class="n">url2file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>  <span class="c1"># '%2F' to '/', split https://url.com/file.txt?auth</span>
 <a id="__codelineno-0-437" name="__codelineno-0-437"></a>        <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>

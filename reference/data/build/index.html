@@ -1020,6 +1020,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/raspberry-pi/">
+<span class="md-ellipsis">
+    Raspberry Pi
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3073,7 +3080,7 @@ This is useful when we want to modify settings of dataset while training.</p>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">Path</span><span class="p">)):</span>  <span class="c1"># int for local usb camera</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a>        <span class="n">source</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 <a id="__codelineno-0-117" name="__codelineno-0-117"></a>        <span class="n">is_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="ow">in</span> <span class="p">(</span><span class="n">IMG_FORMATS</span> <span class="o">+</span> <span class="n">VID_FORMATS</span><span class="p">)</span>
-<a id="__codelineno-0-118" name="__codelineno-0-118"></a>        <span class="n">is_url</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s1">'https://'</span><span class="p">,</span> <span class="s1">'http://'</span><span class="p">,</span> <span class="s1">'rtsp://'</span><span class="p">,</span> <span class="s1">'rtmp://'</span><span class="p">))</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a>        <span class="n">is_url</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s1">'https://'</span><span class="p">,</span> <span class="s1">'http://'</span><span class="p">,</span> <span class="s1">'rtsp://'</span><span class="p">,</span> <span class="s1">'rtmp://'</span><span class="p">,</span> <span class="s1">'tcp://'</span><span class="p">))</span>
 <a id="__codelineno-0-119" name="__codelineno-0-119"></a>        <span class="n">webcam</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span> <span class="ow">or</span> <span class="n">source</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.streams'</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">is_url</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_file</span><span class="p">)</span>
 <a id="__codelineno-0-120" name="__codelineno-0-120"></a>        <span class="n">screenshot</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'screen'</span>
 <a id="__codelineno-0-121" name="__codelineno-0-121"></a>        <span class="k">if</span> <span class="n">is_url</span> <span class="ow">and</span> <span class="n">is_file</span><span class="p">:</span>

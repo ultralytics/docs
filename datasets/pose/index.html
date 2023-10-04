@@ -1020,6 +1020,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../guides/raspberry-pi/">
+<span class="md-ellipsis">
+    Raspberry Pi
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2615,8 +2622,7 @@
 </code></pre></div>
 <p>The <code>train</code> and <code>val</code> fields specify the paths to the directories containing the training and validation images, respectively.</p>
 <p><code>names</code> is a dictionary of class names. The order of the names should match the order of the object class indices in the YOLO dataset files.</p>
-<p>(Optional) if the points are symmetric then need flip_idx, like left-right side of human or face.
-For example if we assume five keypoints of facial landmark: [left eye, right eye, nose, left mouth, right mouth], and the original index is [0, 1, 2, 3, 4], then flip_idx is [1, 0, 2, 4, 3] (just exchange the left-right index, i.e 0-1 and 3-4, and do not modify others like nose in this example).</p>
+<p>(Optional) if the points are symmetric then need flip_idx, like left-right side of human or face. For example if we assume five keypoints of facial landmark: [left eye, right eye, nose, left mouth, right mouth], and the original index is [0, 1, 2, 3, 4], then flip_idx is [1, 0, 2, 4, 3] (just exchange the left-right index, i.e 0-1 and 3-4, and do not modify others like nose in this example).</p>
 <h2 id="usage">Usage</h2>
 <div class="admonition example">
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
@@ -2661,6 +2667,15 @@ For example if we assume five keypoints of facial landmark: [left eye, right eye
 <li><strong>Additional Notes</strong>: COCO8-Pose is ideal for sanity checks and CI checks.</li>
 <li><a href="coco8-pose/">Read more about COCO8-Pose</a></li>
 </ul>
+<h3 id="tiger-pose">Tiger-Pose</h3>
+<ul>
+<li><strong>Description</strong>: <a href="https://ultralytics.com">Ultralytics</a> This animal pose dataset comprises 263 images sourced from a <a href="https://www.youtube.com/watch?v=MIBAT6BGE6U&amp;pp=ygUbVGlnZXIgd2Fsa2luZyByZWZlcmVuY2UubXA0">YouTube Video</a>, with 210 images allocated for training and 53 for validation.</li>
+<li><strong>Label Format</strong>: Same as Ultralytics YOLO format as described above, with 12 keypoints for animal pose and no visible dimension.</li>
+<li><strong>Number of Classes</strong>: 1 (Tiger).</li>
+<li><strong>Keypoints</strong>: 12 keypoints.</li>
+<li><strong>Usage</strong>: Great for animal pose or any other pose that is not human-based.</li>
+<li><a href="tiger-pose/">Read more about Tiger-Pose</a></li>
+</ul>
 <h3 id="adding-your-own-dataset">Adding your own dataset</h3>
 <p>If you have your own dataset and would like to use it for training pose estimation models with Ultralytics YOLO format, ensure that it follows the format specified above under "Ultralytics YOLO format". Convert your annotations to the required format and specify the paths, number of classes, and class names in the YAML configuration file.</p>
 <h3 id="conversion-tool">Conversion Tool</h3>
@@ -2678,7 +2693,7 @@ For example if we assume five keypoints of facial landmark: [left eye, right eye
 </input></div>
 </div>
 <p>This conversion tool can be used to convert the COCO dataset or any dataset in the COCO format to the Ultralytics YOLO format. The <code>use_keypoints</code> parameter specifies whether to include keypoints (for pose estimation) in the converted labels.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-08, Updated 2023-08-26<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/GreatV">GreatV</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-08, Updated 2023-10-04<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (9), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/GreatV">GreatV</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
