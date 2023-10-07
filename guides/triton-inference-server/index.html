@@ -5,33 +5,33 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn about Ultralytics utils patches including imread, imshow and torch_save. Enhance your image processing skills." name="description"/>
+<meta content="A step-by-step guide on integrating Ultralytics YOLOv8 with Triton Inference Server for scalable and high-performance deep learning inference deployments." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/reference/utils/patches/" rel="canonical"/>
-<link href="../ops/" rel="prev"/>
-<link href="../plotting/" rel="next"/>
-<link href="../../../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.ultralytics.com/guides/triton-inference-server/" rel="canonical"/>
+<link href="../raspberry-pi/" rel="prev"/>
+<link href="../../integrations/" rel="next"/>
+<link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.4" name="generator"/>
-<title>patches - Ultralytics YOLOv8 Docs</title>
-<link href="../../../assets/stylesheets/main.bd3936ea.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<title>Triton Inference Server - Ultralytics YOLOv8 Docs</title>
+<link href="../../assets/stylesheets/main.bd3936ea.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Helvetica";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../../../stylesheets/style.css" rel="stylesheet"/>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/style.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="patches" name="title"/><meta content="Ultralytics, Utils, Patches, imread, imshow, torch_save, image processing" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/utils/patches" property="og:url"/><meta content="patches" property="og:title"/><meta content="Learn about Ultralytics utils patches including imread, imshow and torch_save. Enhance your image processing skills." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/utils/patches" property="twitter:url"/><meta content="patches" property="twitter:title"/><meta content="Learn about Ultralytics utils patches including imread, imshow and torch_save. Enhance your image processing skills." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
+<meta content="Triton Inference Server" name="title"/><meta content="YOLOv8, Triton Inference Server, ONNX, Deep Learning Deployment, Scalable Inference, Ultralytics, NVIDIA, Object Detection, Cloud Inferencing" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/triton-inference-server" property="og:url"/><meta content="Triton Inference Server" property="og:title"/><meta content="A step-by-step guide on integrating Ultralytics YOLOv8 with Triton Inference Server for scalable and high-performance deep learning inference deployments." property="og:description"/><meta content="https://img.youtube.com/vi/NQDtfSi5QF4/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/triton-inference-server" property="twitter:url"/><meta content="Triton Inference Server" property="twitter:title"/><meta content="A step-by-step guide on integrating Ultralytics YOLOv8 with Triton Inference Server for scalable and high-performance deep learning inference deployments." property="twitter:description"/><meta content="https://img.youtube.com/vi/NQDtfSi5QF4/maxresdefault.jpg" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#reference-for-ultralyticsutilspatchespy">
+<a class="md-skip" href="#triton-inference-server-with-ultralytics-yolov8">
           Skip to content
         </a>
 </div>
@@ -39,7 +39,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -55,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              patches
+              Triton Inference Server
             
           </span>
 </div>
@@ -120,7 +120,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../..">
+<a class="md-tabs__link" href="../..">
           
   
     
@@ -130,7 +130,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../quickstart/">
+<a class="md-tabs__link" href="../../quickstart/">
         
   
     
@@ -140,7 +140,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../modes/">
+<a class="md-tabs__link" href="../../modes/">
           
   
     
@@ -150,7 +150,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../tasks/">
+<a class="md-tabs__link" href="../../tasks/">
           
   
     
@@ -160,7 +160,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../models/">
+<a class="md-tabs__link" href="../../models/">
           
   
     
@@ -170,7 +170,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../datasets/">
+<a class="md-tabs__link" href="../../datasets/">
           
   
     
@@ -179,8 +179,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../guides/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
           
   
     
@@ -190,7 +190,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../integrations/">
+<a class="md-tabs__link" href="../../integrations/">
           
   
     
@@ -200,7 +200,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../usage/cli/">
+<a class="md-tabs__link" href="../../usage/cli/">
           
   
     
@@ -210,7 +210,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../yolov5/">
+<a class="md-tabs__link" href="../../yolov5/">
           
   
     
@@ -220,7 +220,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../hub/">
+<a class="md-tabs__link" href="../../hub/">
           
   
     
@@ -229,8 +229,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../cfg/__init__/">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../reference/cfg/__init__/">
           
   
     
@@ -240,7 +240,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../help/">
+<a class="md-tabs__link" href="../../help/">
           
   
     
@@ -261,7 +261,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLOv8 Docs
@@ -280,7 +280,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../..">
+<a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -296,7 +296,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../quickstart/">
+<a class="md-nav__link" href="../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -305,7 +305,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../modes/">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -321,42 +321,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/train/">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/benchmark/">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -368,7 +368,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../tasks/">
+<a class="md-nav__link" href="../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -384,28 +384,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/detect/">
+<a class="md-nav__link" href="../../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/segment/">
+<a class="md-nav__link" href="../../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/classify/">
+<a class="md-nav__link" href="../../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/pose/">
+<a class="md-nav__link" href="../../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -418,7 +418,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../quickstart/">
+<a class="md-nav__link" href="../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -427,7 +427,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../modes/">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -443,42 +443,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/train/">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/benchmark/">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -490,7 +490,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../tasks/">
+<a class="md-nav__link" href="../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -506,28 +506,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/detect/">
+<a class="md-nav__link" href="../../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/segment/">
+<a class="md-nav__link" href="../../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/classify/">
+<a class="md-nav__link" href="../../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/pose/">
+<a class="md-nav__link" href="../../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -539,7 +539,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../models/">
+<a class="md-nav__link" href="../../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -555,77 +555,77 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov3/">
+<a class="md-nav__link" href="../../models/yolov3/">
 <span class="md-ellipsis">
     YOLOv3
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov4/">
+<a class="md-nav__link" href="../../models/yolov4/">
 <span class="md-ellipsis">
     YOLOv4
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov5/">
+<a class="md-nav__link" href="../../models/yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov6/">
+<a class="md-nav__link" href="../../models/yolov6/">
 <span class="md-ellipsis">
     YOLOv6
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov7/">
+<a class="md-nav__link" href="../../models/yolov7/">
 <span class="md-ellipsis">
     YOLOv7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov8/">
+<a class="md-nav__link" href="../../models/yolov8/">
 <span class="md-ellipsis">
     YOLOv8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/sam/">
+<a class="md-nav__link" href="../../models/sam/">
 <span class="md-ellipsis">
     SAM (Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/mobile-sam/">
+<a class="md-nav__link" href="../../models/mobile-sam/">
 <span class="md-ellipsis">
     MobileSAM (Mobile Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/fast-sam/">
+<a class="md-nav__link" href="../../models/fast-sam/">
 <span class="md-ellipsis">
     FastSAM (Fast Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolo-nas/">
+<a class="md-nav__link" href="../../models/yolo-nas/">
 <span class="md-ellipsis">
     YOLO-NAS (Neural Architecture Search)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/rtdetr/">
+<a class="md-nav__link" href="../../models/rtdetr/">
 <span class="md-ellipsis">
     RT-DETR (Realtime Detection Transformer)
   </span>
@@ -637,7 +637,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/">
+<a class="md-nav__link" href="../../datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -655,7 +655,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/detect/">
+<a class="md-nav__link" href="../../datasets/detect/">
 <span class="md-ellipsis">
     Detection
   </span>
@@ -671,70 +671,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/argoverse/">
+<a class="md-nav__link" href="../../datasets/detect/argoverse/">
 <span class="md-ellipsis">
     Argoverse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/coco/">
+<a class="md-nav__link" href="../../datasets/detect/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/coco8/">
+<a class="md-nav__link" href="../../datasets/detect/coco8/">
 <span class="md-ellipsis">
     COCO8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/globalwheat2020/">
+<a class="md-nav__link" href="../../datasets/detect/globalwheat2020/">
 <span class="md-ellipsis">
     GlobalWheat2020
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/objects365/">
+<a class="md-nav__link" href="../../datasets/detect/objects365/">
 <span class="md-ellipsis">
     Objects365
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/open-images-v7/">
+<a class="md-nav__link" href="../../datasets/detect/open-images-v7/">
 <span class="md-ellipsis">
     OpenImagesV7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/sku-110k/">
+<a class="md-nav__link" href="../../datasets/detect/sku-110k/">
 <span class="md-ellipsis">
     SKU-110K
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/visdrone/">
+<a class="md-nav__link" href="../../datasets/detect/visdrone/">
 <span class="md-ellipsis">
     VisDrone
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/voc/">
+<a class="md-nav__link" href="../../datasets/detect/voc/">
 <span class="md-ellipsis">
     VOC
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/xview/">
+<a class="md-nav__link" href="../../datasets/detect/xview/">
 <span class="md-ellipsis">
     xView
   </span>
@@ -746,7 +746,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/segment/">
+<a class="md-nav__link" href="../../datasets/segment/">
 <span class="md-ellipsis">
     Segmentation
   </span>
@@ -762,14 +762,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/segment/coco/">
+<a class="md-nav__link" href="../../datasets/segment/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/segment/coco8-seg/">
+<a class="md-nav__link" href="../../datasets/segment/coco8-seg/">
 <span class="md-ellipsis">
     COCO8-seg
   </span>
@@ -781,7 +781,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/pose/">
+<a class="md-nav__link" href="../../datasets/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -797,21 +797,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/pose/coco/">
+<a class="md-nav__link" href="../../datasets/pose/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/pose/coco8-pose/">
+<a class="md-nav__link" href="../../datasets/pose/coco8-pose/">
 <span class="md-ellipsis">
     COCO8-pose
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/pose/tiger-pose/">
+<a class="md-nav__link" href="../../datasets/pose/tiger-pose/">
 <span class="md-ellipsis">
     Tiger-pose
   </span>
@@ -823,7 +823,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/classify/">
+<a class="md-nav__link" href="../../datasets/classify/">
 <span class="md-ellipsis">
     Classification
   </span>
@@ -839,70 +839,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/caltech101/">
+<a class="md-nav__link" href="../../datasets/classify/caltech101/">
 <span class="md-ellipsis">
     Caltech 101
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/caltech256/">
+<a class="md-nav__link" href="../../datasets/classify/caltech256/">
 <span class="md-ellipsis">
     Caltech 256
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/cifar10/">
+<a class="md-nav__link" href="../../datasets/classify/cifar10/">
 <span class="md-ellipsis">
     CIFAR-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/cifar100/">
+<a class="md-nav__link" href="../../datasets/classify/cifar100/">
 <span class="md-ellipsis">
     CIFAR-100
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/fashion-mnist/">
+<a class="md-nav__link" href="../../datasets/classify/fashion-mnist/">
 <span class="md-ellipsis">
     Fashion-MNIST
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/imagenet/">
+<a class="md-nav__link" href="../../datasets/classify/imagenet/">
 <span class="md-ellipsis">
     ImageNet
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/imagenet10/">
+<a class="md-nav__link" href="../../datasets/classify/imagenet10/">
 <span class="md-ellipsis">
     ImageNet-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/imagenette/">
+<a class="md-nav__link" href="../../datasets/classify/imagenette/">
 <span class="md-ellipsis">
     Imagenette
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/imagewoof/">
+<a class="md-nav__link" href="../../datasets/classify/imagewoof/">
 <span class="md-ellipsis">
     Imagewoof
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/mnist/">
+<a class="md-nav__link" href="../../datasets/classify/mnist/">
 <span class="md-ellipsis">
     MNIST
   </span>
@@ -914,7 +914,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/obb/">
+<a class="md-nav__link" href="../../datasets/obb/">
 <span class="md-ellipsis">
     Oriented Bounding Boxes (OBB)
   </span>
@@ -930,7 +930,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/obb/dota-v2/">
+<a class="md-nav__link" href="../../datasets/obb/dota-v2/">
 <span class="md-ellipsis">
     DOTAv2
   </span>
@@ -942,7 +942,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/track/">
+<a class="md-nav__link" href="../../datasets/track/">
 <span class="md-ellipsis">
     Multi-Object Tracking
   </span>
@@ -960,10 +960,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../guides/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -972,74 +972,114 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
             Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/yolo-common-issues/">
+<a class="md-nav__link" href="../yolo-common-issues/">
 <span class="md-ellipsis">
     YOLO Common Issues
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/kfold-cross-validation/">
+<a class="md-nav__link" href="../kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/hyperparameter-tuning/">
+<a class="md-nav__link" href="../hyperparameter-tuning/">
 <span class="md-ellipsis">
     Hyperparameter Tuning
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/sahi-tiled-inference/">
+<a class="md-nav__link" href="../sahi-tiled-inference/">
 <span class="md-ellipsis">
     SAHI Tiled Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/azureml-quickstart/">
+<a class="md-nav__link" href="../azureml-quickstart/">
 <span class="md-ellipsis">
     AzureML Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/conda-quickstart/">
+<a class="md-nav__link" href="../conda-quickstart/">
 <span class="md-ellipsis">
     Conda Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/docker-quickstart/">
+<a class="md-nav__link" href="../docker-quickstart/">
 <span class="md-ellipsis">
     Docker Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/raspberry-pi/">
+<a class="md-nav__link" href="../raspberry-pi/">
 <span class="md-ellipsis">
     Raspberry Pi
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/triton-inference-server/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Triton Inference Server
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Triton Inference Server
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-triton-inference-server">
+    What is Triton Inference Server?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+    Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exporting-yolov8-to-onnx-format">
+    Exporting YOLOv8 to ONNX Format
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-up-triton-model-repository">
+    Setting Up Triton Model Repository
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-triton-inference-server">
+    Running Triton Inference Server
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1047,7 +1087,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../integrations/">
+<a class="md-nav__link" href="../../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1063,21 +1103,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/openvino/">
+<a class="md-nav__link" href="../../integrations/openvino/">
 <span class="md-ellipsis">
     OpenVINO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/ray-tune/">
+<a class="md-nav__link" href="../../integrations/ray-tune/">
 <span class="md-ellipsis">
     Ray Tune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/roboflow/">
+<a class="md-nav__link" href="../../integrations/roboflow/">
 <span class="md-ellipsis">
     Roboflow
   </span>
@@ -1101,35 +1141,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/cli/">
+<a class="md-nav__link" href="../../usage/cli/">
 <span class="md-ellipsis">
     CLI
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/python/">
+<a class="md-nav__link" href="../../usage/python/">
 <span class="md-ellipsis">
     Python
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/callbacks/">
+<a class="md-nav__link" href="../../usage/callbacks/">
 <span class="md-ellipsis">
     Callbacks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/cfg/">
+<a class="md-nav__link" href="../../usage/cfg/">
 <span class="md-ellipsis">
     Configuration
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/engine/">
+<a class="md-nav__link" href="../../usage/engine/">
 <span class="md-ellipsis">
     Advanced Customization
   </span>
@@ -1141,7 +1181,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_10" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../yolov5/">
+<a class="md-nav__link" href="../../yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
@@ -1157,7 +1197,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/quickstart_tutorial/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -1178,28 +1218,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/environments/aws_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/aws_quickstart_tutorial/">
 <span class="md-ellipsis">
     Amazon Web Services (AWS)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/environments/google_cloud_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/google_cloud_quickstart_tutorial/">
 <span class="md-ellipsis">
     Google Cloud (GCP)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/environments/azureml_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/azureml_quickstart_tutorial/">
 <span class="md-ellipsis">
     AzureML
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/environments/docker_image_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/docker_image_quickstart_tutorial/">
 <span class="md-ellipsis">
     Docker Image
   </span>
@@ -1223,112 +1263,112 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/train_custom_data/">
+<a class="md-nav__link" href="../../yolov5/tutorials/train_custom_data/">
 <span class="md-ellipsis">
     Train Custom Data
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/tips_for_best_training_results/">
+<a class="md-nav__link" href="../../yolov5/tutorials/tips_for_best_training_results/">
 <span class="md-ellipsis">
     Tips for Best Training Results
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/multi_gpu_training/">
+<a class="md-nav__link" href="../../yolov5/tutorials/multi_gpu_training/">
 <span class="md-ellipsis">
     Multi-GPU Training
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/pytorch_hub_model_loading/">
+<a class="md-nav__link" href="../../yolov5/tutorials/pytorch_hub_model_loading/">
 <span class="md-ellipsis">
     PyTorch Hub
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/model_export/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_export/">
 <span class="md-ellipsis">
     TFLite, ONNX, CoreML, TensorRT Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/running_on_jetson_nano/">
+<a class="md-nav__link" href="../../yolov5/tutorials/running_on_jetson_nano/">
 <span class="md-ellipsis">
     NVIDIA Jetson Nano Deployment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/test_time_augmentation/">
+<a class="md-nav__link" href="../../yolov5/tutorials/test_time_augmentation/">
 <span class="md-ellipsis">
     Test-Time Augmentation (TTA)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/model_ensembling/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_ensembling/">
 <span class="md-ellipsis">
     Model Ensembling
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/model_pruning_and_sparsity/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_pruning_and_sparsity/">
 <span class="md-ellipsis">
     Pruning/Sparsity Tutorial
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/hyperparameter_evolution/">
+<a class="md-nav__link" href="../../yolov5/tutorials/hyperparameter_evolution/">
 <span class="md-ellipsis">
     Hyperparameter evolution
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/transfer_learning_with_frozen_layers/">
+<a class="md-nav__link" href="../../yolov5/tutorials/transfer_learning_with_frozen_layers/">
 <span class="md-ellipsis">
     Transfer learning with frozen layers
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/architecture_description/">
+<a class="md-nav__link" href="../../yolov5/tutorials/architecture_description/">
 <span class="md-ellipsis">
     Architecture Summary
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/roboflow_datasets_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/roboflow_datasets_integration/">
 <span class="md-ellipsis">
     Roboflow Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/neural_magic_pruning_quantization/">
+<a class="md-nav__link" href="../../yolov5/tutorials/neural_magic_pruning_quantization/">
 <span class="md-ellipsis">
     Neural Magic's DeepSparse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/comet_logging_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/comet_logging_integration/">
 <span class="md-ellipsis">
     Comet Logging
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/clearml_logging_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/clearml_logging_integration/">
 <span class="md-ellipsis">
     Clearml Logging
   </span>
@@ -1343,7 +1383,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../hub/">
+<a class="md-nav__link" href="../../hub/">
 <span class="md-ellipsis">
     HUB
   </span>
@@ -1359,35 +1399,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/quickstart/">
+<a class="md-nav__link" href="../../hub/quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/datasets/">
+<a class="md-nav__link" href="../../hub/datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/projects/">
+<a class="md-nav__link" href="../../hub/projects/">
 <span class="md-ellipsis">
     Projects
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/models/">
+<a class="md-nav__link" href="../../hub/models/">
 <span class="md-ellipsis">
     Models
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/integrations/">
+<a class="md-nav__link" href="../../hub/integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1396,7 +1436,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_11_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../hub/app/">
+<a class="md-nav__link" href="../../hub/app/">
 <span class="md-ellipsis">
     Ultralytics HUB App
   </span>
@@ -1412,14 +1452,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/app/ios/">
+<a class="md-nav__link" href="../../hub/app/ios/">
 <span class="md-ellipsis">
     iOS
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/app/android/">
+<a class="md-nav__link" href="../../hub/app/android/">
 <span class="md-ellipsis">
     Android
   </span>
@@ -1429,7 +1469,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/inference_api/">
+<a class="md-nav__link" href="../../hub/inference_api/">
 <span class="md-ellipsis">
     Inference API
   </span>
@@ -1438,15 +1478,15 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_12" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
 <span class="md-ellipsis">
     Reference
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_12">
 <span class="md-nav__icon md-icon"></span>
             Reference
@@ -1467,7 +1507,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../cfg/__init__/">
+<a class="md-nav__link" href="../../reference/cfg/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
@@ -1491,56 +1531,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../data/annotator/">
+<a class="md-nav__link" href="../../reference/data/annotator/">
 <span class="md-ellipsis">
     annotator
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../data/augment/">
+<a class="md-nav__link" href="../../reference/data/augment/">
 <span class="md-ellipsis">
     augment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../data/base/">
+<a class="md-nav__link" href="../../reference/data/base/">
 <span class="md-ellipsis">
     base
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../data/build/">
+<a class="md-nav__link" href="../../reference/data/build/">
 <span class="md-ellipsis">
     build
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../data/converter/">
+<a class="md-nav__link" href="../../reference/data/converter/">
 <span class="md-ellipsis">
     converter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../data/dataset/">
+<a class="md-nav__link" href="../../reference/data/dataset/">
 <span class="md-ellipsis">
     dataset
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../data/loaders/">
+<a class="md-nav__link" href="../../reference/data/loaders/">
 <span class="md-ellipsis">
     loaders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../data/utils/">
+<a class="md-nav__link" href="../../reference/data/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1564,49 +1604,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../engine/exporter/">
+<a class="md-nav__link" href="../../reference/engine/exporter/">
 <span class="md-ellipsis">
     exporter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../engine/model/">
+<a class="md-nav__link" href="../../reference/engine/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../engine/predictor/">
+<a class="md-nav__link" href="../../reference/engine/predictor/">
 <span class="md-ellipsis">
     predictor
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../engine/results/">
+<a class="md-nav__link" href="../../reference/engine/results/">
 <span class="md-ellipsis">
     results
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../engine/trainer/">
+<a class="md-nav__link" href="../../reference/engine/trainer/">
 <span class="md-ellipsis">
     trainer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../engine/tuner/">
+<a class="md-nav__link" href="../../reference/engine/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../engine/validator/">
+<a class="md-nav__link" href="../../reference/engine/validator/">
 <span class="md-ellipsis">
     validator
   </span>
@@ -1630,28 +1670,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/__init__/">
+<a class="md-nav__link" href="../../reference/hub/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/auth/">
+<a class="md-nav__link" href="../../reference/hub/auth/">
 <span class="md-ellipsis">
     auth
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/session/">
+<a class="md-nav__link" href="../../reference/hub/session/">
 <span class="md-ellipsis">
     session
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/utils/">
+<a class="md-nav__link" href="../../reference/hub/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1689,35 +1729,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/fastsam/model/">
+<a class="md-nav__link" href="../../reference/models/fastsam/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/fastsam/predict/">
+<a class="md-nav__link" href="../../reference/models/fastsam/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/fastsam/prompt/">
+<a class="md-nav__link" href="../../reference/models/fastsam/prompt/">
 <span class="md-ellipsis">
     prompt
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/fastsam/utils/">
+<a class="md-nav__link" href="../../reference/models/fastsam/utils/">
 <span class="md-ellipsis">
     utils
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/fastsam/val/">
+<a class="md-nav__link" href="../../reference/models/fastsam/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1741,21 +1781,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/nas/model/">
+<a class="md-nav__link" href="../../reference/models/nas/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/nas/predict/">
+<a class="md-nav__link" href="../../reference/models/nas/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/nas/val/">
+<a class="md-nav__link" href="../../reference/models/nas/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1779,28 +1819,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/rtdetr/model/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/rtdetr/predict/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/rtdetr/train/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/rtdetr/val/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -1824,21 +1864,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/sam/amg/">
+<a class="md-nav__link" href="../../reference/models/sam/amg/">
 <span class="md-ellipsis">
     amg
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/sam/build/">
+<a class="md-nav__link" href="../../reference/models/sam/build/">
 <span class="md-ellipsis">
     build
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/sam/model/">
+<a class="md-nav__link" href="../../reference/models/sam/model/">
 <span class="md-ellipsis">
     model
   </span>
@@ -1859,35 +1899,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/sam/modules/decoders/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/decoders/">
 <span class="md-ellipsis">
     decoders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/sam/modules/encoders/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/encoders/">
 <span class="md-ellipsis">
     encoders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/sam/modules/sam/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/sam/">
 <span class="md-ellipsis">
     sam
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/sam/modules/tiny_encoder/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/tiny_encoder/">
 <span class="md-ellipsis">
     tiny_encoder
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/sam/modules/transformer/">
+<a class="md-nav__link" href="../../reference/models/sam/modules/transformer/">
 <span class="md-ellipsis">
     transformer
   </span>
@@ -1897,7 +1937,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/sam/predict/">
+<a class="md-nav__link" href="../../reference/models/sam/predict/">
 <span class="md-ellipsis">
     predict
   </span>
@@ -1921,14 +1961,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/utils/loss/">
+<a class="md-nav__link" href="../../reference/models/utils/loss/">
 <span class="md-ellipsis">
     loss
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/utils/ops/">
+<a class="md-nav__link" href="../../reference/models/utils/ops/">
 <span class="md-ellipsis">
     ops
   </span>
@@ -1966,21 +2006,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/classify/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/classify/train/">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/classify/val/">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -2004,21 +2044,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/detect/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/detect/train/">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/detect/val/">
+<a class="md-nav__link" href="../../reference/models/yolo/detect/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -2028,7 +2068,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/model/">
+<a class="md-nav__link" href="../../reference/models/yolo/model/">
 <span class="md-ellipsis">
     model
   </span>
@@ -2049,21 +2089,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/pose/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/pose/train/">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/pose/val/">
+<a class="md-nav__link" href="../../reference/models/yolo/pose/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -2087,21 +2127,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/segment/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/predict/">
 <span class="md-ellipsis">
     predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/segment/train/">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/train/">
 <span class="md-ellipsis">
     train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/yolo/segment/val/">
+<a class="md-nav__link" href="../../reference/models/yolo/segment/val/">
 <span class="md-ellipsis">
     val
   </span>
@@ -2131,7 +2171,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nn/autobackend/">
+<a class="md-nav__link" href="../../reference/nn/autobackend/">
 <span class="md-ellipsis">
     autobackend
   </span>
@@ -2152,35 +2192,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nn/modules/block/">
+<a class="md-nav__link" href="../../reference/nn/modules/block/">
 <span class="md-ellipsis">
     block
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nn/modules/conv/">
+<a class="md-nav__link" href="../../reference/nn/modules/conv/">
 <span class="md-ellipsis">
     conv
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nn/modules/head/">
+<a class="md-nav__link" href="../../reference/nn/modules/head/">
 <span class="md-ellipsis">
     head
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nn/modules/transformer/">
+<a class="md-nav__link" href="../../reference/nn/modules/transformer/">
 <span class="md-ellipsis">
     transformer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nn/modules/utils/">
+<a class="md-nav__link" href="../../reference/nn/modules/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -2190,7 +2230,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../nn/tasks/">
+<a class="md-nav__link" href="../../reference/nn/tasks/">
 <span class="md-ellipsis">
     tasks
   </span>
@@ -2214,28 +2254,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../trackers/basetrack/">
+<a class="md-nav__link" href="../../reference/trackers/basetrack/">
 <span class="md-ellipsis">
     basetrack
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../trackers/bot_sort/">
+<a class="md-nav__link" href="../../reference/trackers/bot_sort/">
 <span class="md-ellipsis">
     bot_sort
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../trackers/byte_tracker/">
+<a class="md-nav__link" href="../../reference/trackers/byte_tracker/">
 <span class="md-ellipsis">
     byte_tracker
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../trackers/track/">
+<a class="md-nav__link" href="../../reference/trackers/track/">
 <span class="md-ellipsis">
     track
   </span>
@@ -2256,21 +2296,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../trackers/utils/gmc/">
+<a class="md-nav__link" href="../../reference/trackers/utils/gmc/">
 <span class="md-ellipsis">
     gmc
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../trackers/utils/kalman_filter/">
+<a class="md-nav__link" href="../../reference/trackers/utils/kalman_filter/">
 <span class="md-ellipsis">
     kalman_filter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../trackers/utils/matching/">
+<a class="md-nav__link" href="../../reference/trackers/utils/matching/">
 <span class="md-ellipsis">
     matching
   </span>
@@ -2282,36 +2322,36 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_12_8" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_12_8" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12_8" id="__nav_12_8_label" tabindex="0">
 <span class="md-ellipsis">
     utils
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_12_8_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_12_8_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_12_8">
 <span class="md-nav__icon md-icon"></span>
             utils
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../__init__/">
+<a class="md-nav__link" href="../../reference/utils/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../autobatch/">
+<a class="md-nav__link" href="../../reference/utils/autobatch/">
 <span class="md-ellipsis">
     autobatch
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../benchmarks/">
+<a class="md-nav__link" href="../../reference/utils/benchmarks/">
 <span class="md-ellipsis">
     benchmarks
   </span>
@@ -2332,70 +2372,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../callbacks/base/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/base/">
 <span class="md-ellipsis">
     base
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../callbacks/clearml/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/clearml/">
 <span class="md-ellipsis">
     clearml
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../callbacks/comet/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/comet/">
 <span class="md-ellipsis">
     comet
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../callbacks/dvc/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/dvc/">
 <span class="md-ellipsis">
     dvc
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../callbacks/hub/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/hub/">
 <span class="md-ellipsis">
     hub
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../callbacks/mlflow/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/mlflow/">
 <span class="md-ellipsis">
     mlflow
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../callbacks/neptune/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/neptune/">
 <span class="md-ellipsis">
     neptune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../callbacks/raytune/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/raytune/">
 <span class="md-ellipsis">
     raytune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../callbacks/tensorboard/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/tensorboard/">
 <span class="md-ellipsis">
     tensorboard
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../callbacks/wb/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/wb/">
 <span class="md-ellipsis">
     wb
   </span>
@@ -2405,140 +2445,105 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../checks/">
+<a class="md-nav__link" href="../../reference/utils/checks/">
 <span class="md-ellipsis">
     checks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../dist/">
+<a class="md-nav__link" href="../../reference/utils/dist/">
 <span class="md-ellipsis">
     dist
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../downloads/">
+<a class="md-nav__link" href="../../reference/utils/downloads/">
 <span class="md-ellipsis">
     downloads
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../errors/">
+<a class="md-nav__link" href="../../reference/utils/errors/">
 <span class="md-ellipsis">
     errors
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../files/">
+<a class="md-nav__link" href="../../reference/utils/files/">
 <span class="md-ellipsis">
     files
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../instance/">
+<a class="md-nav__link" href="../../reference/utils/instance/">
 <span class="md-ellipsis">
     instance
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../loss/">
+<a class="md-nav__link" href="../../reference/utils/loss/">
 <span class="md-ellipsis">
     loss
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../metrics/">
+<a class="md-nav__link" href="../../reference/utils/metrics/">
 <span class="md-ellipsis">
     metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ops/">
+<a class="md-nav__link" href="../../reference/utils/ops/">
 <span class="md-ellipsis">
     ops
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    patches
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/patches/">
 <span class="md-ellipsis">
     patches
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.utils.patches.imread">
-    imread()
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.utils.patches.imwrite">
-    imwrite()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.utils.patches.imshow">
-    imshow()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.utils.patches.torch_save">
-    torch_save()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../plotting/">
+<a class="md-nav__link" href="../../reference/utils/plotting/">
 <span class="md-ellipsis">
     plotting
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tal/">
+<a class="md-nav__link" href="../../reference/utils/tal/">
 <span class="md-ellipsis">
     tal
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../torch_utils/">
+<a class="md-nav__link" href="../../reference/utils/torch_utils/">
 <span class="md-ellipsis">
     torch_utils
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../triton/">
+<a class="md-nav__link" href="../../reference/utils/triton/">
 <span class="md-ellipsis">
     triton
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tuner/">
+<a class="md-nav__link" href="../../reference/utils/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
@@ -2553,7 +2558,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_13" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../help/">
+<a class="md-nav__link" href="../../help/">
 <span class="md-ellipsis">
     Help
   </span>
@@ -2569,56 +2574,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/FAQ/">
+<a class="md-nav__link" href="../../help/FAQ/">
 <span class="md-ellipsis">
     Frequently Asked Questions (FAQ)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/contributing/">
+<a class="md-nav__link" href="../../help/contributing/">
 <span class="md-ellipsis">
     Contributing Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/CI/">
+<a class="md-nav__link" href="../../help/CI/">
 <span class="md-ellipsis">
     Continuous Integration (CI) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/CLA/">
+<a class="md-nav__link" href="../../help/CLA/">
 <span class="md-ellipsis">
     Contributor License Agreement (CLA)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/minimum_reproducible_example/">
+<a class="md-nav__link" href="../../help/minimum_reproducible_example/">
 <span class="md-ellipsis">
     Minimum Reproducible Example (MRE) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/code_of_conduct/">
+<a class="md-nav__link" href="../../help/code_of_conduct/">
 <span class="md-ellipsis">
     Code of Conduct
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/environmental-health-safety/">
+<a class="md-nav__link" href="../../help/environmental-health-safety/">
 <span class="md-ellipsis">
     Environmental, Health and Safety (EHS) Policy
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../SECURITY/">
+<a class="md-nav__link" href="../../SECURITY/">
 <span class="md-ellipsis">
     Security Policy
   </span>
@@ -2634,383 +2639,115 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/reference/utils/patches.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/guides/triton-inference-server.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="reference-for-ultralyticsutilspatchespy">Reference for <code>ultralytics/utils/patches.py</code></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Full source code for this file is available at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/patches.py">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/patches.py</a>. Help us fix any issues you see by submitting a <a href="https://docs.ultralytics.com/help/contributing/">Pull Request</a> 🛠️. Thank you 🙏!</p>
-</div>
+<h1 id="triton-inference-server-with-ultralytics-yolov8">Triton Inference Server with Ultralytics YOLOv8</h1>
+<p>The <a href="https://developer.nvidia.com/nvidia-triton-inference-server">Triton Inference Server</a> (formerly known as TensorRT Inference Server) is an open-source software solution developed by NVIDIA. It provides a cloud inferencing solution optimized for NVIDIA GPUs. Triton simplifies the deployment of AI models at scale in production. Integrating Ultralytics YOLOv8 with Triton Inference Server allows you to deploy scalable, high-performance deep learning inference workloads. This guide provides steps to set up and test the integration.</p>
+<p align="center">
+<br/>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/NQDtfSi5QF4" title="Getting Started with NVIDIA Triton Inference Server" width="720">
+</iframe>
+<br/>
+<strong>Watch:</strong> Getting Started with NVIDIA Triton Inference Server.
+</p>
+<h2 id="what-is-triton-inference-server">What is Triton Inference Server?</h2>
+<p>Triton Inference Server is designed to deploy a variety of AI models in production. It supports a wide range of deep learning and machine learning frameworks, including TensorFlow, PyTorch, ONNX Runtime, and many others. Its primary use cases are:</p>
+<ul>
+<li>Serving multiple models from a single server instance.</li>
+<li>Dynamic model loading and unloading without server restart.</li>
+<li>Ensemble inferencing, allowing multiple models to be used together to achieve results.</li>
+<li>Model versioning for A/B testing and rolling updates.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Ensure you have the following prerequisites before proceeding:</p>
+<ul>
+<li>Docker installed on your machine.</li>
+<li>Install <code>tritonclient</code>:
+  <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>tritonclient<span class="o">[</span>all<span class="o">]</span>
+</code></pre></div></li>
+</ul>
+<h2 id="exporting-yolov8-to-onnx-format">Exporting YOLOv8 to ONNX Format</h2>
+<p>Before deploying the model on Triton, it must be exported to the ONNX format. ONNX (Open Neural Network Exchange) is a format that allows models to be transferred between different deep learning frameworks. Use the <code>export</code> function from the <code>YOLO</code> class:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a model</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>  <span class="c1"># load an official model</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Export the model</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">onnx_file</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'onnx'</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="setting-up-triton-model-repository">Setting Up Triton Model Repository</h2>
+<p>The Triton Model Repository is a storage location where Triton can access and load models.</p>
+<ol>
+<li>
+<p>Create the necessary directory structure:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Define paths</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">triton_repo_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'tmp'</span><span class="p">)</span> <span class="o">/</span> <span class="s1">'triton_repo'</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">triton_model_path</span> <span class="o">=</span> <span class="n">triton_repo_path</span> <span class="o">/</span> <span class="s1">'yolo'</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1"># Create directories</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s1">'1'</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</li>
+<li>
+<p>Move the exported ONNX model to the Triton repository:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Move ONNX model to Triton Model path</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">Path</span><span class="p">(</span><span class="n">onnx_file</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s1">'1'</span> <span class="o">/</span> <span class="s1">'model.onnx'</span><span class="p">)</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># Create config file</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s1">'config.pdtxt'</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
+</code></pre></div>
+</li>
+</ol>
+<h2 id="running-triton-inference-server">Running Triton Inference Server</h2>
+<p>Run the Triton Inference Server using Docker:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">subprocess</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kn">import</span> <span class="nn">time</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="kn">from</span> <span class="nn">tritonclient.http</span> <span class="kn">import</span> <span class="n">InferenceServerClient</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Define image https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tritonserver</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">tag</span> <span class="o">=</span> <span class="s1">'nvcr.io/nvidia/tritonserver:23.09-py3'</span>  <span class="c1"># 6.4 GB</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="c1"># Pull the image</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="sa">f</span><span class="s1">'docker pull </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="c1"># Run the Triton server and capture the container ID</span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="n">container_id</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>    <span class="sa">f</span><span class="s1">'docker run -d --rm -v </span><span class="si">{</span><span class="n">triton_repo_path</span><span class="si">}</span><span class="s1">:/models -p 8000:8000 </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s1"> tritonserver --model-repository=/models'</span><span class="p">,</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>    <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="c1"># Wait for the Triton server to start</span>
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="n">triton_client</span> <span class="o">=</span> <span class="n">InferenceServerClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">'localhost:8000'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a>
+<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="c1"># Wait until model is ready</span>
+<a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a>    <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a>        <span class="k">assert</span> <span class="n">triton_client</span><span class="o">.</span><span class="n">is_model_ready</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a>        <span class="k">break</span>
+<a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>Then run inference using the Triton Server model:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1"># Load the Triton Server model</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="sa">f</span><span class="s1">'http://localhost:8000/yolo'</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">)</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="c1"># Run inference on the server</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'path/to/image.jpg'</span><span class="p">)</span>
+</code></pre></div>
+<p>Cleanup the container:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Kill and remove the container at the end of the test</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="sa">f</span><span class="s1">'docker kill </span><span class="si">{</span><span class="n">container_id</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 <hr/>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="ultralytics.utils.patches.imread">
-<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_COLOR</span><span class="p">)</span></code>
-</h2>
-<div class="doc doc-contents first">
-<p>Read an image from a file.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>filename</code></td>
-<td>
-<code>str</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Path to the file to read.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>flags</code></td>
-<td>
-<code>int</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Flag that can take values of cv2.IMREAD_*. Defaults to cv2.IMREAD_COLOR.</p>
-</div>
-</td>
-<td>
-<code><span title="cv2.IMREAD_COLOR">IMREAD_COLOR</span></code>
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code><span title="numpy.ndarray">ndarray</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The read image.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>ultralytics/utils/patches.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span>
-<span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="k">def</span> <span class="nf">imread</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_COLOR</span><span class="p">):</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="sd">"""Read an image from a file.</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        filename (str): Path to the file to read.</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        flags (int, optional): Flag that can take values of cv2.IMREAD_*. Defaults to cv2.IMREAD_COLOR.</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        (np.ndarray): The read image.</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    """</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imdecode</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="n">flags</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div><p><br/><br/></p>
-<hr/>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="ultralytics.utils.patches.imwrite">
-<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
-</h2>
-<div class="doc doc-contents first">
-<p>Write an image to a file.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>filename</code></td>
-<td>
-<code>str</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Path to the file to write.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>img</code></td>
-<td>
-<code><span title="numpy.ndarray">ndarray</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Image to write.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>params</code></td>
-<td>
-<code>list of ints</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Additional parameters. See OpenCV documentation.</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>bool</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>True if the file was written, False otherwise.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>ultralytics/utils/patches.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="k">def</span> <span class="nf">imwrite</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">    </span><span class="sd">"""Write an image to a file.</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">        filename (str): Path to the file to write.</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        img (np.ndarray): Image to write.</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        params (list of ints, optional): Additional parameters. See OpenCV documentation.</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        (bool): True if the file was written, False otherwise.</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    """</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imencode</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">params</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="k">return</span> <span class="kc">True</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="k">return</span> <span class="kc">False</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div><p><br/><br/></p>
-<hr/>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="ultralytics.utils.patches.imshow">
-<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">winname</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span></code>
-</h2>
-<div class="doc doc-contents first">
-<p>Displays an image in the specified window.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>winname</code></td>
-<td>
-<code>str</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Name of the window.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>mat</code></td>
-<td>
-<code><span title="numpy.ndarray">ndarray</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Image to be shown.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>ultralytics/utils/patches.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="k">def</span> <span class="nf">imshow</span><span class="p">(</span><span class="n">winname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">    </span><span class="sd">"""Displays an image in the specified window.</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        winname (str): Name of the window.</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        mat (np.ndarray): Image to be shown.</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    """</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="n">_imshow</span><span class="p">(</span><span class="n">winname</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'unicode_escape'</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">mat</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div><p><br/><br/></p>
-<hr/>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="ultralytics.utils.patches.torch_save">
-<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">torch_save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
-</h2>
-<div class="doc doc-contents first">
-<p>Use dill (if exists) to serialize the lambda functions where pickle does not do this.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*args</code></td>
-<td>
-<code>tuple</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Positional arguments to pass to torch.save.</p>
-</div>
-</td>
-<td>
-<code>()</code>
-</td>
-</tr>
-<tr>
-<td><code>**kwargs</code></td>
-<td>
-<code>dict</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Keyword arguments to pass to torch.save.</p>
-</div>
-</td>
-<td>
-<code>{}</code>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>ultralytics/utils/patches.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span>
-<span class="normal"><a href="#__codelineno-0-64">64</a></span>
-<span class="normal"><a href="#__codelineno-0-65">65</a></span>
-<span class="normal"><a href="#__codelineno-0-66">66</a></span>
-<span class="normal"><a href="#__codelineno-0-67">67</a></span>
-<span class="normal"><a href="#__codelineno-0-68">68</a></span>
-<span class="normal"><a href="#__codelineno-0-69">69</a></span>
-<span class="normal"><a href="#__codelineno-0-70">70</a></span>
-<span class="normal"><a href="#__codelineno-0-71">71</a></span>
-<span class="normal"><a href="#__codelineno-0-72">72</a></span>
-<span class="normal"><a href="#__codelineno-0-73">73</a></span>
-<span class="normal"><a href="#__codelineno-0-74">74</a></span>
-<span class="normal"><a href="#__codelineno-0-75">75</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="k">def</span> <span class="nf">torch_save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">    </span><span class="sd">"""Use dill (if exists) to serialize the lambda functions where pickle does not do this.</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        *args (tuple): Positional arguments to pass to torch.save.</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">        **kwargs (dict): Keyword arguments to pass to torch.save.</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    """</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="kn">import</span> <span class="nn">dill</span> <span class="k">as</span> <span class="nn">pickle</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>        <span class="kn">import</span> <span class="nn">pickle</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="k">if</span> <span class="s1">'pickle_module'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>        <span class="n">kwargs</span><span class="p">[</span><span class="s1">'pickle_module'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pickle</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="k">return</span> <span class="n">_torch_save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div><p><br/><br/></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-07-16, Updated 2023-08-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<p>By following the above steps, you can deploy and run Ultralytics YOLOv8 models efficiently on Triton Inference Server, providing a scalable and high-performance solution for deep learning inference tasks. If you face any issues or have further queries, refer to the <a href="https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html">official Triton documentation</a> or reach out to the Ultralytics community for support.</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-10-07, Updated 2023-10-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -3021,13 +2758,46 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/utils/patches', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/triton-inference-server', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/utils/patches', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/triton-inference-server', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
+<h2 id="__comments">Comments</h2>
+<!-- Insert Giscus code snippet from https://giscus.app/ here -->
+<script async="" crossorigin="anonymous" data-category="Docs" data-category-id="DIC_kwDOH-jzvc4CWLkL" data-emit-metadata="0" data-input-position="top" data-lang="en" data-mapping="title" data-reactions-enabled="1" data-repo="ultralytics/ultralytics" data-repo-id="R_kgDOH-jzvQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+</script>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -3039,7 +2809,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: ops" class="md-footer__link md-footer__link--prev" href="../ops/">
+<a aria-label="Previous: Raspberry Pi" class="md-footer__link md-footer__link--prev" href="../raspberry-pi/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -3048,17 +2818,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                ops
+                Raspberry Pi
               </div>
 </div>
 </a>
-<a aria-label="Next: plotting" class="md-footer__link md-footer__link--next" href="../plotting/">
+<a aria-label="Next: Ultralytics Integrations" class="md-footer__link md-footer__link--next" href="../../integrations/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                plotting
+                Ultralytics Integrations
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -3109,7 +2879,7 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.94c44541.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.94c44541.min.js"></script>
 </body>
 </html>

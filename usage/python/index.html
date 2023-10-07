@@ -1034,6 +1034,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../guides/triton-inference-server/">
+<span class="md-ellipsis">
+    Triton Inference Server
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2539,6 +2546,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/utils/triton/">
+<span class="md-ellipsis">
+    triton
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../reference/utils/tuner/">
 <span class="md-ellipsis">
     tuner
@@ -2879,26 +2893,28 @@ their specific use case based on their requirements for speed and accuracy.</p>
 <p><code>YOLO</code> model class is a high-level wrapper on the Trainer classes. Each YOLO task has its own trainer that inherits
 from <code>BaseTrainer</code>.</p>
 <div class="admonition tip">
-<p class="admonition-title">Detection Trainer Example<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">ultralytics.models.yolo</span> <span class="kn">import</span> <span class="n">DetectionTrainer</span><span class="p">,</span> <span class="n">DetectionValidator</span><span class="p">,</span> <span class="n">DetectionPredictor</span>
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="c1"># trainer</span>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{})</span>
-<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="n">trained_model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span>
-<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a>
-<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="c1"># Validator</span>
-<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="n">val</span> <span class="o">=</span> <span class="n">DetectionValidator</span><span class="p">(</span><span class="n">args</span><span class="o">=...</span><span class="p">)</span>
-<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="n">val</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">trained_model</span><span class="p">)</span>
-<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a>
-<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="c1"># predictor</span>
-<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="n">pred</span> <span class="o">=</span> <span class="n">DetectionPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{})</span>
-<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="n">pred</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">SOURCE</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">trained_model</span><span class="p">)</span>
-<a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a>
-<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="c1"># resume from last weight</span>
-<a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="n">overrides</span><span class="p">[</span><span class="s2">"resume"</span><span class="p">]</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
-<a href="#__codelineno-12-18" id="__codelineno-12-18" name="__codelineno-12-18"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">detect</span><span class="o">.</span><span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">overrides</span><span class="p">)</span>
+<p class="admonition-title">Detection Trainer Example</p>
+<div class="highlight"><pre><span></span><code>```python
+from ultralytics.models.yolo import DetectionTrainer, DetectionValidator, DetectionPredictor
+
+# trainer
+trainer = DetectionTrainer(overrides={})
+trainer.train()
+trained_model = trainer.best
+
+# Validator
+val = DetectionValidator(args=...)
+val(model=trained_model)
+
+# predictor
+pred = DetectionPredictor(overrides={})
+pred(source=SOURCE, model=trained_model)
+
+# resume from last weight
+overrides["resume"] = trainer.last
+trainer = detect.DetectionTrainer(overrides=overrides)
+```
 </code></pre></div>
-</p>
 </div>
 <p>You can easily customize Trainers to support custom tasks or explore R&amp;D ideas.
 Learn more about Customizing <code>Trainers</code>, <code>Validators</code> and <code>Predictors</code> to suit your project needs in the Customization
