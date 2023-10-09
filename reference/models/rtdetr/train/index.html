@@ -2736,7 +2736,8 @@
 <span class="normal"><a href="#__codelineno-0-69">69</a></span>
 <span class="normal"><a href="#__codelineno-0-70">70</a></span>
 <span class="normal"><a href="#__codelineno-0-71">71</a></span>
-<span class="normal"><a href="#__codelineno-0-72">72</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">class</span> <span class="nc">RTDETRTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">class</span> <span class="nc">RTDETRTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    A class extending the DetectionTrainer class for training based on an RT-DETR detection model.</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>
@@ -2762,39 +2763,40 @@
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="k">return</span> <span class="n">model</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="k">def</span> <span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'val'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">        </span><span class="sd">"""Build RTDETR Dataset</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">            img_path (str): Path to the folder containing images.</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">            mode (str): `train` mode or `val` mode, users are able to customize different augmentations for each mode.</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">            batch (int, optional): Size of batches, this is for `rect`. Defaults to None.</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        """</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="k">return</span> <span class="n">RTDETRDataset</span><span class="p">(</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>            <span class="n">img_path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>            <span class="n">imgsz</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>            <span class="n">batch_size</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>            <span class="n">augment</span><span class="o">=</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">'train'</span><span class="p">,</span>  <span class="c1"># no augmentation</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>            <span class="n">hyp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>            <span class="n">rect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># no rect</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>            <span class="n">cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">cache</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>            <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s1">: '</span><span class="p">),</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>            <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">def</span> <span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">        </span><span class="sd">"""Returns a DetectionValidator for RTDETR model validation."""</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s1">'giou_loss'</span><span class="p">,</span> <span class="s1">'cls_loss'</span><span class="p">,</span> <span class="s1">'l1_loss'</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="k">return</span> <span class="n">RTDETRValidator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="k">def</span> <span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">        </span><span class="sd">"""Preprocesses a batch of images by scaling and converting to float."""</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="n">bs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'img'</span><span class="p">])</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'batch_idx'</span><span class="p">]</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="n">gt_bbox</span><span class="p">,</span> <span class="n">gt_class</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bs</span><span class="p">):</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>            <span class="n">gt_bbox</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'bboxes'</span><span class="p">][</span><span class="n">batch_idx</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">batch_idx</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>            <span class="n">gt_class</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">][</span><span class="n">batch_idx</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">batch_idx</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">))</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="k">return</span> <span class="n">batch</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        Build RTDETR Dataset.</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">            img_path (str): Path to the folder containing images.</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">            mode (str): `train` mode or `val` mode, users are able to customize different augmentations for each mode.</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">            batch (int, optional): Size of batches, this is for `rect`. Defaults to None.</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">        """</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="k">return</span> <span class="n">RTDETRDataset</span><span class="p">(</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>            <span class="n">img_path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>            <span class="n">imgsz</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>            <span class="n">batch_size</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>            <span class="n">augment</span><span class="o">=</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">'train'</span><span class="p">,</span>  <span class="c1"># no augmentation</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>            <span class="n">hyp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>            <span class="n">rect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># no rect</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>            <span class="n">cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">cache</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>            <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s1">: '</span><span class="p">),</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>            <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="k">def</span> <span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">        </span><span class="sd">"""Returns a DetectionValidator for RTDETR model validation."""</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s1">'giou_loss'</span><span class="p">,</span> <span class="s1">'cls_loss'</span><span class="p">,</span> <span class="s1">'l1_loss'</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="k">return</span> <span class="n">RTDETRValidator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">def</span> <span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">        </span><span class="sd">"""Preprocesses a batch of images by scaling and converting to float."""</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="n">bs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'img'</span><span class="p">])</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'batch_idx'</span><span class="p">]</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="n">gt_bbox</span><span class="p">,</span> <span class="n">gt_class</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bs</span><span class="p">):</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>            <span class="n">gt_bbox</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'bboxes'</span><span class="p">][</span><span class="n">batch_idx</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">batch_idx</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>            <span class="n">gt_class</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">][</span><span class="n">batch_idx</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">batch_idx</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">))</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>        <span class="k">return</span> <span class="n">batch</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2803,7 +2805,7 @@
 <code class="highlight language-python"><span class="n">build_dataset</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'val'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Build RTDETR Dataset</p>
+<p>Build RTDETR Dataset.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -2878,24 +2880,26 @@
 <span class="normal"><a href="#__codelineno-0-53">53</a></span>
 <span class="normal"><a href="#__codelineno-0-54">54</a></span>
 <span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="k">def</span> <span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'val'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="sd">"""Build RTDETR Dataset</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        img_path (str): Path to the folder containing images.</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        mode (str): `train` mode or `val` mode, users are able to customize different augmentations for each mode.</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        batch (int, optional): Size of batches, this is for `rect`. Defaults to None.</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    """</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">return</span> <span class="n">RTDETRDataset</span><span class="p">(</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">img_path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="n">imgsz</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="n">augment</span><span class="o">=</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">'train'</span><span class="p">,</span>  <span class="c1"># no augmentation</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="n">hyp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="n">rect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># no rect</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="n">cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">cache</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s1">: '</span><span class="p">),</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="k">def</span> <span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'val'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    Build RTDETR Dataset.</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        img_path (str): Path to the folder containing images.</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        mode (str): `train` mode or `val` mode, users are able to customize different augmentations for each mode.</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        batch (int, optional): Size of batches, this is for `rect`. Defaults to None.</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    """</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="k">return</span> <span class="n">RTDETRDataset</span><span class="p">(</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="n">img_path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="n">imgsz</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="n">augment</span><span class="o">=</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">'train'</span><span class="p">,</span>  <span class="c1"># no augmentation</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="n">hyp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="n">rect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># no rect</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="n">cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">cache</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s1">: '</span><span class="p">),</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2931,13 +2935,13 @@
 <p>Returns a DetectionValidator for RTDETR model validation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/rtdetr/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-58">58</a></span>
-<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-59">59</a></span>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
-<span class="normal"><a href="#__codelineno-0-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="k">def</span> <span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">    </span><span class="sd">"""Returns a DetectionValidator for RTDETR model validation."""</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s1">'giou_loss'</span><span class="p">,</span> <span class="s1">'cls_loss'</span><span class="p">,</span> <span class="s1">'l1_loss'</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="k">return</span> <span class="n">RTDETRValidator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="k">def</span> <span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">    </span><span class="sd">"""Returns a DetectionValidator for RTDETR model validation."""</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s1">'giou_loss'</span><span class="p">,</span> <span class="s1">'cls_loss'</span><span class="p">,</span> <span class="s1">'l1_loss'</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">return</span> <span class="n">RTDETRValidator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2950,8 +2954,7 @@
 <p>Preprocesses a batch of images by scaling and converting to float.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/rtdetr/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-63">63</a></span>
-<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-64">64</a></span>
 <span class="normal"><a href="#__codelineno-0-65">65</a></span>
 <span class="normal"><a href="#__codelineno-0-66">66</a></span>
 <span class="normal"><a href="#__codelineno-0-67">67</a></span>
@@ -2959,16 +2962,17 @@
 <span class="normal"><a href="#__codelineno-0-69">69</a></span>
 <span class="normal"><a href="#__codelineno-0-70">70</a></span>
 <span class="normal"><a href="#__codelineno-0-71">71</a></span>
-<span class="normal"><a href="#__codelineno-0-72">72</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="k">def</span> <span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">    </span><span class="sd">"""Preprocesses a batch of images by scaling and converting to float."""</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="n">bs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'img'</span><span class="p">])</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'batch_idx'</span><span class="p">]</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="n">gt_bbox</span><span class="p">,</span> <span class="n">gt_class</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bs</span><span class="p">):</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>        <span class="n">gt_bbox</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'bboxes'</span><span class="p">][</span><span class="n">batch_idx</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">batch_idx</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>        <span class="n">gt_class</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">][</span><span class="n">batch_idx</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">batch_idx</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">))</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="k">return</span> <span class="n">batch</span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="k">def</span> <span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">    </span><span class="sd">"""Preprocesses a batch of images by scaling and converting to float."""</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="n">bs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'img'</span><span class="p">])</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">'batch_idx'</span><span class="p">]</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="n">gt_bbox</span><span class="p">,</span> <span class="n">gt_class</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bs</span><span class="p">):</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>        <span class="n">gt_bbox</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'bboxes'</span><span class="p">][</span><span class="n">batch_idx</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">batch_idx</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="n">gt_class</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">][</span><span class="n">batch_idx</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">batch_idx</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">))</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="k">return</span> <span class="n">batch</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

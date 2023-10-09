@@ -2928,32 +2928,32 @@ Mutates the given hyperparameters within the bounds specified in <code>self.spac
 <span class="normal"><a href="#__codelineno-0-223">223</a></span>
 <span class="normal"><a href="#__codelineno-0-224">224</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="k">class</span> <span class="nc">Tuner</span><span class="p">:</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">     Class responsible for hyperparameter tuning of YOLO models.</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Class responsible for hyperparameter tuning of YOLO models.</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">     The class evolves YOLO model hyperparameters over a given number of iterations</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">     by mutating them according to the search space and retraining the model to evaluate their performance.</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    The class evolves YOLO model hyperparameters over a given number of iterations</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    by mutating them according to the search space and retraining the model to evaluate their performance.</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">     Attributes:</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">         space (dict): Hyperparameter search space containing bounds and scaling factors for mutation.</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">         tune_dir (Path): Directory where evolution logs and results will be saved.</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">         tune_csv (Path): Path to the CSV file where evolution logs are saved.</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    Attributes:</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        space (dict): Hyperparameter search space containing bounds and scaling factors for mutation.</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        tune_dir (Path): Directory where evolution logs and results will be saved.</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        tune_csv (Path): Path to the CSV file where evolution logs are saved.</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">     Methods:</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">         _mutate(hyp: dict) -&gt; dict:</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">             Mutates the given hyperparameters within the bounds specified in `self.space`.</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    Methods:</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        _mutate(hyp: dict) -&gt; dict:</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">            Mutates the given hyperparameters within the bounds specified in `self.space`.</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">         __call__():</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">             Executes the hyperparameter evolution across multiple iterations.</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        __call__():</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">            Executes the hyperparameter evolution across multiple iterations.</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">     Example:</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">         Tune hyperparameters for YOLOv8n on COCO8 at imgsz=640 and epochs=30 for 300 tuning iterations.</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">         ```python</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">         from ultralytics import YOLO</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        Tune hyperparameters for YOLOv8n on COCO8 at imgsz=640 and epochs=30 for 300 tuning iterations.</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        from ultralytics import YOLO</span>
 <a id="__codelineno-0-55" name="__codelineno-0-55"></a>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">         model = YOLO('yolov8n.pt')</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">         model.tune(data='coco8.yaml', epochs=10, iterations=300, optimizer='AdamW', plots=False, save=False, val=False)</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">         ```</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">     """</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">        model = YOLO('yolov8n.pt')</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">        model.tune(data='coco8.yaml', epochs=10, iterations=300, optimizer='AdamW', plots=False, save=False, val=False)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    """</span>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a>
 <a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">        </span><span class="sd">"""</span>
