@@ -2657,8 +2657,7 @@ Comet makes sure you never lose track of your work and makes it easy to share re
 <li>Correlogram of the Class Labels</li>
 </ul>
 <h1 id="configure-comet-logging">Configure Comet Logging</h1>
-<p>Comet can be configured to log additional data either through command line flags passed to the training script
-or through environment variables.</p>
+<p>Comet can be configured to log additional data either through command line flags passed to the training script or through environment variables.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_MODE</span><span class="o">=</span>online<span class="w"> </span><span class="c1"># Set whether to run Comet in 'online' or 'offline' mode. Defaults to online</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_MODEL_NAME</span><span class="o">=</span>&lt;your<span class="w"> </span>model<span class="w"> </span>name&gt;<span class="w"> </span><span class="c1">#Set the name for the saved model. Defaults to yolov5</span>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_CONFUSION_MATRIX</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="c1"># Set to disable logging a Comet Confusion Matrix. Defaults to true</span>
@@ -2669,8 +2668,7 @@ or through environment variables.</p>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_PREDICTIONS</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="c1"># Set this to false to disable logging model predictions</span>
 </code></pre></div>
 <h2 id="logging-checkpoints-with-comet">Logging Checkpoints with Comet</h2>
-<p>Logging Models to Comet is disabled by default. To enable it, pass the <code>save-period</code> argument to the training script. This will save the
-logged checkpoints to Comet based on the interval value provided by <code>save-period</code></p>
+<p>Logging Models to Comet is disabled by default. To enable it, pass the <code>save-period</code> argument to the training script. This will save the logged checkpoints to Comet based on the interval value provided by <code>save-period</code></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
 <a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
@@ -2757,8 +2755,7 @@ logged checkpoints to Comet based on the interval value provided by <code>save-p
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>python<span class="w"> </span>utils/loggers/comet/hpo.py<span class="w"> </span><span class="se">\</span>
 <a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">  </span>--comet_optimizer_config<span class="w"> </span><span class="s2">"utils/loggers/comet/optimizer_config.json"</span>
 </code></pre></div>
-<p>The <code>hpo.py</code> script accepts the same arguments as <code>train.py</code>. If you wish to pass additional arguments to your sweep simply add them after
-the script.</p>
+<p>The <code>hpo.py</code> script accepts the same arguments as <code>train.py</code>. If you wish to pass additional arguments to your sweep simply add them after the script.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>python<span class="w"> </span>utils/loggers/comet/hpo.py<span class="w"> </span><span class="se">\</span>
 <a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">  </span>--comet_optimizer_config<span class="w"> </span><span class="s2">"utils/loggers/comet/optimizer_config.json"</span><span class="w"> </span><span class="se">\</span>
 <a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">  </span>--save-period<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
@@ -2771,7 +2768,7 @@ the script.</p>
 <h3 id="visualizing-results">Visualizing Results</h3>
 <p>Comet provides a number of ways to visualize the results of your sweep. Take a look at a <a href="https://www.comet.com/examples/comet-example-yolov5/view/PrlArHGuuhDTKC1UuBmTtOSXD/panels?utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">project with a completed sweep here</a></p>
 <p><img alt="hyperparameter-yolo" src="https://user-images.githubusercontent.com/7529846/186914869-7dc1de14-583f-4323-967b-c9a66a29e495.png" width="1626"/></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-04-21, Updated 2023-07-23<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-04-21, Updated 2023-10-09<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

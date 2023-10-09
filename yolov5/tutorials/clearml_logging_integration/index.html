@@ -2721,8 +2721,7 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>clearml&gt;<span class="o">=</span><span class="m">1</span>.2.0
 </code></pre></div>
 <p>This will enable integration with the YOLOv5 training script. Every training run from now on, will be captured and stored by the ClearML experiment manager.</p>
-<p>If you want to change the <code>project_name</code> or <code>task_name</code>, use the <code>--project</code> and <code>--name</code> arguments of the <code>train.py</code> script, by default the project will be called <code>YOLOv5</code> and the task <code>Training</code>.
-PLEASE NOTE: ClearML uses <code>/</code> as a delimiter for subprojects, so be careful when using <code>/</code> in your project name!</p>
+<p>If you want to change the <code>project_name</code> or <code>task_name</code>, use the <code>--project</code> and <code>--name</code> arguments of the <code>train.py</code> script, by default the project will be called <code>YOLOv5</code> and the task <code>Training</code>. PLEASE NOTE: ClearML uses <code>/</code> as a delimiter for subprojects, so be careful when using <code>/</code> in your project name!</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--cache
 </code></pre></div>
 <p>or with custom project and task name:</p>
@@ -2743,8 +2742,7 @@ PLEASE NOTE: ClearML uses <code>/</code> as a delimiter for subprojects, so be c
 <li>Validation images per epoch</li>
 <li>...</li>
 </ul>
-<p>That's a lot right? 🤯
-Now, we can visualize all of this information in the ClearML UI to get an overview of our training progress. Add custom columns to the table view (such as e.g. mAP_0.5) so you can easily sort on the best performing model. Or select multiple experiments and directly compare them!</p>
+<p>That's a lot right? 🤯 Now, we can visualize all of this information in the ClearML UI to get an overview of our training progress. Add custom columns to the table view (such as e.g. mAP_0.5) so you can easily sort on the best performing model. Or select multiple experiments and directly compare them!</p>
 <p>There even more we can do with all of this information, like hyperparameter optimization and remote execution, so keep reading if you want to see how that works!</p>
 <p><br/></p>
 <h2 id="dataset-version-management">🔗 Dataset Version Management</h2>
@@ -2802,8 +2800,7 @@ Now, we can visualize all of this information in the ClearML UI to get an overvi
 </code></pre></div>
 <p><img alt="HPO" src="https://github.com/thepycoder/clearml_screenshots/raw/main/hpo.png"/></p>
 <h2 id="remote-execution-advanced">🤯 Remote Execution (advanced)</h2>
-<p>Running HPO locally is really handy, but what if we want to run our experiments on a remote machine instead? Maybe you have access to a very powerful GPU machine on-site, or you have some budget to use cloud GPUs.
-This is where the ClearML Agent comes into play. Check out what the agent can do here:</p>
+<p>Running HPO locally is really handy, but what if we want to run our experiments on a remote machine instead? Maybe you have access to a very powerful GPU machine on-site, or you have some budget to use cloud GPUs. This is where the ClearML Agent comes into play. Check out what the agent can do here:</p>
 <ul>
 <li><a href="https://youtu.be/MX3BrXnaULs">YouTube video</a></li>
 <li><a href="https://clear.ml/docs/latest/docs/clearml_agent">Documentation</a></li>
@@ -2837,7 +2834,7 @@ This is where the ClearML Agent comes into play. Check out what the agent can do
 <p>ClearML comes with autoscalers too! This tool will automatically spin up new remote machines in the cloud of your choice (AWS, GCP, Azure) and turn them into ClearML agents for you whenever there are experiments detected in the queue. Once the tasks are processed, the autoscaler will automatically shut down the remote machines, and you stop paying!</p>
 <p>Check out the autoscalers getting started video below.</p>
 <p><a href="https://youtu.be/j4XVMAaUt3E"><img alt="Watch the video" src="https://img.youtube.com/vi/j4XVMAaUt3E/0.jpg"/></a></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-04-21, Updated 2023-08-21<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-04-21, Updated 2023-10-09<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

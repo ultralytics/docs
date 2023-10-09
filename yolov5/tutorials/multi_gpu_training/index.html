@@ -2677,8 +2677,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1>Multi-GPU Training</h1>
-<p>📚 This guide explains how to properly use <strong>multiple</strong> GPUs to train a dataset with YOLOv5 🚀 on single or multiple machine(s).
-UPDATED 25 December 2022.</p>
+<p>📚 This guide explains how to properly use <strong>multiple</strong> GPUs to train a dataset with YOLOv5 🚀 on single or multiple machine(s). UPDATED 25 December 2022.</p>
 <h2 id="before-you-start">Before You Start</h2>
 <p>Clone repo and install <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w">  </span><span class="c1"># clone</span>
@@ -2731,8 +2730,7 @@ UPDATED 25 December 2022.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># On machine R</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>python<span class="w"> </span>-m<span class="w"> </span>torch.distributed.run<span class="w"> </span>--nproc_per_node<span class="w"> </span>G<span class="w"> </span>--nnodes<span class="w"> </span>N<span class="w"> </span>--node_rank<span class="w"> </span>R<span class="w"> </span>--master_addr<span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="w"> </span>--master_port<span class="w"> </span><span class="m">1234</span><span class="w"> </span>train.py<span class="w"> </span>--batch<span class="w"> </span><span class="m">64</span><span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--cfg<span class="w"> </span>yolov5s.yaml<span class="w"> </span>--weights<span class="w"> </span><span class="s1">''</span>
 </code></pre></div>
-<p>where <code>G</code> is number of GPU per machine, <code>N</code> is the number of machines, and <code>R</code> is the machine number from <code>0...(N-1)</code>.
-Let's say I have two machines with two GPUs each, it would be <code>G = 2</code> , <code>N = 2</code>, and <code>R = 1</code> for the above.</p>
+<p>where <code>G</code> is number of GPU per machine, <code>N</code> is the number of machines, and <code>R</code> is the machine number from <code>0...(N-1)</code>. Let's say I have two machines with two GPUs each, it would be <code>G = 2</code> , <code>N = 2</code>, and <code>R = 1</code> for the above.</p>
 <p>Training will not start until <b>all </b> <code>N</code> machines are connected. Output will only be shown on master machine!</p>
 </details>
 <h3 id="notes">Notes</h3>
@@ -2829,7 +2827,7 @@ Let's say I have two machines with two GPUs each, it would be <code>G = 2</code>
 <p>If this badge is green, all <a href="https://github.com/ultralytics/yolov5/actions">YOLOv5 GitHub Actions</a> Continuous Integration (CI) tests are currently passing. CI tests verify correct operation of YOLOv5 <a href="https://github.com/ultralytics/yolov5/blob/master/train.py">training</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/val.py">validation</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/detect.py">inference</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/export.py">export</a> and <a href="https://github.com/ultralytics/yolov5/blob/master/benchmarks.py">benchmarks</a> on macOS, Windows, and Ubuntu every 24 hours and on every commit.</p>
 <h2 id="credits">Credits</h2>
 <p>I would like to thank @MagicFrogSJTU, who did all the heavy lifting, and @glenn-jocher for guiding us along the way.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-04-21, Updated 2023-08-11<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-04-21, Updated 2023-10-09<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

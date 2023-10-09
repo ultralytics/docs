@@ -2749,8 +2749,7 @@ limitations under the License.
 <p align="center">
 <img src="https://github.com/neuralmagic/deepsparse/raw/main/examples/ultralytics-yolo/ultralytics-readmes/performance-chart-5.8x.png" width="60%"/>
 </p>
-<p>For the first time, your deep learning workloads can meet the performance demands of production without the complexity and costs of hardware accelerators.
-Put simply, DeepSparse gives you the performance of GPUs and the simplicity of software:</p>
+<p>For the first time, your deep learning workloads can meet the performance demands of production without the complexity and costs of hardware accelerators. Put simply, DeepSparse gives you the performance of GPUs and the simplicity of software:</p>
 <ul>
 <li><strong>Flexible Deployments</strong>: Run consistently across cloud, data center, and edge with any hardware provider from Intel to AMD to ARM</li>
 <li><strong>Infinite Scalability</strong>: Scale vertically to 100s of cores, out with standard Kubernetes, or fully-abstracted with Serverless</li>
@@ -2758,10 +2757,7 @@ Put simply, DeepSparse gives you the performance of GPUs and the simplicity of s
 </ul>
 <h3 id="how-does-deepsparse-achieve-gpu-class-performance">How Does DeepSparse Achieve GPU-Class Performance?</h3>
 <p>DeepSparse takes advantage of model sparsity to gain its performance speedup.</p>
-<p>Sparsification through pruning and quantization is a broadly studied technique, allowing order-of-magnitude reductions in the size and compute needed to
-execute a network, while maintaining high accuracy. DeepSparse is sparsity-aware, meaning it skips the zeroed out parameters, shrinking amount of compute
-in a forward pass. Since the sparse computation is now memory bound, DeepSparse executes the network depth-wise, breaking the problem into Tensor Columns,
-vertical stripes of computation that fit in cache.</p>
+<p>Sparsification through pruning and quantization is a broadly studied technique, allowing order-of-magnitude reductions in the size and compute needed to execute a network, while maintaining high accuracy. DeepSparse is sparsity-aware, meaning it skips the zeroed out parameters, shrinking amount of compute in a forward pass. Since the sparse computation is now memory bound, DeepSparse executes the network depth-wise, breaking the problem into Tensor Columns, vertical stripes of computation that fit in cache.</p>
 <p align="center">
 <img src="https://github.com/neuralmagic/deepsparse/raw/main/examples/ultralytics-yolo/ultralytics-readmes/tensor-columns.png" width="60%"/>
 </p>
@@ -2791,8 +2787,7 @@ vertical stripes of computation that fit in cache.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>wget<span class="w"> </span>-O<span class="w"> </span>basilica.jpg<span class="w"> </span>https://raw.githubusercontent.com/neuralmagic/deepsparse/main/src/deepsparse/yolo/sample_images/basilica.jpg
 </code></pre></div>
 <h4 id="python-api">Python API</h4>
-<p><code>Pipelines</code> wrap pre-processing and output post-processing around the runtime, providing a clean interface for adding DeepSparse to an application.
-The DeepSparse-Ultralytics integration includes an out-of-the-box <code>Pipeline</code> that accepts raw images and outputs the bounding boxes.</p>
+<p><code>Pipelines</code> wrap pre-processing and output post-processing around the runtime, providing a clean interface for adding DeepSparse to an application. The DeepSparse-Ultralytics integration includes an out-of-the-box <code>Pipeline</code> that accepts raw images and outputs the bounding boxes.</p>
 <p>Create a <code>Pipeline</code> and run inference:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">deepsparse</span> <span class="kn">import</span> <span class="n">Pipeline</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
@@ -2814,9 +2809,7 @@ The DeepSparse-Ultralytics integration includes an out-of-the-box <code>Pipeline
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>apt-get install libgl1-mesa-glx
 </code></pre></div>
 <h4 id="http-server">HTTP Server</h4>
-<p>DeepSparse Server runs on top of the popular FastAPI web framework and Uvicorn web server. With just a single CLI command, you can easily setup a model
-service endpoint with DeepSparse. The Server supports any Pipeline from DeepSparse, including object detection with YOLOv5, enabling you to send raw
-images to the endpoint and receive the bounding boxes.</p>
+<p>DeepSparse Server runs on top of the popular FastAPI web framework and Uvicorn web server. With just a single CLI command, you can easily setup a model service endpoint with DeepSparse. The Server supports any Pipeline from DeepSparse, including object detection with YOLOv5, enabling you to send raw images to the endpoint and receive the bounding boxes.</p>
 <p>Spin up the Server with the pruned-quantized YOLOv5s:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>deepsparse.server<span class="w"> </span><span class="se">\</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span>--task<span class="w"> </span>yolo<span class="w"> </span><span class="se">\</span>
@@ -2910,7 +2903,7 @@ images to the endpoint and receive the bounding boxes.</p>
 </code></pre></div>
 <h2 id="get-started-with-deepsparse">Get Started With DeepSparse</h2>
 <p><strong>Research or Testing?</strong> DeepSparse Community is free for research and testing. Get started with our <a href="https://docs.neuralmagic.com/">Documentation</a>.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-04-21, Updated 2023-08-02<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-04-21, Updated 2023-10-09<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

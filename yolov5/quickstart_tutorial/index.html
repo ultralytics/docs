@@ -2648,8 +2648,7 @@
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># install</span>
 </code></pre></div>
 <h2 id="inference">Inference</h2>
-<p>YOLOv5 <a href="https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading">PyTorch Hub</a> inference. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> download automatically from the latest
-YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
+<p>YOLOv5 <a href="https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading">PyTorch Hub</a> inference. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">torch</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Model</span>
@@ -2665,8 +2664,7 @@ YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
 <a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">results</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>  <span class="c1"># or .show(), .save(), .crop(), .pandas(), etc.</span>
 </code></pre></div>
 <h2 id="inference-with-detectpy">Inference with detect.py</h2>
-<p><code>detect.py</code> runs inference on a variety of sources, downloading <a href="https://github.com/ultralytics/yolov5/tree/master/models">models</a> automatically from
-the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a> and saving results to <code>runs/detect</code>.</p>
+<p><code>detect.py</code> runs inference on a variety of sources, downloading <a href="https://github.com/ultralytics/yolov5/tree/master/models">models</a> automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a> and saving results to <code>runs/detect</code>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span><span class="m">0</span><span class="w">                               </span><span class="c1"># webcam</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">                                               </span>img.jpg<span class="w">                         </span><span class="c1"># image</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">                                               </span>vid.mp4<span class="w">                         </span><span class="c1"># video</span>
@@ -2681,11 +2679,7 @@ the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">relea
 <h2 id="training">Training</h2>
 <p>The commands below reproduce YOLOv5 <a href="https://github.com/ultralytics/yolov5/blob/master/data/scripts/get_coco.sh">COCO</a>
 results. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a>
-and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest
-YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>. Training times for YOLOv5n/s/m/l/x are
-1/2/4/6/8 days on a V100 GPU (<a href="https://docs.ultralytics.com/yolov5/tutorials/multi_gpu_training">Multi-GPU</a> times faster). Use the
-largest <code>--batch-size</code> possible, or pass <code>--batch-size -1</code> for
-YOLOv5 <a href="https://github.com/ultralytics/yolov5/pull/5092">AutoBatch</a>. Batch sizes shown for V100-16GB.</p>
+and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>. Training times for YOLOv5n/s/m/l/x are 1/2/4/6/8 days on a V100 GPU (<a href="https://docs.ultralytics.com/yolov5/tutorials/multi_gpu_training">Multi-GPU</a> times faster). Use the largest <code>--batch-size</code> possible, or pass <code>--batch-size -1</code> for YOLOv5 <a href="https://github.com/ultralytics/yolov5/pull/5092">AutoBatch</a>. Batch sizes shown for V100-16GB.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--epochs<span class="w"> </span><span class="m">300</span><span class="w"> </span>--weights<span class="w"> </span><span class="s1">''</span><span class="w"> </span>--cfg<span class="w"> </span>yolov5n.yaml<span class="w">  </span>--batch-size<span class="w"> </span><span class="m">128</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">                                                                 </span>yolov5s<span class="w">                    </span><span class="m">64</span>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">                                                                 </span>yolov5m<span class="w">                    </span><span class="m">40</span>
@@ -2693,7 +2687,7 @@ YOLOv5 <a href="https://github.com/ultralytics/yolov5/pull/5092">AutoBatch</a>. 
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">                                                                 </span>yolov5x<span class="w">                    </span><span class="m">16</span>
 </code></pre></div>
 <p><img src="https://user-images.githubusercontent.com/26833433/90222759-949d8800-ddc1-11ea-9fa1-1c97eed2b963.png" width="800"/></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-04-21, Updated 2023-09-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-04-21, Updated 2023-10-09<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (9), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -2648,8 +2648,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1 id="command-line-interface-usage">Command Line Interface Usage</h1>
-<p>The YOLO command line interface (CLI) allows for simple single-line commands without the need for a Python environment.
-CLI requires no customization or Python code. You can simply run all tasks from the terminal with the <code>yolo</code> command.</p>
+<p>The YOLO command line interface (CLI) allows for simple single-line commands without the need for a Python environment. CLI requires no customization or Python code. You can simply run all tasks from the terminal with the <code>yolo</code> command.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Syntax</label><label for="__tabbed_1_2">Train</label><label for="__tabbed_1_3">Predict</label><label for="__tabbed_1_4">Val</label><label for="__tabbed_1_5">Export</label><label for="__tabbed_1_6">Special</label></div>
@@ -2699,11 +2698,9 @@ See all ARGS in the full <a href="../cfg/">Configuration Guide</a> or with <code
 </div>
 <p>Where:</p>
 <ul>
-<li><code>TASK</code> (optional) is one of <code>[detect, segment, classify]</code>. If it is not passed explicitly YOLOv8 will try to guess
-  the <code>TASK</code> from the model type.</li>
+<li><code>TASK</code> (optional) is one of <code>[detect, segment, classify]</code>. If it is not passed explicitly YOLOv8 will try to guess the <code>TASK</code> from the model type.</li>
 <li><code>MODE</code> (required) is one of <code>[train, val, predict, export, track]</code></li>
-<li><code>ARGS</code> (optional) are any number of custom <code>arg=value</code> pairs like <code>imgsz=320</code> that override defaults.
-  For a full list of available <code>ARGS</code> see the <a href="../cfg/">Configuration</a> page and <code>defaults.yaml</code>
+<li><code>ARGS</code> (optional) are any number of custom <code>arg=value</code> pairs like <code>imgsz=320</code> that override defaults. For a full list of available <code>ARGS</code> see the <a href="../cfg/">Configuration</a> page and <code>defaults.yaml</code>
   GitHub <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/default.yaml">source</a>.</li>
 </ul>
 <div class="admonition warning">
@@ -2716,8 +2713,7 @@ See all ARGS in the full <a href="../cfg/">Configuration Guide</a> or with <code
 </ul>
 </div>
 <h2 id="train">Train</h2>
-<p>Train YOLOv8n on the COCO128 dataset for 100 epochs at image size 640. For a full list of available arguments see
-the <a href="../cfg/">Configuration</a> page.</p>
+<p>Train YOLOv8n on the COCO128 dataset for 100 epochs at image size 640. For a full list of available arguments see the <a href="../cfg/">Configuration</a> page.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Train</label><label for="__tabbed_2_2">Resume</label></div>
@@ -2736,8 +2732,7 @@ the <a href="../cfg/">Configuration</a> page.</p>
 </input></input></div>
 </div>
 <h2 id="val">Val</h2>
-<p>Validate trained YOLOv8n model accuracy on the COCO128 dataset. No argument need to passed as the <code>model</code> retains it's
-training <code>data</code> and arguments as model attributes.</p>
+<p>Validate trained YOLOv8n model accuracy on the COCO128 dataset. No argument need to passed as the <code>model</code> retains it's training <code>data</code> and arguments as model attributes.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Official</label><label for="__tabbed_3_2">Custom</label></div>
@@ -2793,8 +2788,7 @@ training <code>data</code> and arguments as model attributes.</p>
 </div>
 </input></input></div>
 </div>
-<p>Available YOLOv8 export formats are in the table below. You can export to any format using the <code>format</code> argument,
-i.e. <code>format='onnx'</code> or <code>format='engine'</code>.</p>
+<p>Available YOLOv8 export formats are in the table below. You can export to any format using the <code>format</code> argument, i.e. <code>format='onnx'</code> or <code>format='engine'</code>.</p>
 <table>
 <thead>
 <tr>
@@ -2923,11 +2917,9 @@ i.e. <code>format='onnx'</code> or <code>format='engine'</code>.</p>
 </input></input></input></div>
 </div>
 <h2 id="overriding-default-config-file">Overriding default config file</h2>
-<p>You can override the <code>default.yaml</code> config file entirely by passing a new file with the <code>cfg</code> arguments,
-i.e. <code>cfg=custom.yaml</code>.</p>
+<p>You can override the <code>default.yaml</code> config file entirely by passing a new file with the <code>cfg</code> arguments, i.e. <code>cfg=custom.yaml</code>.</p>
 <p>To do this first create a copy of <code>default.yaml</code> in your current working dir with the <code>yolo copy-cfg</code> command.</p>
-<p>This will create <code>default_copy.yaml</code>, which you can then pass as <code>cfg=default_copy.yaml</code> along with any additional args,
-like <code>imgsz=320</code> in this example:</p>
+<p>This will create <code>default_copy.yaml</code>, which you can then pass as <code>cfg=default_copy.yaml</code> along with any additional args, like <code>imgsz=320</code> in this example:</p>
 <div class="admonition example">
 <div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">CLI</label></div>
 <div class="tabbed-content">
@@ -2939,7 +2931,7 @@ like <code>imgsz=320</code> in this example:</p>
 </div>
 </input></div>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-09-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (11), <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/usage/cli.md">shuizhuyuanluo@126.com</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-10-09<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (12), <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/usage/cli.md">shuizhuyuanluo@126.com</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
