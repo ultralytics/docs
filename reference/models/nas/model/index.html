@@ -11,9 +11,9 @@
 <link href="../../fastsam/val/" rel="prev"/>
 <link href="../predict/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.4" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.5" name="generator"/>
 <title>model - Ultralytics YOLOv8 Docs</title>
-<link href="../../../../assets/stylesheets/main.bd3936ea.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/main.6a10b989.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -2654,6 +2654,44 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
             Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.engine.model.Model" href="../../../engine/model/#ultralytics.engine.model.Model">Model</a></code></p>
+<p>YOLO NAS model for object detection.</p>
+<p>This class provides an interface for the YOLO-NAS models and extends the <code>Model</code> class from Ultralytics engine.
+It is designed to facilitate the task of object detection using pre-trained or custom-trained YOLO-NAS models.</p>
+<details class="example" open="">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">NAS</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">NAS</span><span class="p">(</span><span class="s1">'yolo_nas_s'</span><span class="p">)</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">'ultralytics/assets/bus.jpg'</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model</code></td>
+<td>
+<code>str</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to the pre-trained model or model name. Defaults to 'yolo_nas_s.pt'.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="note" open="">
+<summary>Note</summary>
+<p>YOLO-NAS models only support pre-trained models. Do not provide YAML configuration files.</p>
+</details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/nas/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-25">25</a></span>
@@ -2694,45 +2732,85 @@
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
 <span class="normal"><a href="#__codelineno-0-61">61</a></span>
 <span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="k">class</span> <span class="nc">NAS</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'yolo_nas_s.pt'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">        </span><span class="sd">"""Initializes the NAS model with the provided or default 'yolo_nas_s.pt' model."""</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'.yml'</span><span class="p">),</span> <span class="s1">'YOLO-NAS models only support pre-trained models.'</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span>
+<span class="normal"><a href="#__codelineno-0-69">69</a></span>
+<span class="normal"><a href="#__codelineno-0-70">70</a></span>
+<span class="normal"><a href="#__codelineno-0-71">71</a></span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span>
+<span class="normal"><a href="#__codelineno-0-74">74</a></span>
+<span class="normal"><a href="#__codelineno-0-75">75</a></span>
+<span class="normal"><a href="#__codelineno-0-76">76</a></span>
+<span class="normal"><a href="#__codelineno-0-77">77</a></span>
+<span class="normal"><a href="#__codelineno-0-78">78</a></span>
+<span class="normal"><a href="#__codelineno-0-79">79</a></span>
+<span class="normal"><a href="#__codelineno-0-80">80</a></span>
+<span class="normal"><a href="#__codelineno-0-81">81</a></span>
+<span class="normal"><a href="#__codelineno-0-82">82</a></span>
+<span class="normal"><a href="#__codelineno-0-83">83</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="k">class</span> <span class="nc">NAS</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    YOLO NAS model for object detection.</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    This class provides an interface for the YOLO-NAS models and extends the `Model` class from Ultralytics engine.</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    It is designed to facilitate the task of object detection using pre-trained or custom-trained YOLO-NAS models.</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="nd">@smart_inference_mode</span><span class="p">()</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">        </span><span class="sd">"""Loads an existing NAS model weights or creates a new NAS model with pretrained weights if not provided."""</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="kn">import</span> <span class="nn">super_gradients</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="n">suffix</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="k">if</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s1">'.pt'</span><span class="p">:</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="k">elif</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">super_gradients</span><span class="o">.</span><span class="n">training</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">pretrained_weights</span><span class="o">=</span><span class="s1">'coco'</span><span class="p">)</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="c1"># Standardize model</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fuse</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">stride</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">32</span><span class="p">])</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_class_names</span><span class="p">))</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">is_fused</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="kc">False</span>  <span class="c1"># for info()</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">yaml</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># for info()</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pt_path</span> <span class="o">=</span> <span class="n">weights</span>  <span class="c1"># for export()</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s1">'detect'</span>  <span class="c1"># for export()</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        Logs model info.</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">            detailed (bool): Show detailed information about model.</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">            verbose (bool): Controls verbosity.</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">        """</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="k">return</span> <span class="n">model_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="n">detailed</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">        </span><span class="sd">"""Returns a dictionary mapping tasks to respective predictor and validator classes."""</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="k">return</span> <span class="p">{</span><span class="s1">'detect'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'predictor'</span><span class="p">:</span> <span class="n">NASPredictor</span><span class="p">,</span> <span class="s1">'validator'</span><span class="p">:</span> <span class="n">NASValidator</span><span class="p">}}</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        from ultralytics import NAS</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        model = NAS('yolo_nas_s')</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        results = model.predict('ultralytics/assets/bus.jpg')</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    Attributes:</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        model (str): Path to the pre-trained model or model name. Defaults to 'yolo_nas_s.pt'.</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    Note:</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        YOLO-NAS models only support pre-trained models. Do not provide YAML configuration files.</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    """</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'yolo_nas_s.pt'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">        </span><span class="sd">"""Initializes the NAS model with the provided or default 'yolo_nas_s.pt' model."""</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'.yml'</span><span class="p">),</span> <span class="s1">'YOLO-NAS models only support pre-trained models.'</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">)</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">        </span><span class="sd">"""Loads an existing NAS model weights or creates a new NAS model with pretrained weights if not provided."""</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="kn">import</span> <span class="nn">super_gradients</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="n">suffix</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="k">if</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s1">'.pt'</span><span class="p">:</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="k">elif</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">super_gradients</span><span class="o">.</span><span class="n">training</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">pretrained_weights</span><span class="o">=</span><span class="s1">'coco'</span><span class="p">)</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="c1"># Standardize model</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fuse</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">stride</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">32</span><span class="p">])</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_class_names</span><span class="p">))</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">is_fused</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="kc">False</span>  <span class="c1"># for info()</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">yaml</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># for info()</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pt_path</span> <span class="o">=</span> <span class="n">weights</span>  <span class="c1"># for export()</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s1">'detect'</span>  <span class="c1"># for export()</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        Logs model info.</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">            detailed (bool): Show detailed information about model.</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">            verbose (bool): Controls verbosity.</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">        """</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>        <span class="k">return</span> <span class="n">model_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="n">detailed</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="w">        </span><span class="sd">"""Returns a dictionary mapping tasks to respective predictor and validator classes."""</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>        <span class="k">return</span> <span class="p">{</span><span class="s1">'detect'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'predictor'</span><span class="p">:</span> <span class="n">NASPredictor</span><span class="p">,</span> <span class="s1">'validator'</span><span class="p">:</span> <span class="n">NASValidator</span><span class="p">}}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2755,13 +2833,13 @@
 <p>Initializes the NAS model with the provided or default 'yolo_nas_s.pt' model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/nas/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'yolo_nas_s.pt'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">    </span><span class="sd">"""Initializes the NAS model with the provided or default 'yolo_nas_s.pt' model."""</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'.yml'</span><span class="p">),</span> <span class="s1">'YOLO-NAS models only support pre-trained models.'</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'yolo_nas_s.pt'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">    </span><span class="sd">"""Initializes the NAS model with the provided or default 'yolo_nas_s.pt' model."""</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'.yml'</span><span class="p">),</span> <span class="s1">'YOLO-NAS models only support pre-trained models.'</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2815,23 +2893,23 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/nas/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    Logs model info.</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">        detailed (bool): Show detailed information about model.</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">        verbose (bool): Controls verbosity.</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    """</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">return</span> <span class="n">model_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="n">detailed</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-70">70</a></span>
+<span class="normal"><a href="#__codelineno-0-71">71</a></span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span>
+<span class="normal"><a href="#__codelineno-0-74">74</a></span>
+<span class="normal"><a href="#__codelineno-0-75">75</a></span>
+<span class="normal"><a href="#__codelineno-0-76">76</a></span>
+<span class="normal"><a href="#__codelineno-0-77">77</a></span>
+<span class="normal"><a href="#__codelineno-0-78">78</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    Logs model info.</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">        detailed (bool): Show detailed information about model.</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        verbose (bool): Controls verbosity.</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">    """</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="k">return</span> <span class="n">model_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="n">detailed</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2939,6 +3017,6 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.indexes", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../../assets/javascripts/bundle.94c44541.min.js"></script>
+<script src="../../../../assets/javascripts/bundle.aecac24b.min.js"></script>
 </body>
 </html>
