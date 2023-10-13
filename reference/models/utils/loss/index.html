@@ -3122,7 +3122,7 @@ losses.</p>
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a>
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="k">def</span> <span class="nf">_get_loss_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_scores</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">gt_scores</span><span class="p">,</span> <span class="n">num_gts</span><span class="p">,</span> <span class="n">postfix</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">        </span><span class="sd">"""Computes the classification loss based on predictions, target values, and ground truth scores."""</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="c1"># logits: [b, query, num_classes], gt_class: list[[n, 1]]</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="c1"># Logits: [b, query, num_classes], gt_class: list[[n, 1]]</span>
 <a id="__codelineno-0-70" name="__codelineno-0-70"></a>        <span class="n">name_class</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'loss_class</span><span class="si">{</span><span class="n">postfix</span><span class="si">}</span><span class="s1">'</span>
 <a id="__codelineno-0-71" name="__codelineno-0-71"></a>        <span class="n">bs</span><span class="p">,</span> <span class="n">nq</span> <span class="o">=</span> <span class="n">pred_scores</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="c1"># one_hot = F.one_hot(targets, self.nc + 1)[..., :-1]  # (bs, num_queries, num_classes)</span>
@@ -3146,7 +3146,7 @@ losses.</p>
 <a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">        </span><span class="sd">"""Calculates and returns the bounding box loss and GIoU loss for the predicted and ground truth bounding</span>
 <a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">        boxes.</span>
 <a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="sd">        """</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="c1"># boxes: [b, query, 4], gt_bbox: list[[n, 4]]</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="c1"># Boxes: [b, query, 4], gt_bbox: list[[n, 4]]</span>
 <a id="__codelineno-0-94" name="__codelineno-0-94"></a>        <span class="n">name_bbox</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'loss_bbox</span><span class="si">{</span><span class="n">postfix</span><span class="si">}</span><span class="s1">'</span>
 <a id="__codelineno-0-95" name="__codelineno-0-95"></a>        <span class="n">name_giou</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'loss_giou</span><span class="si">{</span><span class="n">postfix</span><span class="si">}</span><span class="s1">'</span>
 <a id="__codelineno-0-96" name="__codelineno-0-96"></a>

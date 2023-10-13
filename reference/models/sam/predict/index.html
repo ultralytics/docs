@@ -3221,8 +3221,7 @@ points, and low-resolution masks for better prediction results.</p>
 <span class="normal"><a href="#__codelineno-0-426">426</a></span>
 <span class="normal"><a href="#__codelineno-0-427">427</a></span>
 <span class="normal"><a href="#__codelineno-0-428">428</a></span>
-<span class="normal"><a href="#__codelineno-0-429">429</a></span>
-<span class="normal"><a href="#__codelineno-0-430">430</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="k">class</span> <span class="nc">Predictor</span><span class="p">(</span><span class="n">BasePredictor</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-429">429</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="k">class</span> <span class="nc">Predictor</span><span class="p">(</span><span class="n">BasePredictor</span><span class="p">):</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    A prediction class for segmentation tasks, extending the BasePredictor.</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>
@@ -3620,20 +3619,19 @@ points, and low-resolution masks for better prediction results.</p>
 <a id="__codelineno-0-414" name="__codelineno-0-414"></a>            <span class="n">unchanged</span> <span class="o">=</span> <span class="n">unchanged</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">changed</span>
 <a id="__codelineno-0-415" name="__codelineno-0-415"></a>
 <a id="__codelineno-0-416" name="__codelineno-0-416"></a>            <span class="n">new_masks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-<a id="__codelineno-0-417" name="__codelineno-0-417"></a>            <span class="c1"># Give score=0 to changed masks and score=1 to unchanged masks</span>
-<a id="__codelineno-0-418" name="__codelineno-0-418"></a>            <span class="c1"># so NMS will prefer ones that didn't need postprocessing</span>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a>            <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">unchanged</span><span class="p">))</span>
-<a id="__codelineno-0-420" name="__codelineno-0-420"></a>
-<a id="__codelineno-0-421" name="__codelineno-0-421"></a>        <span class="c1"># Recalculate boxes and remove any new duplicates</span>
-<a id="__codelineno-0-422" name="__codelineno-0-422"></a>        <span class="n">new_masks</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">new_masks</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-423" name="__codelineno-0-423"></a>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">batched_mask_to_box</span><span class="p">(</span><span class="n">new_masks</span><span class="p">)</span>
-<a id="__codelineno-0-424" name="__codelineno-0-424"></a>        <span class="n">keep</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">nms</span><span class="p">(</span>
-<a id="__codelineno-0-425" name="__codelineno-0-425"></a>            <span class="n">boxes</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span>
-<a id="__codelineno-0-426" name="__codelineno-0-426"></a>            <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">scores</span><span class="p">),</span>
-<a id="__codelineno-0-427" name="__codelineno-0-427"></a>            <span class="n">nms_thresh</span><span class="p">,</span>
-<a id="__codelineno-0-428" name="__codelineno-0-428"></a>        <span class="p">)</span>
-<a id="__codelineno-0-429" name="__codelineno-0-429"></a>
-<a id="__codelineno-0-430" name="__codelineno-0-430"></a>        <span class="k">return</span> <span class="n">new_masks</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="n">keep</span>
+<a id="__codelineno-0-417" name="__codelineno-0-417"></a>            <span class="c1"># Give score=0 to changed masks and 1 to unchanged masks so NMS prefers masks not needing postprocessing</span>
+<a id="__codelineno-0-418" name="__codelineno-0-418"></a>            <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">unchanged</span><span class="p">))</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>
+<a id="__codelineno-0-420" name="__codelineno-0-420"></a>        <span class="c1"># Recalculate boxes and remove any new duplicates</span>
+<a id="__codelineno-0-421" name="__codelineno-0-421"></a>        <span class="n">new_masks</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">new_masks</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">batched_mask_to_box</span><span class="p">(</span><span class="n">new_masks</span><span class="p">)</span>
+<a id="__codelineno-0-423" name="__codelineno-0-423"></a>        <span class="n">keep</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">nms</span><span class="p">(</span>
+<a id="__codelineno-0-424" name="__codelineno-0-424"></a>            <span class="n">boxes</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span>
+<a id="__codelineno-0-425" name="__codelineno-0-425"></a>            <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">scores</span><span class="p">),</span>
+<a id="__codelineno-0-426" name="__codelineno-0-426"></a>            <span class="n">nms_thresh</span><span class="p">,</span>
+<a id="__codelineno-0-427" name="__codelineno-0-427"></a>        <span class="p">)</span>
+<a id="__codelineno-0-428" name="__codelineno-0-428"></a>
+<a id="__codelineno-0-429" name="__codelineno-0-429"></a>        <span class="k">return</span> <span class="n">new_masks</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="n">keep</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -4972,8 +4970,7 @@ Requires open-cv as a dependency.</p>
 <span class="normal"><a href="#__codelineno-0-426">426</a></span>
 <span class="normal"><a href="#__codelineno-0-427">427</a></span>
 <span class="normal"><a href="#__codelineno-0-428">428</a></span>
-<span class="normal"><a href="#__codelineno-0-429">429</a></span>
-<span class="normal"><a href="#__codelineno-0-430">430</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="nd">@staticmethod</span>
+<span class="normal"><a href="#__codelineno-0-429">429</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="nd">@staticmethod</span>
 <a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="k">def</span> <span class="nf">remove_small_regions</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">min_area</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nms_thresh</span><span class="o">=</span><span class="mf">0.7</span><span class="p">):</span>
 <a id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-391" name="__codelineno-0-391"></a><span class="sd">    Removes small disconnected regions and holes in masks, then reruns box NMS to remove any new duplicates.</span>
@@ -5002,20 +4999,19 @@ Requires open-cv as a dependency.</p>
 <a id="__codelineno-0-414" name="__codelineno-0-414"></a>        <span class="n">unchanged</span> <span class="o">=</span> <span class="n">unchanged</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">changed</span>
 <a id="__codelineno-0-415" name="__codelineno-0-415"></a>
 <a id="__codelineno-0-416" name="__codelineno-0-416"></a>        <span class="n">new_masks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-<a id="__codelineno-0-417" name="__codelineno-0-417"></a>        <span class="c1"># Give score=0 to changed masks and score=1 to unchanged masks</span>
-<a id="__codelineno-0-418" name="__codelineno-0-418"></a>        <span class="c1"># so NMS will prefer ones that didn't need postprocessing</span>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a>        <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">unchanged</span><span class="p">))</span>
-<a id="__codelineno-0-420" name="__codelineno-0-420"></a>
-<a id="__codelineno-0-421" name="__codelineno-0-421"></a>    <span class="c1"># Recalculate boxes and remove any new duplicates</span>
-<a id="__codelineno-0-422" name="__codelineno-0-422"></a>    <span class="n">new_masks</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">new_masks</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-423" name="__codelineno-0-423"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">batched_mask_to_box</span><span class="p">(</span><span class="n">new_masks</span><span class="p">)</span>
-<a id="__codelineno-0-424" name="__codelineno-0-424"></a>    <span class="n">keep</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">nms</span><span class="p">(</span>
-<a id="__codelineno-0-425" name="__codelineno-0-425"></a>        <span class="n">boxes</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span>
-<a id="__codelineno-0-426" name="__codelineno-0-426"></a>        <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">scores</span><span class="p">),</span>
-<a id="__codelineno-0-427" name="__codelineno-0-427"></a>        <span class="n">nms_thresh</span><span class="p">,</span>
-<a id="__codelineno-0-428" name="__codelineno-0-428"></a>    <span class="p">)</span>
-<a id="__codelineno-0-429" name="__codelineno-0-429"></a>
-<a id="__codelineno-0-430" name="__codelineno-0-430"></a>    <span class="k">return</span> <span class="n">new_masks</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="n">keep</span>
+<a id="__codelineno-0-417" name="__codelineno-0-417"></a>        <span class="c1"># Give score=0 to changed masks and 1 to unchanged masks so NMS prefers masks not needing postprocessing</span>
+<a id="__codelineno-0-418" name="__codelineno-0-418"></a>        <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">unchanged</span><span class="p">))</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>
+<a id="__codelineno-0-420" name="__codelineno-0-420"></a>    <span class="c1"># Recalculate boxes and remove any new duplicates</span>
+<a id="__codelineno-0-421" name="__codelineno-0-421"></a>    <span class="n">new_masks</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">new_masks</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">batched_mask_to_box</span><span class="p">(</span><span class="n">new_masks</span><span class="p">)</span>
+<a id="__codelineno-0-423" name="__codelineno-0-423"></a>    <span class="n">keep</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">nms</span><span class="p">(</span>
+<a id="__codelineno-0-424" name="__codelineno-0-424"></a>        <span class="n">boxes</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span>
+<a id="__codelineno-0-425" name="__codelineno-0-425"></a>        <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">scores</span><span class="p">),</span>
+<a id="__codelineno-0-426" name="__codelineno-0-426"></a>        <span class="n">nms_thresh</span><span class="p">,</span>
+<a id="__codelineno-0-427" name="__codelineno-0-427"></a>    <span class="p">)</span>
+<a id="__codelineno-0-428" name="__codelineno-0-428"></a>
+<a id="__codelineno-0-429" name="__codelineno-0-429"></a>    <span class="k">return</span> <span class="n">new_masks</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="n">keep</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
