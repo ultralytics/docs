@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore Meituan YOLOv6, a state-of-the-art object detection model striking a balance between speed and accuracy. Dive into features, pre-trained models, and Python usage." name="description"/>
+<meta content="Uncover the utility of MLflow for effective experiment logging in your Ultralytics YOLO projects." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/models/yolov6/" rel="canonical"/>
-<link href="../yolov5/" rel="prev"/>
-<link href="../yolov7/" rel="next"/>
+<link href="https://docs.ultralytics.com/integrations/mlflow/" rel="canonical"/>
+<link href="../roboflow/" rel="prev"/>
+<link href="../../usage/cli/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.5" name="generator"/>
-<title>YOLOv6 - Ultralytics YOLOv8 Docs</title>
+<title>MLflow - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.6a10b989.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -24,14 +24,14 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLOv6" name="title"/><meta content="Meituan YOLOv6, object detection, Ultralytics, YOLOv6 docs, Bi-directional Concatenation, Anchor-Aided Training, pretrained models, real-time applications" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/yolov6" property="og:url"/><meta content="YOLOv6" property="og:title"/><meta content="Explore Meituan YOLOv6, a state-of-the-art object detection model striking a balance between speed and accuracy. Dive into features, pre-trained models, and Python usage." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/240750495-4da954ce-8b3b-41c4-8afd-ddb74361d3c2.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/yolov6" property="twitter:url"/><meta content="YOLOv6" property="twitter:title"/><meta content="Explore Meituan YOLOv6, a state-of-the-art object detection model striking a balance between speed and accuracy. Dive into features, pre-trained models, and Python usage." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/240750495-4da954ce-8b3b-41c4-8afd-ddb74361d3c2.png" property="twitter:image"/></head>
+<meta content="MLflow" name="title"/><meta content="ultralytics docs, YOLO, MLflow, experiment logging, metrics tracking, parameter logging, artifact logging" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/mlflow" property="og:url"/><meta content="MLflow" property="og:title"/><meta content="Uncover the utility of MLflow for effective experiment logging in your Ultralytics YOLO projects." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/274929143-05e37e72-c355-44be-a842-b358592340b7.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/mlflow" property="twitter:url"/><meta content="MLflow" property="twitter:title"/><meta content="Uncover the utility of MLflow for effective experiment logging in your Ultralytics YOLO projects." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/274929143-05e37e72-c355-44be-a842-b358592340b7.png" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#meituan-yolov6">
+<a class="md-skip" href="#mlflow-integration-for-ultralytics-yolo">
           Skip to content
         </a>
 </div>
@@ -55,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              YOLOv6
+              MLflow
             
           </span>
 </div>
@@ -159,8 +159,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../models/">
           
   
     
@@ -189,8 +189,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../integrations/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
           
   
     
@@ -536,10 +536,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -548,142 +548,84 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
             Models
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov3/">
+<a class="md-nav__link" href="../../models/yolov3/">
 <span class="md-ellipsis">
     YOLOv3
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov4/">
+<a class="md-nav__link" href="../../models/yolov4/">
 <span class="md-ellipsis">
     YOLOv4
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/">
+<a class="md-nav__link" href="../../models/yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    YOLOv6
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../models/yolov6/">
 <span class="md-ellipsis">
     YOLOv6
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#overview">
-    Overview
-  </a>
-<nav aria-label="Overview" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-features">
-    Key Features
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pre-trained-models">
-    Pre-trained Models
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
-    Usage
-  </a>
-<nav aria-label="Usage" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#supported-tasks">
-    Supported Tasks
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#supported-modes">
-    Supported Modes
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#citations-and-acknowledgements">
-    Citations and Acknowledgements
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../yolov7/">
+<a class="md-nav__link" href="../../models/yolov7/">
 <span class="md-ellipsis">
     YOLOv7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov8/">
+<a class="md-nav__link" href="../../models/yolov8/">
 <span class="md-ellipsis">
     YOLOv8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../sam/">
+<a class="md-nav__link" href="../../models/sam/">
 <span class="md-ellipsis">
     SAM (Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../mobile-sam/">
+<a class="md-nav__link" href="../../models/mobile-sam/">
 <span class="md-ellipsis">
     MobileSAM (Mobile Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../fast-sam/">
+<a class="md-nav__link" href="../../models/fast-sam/">
 <span class="md-ellipsis">
     FastSAM (Fast Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolo-nas/">
+<a class="md-nav__link" href="../../models/yolo-nas/">
 <span class="md-ellipsis">
     YOLO-NAS (Neural Architecture Search)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../rtdetr/">
+<a class="md-nav__link" href="../../models/rtdetr/">
 <span class="md-ellipsis">
     RT-DETR (Realtime Detection Transformer)
   </span>
@@ -1102,10 +1044,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../integrations/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1114,39 +1056,108 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
             Integrations
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/openvino/">
+<a class="md-nav__link" href="../openvino/">
 <span class="md-ellipsis">
     OpenVINO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/ray-tune/">
+<a class="md-nav__link" href="../ray-tune/">
 <span class="md-ellipsis">
     Ray Tune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/roboflow/">
+<a class="md-nav__link" href="../roboflow/">
 <span class="md-ellipsis">
     Roboflow
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/mlflow/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    MLflow
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     MLflow
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-mlflow">
+    What is MLflow?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#features">
+    Features
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-and-prerequisites">
+    Setup and Prerequisites
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-use">
+    How to Use
+  </a>
+<nav aria-label="How to Use" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#commands">
+    Commands
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logging">
+    Logging
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examples">
+    Examples
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#disabling-mlflow">
+    Disabling MLflow
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -2664,148 +2675,104 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/models/yolov6.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/integrations/mlflow.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="meituan-yolov6">Meituan YOLOv6</h1>
-<h2 id="overview">Overview</h2>
-<p><a href="https://about.meituan.com/">Meituan</a> YOLOv6 is a cutting-edge object detector that offers remarkable balance between speed and accuracy, making it a popular choice for real-time applications. This model introduces several notable enhancements on its architecture and training scheme, including the implementation of a Bi-directional Concatenation (BiC) module, an anchor-aided training (AAT) strategy, and an improved backbone and neck design for state-of-the-art accuracy on the COCO dataset.</p>
-<p><img alt="Meituan YOLOv6" src="https://user-images.githubusercontent.com/26833433/240750495-4da954ce-8b3b-41c4-8afd-ddb74361d3c2.png">
-<img alt="Model example image" src="https://user-images.githubusercontent.com/26833433/240750557-3e9ec4f0-0598-49a8-83ea-f33c91eb6d68.png">
-<strong>Overview of YOLOv6.</strong> Model architecture diagram showing the redesigned network components and training strategies that have led to significant performance improvements. (a) The neck of YOLOv6 (N and S are shown). Note for M/L, RepBlocks is replaced with CSPStackRep. (b) The structure of a BiC module. (c) A SimCSPSPPF block. (<a href="https://arxiv.org/pdf/2301.05586.pdf">source</a>).</img></img></p>
-<h3 id="key-features">Key Features</h3>
+<h1 id="mlflow-integration-for-ultralytics-yolo">MLflow Integration for Ultralytics YOLO</h1>
+<p><img alt="MLflow ecosystem" src="https://user-images.githubusercontent.com/26833433/274929143-05e37e72-c355-44be-a842-b358592340b7.png" width="1024"/></p>
+<h2 id="introduction">Introduction</h2>
+<p>Experiment logging is a crucial aspect of machine learning workflows that enables tracking of various metrics, parameters, and artifacts. It helps to enhance model reproducibility, debug issues, and improve model performance. <a href="https://ultralytics.com">Ultralytics</a> YOLO, known for its real-time object detection capabilities, now offers integration with <a href="https://mlflow.org/">MLflow</a>, an open-source platform for complete machine learning lifecycle management.</p>
+<p>This documentation page is a comprehensive guide to setting up and utilizing the MLflow logging capabilities for your Ultralytics YOLO project.</p>
+<h2 id="what-is-mlflow">What is MLflow?</h2>
+<p><a href="https://mlflow.org/">MLflow</a> is an open-source platform developed by <a href="https://www.databricks.com/">Databricks</a> for managing the end-to-end machine learning lifecycle. It includes tools for tracking experiments, packaging code into reproducible runs, and sharing and deploying models. MLflow is designed to work with any machine learning library and programming language.</p>
+<h2 id="features">Features</h2>
 <ul>
-<li><strong>Bidirectional Concatenation (BiC) Module:</strong> YOLOv6 introduces a BiC module in the neck of the detector, enhancing localization signals and delivering performance gains with negligible speed degradation.</li>
-<li><strong>Anchor-Aided Training (AAT) Strategy:</strong> This model proposes AAT to enjoy the benefits of both anchor-based and anchor-free paradigms without compromising inference efficiency.</li>
-<li><strong>Enhanced Backbone and Neck Design:</strong> By deepening YOLOv6 to include another stage in the backbone and neck, this model achieves state-of-the-art performance on the COCO dataset at high-resolution input.</li>
-<li><strong>Self-Distillation Strategy:</strong> A new self-distillation strategy is implemented to boost the performance of smaller models of YOLOv6, enhancing the auxiliary regression branch during training and removing it at inference to avoid a marked speed decline.</li>
+<li><strong>Metrics Logging</strong>: Logs metrics at the end of each epoch and at the end of the training.</li>
+<li><strong>Parameter Logging</strong>: Logs all the parameters used in the training.</li>
+<li><strong>Artifacts Logging</strong>: Logs model artifacts, including weights and configuration files, at the end of the training.</li>
 </ul>
-<h2 id="pre-trained-models">Pre-trained Models</h2>
-<p>YOLOv6 provides various pre-trained models with different scales:</p>
-<ul>
-<li>YOLOv6-N: 37.5% AP on COCO val2017 at 1187 FPS with NVIDIA Tesla T4 GPU.</li>
-<li>YOLOv6-S: 45.0% AP at 484 FPS.</li>
-<li>YOLOv6-M: 50.0% AP at 226 FPS.</li>
-<li>YOLOv6-L: 52.8% AP at 116 FPS.</li>
-<li>YOLOv6-L6: State-of-the-art accuracy in real-time.</li>
-</ul>
-<p>YOLOv6 also provides quantized models for different precisions and models optimized for mobile platforms.</p>
-<h2 id="usage">Usage</h2>
-<p>You can use YOLOv6 for object detection tasks using the Ultralytics pip package. The following is a sample code snippet showing how to use YOLOv6 models for training:</p>
+<h2 id="setup-and-prerequisites">Setup and Prerequisites</h2>
+<p>Ensure MLflow is installed. If not, install it using pip:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mlflow
+</code></pre></div>
+<p>Make sure that MLflow logging is enabled in Ultralytics settings. Usually, this is controlled by the settings <code>mflow</code> key. See the <a href="https://docs.ultralytics.com/quickstart/#ultralytics-settings">settings</a> page for more info.</p>
 <div class="admonition example">
-<p>This example provides simple training code for YOLOv6. For more options including training settings see <a href="../../modes/train/">Train</a> mode. For using YOLOv6 with additional modes see <a href="../../modes/predict/">Predict</a>, <a href="../../modes/val/">Val</a> and <a href="../../modes/export/">Export</a>.</p>
+<p class="admonition-title">Update Ultralytics MLflow Settings</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>PyTorch pretrained <code>*.pt</code> models as well as configuration <code>*.yaml</code> files can be passed to the <code>YOLO()</code> class to create a model instance in python:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Build a YOLOv6n model from scratch</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov6n.yaml'</span><span class="p">)</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Display model information (optional)</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># Run inference with the YOLOv6n model on the 'bus.jpg' image</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'path/to/bus.jpg'</span><span class="p">)</span>
-</code></pre></div>
+<p>Within the Python environment, call the <code>update</code> method on the <code>settings</code> object to change your settings:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">settings</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Update a setting</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">'mlflow'</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Reset settings to default values</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">settings</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</code></pre></div></p>
 </div>
 <div class="tabbed-block">
-<p>CLI commands are available to directly run the models:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Build a YOLOv6n model from scratch and train it on the COCO8 example dataset for 100 epochs</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov6n.yaml<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Build a YOLOv6n model from scratch and run inference on the 'bus.jpg' image</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov6n.yaml<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/bus.jpg
-</code></pre></div>
+<p>If you prefer using the command-line interface, the following commands will allow you to modify your settings:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Update a setting</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span>settings<span class="w"> </span><span class="nv">runs_dir</span><span class="o">=</span><span class="s1">'/path/to/runs'</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Reset settings to default values</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>yolo<span class="w"> </span>settings<span class="w"> </span>reset
+</code></pre></div></p>
 </div>
 </div>
 </input></input></div>
 </div>
-<h3 id="supported-tasks">Supported Tasks</h3>
-<table>
-<thead>
-<tr>
-<th>Model Type</th>
-<th>Pre-trained Weights</th>
-<th>Tasks Supported</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>YOLOv6-N</td>
-<td><code>yolov6-n.pt</code></td>
-<td>Object Detection</td>
-</tr>
-<tr>
-<td>YOLOv6-S</td>
-<td><code>yolov6-s.pt</code></td>
-<td>Object Detection</td>
-</tr>
-<tr>
-<td>YOLOv6-M</td>
-<td><code>yolov6-m.pt</code></td>
-<td>Object Detection</td>
-</tr>
-<tr>
-<td>YOLOv6-L</td>
-<td><code>yolov6-l.pt</code></td>
-<td>Object Detection</td>
-</tr>
-<tr>
-<td>YOLOv6-L6</td>
-<td><code>yolov6-l6.pt</code></td>
-<td>Object Detection</td>
-</tr>
-</tbody>
-</table>
-<h2 id="supported-modes">Supported Modes</h2>
-<table>
-<thead>
-<tr>
-<th>Mode</th>
-<th>Supported</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Inference</td>
-<td><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2714.svg" title=":heavy_check_mark:"/></td>
-</tr>
-<tr>
-<td>Validation</td>
-<td><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2714.svg" title=":heavy_check_mark:"/></td>
-</tr>
-<tr>
-<td>Training</td>
-<td><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2714.svg" title=":heavy_check_mark:"/></td>
-</tr>
-</tbody>
-</table>
-<h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
-<p>We would like to acknowledge the authors for their significant contributions in the field of real-time object detection:</p>
-<div class="admonition note">
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">li2023yolov6</span><span class="p">,</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{YOLOv6 v3.0: A Full-Scale Reloading}</span><span class="p">,</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Chuyi Li and Lulu Li and Yifei Geng and Hongliang Jiang and Meng Cheng and Bo Zhang and Zaidan Ke and Xiaoming Xu and Xiangxiang Chu}</span><span class="p">,</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2023}</span><span class="p">,</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{2301.05586}</span><span class="p">,</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="p">}</span>
+<h2 id="how-to-use">How to Use</h2>
+<h3 id="commands">Commands</h3>
+<ol>
+<li>
+<p><strong>Set a Project Name</strong>: You can set the project name via an environment variable:
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MLFLOW_EXPERIMENT_NAME</span><span class="o">=</span>&lt;your_experiment_name&gt;
 </code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<p>The original YOLOv6 paper can be found on <a href="https://arxiv.org/abs/2301.05586">arXiv</a>. The authors have made their work publicly available, and the codebase can be accessed on <a href="https://github.com/meituan/YOLOv6">GitHub</a>. We appreciate their efforts in advancing the field and making their work accessible to the broader community.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-25, Updated 2023-10-09<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+   Or use the <code>project=&lt;project&gt;</code> argument when training a YOLO model, i.e. <code>yolo train project=my_project</code>.</p>
+</li>
+<li>
+<p><strong>Set a Run Name</strong>: Similar to setting a project name, you can set the run name via an environment variable:
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MLFLOW_RUN</span><span class="o">=</span>&lt;your_run_name&gt;
+</code></pre></div>
+   Or use the <code>name=&lt;name&gt;</code> argument when training a YOLO model, i.e. <code>yolo train project=my_project name=my_name</code>.</p>
+</li>
+<li>
+<p><strong>Start Local MLflow Server</strong>: To start tracking, use:
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>mlflow<span class="w"> </span>server<span class="w"> </span>--backend-store-uri<span class="w"> </span>runs/mlflow<span class="err">'</span>
+</code></pre></div>
+   This will start a local server at http://127.0.0.1:5000 by default and save all mlflow logs to the 'runs/mlflow' directory. To specify a different URI, set the <code>MLFLOW_TRACKING_URI</code> environment variable.</p>
+</li>
+<li>
+<p><strong>Kill MLflow Server Instances</strong>: To stop all running MLflow instances, run:
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'mlflow'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">'grep'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-9
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="logging">Logging</h3>
+<p>The logging is taken care of by the <code>on_pretrain_routine_end</code>, <code>on_fit_epoch_end</code>, and <code>on_train_end</code> callback functions. These functions are automatically called during the respective stages of the training process, and they handle the logging of parameters, metrics, and artifacts.</p>
+<h2 id="examples">Examples</h2>
+<ol>
+<li>
+<p><strong>Logging Custom Metrics</strong>: You can add custom metrics to be logged by modifying the <code>trainer.metrics</code> dictionary before <code>on_fit_epoch_end</code> is called.</p>
+</li>
+<li>
+<p><strong>View Experiment</strong>: To view your logs, navigate to your MLflow server (usually http://127.0.0.1:5000) and select your experiment and run.
+   <img alt="YOLO MLflow Experiment" src="https://user-images.githubusercontent.com/26833433/274933329-3127aa8c-4491-48ea-81df-ed09a5837f2a.png" width="1024"/></p>
+</li>
+<li>
+<p><strong>View Run</strong>: Runs are individual models inside an experiment. Click on a Run and see the Run details, including uploaded artifacts and model weights.
+   <img alt="YOLO MLflow Run" src="https://user-images.githubusercontent.com/26833433/274933337-ac61371c-2867-4099-a733-147a2583b3de.png" width="1024"/></p>
+</li>
+</ol>
+<h2 id="disabling-mlflow">Disabling MLflow</h2>
+<p>To turn off MLflow logging:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>yolo<span class="w"> </span>settings<span class="w"> </span><span class="nv">mlflow</span><span class="o">=</span>False
+</code></pre></div>
+<h2 id="conclusion">Conclusion</h2>
+<p>MLflow logging integration with Ultralytics YOLO offers a streamlined way to keep track of your machine learning experiments. It empowers you to monitor performance metrics and manage artifacts effectively, thus aiding in robust model development and deployment. For further details please visit the MLflow <a href="https://mlflow.org/docs/latest/index.html">official documentation</a>.</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-10-13, Updated 2023-10-13<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2816,10 +2783,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/models/yolov6', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/mlflow', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/models/yolov6', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/mlflow', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -2867,7 +2834,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: YOLOv5" class="md-footer__link md-footer__link--prev" href="../yolov5/">
+<a aria-label="Previous: Roboflow" class="md-footer__link md-footer__link--prev" href="../roboflow/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2876,17 +2843,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                YOLOv5
+                Roboflow
               </div>
 </div>
 </a>
-<a aria-label="Next: YOLOv7" class="md-footer__link md-footer__link--next" href="../yolov7/">
+<a aria-label="Next: CLI" class="md-footer__link md-footer__link--next" href="../../usage/cli/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                YOLOv7
+                CLI
               </div>
 </div>
 <div class="md-footer__button md-icon">

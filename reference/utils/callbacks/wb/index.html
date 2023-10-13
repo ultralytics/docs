@@ -1083,6 +1083,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../integrations/mlflow/">
+<span class="md-ellipsis">
+    MLflow
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2660,7 +2667,7 @@
 <hr/>
 <div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="ultralytics.utils.callbacks.wb._custom_table">
-<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">wb</span><span class="o">.</span><span class="n">_custom_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Precision Recall Curve'</span><span class="p">,</span> <span class="n">x_axis_title</span><span class="o">=</span><span class="s1">'Recall'</span><span class="p">,</span> <span class="n">y_axis_title</span><span class="o">=</span><span class="s1">'Precision'</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">wb</span><span class="o">.</span><span class="n">_custom_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Precision Recall Curve'</span><span class="p">,</span> <span class="n">x_title</span><span class="o">=</span><span class="s1">'Recall'</span><span class="p">,</span> <span class="n">y_title</span><span class="o">=</span><span class="s1">'Precision'</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
 <p>Create and log a custom metric visualization to wandb.plot.pr_curve.</p>
@@ -2744,7 +2751,7 @@ while allowing for enhanced customization. The visual metric is useful for monit
 </div>
 </td>
 <td>
-<em>required</em>
+<code>'Recall'</code>
 </td>
 </tr>
 <tr>
@@ -2758,7 +2765,7 @@ while allowing for enhanced customization. The visual metric is useful for monit
 </div>
 </td>
 <td>
-<em>required</em>
+<code>'Precision'</code>
 </td>
 </tr>
 </tbody>
@@ -2810,7 +2817,7 @@ while allowing for enhanced customization. The visual metric is useful for monit
 <span class="normal"><a href="#__codelineno-0-43">43</a></span>
 <span class="normal"><a href="#__codelineno-0-44">44</a></span>
 <span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="k">def</span> <span class="nf">_custom_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Precision Recall Curve'</span><span class="p">,</span> <span class="n">x_axis_title</span><span class="o">=</span><span class="s1">'Recall'</span><span class="p">,</span> <span class="n">y_axis_title</span><span class="o">=</span><span class="s1">'Precision'</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="k">def</span> <span class="nf">_custom_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Precision Recall Curve'</span><span class="p">,</span> <span class="n">x_title</span><span class="o">=</span><span class="s1">'Recall'</span><span class="p">,</span> <span class="n">y_title</span><span class="o">=</span><span class="s1">'Precision'</span><span class="p">):</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    Create and log a custom metric visualization to wandb.plot.pr_curve.</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a>
@@ -2830,7 +2837,7 @@ while allowing for enhanced customization. The visual metric is useful for monit
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    """</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'class'</span><span class="p">:</span> <span class="n">classes</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">:</span> <span class="n">x</span><span class="p">})</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="n">fields</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'x'</span><span class="p">:</span> <span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">:</span> <span class="s1">'y'</span><span class="p">,</span> <span class="s1">'class'</span><span class="p">:</span> <span class="s1">'class'</span><span class="p">}</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="n">string_fields</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span> <span class="s1">'x-axis-title'</span><span class="p">:</span> <span class="n">x_axis_title</span><span class="p">,</span> <span class="s1">'y-axis-title'</span><span class="p">:</span> <span class="n">y_axis_title</span><span class="p">}</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="n">string_fields</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span> <span class="s1">'x-axis-title'</span><span class="p">:</span> <span class="n">x_title</span><span class="p">,</span> <span class="s1">'y-axis-title'</span><span class="p">:</span> <span class="n">y_title</span><span class="p">}</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="k">return</span> <span class="n">wb</span><span class="o">.</span><span class="n">plot_table</span><span class="p">(</span><span class="s1">'wandb/area-under-curve/v0'</span><span class="p">,</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>                         <span class="n">wb</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="n">dataframe</span><span class="o">=</span><span class="n">df</span><span class="p">),</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a>                         <span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span>
