@@ -11,9 +11,9 @@
 <link href="../model/" rel="prev"/>
 <link href="../train/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.5" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator"/>
 <title>predict - Ultralytics YOLOv8 Docs</title>
-<link href="../../../../assets/stylesheets/main.6a10b989.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -2656,7 +2656,10 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
             Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.engine.predictor.BasePredictor" href="../../../engine/predictor/#ultralytics.engine.predictor.BasePredictor">BasePredictor</a></code></p>
-<p>A class extending the BasePredictor class for prediction based on an RT-DETR detection model.</p>
+<p>RT-DETR (Real-Time Detection Transformer) Predictor extending the BasePredictor class for making predictions using
+Baidu's RT-DETR model.</p>
+<p>This class leverages the power of Vision Transformers to provide real-time object detection while maintaining
+high accuracy. It supports key features like efficient hybrid encoding and IoU-aware query selection.</p>
 <details class="example" open="">
 <summary>Example</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics.utils</span> <span class="kn">import</span> <span class="n">ASSETS</span>
@@ -2667,6 +2670,40 @@
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">predictor</span><span class="o">.</span><span class="n">predict_cli</span><span class="p">()</span>
 </code></pre></div>
 </details>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>imgsz</code></td>
+<td>
+<code>int</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Image size for inference (must be square and scale-filled).</p>
+</div>
+</td>
+</tr>
+<tr>
+<td><code>args</code></td>
+<td>
+<code>dict</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Argument overrides for the predictor.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/rtdetr/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-11">11</a></span>
@@ -2721,59 +2758,99 @@
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
 <span class="normal"><a href="#__codelineno-0-61">61</a></span>
 <span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">class</span> <span class="nc">RTDETRPredictor</span><span class="p">(</span><span class="n">BasePredictor</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span>
+<span class="normal"><a href="#__codelineno-0-69">69</a></span>
+<span class="normal"><a href="#__codelineno-0-70">70</a></span>
+<span class="normal"><a href="#__codelineno-0-71">71</a></span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span>
+<span class="normal"><a href="#__codelineno-0-74">74</a></span>
+<span class="normal"><a href="#__codelineno-0-75">75</a></span>
+<span class="normal"><a href="#__codelineno-0-76">76</a></span>
+<span class="normal"><a href="#__codelineno-0-77">77</a></span>
+<span class="normal"><a href="#__codelineno-0-78">78</a></span>
+<span class="normal"><a href="#__codelineno-0-79">79</a></span>
+<span class="normal"><a href="#__codelineno-0-80">80</a></span>
+<span class="normal"><a href="#__codelineno-0-81">81</a></span>
+<span class="normal"><a href="#__codelineno-0-82">82</a></span>
+<span class="normal"><a href="#__codelineno-0-83">83</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">class</span> <span class="nc">RTDETRPredictor</span><span class="p">(</span><span class="n">BasePredictor</span><span class="p">):</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    A class extending the BasePredictor class for prediction based on an RT-DETR detection model.</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    Example:</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">        ```python</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">        from ultralytics.utils import ASSETS</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        from ultralytics.models.rtdetr import RTDETRPredictor</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        args = dict(model='rtdetr-l.pt', source=ASSETS)</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        predictor = RTDETRPredictor(overrides=args)</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        predictor.predict_cli()</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        ```</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    """</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">        </span><span class="sd">"""Postprocess predictions and returns a list of Results objects."""</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="n">nd</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="n">bboxes</span><span class="p">,</span> <span class="n">scores</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="n">nd</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># input images are a torch.Tensor, not a list</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>            <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    RT-DETR (Real-Time Detection Transformer) Predictor extending the BasePredictor class for making predictions using</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    Baidu's RT-DETR model.</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    This class leverages the power of Vision Transformers to provide real-time object detection while maintaining</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    high accuracy. It supports key features like efficient hybrid encoding and IoU-aware query selection.</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        from ultralytics.utils import ASSETS</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        from ultralytics.models.rtdetr import RTDETRPredictor</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        args = dict(model='rtdetr-l.pt', source=ASSETS)</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        predictor = RTDETRPredictor(overrides=args)</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        predictor.predict_cli()</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    Attributes:</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        imgsz (int): Image size for inference (must be square and scale-filled).</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        args (dict): Argument overrides for the predictor.</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    """</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bboxes</span><span class="p">):</span>  <span class="c1"># (300, 4)</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>            <span class="n">bbox</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xywh2xyxy</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># (300, 1)</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="n">idx</span> <span class="o">=</span> <span class="n">score</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span>  <span class="c1"># (300, )</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">classes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>                <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="bp">cls</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">device</span><span class="p">))</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">idx</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>            <span class="n">pred</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">bbox</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="n">idx</span><span class="p">]</span>  <span class="c1"># filter</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>            <span class="n">orig_img</span> <span class="o">=</span> <span class="n">orig_imgs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>            <span class="n">oh</span><span class="p">,</span> <span class="n">ow</span> <span class="o">=</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>            <span class="n">pred</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">ow</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>            <span class="n">pred</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">oh</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>            <span class="n">img_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="n">pred</span><span class="p">))</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="k">return</span> <span class="n">results</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">def</span> <span class="nf">pre_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        Pre-transform input image before inference.</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">            im (List(np.ndarray)): (N, 3, h, w) for tensor, [(h, w, 3) x N] for list.</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">        Notes: The size must be square(640) and scaleFilled.</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">            (list): A list of transformed imgs.</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">        """</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="n">letterbox</span> <span class="o">=</span> <span class="n">LetterBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scaleFill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">letterbox</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">im</span><span class="p">]</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        Postprocess the raw predictions from the model to generate bounding boxes and confidence scores.</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        The method filters detections based on confidence and class if specified in `self.args`.</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">            preds (torch.Tensor): Raw predictions from the model.</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">            img (torch.Tensor): Processed input images.</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">            orig_imgs (list or torch.Tensor): Original, unprocessed images.</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">            (list[Results]): A list of Results objects containing the post-processed bounding boxes, confidence scores,</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">                and class labels.</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        """</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="n">nd</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="n">bboxes</span><span class="p">,</span> <span class="n">scores</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="n">nd</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># input images are a torch.Tensor, not a list</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>            <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bboxes</span><span class="p">):</span>  <span class="c1"># (300, 4)</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>            <span class="n">bbox</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xywh2xyxy</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>            <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># (300, 1)</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>            <span class="n">idx</span> <span class="o">=</span> <span class="n">score</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span>  <span class="c1"># (300, )</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">classes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>                <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="bp">cls</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">device</span><span class="p">))</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">idx</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>            <span class="n">pred</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">bbox</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="n">idx</span><span class="p">]</span>  <span class="c1"># filter</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>            <span class="n">orig_img</span> <span class="o">=</span> <span class="n">orig_imgs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>            <span class="n">oh</span><span class="p">,</span> <span class="n">ow</span> <span class="o">=</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>            <span class="n">pred</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">ow</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>            <span class="n">pred</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">oh</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>            <span class="n">img_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="n">pred</span><span class="p">))</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>        <span class="k">return</span> <span class="n">results</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="k">def</span> <span class="nf">pre_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        Pre-transforms the input images before feeding them into the model for inference. The input images are</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">        letterboxed to ensure a square aspect ratio and scale-filled. The size must be square(640) and scaleFilled.</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">            im (list[np.ndarray] |torch.Tensor): Input images of shape (N,3,h,w) for tensor, [(h,w,3) x N] for list.</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">            (list): List of pre-transformed images ready for model inference.</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">        """</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="n">letterbox</span> <span class="o">=</span> <span class="n">LetterBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scaleFill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">letterbox</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">im</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2782,18 +2859,88 @@
 <code class="highlight language-python"><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Postprocess predictions and returns a list of Results objects.</p>
+<p>Postprocess the raw predictions from the model to generate bounding boxes and confidence scores.</p>
+<p>The method filters detections based on confidence and class if specified in <code>self.args</code>.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>preds</code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Raw predictions from the model.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>img</code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Processed input images.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr>
+<td><code>orig_imgs</code></td>
+<td>
+<code>list or <span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Original, unprocessed images.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>list[<a class="autorefs autorefs-internal" title="ultralytics.engine.results.Results" href="../../../engine/results/#ultralytics.engine.results.Results">Results</a>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>A list of Results objects containing the post-processed bounding boxes, confidence scores,
+and class labels.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/rtdetr/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
@@ -2807,29 +2954,63 @@
 <span class="normal"><a href="#__codelineno-0-45">45</a></span>
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
 <span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="sd">"""Postprocess predictions and returns a list of Results objects."""</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">nd</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="n">bboxes</span><span class="p">,</span> <span class="n">scores</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="n">nd</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># input images are a torch.Tensor, not a list</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bboxes</span><span class="p">):</span>  <span class="c1"># (300, 4)</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="n">bbox</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xywh2xyxy</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># (300, 1)</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="n">idx</span> <span class="o">=</span> <span class="n">score</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span>  <span class="c1"># (300, )</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">classes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>            <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="bp">cls</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">device</span><span class="p">))</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">idx</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="n">pred</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">bbox</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="n">idx</span><span class="p">]</span>  <span class="c1"># filter</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="n">orig_img</span> <span class="o">=</span> <span class="n">orig_imgs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="n">oh</span><span class="p">,</span> <span class="n">ow</span> <span class="o">=</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="n">pred</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">ow</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="n">pred</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">oh</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="n">img_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="n">pred</span><span class="p">))</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="k">return</span> <span class="n">results</span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span>
+<span class="normal"><a href="#__codelineno-0-69">69</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    Postprocess the raw predictions from the model to generate bounding boxes and confidence scores.</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    The method filters detections based on confidence and class if specified in `self.args`.</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        preds (torch.Tensor): Raw predictions from the model.</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        img (torch.Tensor): Processed input images.</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        orig_imgs (list or torch.Tensor): Original, unprocessed images.</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        (list[Results]): A list of Results objects containing the post-processed bounding boxes, confidence scores,</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">            and class labels.</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    """</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">nd</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="n">bboxes</span><span class="p">,</span> <span class="n">scores</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="n">nd</span> <span class="o">-</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># input images are a torch.Tensor, not a list</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">bbox</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bboxes</span><span class="p">):</span>  <span class="c1"># (300, 4)</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="n">bbox</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xywh2xyxy</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># (300, 1)</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="n">idx</span> <span class="o">=</span> <span class="n">score</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span>  <span class="c1"># (300, )</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">classes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>            <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="bp">cls</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">device</span><span class="p">))</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">idx</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="n">pred</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">bbox</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[</span><span class="n">idx</span><span class="p">]</span>  <span class="c1"># filter</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="n">orig_img</span> <span class="o">=</span> <span class="n">orig_imgs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>        <span class="n">oh</span><span class="p">,</span> <span class="n">ow</span> <span class="o">=</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="n">pred</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">ow</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="n">pred</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">oh</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="n">img_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="n">pred</span><span class="p">))</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="k">return</span> <span class="n">results</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2839,7 +3020,8 @@
 <code class="highlight language-python"><span class="n">pre_transform</span><span class="p">(</span><span class="n">im</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Pre-transform input image before inference.</p>
+<p>Pre-transforms the input images before feeding them into the model for inference. The input images are
+letterboxed to ensure a square aspect ratio and scale-filled. The size must be square(640) and scaleFilled.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -2854,11 +3036,11 @@
 <tr>
 <td><code>im</code></td>
 <td>
-<code>List(np.ndarray</code>
+<code>list[<span title="np.ndarray">ndarray</span>] | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>(N, 3, h, w) for tensor, [(h, w, 3) x N] for list.</p>
+<p>Input images of shape (N,3,h,w) for tensor, [(h,w,3) x N] for list.</p>
 </div>
 </td>
 <td>
@@ -2867,7 +3049,6 @@
 </tr>
 </tbody>
 </table>
-<p>Notes: The size must be square(640) and scaleFilled.</p>
 <p><strong>Returns:</strong></p>
 <table>
 <thead>
@@ -2883,7 +3064,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>A list of transformed imgs.</p>
+<p>List of pre-transformed images ready for model inference.</p>
 </div>
 </td>
 </tr>
@@ -2891,33 +3072,31 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/rtdetr/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span>
-<span class="normal"><a href="#__codelineno-0-59">59</a></span>
-<span class="normal"><a href="#__codelineno-0-60">60</a></span>
-<span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="k">def</span> <span class="nf">pre_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    Pre-transform input image before inference.</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">        im (List(np.ndarray)): (N, 3, h, w) for tensor, [(h, w, 3) x N] for list.</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    Notes: The size must be square(640) and scaleFilled.</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">        (list): A list of transformed imgs.</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    """</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="n">letterbox</span> <span class="o">=</span> <span class="n">LetterBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scaleFill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">letterbox</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">im</span><span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-71">71</a></span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span>
+<span class="normal"><a href="#__codelineno-0-74">74</a></span>
+<span class="normal"><a href="#__codelineno-0-75">75</a></span>
+<span class="normal"><a href="#__codelineno-0-76">76</a></span>
+<span class="normal"><a href="#__codelineno-0-77">77</a></span>
+<span class="normal"><a href="#__codelineno-0-78">78</a></span>
+<span class="normal"><a href="#__codelineno-0-79">79</a></span>
+<span class="normal"><a href="#__codelineno-0-80">80</a></span>
+<span class="normal"><a href="#__codelineno-0-81">81</a></span>
+<span class="normal"><a href="#__codelineno-0-82">82</a></span>
+<span class="normal"><a href="#__codelineno-0-83">83</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="k">def</span> <span class="nf">pre_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">    Pre-transforms the input images before feeding them into the model for inference. The input images are</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    letterboxed to ensure a square aspect ratio and scale-filled. The size must be square(640) and scaleFilled.</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">        im (list[np.ndarray] |torch.Tensor): Input images of shape (N,3,h,w) for tensor, [(h,w,3) x N] for list.</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">        (list): List of pre-transformed images ready for model inference.</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">    """</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="n">letterbox</span> <span class="o">=</span> <span class="n">LetterBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scaleFill</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">letterbox</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">im</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
