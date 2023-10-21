@@ -16,8 +16,14 @@ on:
 jobs:
   Links:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch: [main, gh-pages]  # Define the branches to test
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}  # Use matrix to check out the correct branch
 
       - name: Download and install lychee
         run: |
