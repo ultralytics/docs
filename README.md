@@ -2,6 +2,8 @@
 
 Ultralytics Docs are deployed to [https://docs.ultralytics.com](https://docs.ultralytics.com).
 
+[![pages-build-deployment](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment)  [![Check Broken links](https://github.com/ultralytics/docs/actions/workflows/links.yml/badge.svg?branch=gh-pages)](https://github.com/ultralytics/docs/actions/workflows/links.yml) 
+
 ### Install Ultralytics package
 
 [![PyPI version](https://badge.fury.io/py/ultralytics.svg)](https://badge.fury.io/py/ultralytics) [![Downloads](https://static.pepy.tech/badge/ultralytics)](https://pepy.tech/project/ultralytics)
