@@ -5,33 +5,33 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to set up and use Comet to enhance your YOLOv5 model training, metrics tracking and visualization. Includes a step by step guide to integrate Comet with YOLOv5." name="description"/>
+<meta content="探索Ultralytics YOLOv8的完整指南，这是一个高速、高精度的目标检测和图像分割模型。包括安装、预测、训练教程等。" name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/yolov5/tutorials/comet_logging_integration/" rel="canonical"/>
-<link href="../neural_magic_pruning_quantization/" rel="prev"/>
-<link href="../clearml_logging_integration/" rel="next"/>
-<link href="../../../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.ultralytics.com/zh/" rel="canonical"/>
+<link href="../tasks/pose/" rel="prev"/>
+<link href="../quickstart/" rel="next"/>
+<link href="../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator"/>
-<title>Comet Logging - Ultralytics YOLOv8 Docs</title>
-<link href="../../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<title>Ultralytics 中文文档 - Ultralytics YOLOv8 Docs</title>
+<link href="../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Helvetica";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../../../stylesheets/style.css" rel="stylesheet"/>
+<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../stylesheets/style.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Comet Logging" name="title"/><meta content="YOLOv5, Comet, Machine Learning, Ultralytics, Real time metrics tracking, Hyperparameters, Model checkpoints, Model predictions, YOLOv5 training, Comet Credentials" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/comet_logging_integration" property="og:url"/><meta content="Comet Logging" property="og:title"/><meta content="Learn how to set up and use Comet to enhance your YOLOv5 model training, metrics tracking and visualization. Includes a step by step guide to integrate Comet with YOLOv5." property="og:description"/><meta content="https://cdn.comet.ml/img/notebook_logo.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/comet_logging_integration" property="twitter:url"/><meta content="Comet Logging" property="twitter:title"/><meta content="Learn how to set up and use Comet to enhance your YOLOv5 model training, metrics tracking and visualization. Includes a step by step guide to integrate Comet with YOLOv5." property="twitter:description"/><meta content="https://cdn.comet.ml/img/notebook_logo.png" property="twitter:image"/></head>
+<meta content="Ultralytics 中文文档" name="title"/><meta content="Ultralytics, YOLOv8, 目标检测, 图像分割, 机器学习, 深度学习, 计算机视觉, YOLOv8安装, YOLOv8预测, YOLOv8训练, YOLO历史, YOLO许可" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/zh" property="og:url"/><meta content="Ultralytics 中文文档" property="og:title"/><meta content="探索Ultralytics YOLOv8的完整指南，这是一个高速、高精度的目标检测和图像分割模型。包括安装、预测、训练教程等。" property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/zh" property="twitter:url"/><meta content="Ultralytics 中文文档" property="twitter:title"/><meta content="探索Ultralytics YOLOv8的完整指南，这是一个高速、高精度的目标检测和图像分割模型。包括安装、预测、训练教程等。" property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#yolov5-with-comet">
+<a class="md-skip" href="#ultralytics">
           Skip to content
         </a>
 </div>
@@ -39,7 +39,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -55,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Comet Logging
+              Ultralytics 中文文档
             
           </span>
 </div>
@@ -140,8 +140,8 @@
 <nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
 <div class="md-grid">
 <ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../..">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="..">
           
   
     
@@ -151,7 +151,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../quickstart/">
+<a class="md-tabs__link" href="../quickstart/">
         
   
     
@@ -161,7 +161,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../modes/">
+<a class="md-tabs__link" href="../modes/">
           
   
     
@@ -171,7 +171,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../tasks/">
+<a class="md-tabs__link" href="../tasks/">
           
   
     
@@ -181,7 +181,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../models/">
+<a class="md-tabs__link" href="../models/">
           
   
     
@@ -191,7 +191,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../datasets/">
+<a class="md-tabs__link" href="../datasets/">
           
   
     
@@ -201,7 +201,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../guides/">
+<a class="md-tabs__link" href="../guides/">
           
   
     
@@ -211,7 +211,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../integrations/">
+<a class="md-tabs__link" href="../integrations/">
           
   
     
@@ -221,7 +221,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../usage/cli/">
+<a class="md-tabs__link" href="../usage/cli/">
           
   
     
@@ -230,8 +230,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../yolov5/">
           
   
     
@@ -241,7 +241,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../hub/">
+<a class="md-tabs__link" href="../hub/">
           
   
     
@@ -251,7 +251,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../reference/cfg/__init__/">
+<a class="md-tabs__link" href="../reference/cfg/__init__/">
           
   
     
@@ -261,7 +261,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../help/">
+<a class="md-tabs__link" href="../help/">
           
   
     
@@ -282,7 +282,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLOv8 Docs
@@ -298,10 +298,10 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../..">
+<a class="md-nav__link" href="..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -310,14 +310,14 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
             Home
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../quickstart/">
+<a class="md-nav__link" href="../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -326,7 +326,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../modes/">
+<a class="md-nav__link" href="../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -342,42 +342,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/train/">
+<a class="md-nav__link" href="../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/val/">
+<a class="md-nav__link" href="../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/predict/">
+<a class="md-nav__link" href="../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/export/">
+<a class="md-nav__link" href="../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/track/">
+<a class="md-nav__link" href="../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/benchmark/">
+<a class="md-nav__link" href="../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -389,7 +389,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../tasks/">
+<a class="md-nav__link" href="../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -405,28 +405,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/detect/">
+<a class="md-nav__link" href="../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/segment/">
+<a class="md-nav__link" href="../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/classify/">
+<a class="md-nav__link" href="../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/pose/">
+<a class="md-nav__link" href="../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -435,16 +435,16 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../zh/">
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Ultralytics 文档
   </span>
 </a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_1_5">
 <span class="md-nav__icon md-icon"></span>
             Ultralytics 文档
@@ -457,7 +457,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../quickstart/">
+<a class="md-nav__link" href="../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -466,7 +466,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../modes/">
+<a class="md-nav__link" href="../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -482,42 +482,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/train/">
+<a class="md-nav__link" href="../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/val/">
+<a class="md-nav__link" href="../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/predict/">
+<a class="md-nav__link" href="../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/export/">
+<a class="md-nav__link" href="../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/track/">
+<a class="md-nav__link" href="../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/benchmark/">
+<a class="md-nav__link" href="../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -529,7 +529,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../tasks/">
+<a class="md-nav__link" href="../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -545,28 +545,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/detect/">
+<a class="md-nav__link" href="../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/segment/">
+<a class="md-nav__link" href="../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/classify/">
+<a class="md-nav__link" href="../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/pose/">
+<a class="md-nav__link" href="../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -578,7 +578,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../models/">
+<a class="md-nav__link" href="../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -594,77 +594,77 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov3/">
+<a class="md-nav__link" href="../models/yolov3/">
 <span class="md-ellipsis">
     YOLOv3
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov4/">
+<a class="md-nav__link" href="../models/yolov4/">
 <span class="md-ellipsis">
     YOLOv4
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov5/">
+<a class="md-nav__link" href="../models/yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov6/">
+<a class="md-nav__link" href="../models/yolov6/">
 <span class="md-ellipsis">
     YOLOv6
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov7/">
+<a class="md-nav__link" href="../models/yolov7/">
 <span class="md-ellipsis">
     YOLOv7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov8/">
+<a class="md-nav__link" href="../models/yolov8/">
 <span class="md-ellipsis">
     YOLOv8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/sam/">
+<a class="md-nav__link" href="../models/sam/">
 <span class="md-ellipsis">
     SAM (Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/mobile-sam/">
+<a class="md-nav__link" href="../models/mobile-sam/">
 <span class="md-ellipsis">
     MobileSAM (Mobile Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/fast-sam/">
+<a class="md-nav__link" href="../models/fast-sam/">
 <span class="md-ellipsis">
     FastSAM (Fast Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolo-nas/">
+<a class="md-nav__link" href="../models/yolo-nas/">
 <span class="md-ellipsis">
     YOLO-NAS (Neural Architecture Search)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/rtdetr/">
+<a class="md-nav__link" href="../models/rtdetr/">
 <span class="md-ellipsis">
     RT-DETR (Realtime Detection Transformer)
   </span>
@@ -676,7 +676,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/">
+<a class="md-nav__link" href="../datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -694,7 +694,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/detect/">
+<a class="md-nav__link" href="../datasets/detect/">
 <span class="md-ellipsis">
     Detection
   </span>
@@ -710,70 +710,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/argoverse/">
+<a class="md-nav__link" href="../datasets/detect/argoverse/">
 <span class="md-ellipsis">
     Argoverse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/coco/">
+<a class="md-nav__link" href="../datasets/detect/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/coco8/">
+<a class="md-nav__link" href="../datasets/detect/coco8/">
 <span class="md-ellipsis">
     COCO8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/globalwheat2020/">
+<a class="md-nav__link" href="../datasets/detect/globalwheat2020/">
 <span class="md-ellipsis">
     GlobalWheat2020
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/objects365/">
+<a class="md-nav__link" href="../datasets/detect/objects365/">
 <span class="md-ellipsis">
     Objects365
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/open-images-v7/">
+<a class="md-nav__link" href="../datasets/detect/open-images-v7/">
 <span class="md-ellipsis">
     OpenImagesV7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/sku-110k/">
+<a class="md-nav__link" href="../datasets/detect/sku-110k/">
 <span class="md-ellipsis">
     SKU-110K
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/visdrone/">
+<a class="md-nav__link" href="../datasets/detect/visdrone/">
 <span class="md-ellipsis">
     VisDrone
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/voc/">
+<a class="md-nav__link" href="../datasets/detect/voc/">
 <span class="md-ellipsis">
     VOC
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/detect/xview/">
+<a class="md-nav__link" href="../datasets/detect/xview/">
 <span class="md-ellipsis">
     xView
   </span>
@@ -785,7 +785,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/segment/">
+<a class="md-nav__link" href="../datasets/segment/">
 <span class="md-ellipsis">
     Segmentation
   </span>
@@ -801,14 +801,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/segment/coco/">
+<a class="md-nav__link" href="../datasets/segment/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/segment/coco8-seg/">
+<a class="md-nav__link" href="../datasets/segment/coco8-seg/">
 <span class="md-ellipsis">
     COCO8-seg
   </span>
@@ -820,7 +820,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/pose/">
+<a class="md-nav__link" href="../datasets/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -836,21 +836,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/pose/coco/">
+<a class="md-nav__link" href="../datasets/pose/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/pose/coco8-pose/">
+<a class="md-nav__link" href="../datasets/pose/coco8-pose/">
 <span class="md-ellipsis">
     COCO8-pose
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/pose/tiger-pose/">
+<a class="md-nav__link" href="../datasets/pose/tiger-pose/">
 <span class="md-ellipsis">
     Tiger-pose
   </span>
@@ -862,7 +862,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/classify/">
+<a class="md-nav__link" href="../datasets/classify/">
 <span class="md-ellipsis">
     Classification
   </span>
@@ -878,70 +878,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/caltech101/">
+<a class="md-nav__link" href="../datasets/classify/caltech101/">
 <span class="md-ellipsis">
     Caltech 101
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/caltech256/">
+<a class="md-nav__link" href="../datasets/classify/caltech256/">
 <span class="md-ellipsis">
     Caltech 256
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/cifar10/">
+<a class="md-nav__link" href="../datasets/classify/cifar10/">
 <span class="md-ellipsis">
     CIFAR-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/cifar100/">
+<a class="md-nav__link" href="../datasets/classify/cifar100/">
 <span class="md-ellipsis">
     CIFAR-100
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/fashion-mnist/">
+<a class="md-nav__link" href="../datasets/classify/fashion-mnist/">
 <span class="md-ellipsis">
     Fashion-MNIST
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/imagenet/">
+<a class="md-nav__link" href="../datasets/classify/imagenet/">
 <span class="md-ellipsis">
     ImageNet
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/imagenet10/">
+<a class="md-nav__link" href="../datasets/classify/imagenet10/">
 <span class="md-ellipsis">
     ImageNet-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/imagenette/">
+<a class="md-nav__link" href="../datasets/classify/imagenette/">
 <span class="md-ellipsis">
     Imagenette
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/imagewoof/">
+<a class="md-nav__link" href="../datasets/classify/imagewoof/">
 <span class="md-ellipsis">
     Imagewoof
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/classify/mnist/">
+<a class="md-nav__link" href="../datasets/classify/mnist/">
 <span class="md-ellipsis">
     MNIST
   </span>
@@ -953,7 +953,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/obb/">
+<a class="md-nav__link" href="../datasets/obb/">
 <span class="md-ellipsis">
     Oriented Bounding Boxes (OBB)
   </span>
@@ -969,7 +969,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/obb/dota-v2/">
+<a class="md-nav__link" href="../datasets/obb/dota-v2/">
 <span class="md-ellipsis">
     DOTAv2
   </span>
@@ -981,7 +981,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/track/">
+<a class="md-nav__link" href="../datasets/track/">
 <span class="md-ellipsis">
     Multi-Object Tracking
   </span>
@@ -1002,7 +1002,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../guides/">
+<a class="md-nav__link" href="../guides/">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -1018,63 +1018,63 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/yolo-common-issues/">
+<a class="md-nav__link" href="../guides/yolo-common-issues/">
 <span class="md-ellipsis">
     YOLO Common Issues
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/kfold-cross-validation/">
+<a class="md-nav__link" href="../guides/kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/hyperparameter-tuning/">
+<a class="md-nav__link" href="../guides/hyperparameter-tuning/">
 <span class="md-ellipsis">
     Hyperparameter Tuning
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/sahi-tiled-inference/">
+<a class="md-nav__link" href="../guides/sahi-tiled-inference/">
 <span class="md-ellipsis">
     SAHI Tiled Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/azureml-quickstart/">
+<a class="md-nav__link" href="../guides/azureml-quickstart/">
 <span class="md-ellipsis">
     AzureML Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/conda-quickstart/">
+<a class="md-nav__link" href="../guides/conda-quickstart/">
 <span class="md-ellipsis">
     Conda Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/docker-quickstart/">
+<a class="md-nav__link" href="../guides/docker-quickstart/">
 <span class="md-ellipsis">
     Docker Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/raspberry-pi/">
+<a class="md-nav__link" href="../guides/raspberry-pi/">
 <span class="md-ellipsis">
     Raspberry Pi
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/triton-inference-server/">
+<a class="md-nav__link" href="../guides/triton-inference-server/">
 <span class="md-ellipsis">
     Triton Inference Server
   </span>
@@ -1086,7 +1086,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../integrations/">
+<a class="md-nav__link" href="../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1102,28 +1102,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/openvino/">
+<a class="md-nav__link" href="../integrations/openvino/">
 <span class="md-ellipsis">
     OpenVINO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/ray-tune/">
+<a class="md-nav__link" href="../integrations/ray-tune/">
 <span class="md-ellipsis">
     Ray Tune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/roboflow/">
+<a class="md-nav__link" href="../integrations/roboflow/">
 <span class="md-ellipsis">
     Roboflow
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/mlflow/">
+<a class="md-nav__link" href="../integrations/mlflow/">
 <span class="md-ellipsis">
     MLflow
   </span>
@@ -1147,35 +1147,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/cli/">
+<a class="md-nav__link" href="../usage/cli/">
 <span class="md-ellipsis">
     CLI
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/python/">
+<a class="md-nav__link" href="../usage/python/">
 <span class="md-ellipsis">
     Python
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/callbacks/">
+<a class="md-nav__link" href="../usage/callbacks/">
 <span class="md-ellipsis">
     Callbacks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/cfg/">
+<a class="md-nav__link" href="../usage/cfg/">
 <span class="md-ellipsis">
     Configuration
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/engine/">
+<a class="md-nav__link" href="../usage/engine/">
 <span class="md-ellipsis">
     Advanced Customization
   </span>
@@ -1184,10 +1184,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../">
+<a class="md-nav__link" href="../yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
@@ -1196,14 +1196,14 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_10">
 <span class="md-nav__icon md-icon"></span>
             YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../quickstart_tutorial/">
+<a class="md-nav__link" href="../yolov5/quickstart_tutorial/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -1224,28 +1224,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../environments/aws_quickstart_tutorial/">
+<a class="md-nav__link" href="../yolov5/environments/aws_quickstart_tutorial/">
 <span class="md-ellipsis">
     Amazon Web Services (AWS)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../environments/google_cloud_quickstart_tutorial/">
+<a class="md-nav__link" href="../yolov5/environments/google_cloud_quickstart_tutorial/">
 <span class="md-ellipsis">
     Google Cloud (GCP)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../environments/azureml_quickstart_tutorial/">
+<a class="md-nav__link" href="../yolov5/environments/azureml_quickstart_tutorial/">
 <span class="md-ellipsis">
     AzureML
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../environments/docker_image_quickstart_tutorial/">
+<a class="md-nav__link" href="../yolov5/environments/docker_image_quickstart_tutorial/">
 <span class="md-ellipsis">
     Docker Image
   </span>
@@ -1254,128 +1254,127 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_10_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="">
 <span class="md-ellipsis">
     Tutorials
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_10_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_10_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_10_4">
 <span class="md-nav__icon md-icon"></span>
             Tutorials
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../train_custom_data/">
+<a class="md-nav__link" href="../yolov5/tutorials/train_custom_data/">
 <span class="md-ellipsis">
     Train Custom Data
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tips_for_best_training_results/">
+<a class="md-nav__link" href="../yolov5/tutorials/tips_for_best_training_results/">
 <span class="md-ellipsis">
     Tips for Best Training Results
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../multi_gpu_training/">
+<a class="md-nav__link" href="../yolov5/tutorials/multi_gpu_training/">
 <span class="md-ellipsis">
     Multi-GPU Training
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../pytorch_hub_model_loading/">
+<a class="md-nav__link" href="../yolov5/tutorials/pytorch_hub_model_loading/">
 <span class="md-ellipsis">
     PyTorch Hub
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../model_export/">
+<a class="md-nav__link" href="../yolov5/tutorials/model_export/">
 <span class="md-ellipsis">
     TFLite, ONNX, CoreML, TensorRT Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../running_on_jetson_nano/">
+<a class="md-nav__link" href="../yolov5/tutorials/running_on_jetson_nano/">
 <span class="md-ellipsis">
     NVIDIA Jetson Nano Deployment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../test_time_augmentation/">
+<a class="md-nav__link" href="../yolov5/tutorials/test_time_augmentation/">
 <span class="md-ellipsis">
     Test-Time Augmentation (TTA)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../model_ensembling/">
+<a class="md-nav__link" href="../yolov5/tutorials/model_ensembling/">
 <span class="md-ellipsis">
     Model Ensembling
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../model_pruning_and_sparsity/">
+<a class="md-nav__link" href="../yolov5/tutorials/model_pruning_and_sparsity/">
 <span class="md-ellipsis">
     Pruning/Sparsity Tutorial
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../hyperparameter_evolution/">
+<a class="md-nav__link" href="../yolov5/tutorials/hyperparameter_evolution/">
 <span class="md-ellipsis">
     Hyperparameter evolution
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../transfer_learning_with_frozen_layers/">
+<a class="md-nav__link" href="../yolov5/tutorials/transfer_learning_with_frozen_layers/">
 <span class="md-ellipsis">
     Transfer learning with frozen layers
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../architecture_description/">
+<a class="md-nav__link" href="../yolov5/tutorials/architecture_description/">
 <span class="md-ellipsis">
     Architecture Summary
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../roboflow_datasets_integration/">
+<a class="md-nav__link" href="../yolov5/tutorials/roboflow_datasets_integration/">
 <span class="md-ellipsis">
     Roboflow Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../neural_magic_pruning_quantization/">
+<a class="md-nav__link" href="../yolov5/tutorials/neural_magic_pruning_quantization/">
 <span class="md-ellipsis">
     Neural Magic's DeepSparse
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov5/tutorials/comet_logging_integration/">
 <span class="md-ellipsis">
     Comet Logging
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../clearml_logging_integration/">
+<a class="md-nav__link" href="../yolov5/tutorials/clearml_logging_integration/">
 <span class="md-ellipsis">
     Clearml Logging
   </span>
@@ -1390,7 +1389,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../hub/">
+<a class="md-nav__link" href="../hub/">
 <span class="md-ellipsis">
     HUB
   </span>
@@ -1406,35 +1405,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/quickstart/">
+<a class="md-nav__link" href="../hub/quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/datasets/">
+<a class="md-nav__link" href="../hub/datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/projects/">
+<a class="md-nav__link" href="../hub/projects/">
 <span class="md-ellipsis">
     Projects
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/models/">
+<a class="md-nav__link" href="../hub/models/">
 <span class="md-ellipsis">
     Models
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/integrations/">
+<a class="md-nav__link" href="../hub/integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1443,7 +1442,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_11_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../hub/app/">
+<a class="md-nav__link" href="../hub/app/">
 <span class="md-ellipsis">
     Ultralytics HUB App
   </span>
@@ -1459,14 +1458,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/app/ios/">
+<a class="md-nav__link" href="../hub/app/ios/">
 <span class="md-ellipsis">
     iOS
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/app/android/">
+<a class="md-nav__link" href="../hub/app/android/">
 <span class="md-ellipsis">
     Android
   </span>
@@ -1476,7 +1475,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/inference_api/">
+<a class="md-nav__link" href="../hub/inference_api/">
 <span class="md-ellipsis">
     Inference API
   </span>
@@ -1514,7 +1513,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/cfg/__init__/">
+<a class="md-nav__link" href="../reference/cfg/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
@@ -1538,56 +1537,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/annotator/">
+<a class="md-nav__link" href="../reference/data/annotator/">
 <span class="md-ellipsis">
     annotator
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/augment/">
+<a class="md-nav__link" href="../reference/data/augment/">
 <span class="md-ellipsis">
     augment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/base/">
+<a class="md-nav__link" href="../reference/data/base/">
 <span class="md-ellipsis">
     base
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/build/">
+<a class="md-nav__link" href="../reference/data/build/">
 <span class="md-ellipsis">
     build
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/converter/">
+<a class="md-nav__link" href="../reference/data/converter/">
 <span class="md-ellipsis">
     converter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/dataset/">
+<a class="md-nav__link" href="../reference/data/dataset/">
 <span class="md-ellipsis">
     dataset
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/loaders/">
+<a class="md-nav__link" href="../reference/data/loaders/">
 <span class="md-ellipsis">
     loaders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/utils/">
+<a class="md-nav__link" href="../reference/data/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1611,49 +1610,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/exporter/">
+<a class="md-nav__link" href="../reference/engine/exporter/">
 <span class="md-ellipsis">
     exporter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/model/">
+<a class="md-nav__link" href="../reference/engine/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/predictor/">
+<a class="md-nav__link" href="../reference/engine/predictor/">
 <span class="md-ellipsis">
     predictor
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/results/">
+<a class="md-nav__link" href="../reference/engine/results/">
 <span class="md-ellipsis">
     results
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/trainer/">
+<a class="md-nav__link" href="../reference/engine/trainer/">
 <span class="md-ellipsis">
     trainer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/tuner/">
+<a class="md-nav__link" href="../reference/engine/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/validator/">
+<a class="md-nav__link" href="../reference/engine/validator/">
 <span class="md-ellipsis">
     validator
   </span>
@@ -1677,28 +1676,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/hub/__init__/">
+<a class="md-nav__link" href="../reference/hub/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/hub/auth/">
+<a class="md-nav__link" href="../reference/hub/auth/">
 <span class="md-ellipsis">
     auth
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/hub/session/">
+<a class="md-nav__link" href="../reference/hub/session/">
 <span class="md-ellipsis">
     session
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/hub/utils/">
+<a class="md-nav__link" href="../reference/hub/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1722,7 +1721,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/fastsam/model/">
+<a class="md-nav__link" href="../reference/models/fastsam/model/">
 <span class="md-ellipsis">
     fastsam
   </span>
@@ -1730,7 +1729,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/nas/model/">
+<a class="md-nav__link" href="../reference/models/nas/model/">
 <span class="md-ellipsis">
     nas
   </span>
@@ -1738,7 +1737,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/rtdetr/model/">
+<a class="md-nav__link" href="../reference/models/rtdetr/model/">
 <span class="md-ellipsis">
     rtdetr
   </span>
@@ -1746,7 +1745,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/sam/amg/">
+<a class="md-nav__link" href="../reference/models/sam/amg/">
 <span class="md-ellipsis">
     sam
   </span>
@@ -1754,7 +1753,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/utils/loss/">
+<a class="md-nav__link" href="../reference/models/utils/loss/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1762,7 +1761,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/yolo/classify/predict/">
+<a class="md-nav__link" href="../reference/models/yolo/classify/predict/">
 <span class="md-ellipsis">
     yolo
   </span>
@@ -1787,14 +1786,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/nn/autobackend/">
+<a class="md-nav__link" href="../reference/nn/autobackend/">
 <span class="md-ellipsis">
     autobackend
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/nn/modules/block/">
+<a class="md-nav__link" href="../reference/nn/modules/block/">
 <span class="md-ellipsis">
     modules
   </span>
@@ -1802,7 +1801,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/nn/tasks/">
+<a class="md-nav__link" href="../reference/nn/tasks/">
 <span class="md-ellipsis">
     tasks
   </span>
@@ -1826,35 +1825,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/trackers/basetrack/">
+<a class="md-nav__link" href="../reference/trackers/basetrack/">
 <span class="md-ellipsis">
     basetrack
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/trackers/bot_sort/">
+<a class="md-nav__link" href="../reference/trackers/bot_sort/">
 <span class="md-ellipsis">
     bot_sort
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/trackers/byte_tracker/">
+<a class="md-nav__link" href="../reference/trackers/byte_tracker/">
 <span class="md-ellipsis">
     byte_tracker
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/trackers/track/">
+<a class="md-nav__link" href="../reference/trackers/track/">
 <span class="md-ellipsis">
     track
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/trackers/utils/gmc/">
+<a class="md-nav__link" href="../reference/trackers/utils/gmc/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1879,28 +1878,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/__init__/">
+<a class="md-nav__link" href="../reference/utils/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/autobatch/">
+<a class="md-nav__link" href="../reference/utils/autobatch/">
 <span class="md-ellipsis">
     autobatch
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/benchmarks/">
+<a class="md-nav__link" href="../reference/utils/benchmarks/">
 <span class="md-ellipsis">
     benchmarks
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/utils/callbacks/base/">
+<a class="md-nav__link" href="../reference/utils/callbacks/base/">
 <span class="md-ellipsis">
     callbacks
   </span>
@@ -1908,105 +1907,105 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/checks/">
+<a class="md-nav__link" href="../reference/utils/checks/">
 <span class="md-ellipsis">
     checks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/dist/">
+<a class="md-nav__link" href="../reference/utils/dist/">
 <span class="md-ellipsis">
     dist
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/downloads/">
+<a class="md-nav__link" href="../reference/utils/downloads/">
 <span class="md-ellipsis">
     downloads
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/errors/">
+<a class="md-nav__link" href="../reference/utils/errors/">
 <span class="md-ellipsis">
     errors
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/files/">
+<a class="md-nav__link" href="../reference/utils/files/">
 <span class="md-ellipsis">
     files
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/instance/">
+<a class="md-nav__link" href="../reference/utils/instance/">
 <span class="md-ellipsis">
     instance
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/loss/">
+<a class="md-nav__link" href="../reference/utils/loss/">
 <span class="md-ellipsis">
     loss
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/metrics/">
+<a class="md-nav__link" href="../reference/utils/metrics/">
 <span class="md-ellipsis">
     metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/ops/">
+<a class="md-nav__link" href="../reference/utils/ops/">
 <span class="md-ellipsis">
     ops
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/patches/">
+<a class="md-nav__link" href="../reference/utils/patches/">
 <span class="md-ellipsis">
     patches
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/plotting/">
+<a class="md-nav__link" href="../reference/utils/plotting/">
 <span class="md-ellipsis">
     plotting
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/tal/">
+<a class="md-nav__link" href="../reference/utils/tal/">
 <span class="md-ellipsis">
     tal
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/torch_utils/">
+<a class="md-nav__link" href="../reference/utils/torch_utils/">
 <span class="md-ellipsis">
     torch_utils
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/triton/">
+<a class="md-nav__link" href="../reference/utils/triton/">
 <span class="md-ellipsis">
     triton
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/tuner/">
+<a class="md-nav__link" href="../reference/utils/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
@@ -2021,7 +2020,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_13" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../help/">
+<a class="md-nav__link" href="../help/">
 <span class="md-ellipsis">
     Help
   </span>
@@ -2037,56 +2036,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/FAQ/">
+<a class="md-nav__link" href="../help/FAQ/">
 <span class="md-ellipsis">
     Frequently Asked Questions (FAQ)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/contributing/">
+<a class="md-nav__link" href="../help/contributing/">
 <span class="md-ellipsis">
     Contributing Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/CI/">
+<a class="md-nav__link" href="../help/CI/">
 <span class="md-ellipsis">
     Continuous Integration (CI) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/CLA/">
+<a class="md-nav__link" href="../help/CLA/">
 <span class="md-ellipsis">
     Contributor License Agreement (CLA)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/minimum_reproducible_example/">
+<a class="md-nav__link" href="../help/minimum_reproducible_example/">
 <span class="md-ellipsis">
     Minimum Reproducible Example (MRE) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/code_of_conduct/">
+<a class="md-nav__link" href="../help/code_of_conduct/">
 <span class="md-ellipsis">
     Code of Conduct
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/environmental-health-safety/">
+<a class="md-nav__link" href="../help/environmental-health-safety/">
 <span class="md-ellipsis">
     Environmental, Health and Safety (EHS) Policy
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../SECURITY/">
+<a class="md-nav__link" href="../SECURITY/">
 <span class="md-ellipsis">
     Security Policy
   </span>
@@ -2104,181 +2103,88 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    从哪里开始
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#yolo">
+    YOLO：简史
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#yoloultralytics-yolo">
+    YOLO许可证：Ultralytics YOLO是如何授权的？
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/yolov5/tutorials/comet_logging_integration.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/zh/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<p><img src="https://cdn.comet.ml/img/notebook_logo.png"/></p>
-<h1 id="yolov5-with-comet">YOLOv5 with Comet</h1>
-<p>This guide will cover how to use YOLOv5 with <a href="https://bit.ly/yolov5-readme-comet2">Comet</a></p>
-<h1 id="about-comet">About Comet</h1>
-<p>Comet builds tools that help data scientists, engineers, and team leaders accelerate and optimize machine learning and deep learning models.</p>
-<p>Track and visualize model metrics in real time, save your hyperparameters, datasets, and model checkpoints, and visualize your model predictions with <a href="https://www.comet.com/docs/v2/guides/comet-dashboard/code-panels/about-panels/?utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">Comet Custom Panels</a>!
-Comet makes sure you never lose track of your work and makes it easy to share results and collaborate across teams of all sizes!</p>
-<h1 id="getting-started">Getting Started</h1>
-<h2 id="install-comet">Install Comet</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>comet_ml
-</code></pre></div>
-<h2 id="configure-comet-credentials">Configure Comet Credentials</h2>
-<p>There are two ways to configure Comet with YOLOv5.</p>
-<p>You can either set your credentials through environment variables</p>
-<p><strong>Environment Variables</strong></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_API_KEY</span><span class="o">=</span>&lt;Your<span class="w"> </span>Comet<span class="w"> </span>API<span class="w"> </span>Key&gt;
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_PROJECT_NAME</span><span class="o">=</span>&lt;Your<span class="w"> </span>Comet<span class="w"> </span>Project<span class="w"> </span>Name&gt;<span class="w"> </span><span class="c1"># This will default to 'yolov5'</span>
-</code></pre></div>
-<p>Or create a <code>.comet.config</code> file in your working directory and set your credentials there.</p>
-<p><strong>Comet Configuration File</strong></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>[comet]
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>api_key=&lt;Your Comet API Key&gt;
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>project_name=&lt;Your Comet Project Name&gt; # This will default to 'yolov5'
-</code></pre></div>
-<h2 id="run-the-training-script">Run the Training Script</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Train YOLOv5s on COCO128 for 5 epochs</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
-</code></pre></div>
-<p>That's it! Comet will automatically log your hyperparameters, command line arguments, training and validation metrics. You can visualize and analyze your runs in the Comet UI</p>
-<p><img alt="yolo-ui" src="https://user-images.githubusercontent.com/26833433/202851203-164e94e1-2238-46dd-91f8-de020e9d6b41.png" width="1920"/></p>
-<h1 id="try-out-an-example">Try out an Example!</h1>
-<p>Check out an example of a <a href="https://www.comet.com/examples/comet-example-yolov5/a0e29e0e9b984e4a822db2a62d0cb357?experiment-tab=chart&amp;showOutliers=true&amp;smoothing=0&amp;transformY=smoothing&amp;xAxis=step&amp;utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">completed run here</a></p>
-<p>Or better yet, try it out yourself in this Colab Notebook</p>
-<p><a href="https://colab.research.google.com/drive/1RG0WOQyxlDlo5Km8GogJpIEJlg_5lyYO?usp=sharing"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
-<h1 id="log-automatically">Log automatically</h1>
-<p>By default, Comet will log the following items</p>
-<h2 id="metrics">Metrics</h2>
+<h1 id="ultralytics">Ultralytics 中文文档</h1>
+<div align="center">
+<p>
+<a href="https://yolovision.ultralytics.com" target="_blank">
+<img src="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" width="1024"/></a>
+</p>
+<a href="https://github.com/ultralytics/ultralytics/actions/workflows/ci.yaml"><img alt="Ultralytics CI" src="https://github.com/ultralytics/ultralytics/actions/workflows/ci.yaml/badge.svg"/></a>
+<a href="https://codecov.io/github/ultralytics/ultralytics"><img alt="Ultralytics Code Coverage" src="https://codecov.io/github/ultralytics/ultralytics/branch/main/graph/badge.svg?token=HHW7IIVFVY"/></a>
+<a href="https://zenodo.org/badge/latestdoi/264818686"><img alt="YOLOv8 Citation" src="https://zenodo.org/badge/264818686.svg"/></a>
+<a href="https://hub.docker.com/r/ultralytics/ultralytics"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/ultralytics?logo=docker"/></a>
+<br/>
+<a href="https://console.paperspace.com/github/ultralytics/ultralytics"><img alt="Run on Gradient" src="https://assets.paperspace.io/img/gradient-badge.svg"/></a>
+<a href="https://colab.research.google.com/github/ultralytics/ultralytics/blob/main/examples/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>
+<a href="https://www.kaggle.com/ultralytics/yolov8"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a>
+</div>
+<p>介绍 <a href="https://ultralytics.com">Ultralytics</a> <a href="https://github.com/ultralytics/ultralytics">YOLOv8</a>，这是备受好评的实时目标检测和图像分割模型的最新版本。YOLOv8基于深度学习和计算机视觉的前沿进展，提供了无与伦比的速度和准确性表现。它的精简设计使其适用于各种应用，并且可以轻松适应不同的硬件平台，从边缘设备到云API。</p>
+<p>探索YOLOv8文档，这是一个全面的资源，旨在帮助您理解并利用其功能和能力。无论您是经验丰富的机器学习从业者还是新入行者，该中心旨在最大化YOLOv8在您的项目中的潜力。</p>
+<h2 id="_1">从哪里开始</h2>
 <ul>
-<li>Box Loss, Object Loss, Classification Loss for the training and validation data</li>
-<li>mAP_0.5, mAP_0.5:0.95 metrics for the validation data.</li>
-<li>Precision and Recall for the validation data</li>
+<li><strong>安装</strong> <code>ultralytics</code> 并通过 pip 在几分钟内开始运行   <a class="md-button" href="https://docs.ultralytics.com/quickstart/"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 4a8 8 0 0 1 8 8 8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8m0 2a6 6 0 0 0-6 6 6 6 0 0 0 6 6 6 6 0 0 0 6-6 6 6 0 0 0-6-6m-1 2h1.5v3.78l2.33 2.33-1.06 1.06L14 12.4V8M2 18a1 1 0 0 1-1-1 1 1 0 0 1 1-1h3.83c.31.71.71 1.38 1.17 2H2m1-5a1 1 0 0 1-1-1 1 1 0 0 1 1-1h2.05L5 12l.05 1H3m1-5a1 1 0 0 1-1-1 1 1 0 0 1 1-1h3c-.46.62-.86 1.29-1.17 2H4Z"></path></svg></span> 开始使用</a></li>
+<li><strong>预测</strong> 使用YOLOv8预测新的图像和视频   <a class="md-button" href="https://docs.ultralytics.com/predict/"><span class="twemoji"><svg viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M16 13.25A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25V2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75ZM1.75 2.5a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h.94l.03-.03 6.077-6.078a1.75 1.75 0 0 1 2.412-.06L14.5 10.31V2.75a.25.25 0 0 0-.25-.25Zm12.5 11a.25.25 0 0 0 .25-.25v-.917l-4.298-3.889a.25.25 0 0 0-.344.009L4.81 13.5ZM7 6a2 2 0 1 1-3.999.001A2 2 0 0 1 7 6ZM5.5 6a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0Z"></path></svg></span> 在图像上预测</a></li>
+<li><strong>训练</strong> 在您自己的自定义数据集上训练新的YOLOv8模型   <a class="md-button" href="https://docs.ultralytics.com/train/"><span class="twemoji"><svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M184 0c30.9 0 56 25.1 56 56v400c0 30.9-25.1 56-56 56-28.9 0-52.7-21.9-55.7-50.1-5.2 1.4-10.7 2.1-16.3 2.1-35.3 0-64-28.7-64-64 0-7.4 1.3-14.6 3.6-21.2C21.4 367.4 0 338.2 0 304c0-31.9 18.7-59.5 45.8-72.3C37.1 220.8 32 207 32 192c0-30.7 21.6-56.3 50.4-62.6C80.8 123.9 80 118 80 112c0-29.9 20.6-55.1 48.3-62.1 3-28 26.8-49.9 55.7-49.9zm144 0c28.9 0 52.6 21.9 55.7 49.9C411.5 56.9 432 82 432 112c0 6-.8 11.9-2.4 17.4 28.8 6.2 50.4 31.9 50.4 62.6 0 15-5.1 28.8-13.8 39.7 27.1 12.8 45.8 40.4 45.8 72.3 0 34.2-21.4 63.4-51.6 74.8 2.3 6.6 3.6 13.8 3.6 21.2 0 35.3-28.7 64-64 64-5.6 0-11.1-.7-16.3-2.1-3 28.2-26.8 50.1-55.7 50.1-30.9 0-56-25.1-56-56V56c0-30.9 25.1-56 56-56z"></path></svg></span> 训练模型</a></li>
+<li><strong>探索</strong> YOLOv8的任务，如分割、分类、姿态和跟踪   <a class="md-button" href="https://docs.ultralytics.com/tasks/"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16h-.58l-.81-.81A7.07 7.07 0 0 0 18 11c0-3.87-3.13-7-7-7-1.5 0-3 .5-4.21 1.4-3.09 2.32-3.72 6.71-1.4 9.8 2.32 3.09 6.71 3.72 9.8 1.4l.81.81V18l5 5 2-2-5-5m-7 0c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5M3 6 1 8V1h7L6 3H3v3m18-5v7l-2-2V3h-3l-2-2h7M6 19l2 2H1v-7l2 2v3h3Z"></path></svg></span> 探索任务</a></li>
 </ul>
-<h2 id="parameters">Parameters</h2>
+<p align="center">
+<br/>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/LNwODJXcvt4?si=7n1UvGRLSd9p5wKs" title="YouTube video player" width="720">
+</iframe>
+<br/>
+<strong>观看：</strong> 在Google Colab中如何训练您的自定义数据集上的YOLOv8模型。
+</p>
+<h2 id="yolo">YOLO：简史</h2>
+<p><a href="https://arxiv.org/abs/1506.02640">YOLO</a> (You Only Look Once)，由华盛顿大学的Joseph Redmon和Ali Farhadi开发的流行目标检测和图像分割模型，于2015年推出，由于其高速和准确性而迅速流行。</p>
 <ul>
-<li>Model Hyperparameters</li>
-<li>All parameters passed through the command line options</li>
+<li><a href="https://arxiv.org/abs/1612.08242">YOLOv2</a> 在2016年发布，通过引入批量归一化、锚框和维度聚类来改进了原始模型。</li>
+<li><a href="https://pjreddie.com/media/files/papers/YOLOv3.pdf">YOLOv3</a> 在2018年推出，进一步增强了模型的性能，使用了更高效的主干网络、多个锚点和空间金字塔池化。</li>
+<li><a href="https://arxiv.org/abs/2004.10934">YOLOv4</a> 在2020年发布，引入了Mosaic数据增强、新的无锚检测头和新的损失函数等创新功能。</li>
+<li><a href="https://github.com/ultralytics/yolov5">YOLOv5</a> 进一步改进了模型的性能，并增加了新功能，如超参数优化、集成实验跟踪和自动导出到常用的导出格式。</li>
+<li><a href="https://github.com/meituan/YOLOv6">YOLOv6</a> 在2022年由<a href="https://about.meituan.com/">美团</a>开源，现在正在该公司的许多自动送货机器人中使用。</li>
+<li><a href="https://github.com/WongKinYiu/yolov7">YOLOv7</a> 在COCO关键点数据集上添加了额外的任务，如姿态估计。</li>
+<li><a href="https://github.com/ultralytics/ultralytics">YOLOv8</a> 是Ultralytics的YOLO的最新版本。作为一种前沿、最先进(SOTA)的模型，YOLOv8在之前版本的成功基础上引入了新功能和改进，以提高性能、灵活性和效率。YOLOv8支持全范围的视觉AI任务，包括<a href="https://docs.ultralytics.com/tasks/detect/">检测</a>, <a href="https://docs.ultralytics.com/tasks/segment/">分割</a>, <a href="https://docs.ultralytics.com/tasks/pose/">姿态估计</a>, <a href="https://docs.ultralytics.com/modes/track/">跟踪</a>, 和<a href="https://docs.ultralytics.com/tasks/classify/">分类</a>。这种多功能性使用户能够利用YOLOv8的功能应对多种应用和领域的需求。</li>
 </ul>
-<h2 id="visualizations">Visualizations</h2>
+<h2 id="yoloultralytics-yolo">YOLO许可证：Ultralytics YOLO是如何授权的？</h2>
+<p>Ultralytics提供两种许可选项以适应不同的使用场景：</p>
 <ul>
-<li>Confusion Matrix of the model predictions on the validation data</li>
-<li>Plots for the PR and F1 curves across all classes</li>
-<li>Correlogram of the Class Labels</li>
+<li><strong>AGPL-3.0许可证</strong>：这种<a href="https://opensource.org/licenses/">OSI-approved</a>开源许可证非常适合学生和爱好者，促进了开放的合作和知识共享。更多详细信息请参阅<a href="https://github.com/ultralytics/ultralytics/blob/main/LICENSE">LICENSE</a>文件。</li>
+<li><strong>企业许可证</strong>：这种许可证设计用于商业用途，允许将Ultralytics软件和AI模型无缝集成到商业商品和服务中，绕过AGPL-3.0的开源要求。如果您的场景涉及将我们的解决方案嵌入到商业产品中，请通过<a href="https://ultralytics.com/license">Ultralytics Licensing</a>联系我们。</li>
 </ul>
-<h1 id="configure-comet-logging">Configure Comet Logging</h1>
-<p>Comet can be configured to log additional data either through command line flags passed to the training script or through environment variables.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_MODE</span><span class="o">=</span>online<span class="w"> </span><span class="c1"># Set whether to run Comet in 'online' or 'offline' mode. Defaults to online</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_MODEL_NAME</span><span class="o">=</span>&lt;your<span class="w"> </span>model<span class="w"> </span>name&gt;<span class="w"> </span><span class="c1">#Set the name for the saved model. Defaults to yolov5</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_CONFUSION_MATRIX</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="c1"># Set to disable logging a Comet Confusion Matrix. Defaults to true</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_MAX_IMAGE_UPLOADS</span><span class="o">=</span>&lt;number<span class="w"> </span>of<span class="w"> </span>allowed<span class="w"> </span>images<span class="w"> </span>to<span class="w"> </span>upload<span class="w"> </span>to<span class="w"> </span>Comet&gt;<span class="w"> </span><span class="c1"># Controls how many total image predictions to log to Comet. Defaults to 100.</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_PER_CLASS_METRICS</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="c1"># Set to log evaluation metrics for each detected class at the end of training. Defaults to false</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_DEFAULT_CHECKPOINT_FILENAME</span><span class="o">=</span>&lt;your<span class="w"> </span>checkpoint<span class="w"> </span>filename&gt;<span class="w"> </span><span class="c1"># Set this if you would like to resume training from a different checkpoint. Defaults to 'last.pt'</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_BATCH_LEVEL_METRICS</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="c1"># Set this if you would like to log training metrics at the batch level. Defaults to false.</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_PREDICTIONS</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="c1"># Set this to false to disable logging model predictions</span>
-</code></pre></div>
-<h2 id="logging-checkpoints-with-comet">Logging Checkpoints with Comet</h2>
-<p>Logging Models to Comet is disabled by default. To enable it, pass the <code>save-period</code> argument to the training script. This will save the logged checkpoints to Comet based on the interval value provided by <code>save-period</code></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>--save-period<span class="w"> </span><span class="m">1</span>
-</code></pre></div>
-<h2 id="logging-model-predictions">Logging Model Predictions</h2>
-<p>By default, model predictions (images, ground truth labels and bounding boxes) will be logged to Comet.</p>
-<p>You can control the frequency of logged predictions and the associated images by passing the <code>bbox_interval</code> command line argument. Predictions can be visualized using Comet's Object Detection Custom Panel. This frequency corresponds to every Nth batch of data per epoch. In the example below, we are logging every 2nd batch of data for each epoch.</p>
-<p><strong>Note:</strong> The YOLOv5 validation dataloader will default to a batch size of 32, so you will have to set the logging frequency accordingly.</p>
-<p>Here is an <a href="https://www.comet.com/examples/comet-example-yolov5?shareable=YcwMiJaZSXfcEXpGOHDD12vA1&amp;utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">example project using the Panel</a></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>--bbox_interval<span class="w"> </span><span class="m">2</span>
-</code></pre></div>
-<h3 id="controlling-the-number-of-prediction-images-logged-to-comet">Controlling the number of Prediction Images logged to Comet</h3>
-<p>When logging predictions from YOLOv5, Comet will log the images associated with each set of predictions. By default a maximum of 100 validation images are logged. You can increase or decrease this number using the <code>COMET_MAX_IMAGE_UPLOADS</code> environment variable.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>env<span class="w"> </span><span class="nv">COMET_MAX_IMAGE_UPLOADS</span><span class="o">=</span><span class="m">200</span><span class="w"> </span>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>--bbox_interval<span class="w"> </span><span class="m">1</span>
-</code></pre></div>
-<h3 id="logging-class-level-metrics">Logging Class Level Metrics</h3>
-<p>Use the <code>COMET_LOG_PER_CLASS_METRICS</code> environment variable to log mAP, precision, recall, f1 for each class.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>env<span class="w"> </span><span class="nv">COMET_LOG_PER_CLASS_METRICS</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>--weights<span class="w"> </span>yolov5s.pt
-</code></pre></div>
-<h2 id="uploading-a-dataset-to-comet-artifacts">Uploading a Dataset to Comet Artifacts</h2>
-<p>If you would like to store your data using <a href="https://www.comet.com/docs/v2/guides/data-management/using-artifacts/#learn-more?utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">Comet Artifacts</a>, you can do so using the <code>upload_dataset</code> flag.</p>
-<p>The dataset be organized in the way described in the <a href="../train_custom_data/">YOLOv5 documentation</a>. The dataset config <code>yaml</code> file must follow the same format as that of the <code>coco128.yaml</code> file.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>--upload_dataset
-</code></pre></div>
-<p>You can find the uploaded dataset in the Artifacts tab in your Comet Workspace
-<img alt="artifact-1" src="https://user-images.githubusercontent.com/7529846/186929193-162718bf-ec7b-4eb9-8c3b-86b3763ef8ea.png" width="1073"/></p>
-<p>You can preview the data directly in the Comet UI.
-<img alt="artifact-2" src="https://user-images.githubusercontent.com/7529846/186929215-432c36a9-c109-4eb0-944b-84c2786590d6.png" width="1082"/></p>
-<p>Artifacts are versioned and also support adding metadata about the dataset. Comet will automatically log the metadata from your dataset <code>yaml</code> file
-<img alt="artifact-3" src="https://user-images.githubusercontent.com/7529846/186929256-9d44d6eb-1a19-42de-889a-bcbca3018f2e.png" width="963"/></p>
-<h3 id="using-a-saved-artifact">Using a saved Artifact</h3>
-<p>If you would like to use a dataset from Comet Artifacts, set the <code>path</code> variable in your dataset <code>yaml</code> file to point to the following Artifact resource URL.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a># contents of artifact.yaml file
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>path: "comet://&lt;workspace name&gt;/&lt;artifact name&gt;:&lt;artifact version or alias&gt;"
-</code></pre></div>
-<p>Then pass this file to your training script in the following way</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>--data<span class="w"> </span>artifact.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>--weights<span class="w"> </span>yolov5s.pt
-</code></pre></div>
-<p>Artifacts also allow you to track the lineage of data as it flows through your Experimentation workflow. Here you can see a graph that shows you all the experiments that have used your uploaded dataset.
-<img alt="artifact-4" src="https://user-images.githubusercontent.com/7529846/186929264-4c4014fa-fe51-4f3c-a5c5-f6d24649b1b4.png" width="1391"/></p>
-<h2 id="resuming-a-training-run">Resuming a Training Run</h2>
-<p>If your training run is interrupted for any reason, e.g. disrupted internet connection, you can resume the run using the <code>resume</code> flag and the Comet Run Path.</p>
-<p>The Run Path has the following format <code>comet://&lt;your workspace name&gt;/&lt;your project name&gt;/&lt;experiment id&gt;</code>.</p>
-<p>This will restore the run to its state before the interruption, which includes restoring the model from a checkpoint, restoring all hyperparameters and training arguments and downloading Comet dataset Artifacts if they were used in the original run. The resumed run will continue logging to the existing Experiment in the Comet UI</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>--resume<span class="w"> </span><span class="s2">"comet://&lt;your run path&gt;"</span>
-</code></pre></div>
-<h2 id="hyperparameter-search-with-the-comet-optimizer">Hyperparameter Search with the Comet Optimizer</h2>
-<p>YOLOv5 is also integrated with Comet's Optimizer, making is simple to visualize hyperparameter sweeps in the Comet UI.</p>
-<h3 id="configuring-an-optimizer-sweep">Configuring an Optimizer Sweep</h3>
-<p>To configure the Comet Optimizer, you will have to create a JSON file with the information about the sweep. An example file has been provided in <code>utils/loggers/comet/optimizer_config.json</code></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>python<span class="w"> </span>utils/loggers/comet/hpo.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">  </span>--comet_optimizer_config<span class="w"> </span><span class="s2">"utils/loggers/comet/optimizer_config.json"</span>
-</code></pre></div>
-<p>The <code>hpo.py</code> script accepts the same arguments as <code>train.py</code>. If you wish to pass additional arguments to your sweep simply add them after the script.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>python<span class="w"> </span>utils/loggers/comet/hpo.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">  </span>--comet_optimizer_config<span class="w"> </span><span class="s2">"utils/loggers/comet/optimizer_config.json"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">  </span>--save-period<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">  </span>--bbox_interval<span class="w"> </span><span class="m">1</span>
-</code></pre></div>
-<h3 id="running-a-sweep-in-parallel">Running a Sweep in Parallel</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>comet<span class="w"> </span>optimizer<span class="w"> </span>-j<span class="w"> </span>&lt;<span class="nb">set</span><span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>workers&gt;<span class="w"> </span>utils/loggers/comet/hpo.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">  </span>utils/loggers/comet/optimizer_config.json<span class="s2">"</span>
-</code></pre></div>
-<h3 id="visualizing-results">Visualizing Results</h3>
-<p>Comet provides a number of ways to visualize the results of your sweep. Take a look at a <a href="https://www.comet.com/examples/comet-example-yolov5/view/PrlArHGuuhDTKC1UuBmTtOSXD/panels?utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">project with a completed sweep here</a></p>
-<p><img alt="hyperparameter-yolo" src="https://user-images.githubusercontent.com/7529846/186914869-7dc1de14-583f-4323-967b-c9a66a29e495.png" width="1626"/></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-04-21, Updated 2023-10-09<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<p>我们的授权策略旨在确保我们的开源项目的任何改进都能回馈到社区。我们十分珍视开源原则❤️，我们的使命是确保我们的贡献能够以对所有人有益的方式被利用和拓展。</p>
+<hr/>
+<p><strong>注意</strong>：我们正在努力为我们的文档页面提供中文文档，并希望在接下来的几个月内发布。请密切关注我们的更新，并感谢您的耐心等待。</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-10-21, Updated 2023-10-21<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2289,10 +2195,10 @@ Comet makes sure you never lose track of your work and makes it easy to share re
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/yolov5/tutorials/comet_logging_integration', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/zh', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/yolov5/tutorials/comet_logging_integration', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/zh', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -2340,7 +2246,7 @@ Comet makes sure you never lose track of your work and makes it easy to share re
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Neural Magic's DeepSparse" class="md-footer__link md-footer__link--prev" href="../neural_magic_pruning_quantization/">
+<a aria-label="Previous: Pose" class="md-footer__link md-footer__link--prev" href="../tasks/pose/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2349,17 +2255,17 @@ Comet makes sure you never lose track of your work and makes it easy to share re
                 Previous
               </span>
 <div class="md-ellipsis">
-                Neural Magic's DeepSparse
+                Pose
               </div>
 </div>
 </a>
-<a aria-label="Next: Clearml Logging" class="md-footer__link md-footer__link--next" href="../clearml_logging_integration/">
+<a aria-label="Next: Quickstart" class="md-footer__link md-footer__link--next" href="../quickstart/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Clearml Logging
+                Quickstart
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2411,7 +2317,7 @@ Comet makes sure you never lose track of your work and makes it easy to share re
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
 </body>
 </html>
