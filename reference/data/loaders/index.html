@@ -16,8 +16,8 @@
 <link href="../../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Helvetica:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"Helvetica";--md-code-font:"Roboto Mono"}</style>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
 <link href="../../../stylesheets/style.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
@@ -4825,7 +4825,7 @@ downstream processing.</p>
 <a id="__codelineno-0-451" name="__codelineno-0-451"></a>            <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-0-452" name="__codelineno-0-452"></a>        <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">%</span> <span class="n">stride</span> <span class="ow">or</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">%</span> <span class="n">stride</span><span class="p">:</span>
 <a id="__codelineno-0-453" name="__codelineno-0-453"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<a id="__codelineno-0-454" name="__codelineno-0-454"></a>        <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">:</span>
+<a id="__codelineno-0-454" name="__codelineno-0-454"></a>        <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">:</span>  <span class="c1"># torch.float32 eps is 1.2e-07</span>
 <a id="__codelineno-0-455" name="__codelineno-0-455"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'WARNING ⚠️ torch.Tensor inputs should be normalized 0.0-1.0 but max value is </span><span class="si">{</span><span class="n">im</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s1">. '</span>
 <a id="__codelineno-0-456" name="__codelineno-0-456"></a>                           <span class="sa">f</span><span class="s1">'Dividing input by 255.'</span><span class="p">)</span>
 <a id="__codelineno-0-457" name="__codelineno-0-457"></a>            <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">/</span> <span class="mf">255.0</span>
