@@ -66,7 +66,7 @@ jobs:
           timeout_minutes: 5
           retry_wait_seconds: 60
           max_attempts: 3
-          command: lychee --accept 429,999 --exclude-loopback --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|wellfound\.com|.*\.cloudfunctions\.net)' --exclude-path '**/ci.yaml' --exclude-mail --github-token ${{ secrets.GITHUB_TOKEN }} './ultralytics_website/**/*.html'
+          command: lychee --accept 429,999 --exclude-loopback --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|wellfound\.com|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' --exclude-path '**/ci.yaml' --exclude-mail --github-token ${{ secrets.GITHUB_TOKEN }} './ultralytics_website/**/*.html'
 
   Summary:
     runs-on: ubuntu-latest
@@ -74,7 +74,7 @@ jobs:
     if: always() # This ensures the job runs even if previous jobs fail
     steps:
       - name: Check for failure and notify
-        if: needs.Links.result == 'failure' && github.repository == 'ultralytics/docs' && (github.event_name == 'schedule' || github.event_name == 'pull_request')
+        if: needs.Links.result == 'failure' && github.repository == 'ultralytics/docs' && (github.event_name == 'schedule' || github.event_name == 'push')
         uses: slackapi/slack-github-action@v1.24.0
         with:
           payload: |
