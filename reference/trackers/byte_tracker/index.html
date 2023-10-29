@@ -1025,6 +1025,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/yolo-performance-metrics/">
+<span class="md-ellipsis">
+    Performance Metrics
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../guides/kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
@@ -1978,6 +1985,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.trackers.byte_tracker.BYTETracker.reset">
+    reset()
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.trackers.byte_tracker.BYTETracker.reset_id">
     reset_id()
   </a>
@@ -2379,6 +2391,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.trackers.byte_tracker.BYTETracker.remove_duplicate_stracks">
     remove_duplicate_stracks()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.trackers.byte_tracker.BYTETracker.reset">
+    reset()
   </a>
 </li>
 <li class="md-nav__item">
@@ -3897,7 +3914,16 @@ predicting the new object locations, and performs data association.</p>
 <span class="normal"><a href="#__codelineno-0-417">417</a></span>
 <span class="normal"><a href="#__codelineno-0-418">418</a></span>
 <span class="normal"><a href="#__codelineno-0-419">419</a></span>
-<span class="normal"><a href="#__codelineno-0-420">420</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="k">class</span> <span class="nc">BYTETracker</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-420">420</a></span>
+<span class="normal"><a href="#__codelineno-0-421">421</a></span>
+<span class="normal"><a href="#__codelineno-0-422">422</a></span>
+<span class="normal"><a href="#__codelineno-0-423">423</a></span>
+<span class="normal"><a href="#__codelineno-0-424">424</a></span>
+<span class="normal"><a href="#__codelineno-0-425">425</a></span>
+<span class="normal"><a href="#__codelineno-0-426">426</a></span>
+<span class="normal"><a href="#__codelineno-0-427">427</a></span>
+<span class="normal"><a href="#__codelineno-0-428">428</a></span>
+<span class="normal"><a href="#__codelineno-0-429">429</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="k">class</span> <span class="nc">BYTETracker</span><span class="p">:</span>
 <a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">    BYTETracker: A tracking algorithm built on top of YOLOv8 for object detection and tracking.</span>
 <a id="__codelineno-0-200" name="__codelineno-0-200"></a>
@@ -4077,50 +4103,59 @@ predicting the new object locations, and performs data association.</p>
 <a id="__codelineno-0-374" name="__codelineno-0-374"></a><span class="w">        </span><span class="sd">"""Resets the ID counter of STrack."""</span>
 <a id="__codelineno-0-375" name="__codelineno-0-375"></a>        <span class="n">STrack</span><span class="o">.</span><span class="n">reset_id</span><span class="p">()</span>
 <a id="__codelineno-0-376" name="__codelineno-0-376"></a>
-<a id="__codelineno-0-377" name="__codelineno-0-377"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-378" name="__codelineno-0-378"></a>    <span class="k">def</span> <span class="nf">joint_stracks</span><span class="p">(</span><span class="n">tlista</span><span class="p">,</span> <span class="n">tlistb</span><span class="p">):</span>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="w">        </span><span class="sd">"""Combine two lists of stracks into a single one."""</span>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a>        <span class="n">exists</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a>        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-382" name="__codelineno-0-382"></a>        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlista</span><span class="p">:</span>
-<a id="__codelineno-0-383" name="__codelineno-0-383"></a>            <span class="n">exists</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<a id="__codelineno-0-384" name="__codelineno-0-384"></a>            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<a id="__codelineno-0-385" name="__codelineno-0-385"></a>        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlistb</span><span class="p">:</span>
-<a id="__codelineno-0-386" name="__codelineno-0-386"></a>            <span class="n">tid</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">track_id</span>
-<a id="__codelineno-0-387" name="__codelineno-0-387"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">exists</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tid</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
-<a id="__codelineno-0-388" name="__codelineno-0-388"></a>                <span class="n">exists</span><span class="p">[</span><span class="n">tid</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<a id="__codelineno-0-389" name="__codelineno-0-389"></a>                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<a id="__codelineno-0-390" name="__codelineno-0-390"></a>        <span class="k">return</span> <span class="n">res</span>
-<a id="__codelineno-0-391" name="__codelineno-0-391"></a>
-<a id="__codelineno-0-392" name="__codelineno-0-392"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-393" name="__codelineno-0-393"></a>    <span class="k">def</span> <span class="nf">sub_stracks</span><span class="p">(</span><span class="n">tlista</span><span class="p">,</span> <span class="n">tlistb</span><span class="p">):</span>
-<a id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="w">        </span><span class="sd">"""DEPRECATED CODE in https://github.com/ultralytics/ultralytics/pull/1890/</span>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a><span class="sd">        stracks = {t.track_id: t for t in tlista}</span>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="sd">        for t in tlistb:</span>
-<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="sd">            tid = t.track_id</span>
-<a id="__codelineno-0-398" name="__codelineno-0-398"></a><span class="sd">            if stracks.get(tid, 0):</span>
-<a id="__codelineno-0-399" name="__codelineno-0-399"></a><span class="sd">                del stracks[tid]</span>
-<a id="__codelineno-0-400" name="__codelineno-0-400"></a><span class="sd">        return list(stracks.values())</span>
-<a id="__codelineno-0-401" name="__codelineno-0-401"></a><span class="sd">        """</span>
-<a id="__codelineno-0-402" name="__codelineno-0-402"></a>        <span class="n">track_ids_b</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="o">.</span><span class="n">track_id</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlistb</span><span class="p">}</span>
-<a id="__codelineno-0-403" name="__codelineno-0-403"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlista</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">track_ids_b</span><span class="p">]</span>
-<a id="__codelineno-0-404" name="__codelineno-0-404"></a>
-<a id="__codelineno-0-405" name="__codelineno-0-405"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-406" name="__codelineno-0-406"></a>    <span class="k">def</span> <span class="nf">remove_duplicate_stracks</span><span class="p">(</span><span class="n">stracksa</span><span class="p">,</span> <span class="n">stracksb</span><span class="p">):</span>
-<a id="__codelineno-0-407" name="__codelineno-0-407"></a><span class="w">        </span><span class="sd">"""Remove duplicate stracks with non-maximum IOU distance."""</span>
-<a id="__codelineno-0-408" name="__codelineno-0-408"></a>        <span class="n">pdist</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">iou_distance</span><span class="p">(</span><span class="n">stracksa</span><span class="p">,</span> <span class="n">stracksb</span><span class="p">)</span>
-<a id="__codelineno-0-409" name="__codelineno-0-409"></a>        <span class="n">pairs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">pdist</span> <span class="o">&lt;</span> <span class="mf">0.15</span><span class="p">)</span>
-<a id="__codelineno-0-410" name="__codelineno-0-410"></a>        <span class="n">dupa</span><span class="p">,</span> <span class="n">dupb</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-<a id="__codelineno-0-411" name="__codelineno-0-411"></a>        <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">pairs</span><span class="p">):</span>
-<a id="__codelineno-0-412" name="__codelineno-0-412"></a>            <span class="n">timep</span> <span class="o">=</span> <span class="n">stracksa</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">-</span> <span class="n">stracksa</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">start_frame</span>
-<a id="__codelineno-0-413" name="__codelineno-0-413"></a>            <span class="n">timeq</span> <span class="o">=</span> <span class="n">stracksb</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">-</span> <span class="n">stracksb</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">start_frame</span>
-<a id="__codelineno-0-414" name="__codelineno-0-414"></a>            <span class="k">if</span> <span class="n">timep</span> <span class="o">&gt;</span> <span class="n">timeq</span><span class="p">:</span>
-<a id="__codelineno-0-415" name="__codelineno-0-415"></a>                <span class="n">dupb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
-<a id="__codelineno-0-416" name="__codelineno-0-416"></a>            <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-417" name="__codelineno-0-417"></a>                <span class="n">dupa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-0-418" name="__codelineno-0-418"></a>        <span class="n">resa</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stracksa</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dupa</span><span class="p">]</span>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a>        <span class="n">resb</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stracksb</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dupb</span><span class="p">]</span>
-<a id="__codelineno-0-420" name="__codelineno-0-420"></a>        <span class="k">return</span> <span class="n">resa</span><span class="p">,</span> <span class="n">resb</span>
+<a id="__codelineno-0-377" name="__codelineno-0-377"></a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="w">        </span><span class="sd">"""Reset tracker."""</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">tracked_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
+<a id="__codelineno-0-380" name="__codelineno-0-380"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">lost_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
+<a id="__codelineno-0-381" name="__codelineno-0-381"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">removed_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">kalman_filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_kalmanfilter</span><span class="p">()</span>
+<a id="__codelineno-0-384" name="__codelineno-0-384"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">reset_id</span><span class="p">()</span>
+<a id="__codelineno-0-385" name="__codelineno-0-385"></a>
+<a id="__codelineno-0-386" name="__codelineno-0-386"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-387" name="__codelineno-0-387"></a>    <span class="k">def</span> <span class="nf">joint_stracks</span><span class="p">(</span><span class="n">tlista</span><span class="p">,</span> <span class="n">tlistb</span><span class="p">):</span>
+<a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="w">        </span><span class="sd">"""Combine two lists of stracks into a single one."""</span>
+<a id="__codelineno-0-389" name="__codelineno-0-389"></a>        <span class="n">exists</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-0-390" name="__codelineno-0-390"></a>        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-391" name="__codelineno-0-391"></a>        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlista</span><span class="p">:</span>
+<a id="__codelineno-0-392" name="__codelineno-0-392"></a>            <span class="n">exists</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-0-393" name="__codelineno-0-393"></a>            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a id="__codelineno-0-394" name="__codelineno-0-394"></a>        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlistb</span><span class="p">:</span>
+<a id="__codelineno-0-395" name="__codelineno-0-395"></a>            <span class="n">tid</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">track_id</span>
+<a id="__codelineno-0-396" name="__codelineno-0-396"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">exists</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tid</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+<a id="__codelineno-0-397" name="__codelineno-0-397"></a>                <span class="n">exists</span><span class="p">[</span><span class="n">tid</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-0-398" name="__codelineno-0-398"></a>                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a id="__codelineno-0-399" name="__codelineno-0-399"></a>        <span class="k">return</span> <span class="n">res</span>
+<a id="__codelineno-0-400" name="__codelineno-0-400"></a>
+<a id="__codelineno-0-401" name="__codelineno-0-401"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-402" name="__codelineno-0-402"></a>    <span class="k">def</span> <span class="nf">sub_stracks</span><span class="p">(</span><span class="n">tlista</span><span class="p">,</span> <span class="n">tlistb</span><span class="p">):</span>
+<a id="__codelineno-0-403" name="__codelineno-0-403"></a><span class="w">        </span><span class="sd">"""DEPRECATED CODE in https://github.com/ultralytics/ultralytics/pull/1890/</span>
+<a id="__codelineno-0-404" name="__codelineno-0-404"></a><span class="sd">        stracks = {t.track_id: t for t in tlista}</span>
+<a id="__codelineno-0-405" name="__codelineno-0-405"></a><span class="sd">        for t in tlistb:</span>
+<a id="__codelineno-0-406" name="__codelineno-0-406"></a><span class="sd">            tid = t.track_id</span>
+<a id="__codelineno-0-407" name="__codelineno-0-407"></a><span class="sd">            if stracks.get(tid, 0):</span>
+<a id="__codelineno-0-408" name="__codelineno-0-408"></a><span class="sd">                del stracks[tid]</span>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="sd">        return list(stracks.values())</span>
+<a id="__codelineno-0-410" name="__codelineno-0-410"></a><span class="sd">        """</span>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>        <span class="n">track_ids_b</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="o">.</span><span class="n">track_id</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlistb</span><span class="p">}</span>
+<a id="__codelineno-0-412" name="__codelineno-0-412"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlista</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">track_ids_b</span><span class="p">]</span>
+<a id="__codelineno-0-413" name="__codelineno-0-413"></a>
+<a id="__codelineno-0-414" name="__codelineno-0-414"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-415" name="__codelineno-0-415"></a>    <span class="k">def</span> <span class="nf">remove_duplicate_stracks</span><span class="p">(</span><span class="n">stracksa</span><span class="p">,</span> <span class="n">stracksb</span><span class="p">):</span>
+<a id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="w">        </span><span class="sd">"""Remove duplicate stracks with non-maximum IOU distance."""</span>
+<a id="__codelineno-0-417" name="__codelineno-0-417"></a>        <span class="n">pdist</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">iou_distance</span><span class="p">(</span><span class="n">stracksa</span><span class="p">,</span> <span class="n">stracksb</span><span class="p">)</span>
+<a id="__codelineno-0-418" name="__codelineno-0-418"></a>        <span class="n">pairs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">pdist</span> <span class="o">&lt;</span> <span class="mf">0.15</span><span class="p">)</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>        <span class="n">dupa</span><span class="p">,</span> <span class="n">dupb</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<a id="__codelineno-0-420" name="__codelineno-0-420"></a>        <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">pairs</span><span class="p">):</span>
+<a id="__codelineno-0-421" name="__codelineno-0-421"></a>            <span class="n">timep</span> <span class="o">=</span> <span class="n">stracksa</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">-</span> <span class="n">stracksa</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">start_frame</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>            <span class="n">timeq</span> <span class="o">=</span> <span class="n">stracksb</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">-</span> <span class="n">stracksb</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">start_frame</span>
+<a id="__codelineno-0-423" name="__codelineno-0-423"></a>            <span class="k">if</span> <span class="n">timep</span> <span class="o">&gt;</span> <span class="n">timeq</span><span class="p">:</span>
+<a id="__codelineno-0-424" name="__codelineno-0-424"></a>                <span class="n">dupb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<a id="__codelineno-0-425" name="__codelineno-0-425"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-426" name="__codelineno-0-426"></a>                <span class="n">dupa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<a id="__codelineno-0-427" name="__codelineno-0-427"></a>        <span class="n">resa</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stracksa</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dupa</span><span class="p">]</span>
+<a id="__codelineno-0-428" name="__codelineno-0-428"></a>        <span class="n">resb</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stracksb</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dupb</span><span class="p">]</span>
+<a id="__codelineno-0-429" name="__codelineno-0-429"></a>        <span class="k">return</span> <span class="n">resa</span><span class="p">,</span> <span class="n">resb</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -4227,33 +4262,33 @@ predicting the new object locations, and performs data association.</p>
 <p>Combine two lists of stracks into a single one.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-377">377</a></span>
-<span class="normal"><a href="#__codelineno-0-378">378</a></span>
-<span class="normal"><a href="#__codelineno-0-379">379</a></span>
-<span class="normal"><a href="#__codelineno-0-380">380</a></span>
-<span class="normal"><a href="#__codelineno-0-381">381</a></span>
-<span class="normal"><a href="#__codelineno-0-382">382</a></span>
-<span class="normal"><a href="#__codelineno-0-383">383</a></span>
-<span class="normal"><a href="#__codelineno-0-384">384</a></span>
-<span class="normal"><a href="#__codelineno-0-385">385</a></span>
-<span class="normal"><a href="#__codelineno-0-386">386</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-386">386</a></span>
 <span class="normal"><a href="#__codelineno-0-387">387</a></span>
 <span class="normal"><a href="#__codelineno-0-388">388</a></span>
 <span class="normal"><a href="#__codelineno-0-389">389</a></span>
-<span class="normal"><a href="#__codelineno-0-390">390</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="nd">@staticmethod</span>
-<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="k">def</span> <span class="nf">joint_stracks</span><span class="p">(</span><span class="n">tlista</span><span class="p">,</span> <span class="n">tlistb</span><span class="p">):</span>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="w">    </span><span class="sd">"""Combine two lists of stracks into a single one."""</span>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a>    <span class="n">exists</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a>    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-382" name="__codelineno-0-382"></a>    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlista</span><span class="p">:</span>
-<a id="__codelineno-0-383" name="__codelineno-0-383"></a>        <span class="n">exists</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<a id="__codelineno-0-384" name="__codelineno-0-384"></a>        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<a id="__codelineno-0-385" name="__codelineno-0-385"></a>    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlistb</span><span class="p">:</span>
-<a id="__codelineno-0-386" name="__codelineno-0-386"></a>        <span class="n">tid</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">track_id</span>
-<a id="__codelineno-0-387" name="__codelineno-0-387"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">exists</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tid</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
-<a id="__codelineno-0-388" name="__codelineno-0-388"></a>            <span class="n">exists</span><span class="p">[</span><span class="n">tid</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<a id="__codelineno-0-389" name="__codelineno-0-389"></a>            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-<a id="__codelineno-0-390" name="__codelineno-0-390"></a>    <span class="k">return</span> <span class="n">res</span>
+<span class="normal"><a href="#__codelineno-0-390">390</a></span>
+<span class="normal"><a href="#__codelineno-0-391">391</a></span>
+<span class="normal"><a href="#__codelineno-0-392">392</a></span>
+<span class="normal"><a href="#__codelineno-0-393">393</a></span>
+<span class="normal"><a href="#__codelineno-0-394">394</a></span>
+<span class="normal"><a href="#__codelineno-0-395">395</a></span>
+<span class="normal"><a href="#__codelineno-0-396">396</a></span>
+<span class="normal"><a href="#__codelineno-0-397">397</a></span>
+<span class="normal"><a href="#__codelineno-0-398">398</a></span>
+<span class="normal"><a href="#__codelineno-0-399">399</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-386" name="__codelineno-0-386"></a><span class="nd">@staticmethod</span>
+<a id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="k">def</span> <span class="nf">joint_stracks</span><span class="p">(</span><span class="n">tlista</span><span class="p">,</span> <span class="n">tlistb</span><span class="p">):</span>
+<a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="w">    </span><span class="sd">"""Combine two lists of stracks into a single one."""</span>
+<a id="__codelineno-0-389" name="__codelineno-0-389"></a>    <span class="n">exists</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-0-390" name="__codelineno-0-390"></a>    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-391" name="__codelineno-0-391"></a>    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlista</span><span class="p">:</span>
+<a id="__codelineno-0-392" name="__codelineno-0-392"></a>        <span class="n">exists</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-0-393" name="__codelineno-0-393"></a>        <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a id="__codelineno-0-394" name="__codelineno-0-394"></a>    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlistb</span><span class="p">:</span>
+<a id="__codelineno-0-395" name="__codelineno-0-395"></a>        <span class="n">tid</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">track_id</span>
+<a id="__codelineno-0-396" name="__codelineno-0-396"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">exists</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tid</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+<a id="__codelineno-0-397" name="__codelineno-0-397"></a>            <span class="n">exists</span><span class="p">[</span><span class="n">tid</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-0-398" name="__codelineno-0-398"></a>            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<a id="__codelineno-0-399" name="__codelineno-0-399"></a>    <span class="k">return</span> <span class="n">res</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4286,37 +4321,64 @@ predicting the new object locations, and performs data association.</p>
 <p>Remove duplicate stracks with non-maximum IOU distance.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-405">405</a></span>
-<span class="normal"><a href="#__codelineno-0-406">406</a></span>
-<span class="normal"><a href="#__codelineno-0-407">407</a></span>
-<span class="normal"><a href="#__codelineno-0-408">408</a></span>
-<span class="normal"><a href="#__codelineno-0-409">409</a></span>
-<span class="normal"><a href="#__codelineno-0-410">410</a></span>
-<span class="normal"><a href="#__codelineno-0-411">411</a></span>
-<span class="normal"><a href="#__codelineno-0-412">412</a></span>
-<span class="normal"><a href="#__codelineno-0-413">413</a></span>
-<span class="normal"><a href="#__codelineno-0-414">414</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-414">414</a></span>
 <span class="normal"><a href="#__codelineno-0-415">415</a></span>
 <span class="normal"><a href="#__codelineno-0-416">416</a></span>
 <span class="normal"><a href="#__codelineno-0-417">417</a></span>
 <span class="normal"><a href="#__codelineno-0-418">418</a></span>
 <span class="normal"><a href="#__codelineno-0-419">419</a></span>
-<span class="normal"><a href="#__codelineno-0-420">420</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-405" name="__codelineno-0-405"></a><span class="nd">@staticmethod</span>
-<a id="__codelineno-0-406" name="__codelineno-0-406"></a><span class="k">def</span> <span class="nf">remove_duplicate_stracks</span><span class="p">(</span><span class="n">stracksa</span><span class="p">,</span> <span class="n">stracksb</span><span class="p">):</span>
-<a id="__codelineno-0-407" name="__codelineno-0-407"></a><span class="w">    </span><span class="sd">"""Remove duplicate stracks with non-maximum IOU distance."""</span>
-<a id="__codelineno-0-408" name="__codelineno-0-408"></a>    <span class="n">pdist</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">iou_distance</span><span class="p">(</span><span class="n">stracksa</span><span class="p">,</span> <span class="n">stracksb</span><span class="p">)</span>
-<a id="__codelineno-0-409" name="__codelineno-0-409"></a>    <span class="n">pairs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">pdist</span> <span class="o">&lt;</span> <span class="mf">0.15</span><span class="p">)</span>
-<a id="__codelineno-0-410" name="__codelineno-0-410"></a>    <span class="n">dupa</span><span class="p">,</span> <span class="n">dupb</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-<a id="__codelineno-0-411" name="__codelineno-0-411"></a>    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">pairs</span><span class="p">):</span>
-<a id="__codelineno-0-412" name="__codelineno-0-412"></a>        <span class="n">timep</span> <span class="o">=</span> <span class="n">stracksa</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">-</span> <span class="n">stracksa</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">start_frame</span>
-<a id="__codelineno-0-413" name="__codelineno-0-413"></a>        <span class="n">timeq</span> <span class="o">=</span> <span class="n">stracksb</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">-</span> <span class="n">stracksb</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">start_frame</span>
-<a id="__codelineno-0-414" name="__codelineno-0-414"></a>        <span class="k">if</span> <span class="n">timep</span> <span class="o">&gt;</span> <span class="n">timeq</span><span class="p">:</span>
-<a id="__codelineno-0-415" name="__codelineno-0-415"></a>            <span class="n">dupb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
-<a id="__codelineno-0-416" name="__codelineno-0-416"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-417" name="__codelineno-0-417"></a>            <span class="n">dupa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-0-418" name="__codelineno-0-418"></a>    <span class="n">resa</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stracksa</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dupa</span><span class="p">]</span>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a>    <span class="n">resb</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stracksb</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dupb</span><span class="p">]</span>
-<a id="__codelineno-0-420" name="__codelineno-0-420"></a>    <span class="k">return</span> <span class="n">resa</span><span class="p">,</span> <span class="n">resb</span>
+<span class="normal"><a href="#__codelineno-0-420">420</a></span>
+<span class="normal"><a href="#__codelineno-0-421">421</a></span>
+<span class="normal"><a href="#__codelineno-0-422">422</a></span>
+<span class="normal"><a href="#__codelineno-0-423">423</a></span>
+<span class="normal"><a href="#__codelineno-0-424">424</a></span>
+<span class="normal"><a href="#__codelineno-0-425">425</a></span>
+<span class="normal"><a href="#__codelineno-0-426">426</a></span>
+<span class="normal"><a href="#__codelineno-0-427">427</a></span>
+<span class="normal"><a href="#__codelineno-0-428">428</a></span>
+<span class="normal"><a href="#__codelineno-0-429">429</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-414" name="__codelineno-0-414"></a><span class="nd">@staticmethod</span>
+<a id="__codelineno-0-415" name="__codelineno-0-415"></a><span class="k">def</span> <span class="nf">remove_duplicate_stracks</span><span class="p">(</span><span class="n">stracksa</span><span class="p">,</span> <span class="n">stracksb</span><span class="p">):</span>
+<a id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="w">    </span><span class="sd">"""Remove duplicate stracks with non-maximum IOU distance."""</span>
+<a id="__codelineno-0-417" name="__codelineno-0-417"></a>    <span class="n">pdist</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">iou_distance</span><span class="p">(</span><span class="n">stracksa</span><span class="p">,</span> <span class="n">stracksb</span><span class="p">)</span>
+<a id="__codelineno-0-418" name="__codelineno-0-418"></a>    <span class="n">pairs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">pdist</span> <span class="o">&lt;</span> <span class="mf">0.15</span><span class="p">)</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>    <span class="n">dupa</span><span class="p">,</span> <span class="n">dupb</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<a id="__codelineno-0-420" name="__codelineno-0-420"></a>    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">pairs</span><span class="p">):</span>
+<a id="__codelineno-0-421" name="__codelineno-0-421"></a>        <span class="n">timep</span> <span class="o">=</span> <span class="n">stracksa</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">-</span> <span class="n">stracksa</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">start_frame</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>        <span class="n">timeq</span> <span class="o">=</span> <span class="n">stracksb</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">-</span> <span class="n">stracksb</span><span class="p">[</span><span class="n">q</span><span class="p">]</span><span class="o">.</span><span class="n">start_frame</span>
+<a id="__codelineno-0-423" name="__codelineno-0-423"></a>        <span class="k">if</span> <span class="n">timep</span> <span class="o">&gt;</span> <span class="n">timeq</span><span class="p">:</span>
+<a id="__codelineno-0-424" name="__codelineno-0-424"></a>            <span class="n">dupb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<a id="__codelineno-0-425" name="__codelineno-0-425"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-426" name="__codelineno-0-426"></a>            <span class="n">dupa</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<a id="__codelineno-0-427" name="__codelineno-0-427"></a>    <span class="n">resa</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stracksa</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dupa</span><span class="p">]</span>
+<a id="__codelineno-0-428" name="__codelineno-0-428"></a>    <span class="n">resb</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stracksb</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dupb</span><span class="p">]</span>
+<a id="__codelineno-0-429" name="__codelineno-0-429"></a>    <span class="k">return</span> <span class="n">resa</span><span class="p">,</span> <span class="n">resb</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.trackers.byte_tracker.BYTETracker.reset">
+<code class="highlight language-python"><span class="n">reset</span><span class="p">()</span></code>
+</h3>
+<div class="doc doc-contents">
+<p>Reset tracker.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-377">377</a></span>
+<span class="normal"><a href="#__codelineno-0-378">378</a></span>
+<span class="normal"><a href="#__codelineno-0-379">379</a></span>
+<span class="normal"><a href="#__codelineno-0-380">380</a></span>
+<span class="normal"><a href="#__codelineno-0-381">381</a></span>
+<span class="normal"><a href="#__codelineno-0-382">382</a></span>
+<span class="normal"><a href="#__codelineno-0-383">383</a></span>
+<span class="normal"><a href="#__codelineno-0-384">384</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="w">    </span><span class="sd">"""Reset tracker."""</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">tracked_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
+<a id="__codelineno-0-380" name="__codelineno-0-380"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">lost_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
+<a id="__codelineno-0-381" name="__codelineno-0-381"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">removed_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">kalman_filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_kalmanfilter</span><span class="p">()</span>
+<a id="__codelineno-0-384" name="__codelineno-0-384"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">reset_id</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4355,29 +4417,29 @@ for t in tlistb:
 return list(stracks.values())</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-392">392</a></span>
-<span class="normal"><a href="#__codelineno-0-393">393</a></span>
-<span class="normal"><a href="#__codelineno-0-394">394</a></span>
-<span class="normal"><a href="#__codelineno-0-395">395</a></span>
-<span class="normal"><a href="#__codelineno-0-396">396</a></span>
-<span class="normal"><a href="#__codelineno-0-397">397</a></span>
-<span class="normal"><a href="#__codelineno-0-398">398</a></span>
-<span class="normal"><a href="#__codelineno-0-399">399</a></span>
-<span class="normal"><a href="#__codelineno-0-400">400</a></span>
-<span class="normal"><a href="#__codelineno-0-401">401</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-401">401</a></span>
 <span class="normal"><a href="#__codelineno-0-402">402</a></span>
-<span class="normal"><a href="#__codelineno-0-403">403</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="nd">@staticmethod</span>
-<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="k">def</span> <span class="nf">sub_stracks</span><span class="p">(</span><span class="n">tlista</span><span class="p">,</span> <span class="n">tlistb</span><span class="p">):</span>
-<a id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="w">    </span><span class="sd">"""DEPRECATED CODE in https://github.com/ultralytics/ultralytics/pull/1890/</span>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a><span class="sd">    stracks = {t.track_id: t for t in tlista}</span>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="sd">    for t in tlistb:</span>
-<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="sd">        tid = t.track_id</span>
-<a id="__codelineno-0-398" name="__codelineno-0-398"></a><span class="sd">        if stracks.get(tid, 0):</span>
-<a id="__codelineno-0-399" name="__codelineno-0-399"></a><span class="sd">            del stracks[tid]</span>
-<a id="__codelineno-0-400" name="__codelineno-0-400"></a><span class="sd">    return list(stracks.values())</span>
-<a id="__codelineno-0-401" name="__codelineno-0-401"></a><span class="sd">    """</span>
-<a id="__codelineno-0-402" name="__codelineno-0-402"></a>    <span class="n">track_ids_b</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="o">.</span><span class="n">track_id</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlistb</span><span class="p">}</span>
-<a id="__codelineno-0-403" name="__codelineno-0-403"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlista</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">track_ids_b</span><span class="p">]</span>
+<span class="normal"><a href="#__codelineno-0-403">403</a></span>
+<span class="normal"><a href="#__codelineno-0-404">404</a></span>
+<span class="normal"><a href="#__codelineno-0-405">405</a></span>
+<span class="normal"><a href="#__codelineno-0-406">406</a></span>
+<span class="normal"><a href="#__codelineno-0-407">407</a></span>
+<span class="normal"><a href="#__codelineno-0-408">408</a></span>
+<span class="normal"><a href="#__codelineno-0-409">409</a></span>
+<span class="normal"><a href="#__codelineno-0-410">410</a></span>
+<span class="normal"><a href="#__codelineno-0-411">411</a></span>
+<span class="normal"><a href="#__codelineno-0-412">412</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-401" name="__codelineno-0-401"></a><span class="nd">@staticmethod</span>
+<a id="__codelineno-0-402" name="__codelineno-0-402"></a><span class="k">def</span> <span class="nf">sub_stracks</span><span class="p">(</span><span class="n">tlista</span><span class="p">,</span> <span class="n">tlistb</span><span class="p">):</span>
+<a id="__codelineno-0-403" name="__codelineno-0-403"></a><span class="w">    </span><span class="sd">"""DEPRECATED CODE in https://github.com/ultralytics/ultralytics/pull/1890/</span>
+<a id="__codelineno-0-404" name="__codelineno-0-404"></a><span class="sd">    stracks = {t.track_id: t for t in tlista}</span>
+<a id="__codelineno-0-405" name="__codelineno-0-405"></a><span class="sd">    for t in tlistb:</span>
+<a id="__codelineno-0-406" name="__codelineno-0-406"></a><span class="sd">        tid = t.track_id</span>
+<a id="__codelineno-0-407" name="__codelineno-0-407"></a><span class="sd">        if stracks.get(tid, 0):</span>
+<a id="__codelineno-0-408" name="__codelineno-0-408"></a><span class="sd">            del stracks[tid]</span>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="sd">    return list(stracks.values())</span>
+<a id="__codelineno-0-410" name="__codelineno-0-410"></a><span class="sd">    """</span>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>    <span class="n">track_ids_b</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="o">.</span><span class="n">track_id</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlistb</span><span class="p">}</span>
+<a id="__codelineno-0-412" name="__codelineno-0-412"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlista</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">track_ids_b</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

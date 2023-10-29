@@ -1199,6 +1199,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../guides/yolo-performance-metrics/">
+<span class="md-ellipsis">
+    Performance Metrics
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../guides/kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
@@ -2398,7 +2405,7 @@
 </ul>
 </div>
 <h2 id="usage-examples">Usage Examples</h2>
-<p>Train YOLOv8n on the COCO128 dataset for 100 epochs at image size 640. See Arguments section below for a full list of training arguments.</p>
+<p>Train YOLOv8n on the COCO128 dataset for 100 epochs at image size 640. The training device can be specified using the <code>device</code> argument. If no argument is passed GPU <code>device=0</code> will be used if available, otherwise <code>device=cpu</code> will be used. See Arguments section below for a full list of training arguments.</p>
 <div class="admonition example">
 <p class="admonition-title">Single-GPU and CPU Training Example</p>
 <p>Device is determined automatically. If a GPU is available then it will be used, otherwise training will start on CPU.</p>
@@ -2431,9 +2438,10 @@
 </input></input></div>
 </div>
 <h3 id="multi-gpu-training">Multi-GPU Training</h3>
-<p>The training device can be specified using the <code>device</code> argument. If no argument is passed GPU <code>device=0</code> will be used if available, otherwise <code>device=cpu</code> will be used.</p>
+<p>Multi-GPU training allows for more efficient utilization of available hardware resources by distributing the training load across multiple GPUs. This feature is available through both the Python API and the command-line interface. To enable multi-GPU training, specify the GPU device IDs you wish to use.</p>
 <div class="admonition example">
 <p class="admonition-title">Multi-GPU Training Example</p>
+<p>To train with 2 GPUs, CUDA devices 0 and 1 use the following commands. Expand to additional GPUs as required.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2816,7 +2824,7 @@
 </div>
 <p>This will load TensorBoard and direct it to the directory where your training logs are saved.</p>
 <p>After setting up your logger, you can then proceed with your model training. All training metrics will be automatically logged in your chosen platform, and you can access these logs to monitor your model's performance over time, compare different models, and identify areas for improvement.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-10-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (29), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-10-29<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (30), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
