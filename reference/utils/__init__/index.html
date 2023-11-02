@@ -5865,7 +5865,7 @@ Misc: 'end', 'bold', 'underline'</p>
 <a id="__codelineno-0-707" name="__codelineno-0-707"></a><span class="sd">        &gt;&gt;&gt; remove_colorstr(colorstr('blue', 'bold', 'hello world'))</span>
 <a id="__codelineno-0-708" name="__codelineno-0-708"></a><span class="sd">        &gt;&gt;&gt; 'hello world'</span>
 <a id="__codelineno-0-709" name="__codelineno-0-709"></a><span class="sd">    """</span>
-<a id="__codelineno-0-710" name="__codelineno-0-710"></a>    <span class="n">ansi_escape</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\x1B(?:[@-Z</span><span class="se">\\</span><span class="s1">\-_]|\[[0-9]*[ -/]*[@-~])'</span><span class="p">)</span>
+<a id="__codelineno-0-710" name="__codelineno-0-710"></a>    <span class="n">ansi_escape</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\x1B\[[0-9;]*[A-Za-z]'</span><span class="p">)</span>
 <a id="__codelineno-0-711" name="__codelineno-0-711"></a>    <span class="k">return</span> <span class="n">ansi_escape</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="n">input_string</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
