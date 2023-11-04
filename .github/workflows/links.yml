@@ -53,7 +53,7 @@ jobs:
         if: matrix.branch == 'main'
         run: |
           mkdir ultralytics_website
-          wget -P ultralytics_website --recursive --no-parent --adjust-extension https://www.ultralytics.com || true
+          wget -P ultralytics_website --recursive --no-parent --adjust-extension --accept=html https://www.ultralytics.com || true
 
       - name: Run Broken Link Checks on Ultralytics Website
         if: matrix.branch == 'main'
