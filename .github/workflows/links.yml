@@ -52,9 +52,8 @@ jobs:
       - name: Download Ultralytics Website
         if: matrix.branch == 'main'
         run: |
-          sudo apt install httrack
           mkdir ultralytics_website
-          httrack "https://www.ultralytics.com" -O "ultralytics_website" "+*.ultralytics.com/*.html" -v
+          wget -P ultralytics_website --recursive --no-parent --adjust-extension --reject *.jpg*,*.jpeg*,*.png*,gif,webp,svg https://www.ultralytics.com || true
 
       - name: Run Broken Link Checks on Ultralytics Website
         if: matrix.branch == 'main'
