@@ -52,7 +52,7 @@ jobs:
       - name: Download Ultralytics Website
         if: matrix.branch == 'main'
         run: |
-          apt install httrack
+          sudo apt install httrack
           mkdir ultralytics_website
           httrack "https://www.ultralytics.com" -O "ultralytics_website" "+*.ultralytics.com/*.html" -v
 
