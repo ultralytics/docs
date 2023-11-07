@@ -5,14 +5,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore image classification datasets supported by Ultralytics, learn the standard dataset format, and set up your own dataset for training models." name="description"/>
+<meta content="Explore Ultralytics YOLOv8, a cutting-edge real-time object detection and image segmentation model for various applications and hardware platforms." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/datasets/classify/" rel="canonical"/>
-<link href="../pose/tiger-pose/" rel="prev"/>
-<link href="caltech101/" rel="next"/>
+<link href="https://docs.ultralytics.com/guides/model-deployment-options/" rel="canonical"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
-<title>Image Classification Datasets Overview - Ultralytics YOLOv8 Docs</title>
+<title>Understanding YOLOv8’s Deployment Options - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -24,14 +22,14 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Image Classification Datasets Overview" name="title"/><meta content="Ultralytics, image classification, dataset, machine learning, CIFAR-10, ImageNet, MNIST, torchvision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/classify" property="og:url"/><meta content="Image Classification Datasets Overview" property="og:title"/><meta content="Explore image classification datasets supported by Ultralytics, learn the standard dataset format, and set up your own dataset for training models." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/classify" property="twitter:url"/><meta content="Image Classification Datasets Overview" property="twitter:title"/><meta content="Explore image classification datasets supported by Ultralytics, learn the standard dataset format, and set up your own dataset for training models." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
+<meta content="Understanding YOLOv8’s Deployment Options" name="title"/><meta content="YOLOv8, Deployment, PyTorch, TorchScript, ONNX, OpenVINO, TensorRT, CoreML, TensorFlow, Export" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-deployment-options" property="og:url"/><meta content="Understanding YOLOv8’s Deployment Options" property="og:title"/><meta content="" property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-deployment-options" property="twitter:url"/><meta content="Understanding YOLOv8’s Deployment Options" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#image-classification-datasets-overview">
+<a class="md-skip" href="#understanding-yolov8s-deployment-options">
           Skip to content
         </a>
 </div>
@@ -55,7 +53,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Image Classification Datasets Overview
+              Understanding YOLOv8’s Deployment Options
             
           </span>
 </div>
@@ -190,8 +188,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../datasets/">
           
   
     
@@ -201,7 +199,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../guides/">
+<a class="md-tabs__link" href="../">
           
   
     
@@ -673,10 +671,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -685,7 +683,7 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
             Datasets
@@ -694,7 +692,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../detect/">
+<a class="md-nav__link" href="../../datasets/detect/">
 <span class="md-ellipsis">
     Detection
   </span>
@@ -710,70 +708,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/argoverse/">
+<a class="md-nav__link" href="../../datasets/detect/argoverse/">
 <span class="md-ellipsis">
     Argoverse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/coco/">
+<a class="md-nav__link" href="../../datasets/detect/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/coco8/">
+<a class="md-nav__link" href="../../datasets/detect/coco8/">
 <span class="md-ellipsis">
     COCO8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/globalwheat2020/">
+<a class="md-nav__link" href="../../datasets/detect/globalwheat2020/">
 <span class="md-ellipsis">
     GlobalWheat2020
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/objects365/">
+<a class="md-nav__link" href="../../datasets/detect/objects365/">
 <span class="md-ellipsis">
     Objects365
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/open-images-v7/">
+<a class="md-nav__link" href="../../datasets/detect/open-images-v7/">
 <span class="md-ellipsis">
     OpenImagesV7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/sku-110k/">
+<a class="md-nav__link" href="../../datasets/detect/sku-110k/">
 <span class="md-ellipsis">
     SKU-110K
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/visdrone/">
+<a class="md-nav__link" href="../../datasets/detect/visdrone/">
 <span class="md-ellipsis">
     VisDrone
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/voc/">
+<a class="md-nav__link" href="../../datasets/detect/voc/">
 <span class="md-ellipsis">
     VOC
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/xview/">
+<a class="md-nav__link" href="../../datasets/detect/xview/">
 <span class="md-ellipsis">
     xView
   </span>
@@ -785,7 +783,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../segment/">
+<a class="md-nav__link" href="../../datasets/segment/">
 <span class="md-ellipsis">
     Segmentation
   </span>
@@ -801,14 +799,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../segment/coco/">
+<a class="md-nav__link" href="../../datasets/segment/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../segment/coco8-seg/">
+<a class="md-nav__link" href="../../datasets/segment/coco8-seg/">
 <span class="md-ellipsis">
     COCO8-seg
   </span>
@@ -820,7 +818,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../pose/">
+<a class="md-nav__link" href="../../datasets/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -836,21 +834,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../pose/coco/">
+<a class="md-nav__link" href="../../datasets/pose/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../pose/coco8-pose/">
+<a class="md-nav__link" href="../../datasets/pose/coco8-pose/">
 <span class="md-ellipsis">
     COCO8-pose
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../pose/tiger-pose/">
+<a class="md-nav__link" href="../../datasets/pose/tiger-pose/">
 <span class="md-ellipsis">
     Tiger-pose
   </span>
@@ -859,89 +857,89 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_6_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link md-nav__link--active" href="./">
+<a class="md-nav__link" href="../../datasets/classify/">
 <span class="md-ellipsis">
     Classification
   </span>
 </a>
-<label class="md-nav__link md-nav__link--active" for="__nav_6_5" id="__nav_6_5_label" tabindex="">
+<label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_6_5_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_6_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_6_5">
 <span class="md-nav__icon md-icon"></span>
             Classification
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="caltech101/">
+<a class="md-nav__link" href="../../datasets/classify/caltech101/">
 <span class="md-ellipsis">
     Caltech 101
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="caltech256/">
+<a class="md-nav__link" href="../../datasets/classify/caltech256/">
 <span class="md-ellipsis">
     Caltech 256
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="cifar10/">
+<a class="md-nav__link" href="../../datasets/classify/cifar10/">
 <span class="md-ellipsis">
     CIFAR-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="cifar100/">
+<a class="md-nav__link" href="../../datasets/classify/cifar100/">
 <span class="md-ellipsis">
     CIFAR-100
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="fashion-mnist/">
+<a class="md-nav__link" href="../../datasets/classify/fashion-mnist/">
 <span class="md-ellipsis">
     Fashion-MNIST
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="imagenet/">
+<a class="md-nav__link" href="../../datasets/classify/imagenet/">
 <span class="md-ellipsis">
     ImageNet
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="imagenet10/">
+<a class="md-nav__link" href="../../datasets/classify/imagenet10/">
 <span class="md-ellipsis">
     ImageNet-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="imagenette/">
+<a class="md-nav__link" href="../../datasets/classify/imagenette/">
 <span class="md-ellipsis">
     Imagenette
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="imagewoof/">
+<a class="md-nav__link" href="../../datasets/classify/imagewoof/">
 <span class="md-ellipsis">
     Imagewoof
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="mnist/">
+<a class="md-nav__link" href="../../datasets/classify/mnist/">
 <span class="md-ellipsis">
     MNIST
   </span>
@@ -953,7 +951,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../obb/">
+<a class="md-nav__link" href="../../datasets/obb/">
 <span class="md-ellipsis">
     Oriented Bounding Boxes (OBB)
   </span>
@@ -969,7 +967,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../obb/dota-v2/">
+<a class="md-nav__link" href="../../datasets/obb/dota-v2/">
 <span class="md-ellipsis">
     DOTAv2
   </span>
@@ -981,7 +979,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../track/">
+<a class="md-nav__link" href="../../datasets/track/">
 <span class="md-ellipsis">
     Multi-Object Tracking
   </span>
@@ -1002,7 +1000,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../guides/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -1018,70 +1016,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/yolo-common-issues/">
+<a class="md-nav__link" href="../yolo-common-issues/">
 <span class="md-ellipsis">
     YOLO Common Issues
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/yolo-performance-metrics/">
+<a class="md-nav__link" href="../yolo-performance-metrics/">
 <span class="md-ellipsis">
     Performance Metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/kfold-cross-validation/">
+<a class="md-nav__link" href="../kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/hyperparameter-tuning/">
+<a class="md-nav__link" href="../hyperparameter-tuning/">
 <span class="md-ellipsis">
     Hyperparameter Tuning
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/sahi-tiled-inference/">
+<a class="md-nav__link" href="../sahi-tiled-inference/">
 <span class="md-ellipsis">
     SAHI Tiled Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/azureml-quickstart/">
+<a class="md-nav__link" href="../azureml-quickstart/">
 <span class="md-ellipsis">
     AzureML Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/conda-quickstart/">
+<a class="md-nav__link" href="../conda-quickstart/">
 <span class="md-ellipsis">
     Conda Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/docker-quickstart/">
+<a class="md-nav__link" href="../docker-quickstart/">
 <span class="md-ellipsis">
     Docker Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/raspberry-pi/">
+<a class="md-nav__link" href="../raspberry-pi/">
 <span class="md-ellipsis">
     Raspberry Pi
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/triton-inference-server/">
+<a class="md-nav__link" href="../triton-inference-server/">
 <span class="md-ellipsis">
     Triton Inference Server
   </span>
@@ -2123,28 +2121,121 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-format">
-    Dataset format
+<a class="md-nav__link" href="#introduction">
+    Introduction
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
-    Usage
+<a class="md-nav__link" href="#how-to-select-the-right-deployment-option-for-your-yolov8-model">
+    How to Select the Right Deployment Option for Your YOLOv8 Model
   </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#supported-datasets">
-    Supported Datasets
-  </a>
-<nav aria-label="Supported Datasets" class="md-nav">
+<nav aria-label="How to Select the Right Deployment Option for Your YOLOv8 Model" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#adding-your-own-dataset">
-    Adding your own dataset
+<a class="md-nav__link" href="#yolov8s-deployment-options">
+    YOLOv8’s Deployment Options
+  </a>
+<nav aria-label="YOLOv8’s Deployment Options" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pytorch">
+    PyTorch
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#torchscript">
+    TorchScript
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#onnx">
+    ONNX
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#openvino">
+    OpenVINO
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tensorrt">
+    TensorRT
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#coreml">
+    CoreML
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tf-savedmodel">
+    TF SavedModel
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tf-graphdef">
+    TF GraphDef
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tf-lite">
+    TF Lite
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tf-edge-tpu">
+    TF Edge TPU
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tfjs">
+    TF.js
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#paddlepaddle">
+    PaddlePaddle
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ncnn">
+    ncnn
   </a>
 </li>
 </ul>
 </nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comparative-analysis-of-yolov8-deployment-options">
+    Comparative Analysis of YOLOv8 Deployment Options
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#community-and-support">
+    Community and Support
+  </a>
+<nav aria-label="Community and Support" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#engage-with-the-broader-community">
+    Engage with the Broader Community
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#official-documentation-and-resources">
+    Official Documentation and Resources
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
 </li>
 </ul>
 </nav>
@@ -2153,111 +2244,514 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/datasets/classify/index.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/guides/model-deployment-options.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="image-classification-datasets-overview">Image Classification Datasets Overview</h1>
-<h2 id="dataset-format">Dataset format</h2>
-<p>The folder structure for classification datasets in torchvision typically follows a standard format:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>root/
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>|-- class1/
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>|   |-- img1.jpg
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>|   |-- img2.jpg
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>|   |-- ...
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>|
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>|-- class2/
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>|   |-- img1.jpg
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>|   |-- img2.jpg
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>|   |-- ...
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>|
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>|-- class3/
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>|   |-- img1.jpg
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>|   |-- img2.jpg
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>|   |-- ...
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>|
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>|-- ...
-</code></pre></div>
-<p>In this folder structure, the <code>root</code> directory contains one subdirectory for each class in the dataset. Each subdirectory is named after the corresponding class and contains all the images for that class. Each image file is named uniquely and is typically in a common image file format such as JPEG or PNG.</p>
-<p>** Example **</p>
-<p>For example, in the CIFAR10 dataset, the folder structure would look like this:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>cifar-10-/
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>|
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>|-- train/
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>|   |-- airplane/
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>|   |   |-- 10008_airplane.png
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>|   |   |-- 10009_airplane.png
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>|   |   |-- ...
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>|   |
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>|   |-- automobile/
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>|   |   |-- 1000_automobile.png
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>|   |   |-- 1001_automobile.png
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>|   |   |-- ...
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>|   |
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>|   |-- bird/
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>|   |   |-- 10014_bird.png
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>|   |   |-- 10015_bird.png
-<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>|   |   |-- ...
-<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>|   |
-<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>|   |-- ...
-<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>|
-<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>|-- test/
-<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>|   |-- airplane/
-<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>|   |   |-- 10_airplane.png
-<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>|   |   |-- 11_airplane.png
-<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>|   |   |-- ...
-<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>|   |
-<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>|   |-- automobile/
-<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>|   |   |-- 100_automobile.png
-<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>|   |   |-- 101_automobile.png
-<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>|   |   |-- ...
-<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>|   |
-<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>|   |-- bird/
-<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>|   |   |-- 1000_bird.png
-<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a>|   |   |-- 1001_bird.png
-<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>|   |   |-- ...
-<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a>|   |
-<a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a>|   |-- ...
-</code></pre></div>
-<p>In this example, the <code>train</code> directory contains subdirectories for each class in the dataset, and each class subdirectory contains all the images for that class. The <code>test</code> directory has a similar structure. The <code>root</code> directory also contains other files that are part of the CIFAR10 dataset.</p>
-<h2 id="usage">Usage</h2>
-<div class="admonition example">
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-cls.pt'</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'path/to/dataset'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>path/to/data<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-cls.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-</div>
-<h2 id="supported-datasets">Supported Datasets</h2>
-<p>Ultralytics supports the following datasets with automatic download:</p>
+<h1 id="understanding-yolov8s-deployment-options">Understanding YOLOv8’s Deployment Options</h1>
+<h2 id="introduction">Introduction</h2>
+<p><em>Setting the Scene:</em> You've come a long way on your journey with YOLOv8. You've diligently collected data, meticulously annotated it, and put in the hours to train and rigorously evaluate your custom YOLOv8 model. Now, it’s time to put your model to work for your specific application, use case, or project. But there's a critical decision that stands before you: how to export and deploy your model effectively.</p>
+<p>This guide walks you through YOLOv8’s deployment options and the essential factors to consider to choose the right option for your project.</p>
+<h2 id="how-to-select-the-right-deployment-option-for-your-yolov8-model">How to Select the Right Deployment Option for Your YOLOv8 Model</h2>
+<p>When it's time to deploy your YOLOv8 model, selecting a suitable export format is very important. As outlined in the <a href="https://docs.ultralytics.com/modes/export/#usage-examples">Ultralytics YOLOv8 Modes documentation</a>, the model.export() function allows for converting your trained model into a variety of formats tailored to diverse environments and performance requirements.</p>
+<p>The ideal format depends on your model's intended operational context, balancing speed, hardware constraints, and ease of integration. In the following section, we'll take a closer look at each export option, understanding when to choose each one.</p>
+<h3 id="yolov8s-deployment-options">YOLOv8’s Deployment Options</h3>
+<p>Let’s walk through the different YOLOv8 deployment options. For a detailed walkthrough of the export process, visit the <a href="https://docs.ultralytics.com/modes/export/">Ultralytics documentation page on exporting</a>.</p>
+<h4 id="pytorch">PyTorch</h4>
+<p>PyTorch is an open-source machine learning library widely used for applications in deep learning and artificial intelligence. It provides a high level of flexibility and speed, which has made it a favorite among researchers and developers.</p>
 <ul>
-<li><a href="caltech101/">Caltech 101</a>: A dataset containing images of 101 object categories for image classification tasks.</li>
-<li><a href="caltech256/">Caltech 256</a>: An extended version of Caltech 101 with 256 object categories and more challenging images.</li>
-<li><a href="cifar10/">CIFAR-10</a>: A dataset of 60K 32x32 color images in 10 classes, with 6K images per class.</li>
-<li><a href="cifar100/">CIFAR-100</a>: An extended version of CIFAR-10 with 100 object categories and 600 images per class.</li>
-<li><a href="fashion-mnist/">Fashion-MNIST</a>: A dataset consisting of 70,000 grayscale images of 10 fashion categories for image classification tasks.</li>
-<li><a href="imagenet/">ImageNet</a>: A large-scale dataset for object detection and image classification with over 14 million images and 20,000 categories.</li>
-<li><a href="imagenet10/">ImageNet-10</a>: A smaller subset of ImageNet with 10 categories for faster experimentation and testing.</li>
-<li><a href="imagenette/">Imagenette</a>: A smaller subset of ImageNet that contains 10 easily distinguishable classes for quicker training and testing.</li>
-<li><a href="imagewoof/">Imagewoof</a>: A more challenging subset of ImageNet containing 10 dog breed categories for image classification tasks.</li>
-<li><a href="mnist/">MNIST</a>: A dataset of 70,000 grayscale images of handwritten digits for image classification tasks.</li>
+<li>
+<p><strong>Performance Benchmarks</strong>: PyTorch is known for its ease of use and flexibility, which may result in a slight trade-off in raw performance when compared to other frameworks that are more specialized and optimized.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: Offers excellent compatibility with various data science and machine learning libraries in Python.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: One of the most vibrant communities, with extensive resources for learning and troubleshooting.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Commonly used in research prototypes, many academic papers reference models deployed in PyTorch.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: Regular updates with active development and support for new features.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Regular patches for security issues, but security is largely dependent on the overall environment it’s deployed in.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Supports CUDA for GPU acceleration, essential for speeding up model training and inference.</p>
+</li>
 </ul>
-<h3 id="adding-your-own-dataset">Adding your own dataset</h3>
-<p>If you have your own dataset and would like to use it for training classification models with Ultralytics, ensure that it follows the format specified above under "Dataset format" and then point your <code>data</code> argument to the dataset directory.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-05-08, Updated 2023-08-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/GreatV">GreatV</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<h4 id="torchscript">TorchScript</h4>
+<p>TorchScript extends PyTorch’s capabilities by allowing the exportation of models to be run in a C++ runtime environment. This makes it suitable for production environments where Python is unavailable.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: Can offer improved performance over native PyTorch, especially in production environments.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: Designed for seamless transition from PyTorch to C++ production environments, though some advanced features might not translate perfectly.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: Benefits from PyTorch’s large community but has a narrower scope of specialized developers.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Widely used in industry settings where Python’s performance overhead is a bottleneck.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: Maintained alongside PyTorch with consistent updates.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Offers improved security by enabling the running of models in environments without full Python installations.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Inherits PyTorch’s CUDA support, ensuring efficient GPU utilization.</p>
+</li>
+</ul>
+<h4 id="onnx">ONNX</h4>
+<p>The Open Neural Network Exchange (ONNX) is a format that allows for model interoperability across different frameworks, which can be critical when deploying to various platforms.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: ONNX models may experience a variable performance depending on the specific runtime they are deployed on.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: High interoperability across multiple platforms and hardware due to its framework-agnostic nature.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: Supported by many organizations, leading to a broad ecosystem and a variety of tools for optimization.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Frequently used to move models between different machine learning frameworks, demonstrating its flexibility.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: As an open standard, ONNX is regularly updated to support new operations and models.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: As with any cross-platform tool, it's essential to ensure secure practices in the conversion and deployment pipeline.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: With ONNX Runtime, models can leverage various hardware optimizations.</p>
+</li>
+</ul>
+<h4 id="openvino">OpenVINO</h4>
+<p>OpenVINO is an Intel toolkit designed to facilitate the deployment of deep learning models across Intel hardware, enhancing performance and speed.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: Specifically optimized for Intel CPUs, GPUs, and VPUs, offering significant performance boosts on compatible hardware.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: Works best within the Intel ecosystem but also supports a range of other platforms.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: Backed by Intel, with a solid user base especially in the computer vision domain.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Often utilized in IoT and edge computing scenarios where Intel hardware is prevalent.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: Intel regularly updates OpenVINO to support the latest deep learning models and Intel hardware.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Provides robust security features suitable for deployment in sensitive applications.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Tailored for acceleration on Intel hardware, leveraging dedicated instruction sets and hardware features.</p>
+</li>
+</ul>
+<p>For more details on deployment using OpenVINO, refer to the Ultralytics Integration documentation: <a href="https://docs.ultralytics.com/integrations/openvino/">Intel OpenVINO Export</a>.</p>
+<h4 id="tensorrt">TensorRT</h4>
+<p>TensorRT is a high-performance deep learning inference optimizer and runtime from NVIDIA, ideal for applications needing speed and efficiency.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: Delivers top-tier performance on NVIDIA GPUs with support for high-speed inference.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: Best suited for NVIDIA hardware, with limited support outside this environment.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: Strong support network through NVIDIA’s developer forums and documentation.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Widely adopted in industries requiring real-time inference on video and image data.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: NVIDIA maintains TensorRT with frequent updates to enhance performance and support new GPU architectures.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Like many NVIDIA products, it has a strong emphasis on security, but specifics depend on the deployment environment.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Exclusively designed for NVIDIA GPUs, providing deep optimization and acceleration.</p>
+</li>
+</ul>
+<h4 id="coreml">CoreML</h4>
+<p>CoreML is Apple’s machine learning framework, optimized for on-device performance in the Apple ecosystem, including iOS, macOS, watchOS, and tvOS.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: Optimized for on-device performance on Apple hardware with minimal battery usage.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: Exclusively for Apple's ecosystem, providing a streamlined workflow for iOS and macOS applications.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: Strong support from Apple and a dedicated developer community, with extensive documentation and tools.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Commonly used in applications that require on-device machine learning capabilities on Apple products.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: Regularly updated by Apple to support the latest machine learning advancements and Apple hardware.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Benefits from Apple's focus on user privacy and data security.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Takes full advantage of Apple's neural engine and GPU for accelerated machine learning tasks.</p>
+</li>
+</ul>
+<h4 id="tf-savedmodel">TF SavedModel</h4>
+<p>TF SavedModel is TensorFlow’s format for saving and serving machine learning models, particularly suited for scalable server environments.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: Offers scalable performance in server environments, especially when used with TensorFlow Serving.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: Wide compatibility across TensorFlow's ecosystem, including cloud and enterprise server deployments.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: Large community support due to TensorFlow's popularity, with a vast array of tools for deployment and optimization.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Extensively used in production environments for serving deep learning models at scale.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: Supported by Google and the TensorFlow community, ensuring regular updates and new features.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Deployment using TensorFlow Serving includes robust security features for enterprise-grade applications.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Supports various hardware accelerations through TensorFlow's backends.</p>
+</li>
+</ul>
+<h4 id="tf-graphdef">TF GraphDef</h4>
+<p>TF GraphDef is a TensorFlow format that represents the model as a graph, which is beneficial for environments where a static computation graph is required.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: Provides stable performance for static computation graphs, with a focus on consistency and reliability.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: Easily integrates within TensorFlow's infrastructure but less flexible compared to SavedModel.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: Good support from TensorFlow's ecosystem, with many resources available for optimizing static graphs.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Useful in scenarios where a static graph is necessary, such as in certain embedded systems.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: Regular updates alongside TensorFlow's core updates.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Ensures safe deployment with TensorFlow's established security practices.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Can utilize TensorFlow's hardware acceleration options, though not as flexible as SavedModel.</p>
+</li>
+</ul>
+<h4 id="tf-lite">TF Lite</h4>
+<p>TF Lite is TensorFlow’s solution for mobile and embedded device machine learning, providing a lightweight library for on-device inference.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: Designed for speed and efficiency on mobile and embedded devices.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: Can be used on a wide range of devices due to its lightweight nature.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: Backed by Google, it has a robust community and a growing number of resources for developers.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Popular in mobile applications that require on-device inference with minimal footprint.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: Regularly updated to include the latest features and optimizations for mobile devices.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Provides a secure environment for running models on end-user devices.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Supports a variety of hardware acceleration options, including GPU and DSP.</p>
+</li>
+</ul>
+<h4 id="tf-edge-tpu">TF Edge TPU</h4>
+<p>TF Edge TPU is designed for high-speed, efficient computing on Google's Edge TPU hardware, perfect for IoT devices requiring real-time processing.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: Specifically optimized for high-speed, efficient computing on Google's Edge TPU hardware.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: Works exclusively with TensorFlow Lite models on Edge TPU devices.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: Growing support with resources provided by Google and third-party developers.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Used in IoT devices and applications that require real-time processing with low latency.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: Continually improved upon to leverage the capabilities of new Edge TPU hardware releases.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Integrates with Google's robust security for IoT and edge devices.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Custom-designed to take full advantage of Google Coral devices.</p>
+</li>
+</ul>
+<h4 id="tfjs">TF.js</h4>
+<p>TensorFlow.js (TF.js) is a library that brings machine learning capabilities directly to the browser, offering a new realm of possibilities for web developers and users alike. It allows for the integration of machine learning models in web applications without the need for back-end infrastructure.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: Enables machine learning directly in the browser with reasonable performance, depending on the client device.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: High compatibility with web technologies, allowing for easy integration into web applications.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: Support from a community of web and Node.js developers, with a variety of tools for deploying ML models in browsers.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Ideal for interactive web applications that benefit from client-side machine learning without the need for server-side processing.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: Maintained by the TensorFlow team with contributions from the open-source community.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Runs within the browser's secure context, utilizing the security model of the web platform.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Performance can be enhanced with web-based APIs that access hardware acceleration like WebGL.</p>
+</li>
+</ul>
+<h4 id="paddlepaddle">PaddlePaddle</h4>
+<p>PaddlePaddle is an open-source deep learning framework developed by Baidu. It is designed to be both efficient for researchers and easy to use for developers. It's particularly popular in China and offers specialized support for Chinese language processing.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: Offers competitive performance with a focus on ease of use and scalability.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: Well-integrated within Baidu's ecosystem and supports a wide range of applications.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: While the community is smaller globally, it's rapidly growing, especially in China.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Commonly used in Chinese markets and by developers looking for alternatives to other major frameworks.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: Regularly updated with a focus on serving Chinese language AI applications and services.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Emphasizes data privacy and security, catering to Chinese data governance standards.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Supports various hardware accelerations, including Baidu's own Kunlun chips.</p>
+</li>
+</ul>
+<h4 id="ncnn">ncnn</h4>
+<p>ncnn is a high-performance neural network inference framework optimized for the mobile platform. It stands out for its lightweight nature and efficiency, making it particularly well-suited for mobile and embedded devices where resources are limited.</p>
+<ul>
+<li>
+<p><strong>Performance Benchmarks</strong>: Highly optimized for mobile platforms, offering efficient inference on ARM-based devices.</p>
+</li>
+<li>
+<p><strong>Compatibility and Integration</strong>: Suitable for applications on mobile phones and embedded systems with ARM architecture.</p>
+</li>
+<li>
+<p><strong>Community Support and Ecosystem</strong>: Supported by a niche but active community focused on mobile and embedded ML applications.</p>
+</li>
+<li>
+<p><strong>Case Studies</strong>: Favoured for mobile applications where efficiency and speed are critical on Android and other ARM-based systems.</p>
+</li>
+<li>
+<p><strong>Maintenance and Updates</strong>: Continuously improved to maintain high performance on a range of ARM devices.</p>
+</li>
+<li>
+<p><strong>Security Considerations</strong>: Focuses on running locally on the device, leveraging the inherent security of on-device processing.</p>
+</li>
+<li>
+<p><strong>Hardware Acceleration</strong>: Tailored for ARM CPUs and GPUs, with specific optimizations for these architectures.</p>
+</li>
+</ul>
+<h2 id="comparative-analysis-of-yolov8-deployment-options">Comparative Analysis of YOLOv8 Deployment Options</h2>
+<p>The following table provides a snapshot of the various deployment options available for YOLOv8 models, helping you to assess which may best fit your project needs based on several critical criteria. For an in-depth look at each deployment option's format, please see the <a href="https://docs.ultralytics.com/modes/export/#export-formats">Ultralytics documentation page on export formats</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Deployment Option</th>
+<th>Performance Benchmarks</th>
+<th>Compatibility and Integration</th>
+<th>Community Support and Ecosystem</th>
+<th>Case Studies</th>
+<th>Maintenance and Updates</th>
+<th>Security Considerations</th>
+<th>Hardware Acceleration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PyTorch</td>
+<td>Good flexibility; may trade off raw performance</td>
+<td>Excellent with Python libraries</td>
+<td>Extensive resources and community</td>
+<td>Research and prototypes</td>
+<td>Regular, active development</td>
+<td>Dependent on deployment environment</td>
+<td>CUDA support for GPU acceleration</td>
+</tr>
+<tr>
+<td>TorchScript</td>
+<td>Better for production than PyTorch</td>
+<td>Smooth transition from PyTorch to C++</td>
+<td>Specialized but narrower than PyTorch</td>
+<td>Industry where Python is a bottleneck</td>
+<td>Consistent updates with PyTorch</td>
+<td>Improved security without full Python</td>
+<td>Inherits CUDA support from PyTorch</td>
+</tr>
+<tr>
+<td>ONNX</td>
+<td>Variable depending on runtime</td>
+<td>High across different frameworks</td>
+<td>Broad ecosystem, supported by many orgs</td>
+<td>Flexibility across ML frameworks</td>
+<td>Regular updates for new operations</td>
+<td>Ensure secure conversion and deployment practices</td>
+<td>Various hardware optimizations</td>
+</tr>
+<tr>
+<td>OpenVINO</td>
+<td>Optimized for Intel hardware</td>
+<td>Best within Intel ecosystem</td>
+<td>Solid in computer vision domain</td>
+<td>IoT and edge with Intel hardware</td>
+<td>Regular updates for Intel hardware</td>
+<td>Robust features for sensitive applications</td>
+<td>Tailored for Intel hardware</td>
+</tr>
+<tr>
+<td>TensorRT</td>
+<td>Top-tier on NVIDIA GPUs</td>
+<td>Best for NVIDIA hardware</td>
+<td>Strong network through NVIDIA</td>
+<td>Real-time video and image inference</td>
+<td>Frequent updates for new GPUs</td>
+<td>Emphasis on security</td>
+<td>Designed for NVIDIA GPUs</td>
+</tr>
+<tr>
+<td>CoreML</td>
+<td>Optimized for on-device Apple hardware</td>
+<td>Exclusive to Apple ecosystem</td>
+<td>Strong Apple and developer support</td>
+<td>On-device ML on Apple products</td>
+<td>Regular Apple updates</td>
+<td>Focus on privacy and security</td>
+<td>Apple neural engine and GPU</td>
+</tr>
+<tr>
+<td>TF SavedModel</td>
+<td>Scalable in server environments</td>
+<td>Wide compatibility in TensorFlow ecosystem</td>
+<td>Large support due to TensorFlow popularity</td>
+<td>Serving models at scale</td>
+<td>Regular updates by Google and community</td>
+<td>Robust features for enterprise</td>
+<td>Various hardware accelerations</td>
+</tr>
+<tr>
+<td>TF GraphDef</td>
+<td>Stable for static computation graphs</td>
+<td>Integrates well with TensorFlow infrastructure</td>
+<td>Resources for optimizing static graphs</td>
+<td>Scenarios requiring static graphs</td>
+<td>Updates alongside TensorFlow core</td>
+<td>Established TensorFlow security practices</td>
+<td>TensorFlow acceleration options</td>
+</tr>
+<tr>
+<td>TF Lite</td>
+<td>Speed and efficiency on mobile/embedded</td>
+<td>Wide range of device support</td>
+<td>Robust community, Google backed</td>
+<td>Mobile applications with minimal footprint</td>
+<td>Latest features for mobile</td>
+<td>Secure environment on end-user devices</td>
+<td>GPU and DSP among others</td>
+</tr>
+<tr>
+<td>TF Edge TPU</td>
+<td>Optimized for Google's Edge TPU hardware</td>
+<td>Exclusive to Edge TPU devices</td>
+<td>Growing with Google and third-party resources</td>
+<td>IoT devices requiring real-time processing</td>
+<td>Improvements for new Edge TPU hardware</td>
+<td>Google's robust IoT security</td>
+<td>Custom-designed for Google Coral</td>
+</tr>
+<tr>
+<td>TF.js</td>
+<td>Reasonable in-browser performance</td>
+<td>High with web technologies</td>
+<td>Web and Node.js developers support</td>
+<td>Interactive web applications</td>
+<td>TensorFlow team and community contributions</td>
+<td>Web platform security model</td>
+<td>Enhanced with WebGL and other APIs</td>
+</tr>
+<tr>
+<td>PaddlePaddle</td>
+<td>Competitive, easy to use and scalable</td>
+<td>Baidu ecosystem, wide application support</td>
+<td>Rapidly growing, especially in China</td>
+<td>Chinese market and language processing</td>
+<td>Focus on Chinese AI applications</td>
+<td>Emphasizes data privacy and security</td>
+<td>Including Baidu's Kunlun chips</td>
+</tr>
+<tr>
+<td>ncnn</td>
+<td>Optimized for mobile ARM-based devices</td>
+<td>Mobile and embedded ARM systems</td>
+<td>Niche but active mobile/embedded ML community</td>
+<td>Android and ARM systems efficiency</td>
+<td>High performance maintenance on ARM</td>
+<td>On-device security advantages</td>
+<td>ARM CPUs and GPUs optimizations</td>
+</tr>
+</tbody>
+</table>
+<p>This comparative analysis gives you a high-level overview. For deployment, it's essential to consider the specific requirements and constraints of your project, and consult the detailed documentation and resources available for each option.</p>
+<h2 id="community-and-support">Community and Support</h2>
+<p>When you're getting started with YOLOv8, having a helpful community and support can make a significant impact. Here's how to connect with others who share your interests and get the assistance you need.</p>
+<h3 id="engage-with-the-broader-community">Engage with the Broader Community</h3>
+<ul>
+<li>
+<p><strong>GitHub Discussions:</strong> The YOLOv8 repository on GitHub has a "Discussions" section where you can ask questions, report issues, and suggest improvements.</p>
+</li>
+<li>
+<p><strong>Ultralytics Discord Server:</strong> Ultralytics has a <a href="https://ultralytics.com/discord/">Discord server</a> where you can interact with other users and developers.</p>
+</li>
+</ul>
+<h3 id="official-documentation-and-resources">Official Documentation and Resources</h3>
+<ul>
+<li><strong>Ultralytics YOLOv8 Docs:</strong> The <a href="https://docs.ultralytics.com/">official documentation</a> provides a comprehensive overview of YOLOv8, along with guides on installation, usage, and troubleshooting.</li>
+</ul>
+<p>These resources will help you tackle challenges and stay updated on the latest trends and best practices in the YOLOv8 community.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this guide, we've explored the different deployment options for YOLOv8. We've also discussed the important factors to consider when making your choice. These options allow you to customize your model for various environments and performance requirements, making it suitable for real-world applications.</p>
+<p>Don't forget that the YOLOv8 and Ultralytics community is a valuable source of help. Connect with other developers and experts to learn unique tips and solutions you might not find in regular documentation. Keep seeking knowledge, exploring new ideas, and sharing your experiences.</p>
+<p>Happy deploying!</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-07, Updated 2023-11-07<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2268,10 +2762,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/datasets/classify', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/model-deployment-options', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/datasets/classify', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/model-deployment-options', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -2318,34 +2812,6 @@
 </button>
 </main>
 <footer class="md-footer">
-<nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Tiger-pose" class="md-footer__link md-footer__link--prev" href="../pose/tiger-pose/">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
-                Previous
-              </span>
-<div class="md-ellipsis">
-                Tiger-pose
-              </div>
-</div>
-</a>
-<a aria-label="Next: Caltech 101" class="md-footer__link md-footer__link--next" href="caltech101/">
-<div class="md-footer__title">
-<span class="md-footer__direction">
-                Next
-              </span>
-<div class="md-ellipsis">
-                Caltech 101
-              </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
-</div>
-</a>
-</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
