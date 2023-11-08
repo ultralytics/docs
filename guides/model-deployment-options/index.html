@@ -8,9 +8,11 @@
 <meta content="Explore Ultralytics YOLOv8, a cutting-edge real-time object detection and image segmentation model for various applications and hardware platforms." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/guides/model-deployment-options/" rel="canonical"/>
+<link href="../yolo-thread-safe-inference/" rel="prev"/>
+<link href="../kfold-cross-validation/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
-<title>Understanding YOLOv8’s Deployment Options - Ultralytics YOLOv8 Docs</title>
+<title>Model Deployment Options - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -22,7 +24,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Understanding YOLOv8’s Deployment Options" name="title"/><meta content="YOLOv8, Deployment, PyTorch, TorchScript, ONNX, OpenVINO, TensorRT, CoreML, TensorFlow, Export" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-deployment-options" property="og:url"/><meta content="Understanding YOLOv8’s Deployment Options" property="og:title"/><meta content="" property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-deployment-options" property="twitter:url"/><meta content="Understanding YOLOv8’s Deployment Options" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
+<meta content="Model Deployment Options" name="title"/><meta content="YOLOv8, Deployment, PyTorch, TorchScript, ONNX, OpenVINO, TensorRT, CoreML, TensorFlow, Export" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-deployment-options" property="og:url"/><meta content="Model Deployment Options" property="og:title"/><meta content="" property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-deployment-options" property="twitter:url"/><meta content="Model Deployment Options" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -53,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Understanding YOLOv8’s Deployment Options
+              Model Deployment Options
             
           </span>
 </div>
@@ -198,7 +200,7 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
+<li class="md-tabs__item md-tabs__item--active">
 <a class="md-tabs__link" href="../">
           
   
@@ -997,8 +999,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../">
 <span class="md-ellipsis">
@@ -1009,7 +1011,7 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
             Guides
@@ -1025,9 +1027,155 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../yolo-performance-metrics/">
 <span class="md-ellipsis">
-    Performance Metrics
+    YOLO Performance Metrics
   </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolo-thread-safe-inference/">
+<span class="md-ellipsis">
+    YOLO Thread-Safe Inference
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Model Deployment Options
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Model Deployment Options
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+    Introduction
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-select-the-right-deployment-option-for-your-yolov8-model">
+    How to Select the Right Deployment Option for Your YOLOv8 Model
+  </a>
+<nav aria-label="How to Select the Right Deployment Option for Your YOLOv8 Model" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#yolov8s-deployment-options">
+    YOLOv8’s Deployment Options
+  </a>
+<nav aria-label="YOLOv8’s Deployment Options" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pytorch">
+    PyTorch
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#torchscript">
+    TorchScript
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#onnx">
+    ONNX
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#openvino">
+    OpenVINO
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tensorrt">
+    TensorRT
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#coreml">
+    CoreML
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tf-savedmodel">
+    TF SavedModel
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tf-graphdef">
+    TF GraphDef
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tf-lite">
+    TF Lite
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tf-edge-tpu">
+    TF Edge TPU
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tfjs">
+    TF.js
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#paddlepaddle">
+    PaddlePaddle
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ncnn">
+    ncnn
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comparative-analysis-of-yolov8-deployment-options">
+    Comparative Analysis of YOLOv8 Deployment Options
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#community-and-support">
+    Community and Support
+  </a>
+<nav aria-label="Community and Support" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#engage-with-the-broader-community">
+    Engage with the Broader Community
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#official-documentation-and-resources">
+    Official Documentation and Resources
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../kfold-cross-validation/">
@@ -2812,6 +2960,34 @@
 </button>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: YOLO Thread-Safe Inference" class="md-footer__link md-footer__link--prev" href="../yolo-thread-safe-inference/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                YOLO Thread-Safe Inference
+              </div>
+</div>
+</a>
+<a aria-label="Next: K-Fold Cross Validation" class="md-footer__link md-footer__link--next" href="../kfold-cross-validation/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                K-Fold Cross Validation
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">

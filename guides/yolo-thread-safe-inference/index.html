@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Step-by-step guide to train YOLOv8 models with Ultralytics YOLO including examples of single-GPU and multi-GPU training" name="description"/>
+<meta content="This guide provides best practices for performing thread-safe inference with YOLO models, ensuring reliable and concurrent predictions in multi-threaded applications." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/modes/train/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="../val/" rel="next"/>
+<link href="https://docs.ultralytics.com/guides/yolo-thread-safe-inference/" rel="canonical"/>
+<link href="../yolo-performance-metrics/" rel="prev"/>
+<link href="../model-deployment-options/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
-<title>Train - Ultralytics YOLOv8 Docs</title>
+<title>YOLO Thread-Safe Inference - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -24,14 +24,14 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Train" name="title"/><meta content="Ultralytics, YOLOv8, YOLO, object detection, train mode, custom dataset, GPU training, multi-GPU, hyperparameters, CLI examples, Python examples" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/train" property="og:url"/><meta content="Train" property="og:title"/><meta content="Step-by-step guide to train YOLOv8 models with Ultralytics YOLO including examples of single-GPU and multi-GPU training" property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/train" property="twitter:url"/><meta content="Train" property="twitter:title"/><meta content="Step-by-step guide to train YOLOv8 models with Ultralytics YOLO including examples of single-GPU and multi-GPU training" property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/></head>
+<meta content="YOLO Thread-Safe Inference" name="title"/><meta content="thread-safe, YOLO inference, multi-threading, concurrent predictions, YOLO models, Ultralytics, Python threading, safe YOLO usage, AI concurrency" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-thread-safe-inference" property="og:url"/><meta content="YOLO Thread-Safe Inference" property="og:title"/><meta content="This guide provides best practices for performing thread-safe inference with YOLO models, ensuring reliable and concurrent predictions in multi-threaded applications." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/281418476-7f478570-fd77-4a40-bf3d-74b4db4d668c.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-thread-safe-inference" property="twitter:url"/><meta content="YOLO Thread-Safe Inference" property="twitter:title"/><meta content="This guide provides best practices for performing thread-safe inference with YOLO models, ensuring reliable and concurrent predictions in multi-threaded applications." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/281418476-7f478570-fd77-4a40-bf3d-74b4db4d668c.png" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#model-training-with-ultralytics-yolo">
+<a class="md-skip" href="#thread-safe-inference-with-yolo-models">
           Skip to content
         </a>
 </div>
@@ -55,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Train
+              YOLO Thread-Safe Inference
             
           </span>
 </div>
@@ -160,8 +160,8 @@
 
       </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../modes/">
           
   
     
@@ -200,8 +200,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../guides/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
           
   
     
@@ -326,7 +326,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -342,129 +342,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Train
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction">
-    Introduction
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-choose-ultralytics-yolo-for-training">
-    Why Choose Ultralytics YOLO for Training?
-  </a>
-<nav aria-label="Why Choose Ultralytics YOLO for Training?" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-train-mode">
-    Key Features of Train Mode
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-examples">
-    Usage Examples
-  </a>
-<nav aria-label="Usage Examples" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#multi-gpu-training">
-    Multi-GPU Training
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#apple-m1-and-m2-mps-training">
-    Apple M1 and M2 MPS Training
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#resuming-interrupted-trainings">
-    Resuming Interrupted Trainings
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#arguments">
-    Arguments
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#logging">
-    Logging
-  </a>
-<nav aria-label="Logging" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#comet">
-    Comet
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#clearml">
-    ClearML
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#tensorboard">
-    TensorBoard
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../benchmark/">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -550,10 +463,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -562,136 +475,49 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
             Modes
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Train
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction">
-    Introduction
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-choose-ultralytics-yolo-for-training">
-    Why Choose Ultralytics YOLO for Training?
-  </a>
-<nav aria-label="Why Choose Ultralytics YOLO for Training?" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-train-mode">
-    Key Features of Train Mode
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-examples">
-    Usage Examples
-  </a>
-<nav aria-label="Usage Examples" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#multi-gpu-training">
-    Multi-GPU Training
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#apple-m1-and-m2-mps-training">
-    Apple M1 and M2 MPS Training
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#resuming-interrupted-trainings">
-    Resuming Interrupted Trainings
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#arguments">
-    Arguments
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#logging">
-    Logging
-  </a>
-<nav aria-label="Logging" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#comet">
-    Comet
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#clearml">
-    ClearML
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#tensorboard">
-    TensorBoard
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../benchmark/">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -1173,10 +999,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../guides/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -1185,91 +1011,149 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
             Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/yolo-common-issues/">
+<a class="md-nav__link" href="../yolo-common-issues/">
 <span class="md-ellipsis">
     YOLO Common Issues
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/yolo-performance-metrics/">
+<a class="md-nav__link" href="../yolo-performance-metrics/">
 <span class="md-ellipsis">
     YOLO Performance Metrics
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/yolo-thread-safe-inference/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    YOLO Thread-Safe Inference
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     YOLO Thread-Safe Inference
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-python-threading">
+    Understanding Python Threading
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/model-deployment-options/">
+<a class="md-nav__link" href="#the-danger-of-shared-model-instances">
+    The Danger of Shared Model Instances
+  </a>
+<nav aria-label="The Danger of Shared Model Instances" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#non-thread-safe-example-single-model-instance">
+    Non-Thread-Safe Example: Single Model Instance
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#non-thread-safe-example-multiple-model-instances">
+    Non-Thread-Safe Example: Multiple Model Instances
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#thread-safe-inference">
+    Thread-Safe Inference
+  </a>
+<nav aria-label="Thread-Safe Inference" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#thread-safe-example">
+    Thread-Safe Example
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../model-deployment-options/">
 <span class="md-ellipsis">
     Model Deployment Options
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/kfold-cross-validation/">
+<a class="md-nav__link" href="../kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/hyperparameter-tuning/">
+<a class="md-nav__link" href="../hyperparameter-tuning/">
 <span class="md-ellipsis">
     Hyperparameter Tuning
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/sahi-tiled-inference/">
+<a class="md-nav__link" href="../sahi-tiled-inference/">
 <span class="md-ellipsis">
     SAHI Tiled Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/azureml-quickstart/">
+<a class="md-nav__link" href="../azureml-quickstart/">
 <span class="md-ellipsis">
     AzureML Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/conda-quickstart/">
+<a class="md-nav__link" href="../conda-quickstart/">
 <span class="md-ellipsis">
     Conda Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/docker-quickstart/">
+<a class="md-nav__link" href="../docker-quickstart/">
 <span class="md-ellipsis">
     Docker Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/raspberry-pi/">
+<a class="md-nav__link" href="../raspberry-pi/">
 <span class="md-ellipsis">
     Raspberry Pi
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/triton-inference-server/">
+<a class="md-nav__link" href="../triton-inference-server/">
 <span class="md-ellipsis">
     Triton Inference Server
   </span>
@@ -2311,76 +2195,47 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#introduction">
-    Introduction
+<a class="md-nav__link" href="#understanding-python-threading">
+    Understanding Python Threading
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-choose-ultralytics-yolo-for-training">
-    Why Choose Ultralytics YOLO for Training?
+<a class="md-nav__link" href="#the-danger-of-shared-model-instances">
+    The Danger of Shared Model Instances
   </a>
-<nav aria-label="Why Choose Ultralytics YOLO for Training?" class="md-nav">
+<nav aria-label="The Danger of Shared Model Instances" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-train-mode">
-    Key Features of Train Mode
+<a class="md-nav__link" href="#non-thread-safe-example-single-model-instance">
+    Non-Thread-Safe Example: Single Model Instance
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#non-thread-safe-example-multiple-model-instances">
+    Non-Thread-Safe Example: Multiple Model Instances
   </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usage-examples">
-    Usage Examples
+<a class="md-nav__link" href="#thread-safe-inference">
+    Thread-Safe Inference
   </a>
-<nav aria-label="Usage Examples" class="md-nav">
+<nav aria-label="Thread-Safe Inference" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#multi-gpu-training">
-    Multi-GPU Training
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#apple-m1-and-m2-mps-training">
-    Apple M1 and M2 MPS Training
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#resuming-interrupted-trainings">
-    Resuming Interrupted Trainings
+<a class="md-nav__link" href="#thread-safe-example">
+    Thread-Safe Example
   </a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#arguments">
-    Arguments
+<a class="md-nav__link" href="#conclusion">
+    Conclusion
   </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#logging">
-    Logging
-  </a>
-<nav aria-label="Logging" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#comet">
-    Comet
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#clearml">
-    ClearML
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#tensorboard">
-    TensorBoard
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -2389,463 +2244,85 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/modes/train.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/guides/yolo-thread-safe-inference.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="model-training-with-ultralytics-yolo">Model Training with Ultralytics YOLO</h1>
-<p><img alt="Ultralytics YOLO ecosystem and integrations" src="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" width="1024"/></p>
-<h2 id="introduction">Introduction</h2>
-<p>Training a deep learning model involves feeding it data and adjusting its parameters so that it can make accurate predictions. Train mode in Ultralytics YOLOv8 is engineered for effective and efficient training of object detection models, fully utilizing modern hardware capabilities. This guide aims to cover all the details you need to get started with training your own models using YOLOv8's robust set of features.</p>
+<h1 id="thread-safe-inference-with-yolo-models">Thread-Safe Inference with YOLO Models</h1>
+<p>Running YOLO models in a multi-threaded environment requires careful consideration to ensure thread safety. Python's <code>threading</code> module allows you to run several threads concurrently, but when it comes to using YOLO models across these threads, there are important safety issues to be aware of. This page will guide you through creating thread-safe YOLO model inference.</p>
+<h2 id="understanding-python-threading">Understanding Python Threading</h2>
+<p>Python threads are a form of parallelism that allow your program to run multiple operations at once. However, Python's Global Interpreter Lock (GIL) means that only one thread can execute Python bytecode at a time.</p>
 <p align="center">
-<br/>
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/LNwODJXcvt4?si=7n1UvGRLSd9p5wKs" title="YouTube video player" width="720">
-</iframe>
-<br/>
-<strong>Watch:</strong> How to Train a YOLOv8 model on Your Custom Dataset in Google Colab.
+<img alt="Single vs Multi-Thread Examples" src="https://user-images.githubusercontent.com/26833433/281418476-7f478570-fd77-4a40-bf3d-74b4db4d668c.png" width="800"/>
 </p>
-<h2 id="why-choose-ultralytics-yolo-for-training">Why Choose Ultralytics YOLO for Training?</h2>
-<p>Here are some compelling reasons to opt for YOLOv8's Train mode:</p>
-<ul>
-<li><strong>Efficiency:</strong> Make the most out of your hardware, whether you're on a single-GPU setup or scaling across multiple GPUs.</li>
-<li><strong>Versatility:</strong> Train on custom datasets in addition to readily available ones like COCO, VOC, and ImageNet.</li>
-<li><strong>User-Friendly:</strong> Simple yet powerful CLI and Python interfaces for a straightforward training experience.</li>
-<li><strong>Hyperparameter Flexibility:</strong> A broad range of customizable hyperparameters to fine-tune model performance.</li>
-</ul>
-<h3 id="key-features-of-train-mode">Key Features of Train Mode</h3>
-<p>The following are some notable features of YOLOv8's Train mode:</p>
-<ul>
-<li><strong>Automatic Dataset Download:</strong> Standard datasets like COCO, VOC, and ImageNet are downloaded automatically on first use.</li>
-<li><strong>Multi-GPU Support:</strong> Scale your training efforts seamlessly across multiple GPUs to expedite the process.</li>
-<li><strong>Hyperparameter Configuration:</strong> The option to modify hyperparameters through YAML configuration files or CLI arguments.</li>
-<li><strong>Visualization and Monitoring:</strong> Real-time tracking of training metrics and visualization of the learning process for better insights.</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<ul>
-<li>YOLOv8 datasets like COCO, VOC, ImageNet and many others automatically download on first use, i.e. <code>yolo train data=coco.yaml</code></li>
-</ul>
-</div>
-<h2 id="usage-examples">Usage Examples</h2>
-<p>Train YOLOv8n on the COCO128 dataset for 100 epochs at image size 640. The training device can be specified using the <code>device</code> argument. If no argument is passed GPU <code>device=0</code> will be used if available, otherwise <code>device=cpu</code> will be used. See Arguments section below for a full list of training arguments.</p>
-<div class="admonition example">
-<p class="admonition-title">Single-GPU and CPU Training Example</p>
-<p>Device is determined automatically. If a GPU is available then it will be used, otherwise training will start on CPU.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.yaml'</span><span class="p">)</span>  <span class="c1"># build a new model from YAML</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.yaml'</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>  <span class="c1"># build from YAML and transfer weights</span>
+<p>While this sounds like a limitation, threads can still provide concurrency, especially for I/O-bound operations or when using operations that release the GIL, like those performed by YOLO's underlying C libraries.</p>
+<h2 id="the-danger-of-shared-model-instances">The Danger of Shared Model Instances</h2>
+<p>Instantiating a YOLO model outside your threads and sharing this instance across multiple threads can lead to race conditions, where the internal state of the model is inconsistently modified due to concurrent accesses. This is particularly problematic when the model or its components hold state that is not designed to be thread-safe.</p>
+<h3 id="non-thread-safe-example-single-model-instance">Non-Thread-Safe Example: Single Model Instance</h3>
+<p>When using threads in Python, it's important to recognize patterns that can lead to concurrency issues. Here is what you should avoid: sharing a single YOLO model instance across multiple threads.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Unsafe: Sharing a single model instance across threads</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># Instantiate the model outside the thread</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">shared_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco128.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">shared_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="c1"># Process results</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="c1"># Starting threads that share the same model instance</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Build a new model from YAML and start training from scratch</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco128.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco128.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Build a new model from YAML, transfer pretrained weights to it and start training</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco128.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.yaml<span class="w"> </span><span class="nv">pretrained</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<p>In the example above, the <code>shared_model</code> is used by multiple threads, which can lead to unpredictable results because <code>predict</code> could be executed simultaneously by multiple threads.</p>
+<h3 id="non-thread-safe-example-multiple-model-instances">Non-Thread-Safe Example: Multiple Model Instances</h3>
+<p>Similarly, here is an unsafe pattern with multiple YOLO model instances:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Unsafe: Sharing multiple model instances across threads can still lead to issues</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="c1"># Instantiate multiple models outside the thread</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">shared_model_1</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n_1.pt"</span><span class="p">)</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">shared_model_2</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n_2.pt"</span><span class="p">)</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">image_path</span><span class="p">):</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>    <span class="c1"># Process results</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="c1"># Starting threads with individual model instances</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">shared_model_1</span><span class="p">,</span> <span class="s2">"image1.jpg"</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">shared_model_2</span><span class="p">,</span> <span class="s2">"image2.jpg"</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div>
-</div>
-</div>
-</input></input></div>
-</div>
-<h3 id="multi-gpu-training">Multi-GPU Training</h3>
-<p>Multi-GPU training allows for more efficient utilization of available hardware resources by distributing the training load across multiple GPUs. This feature is available through both the Python API and the command-line interface. To enable multi-GPU training, specify the GPU device IDs you wish to use.</p>
-<div class="admonition example">
-<p class="admonition-title">Multi-GPU Training Example</p>
-<p>To train with 2 GPUs, CUDA devices 0 and 1 use the following commands. Expand to additional GPUs as required.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<p>Even though there are two separate model instances, the risk of concurrency issues still exists. If the internal implementation of <code>YOLO</code> is not thread-safe, using separate instances might not prevent race conditions, especially if these instances share any underlying resources or states that are not thread-local.</p>
+<h2 id="thread-safe-inference">Thread-Safe Inference</h2>
+<p>To perform thread-safe inference, you should instantiate a separate YOLO model within each thread. This ensures that each thread has its own isolated model instance, eliminating the risk of race conditions.</p>
+<h3 id="thread-safe-example">Thread-Safe Example</h3>
+<p>Here's how to instantiate a YOLO model inside each thread for safe parallel inference:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Safe: Instantiating a single model inside each thread</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Train the model with 2 GPUs</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco128.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="k">def</span> <span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="c1"># Instantiate a new model inside the thread</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>    <span class="n">local_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>    <span class="c1"># Process results</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="c1"># Starting threads that each have their own model instance</span>
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Start training from a pretrained *.pt model using GPUs 0 and 1</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco128.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span><span class="m">0</span>,1
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-</div>
-<h3 id="apple-m1-and-m2-mps-training">Apple M1 and M2 MPS Training</h3>
-<p>With the support for Apple M1 and M2 chips integrated in the Ultralytics YOLO models, it's now possible to train your models on devices utilizing the powerful Metal Performance Shaders (MPS) framework. The MPS offers a high-performance way of executing computation and image processing tasks on Apple's custom silicon.</p>
-<p>To enable training on Apple M1 and M2 chips, you should specify 'mps' as your device when initiating the training process. Below is an example of how you could do this in Python and via the command line:</p>
-<div class="admonition example">
-<p class="admonition-title">MPS Training Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Train the model with 2 GPUs</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco128.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">'mps'</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Start training from a pretrained *.pt model using GPUs 0 and 1</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco128.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span><span class="w"> </span><span class="nv">device</span><span class="o">=</span>mps
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-</div>
-<p>While leveraging the computational power of the M1/M2 chips, this enables more efficient processing of the training tasks. For more detailed guidance and advanced configuration options, please refer to the <a href="https://pytorch.org/docs/stable/notes/mps.html">PyTorch MPS documentation</a>.</p>
-<h3 id="resuming-interrupted-trainings">Resuming Interrupted Trainings</h3>
-<p>Resuming training from a previously saved state is a crucial feature when working with deep learning models. This can come in handy in various scenarios, like when the training process has been unexpectedly interrupted, or when you wish to continue training a model with new data or for more epochs.</p>
-<p>When training is resumed, Ultralytics YOLO loads the weights from the last saved model and also restores the optimizer state, learning rate scheduler, and the epoch number. This allows you to continue the training process seamlessly from where it was left off.</p>
-<p>You can easily resume training in Ultralytics YOLO by setting the <code>resume</code> argument to <code>True</code> when calling the <code>train</code> method, and specifying the path to the <code>.pt</code> file containing the partially trained model weights.</p>
-<p>Below is an example of how to resume an interrupted training using Python and via the command line:</p>
-<div class="admonition example">
-<p class="admonition-title">Resume Training Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'path/to/last.pt'</span><span class="p">)</span>  <span class="c1"># load a partially trained model</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># Resume training</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">resume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Resume an interrupted training</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>yolo<span class="w"> </span>train<span class="w"> </span>resume<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/last.pt
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-</div>
-<p>By setting <code>resume=True</code>, the <code>train</code> function will continue training from where it left off, using the state stored in the 'path/to/last.pt' file. If the <code>resume</code> argument is omitted or set to <code>False</code>, the <code>train</code> function will start a new training session.</p>
-<p>Remember that checkpoints are saved at the end of every epoch by default, or at fixed interval using the <code>save_period</code> argument, so you must complete at least 1 epoch to resume a training run.</p>
-<h2 id="arguments">Arguments</h2>
-<p>Training settings for YOLO models refer to the various hyperparameters and configurations used to train the model on a dataset. These settings can affect the model's performance, speed, and accuracy. Some common YOLO training settings include the batch size, learning rate, momentum, and weight decay. Other factors that may affect the training process include the choice of optimizer, the choice of loss function, and the size and composition of the training dataset. It is important to carefully tune and experiment with these settings to achieve the best possible performance for a given task.</p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>model</code></td>
-<td><code>None</code></td>
-<td>path to model file, i.e. yolov8n.pt, yolov8n.yaml</td>
-</tr>
-<tr>
-<td><code>data</code></td>
-<td><code>None</code></td>
-<td>path to data file, i.e. coco128.yaml</td>
-</tr>
-<tr>
-<td><code>epochs</code></td>
-<td><code>100</code></td>
-<td>number of epochs to train for</td>
-</tr>
-<tr>
-<td><code>patience</code></td>
-<td><code>50</code></td>
-<td>epochs to wait for no observable improvement for early stopping of training</td>
-</tr>
-<tr>
-<td><code>batch</code></td>
-<td><code>16</code></td>
-<td>number of images per batch (-1 for AutoBatch)</td>
-</tr>
-<tr>
-<td><code>imgsz</code></td>
-<td><code>640</code></td>
-<td>size of input images as integer</td>
-</tr>
-<tr>
-<td><code>save</code></td>
-<td><code>True</code></td>
-<td>save train checkpoints and predict results</td>
-</tr>
-<tr>
-<td><code>save_period</code></td>
-<td><code>-1</code></td>
-<td>Save checkpoint every x epochs (disabled if &lt; 1)</td>
-</tr>
-<tr>
-<td><code>cache</code></td>
-<td><code>False</code></td>
-<td>True/ram, disk or False. Use cache for data loading</td>
-</tr>
-<tr>
-<td><code>device</code></td>
-<td><code>None</code></td>
-<td>device to run on, i.e. cuda device=0 or device=0,1,2,3 or device=cpu</td>
-</tr>
-<tr>
-<td><code>workers</code></td>
-<td><code>8</code></td>
-<td>number of worker threads for data loading (per RANK if DDP)</td>
-</tr>
-<tr>
-<td><code>project</code></td>
-<td><code>None</code></td>
-<td>project name</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>None</code></td>
-<td>experiment name</td>
-</tr>
-<tr>
-<td><code>exist_ok</code></td>
-<td><code>False</code></td>
-<td>whether to overwrite existing experiment</td>
-</tr>
-<tr>
-<td><code>pretrained</code></td>
-<td><code>True</code></td>
-<td>(bool or str) whether to use a pretrained model (bool) or a model to load weights from (str)</td>
-</tr>
-<tr>
-<td><code>optimizer</code></td>
-<td><code>'auto'</code></td>
-<td>optimizer to use, choices=[SGD, Adam, Adamax, AdamW, NAdam, RAdam, RMSProp, auto]</td>
-</tr>
-<tr>
-<td><code>verbose</code></td>
-<td><code>False</code></td>
-<td>whether to print verbose output</td>
-</tr>
-<tr>
-<td><code>seed</code></td>
-<td><code>0</code></td>
-<td>random seed for reproducibility</td>
-</tr>
-<tr>
-<td><code>deterministic</code></td>
-<td><code>True</code></td>
-<td>whether to enable deterministic mode</td>
-</tr>
-<tr>
-<td><code>single_cls</code></td>
-<td><code>False</code></td>
-<td>train multi-class data as single-class</td>
-</tr>
-<tr>
-<td><code>rect</code></td>
-<td><code>False</code></td>
-<td>rectangular training with each batch collated for minimum padding</td>
-</tr>
-<tr>
-<td><code>cos_lr</code></td>
-<td><code>False</code></td>
-<td>use cosine learning rate scheduler</td>
-</tr>
-<tr>
-<td><code>close_mosaic</code></td>
-<td><code>10</code></td>
-<td>(int) disable mosaic augmentation for final epochs (0 to disable)</td>
-</tr>
-<tr>
-<td><code>resume</code></td>
-<td><code>False</code></td>
-<td>resume training from last checkpoint</td>
-</tr>
-<tr>
-<td><code>amp</code></td>
-<td><code>True</code></td>
-<td>Automatic Mixed Precision (AMP) training, choices=[True, False]</td>
-</tr>
-<tr>
-<td><code>fraction</code></td>
-<td><code>1.0</code></td>
-<td>dataset fraction to train on (default is 1.0, all images in train set)</td>
-</tr>
-<tr>
-<td><code>profile</code></td>
-<td><code>False</code></td>
-<td>profile ONNX and TensorRT speeds during training for loggers</td>
-</tr>
-<tr>
-<td><code>freeze</code></td>
-<td><code>None</code></td>
-<td>(int or list, optional) freeze first n layers, or freeze list of layer indices during training</td>
-</tr>
-<tr>
-<td><code>lr0</code></td>
-<td><code>0.01</code></td>
-<td>initial learning rate (i.e. SGD=1E-2, Adam=1E-3)</td>
-</tr>
-<tr>
-<td><code>lrf</code></td>
-<td><code>0.01</code></td>
-<td>final learning rate (lr0 * lrf)</td>
-</tr>
-<tr>
-<td><code>momentum</code></td>
-<td><code>0.937</code></td>
-<td>SGD momentum/Adam beta1</td>
-</tr>
-<tr>
-<td><code>weight_decay</code></td>
-<td><code>0.0005</code></td>
-<td>optimizer weight decay 5e-4</td>
-</tr>
-<tr>
-<td><code>warmup_epochs</code></td>
-<td><code>3.0</code></td>
-<td>warmup epochs (fractions ok)</td>
-</tr>
-<tr>
-<td><code>warmup_momentum</code></td>
-<td><code>0.8</code></td>
-<td>warmup initial momentum</td>
-</tr>
-<tr>
-<td><code>warmup_bias_lr</code></td>
-<td><code>0.1</code></td>
-<td>warmup initial bias lr</td>
-</tr>
-<tr>
-<td><code>box</code></td>
-<td><code>7.5</code></td>
-<td>box loss gain</td>
-</tr>
-<tr>
-<td><code>cls</code></td>
-<td><code>0.5</code></td>
-<td>cls loss gain (scale with pixels)</td>
-</tr>
-<tr>
-<td><code>dfl</code></td>
-<td><code>1.5</code></td>
-<td>dfl loss gain</td>
-</tr>
-<tr>
-<td><code>pose</code></td>
-<td><code>12.0</code></td>
-<td>pose loss gain (pose-only)</td>
-</tr>
-<tr>
-<td><code>kobj</code></td>
-<td><code>2.0</code></td>
-<td>keypoint obj loss gain (pose-only)</td>
-</tr>
-<tr>
-<td><code>label_smoothing</code></td>
-<td><code>0.0</code></td>
-<td>label smoothing (fraction)</td>
-</tr>
-<tr>
-<td><code>nbs</code></td>
-<td><code>64</code></td>
-<td>nominal batch size</td>
-</tr>
-<tr>
-<td><code>overlap_mask</code></td>
-<td><code>True</code></td>
-<td>masks should overlap during training (segment train only)</td>
-</tr>
-<tr>
-<td><code>mask_ratio</code></td>
-<td><code>4</code></td>
-<td>mask downsample ratio (segment train only)</td>
-</tr>
-<tr>
-<td><code>dropout</code></td>
-<td><code>0.0</code></td>
-<td>use dropout regularization (classify train only)</td>
-</tr>
-<tr>
-<td><code>val</code></td>
-<td><code>True</code></td>
-<td>validate/test during training</td>
-</tr>
-</tbody>
-</table>
-<h2 id="logging">Logging</h2>
-<p>In training a YOLOv8 model, you might find it valuable to keep track of the model's performance over time. This is where logging comes into play. Ultralytics' YOLO provides support for three types of loggers - Comet, ClearML, and TensorBoard.</p>
-<p>To use a logger, select it from the dropdown menu in the code snippet above and run it. The chosen logger will be installed and initialized.</p>
-<h3 id="comet">Comet</h3>
-<p><a href="https://www.comet.ml/site/">Comet</a> is a platform that allows data scientists and developers to track, compare, explain and optimize experiments and models. It provides functionalities such as real-time metrics, code diffs, and hyperparameters tracking.</p>
-<p>To use Comet:</p>
-<div class="admonition example">
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># pip install comet_ml</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kn">import</span> <span class="nn">comet_ml</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">comet_ml</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<p>Remember to sign in to your Comet account on their website and get your API key. You will need to add this to your environment variables or your script to log your experiments.</p>
-<h3 id="clearml">ClearML</h3>
-<p><a href="https://www.clear.ml/">ClearML</a> is an open-source platform that automates tracking of experiments and helps with efficient sharing of resources. It is designed to help teams manage, execute, and reproduce their ML work more efficiently.</p>
-<p>To use ClearML:</p>
-<div class="admonition example">
-<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># pip install clearml</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kn">import</span> <span class="nn">clearml</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">clearml</span><span class="o">.</span><span class="n">browser_login</span><span class="p">()</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<p>After running this script, you will need to sign in to your ClearML account on the browser and authenticate your session.</p>
-<h3 id="tensorboard">TensorBoard</h3>
-<p><a href="https://www.tensorflow.org/tensorboard">TensorBoard</a> is a visualization toolkit for TensorFlow. It allows you to visualize your TensorFlow graph, plot quantitative metrics about the execution of your graph, and show additional data like images that pass through it.</p>
-<p>To use TensorBoard in <a href="https://colab.research.google.com/github/ultralytics/ultralytics/blob/main/examples/tutorial.ipynb">Google Colab</a>:</p>
-<div class="admonition example">
-<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>load_ext<span class="w"> </span>tensorboard
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>tensorboard<span class="w"> </span>--logdir<span class="w"> </span>ultralytics/runs<span class="w">  </span><span class="c1"># replace with 'runs' directory</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<p>To use TensorBoard locally run the below command and view results at http://localhost:6006/.</p>
-<div class="admonition example">
-<div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"><div class="tabbed-labels"><label for="__tabbed_8_1">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>tensorboard<span class="w"> </span>--logdir<span class="w"> </span>ultralytics/runs<span class="w">  </span><span class="c1"># replace with 'runs' directory</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<p>This will load TensorBoard and direct it to the directory where your training logs are saved.</p>
-<p>After setting up your logger, you can then proceed with your model training. All training metrics will be automatically logged in your chosen platform, and you can access these logs to monitor your model's performance over time, compare different models, and identify areas for improvement.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-10-29<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (30), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
+<p>In this example, each thread creates its own <code>YOLO</code> instance. This prevents any thread from interfering with the model state of another, thus ensuring that each thread performs inference safely and without unexpected interactions with the other threads.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>When using YOLO models with Python's <code>threading</code>, always instantiate your models within the thread that will use them to ensure thread safety. This practice avoids race conditions and makes sure that your inference tasks run reliably.</p>
+<p>For more advanced scenarios and to further optimize your multi-threaded inference performance, consider using process-based parallelism with <code>multiprocessing</code> or leveraging a task queue with dedicated worker processes.</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-08, Updated 2023-11-08<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2856,10 +2333,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/modes/train', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/yolo-thread-safe-inference', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/modes/train', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/yolo-thread-safe-inference', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -2907,7 +2384,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Ultralytics YOLOv8 Modes" class="md-footer__link md-footer__link--prev" href="../">
+<a aria-label="Previous: YOLO Performance Metrics" class="md-footer__link md-footer__link--prev" href="../yolo-performance-metrics/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2916,17 +2393,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                Ultralytics YOLOv8 Modes
+                YOLO Performance Metrics
               </div>
 </div>
 </a>
-<a aria-label="Next: Val" class="md-footer__link md-footer__link--next" href="../val/">
+<a aria-label="Next: Model Deployment Options" class="md-footer__link md-footer__link--next" href="../model-deployment-options/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Val
+                Model Deployment Options
               </div>
 </div>
 <div class="md-footer__button md-icon">

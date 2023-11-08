@@ -462,6 +462,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#thread-safe-inference">
+    Thread-Safe Inference
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#streaming-source-for-loop">
     Streaming Source for-loop
   </a>
@@ -706,6 +711,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#plotting-results">
     Plotting Results
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#thread-safe-inference">
+    Thread-Safe Inference
   </a>
 </li>
 <li class="md-nav__item">
@@ -1241,7 +1251,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../guides/yolo-performance-metrics/">
 <span class="md-ellipsis">
-    Performance Metrics
+    YOLO Performance Metrics
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../guides/yolo-thread-safe-inference/">
+<span class="md-ellipsis">
+    YOLO Thread-Safe Inference
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../guides/model-deployment-options/">
+<span class="md-ellipsis">
+    Model Deployment Options
   </span>
 </a>
 </li>
@@ -2421,6 +2445,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#plotting-results">
     Plotting Results
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#thread-safe-inference">
+    Thread-Safe Inference
   </a>
 </li>
 <li class="md-nav__item">
@@ -3680,49 +3709,71 @@
 </tbody>
 </table>
 </div>
+<h2 id="thread-safe-inference">Thread-Safe Inference</h2>
+<p>Ensuring thread safety during inference is crucial when you are running multiple YOLO models in parallel across different threads. Thread-safe inference guarantees that each thread's predictions are isolated and do not interfere with one another, avoiding race conditions and ensuring consistent and reliable outputs.</p>
+<p>When using YOLO models in a multi-threaded application, it's important to instantiate separate model objects for each thread or employ thread-local storage to prevent conflicts:</p>
+<div class="admonition example">
+<p class="admonition-title">Thread-Safe Inference</p>
+<p>Instantiate a single model inside each thread for thread-safe inference:
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="k">def</span> <span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a>    <span class="c1"># Instantiate a new model inside the thread</span>
+<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>    <span class="n">local_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a>    <span class="c1"># Process results</span>
+<a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a>
+<a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a>
+<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="c1"># Starting threads that each have their own model instance</span>
+<a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div></p>
+</div>
+<p>For an in-depth look at thread-safe inference with YOLO models and step-by-step instructions, please refer to our <a href="../../guides/yolo-thread-safe-inference/">YOLO Thread-Safe Inference Guide</a>. This guide will provide you with all the necessary information to avoid common pitfalls and ensure that your multi-threaded inference runs smoothly.</p>
 <h2 id="streaming-source-for-loop">Streaming Source <code>for</code>-loop</h2>
 <p>Here's a Python script using OpenCV (<code>cv2</code>) and YOLOv8 to run inference on video frames. This script assumes you have already installed the necessary packages (<code>opencv-python</code> and <code>ultralytics</code>).</p>
 <div class="admonition example">
 <p class="admonition-title">Streaming for-loop</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
-<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
-<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="c1"># Load the YOLOv8 model</span>
-<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
-<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>
-<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="c1"># Open the video file</span>
-<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/your/video/file.mp4"</span>
-<a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
-<a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a>
-<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="c1"># Loop through the video frames</span>
-<a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a>    <span class="c1"># Read a frame from the video</span>
-<a href="#__codelineno-22-14" id="__codelineno-22-14" name="__codelineno-22-14"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-22-15" id="__codelineno-22-15" name="__codelineno-22-15"></a>
-<a href="#__codelineno-22-16" id="__codelineno-22-16" name="__codelineno-22-16"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-22-17" id="__codelineno-22-17" name="__codelineno-22-17"></a>        <span class="c1"># Run YOLOv8 inference on the frame</span>
-<a href="#__codelineno-22-18" id="__codelineno-22-18" name="__codelineno-22-18"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-<a href="#__codelineno-22-19" id="__codelineno-22-19" name="__codelineno-22-19"></a>
-<a href="#__codelineno-22-20" id="__codelineno-22-20" name="__codelineno-22-20"></a>        <span class="c1"># Visualize the results on the frame</span>
-<a href="#__codelineno-22-21" id="__codelineno-22-21" name="__codelineno-22-21"></a>        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<a href="#__codelineno-22-22" id="__codelineno-22-22" name="__codelineno-22-22"></a>
-<a href="#__codelineno-22-23" id="__codelineno-22-23" name="__codelineno-22-23"></a>        <span class="c1"># Display the annotated frame</span>
-<a href="#__codelineno-22-24" id="__codelineno-22-24" name="__codelineno-22-24"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLOv8 Inference"</span><span class="p">,</span> <span class="n">annotated_frame</span><span class="p">)</span>
-<a href="#__codelineno-22-25" id="__codelineno-22-25" name="__codelineno-22-25"></a>
-<a href="#__codelineno-22-26" id="__codelineno-22-26" name="__codelineno-22-26"></a>        <span class="c1"># Break the loop if 'q' is pressed</span>
-<a href="#__codelineno-22-27" id="__codelineno-22-27" name="__codelineno-22-27"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
-<a href="#__codelineno-22-28" id="__codelineno-22-28" name="__codelineno-22-28"></a>            <span class="k">break</span>
-<a href="#__codelineno-22-29" id="__codelineno-22-29" name="__codelineno-22-29"></a>    <span class="k">else</span><span class="p">:</span>
-<a href="#__codelineno-22-30" id="__codelineno-22-30" name="__codelineno-22-30"></a>        <span class="c1"># Break the loop if the end of the video is reached</span>
-<a href="#__codelineno-22-31" id="__codelineno-22-31" name="__codelineno-22-31"></a>        <span class="k">break</span>
-<a href="#__codelineno-22-32" id="__codelineno-22-32" name="__codelineno-22-32"></a>
-<a href="#__codelineno-22-33" id="__codelineno-22-33" name="__codelineno-22-33"></a><span class="c1"># Release the video capture object and close the display window</span>
-<a href="#__codelineno-22-34" id="__codelineno-22-34" name="__codelineno-22-34"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-22-35" id="__codelineno-22-35" name="__codelineno-22-35"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>
+<a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="c1"># Load the YOLOv8 model</span>
+<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>
+<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="c1"># Open the video file</span>
+<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/your/video/file.mp4"</span>
+<a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
+<a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a>
+<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="c1"># Loop through the video frames</span>
+<a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-23-13" id="__codelineno-23-13" name="__codelineno-23-13"></a>    <span class="c1"># Read a frame from the video</span>
+<a href="#__codelineno-23-14" id="__codelineno-23-14" name="__codelineno-23-14"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-23-15" id="__codelineno-23-15" name="__codelineno-23-15"></a>
+<a href="#__codelineno-23-16" id="__codelineno-23-16" name="__codelineno-23-16"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-23-17" id="__codelineno-23-17" name="__codelineno-23-17"></a>        <span class="c1"># Run YOLOv8 inference on the frame</span>
+<a href="#__codelineno-23-18" id="__codelineno-23-18" name="__codelineno-23-18"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<a href="#__codelineno-23-19" id="__codelineno-23-19" name="__codelineno-23-19"></a>
+<a href="#__codelineno-23-20" id="__codelineno-23-20" name="__codelineno-23-20"></a>        <span class="c1"># Visualize the results on the frame</span>
+<a href="#__codelineno-23-21" id="__codelineno-23-21" name="__codelineno-23-21"></a>        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<a href="#__codelineno-23-22" id="__codelineno-23-22" name="__codelineno-23-22"></a>
+<a href="#__codelineno-23-23" id="__codelineno-23-23" name="__codelineno-23-23"></a>        <span class="c1"># Display the annotated frame</span>
+<a href="#__codelineno-23-24" id="__codelineno-23-24" name="__codelineno-23-24"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLOv8 Inference"</span><span class="p">,</span> <span class="n">annotated_frame</span><span class="p">)</span>
+<a href="#__codelineno-23-25" id="__codelineno-23-25" name="__codelineno-23-25"></a>
+<a href="#__codelineno-23-26" id="__codelineno-23-26" name="__codelineno-23-26"></a>        <span class="c1"># Break the loop if 'q' is pressed</span>
+<a href="#__codelineno-23-27" id="__codelineno-23-27" name="__codelineno-23-27"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
+<a href="#__codelineno-23-28" id="__codelineno-23-28" name="__codelineno-23-28"></a>            <span class="k">break</span>
+<a href="#__codelineno-23-29" id="__codelineno-23-29" name="__codelineno-23-29"></a>    <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-23-30" id="__codelineno-23-30" name="__codelineno-23-30"></a>        <span class="c1"># Break the loop if the end of the video is reached</span>
+<a href="#__codelineno-23-31" id="__codelineno-23-31" name="__codelineno-23-31"></a>        <span class="k">break</span>
+<a href="#__codelineno-23-32" id="__codelineno-23-32" name="__codelineno-23-32"></a>
+<a href="#__codelineno-23-33" id="__codelineno-23-33" name="__codelineno-23-33"></a><span class="c1"># Release the video capture object and close the display window</span>
+<a href="#__codelineno-23-34" id="__codelineno-23-34" name="__codelineno-23-34"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-23-35" id="__codelineno-23-35" name="__codelineno-23-35"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <p>This script will run predictions on each frame of the video, visualize the results, and display them in a window. The loop can be exited by pressing 'q'.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-10-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (31), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-03-12, Updated 2023-11-08<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (32), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -1027,7 +1027,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../guides/yolo-performance-metrics/">
 <span class="md-ellipsis">
-    Performance Metrics
+    YOLO Performance Metrics
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/yolo-thread-safe-inference/">
+<span class="md-ellipsis">
+    YOLO Thread-Safe Inference
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/model-deployment-options/">
+<span class="md-ellipsis">
+    Model Deployment Options
   </span>
 </a>
 </li>
@@ -3939,7 +3953,7 @@ resolves paths related to the dataset.</p>
 <a id="__codelineno-0-300" name="__codelineno-0-300"></a>                <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">((</span><span class="n">path</span> <span class="o">/</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span>
 <a id="__codelineno-0-301" name="__codelineno-0-301"></a>
 <a id="__codelineno-0-302" name="__codelineno-0-302"></a>    <span class="c1"># Parse YAML</span>
-<a id="__codelineno-0-303" name="__codelineno-0-303"></a>    <span class="n">train</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'train'</span><span class="p">,</span> <span class="s1">'val'</span><span class="p">,</span> <span class="s1">'test'</span><span class="p">,</span> <span class="s1">'download'</span><span class="p">))</span>
+<a id="__codelineno-0-303" name="__codelineno-0-303"></a>    <span class="n">val</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'val'</span><span class="p">,</span> <span class="s1">'download'</span><span class="p">))</span>
 <a id="__codelineno-0-304" name="__codelineno-0-304"></a>    <span class="k">if</span> <span class="n">val</span><span class="p">:</span>
 <a id="__codelineno-0-305" name="__codelineno-0-305"></a>        <span class="n">val</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">val</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">val</span><span class="p">])]</span>  <span class="c1"># val path</span>
 <a id="__codelineno-0-306" name="__codelineno-0-306"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">val</span><span class="p">):</span>

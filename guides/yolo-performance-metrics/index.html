@@ -9,10 +9,10 @@
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/guides/yolo-performance-metrics/" rel="canonical"/>
 <link href="../yolo-common-issues/" rel="prev"/>
-<link href="../kfold-cross-validation/" rel="next"/>
+<link href="../yolo-thread-safe-inference/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
-<title>Performance Metrics - Ultralytics YOLOv8 Docs</title>
+<title>YOLO Performance Metrics - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -24,7 +24,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Performance Metrics" name="title"/><meta content="YOLOv8, Performance metrics, Object detection, Intersection over Union (IoU), Average Precision (AP), Mean Average Precision (mAP), Precision, Recall, Validation mode, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-performance-metrics" property="og:url"/><meta content="Performance Metrics" property="og:title"/><meta content="" property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-performance-metrics" property="twitter:url"/><meta content="Performance Metrics" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
+<meta content="YOLO Performance Metrics" name="title"/><meta content="YOLOv8, Performance metrics, Object detection, Intersection over Union (IoU), Average Precision (AP), Mean Average Precision (mAP), Precision, Recall, Validation mode, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-performance-metrics" property="og:url"/><meta content="YOLO Performance Metrics" property="og:title"/><meta content="" property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-performance-metrics" property="twitter:url"/><meta content="YOLO Performance Metrics" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -55,7 +55,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Performance Metrics
+              YOLO Performance Metrics
             
           </span>
 </div>
@@ -1028,13 +1028,13 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    Performance Metrics
+    YOLO Performance Metrics
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    Performance Metrics
+    YOLO Performance Metrics
   </span>
 </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
@@ -1156,6 +1156,20 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolo-thread-safe-inference/">
+<span class="md-ellipsis">
+    YOLO Thread-Safe Inference
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../model-deployment-options/">
+<span class="md-ellipsis">
+    Model Deployment Options
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../kfold-cross-validation/">
@@ -2626,13 +2640,13 @@
               </div>
 </div>
 </a>
-<a aria-label="Next: K-Fold Cross Validation" class="md-footer__link md-footer__link--next" href="../kfold-cross-validation/">
+<a aria-label="Next: YOLO Thread-Safe Inference" class="md-footer__link md-footer__link--next" href="../yolo-thread-safe-inference/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                K-Fold Cross Validation
+                YOLO Thread-Safe Inference
               </div>
 </div>
 <div class="md-footer__button md-icon">
