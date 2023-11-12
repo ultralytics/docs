@@ -1,0 +1,2105 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="了解如何使用 YOLOv8 预测模式进行各种任务。学习关于不同推理源如图像，视频和数据格式的内容。" name="description"/>
+<meta content="Ultralytics" name="author"/>
+<link href="https://docs.ultralytics.com/zh/modes/predict/" rel="canonical"/>
+<link href="../val/" rel="prev"/>
+<link href="../export/" rel="next"/>
+<link href="../../assets/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
+<title>预测 - Ultralytics YOLOv8 文档</title>
+<link href="../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../stylesheets/style.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+<meta content="预测" name="title"/><meta content="Ultralytics, YOLOv8, 预测模式, 推理源, 预测任务, 流式模式, 图像处理, 视频处理, 机器学习, 人工智能" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/zh/modes/predict" property="og:url"/><meta content="预测" property="og:title"/><meta content="了解如何使用 YOLOv8 预测模式进行各种任务。学习关于不同推理源如图像，视频和数据格式的内容。" property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/zh/modes/predict" property="twitter:url"/><meta content="预测" property="twitter:title"/><meta content="了解如何使用 YOLOv8 预测模式进行各种任务。学习关于不同推理源如图像，视频和数据格式的内容。" property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#ultralytics-yolo">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="Ultralytics YOLOv8 文档" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 文档">
+<img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Ultralytics YOLOv8 文档
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              预测
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+</form>
+<div class="md-header__option">
+<div class="md-select">
+<button aria-label="选择当前语言" class="md-header__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"></path></svg>
+</button>
+<div class="md-select__inner">
+<ul class="md-select__list">
+<li class="md-select__item">
+<a class="md-select__link" href="/" hreflang="en">
+              English
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/zh/" hreflang="zh">
+              简体中文
+            </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<a aria-label="分享" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="分享">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
+</a>
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ultralytics/ultralytics" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ultralytics/ultralytics
+  </div>
+</a>
+</div>
+</nav>
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+          
+  
+    
+  
+  主页
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../quickstart/">
+        
+  
+    
+  
+  快速开始
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
+          
+  
+    
+  
+  模式
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../tasks/">
+          
+  
+    
+  
+  任务
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Ultralytics YOLOv8 文档" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 文档">
+<img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+</a>
+    Ultralytics YOLOv8 文档
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ultralytics/ultralytics" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ultralytics/ultralytics
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    主页
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            主页
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../quickstart/">
+<span class="md-ellipsis">
+    快速开始
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    模式
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_3">
+<span class="md-nav__icon md-icon"></span>
+            模式
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../train/">
+<span class="md-ellipsis">
+    训练
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../val/">
+<span class="md-ellipsis">
+    验证
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    预测
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    预测
+  </span>
+</a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    引言
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    实际应用领域
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics-yolo_1">
+    为何使用 Ultralytics YOLO 进行推理？
+  </a>
+<nav aria-label="为何使用 Ultralytics YOLO 进行推理？" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    预测模式的关键特性
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    推理来源
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    推理参数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    图像和视频格式
+  </a>
+<nav aria-label="图像和视频格式" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    图像
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    视频
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    处理结果
+  </a>
+<nav aria-label="处理结果" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#boxes">
+    边界框（Boxes）
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../export/">
+<span class="md-ellipsis">
+    导出
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../track/">
+<span class="md-ellipsis">
+    跟踪
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../benchmark/">
+<span class="md-ellipsis">
+    基准测试
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../tasks/">
+<span class="md-ellipsis">
+    任务
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_4">
+<span class="md-nav__icon md-icon"></span>
+            任务
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/detect/">
+<span class="md-ellipsis">
+    检测
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/segment/">
+<span class="md-ellipsis">
+    分割
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/classify/">
+<span class="md-ellipsis">
+    分类
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/pose/">
+<span class="md-ellipsis">
+    姿态
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../quickstart/">
+<span class="md-ellipsis">
+    快速开始
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    模式
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            模式
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../train/">
+<span class="md-ellipsis">
+    训练
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../val/">
+<span class="md-ellipsis">
+    验证
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    预测
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    预测
+  </span>
+</a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    引言
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    实际应用领域
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics-yolo_1">
+    为何使用 Ultralytics YOLO 进行推理？
+  </a>
+<nav aria-label="为何使用 Ultralytics YOLO 进行推理？" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    预测模式的关键特性
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    推理来源
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    推理参数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    图像和视频格式
+  </a>
+<nav aria-label="图像和视频格式" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    图像
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    视频
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    处理结果
+  </a>
+<nav aria-label="处理结果" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#boxes">
+    边界框（Boxes）
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../export/">
+<span class="md-ellipsis">
+    导出
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../track/">
+<span class="md-ellipsis">
+    跟踪
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../benchmark/">
+<span class="md-ellipsis">
+    基准测试
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../tasks/">
+<span class="md-ellipsis">
+    任务
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            任务
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/detect/">
+<span class="md-ellipsis">
+    检测
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/segment/">
+<span class="md-ellipsis">
+    分割
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/classify/">
+<span class="md-ellipsis">
+    分类
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/pose/">
+<span class="md-ellipsis">
+    姿态
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    引言
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    实际应用领域
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics-yolo_1">
+    为何使用 Ultralytics YOLO 进行推理？
+  </a>
+<nav aria-label="为何使用 Ultralytics YOLO 进行推理？" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    预测模式的关键特性
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    推理来源
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    推理参数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    图像和视频格式
+  </a>
+<nav aria-label="图像和视频格式" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    图像
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    视频
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    处理结果
+  </a>
+<nav aria-label="处理结果" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#boxes">
+    边界框（Boxes）
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/zh/modes/predict.md" title="编辑此页">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
+</a>
+<h1 id="ultralytics-yolo">使用 Ultralytics YOLO 进行模型预测</h1>
+<p><img alt="Ultralytics YOLO 生态系统和集成" src="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" width="1024"/></p>
+<h2 id="_1">引言</h2>
+<p>在机器学习和计算机视觉领域，将视觉数据转化为有用信息的过程被称为'推理'或'预测'。Ultralytics YOLOv8 提供了一个强大的功能，称为 <strong>预测模式</strong>，它专为各种数据来源的高性能实时推理而设计。</p>
+<p align="center">
+<br/>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/QtsI0TnwDZs?si=ljesw75cMO2Eas14" title="YouTube 视频播放器" width="720">
+</iframe>
+<br/>
+<strong>观看：</strong> 如何从 Ultralytics YOLOv8 模型中提取输出，用于自定义项目。
+</p>
+<h2 id="_2">实际应用领域</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">制造业</th>
+<th style="text-align: center;">体育</th>
+<th style="text-align: center;">安全</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="车辆零部件检测" src="https://github.com/RizwanMunawar/ultralytics/assets/62513924/a0f802a8-0776-44cf-8f17-93974a4a28a1"/></td>
+<td style="text-align: center;"><img alt="足球运动员检测" src="https://github.com/RizwanMunawar/ultralytics/assets/62513924/7d320e1f-fc57-4d7f-a691-78ee579c3442"/></td>
+<td style="text-align: center;"><img alt="人员摔倒检测" src="https://github.com/RizwanMunawar/ultralytics/assets/62513924/86437c4a-3227-4eee-90ef-9efb697bdb43"/></td>
+</tr>
+<tr>
+<td style="text-align: center;">车辆零部件检测</td>
+<td style="text-align: center;">足球运动员检测</td>
+<td style="text-align: center;">人员摔倒检测</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ultralytics-yolo_1">为何使用 Ultralytics YOLO 进行推理？</h2>
+<p>以下是考虑使用 YOLOv8 的预测模式满足您的各种推理需求的几个原因：</p>
+<ul>
+<li><strong>多功能性：</strong> 能够对图像、视频乃至实时流进行推理。</li>
+<li><strong>性能：</strong> 工程化为实时、高速处理而设计，不牺牲准确性。</li>
+<li><strong>易用性：</strong> 直观的 Python 和 CLI 接口，便于快速部署和测试。</li>
+<li><strong>高度可定制性：</strong> 多种设置和参数可调，依据您的具体需求调整模型的推理行为。</li>
+</ul>
+<h3 id="_3">预测模式的关键特性</h3>
+<p>YOLOv8 的预测模式被设计为强大且多功能，包括以下特性：</p>
+<ul>
+<li><strong>兼容多个数据来源：</strong> 无论您的数据是单独图片，图片集合，视频文件，还是实时视频流，预测模式都能胜任。</li>
+<li><strong>流式模式：</strong> 使用流式功能生成一个内存高效的 <code>Results</code> 对象生成器。在调用预测器时，通过设置 <code>stream=True</code> 来启用此功能。</li>
+<li><strong>批处理：</strong> 能够在单个批次中处理多个图片或视频帧，进一步加快推理时间。</li>
+<li><strong>易于集成：</strong> 由于其灵活的 API，易于与现有数据管道和其他软件组件集成。</li>
+</ul>
+<p>Ultralytics YOLO 模型在进行推理时返回一个 Python <code>Results</code> 对象列表，或者当传入 <code>stream=True</code> 时，返回一个内存高效的 Python <code>Results</code> 对象生成器：</p>
+<div class="admonition 示例">
+<p class="admonition-title">预测</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">使用 <code>stream=False</code> 返回列表</label><label for="__tabbed_1_2">使用 <code>stream=True</code> 返回生成器</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># 加载模型</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>  <span class="c1"># 预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># 在图片列表上运行批量推理</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">([</span><span class="s1">'im1.jpg'</span><span class="p">,</span> <span class="s1">'im2.jpg'</span><span class="p">])</span>  <span class="c1"># 返回 Results 对象列表</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># 处理结果列表</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span>  <span class="c1"># 边界框输出的 Boxes 对象</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span>  <span class="c1"># 分割掩码输出的 Masks 对象</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="n">keypoints</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span>  <span class="c1"># 姿态输出的 Keypoints 对象</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="n">probs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span>  <span class="c1"># 分类输出的 Probs 对象</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># 加载模型</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>  <span class="c1"># 预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># 在图片列表上运行批量推理</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">([</span><span class="s1">'im1.jpg'</span><span class="p">,</span> <span class="s1">'im2.jpg'</span><span class="p">],</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># 返回 Results 对象生成器</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># 处理结果生成器</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span>  <span class="c1"># 边界框输出的 Boxes 对象</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span>  <span class="c1"># 分割掩码输出的 Masks 对象</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>    <span class="n">keypoints</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span>  <span class="c1"># 姿态输出的 Keypoints 对象</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="n">probs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span>  <span class="c1"># 分类输出的 Probs 对象</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</div>
+<h2 id="_4">推理来源</h2>
+<p>YOLOv8 可以处理推理输入的不同类型，如下表所示。来源包括静态图像、视频流和各种数据格式。表格还表示了每种来源是否可以在流式模式下使用，使用参数 <code>stream=True</code> ✅。流式模式对于处理视频或实时流非常有利，因为它创建了结果的生成器，而不是将所有帧加载到内存。</p>
+<div class="admonition 提示">
+<p class="admonition-title">提示</p>
+<p>使用 <code>stream=True</code> 处理长视频或大型数据集来高效地管理内存。当 <code>stream=False</code> 时，所有帧或数据点的结果都将存储在内存中，这可能很快导致内存不足错误。相对地，<code>stream=True</code> 使用生成器，只保留当前帧或数据点的结果在内存中，显著减少了内存消耗，防止内存不足问题。</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>参数</th>
+<th>类型</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图像</td>
+<td><code>'image.jpg'</code></td>
+<td><code>str</code> 或 <code>Path</code></td>
+<td>单个图像文件。</td>
+</tr>
+<tr>
+<td>URL</td>
+<td><code>'https://ultralytics.com/images/bus.jpg'</code></td>
+<td><code>str</code></td>
+<td>图像的 URL 地址。</td>
+</tr>
+<tr>
+<td>截屏</td>
+<td><code>'screen'</code></td>
+<td><code>str</code></td>
+<td>截取屏幕图像。</td>
+</tr>
+<tr>
+<td>PIL</td>
+<td><code>Image.open('im.jpg')</code></td>
+<td><code>PIL.Image</code></td>
+<td>RGB 通道的 HWC 格式图像。</td>
+</tr>
+<tr>
+<td>OpenCV</td>
+<td><code>cv2.imread('im.jpg')</code></td>
+<td><code>np.ndarray</code></td>
+<td>BGR 通道的 HWC 格式图像 <code>uint8 (0-255)</code>。</td>
+</tr>
+<tr>
+<td>numpy</td>
+<td><code>np.zeros((640,1280,3))</code></td>
+<td><code>np.ndarray</code></td>
+<td>BGR 通道的 HWC 格式图像 <code>uint8 (0-255)</code>。</td>
+</tr>
+<tr>
+<td>torch</td>
+<td><code>torch.zeros(16,3,320,640)</code></td>
+<td><code>torch.Tensor</code></td>
+<td>RGB 通道的 BCHW 格式图像 <code>float32 (0.0-1.0)</code>。</td>
+</tr>
+<tr>
+<td>CSV</td>
+<td><code>'sources.csv'</code></td>
+<td><code>str</code> 或 <code>Path</code></td>
+<td>包含图像、视频或目录路径的 CSV 文件。</td>
+</tr>
+<tr>
+<td>视频 ✅</td>
+<td><code>'video.mp4'</code></td>
+<td><code>str</code> 或 <code>Path</code></td>
+<td>如 MP4, AVI 等格式的视频文件。</td>
+</tr>
+<tr>
+<td>目录 ✅</td>
+<td><code>'path/'</code></td>
+<td><code>str</code> 或 <code>Path</code></td>
+<td>包含图像或视频文件的目录路径。</td>
+</tr>
+<tr>
+<td>通配符 ✅</td>
+<td><code>'path/*.jpg'</code></td>
+<td><code>str</code></td>
+<td>匹配多个文件的通配符模式。使用 <code>*</code> 字符作为通配符。</td>
+</tr>
+<tr>
+<td>YouTube ✅</td>
+<td><code>'https://youtu.be/LNwODJXcvt4'</code></td>
+<td><code>str</code></td>
+<td>YouTube 视频的 URL 地址。</td>
+</tr>
+<tr>
+<td>流媒体 ✅</td>
+<td><code>'rtsp://example.com/media.mp4'</code></td>
+<td><code>str</code></td>
+<td>RTSP, RTMP, TCP 或 IP 地址等流协议的 URL 地址。</td>
+</tr>
+<tr>
+<td>多流媒体 ✅</td>
+<td><code>'list.streams'</code></td>
+<td><code>str</code> 或 <code>Path</code></td>
+<td>一个流 URL 每行的 <code>*.streams</code> 文本文件，例如 8 个流将以 8 的批处理大小运行。</td>
+</tr>
+</tbody>
+</table>
+<p>下面为每种来源类型使用代码的示例：</p>
+<div class="admonition 示例">
+<p class="admonition-title">预测来源</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:13"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><input id="__tabbed_2_9" name="__tabbed_2" type="radio"><input id="__tabbed_2_10" name="__tabbed_2" type="radio"><input id="__tabbed_2_11" name="__tabbed_2" type="radio"/><input id="__tabbed_2_12" name="__tabbed_2" type="radio"/><input id="__tabbed_2_13" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">图像</label><label for="__tabbed_2_2">截屏</label><label for="__tabbed_2_3">URL</label><label for="__tabbed_2_4">PIL</label><label for="__tabbed_2_5">OpenCV</label><label for="__tabbed_2_6">numpy</label><label for="__tabbed_2_7">torch</label><label for="__tabbed_2_8">CSV</label><label for="__tabbed_2_9">视频</label><label for="__tabbed_2_10">目录</label><label for="__tabbed_2_11">通配符</label><label for="__tabbed_2_12">YouTube</label><label for="__tabbed_2_13">Streams</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>对图像文件进行推理。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># 加载预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># 定义图像文件的路径</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'path/to/image.jpg'</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1"># 对来源进行推理</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># Results 对象列表</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>对当前屏幕内容作为截屏进行推理。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># 加载预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># 定义当前截屏为来源</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'screen'</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1"># 对来源进行推理</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># Results 对象列表</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>对通过 URL 远程托管的图像或视频进行推理。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># 加载预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># 定义远程图像或视频 URL</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="c1"># 对来源进行推理</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># Results 对象列表</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>对使用 Python Imaging Library (PIL) 打开的图像进行推理。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># 加载预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># 使用 PIL 打开图像</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="n">source</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'path/to/image.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="c1"># 对来源进行推理</span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># Results 对象列表</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>对使用 OpenCV 读取的图像进行推理。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># 加载预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="c1"># 使用 OpenCV 读取图像</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="n">source</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">'path/to/image.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="c1"># 对来源进行推理</span>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># Results 对象列表</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>对表示为 numpy 数组的图像进行推理。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1"># 加载预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="c1"># 创建一个 HWC 形状 (640, 640, 3) 的随机 numpy 数组，数值范围 [0, 255] 类型为 uint8</span>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="n">source</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">'uint8'</span><span class="p">)</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a>
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="c1"># 对来源进行推理</span>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># Results 对象列表</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>对表示为 PyTorch 张量的图像进行推理。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1"># 加载预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="c1"># 创建一个 BCHW 形状 (1, 3, 640, 640) 的随机 torch 张量，数值范围 [0, 1] 类型为 float32</span>
+<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="n">source</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="c1"># 对来源进行推理</span>
+<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># Results 对象列表</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>对 CSV 文件中列出的图像、URLs、视频和目录进行推理。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="c1"># 加载预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="c1"># 定义一个包含图像、URLs、视频和目录路径的 CSV 文件路径</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'path/to/file.csv'</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>
+<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="c1"># 对来源进行推理</span>
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># Results 对象列表</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>对视频文件进行推理。使用 <code>stream=True</code> 时，可以创建一个 Results 对象的生成器，减少内存使用。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="c1"># 加载预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># 定义视频文件路径</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'path/to/video.mp4'</span>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c1"># 对来源进行推理</span>
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Results 对象的生成器</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>对目录中的所有图像和视频进行推理。要包含子目录中的图像和视频，使用通配符模式，例如 <code>path/to/dir/**/*</code>。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1"># 加载预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="c1"># 定义包含图像和视频文件用于推理的目录路径</span>
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'path/to/dir'</span>
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a>
+<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="c1"># 对来源进行推理</span>
+<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Results 对象的生成器</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>对与 <code>*</code> 字符匹配的所有图像和视频进行推理。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="c1"># 加载预训练的 YOLOv8n 模型</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="c1"># 定义一个目录下所有 JPG 文件的通配符搜索</span>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'path/to/dir/*.jpg'</span>
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="c1"># 或定义一个包括子目录的所有 JPG 文件的递归通配符搜索</span>
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'path/to/dir/**/*.jpg'</span>
+<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a>
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="c1"># 对来源进行推理</span>
+<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Results 对象的生成器</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>在YouTube视频上运行推理。通过使用<code>stream=True</code>，您可以创建一个Results对象的生成器，以减少长视频的内存使用。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1"># 加载预训练的YOLOv8n模型</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="c1"># 定义源为YouTube视频URL</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'https://youtu.be/LNwODJXcvt4'</span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a>
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="c1"># 在源上运行推理</span>
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Results对象的生成器</span>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>使用RTSP、RTMP、TCP和IP地址协议在远程流媒体源上运行推理。如果在<code>*.streams</code>文本文件中提供了多个流，则将运行批量推理，例如，8个流将以批大小8运行，否则单个流将以批大小1运行。
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="c1"># 加载预训练的YOLOv8n模型</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="c1"># 单流媒体源批大小1推理</span>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'rtsp://example.com/media.mp4'</span>  <span class="c1"># RTSP、RTMP、TCP或IP流媒体地址</span>
+<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a>
+<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="c1"># 多个流媒体源的批量推理（例如，8个流的批大小为8）</span>
+<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'path/to/list.streams'</span>  <span class="c1"># *.streams文本文件，每行一个流媒体地址</span>
+<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a>
+<a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="c1"># 在源上运行推理</span>
+<a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Results对象的生成器</span>
+</code></pre></div></p>
+</div>
+</div>
+</input></input></input></input></input></input></input></input></input></input></div>
+</div>
+<h2 id="_5">推理参数</h2>
+<p><code>model.predict()</code> 在推理时接受多个参数，可以用来覆盖默认值：</p>
+<div class="admonition 示例">
+<p class="admonition-title">示例</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1"># 加载预训练的YOLOv8n模型</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="c1"># 在'bus.jpg'上运行推理，并附加参数</span>
+<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>支持的所有参数：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source</code></td>
+<td><code>str</code></td>
+<td><code>'ultralytics/assets'</code></td>
+<td>图像或视频的源目录</td>
+</tr>
+<tr>
+<td><code>conf</code></td>
+<td><code>float</code></td>
+<td><code>0.25</code></td>
+<td>检测对象的置信度阈值</td>
+</tr>
+<tr>
+<td><code>iou</code></td>
+<td><code>float</code></td>
+<td><code>0.7</code></td>
+<td>用于NMS的交并比（IoU）阈值</td>
+</tr>
+<tr>
+<td><code>imgsz</code></td>
+<td><code>int or tuple</code></td>
+<td><code>640</code></td>
+<td>图像大小，可以是标量或（h, w）列表，例如（640, 480）</td>
+</tr>
+<tr>
+<td><code>half</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>使用半精度（FP16）</td>
+</tr>
+<tr>
+<td><code>device</code></td>
+<td><code>None or str</code></td>
+<td><code>None</code></td>
+<td>运行设备，例如 cuda device=0/1/2/3 或 device=cpu</td>
+</tr>
+<tr>
+<td><code>show</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>如果可能，显示结果</td>
+</tr>
+<tr>
+<td><code>save</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>保存带有结果的图像</td>
+</tr>
+<tr>
+<td><code>save_txt</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>将结果保存为.txt文件</td>
+</tr>
+<tr>
+<td><code>save_conf</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>保存带有置信度分数的结果</td>
+</tr>
+<tr>
+<td><code>save_crop</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>保存带有结果的裁剪图像</td>
+</tr>
+<tr>
+<td><code>hide_labels</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>隐藏标签</td>
+</tr>
+<tr>
+<td><code>hide_conf</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>隐藏置信度分数</td>
+</tr>
+<tr>
+<td><code>max_det</code></td>
+<td><code>int</code></td>
+<td><code>300</code></td>
+<td>每张图像的最大检测数量</td>
+</tr>
+<tr>
+<td><code>vid_stride</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>视频帧速率跳跃</td>
+</tr>
+<tr>
+<td><code>stream_buffer</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>缓冲所有流媒体帧（True）或返回最新帧（False）</td>
+</tr>
+<tr>
+<td><code>line_width</code></td>
+<td><code>None or int</code></td>
+<td><code>None</code></td>
+<td>边框线宽度。如果为None，则按图像大小缩放。</td>
+</tr>
+<tr>
+<td><code>visualize</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>可视化模型特征</td>
+</tr>
+<tr>
+<td><code>augment</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>应用图像增强到预测源</td>
+</tr>
+<tr>
+<td><code>agnostic_nms</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>类别不敏感的NMS</td>
+</tr>
+<tr>
+<td><code>retina_masks</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>使用高分辨率分割掩码</td>
+</tr>
+<tr>
+<td><code>classes</code></td>
+<td><code>None or list</code></td>
+<td><code>None</code></td>
+<td>按类别过滤结果，例如 classes=0，或 classes=[0,2,3]</td>
+</tr>
+<tr>
+<td><code>boxes</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>在分割预测中显示框</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">图像和视频格式</h2>
+<p>YOLOv8支持多种图像和视频格式，如<a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/data/utils.py">data/utils.py</a>所指定。请参阅下表了解有效的后缀名和示例预测命令。</p>
+<h3 id="_7">图像</h3>
+<p>以下表格包含有效的Ultralytics图像格式。</p>
+<p>| 图像后缀名 | 示例预测命令 | 参考链接 | |</p>
+<p>----------------|-----------------------------------------|-------------------------------------------------------------------------------| | .bmp | <code>yolo predict source=image.bmp</code>         | <a href="https://en.wikipedia.org/wiki/BMP_file_format">Microsoft BMP文件格式</a>        | | .dng | <code>yolo predict source=image.dng</code>         | <a href="https://www.adobe.com/products/photoshop/extend.displayTab2.html">Adobe DNG</a> | | .jpeg | <code>yolo predict source=image.jpeg</code>        | <a href="https://en.wikipedia.org/wiki/JPEG">JPEG</a>                                    | | .jpg | <code>yolo predict source=image.jpg</code>         | <a href="https://en.wikipedia.org/wiki/JPEG">JPEG</a>                                    | | .mpo | <code>yolo predict source=image.mpo</code>         | <a href="https://fileinfo.com/extension/mpo">多图像对象</a>                              | | .png | <code>yolo predict source=image.png</code>         | <a href="https://en.wikipedia.org/wiki/PNG">便携式网络图形</a>                           | | .tif | <code>yolo predict source=image.tif</code>         | <a href="https://en.wikipedia.org/wiki/TIFF">标签图像文件格式</a>                        | | .tiff | <code>yolo predict source=image.tiff</code>        | <a href="https://en.wikipedia.org/wiki/TIFF">标签图像文件格式</a>                        | | .webp | <code>yolo predict source=image.webp</code>        | <a href="https://en.wikipedia.org/wiki/WebP">WebP</a>                                    | | .pfm | <code>yolo predict source=image.pfm</code>         | <a href="https://en.wikipedia.org/wiki/Netpbm#File_formats">便携式浮点图</a>             |</p>
+<h3 id="_8">视频</h3>
+<p>以下表格包含有效的Ultralytics视频格式。</p>
+<table>
+<thead>
+<tr>
+<th>视频后缀名</th>
+<th>示例预测命令</th>
+<th>参考链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.asf</td>
+<td><code>yolo predict source=video.asf</code></td>
+<td><a href="https://en.wikipedia.org/wiki/Advanced_Systems_Format">高级系统格式</a></td>
+</tr>
+<tr>
+<td>.avi</td>
+<td><code>yolo predict source=video.avi</code></td>
+<td><a href="https://en.wikipedia.org/wiki/Audio_Video_Interleave">音视频交错</a></td>
+</tr>
+<tr>
+<td>.gif</td>
+<td><code>yolo predict source=video.gif</code></td>
+<td><a href="https://en.wikipedia.org/wiki/GIF">图形交换格式</a></td>
+</tr>
+<tr>
+<td>.m4v</td>
+<td><code>yolo predict source=video.m4v</code></td>
+<td><a href="https://en.wikipedia.org/wiki/M4V">MPEG-4第14部分</a></td>
+</tr>
+<tr>
+<td>.mkv</td>
+<td><code>yolo predict source=video.mkv</code></td>
+<td><a href="https://en.wikipedia.org/wiki/Matroska">Matroska</a></td>
+</tr>
+<tr>
+<td>.mov</td>
+<td><code>yolo predict source=video.mov</code></td>
+<td><a href="https://en.wikipedia.org/wiki/QuickTime_File_Format">QuickTime文件格式</a></td>
+</tr>
+<tr>
+<td>.mp4</td>
+<td><code>yolo predict source=video.mp4</code></td>
+<td><a href="https://en.wikipedia.org/wiki/MPEG-4_Part_14">MPEG-4第14部分</a></td>
+</tr>
+<tr>
+<td>.mpeg</td>
+<td><code>yolo predict source=video.mpeg</code></td>
+<td><a href="https://en.wikipedia.org/wiki/MPEG-1">MPEG-1第2部分</a></td>
+</tr>
+<tr>
+<td>.mpg</td>
+<td><code>yolo predict source=video.mpg</code></td>
+<td><a href="https://en.wikipedia.org/wiki/MPEG-1">MPEG-1第2部分</a></td>
+</tr>
+<tr>
+<td>.ts</td>
+<td><code>yolo predict source=video.ts</code></td>
+<td><a href="https://en.wikipedia.org/wiki/MPEG_transport_stream">MPEG传输流</a></td>
+</tr>
+<tr>
+<td>.wmv</td>
+<td><code>yolo predict source=video.wmv</code></td>
+<td><a href="https://en.wikipedia.org/wiki/Windows_Media_Video">Windows媒体视频</a></td>
+</tr>
+<tr>
+<td>.webm</td>
+<td><code>yolo predict source=video.webm</code></td>
+<td><a href="https://en.wikipedia.org/wiki/WebM">WebM项目</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_9">处理结果</h2>
+<p>所有Ultralytics的<code>predict()</code>调用都将返回一个<code>Results</code>对象列表：</p>
+<div class="admonition 示例">
+<p class="admonition-title">结果</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="c1"># 加载预训练的YOLOv8n模型</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="c1"># 在图片上运行推理</span>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># 1个Results对象的列表</span>
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">([</span><span class="s1">'bus.jpg'</span><span class="p">,</span> <span class="s1">'zidane.jpg'</span><span class="p">])</span>  <span class="c1"># 2个Results对象的列表</span>
+</code></pre></div>
+</div>
+<p><code>Results</code>对象具有以下属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>orig_img</code></td>
+<td><code>numpy.ndarray</code></td>
+<td>原始图像的numpy数组。</td>
+</tr>
+<tr>
+<td><code>orig_shape</code></td>
+<td><code>tuple</code></td>
+<td>原始图像的形状，格式为（高度，宽度）。</td>
+</tr>
+<tr>
+<td><code>boxes</code></td>
+<td><code>Boxes, 可选</code></td>
+<td>包含检测边界框的Boxes对象。</td>
+</tr>
+<tr>
+<td><code>masks</code></td>
+<td><code>Masks, 可选</code></td>
+<td>包含检测掩码的Masks对象。</td>
+</tr>
+<tr>
+<td><code>probs</code></td>
+<td><code>Probs, 可选</code></td>
+<td>包含每个类别的概率的Probs对象，用于分类任务。</td>
+</tr>
+<tr>
+<td><code>keypoints</code></td>
+<td><code>Keypoints, 可选</code></td>
+<td>包含每个对象检测到的关键点的Keypoints对象。</td>
+</tr>
+<tr>
+<td><code>speed</code></td>
+<td><code>dict</code></td>
+<td>以毫秒为单位的每张图片的预处理、推理和后处理速度的字典。</td>
+</tr>
+<tr>
+<td><code>names</code></td>
+<td><code>dict</code></td>
+<td>类别名称的字典。</td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td><code>str</code></td>
+<td>图像文件的路径。</td>
+</tr>
+</tbody>
+</table>
+<p><code>Results</code>对象具有以下方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>返回类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__getitem__()</code></td>
+<td><code>Results</code></td>
+<td>返回指定索引的Results对象。</td>
+</tr>
+<tr>
+<td><code>__len__()</code></td>
+<td><code>int</code></td>
+<td>返回Results对象中的检测数量。</td>
+</tr>
+<tr>
+<td><code>update()</code></td>
+<td><code>None</code></td>
+<td>更新Results对象的boxes, masks和probs属性。</td>
+</tr>
+<tr>
+<td><code>cpu()</code></td>
+<td><code>Results</code></td>
+<td>将所有张量移动到CPU内存上的Results对象的副本。</td>
+</tr>
+<tr>
+<td><code>numpy()</code></td>
+<td><code>Results</code></td>
+<td>将所有张量转换为numpy数组的Results对象的副本。</td>
+</tr>
+<tr>
+<td><code>cuda()</code></td>
+<td><code>Results</code></td>
+<td>将所有张量移动到GPU内存上的Results对象的副本。</td>
+</tr>
+<tr>
+<td><code>to()</code></td>
+<td><code>Results</code></td>
+<td>返回将张量移动到指定设备和dtype的Results对象的副本。</td>
+</tr>
+<tr>
+<td><code>new()</code></td>
+<td><code>Results</code></td>
+<td>返回一个带有相同图像、路径和名称的新Results对象。</td>
+</tr>
+<tr>
+<td><code>keys()</code></td>
+<td><code>List[str]</code></td>
+<td>返回非空属性名称的列表。</td>
+</tr>
+<tr>
+<td><code>plot()</code></td>
+<td><code>numpy.ndarray</code></td>
+<td>绘制检测结果。返回带有注释的图像的numpy数组。</td>
+</tr>
+<tr>
+<td><code>verbose()</code></td>
+<td><code>str</code></td>
+<td>返回每个任务的日志字符串。</td>
+</tr>
+<tr>
+<td><code>save_txt()</code></td>
+<td><code>None</code></td>
+<td>将预测保存到txt文件中。</td>
+</tr>
+<tr>
+<td><code>save_crop()</code></td>
+<td><code>None</code></td>
+<td>将裁剪的预测保存到<code>save_dir/cls/file_name.jpg</code>。</td>
+</tr>
+<tr>
+<td><code>tojson()</code></td>
+<td><code>None</code></td>
+<td>将对象转换为JSON格式。</td>
+</tr>
+</tbody>
+</table>
+<p>有关更多详细信息，请参阅<code>Results</code>类的<a href="/../reference/engine/results.md">文档</a>。</p>
+<h3 id="boxes">边界框（Boxes）</h3>
+<p><code>Boxes</code>对象可用于索引、操作和转换边界框到不同格式。</p>
+<div class="admonition 示例">
+<p class="admonition-title">边界框（Boxes）</p>
+<p>```python
+from ultralytics import YOLO</p>
+<h1 id="yolov8n">加载预训练的YOLOv8n模型</h1>
+<p>model = YOLO('yolov8n.pt')</p>
+<h1 id="_10">在图片上运行推理</h1>
+<p>results = model('bus.jpg')</p>
+</div>
+<h1 id="results">results列表</h1>
+<div class="highlight"><pre><span></span><code># 查看结果
+for r in results:
+    print(r.boxes)  # 打印包含检测边界框的Boxes对象
+```
+</code></pre></div>
+<p>以下是<code>Boxes</code>类方法和属性的表格，包括它们的名称、类型和描述：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cpu()</code></td>
+<td>方法</td>
+<td>将对象移动到CPU内存。</td>
+</tr>
+<tr>
+<td><code>numpy()</code></td>
+<td>方法</td>
+<td>将对象转换为numpy数组。</td>
+</tr>
+<tr>
+<td><code>cuda()</code></td>
+<td>方法</td>
+<td>将对象移动到CUDA内存。</td>
+</tr>
+<tr>
+<td><code>to()</code></td>
+<td>方法</td>
+<td>将对象移动到指定的设备。</td>
+</tr>
+<tr>
+<td><code>xyxy</code></td>
+<td>属性 (<code>torch.Tensor</code>)</td>
+<td>以xyxy格式返回边界框。</td>
+</tr>
+<tr>
+<td><code>conf</code></td>
+<td>属性 (<code>torch.Tensor</code>)</td>
+<td>返回边界框的置信度值。</td>
+</tr>
+<tr>
+<td><code>cls</code></td>
+<td>属性 (<code>torch.Tensor</code>)</td>
+<td>返回边界框的类别值。</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>属性 (<code>torch.Tensor</code>)</td>
+<td>返回边界框的跟踪ID（如果可用）。</td>
+</tr>
+<tr>
+<td><code>xywh</code></td>
+<td>属性 (<code>torch.Tensor</code>)</td>
+<td>以xywh格式返回边界框。</td>
+</tr>
+<tr>
+<td><code>xyxyn</code></td>
+<td>属性 (<code>torch.Tensor</code>)</td>
+<td>以原始图像大小归一化的xyxy格式返回边界框。</td>
+</tr>
+<tr>
+<td><code>xywhn</code></td>
+<td>属性 (<code>torch.Tensor</code>)</td>
+<td>以原始图像大小归一化的xywh格式返回边界框。</td>
+</tr>
+</tbody>
+</table>
+<p>有关更多详细信息，请参阅<code>Boxes</code>类的<a href="/../reference/engine/results.md">文档</a>。</p>
+<h3 id="masks">掩码（Masks）</h3>
+<p><code>Masks</code>对象可用于索引、操作和将掩码转换为分段。</p>
+<div class="admonition 示例">
+<p class="admonition-title">掩码（Masks）</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="c1"># 加载预训练的YOLOv8n-seg分割模型</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-seg.pt'</span><span class="p">)</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="c1"># 在图片上运行推理</span>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># results列表</span>
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a>
+<a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="c1"># 查看结果</span>
+<a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span>  <span class="c1"># 打印包含检测到的实例掩码的Masks对象</span>
+</code></pre></div>
+</div>
+<p>以下是<code>Masks</code>类方法和属性的表格，包括它们的名称、类型和描述：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cpu()</code></td>
+<td>方法</td>
+<td>将掩码张量返回到CPU内存。</td>
+</tr>
+<tr>
+<td><code>numpy()</code></td>
+<td>方法</td>
+<td>将掩码张量转换为numpy数组。</td>
+</tr>
+<tr>
+<td><code>cuda()</code></td>
+<td>方法</td>
+<td>将掩码张量返回到GPU内存。</td>
+</tr>
+<tr>
+<td><code>to()</code></td>
+<td>方法</td>
+<td>将掩码张量带有指定设备和dtype返回。</td>
+</tr>
+<tr>
+<td><code>xyn</code></td>
+<td>属性 (<code>torch.Tensor</code>)</td>
+<td>以张量表示的归一化分段的列表。</td>
+</tr>
+<tr>
+<td><code>xy</code></td>
+<td>属性 (<code>torch.Tensor</code>)</td>
+<td>以像素坐标表示的分段的张量列表。</td>
+</tr>
+</tbody>
+</table>
+<p>有关更多详细信息，请参阅<code>Masks</code>类的<a href="/../reference/engine/results.md">文档</a>。</p>
+<h3 id="keypoints">关键点 (Keypoints)</h3>
+<p><code>Keypoints</code> 对象可以用于索引、操作和规范化坐标。</p>
+<div class="admonition 示例">
+<p class="admonition-title">关键点</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1"># 加载预训练的YOLOv8n-pose 姿态模型</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-pose.pt'</span><span class="p">)</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>
+<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="c1"># 在图像上运行推理</span>
+<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># 结果列表</span>
+<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a>
+<a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="c1"># 查看结果</span>
+<a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">keypoints</span><span class="p">)</span>  <span class="c1"># 打印包含检测到的关键点的Keypoints对象</span>
+</code></pre></div>
+</div>
+<p>以下是<code>Keypoints</code>类方法和属性的表格，包括它们的名称、类型和描述：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cpu()</code></td>
+<td>方法</td>
+<td>返回CPU内存上的关键点张量。</td>
+</tr>
+<tr>
+<td><code>numpy()</code></td>
+<td>方法</td>
+<td>返回作为numpy数组的关键点张量。</td>
+</tr>
+<tr>
+<td><code>cuda()</code></td>
+<td>方法</td>
+<td>返回GPU内存上的关键点张量。</td>
+</tr>
+<tr>
+<td><code>to()</code></td>
+<td>方法</td>
+<td>返回指定设备和dtype的关键点张量。</td>
+</tr>
+<tr>
+<td><code>xyn</code></td>
+<td>属性（<code>torch.Tensor</code>）</td>
+<td>规范化关键点的列表，表示为张量。</td>
+</tr>
+<tr>
+<td><code>xy</code></td>
+<td>属性（<code>torch.Tensor</code>）</td>
+<td>以像素坐标表示的关键点列表，表示为张量。</td>
+</tr>
+<tr>
+<td><code>conf</code></td>
+<td>属性（<code>torch.Tensor</code>）</td>
+<td>返回关键点的置信度值（如果有），否则返回None。</td>
+</tr>
+</tbody>
+</table>
+<p>有关更多详细信息，请参阅<code>Keypoints</code>类<a href="/../reference/engine/results.md">文档</a>。</p>
+<h3 id="probs">概率 (Probs)</h3>
+<p><code>Probs</code> 对象可以用于索引，获取分类的 <code>top1</code> 和 <code>top5</code> 索引和分数。</p>
+<div class="admonition 示例">
+<p class="admonition-title">概率</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="c1"># 加载预训练的YOLOv8n-cls 分类模型</span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-cls.pt'</span><span class="p">)</span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="c1"># 在图像上运行推理</span>
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># 结果列表</span>
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a>
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="c1"># 查看结果</span>
+<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span>  <span class="c1"># 打印包含检测到的类别概率的Probs对象</span>
+</code></pre></div>
+</div>
+<p>以下是<code>Probs</code>类的方法和属性的表格总结：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cpu()</code></td>
+<td>方法</td>
+<td>返回CPU内存上的概率张量的副本。</td>
+</tr>
+<tr>
+<td><code>numpy()</code></td>
+<td>方法</td>
+<td>返回概率张量的副本作为numpy数组。</td>
+</tr>
+<tr>
+<td><code>cuda()</code></td>
+<td>方法</td>
+<td>返回GPU内存上的概率张量的副本。</td>
+</tr>
+<tr>
+<td><code>to()</code></td>
+<td>方法</td>
+<td>返回带有指定设备和dtype的概率张量的副本。</td>
+</tr>
+<tr>
+<td><code>top1</code></td>
+<td>属性（<code>int</code>）</td>
+<td>第1类的索引。</td>
+</tr>
+<tr>
+<td><code>top5</code></td>
+<td>属性（<code>list[int]</code>）</td>
+<td>前5类的索引。</td>
+</tr>
+<tr>
+<td><code>top1conf</code></td>
+<td>属性（<code>torch.Tensor</code>）</td>
+<td>第1类的置信度。</td>
+</tr>
+<tr>
+<td><code>top5conf</code></td>
+<td>属性（<code>torch.Tensor</code>）</td>
+<td>前5类的置信度。</td>
+</tr>
+</tbody>
+</table>
+<p>有关更多详细信息，请参阅<code>Probs</code>类<a href="/../reference/engine/results.md">文档</a>。</p>
+<h2 id="_11">绘制结果</h2>
+<p>您可以使用<code>Result</code>对象的<code>plot()</code>方法来可视化预测结果。它会将<code>Results</code>对象中包含的所有预测类型（框、掩码、关键点、概率等）绘制到一个numpy数组上，然后可以显示或保存。</p>
+<div class="admonition 示例">
+<p class="admonition-title">绘制</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="c1"># 加载预训练的YOLOv8n模型</span>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a>
+<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="c1"># 在'bus.jpg'上运行推理</span>
+<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># 结果列表</span>
+<a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a>
+<a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="c1"># 展示结果</span>
+<a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-20-12" id="__codelineno-20-12" name="__codelineno-20-12"></a>    <span class="n">im_array</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>  <span class="c1"># 绘制包含预测结果的BGR numpy数组</span>
+<a href="#__codelineno-20-13" id="__codelineno-20-13" name="__codelineno-20-13"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im_array</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># RGB PIL图像</span>
+<a href="#__codelineno-20-14" id="__codelineno-20-14" name="__codelineno-20-14"></a>    <span class="n">im</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># 显示图像</span>
+<a href="#__codelineno-20-15" id="__codelineno-20-15" name="__codelineno-20-15"></a>    <span class="n">im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'results.jpg'</span><span class="p">)</span>  <span class="c1"># 保存图像</span>
+</code></pre></div>
+<p><code>plot()</code>方法支持以下参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>conf</code></td>
+<td><code>bool</code></td>
+<td>是否绘制检测置信度分数。</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>line_width</code></td>
+<td><code>float</code></td>
+<td>边框线宽度。如果为None，则按图像大小缩放。</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>font_size</code></td>
+<td><code>float</code></td>
+<td>文本字体大小。如果为None，则按图像大小缩放。</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>font</code></td>
+<td><code>str</code></td>
+<td>文本字体。</td>
+<td><code>'Arial.ttf'</code></td>
+</tr>
+<tr>
+<td><code>pil</code></td>
+<td><code>bool</code></td>
+<td>是否将图像返回为PIL图像。</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>img</code></td>
+<td><code>numpy.ndarray</code></td>
+<td>绘制到另一个图像上。如果没有，则绘制到原始图像上。</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>im_gpu</code></td>
+<td><code>torch.Tensor</code></td>
+<td>形状为(1, 3, 640, 640)的规范化GPU图像，用于更快地绘制掩码。</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>kpt_radius</code></td>
+<td><code>int</code></td>
+<td>绘制关键点的半径。默认为5。</td>
+<td><code>5</code></td>
+</tr>
+<tr>
+<td><code>kpt_line</code></td>
+<td><code>bool</code></td>
+<td>是否绘制连接关键点的线条。</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>labels</code></td>
+<td><code>bool</code></td>
+<td>是否绘制边框标签。</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>boxes</code></td>
+<td><code>bool</code></td>
+<td>是否绘制边框。</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>masks</code></td>
+<td><code>bool</code></td>
+<td>是否绘制掩码。</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>probs</code></td>
+<td><code>bool</code></td>
+<td>是否绘制分类概率</td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="_12">线程安全推理</h2>
+<p>在多线程中并行运行多个YOLO模型时，确保推理过程的线程安全性至关重要。线程安全的推理保证了每个线程的预测结果是隔离的，不会相互干扰，避免竞态条件，确保输出的一致性和可靠性。</p>
+<p>在多线程应用中使用YOLO模型时，重要的是为每个线程实例化单独的模型对象，或使用线程本地存储来防止冲突：</p>
+<div class="admonition 示例">
+<p class="admonition-title">线程安全推理</p>
+<p>在每个线程内实例化单个模型以实现线程安全的推理：
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="k">def</span> <span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a>    <span class="c1"># 在线程内实例化新模型</span>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a>    <span class="n">local_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a>    <span class="c1"># 处理结果</span>
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a>
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="c1"># 启动拥有各自模型实例的线程</span>
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div></p>
+</div>
+<p>有关YOLO模型线程安全推理的深入讨论和逐步指导，请参阅我们的<a href="/../guides/yolo-thread-safe-inference.md">YOLO线程安全推理指南</a>。该指南将为您提供避免常见陷阱并确保多线程推理顺利进行所需的所有必要信息。</p>
+<h2 id="for">流媒体源<code>for</code>循环</h2>
+<p>以下是使用OpenCV（<code>cv2</code>）和YOLOv8在视频帧上运行推理的Python脚本。此脚本假设您已经安装了必要的包（<code>opencv-python</code>和<code>ultralytics</code>）。</p>
+<div class="admonition 示例">
+<p class="admonition-title">流媒体for循环</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="c1"># 加载YOLOv8模型</span>
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>
+<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="c1"># 打开视频文件</span>
+<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/your/video/file.mp4"</span>
+<a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
+<a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a>
+<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="c1"># 遍历视频帧</span>
+<a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a>    <span class="c1"># 从视频中读取一帧</span>
+<a href="#__codelineno-22-14" id="__codelineno-22-14" name="__codelineno-22-14"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-22-15" id="__codelineno-22-15" name="__codelineno-22-15"></a>
+<a href="#__codelineno-22-16" id="__codelineno-22-16" name="__codelineno-22-16"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-22-17" id="__codelineno-22-17" name="__codelineno-22-17"></a>        <span class="c1"># 在该帧上运行YOLOv8推理</span>
+<a href="#__codelineno-22-18" id="__codelineno-22-18" name="__codelineno-22-18"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<a href="#__codelineno-22-19" id="__codelineno-22-19" name="__codelineno-22-19"></a>
+<a href="#__codelineno-22-20" id="__codelineno-22-20" name="__codelineno-22-20"></a>        <span class="c1"># 在帧上可视化结果</span>
+<a href="#__codelineno-22-21" id="__codelineno-22-21" name="__codelineno-22-21"></a>        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<a href="#__codelineno-22-22" id="__codelineno-22-22" name="__codelineno-22-22"></a>
+<a href="#__codelineno-22-23" id="__codelineno-22-23" name="__codelineno-22-23"></a>        <span class="c1"># 显示带注释的帧</span>
+<a href="#__codelineno-22-24" id="__codelineno-22-24" name="__codelineno-22-24"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLOv8推理"</span><span class="p">,</span> <span class="n">annotated_frame</span><span class="p">)</span>
+<a href="#__codelineno-22-25" id="__codelineno-22-25" name="__codelineno-22-25"></a>
+<a href="#__codelineno-22-26" id="__codelineno-22-26" name="__codelineno-22-26"></a>        <span class="c1"># 如果按下'q'则中断循环</span>
+<a href="#__codelineno-22-27" id="__codelineno-22-27" name="__codelineno-22-27"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
+<a href="#__codelineno-22-28" id="__codelineno-22-28" name="__codelineno-22-28"></a>            <span class="k">break</span>
+<a href="#__codelineno-22-29" id="__codelineno-22-29" name="__codelineno-22-29"></a>    <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-22-30" id="__codelineno-22-30" name="__codelineno-22-30"></a>        <span class="c1"># 如果视频结束则中断循环</span>
+<a href="#__codelineno-22-31" id="__codelineno-22-31" name="__codelineno-22-31"></a>        <span class="k">break</span>
+<a href="#__codelineno-22-32" id="__codelineno-22-32" name="__codelineno-22-32"></a>
+<a href="#__codelineno-22-33" id="__codelineno-22-33" name="__codelineno-22-33"></a><span class="c1"># 释放视频捕获对象并关闭显示窗口</span>
+<a href="#__codelineno-22-34" id="__codelineno-22-34" name="__codelineno-22-34"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-22-35" id="__codelineno-22-35" name="__codelineno-22-35"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<p>此脚本将对视频的每一帧进行预测，可视化结果，并在窗口中显示。按下'q'键可以退出循环。</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<style>
+                .share-button:hover {
+                    filter: brightness(1.2);
+                }
+                .share-buttons {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            </style>
+<div class="share-buttons">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/zh/modes/predict', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
+                </button>
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/zh/modes/predict', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
+                </button>
+</div>
+<h2 id="__comments">评论</h2>
+<!-- Insert Giscus code snippet from https://giscus.app/ here -->
+<script async="" crossorigin="anonymous" data-category="Docs" data-category-id="DIC_kwDOH-jzvc4CWLkL" data-emit-metadata="0" data-input-position="top" data-lang="en" data-mapping="title" data-reactions-enabled="1" data-repo="ultralytics/ultralytics" data-repo-id="R_kgDOH-jzvQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+</script>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  回到页面顶部
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="页脚" class="md-footer__inner md-grid">
+<a aria-label="上一页: 验证" class="md-footer__link md-footer__link--prev" href="../val/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                上一页
+              </span>
+<div class="md-ellipsis">
+                验证
+              </div>
+</div>
+</a>
+<a aria-label="下一页: 导出" class="md-footer__link md-footer__link--next" href="../export/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                下一页
+              </span>
+<div class="md-ellipsis">
+                导出
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+<a href="https://ultralytics.com" target="_blank">© 2023 Ultralytics Inc.</a> All rights reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ultralytics" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/ultralytics/" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+<a class="md-social__link" href="https://twitter.com/ultralytics" rel="noopener" target="_blank" title="twitter.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.youtube.com/ultralytics" rel="noopener" target="_blank" title="www.youtube.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+</a>
+<a class="md-social__link" href="https://hub.docker.com/r/ultralytics/ultralytics/" rel="noopener" target="_blank" title="hub.docker.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"></path></svg>
+</a>
+<a class="md-social__link" href="https://pypi.org/project/ultralytics/" rel="noopener" target="_blank" title="pypi.org">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"></path></svg>
+</a>
+<a class="md-social__link" href="https://ultralytics.com/discord" rel="noopener" target="_blank" title="ultralytics.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-progress" data-md-component="progress" role="progressbar"></div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+</body>
+</html>
