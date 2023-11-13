@@ -2,7 +2,7 @@
 
 Ultralytics Docs are deployed to [https://docs.ultralytics.com](https://docs.ultralytics.com).
 
-[![pages-build-deployment](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment)  [![Check Broken links](https://github.com/ultralytics/docs/actions/workflows/links.yml/badge.svg?branch=gh-pages)](https://github.com/ultralytics/docs/actions/workflows/links.yml)
+[![pages-build-deployment](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment)  [![Check Broken links](https://github.com/ultralytics/docs/actions/workflows/links.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/links.yml)
 
 ### Install Ultralytics package
 
@@ -64,8 +64,8 @@ For multi-language MkDocs sites use the following additional steps:
     rm -rf site
 
     # Loop through all *.yml files in the docs directory
-    mkdocs build -f docs/mkdocs.yml  # build /en/ docs
-    for file in docs/mkdocs_*.yml; do  # build all other languages
+    mkdocs build -f docs/mkdocs.yml
+    for file in docs/mkdocs_*.yml; do
       echo "Building MkDocs site with configuration file: $file"
       mkdocs build -f "$file"
     done
