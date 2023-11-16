@@ -7,10 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Discover how to track and enhance YOLOv8 model training with Comet ML's logging tools, from setup to monitoring key metrics and managing experiments for in-depth analysis." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/integrations/comet-ml/" rel="canonical"/>
+<link href="https://docs.ultralytics.com/integrations/comet/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../openvino/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
-<title>Elevating YOLOv8 Training: Simplify Your Logging Process with Comet ML - Ultralytics YOLOv8 Docs</title>
+<title>Comet ML - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Elevating YOLOv8 Training: Simplify Your Logging Process with Comet ML" name="title"/><meta content="Ultralytics, YOLOv8, Object Detection, Comet ML, Model Training, Model Metrics Logging, Experiment Tracking, Offline Experiment Management" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/comet-ml" property="og:url"/><meta content="Elevating YOLOv8 Training: Simplify Your Logging Process with Comet ML" property="og:title"/><meta content="Discover how to track and enhance YOLOv8 model training with Comet ML's logging tools, from setup to monitoring key metrics and managing experiments for in-depth analysis." property="og:description"/><meta content="https://www.comet.com/docs/v2/img/landing/home-hero.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/comet-ml" property="twitter:url"/><meta content="Elevating YOLOv8 Training: Simplify Your Logging Process with Comet ML" property="twitter:title"/><meta content="Discover how to track and enhance YOLOv8 model training with Comet ML's logging tools, from setup to monitoring key metrics and managing experiments for in-depth analysis." property="twitter:description"/><meta content="https://www.comet.com/docs/v2/img/landing/home-hero.svg" property="twitter:image"/></head>
+<meta content="Comet ML" name="title"/><meta content="Ultralytics, YOLOv8, Object Detection, Comet ML, Model Training, Model Metrics Logging, Experiment Tracking, Offline Experiment Management" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/comet" property="og:url"/><meta content="Comet ML" property="og:title"/><meta content="Discover how to track and enhance YOLOv8 model training with Comet ML's logging tools, from setup to monitoring key metrics and managing experiments for in-depth analysis." property="og:description"/><meta content="https://www.comet.com/docs/v2/img/landing/home-hero.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/comet" property="twitter:url"/><meta content="Comet ML" property="twitter:title"/><meta content="Discover how to track and enhance YOLOv8 model training with Comet ML's logging tools, from setup to monitoring key metrics and managing experiments for in-depth analysis." property="twitter:description"/><meta content="https://www.comet.com/docs/v2/img/landing/home-hero.svg" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -52,7 +54,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Elevating YOLOv8 Training: Simplify Your Logging Process with Comet ML
+              Comet ML
             
           </span>
 </div>
@@ -246,7 +248,7 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
+<li class="md-tabs__item md-tabs__item--active">
 <a class="md-tabs__link" href="../">
           
   
@@ -1202,8 +1204,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../">
 <span class="md-ellipsis">
@@ -1214,12 +1216,93 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
             Integrations
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Comet ML
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Comet ML
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comet-ml">
+    Comet ML
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#harnessing-the-power-of-yolov8-and-comet-ml">
+    Harnessing the Power of YOLOv8 and Comet ML
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+    Installation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuring-comet-ml">
+    Configuring Comet ML
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage">
+    Usage
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-your-models-performance-with-comet-ml-visualizations">
+    Understanding Your Model's Performance with Comet ML Visualizations
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#customizing-comet-ml-logging">
+    Customizing Comet ML Logging
+  </a>
+<nav aria-label="Customizing Comet ML Logging" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logging-image-predictions">
+    Logging Image Predictions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#disabling-confusion-matrix-logging">
+    Disabling Confusion Matrix Logging
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#offline-logging">
+    Offline Logging
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+    Summary
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../openvino/">
 <span class="md-ellipsis">
@@ -2300,7 +2383,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/comet-ml.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/comet.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1 id="elevating-yolov8-training-simplify-your-logging-process-with-comet-ml">Elevating YOLOv8 Training: Simplify Your Logging Process with Comet ML</h1>
@@ -2347,7 +2430,7 @@
 </code></pre></div>
 <p><em>Note:</em> If you are using a Google Colab notebook, the code above will prompt you to enter your API key for initialization.</p>
 <h2 id="usage">Usage</h2>
-<p>Before diving into the usage instructions, be sure to check out the range of <a href="https://docs.ultralytics.com/models/">YOLOv8 models offered by Ultralytics</a>. This will help you choose the most appropriate model for your project requirements.</p>
+<p>Before diving into the usage instructions, be sure to check out the range of <a href="../../models/">YOLOv8 models offered by Ultralytics</a>. This will help you choose the most appropriate model for your project requirements.</p>
 <div class="admonition example">
 <p class="admonition-title">Usage</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
@@ -2372,7 +2455,7 @@
 </div>
 </input></div>
 </div>
-<p>After running the training code, Comet ML will create an experiment in your Comet workspace to track the run automatically. You will then be provided with a link to view the detailed logging of your <a href="https://docs.ultralytics.com/modes/train/">YOLOv8 model's training</a> process.</p>
+<p>After running the training code, Comet ML will create an experiment in your Comet workspace to track the run automatically. You will then be provided with a link to view the detailed logging of your <a href="../../modes/train/">YOLOv8 model's training</a> process.</p>
 <p>Comet automatically logs the following data with no additional configuration: metrics such as mAP and loss, hyperparameters, model checkpoints, interactive confusion matrix, and image bounding box predictions.</p>
 <h2 id="understanding-your-models-performance-with-comet-ml-visualizations">Understanding Your Model's Performance with Comet ML Visualizations</h2>
 <p>Let's dive into what you'll see on the Comet ML dashboard once your YOLOv8 model begins training. The dashboard is where all the action happens, presenting a range of automatically logged information through visuals and statistics. Here’s a quick tour:</p>
@@ -2426,8 +2509,8 @@
 <p>This guide has walked you through integrating Comet ML with Ultralytics' YOLOv8. From installation to customization, you've learned to streamline experiment management, gain real-time insights, and adapt logging to your project's needs.</p>
 <p>Explore <a href="https://www.comet.com/docs/v2/integrations/third-party-tools/yolov8/">Comet ML's official documentation</a> for more insights on integrating with YOLOv8.</p>
 <p>Furthermore, if you're looking to dive deeper into the practical applications of YOLOv8, specifically for image segmentation tasks, this detailed guide on <a href="https://www.comet.com/site/blog/fine-tuning-yolov8-for-image-segmentation-with-comet/">fine-tuning YOLOv8 with Comet ML</a> offers valuable insights and step-by-step instructions to enhance your model's performance.</p>
-<p>Additionally, to explore other exciting integrations with Ultralytics, check out the <a href="https://docs.ultralytics.com/integrations/">integration guide page</a>, which offers a wealth of resources and information.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-17, Updated 2023-11-17<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<p>Additionally, to explore other exciting integrations with Ultralytics, check out the <a href="../">integration guide page</a>, which offers a wealth of resources and information.</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-16, Updated 2023-11-16<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2438,10 +2521,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/comet-ml', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/comet', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/comet-ml', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/comet', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -2488,6 +2571,34 @@
 </button>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Ultralytics Integrations" class="md-footer__link md-footer__link--prev" href="../">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Ultralytics Integrations
+              </div>
+</div>
+</a>
+<a aria-label="Next: OpenVINO" class="md-footer__link md-footer__link--next" href="../openvino/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                OpenVINO
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
