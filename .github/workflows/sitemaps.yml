@@ -41,6 +41,7 @@ jobs:
             credentials = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(credentials_json), ['https://www.googleapis.com/auth/webmasters'])
             webmasters_service = build('webmasters', 'v3', credentials=credentials)
             webmasters_service.sitemaps().submit(siteUrl=site_url, feedpath=sitemap_url).execute()
+            print(f'Submitted {sitemap_url}')
         credentials_json = os.environ['GSC_CREDENTIALS']
         # Submit sitemap for the main site
         submit_sitemap('https://docs.ultralytics.com', 'https://docs.ultralytics.com/sitemap.xml', credentials_json)
