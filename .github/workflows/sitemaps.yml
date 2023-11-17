@@ -8,11 +8,13 @@ on:
     workflows: ["Pages Build and Deployment"]
     types:
       - completed
+  workflow_dispatch:
 
 jobs:
   submit-sitemaps:
     runs-on: ubuntu-latest
-    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+
 
     steps:
     - name: Checkout Repo
@@ -30,7 +32,7 @@ jobs:
 
     - name: Run Submit Sitemap Script
       env:
-        GSC_CREDENTIALS: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_JSON }}
+        CREDENTIALS_JSON: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_JSON }}
       shell: python
       run: |
         import os
@@ -42,10 +44,10 @@ jobs:
             webmasters_service = build('webmasters', 'v3', credentials=credentials)
             webmasters_service.sitemaps().submit(siteUrl=site_url, feedpath=sitemap_url).execute()
             print(f'Submitted {sitemap_url}')
-        credentials_json = os.environ['GSC_CREDENTIALS']
+        credentials_json = os.environ['CREDENTIALS_JSON']
         # Submit sitemap for the main site
         submit_sitemap('https://docs.ultralytics.com', 'https://docs.ultralytics.com/sitemap.xml', credentials_json)
         # Submit sitemaps for each language
         languages = ['zh', 'ko', 'ja', 'ru', 'de', 'fr', 'es', 'pt']
         for lang in languages:
-            submit_sitemap(f'https://docs.ultralytics.com/{lang}', f'https://docs.ultralytics.com/{lang}/sitemap.xml', credentials_json)
+            submit_sitemap(f'https://docs.ultralytics.com/', f'https://docs.ultralytics.com/{lang}/sitemap.xml', credentials_json)
