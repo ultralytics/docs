@@ -1,6 +1,11 @@
 name: Submit Sitemaps After Pages Deployment
 
 on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
   workflow_run:
     workflows: ["Pages Build and Deployment"]
     types:
