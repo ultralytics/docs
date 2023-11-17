@@ -4,20 +4,16 @@
 name: Submit Sitemaps
 
 on:
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
   workflow_run:
     workflows: ["pages-build-deployment"]
     types:
       - completed
-  workflow_dispatch:
 
 jobs:
   submit-sitemaps:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
-
 
     steps:
     - name: Checkout Repo
