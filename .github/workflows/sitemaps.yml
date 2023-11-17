@@ -1,0 +1,47 @@
+name: Submit Sitemaps After Pages Deployment
+
+on:
+  workflow_run:
+    workflows: ["Pages Build and Deployment"]
+    types:
+      - completed
+
+jobs:
+  submit-sitemaps:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install google-api-python-client oauth2client
+
+    - name: Run Submit Sitemap Script
+      env:
+        GSC_CREDENTIALS: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_JSON }}
+      shell: python
+      run: |
+        import os
+        import json
+        from googleapiclient.discovery import build
+        from oauth2client.service_account import ServiceAccountCredentials
+        def submit_sitemap(site_url, sitemap_url, credentials_json):
+            credentials = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(credentials_json), ['https://www.googleapis.com/auth/webmasters'])
+            webmasters_service = build('webmasters', 'v3', credentials=credentials)
+            webmasters_service.sitemaps().submit(siteUrl=site_url, feedpath=sitemap_url).execute()
+        credentials_json = os.environ['GSC_CREDENTIALS']
+        # Submit sitemap for the main site
+        submit_sitemap('https://docs.ultralytics.com', 'https://docs.ultralytics.com/sitemap.xml', credentials_json)
+        # Submit sitemaps for each language
+        languages = ['zh', 'ko', 'ja', 'ru', 'de', 'fr', 'es', 'pt']
+        for lang in languages:
+            submit_sitemap(f'https://docs.ultralytics.com/{lang}', f'https://docs.ultralytics.com/{lang}/sitemap.xml', credentials_json)
