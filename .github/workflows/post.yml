@@ -1,0 +1,19 @@
+name: Post Sitemap Submission Action
+
+on:
+  workflow_run:
+    workflows: ["Submit Sitemaps"]
+    types:
+      - completed
+
+jobs:
+  post-sitemap-job:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+
+    - name: Example Step
+      run: echo "This step runs after Submit Sitemaps workflow completes"
