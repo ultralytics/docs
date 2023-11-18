@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="探索Ultralytics YOLOv8，这是一款尖端的实时对象检测和图像分割模型，适用于各种应用和硬件平台。" name="description"/>
+<meta content="学习如何使用Ultralytics YOLOv8进行姿态估计任务。找到预训练模型，学习如何训练、验证、预测以及导出你自己的模型。" name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/zh/tasks/pose/" rel="canonical"/>
 <link href="../classify/" rel="prev"/>
@@ -22,7 +22,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="姿态" name="title"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/zh/tasks/pose" property="og:url"/><meta content="姿态" property="og:title"/><meta content="" property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/243418616-9811ac0b-a4a7-452a-8aba-484ba32bb4a8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/zh/tasks/pose" property="twitter:url"/><meta content="姿态" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/243418616-9811ac0b-a4a7-452a-8aba-484ba32bb4a8.png" property="twitter:image"/></head>
+<meta content="姿态" name="title"/><meta content="Ultralytics, YOLO, YOLOv8, 姿态估计, 关键点检测, 物体检测, 预训练模型, 机器学习, 人工智能" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/zh/tasks/pose" property="og:url"/><meta content="姿态" property="og:title"/><meta content="学习如何使用Ultralytics YOLOv8进行姿态估计任务。找到预训练模型，学习如何训练、验证、预测以及导出你自己的模型。" property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/243418616-9811ac0b-a4a7-452a-8aba-484ba32bb4a8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/zh/tasks/pose" property="twitter:url"/><meta content="姿态" property="twitter:title"/><meta content="学习如何使用Ultralytics YOLOv8进行姿态估计任务。找到预训练模型，学习如何训练、验证、预测以及导出你自己的模型。" property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/243418616-9811ac0b-a4a7-452a-8aba-484ba32bb4a8.png" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -123,6 +123,16 @@
 <li class="md-select__item">
 <a class="md-select__link" href="/pt/" hreflang="pt">
               🇵🇹 Português
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/hi/" hreflang="hi">
+              🇮🇳 हिन्दी
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ar/" hreflang="ar">
+              🇸🇦 العربية
             </a>
 </li>
 </ul>
@@ -752,11 +762,6 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/zh/tasks/pose.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<hr/>
-<p>评论：真
-描述：学习如何使用Ultralytics YOLOv8进行姿态估计任务。找到预训练模型，学习如何训练、验证、预测以及导出你自己的模型。
-关键词：Ultralytics, YOLO, YOLOv8, 姿态估计, 关键点检测, 物体检测, 预训练模型, 机器学习, 人工智能</p>
-<hr/>
 <h1 id="_1">姿态估计</h1>
 <p><img alt="姿态估计示例" src="https://user-images.githubusercontent.com/26833433/243418616-9811ac0b-a4a7-452a-8aba-484ba32bb4a8.png" width="1024"/></p>
 <p>姿态估计是一项任务，其涉及识别图像中特定点的位置，通常被称为关键点。这些关键点可以代表物体的各种部位，如关节、地标或其他显著特征。关键点的位置通常表示为一组2D <code>[x, y]</code> 或3D <code>[x, y, visible]</code> 坐标。</p>
@@ -860,6 +865,7 @@
 <h2 id="_3">训练</h2>
 <p>在COCO128姿态数据集上训练一个YOLOv8姿态模型。</p>
 <div class="admonition example">
+<p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -893,6 +899,7 @@
 <h2 id="_5">验证</h2>
 <p>在COCO128姿态数据集上验证训练好的YOLOv8n姿态模型的准确性。没有参数需要传递，因为<code>模型</code>保存了其训练<code>数据</code>和参数作为模型属性。</p>
 <div class="admonition example">
+<p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -921,6 +928,7 @@
 <h2 id="_6">预测</h2>
 <p>使用训练好的YOLOv8n姿态模型在图片上运行预测。</p>
 <div class="admonition example">
+<p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -946,6 +954,7 @@
 <h2 id="_7">导出</h2>
 <p>将YOLOv8n姿态模型导出为ONNX、CoreML等不同格式。</p>
 <div class="admonition example">
+<p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1073,7 +1082,7 @@
 </tbody>
 </table>
 <p>在<a href="https://docs.ultralytics.com/modes/export/">导出</a> 页面中查看完整的<code>导出</code>细节。</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1091,6 +1100,39 @@
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
+<h2 id="__comments">评论</h2>
+<!-- Insert Giscus code snippet from https://giscus.app/ here -->
+<script async="" crossorigin="anonymous" data-category="Docs" data-category-id="DIC_kwDOH-jzvc4CWLkL" data-emit-metadata="0" data-input-position="top" data-lang="en" data-mapping="title" data-reactions-enabled="1" data-repo="ultralytics/ultralytics" data-repo-id="R_kgDOH-jzvQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+</script>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>

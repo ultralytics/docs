@@ -125,6 +125,16 @@
               🇵🇹 Português
             </a>
 </li>
+<li class="md-select__item">
+<a class="md-select__link" href="/hi/" hreflang="hi">
+              🇮🇳 हिन्दी
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ar/" hreflang="ar">
+              🇸🇦 العربية
+            </a>
+</li>
 </ul>
 </div>
 </div>
@@ -756,7 +766,7 @@
 <p><img alt="Image classification examples" src="https://user-images.githubusercontent.com/26833433/243418606-adf35c62-2e11-405d-84c6-b84e7d013804.png" width="1024"/></p>
 <p>이미지 분류는 가장 단순한 세 가지 작업 중 하나로, 전체 이미지를 미리 정의된 클래스 집합 중 하나로 분류하는 작업입니다.</p>
 <p>이미지 분류기의 출력은 단일 클래스 라벨과 신뢰도 점수입니다. 이미지 분류는 클래스의 이미지만 알고 싶고 해당 클래스의 객체가 어디에 위치하고 있는지 또는 그 정확한 형태가 무엇인지 알 필요가 없을 때 유용합니다.</p>
-<div class="admonition 팁">
+<div class="admonition tip">
 <p class="admonition-title">팁</p>
 <p>YOLOv8 분류 모델은 <code>-cls</code> 접미사를 사용합니다. 예: <code>yolov8n-cls.pt</code>이며, <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/ImageNet.yaml">ImageNet</a>에서 사전 훈련되었습니다.</p>
 </div>
@@ -837,7 +847,8 @@
 </ul>
 <h2 id="_3">학습</h2>
 <p>YOLOv8n-cls 모델을 MNIST160 데이터셋에서 100 에포크 동안 학습시키고 이미지 크기는 64로 설정합니다. 가능한 모든 인자는 <a href="/../usage/cfg">설정</a> 페이지에서 확인할 수 있습니다.</p>
-<div class="admonition 예제">
+<div class="admonition example">
+<p class="admonition-title">예제</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -870,7 +881,8 @@
 <p>YOLO 분류 데이터셋 형식은 <a href="../../../datasets/classify">데이터셋 가이드</a>에서 자세히 확인할 수 있습니다.</p>
 <h2 id="_5">검증</h2>
 <p>학습된 YOLOv8n-cls 모델의 정확도를 MNIST160 데이터셋에서 검증합니다. <code>model</code>은 모델 속성으로 훈련 시 <code>data</code> 및 인자를 유지하므로 추가 인자를 전달할 필요가 없습니다.</p>
-<div class="admonition 예제">
+<div class="admonition example">
+<p class="admonition-title">예제</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -896,7 +908,8 @@
 </div>
 <h2 id="_6">예측</h2>
 <p>학습된 YOLOv8n-cls 모델을 사용하여 이미지에 대한 예측을 실행합니다.</p>
-<div class="admonition 예제">
+<div class="admonition example">
+<p class="admonition-title">예제</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -921,7 +934,8 @@
 <p>자세한 <code>predict</code> 모드 정보는 <a href="https://docs.ultralytics.com/modes/predict/">예측</a> 페이지에서 확인하세요.</p>
 <h2 id="_7">내보내기</h2>
 <p>YOLOv8n-cls 모델을 ONNX, CoreML 등과 같은 다른 형식으로 내보냅니다.</p>
-<div class="admonition 예제">
+<div class="admonition example">
+<p class="admonition-title">예제</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1049,7 +1063,7 @@
 </tbody>
 </table>
 <p>자세한 <code>export</code> 정보는 <a href="https://docs.ultralytics.com/modes/export/">내보내기</a> 페이지에서 확인하세요.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-13, Updated 2023-11-14<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-13, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

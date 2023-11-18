@@ -125,6 +125,16 @@
               🇵🇹 Português
             </a>
 </li>
+<li class="md-select__item">
+<a class="md-select__link" href="/hi/" hreflang="hi">
+              🇮🇳 हिन्दी
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ar/" hreflang="ar">
+              🇸🇦 العربية
+            </a>
+</li>
 </ul>
 </div>
 </div>
@@ -946,7 +956,8 @@
 <p>默认追踪器是BoT-SORT。</p>
 <h2 id="_4">追踪</h2>
 <p>要在视频流中运行追踪器，请使用已训练的检测、分割或姿态模型，例如YOLOv8n、YOLOv8n-seg和YOLOv8n-pose。</p>
-<div class="admonition 示例">
+<div class="admonition example">
+<p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -981,7 +992,8 @@
 <h2 id="_5">配置</h2>
 <h3 id="_6">追踪参数</h3>
 <p>追踪配置与预测模式共享一些属性，如<code>conf</code>、<code>iou</code>和<code>show</code>。有关进一步配置，请参见<a href="https://docs.ultralytics.com/modes/predict/">预测</a>模型页面。</p>
-<div class="admonition 示例">
+<div class="admonition example">
+<p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1002,7 +1014,8 @@
 </div>
 <h3 id="_7">选择追踪器</h3>
 <p>Ultralytics还允许您使用修改后的追踪器配置文件。要执行此操作，只需从<a href="https://github.com/ultralytics/ultralytics/tree/main/ultralytics/cfg/trackers">ultralytics/cfg/trackers</a>中复制一个追踪器配置文件（例如，<code>custom_tracker.yaml</code>）并根据您的需求修改任何配置（除了<code>tracker_type</code>）。</p>
-<div class="admonition 示例">
+<div class="admonition example">
+<p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1025,7 +1038,7 @@
 <h2 id="python">Python示例</h2>
 <h3 id="_8">持续追踪循环</h3>
 <p>这是一个使用OpenCV（<code>cv2</code>）和YOLOv8在视频帧上运行物体追踪的Python脚本。此脚本假设您已经安装了必要的包（<code>opencv-python</code>和<code>ultralytics</code>）。参数<code>persist=True</code>告诉追踪器当前的图像或帧是序列中的下一个，并且期望在当前图像中从上一个图像中获得追踪路径。</p>
-<div class="admonition 示例">
+<div class="admonition example">
 <p class="admonition-title">带追踪功能的流循环</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
@@ -1068,7 +1081,7 @@
 <h3 id="_9">随时间绘制追踪路径</h3>
 <p>在连续帧上可视化物体追踪路径可以提供有关视频中检测到的物体的运动模式和行为的有价值的洞见。使用Ultralytics YOLOv8，绘制这些路径是一个无缝且高效的过程。</p>
 <p>在以下示例中，我们演示了如何利用YOLOv8的追踪功能在多个视频帧上绘制检测物体的移动。这个脚本涉及打开视频文件、逐帧读取，并使用YOLO模型识别并追踪各种物体。通过保留检测到的边界框的中心点并连接它们，我们可以绘制表示跟踪物体路径的线条。</p>
-<div class="admonition 示例">
+<div class="admonition example">
 <p class="admonition-title">在多个视频帧上绘制追踪路径</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
@@ -1137,11 +1150,7 @@
 <p>在这个例子中，两个不同的模型被使用：<code>yolov8n.pt</code>和<code>yolov8n-seg.pt</code>，每个模型都在不同的视频文件中追踪物体。视频文件分别指定在<code>video_file1</code>和<code>video_file2</code>中。</p>
 <p>在<code>threading.Thread</code>中参数<code>daemon=True</code>表示，这些线程会在主程序结束时关闭。然后我们用<code>start()</code>来开始线程，并使用<code>join()</code>来使主线程等待，直到两个追踪线程都结束。</p>
 <p>最后，在所有线程完成任务后，使用<code>cv2.destroyAllWindows()</code>关闭显示结果的窗口。</p>
-<div class="admonition 示例">
-<p class="admonition-title">带追踪功能的流循环</p>
-<p>```pyth</p>
-</div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-13<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -125,6 +125,16 @@
               🇵🇹 Português
             </a>
 </li>
+<li class="md-select__item">
+<a class="md-select__link" href="/hi/" hreflang="hi">
+              🇮🇳 हिन्दी
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ar/" hreflang="ar">
+              🇸🇦 العربية
+            </a>
+</li>
 </ul>
 </div>
 </div>
@@ -937,7 +947,7 @@
 </div>
 <h2 id="_3">使用示例</h2>
 <p>在COCO128数据集上训练YOLOv8n模型100个时期，图像大小为640。可以使用<code>device</code>参数指定训练设备。如果没有传递参数，并且有可用的GPU，则将使用GPU <code>device=0</code>，否则将使用<code>device=cpu</code>。有关完整列表的训练参数，请参见下面的参数部分。</p>
-<div class="admonition 示例">
+<div class="admonition example">
 <p class="admonition-title">单GPU和CPU训练示例</p>
 <p>设备将自动确定。如果有可用的GPU，那么将使用它，否则将在CPU上开始训练。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
@@ -970,7 +980,7 @@
 </div>
 <h3 id="gpu">多GPU训练</h3>
 <p>多GPU训练通过在多个GPU上分布训练负载，实现对可用硬件资源的更有效利用。无论是通过Python API还是命令行界面，都可以使用此功能。 若要启用多GPU训练，请指定您希望使用的GPU设备ID。</p>
-<div class="admonition 示例">
+<div class="admonition example">
 <p class="admonition-title">多GPU训练示例</p>
 <p>要使用2个GPU进行训练，请使用CUDA设备0和1，使用以下命令。根据需要扩展到更多GPU。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
@@ -996,7 +1006,7 @@
 <h3 id="m1m2-mps">苹果M1和M2 MPS训练</h3>
 <p>通过Ultralytics YOLO模型集成对Apple M1和M2芯片的支持，现在可以在使用强大的Metal性能着色器（MPS）框架的设备上训练模型。MPS为在Apple的定制硅上执行计算和图像处理任务提供了一种高性能的方法。</p>
 <p>要在Apple M1和M2芯片上启用训练，您应该在启动训练过程时将设备指定为'mps'。以下是Python和命令行中如何做到这点的示例：</p>
-<div class="admonition 示例">
+<div class="admonition example">
 <p class="admonition-title">MPS训练示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
@@ -1024,7 +1034,7 @@
 <p>恢复训练时，Ultralytics YOLO将加载最后保存的模型的权重，并恢复优化器状态、学习率调度器和时期编号。这允许您无缝地从离开的地方继续训练过程。</p>
 <p>在Ultralytics YOLO中，您可以通过在调用<code>train</code>方法时将<code>resume</code>参数设置为<code>True</code>并指定包含部分训练模型权重的<code>.pt</code>文件路径来轻松恢复训练。</p>
 <p>下面是使用Python和命令行恢复中断训练的示例：</p>
-<div class="admonition 示例">
+<div class="admonition example">
 <p class="admonition-title">恢复训练示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
 <div class="tabbed-content">
@@ -1297,7 +1307,8 @@
 <h3 id="comet">Comet</h3>
 <p><a href="https://www.comet.ml/site/">Comet</a>是一个平台，允许数据科学家和开发人员跟踪、比较、解释和优化实验和模型。它提供了实时指标、代码差异和超参数跟踪等功能。</p>
 <p>使用Comet：</p>
-<div class="admonition 示例">
+<div class="admonition example">
+<p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1314,7 +1325,8 @@
 <h3 id="clearml">ClearML</h3>
 <p><a href="https://www.clear.ml/">ClearML</a> 是一个开源平台，自动跟踪实验并帮助有效共享资源。它旨在帮助团队更有效地管理、执行和复现他们的ML工作。</p>
 <p>使用ClearML：</p>
-<div class="admonition 示例">
+<div class="admonition example">
+<p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1331,7 +1343,8 @@
 <h3 id="tensorboard">TensorBoard</h3>
 <p><a href="https://www.tensorflow.org/tensorboard">TensorBoard</a> 是TensorFlow的可视化工具包。它允许您可视化TensorFlow图表，绘制有关图表执行的定量指标，并展示通过它的附加数据，如图像。</p>
 <p>在<a href="https://colab.research.google.com/github/ultralytics/ultralytics/blob/main/examples/tutorial.ipynb">Google Colab</a>中使用TensorBoard：</p>
-<div class="admonition 示例">
+<div class="admonition example">
+<p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1343,7 +1356,8 @@
 </input></div>
 </div>
 <p>在本地使用TensorBoard，运行下面的命令并在 http://localhost:6006/ 查看结果。</p>
-<div class="admonition 示例">
+<div class="admonition example">
+<p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"><div class="tabbed-labels"><label for="__tabbed_8_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1355,7 +1369,7 @@
 </div>
 <p>这将加载TensorBoard并将其定向到保存训练日志的目录。</p>
 <p>在设置好日志记录器后，您可以继续进行模型训练。所有训练指标将自动记录在您选择的平台中，您可以访问这些日志以监控模型随时间的表现，比较不同模型，并识别改进的领域。</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-13<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

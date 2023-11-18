@@ -125,6 +125,16 @@
               🇵🇹 Português
             </a>
 </li>
+<li class="md-select__item">
+<a class="md-select__link" href="/hi/" hreflang="hi">
+              🇮🇳 हिन्दी
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ar/" hreflang="ar">
+              🇸🇦 العربية
+            </a>
+</li>
 </ul>
 </div>
 </div>
@@ -781,7 +791,7 @@
 <li><strong>Integrationsfreundlich:</strong> Dank der flexiblen API leicht in bestehende Datenpipelines und andere Softwarekomponenten zu integrieren.</li>
 </ul>
 <p>Ultralytics YOLO-Modelle geben entweder eine Python-Liste von <code>Results</code>-Objekten zurück, oder einen speichereffizienten Python-Generator von <code>Results</code>-Objekten, wenn <code>stream=True</code> beim Inferenzvorgang an das Modell übergeben wird:</p>
-<div class="admonition beispiel">
+<div class="admonition example">
 <p class="admonition-title">Predict</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Gibt eine Liste mit <code>stream=False</code> zurück</label><label for="__tabbed_1_2">Gibt einen Generator mit <code>stream=True</code> zurück</label></div>
 <div class="tabbed-content">
@@ -824,7 +834,7 @@
 </div>
 <h2 id="inferenzquellen">Inferenzquellen</h2>
 <p>YOLOv8 kann verschiedene Arten von Eingabequellen für die Inferenz verarbeiten, wie in der folgenden Tabelle gezeigt. Die Quellen umfassen statische Bilder, Videostreams und verschiedene Datenformate. Die Tabelle gibt ebenfalls an, ob jede Quelle im Streaming-Modus mit dem Argument <code>stream=True</code> ✅ verwendet werden kann. Der Streaming-Modus ist vorteilhaft für die Verarbeitung von Videos oder Live-Streams, da er einen Generator von Ergebnissen statt das Laden aller Frames in den Speicher erzeugt.</p>
-<div class="admonition tipp">
+<div class="admonition tip">
 <p class="admonition-title">Tipp</p>
 <p>Verwenden Sie <code>stream=True</code> für die Verarbeitung langer Videos oder großer Datensätze, um den Speicher effizient zu verwalten. Bei <code>stream=False</code> werden die Ergebnisse für alle Frames oder Datenpunkte im Speicher gehalten, was bei großen Eingaben schnell zu Speicherüberläufen führen kann. Im Gegensatz dazu verwendet <code>stream=True</code> einen Generator, der nur die Ergebnisse des aktuellen Frames oder Datenpunkts im Speicher behält, was den Speicherverbrauch erheblich reduziert und Speicherüberlaufprobleme verhindert.</p>
 </div>
@@ -925,7 +935,7 @@
 </tbody>
 </table>
 <p>Untenstehend finden Sie Codebeispiele für die Verwendung jedes Quelltyps:</p>
-<div class="admonition beispiel">
+<div class="admonition example">
 <p class="admonition-title">Vorhersagequellen</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:7"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Bild</label><label for="__tabbed_2_2">Bildschirmaufnahme</label><label for="__tabbed_2_3">URL</label><label for="__tabbed_2_4">PIL</label><label for="__tabbed_2_5">OpenCV</label><label for="__tabbed_2_6">numpy</label><label for="__tabbed_2_7">torch</label></div>
 <div class="tabbed-content">
@@ -1031,7 +1041,7 @@ from ultralytics import YOLO</p>
 </div>
 </input></input></input></input></input></input></input></div>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-13, Updated 2023-11-13<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-13, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

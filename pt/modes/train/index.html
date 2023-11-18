@@ -125,6 +125,16 @@
               🇵🇹 Português
             </a>
 </li>
+<li class="md-select__item">
+<a class="md-select__link" href="/hi/" hreflang="hi">
+              🇮🇳 हिन्दी
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ar/" hreflang="ar">
+              🇸🇦 العربية
+            </a>
+</li>
 </ul>
 </div>
 </div>
@@ -887,7 +897,7 @@
 <li><strong>Configuração de Hiperparâmetros:</strong> Opção de modificar hiperparâmetros através de arquivos de configuração YAML ou argumentos de CLI.</li>
 <li><strong>Visualização e Monitoramento:</strong> Acompanhamento em tempo real das métricas de treinamento e visualização do processo de aprendizagem para obter melhores insights.</li>
 </ul>
-<div class="admonition dica">
+<div class="admonition tip">
 <p class="admonition-title">Dica</p>
 <ul>
 <li>Conjuntos de dados YOLOv8 como COCO, VOC, ImageNet e muitos outros são baixados automaticamente na primeira utilização, ou seja, <code>yolo train data=coco.yaml</code></li>
@@ -895,7 +905,7 @@
 </div>
 <h2 id="exemplos-de-uso">Exemplos de Uso</h2>
 <p>Treine o YOLOv8n no conjunto de dados COCO128 por 100 épocas com tamanho de imagem de 640. O dispositivo de treinamento pode ser especificado usando o argumento <code>device</code>. Se nenhum argumento for passado, a GPU <code>device=0</code> será usado se disponível, caso contrário, <code>device=cpu</code> será usado. Veja a seção Argumentos abaixo para uma lista completa dos argumentos de treinamento.</p>
-<div class="admonition exemplo">
+<div class="admonition example">
 <p class="admonition-title">Exemplo de Treinamento em Uma Única GPU e CPU</p>
 <p>O dispositivo é determinado automaticamente. Se uma GPU estiver disponível, ela será usada, caso contrário, o treinamento começará na CPU.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
@@ -928,7 +938,7 @@
 </div>
 <h3 id="treinamento-com-multi-gpu">Treinamento com Multi-GPU</h3>
 <p>O treinamento com múltiplas GPUs permite uma utilização mais eficiente dos recursos de hardware disponíveis, distribuindo a carga de treinamento entre várias GPUs. Esse recurso está disponível por meio da API do Python e da interface de linha de comando. Para habilitar o treinamento com várias GPUs, especifique os IDs dos dispositivos de GPU que deseja usar.</p>
-<div class="admonition exemplo">
+<div class="admonition example">
 <p class="admonition-title">Exemplo de Treinamento com Multi-GPU</p>
 <p>Para treinar com 2 GPUs, dispositivos CUDA 0 e 1 use os seguintes comandos. Expanda para GPUs adicionais conforme necessário.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
@@ -954,7 +964,7 @@
 <h3 id="treinamento-com-apple-m1-e-m2-mps">Treinamento com Apple M1 e M2 MPS</h3>
 <p>Com a integração do suporte para os chips Apple M1 e M2 nos modelos YOLO da Ultralytics, agora é possível treinar seus modelos em dispositivos que utilizam o poderoso framework Metal Performance Shaders (MPS). O MPS oferece uma forma de alto desempenho de executar tarefas de computação e processamento de imagens no silício personalizado da Apple.</p>
 <p>Para habilitar o treinamento nos chips Apple M1 e M2, você deve especificar 'mps' como seu dispositivo ao iniciar o processo de treinamento. Abaixo está um exemplo de como você pode fazer isso em Python e via linha de comando:</p>
-<div class="admonition exemplo">
+<div class="admonition example">
 <p class="admonition-title">Exemplo de Treinamento com MPS</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
@@ -983,7 +993,8 @@
 <h3 id="comet">Comet</h3>
 <p><a href="https://www.comet.ml/site/">Comet</a> é uma plataforma que permite a cientistas de dados e desenvolvedores rastrear, comparar, explicar e otimizar experimentos e modelos. Oferece funcionalidades como métricas em tempo real, diffs de código e acompanhamento de hiperparâmetros.</p>
 <p>Para usar o Comet:</p>
-<div class="admonition exemplo">
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1000,7 +1011,8 @@
 <h3 id="clearml">ClearML</h3>
 <p><a href="https://www.clear.ml/">ClearML</a> é uma plataforma de código aberto que automatiza o rastreamento de experimentos e ajuda com o compartilhamento eficiente de recursos. É projetada para ajudar as equipes a gerenciar, executar e reproduzir seus trabalhos de ML de maneira mais eficiente.</p>
 <p>Para usar o ClearML:</p>
-<div class="admonition exemplo">
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1017,7 +1029,8 @@
 <h3 id="tensorboard">TensorBoard</h3>
 <p><a href="https://www.tensorflow.org/tensorboard">TensorBoard</a> é um kit de ferramentas de visualização para TensorFlow. Permite visualizar o seu gráfico TensorFlow, plotar métricas quantitativas sobre a execução do seu gráfico e mostrar dados adicionais como imagens que passam por ele.</p>
 <p>Para usar o TensorBoard em <a href="https://colab.research.google.com/github/ultralytics/ultralytics/blob/main/examples/tutorial.ipynb">Google Colab</a>:</p>
-<div class="admonition exemplo">
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1029,7 +1042,8 @@
 </input></div>
 </div>
 <p>Para usar o TensorBoard localmente, execute o comando abaixo e veja os resultados em http://localhost:6006/:</p>
-<div class="admonition exemplo">
+<div class="admonition example">
+<p class="admonition-title">Exemplo</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1041,7 +1055,7 @@
 </div>
 <p>Isso irá carregar o TensorBoard e direcioná-lo para o diretório onde seus logs de treinamento estão salvos.</p>
 <p>Depois de configurar o seu logger, você pode então prosseguir com o treinamento do seu modelo. Todas as métricas de treinamento serão registradas automaticamente na sua plataforma escolhida, e você pode acessar esses logs para monitorar o desempenho do seu modelo ao longo do tempo, comparar diferentes modelos e identificar áreas para melhoria.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-13, Updated 2023-11-13<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-13, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
