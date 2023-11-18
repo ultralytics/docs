@@ -5,15 +5,15 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore Ultralytics YOLOv8, a cutting-edge real-time object detection and image segmentation model for various applications and hardware platforms." name="description"/>
+<meta content="Dive into the intricacies of YOLO tasks.py. Learn about DetectionModel, PoseModel and more for powerful AI development." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/reference/nn/tasks/" rel="canonical"/>
 <link href="../modules/utils/" rel="prev"/>
 <link href="../../trackers/basetrack/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
 <title>tasks - Ultralytics YOLOv8 Docs</title>
-<link href="../../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="tasks" name="title"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/nn/tasks" property="og:url"/><meta content="tasks" property="og:title"/><meta content="" property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/nn/tasks" property="twitter:url"/><meta content="tasks" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
+<meta content="tasks" name="title"/><meta content="Ultralytics, YOLO, nn tasks, DetectionModel, PoseModel, RTDETRDetectionModel, model weights, parse model, AI development" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/nn/tasks" property="og:url"/><meta content="tasks" property="og:title"/><meta content="Dive into the intricacies of YOLO tasks.py. Learn about DetectionModel, PoseModel and more for powerful AI development." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/nn/tasks" property="twitter:url"/><meta content="tasks" property="twitter:title"/><meta content="Dive into the intricacies of YOLO tasks.py. Learn about DetectionModel, PoseModel and more for powerful AI development." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -1949,221 +1949,297 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel">
-    BaseModel
-  </a>
+<span class="md-ellipsis">
+      BaseModel
+    </span>
+</a>
 <nav aria-label="BaseModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.forward">
-    forward()
-  </a>
+<span class="md-ellipsis">
+      forward()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.fuse">
-    fuse()
-  </a>
+<span class="md-ellipsis">
+      fuse()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.info">
-    info()
-  </a>
+<span class="md-ellipsis">
+      info()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.is_fused">
-    is_fused()
-  </a>
+<span class="md-ellipsis">
+      is_fused()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.load">
-    load()
-  </a>
+<span class="md-ellipsis">
+      load()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.loss">
-    loss()
-  </a>
+<span class="md-ellipsis">
+      loss()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.predict">
-    predict()
-  </a>
+<span class="md-ellipsis">
+      predict()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.DetectionModel">
-    DetectionModel
-  </a>
+<span class="md-ellipsis">
+      DetectionModel
+    </span>
+</a>
 <nav aria-label="DetectionModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.DetectionModel.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.DetectionModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.SegmentationModel">
-    SegmentationModel
-  </a>
+<span class="md-ellipsis">
+      SegmentationModel
+    </span>
+</a>
 <nav aria-label="SegmentationModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.SegmentationModel.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.SegmentationModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.PoseModel">
-    PoseModel
-  </a>
+<span class="md-ellipsis">
+      PoseModel
+    </span>
+</a>
 <nav aria-label="PoseModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.PoseModel.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.PoseModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.ClassificationModel">
-    ClassificationModel
-  </a>
+<span class="md-ellipsis">
+      ClassificationModel
+    </span>
+</a>
 <nav aria-label="ClassificationModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.ClassificationModel.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.ClassificationModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.ClassificationModel.reshape_outputs">
-    reshape_outputs()
-  </a>
+<span class="md-ellipsis">
+      reshape_outputs()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.RTDETRDetectionModel">
-    RTDETRDetectionModel
-  </a>
+<span class="md-ellipsis">
+      RTDETRDetectionModel
+    </span>
+</a>
 <nav aria-label="RTDETRDetectionModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.RTDETRDetectionModel.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.RTDETRDetectionModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.RTDETRDetectionModel.loss">
-    loss()
-  </a>
+<span class="md-ellipsis">
+      loss()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.RTDETRDetectionModel.predict">
-    predict()
-  </a>
+<span class="md-ellipsis">
+      predict()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.Ensemble">
-    Ensemble
-  </a>
+<span class="md-ellipsis">
+      Ensemble
+    </span>
+</a>
 <nav aria-label="Ensemble" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.Ensemble.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.Ensemble.forward">
-    forward()
-  </a>
+<span class="md-ellipsis">
+      forward()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.temporary_modules">
-    temporary_modules()
-  </a>
+<span class="md-ellipsis">
+      temporary_modules()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.torch_safe_load">
-    torch_safe_load()
-  </a>
+<span class="md-ellipsis">
+      torch_safe_load()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.attempt_load_weights">
-    attempt_load_weights()
-  </a>
+<span class="md-ellipsis">
+      attempt_load_weights()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.attempt_load_one_weight">
-    attempt_load_one_weight()
-  </a>
+<span class="md-ellipsis">
+      attempt_load_one_weight()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.parse_model">
-    parse_model()
-  </a>
+<span class="md-ellipsis">
+      parse_model()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.yaml_model_load">
-    yaml_model_load()
-  </a>
+<span class="md-ellipsis">
+      yaml_model_load()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.guess_model_scale">
-    guess_model_scale()
-  </a>
+<span class="md-ellipsis">
+      guess_model_scale()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.guess_model_task">
-    guess_model_task()
-  </a>
+<span class="md-ellipsis">
+      guess_model_task()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -2478,221 +2554,297 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel">
-    BaseModel
-  </a>
+<span class="md-ellipsis">
+      BaseModel
+    </span>
+</a>
 <nav aria-label="BaseModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.forward">
-    forward()
-  </a>
+<span class="md-ellipsis">
+      forward()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.fuse">
-    fuse()
-  </a>
+<span class="md-ellipsis">
+      fuse()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.info">
-    info()
-  </a>
+<span class="md-ellipsis">
+      info()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.is_fused">
-    is_fused()
-  </a>
+<span class="md-ellipsis">
+      is_fused()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.load">
-    load()
-  </a>
+<span class="md-ellipsis">
+      load()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.loss">
-    loss()
-  </a>
+<span class="md-ellipsis">
+      loss()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.BaseModel.predict">
-    predict()
-  </a>
+<span class="md-ellipsis">
+      predict()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.DetectionModel">
-    DetectionModel
-  </a>
+<span class="md-ellipsis">
+      DetectionModel
+    </span>
+</a>
 <nav aria-label="DetectionModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.DetectionModel.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.DetectionModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.SegmentationModel">
-    SegmentationModel
-  </a>
+<span class="md-ellipsis">
+      SegmentationModel
+    </span>
+</a>
 <nav aria-label="SegmentationModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.SegmentationModel.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.SegmentationModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.PoseModel">
-    PoseModel
-  </a>
+<span class="md-ellipsis">
+      PoseModel
+    </span>
+</a>
 <nav aria-label="PoseModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.PoseModel.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.PoseModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.ClassificationModel">
-    ClassificationModel
-  </a>
+<span class="md-ellipsis">
+      ClassificationModel
+    </span>
+</a>
 <nav aria-label="ClassificationModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.ClassificationModel.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.ClassificationModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.ClassificationModel.reshape_outputs">
-    reshape_outputs()
-  </a>
+<span class="md-ellipsis">
+      reshape_outputs()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.RTDETRDetectionModel">
-    RTDETRDetectionModel
-  </a>
+<span class="md-ellipsis">
+      RTDETRDetectionModel
+    </span>
+</a>
 <nav aria-label="RTDETRDetectionModel" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.RTDETRDetectionModel.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.RTDETRDetectionModel.init_criterion">
-    init_criterion()
-  </a>
+<span class="md-ellipsis">
+      init_criterion()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.RTDETRDetectionModel.loss">
-    loss()
-  </a>
+<span class="md-ellipsis">
+      loss()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.RTDETRDetectionModel.predict">
-    predict()
-  </a>
+<span class="md-ellipsis">
+      predict()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.Ensemble">
-    Ensemble
-  </a>
+<span class="md-ellipsis">
+      Ensemble
+    </span>
+</a>
 <nav aria-label="Ensemble" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.Ensemble.__init__">
-    __init__()
-  </a>
+<span class="md-ellipsis">
+      __init__()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.Ensemble.forward">
-    forward()
-  </a>
+<span class="md-ellipsis">
+      forward()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.temporary_modules">
-    temporary_modules()
-  </a>
+<span class="md-ellipsis">
+      temporary_modules()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.torch_safe_load">
-    torch_safe_load()
-  </a>
+<span class="md-ellipsis">
+      torch_safe_load()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.attempt_load_weights">
-    attempt_load_weights()
-  </a>
+<span class="md-ellipsis">
+      attempt_load_weights()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.attempt_load_one_weight">
-    attempt_load_one_weight()
-  </a>
+<span class="md-ellipsis">
+      attempt_load_one_weight()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.parse_model">
-    parse_model()
-  </a>
+<span class="md-ellipsis">
+      parse_model()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.yaml_model_load">
-    yaml_model_load()
-  </a>
+<span class="md-ellipsis">
+      yaml_model_load()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.guess_model_scale">
-    guess_model_scale()
-  </a>
+<span class="md-ellipsis">
+      guess_model_scale()
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.nn.tasks.guess_model_task">
-    guess_model_task()
-  </a>
+<span class="md-ellipsis">
+      guess_model_task()
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -6172,7 +6324,7 @@ n, s, m, l, or x. The function returns the size character of the model scale as 
 </details>
 </div>
 </div><p><br/><br/></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -6273,7 +6425,7 @@ n, s, m, l, or x. The function returns the size character of the model scale as 
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+<script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 </body>
 </html>

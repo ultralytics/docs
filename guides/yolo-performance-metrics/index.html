@@ -5,15 +5,15 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore Ultralytics YOLOv8, a cutting-edge real-time object detection and image segmentation model for various applications and hardware platforms." name="description"/>
+<meta content="A comprehensive guide on various performance metrics related to YOLOv8, their significance, and how to interpret them." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/guides/yolo-performance-metrics/" rel="canonical"/>
 <link href="../yolo-common-issues/" rel="prev"/>
 <link href="../yolo-thread-safe-inference/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
 <title>YOLO Performance Metrics - Ultralytics YOLOv8 Docs</title>
-<link href="../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLO Performance Metrics" name="title"/><meta content="YOLOv8, Performance metrics, Object detection, Intersection over Union (IoU), Average Precision (AP), Mean Average Precision (mAP), Precision, Recall, Validation mode, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-performance-metrics" property="og:url"/><meta content="YOLO Performance Metrics" property="og:title"/><meta content="" property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-performance-metrics" property="twitter:url"/><meta content="YOLO Performance Metrics" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
+<meta content="YOLO Performance Metrics" name="title"/><meta content="YOLOv8, Performance metrics, Object detection, Intersection over Union (IoU), Average Precision (AP), Mean Average Precision (mAP), Precision, Recall, Validation mode, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-performance-metrics" property="og:url"/><meta content="YOLO Performance Metrics" property="og:title"/><meta content="A comprehensive guide on various performance metrics related to YOLOv8, their significance, and how to interpret them." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-performance-metrics" property="twitter:url"/><meta content="YOLO Performance Metrics" property="twitter:title"/><meta content="A comprehensive guide on various performance metrics related to YOLOv8, their significance, and how to interpret them." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6d09221c-c52a-4234-9a5d-b862e93c6529" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -1145,50 +1145,68 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
-    Introduction
-  </a>
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#object-detection-metrics">
-    Object Detection Metrics
-  </a>
+<span class="md-ellipsis">
+      Object Detection Metrics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-to-calculate-metrics-for-yolov8-model">
-    How to Calculate Metrics for YOLOv8 Model
-  </a>
+<span class="md-ellipsis">
+      How to Calculate Metrics for YOLOv8 Model
+    </span>
+</a>
 <nav aria-label="How to Calculate Metrics for YOLOv8 Model" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#interpreting-the-output">
-    Interpreting the Output
-  </a>
+<span class="md-ellipsis">
+      Interpreting the Output
+    </span>
+</a>
 <nav aria-label="Interpreting the Output" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#class-wise-metrics">
-    Class-wise Metrics
-  </a>
+<span class="md-ellipsis">
+      Class-wise Metrics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#speed-metrics">
-    Speed Metrics
-  </a>
+<span class="md-ellipsis">
+      Speed Metrics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#coco-metrics-evaluation">
-    COCO Metrics Evaluation
-  </a>
+<span class="md-ellipsis">
+      COCO Metrics Evaluation
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#visual-outputs">
-    Visual Outputs
-  </a>
+<span class="md-ellipsis">
+      Visual Outputs
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#results-storage">
-    Results Storage
-  </a>
+<span class="md-ellipsis">
+      Results Storage
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -1198,61 +1216,81 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#choosing-the-right-metrics">
-    Choosing the Right Metrics
-  </a>
+<span class="md-ellipsis">
+      Choosing the Right Metrics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#interpretation-of-results">
-    Interpretation of Results
-  </a>
+<span class="md-ellipsis">
+      Interpretation of Results
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#case-studies">
-    Case Studies
-  </a>
+<span class="md-ellipsis">
+      Case Studies
+    </span>
+</a>
 <nav aria-label="Case Studies" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#case-1">
-    Case 1
-  </a>
+<span class="md-ellipsis">
+      Case 1
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#case-2">
-    Case 2
-  </a>
+<span class="md-ellipsis">
+      Case 2
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#case-3">
-    Case 3
-  </a>
+<span class="md-ellipsis">
+      Case 3
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#connect-and-collaborate">
-    Connect and Collaborate
-  </a>
+<span class="md-ellipsis">
+      Connect and Collaborate
+    </span>
+</a>
 <nav aria-label="Connect and Collaborate" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#engage-with-the-broader-community">
-    Engage with the Broader Community
-  </a>
+<span class="md-ellipsis">
+      Engage with the Broader Community
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#official-documentation-and-resources">
-    Official Documentation and Resources:
-  </a>
+<span class="md-ellipsis">
+      Official Documentation and Resources:
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
-    Conclusion
-  </a>
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -2371,50 +2409,68 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
-    Introduction
-  </a>
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#object-detection-metrics">
-    Object Detection Metrics
-  </a>
+<span class="md-ellipsis">
+      Object Detection Metrics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-to-calculate-metrics-for-yolov8-model">
-    How to Calculate Metrics for YOLOv8 Model
-  </a>
+<span class="md-ellipsis">
+      How to Calculate Metrics for YOLOv8 Model
+    </span>
+</a>
 <nav aria-label="How to Calculate Metrics for YOLOv8 Model" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#interpreting-the-output">
-    Interpreting the Output
-  </a>
+<span class="md-ellipsis">
+      Interpreting the Output
+    </span>
+</a>
 <nav aria-label="Interpreting the Output" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#class-wise-metrics">
-    Class-wise Metrics
-  </a>
+<span class="md-ellipsis">
+      Class-wise Metrics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#speed-metrics">
-    Speed Metrics
-  </a>
+<span class="md-ellipsis">
+      Speed Metrics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#coco-metrics-evaluation">
-    COCO Metrics Evaluation
-  </a>
+<span class="md-ellipsis">
+      COCO Metrics Evaluation
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#visual-outputs">
-    Visual Outputs
-  </a>
+<span class="md-ellipsis">
+      Visual Outputs
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#results-storage">
-    Results Storage
-  </a>
+<span class="md-ellipsis">
+      Results Storage
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -2424,61 +2480,81 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#choosing-the-right-metrics">
-    Choosing the Right Metrics
-  </a>
+<span class="md-ellipsis">
+      Choosing the Right Metrics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#interpretation-of-results">
-    Interpretation of Results
-  </a>
+<span class="md-ellipsis">
+      Interpretation of Results
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#case-studies">
-    Case Studies
-  </a>
+<span class="md-ellipsis">
+      Case Studies
+    </span>
+</a>
 <nav aria-label="Case Studies" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#case-1">
-    Case 1
-  </a>
+<span class="md-ellipsis">
+      Case 1
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#case-2">
-    Case 2
-  </a>
+<span class="md-ellipsis">
+      Case 2
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#case-3">
-    Case 3
-  </a>
+<span class="md-ellipsis">
+      Case 3
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#connect-and-collaborate">
-    Connect and Collaborate
-  </a>
+<span class="md-ellipsis">
+      Connect and Collaborate
+    </span>
+</a>
 <nav aria-label="Connect and Collaborate" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#engage-with-the-broader-community">
-    Engage with the Broader Community
-  </a>
+<span class="md-ellipsis">
+      Engage with the Broader Community
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#official-documentation-and-resources">
-    Official Documentation and Resources:
-  </a>
+<span class="md-ellipsis">
+      Official Documentation and Resources:
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
-    Conclusion
-  </a>
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -2672,7 +2748,7 @@
 <p>In this guide, we've taken a close look at the essential performance metrics for YOLOv8. These metrics are key to understanding how well a model is performing and are vital for anyone aiming to fine-tune their models. They offer the necessary insights for improvements and to make sure the model works effectively in real-life situations.</p>
 <p>Remember, the YOLOv8 and Ultralytics community is an invaluable asset. Engaging with fellow developers and experts can open doors to insights and solutions not found in standard documentation. As you journey through object detection, keep the spirit of learning alive, experiment with new strategies, and share your findings. By doing so, you contribute to the community's collective wisdom and ensure its growth.</p>
 <p>Happy object detecting!</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-16<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2806,7 +2882,7 @@
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+<script src="../../assets/javascripts/bundle.6c14ae12.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 </body>
 </html>

@@ -11,9 +11,9 @@
 <link href="../kfold-cross-validation/" rel="prev"/>
 <link href="../sahi-tiled-inference/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
 <title>Hyperparameter Tuning - Ultralytics YOLOv8 Docs</title>
-<link href="../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -1173,113 +1173,153 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
-    Introduction
-  </a>
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
 <nav aria-label="Introduction" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-hyperparameters">
-    What are Hyperparameters?
-  </a>
+<span class="md-ellipsis">
+      What are Hyperparameters?
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#genetic-evolution-and-mutation">
-    Genetic Evolution and Mutation
-  </a>
+<span class="md-ellipsis">
+      Genetic Evolution and Mutation
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#preparing-for-hyperparameter-tuning">
-    Preparing for Hyperparameter Tuning
-  </a>
+<span class="md-ellipsis">
+      Preparing for Hyperparameter Tuning
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#steps-involved">
-    Steps Involved
-  </a>
+<span class="md-ellipsis">
+      Steps Involved
+    </span>
+</a>
 <nav aria-label="Steps Involved" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#initialize-hyperparameters">
-    Initialize Hyperparameters
-  </a>
+<span class="md-ellipsis">
+      Initialize Hyperparameters
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mutate-hyperparameters">
-    Mutate Hyperparameters
-  </a>
+<span class="md-ellipsis">
+      Mutate Hyperparameters
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#train-model">
-    Train Model
-  </a>
+<span class="md-ellipsis">
+      Train Model
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#evaluate-model">
-    Evaluate Model
-  </a>
+<span class="md-ellipsis">
+      Evaluate Model
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#log-results">
-    Log Results
-  </a>
+<span class="md-ellipsis">
+      Log Results
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#repeat">
-    Repeat
-  </a>
+<span class="md-ellipsis">
+      Repeat
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage-example">
-    Usage Example
-  </a>
+<span class="md-ellipsis">
+      Usage Example
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#results">
-    Results
-  </a>
+<span class="md-ellipsis">
+      Results
+    </span>
+</a>
 <nav aria-label="Results" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#file-structure">
-    File Structure
-  </a>
+<span class="md-ellipsis">
+      File Structure
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#file-descriptions">
-    File Descriptions
-  </a>
+<span class="md-ellipsis">
+      File Descriptions
+    </span>
+</a>
 <nav aria-label="File Descriptions" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#best_hyperparametersyaml">
-    best_hyperparameters.yaml
-  </a>
+<span class="md-ellipsis">
+      best_hyperparameters.yaml
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#best_fitnesspng">
-    best_fitness.png
-  </a>
+<span class="md-ellipsis">
+      best_fitness.png
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tune_resultscsv">
-    tune_results.csv
-  </a>
+<span class="md-ellipsis">
+      tune_results.csv
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tune_scatter_plotspng">
-    tune_scatter_plots.png
-  </a>
+<span class="md-ellipsis">
+      tune_scatter_plots.png
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#weights">
-    weights/
-  </a>
+<span class="md-ellipsis">
+      weights/
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -1289,14 +1329,18 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
-    Conclusion
-  </a>
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
 <nav aria-label="Conclusion" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#further-reading">
-    Further Reading
-  </a>
+<span class="md-ellipsis">
+      Further Reading
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -2390,113 +2434,153 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
-    Introduction
-  </a>
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
 <nav aria-label="Introduction" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-hyperparameters">
-    What are Hyperparameters?
-  </a>
+<span class="md-ellipsis">
+      What are Hyperparameters?
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#genetic-evolution-and-mutation">
-    Genetic Evolution and Mutation
-  </a>
+<span class="md-ellipsis">
+      Genetic Evolution and Mutation
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#preparing-for-hyperparameter-tuning">
-    Preparing for Hyperparameter Tuning
-  </a>
+<span class="md-ellipsis">
+      Preparing for Hyperparameter Tuning
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#steps-involved">
-    Steps Involved
-  </a>
+<span class="md-ellipsis">
+      Steps Involved
+    </span>
+</a>
 <nav aria-label="Steps Involved" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#initialize-hyperparameters">
-    Initialize Hyperparameters
-  </a>
+<span class="md-ellipsis">
+      Initialize Hyperparameters
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mutate-hyperparameters">
-    Mutate Hyperparameters
-  </a>
+<span class="md-ellipsis">
+      Mutate Hyperparameters
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#train-model">
-    Train Model
-  </a>
+<span class="md-ellipsis">
+      Train Model
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#evaluate-model">
-    Evaluate Model
-  </a>
+<span class="md-ellipsis">
+      Evaluate Model
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#log-results">
-    Log Results
-  </a>
+<span class="md-ellipsis">
+      Log Results
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#repeat">
-    Repeat
-  </a>
+<span class="md-ellipsis">
+      Repeat
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage-example">
-    Usage Example
-  </a>
+<span class="md-ellipsis">
+      Usage Example
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#results">
-    Results
-  </a>
+<span class="md-ellipsis">
+      Results
+    </span>
+</a>
 <nav aria-label="Results" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#file-structure">
-    File Structure
-  </a>
+<span class="md-ellipsis">
+      File Structure
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#file-descriptions">
-    File Descriptions
-  </a>
+<span class="md-ellipsis">
+      File Descriptions
+    </span>
+</a>
 <nav aria-label="File Descriptions" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#best_hyperparametersyaml">
-    best_hyperparameters.yaml
-  </a>
+<span class="md-ellipsis">
+      best_hyperparameters.yaml
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#best_fitnesspng">
-    best_fitness.png
-  </a>
+<span class="md-ellipsis">
+      best_fitness.png
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tune_resultscsv">
-    tune_results.csv
-  </a>
+<span class="md-ellipsis">
+      tune_results.csv
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tune_scatter_plotspng">
-    tune_scatter_plots.png
-  </a>
+<span class="md-ellipsis">
+      tune_scatter_plots.png
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#weights">
-    weights/
-  </a>
+<span class="md-ellipsis">
+      weights/
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -2506,14 +2590,18 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
-    Conclusion
-  </a>
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
 <nav aria-label="Conclusion" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#further-reading">
-    Further Reading
-  </a>
+<span class="md-ellipsis">
+      Further Reading
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -2822,7 +2910,7 @@
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+<script src="../../assets/javascripts/bundle.6c14ae12.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 </body>
 </html>

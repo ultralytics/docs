@@ -5,15 +5,15 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="探索Ultralytics YOLOv8，这是一款尖端的实时对象检测和图像分割模型，适用于各种应用和硬件平台。" name="description"/>
+<meta content="探索使用pip、conda、git和Docker安装Ultralytics的各种方法。了解如何在命令行界面或Python项目中使用Ultralytics。" name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/zh/quickstart/" rel="canonical"/>
 <link href="../tasks/pose/" rel="prev"/>
 <link href="../modes/" rel="next"/>
 <link href="../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
 <title>快速开始 - Ultralytics YOLOv8 文档</title>
-<link href="../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -22,7 +22,7 @@
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="快速开始" name="title"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/zh/quickstart" property="og:url"/><meta content="快速开始" property="og:title"/><meta content="" property="og:description"/><meta content="https://badge.fury.io/py/ultralytics.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/zh/quickstart" property="twitter:url"/><meta content="快速开始" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://badge.fury.io/py/ultralytics.svg" property="twitter:image"/></head>
+<meta content="快速开始" name="title"/><meta content="Ultralytics安装，pip安装Ultralytics，Docker安装Ultralytics，Ultralytics命令行界面，Ultralytics Python接口" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/zh/quickstart" property="og:url"/><meta content="快速开始" property="og:title"/><meta content="探索使用pip、conda、git和Docker安装Ultralytics的各种方法。了解如何在命令行界面或Python项目中使用Ultralytics。" property="og:description"/><meta content="https://badge.fury.io/py/ultralytics.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/zh/quickstart" property="twitter:url"/><meta content="快速开始" property="twitter:title"/><meta content="探索使用pip、conda、git和Docker安装Ultralytics的各种方法。了解如何在命令行界面或Python项目中使用Ultralytics。" property="twitter:description"/><meta content="https://badge.fury.io/py/ultralytics.svg" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -304,48 +304,64 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics">
-    安装Ultralytics
-  </a>
+<span class="md-ellipsis">
+      安装Ultralytics
+    </span>
+</a>
 <nav aria-label="安装Ultralytics" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conda-docker">
-    Conda Docker映像
-  </a>
+<span class="md-ellipsis">
+      Conda Docker映像
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#cliultralytics">
-    通过CLI使用Ultralytics
-  </a>
+<span class="md-ellipsis">
+      通过CLI使用Ultralytics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#pythonultralytics">
-    通过Python使用Ultralytics
-  </a>
+<span class="md-ellipsis">
+      通过Python使用Ultralytics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics_1">
-    Ultralytics设置
-  </a>
+<span class="md-ellipsis">
+      Ultralytics设置
+    </span>
+</a>
 <nav aria-label="Ultralytics设置" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    检查设置
-  </a>
+<span class="md-ellipsis">
+      检查设置
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    修改设置
-  </a>
+<span class="md-ellipsis">
+      修改设置
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    理解设置
-  </a>
+<span class="md-ellipsis">
+      理解设置
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -489,48 +505,64 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics">
-    安装Ultralytics
-  </a>
+<span class="md-ellipsis">
+      安装Ultralytics
+    </span>
+</a>
 <nav aria-label="安装Ultralytics" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conda-docker">
-    Conda Docker映像
-  </a>
+<span class="md-ellipsis">
+      Conda Docker映像
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#cliultralytics">
-    通过CLI使用Ultralytics
-  </a>
+<span class="md-ellipsis">
+      通过CLI使用Ultralytics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#pythonultralytics">
-    通过Python使用Ultralytics
-  </a>
+<span class="md-ellipsis">
+      通过Python使用Ultralytics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics_1">
-    Ultralytics设置
-  </a>
+<span class="md-ellipsis">
+      Ultralytics设置
+    </span>
+</a>
 <nav aria-label="Ultralytics设置" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    检查设置
-  </a>
+<span class="md-ellipsis">
+      检查设置
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    修改设置
-  </a>
+<span class="md-ellipsis">
+      修改设置
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    理解设置
-  </a>
+<span class="md-ellipsis">
+      理解设置
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -702,48 +734,64 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics">
-    安装Ultralytics
-  </a>
+<span class="md-ellipsis">
+      安装Ultralytics
+    </span>
+</a>
 <nav aria-label="安装Ultralytics" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conda-docker">
-    Conda Docker映像
-  </a>
+<span class="md-ellipsis">
+      Conda Docker映像
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#cliultralytics">
-    通过CLI使用Ultralytics
-  </a>
+<span class="md-ellipsis">
+      通过CLI使用Ultralytics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#pythonultralytics">
-    通过Python使用Ultralytics
-  </a>
+<span class="md-ellipsis">
+      通过Python使用Ultralytics
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics_1">
-    Ultralytics设置
-  </a>
+<span class="md-ellipsis">
+      Ultralytics设置
+    </span>
+</a>
 <nav aria-label="Ultralytics设置" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    检查设置
-  </a>
+<span class="md-ellipsis">
+      检查设置
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    修改设置
-  </a>
+<span class="md-ellipsis">
+      修改设置
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    理解设置
-  </a>
+<span class="md-ellipsis">
+      理解设置
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -759,11 +807,6 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1>快速开始</h1>
-<hr/>
-<p>评论：真
-描述：探索使用pip、conda、git和Docker安装Ultralytics的各种方法。了解如何在命令行界面或Python项目中使用Ultralytics。
-关键字：Ultralytics安装，pip安装Ultralytics，Docker安装Ultralytics，Ultralytics命令行界面，Ultralytics Python接口</p>
-<hr/>
 <h2 id="ultralytics">安装Ultralytics</h2>
 <p>Ultralytics提供了多种安装方法，包括pip、conda和Docker。通过<code>ultralytics</code>pip包安装最新稳定版的YOLOv8，或者克隆<a href="https://github.com/ultralytics/ultralytics">Ultralytics GitHub仓库</a>以获取最新版本。Docker可用于在隔离容器中执行包，避免本地安装。</p>
 <div class="admonition 示例">
@@ -1126,7 +1169,7 @@
 </tbody>
 </table>
 <p>在您浏览项目或实验时，请务必重新访问这些设置，以确保它们为您的需求提供最佳配置。</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-17<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/zh/quickstart.md">chr043416@gmail.com</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2), <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/zh/quickstart.md">chr043416@gmail.com</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1144,6 +1187,39 @@
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
+<h2 id="__comments">评论</h2>
+<!-- Insert Giscus code snippet from https://giscus.app/ here -->
+<script async="" crossorigin="anonymous" data-category="Docs" data-category-id="DIC_kwDOH-jzvc4CWLkL" data-emit-metadata="0" data-input-position="top" data-lang="en" data-mapping="title" data-reactions-enabled="1" data-repo="ultralytics/ultralytics" data-repo-id="R_kgDOH-jzvQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+<!-- Synchronize Giscus theme with palette -->
+<script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+</script>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -1227,7 +1303,7 @@
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+<script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
 <script src="../javascript/extra.js"></script>
 </body>
 </html>
