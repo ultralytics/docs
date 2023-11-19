@@ -11,9 +11,9 @@
 <link href="../tasks/pose/" rel="prev"/>
 <link href="../modes/" rel="next"/>
 <link href="../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.10" name="generator"/>
 <title>빠른 시작 - Ultralytics YOLOv8 문서</title>
-<link href="../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.fad675c6.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -22,7 +22,7 @@
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="빠른 시작" name="title"/><meta content="Ultralytics 설치, pip를 이용한 Ultralytics 설치, Docker를 이용한 Ultralytics 설치, Ultralytics 명령줄 인터페이스, Ultralytics Python 인터페이스" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/ko/quickstart" property="og:url"/><meta content="빠른 시작" property="og:title"/><meta content="pip, conda, git 및 Docker를 사용하여 Ultralytics을 설치하는 다양한 방법을 탐색해 보세요. Ultralytics을 명령줄 인터페이스 또는 Python 프로젝트 내에서 사용하는 방법을 알아보세요." property="og:description"/><meta content="https://badge.fury.io/py/ultralytics.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/ko/quickstart" property="twitter:url"/><meta content="빠른 시작" property="twitter:title"/><meta content="pip, conda, git 및 Docker를 사용하여 Ultralytics을 설치하는 다양한 방법을 탐색해 보세요. Ultralytics을 명령줄 인터페이스 또는 Python 프로젝트 내에서 사용하는 방법을 알아보세요." property="twitter:description"/><meta content="https://badge.fury.io/py/ultralytics.svg" property="twitter:image"/></head>
+<meta content="빠른 시작" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics 설치, pip를 이용한 Ultralytics 설치, Docker를 이용한 Ultralytics 설치, Ultralytics 명령줄 인터페이스, Ultralytics Python 인터페이스" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/ko/quickstart" property="og:url"/><meta content="빠른 시작" property="og:title"/><meta content="pip, conda, git 및 Docker를 사용하여 Ultralytics을 설치하는 다양한 방법을 탐색해 보세요. Ultralytics을 명령줄 인터페이스 또는 Python 프로젝트 내에서 사용하는 방법을 알아보세요." property="og:description"/><meta content="https://badge.fury.io/py/ultralytics.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/ko/quickstart" property="twitter:url"/><meta content="빠른 시작" property="twitter:title"/><meta content="pip, conda, git 및 Docker를 사용하여 Ultralytics을 설치하는 다양한 방법을 탐색해 보세요. Ultralytics을 명령줄 인터페이스 또는 Python 프로젝트 내에서 사용하는 방법을 알아보세요." property="twitter:description"/><meta content="https://badge.fury.io/py/ultralytics.svg" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -724,7 +724,7 @@
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ultralytics
 </code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">노트</p>
 <p>CUDA 환경에서 설치하는 경우 일반적으로 <code>ultralytics</code>, <code>pytorch</code> 및 <code>pytorch-cuda</code>를 동일한 명령어로 설치하여 Conda 패키지 관리자가 충돌을 해결하도록 하거나, 필요한 경우 CPU 전용 <code>pytorch</code> 패키지를 덮어쓸 수 있도록 <code>pytorch-cuda</code>를 마지막에 설치하는 것이 좋습니다.
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Conda를 사용하여 모든 패키지 함께 설치하기</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>ultralytics
@@ -806,7 +806,7 @@
 <h2 id="cli-ultralytics">명령줄 인터페이스(CLI)로 Ultralytics 사용하기</h2>
 <p>Ultralytics 명령줄 인터페이스(CLI)는 Python 환경이 필요 없이 단일 라인 명령어를 통해 작업을 쉽게 실행할 수 있도록 합니다. CLI는 커스터마이징이나 Python 코드가 필요 없습니다. <code>yolo</code> 명령어를 이용해 터미널에서 모든 작업을 실행할 수 있습니다. 명령줄에서 YOLOv8을 사용하는 방법에 대해 더 알아보려면 <a href="/../usage/cli">CLI 가이드</a>를 참고하세요.</p>
 <div class="admonition example">
-<p class="admonition-title">Example</p>
+<p class="admonition-title">예제</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">문법</label><label for="__tabbed_2_2">Train</label><label for="__tabbed_2_3">Predict</label><label for="__tabbed_2_4">Val</label><label for="__tabbed_2_5">Export</label><label for="__tabbed_2_6">특별</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -862,7 +862,7 @@
 </ul>
 </div>
 <p><a class="md-button md-button--primary" href="/../usage/cli">CLI 가이드</a></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-13, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/ko/quickstart.md">chr043416@gmail.com</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-13, Updated 2023-11-19<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/ko/quickstart.md">chr043416@gmail.com</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
