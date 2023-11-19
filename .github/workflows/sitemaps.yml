@@ -16,40 +16,84 @@ jobs:
     if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
 
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
+      - name: Checkout Repo
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
 
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install google-api-python-client oauth2client
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install google-api-python-client oauth2client
 
-    - name: Run Submit Sitemap Script
-      env:
-        CREDENTIALS_JSON: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_JSON }}
-      shell: python
-      run: |
-        import os
-        import json
-        from googleapiclient.discovery import build
-        from oauth2client.service_account import ServiceAccountCredentials
-        def submit_sitemap(site_url, sitemap_url, credentials_json):
-            try:
-              credentials = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(credentials_json), ['https://www.googleapis.com/auth/webmasters'])
-              webmasters_service = build('webmasters', 'v3', credentials=credentials)
-              webmasters_service.sitemaps().submit(siteUrl=site_url, feedpath=sitemap_url).execute()
-              print(f'Submitted {sitemap_url} ✅')
-            except Exception as e:
-              print(f'ERROR ❌: {sitemap_url} failed to submit {e}')
-        credentials_json = os.environ['CREDENTIALS_JSON']
-        # Submit sitemap for the main site and main docs
-        submit_sitemap('https://docs.ultralytics.com', 'https://docs.ultralytics.com/sitemap.xml', credentials_json)
-        # Submit sitemaps for each language
-        languages = ['zh', 'ko', 'ja', 'ru', 'de', 'fr', 'es', 'pt', 'hi', 'ar']
-        for lang in languages:
-            submit_sitemap(f'https://docs.ultralytics.com/', f'https://docs.ultralytics.com/{lang}/sitemap.xml', credentials_json)
+      - name: Submit Sitemaps to Google
+        env:
+          CREDENTIALS_JSON: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_JSON }}
+        shell: python
+        run: |
+          import os
+          import json
+          from googleapiclient.discovery import build
+          from oauth2client.service_account import ServiceAccountCredentials
+          def submit_sitemap(site_url, sitemap_url, credentials_json):
+              try:
+                credentials = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(credentials_json), ['https://www.googleapis.com/auth/webmasters'])
+                webmasters_service = build('webmasters', 'v3', credentials=credentials)
+                webmasters_service.sitemaps().submit(siteUrl=site_url, feedpath=sitemap_url).execute()
+                print(f'Submitted {sitemap_url} ✅')
+              except Exception as e:
+                print(f'ERROR ❌: {sitemap_url} failed to submit {e}')
+          credentials_json = os.environ['CREDENTIALS_JSON']
+          # Submit sitemap for the main site and main docs
+          submit_sitemap('https://docs.ultralytics.com', 'https://docs.ultralytics.com/sitemap.xml', credentials_json)
+          # Submit sitemaps for each language
+          languages = ['zh', 'ko', 'ja', 'ru', 'de', 'fr', 'es', 'pt', 'hi', 'ar']
+          for lang in languages:
+              submit_sitemap(f'https://docs.ultralytics.com/', f'https://docs.ultralytics.com/{lang}/sitemap.xml', credentials_json)
+
+      - name: Submit URLs to IndexNow
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY_DOCS }}
+        shell: python
+        run: |
+          import json
+          import os
+          import re
+          
+          import requests
+          
+          def submit_urls_to_indexnow(host, urls):
+              indexnow_endpoint = "https://api.indexnow.org/indexnow"  # Static IndexNow API endpoint
+              headers = {"Content-Type": "application/json; charset=utf-8"}
+              payload = {"host": host, "key": os.environ['INDEXNOW_KEY'], "urlList": urls}
+          
+              try:
+                  response = requests.post(indexnow_endpoint, headers=headers, data=json.dumps(payload))
+                  if response.status_code == 200:
+                      print("Submitted batch of URLs to IndexNow ✅")
+                  else:
+                      print(f"Failed to submit batch of URLs: Status code {response.status_code}, Response: {response.text}")
+              except Exception as e:
+                  print(f"ERROR ❌: Failed to submit batch of URLs - {e}")
+          
+          
+          def extract_urls_from_sitemap(sitemap_url):
+              try:
+                  response = requests.get(sitemap_url)
+                  return re.findall(r"<loc>(.*?)</loc>", response.text)
+              except Exception as e:
+                  print(f"ERROR ❌: Failed to extract URLs from {sitemap_url} - {e}")
+                  return []
+          
+          
+          # Submit URLs from each sitemap to IndexNow
+          urls = []
+          host = "docs.ultralytics.com"
+          for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/hi', '/ar']:
+              sitemap_url = f'https://{host}{lang}/sitemap.xml'
+              urls.extend(extract_urls_from_sitemap(sitemap_url))
+          
+          submit_urls_to_indexnow(host, urls)
