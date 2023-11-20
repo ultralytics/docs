@@ -34,8 +34,11 @@ jobs:
       - name: Get modified files
         id: modified_files
         run: |
-          echo "files=$(git diff-tree --no-commit-id --name-only -r ${{ github.event.workflow_run.head_commit.id }})" >> $GITHUB_ENV
-
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "files=$(git diff-tree --no-commit-id --name-only -r ${{ github.event.pull_request.head.sha }})" >> $GITHUB_ENV
+          else
+            echo "files=$(git diff-tree --no-commit-id --name-only -r ${{ github.event.workflow_run.head_commit.id }})" >> $GITHUB_ENV
+          fi
       - name: Submit Sitemaps to Google
         env:
           CREDENTIALS_JSON: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_JSON }}
