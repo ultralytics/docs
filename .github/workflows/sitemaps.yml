@@ -29,6 +29,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install google-api-python-client oauth2client
 
+      - name: Get modified files
+        id: modified_files
+        run: |
+          echo "files=$(git diff-tree --no-commit-id --name-only -r ${{ github.event.workflow_run.head_commit.id }})" >> $GITHUB_ENV
+
       - name: Submit Sitemaps to Google
         env:
           CREDENTIALS_JSON: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_JSON }}
@@ -57,6 +62,7 @@ jobs:
       - name: Submit URLs to IndexNow
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY_DOCS }}
+          MODIFIED_FILES: ${{ steps.modified_files.outputs.files }}
         shell: python
         run: |
           import json
@@ -91,13 +97,28 @@ jobs:
                   return []
           
           
+          def filter_modified_urls(urls, modified_files):
+              # Filter URLs based on modified files
+              modified_urls = []
+              for file in modified_files:
+                  # Convert file path to URL path, i.e. 'modes/index.html' -> 'https://docs.ultralytics.com/modes/'
+                  full_url = f'https://{host}/{file.replace('/index.html', '/')}'
+                  if full_url in urls:
+                      modified_urls.append(full_url)
+              return modified_urls
+          
           # Submit URLs from each sitemap to IndexNow
-          urls = []
           host = "docs.ultralytics.com"
+          all_urls = []
           for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/hi', '/ar']:
               sitemap = f'https://{host}{lang}/sitemap.xml'
               lang_urls = extract_urls_from_sitemap(sitemap)
-              urls.extend(lang_urls)
-              print(f'Found {len(lang_urls)} in {sitemap} ({len(urls)} total)')
+              all_urls.extend(lang_urls)
+              print(f'Found {len(lang_urls)} in {sitemap} ({len(all_urls)} total)')
+          
+          # Filter URLs based on modified files
+          urls_to_submit = filter_modified_urls(all_urls, os.environ['MODIFIED_FILES'].split())
+          print(f'Filtered {len(urls_to_submit)} updated pages to submit)')
 
-          submit_urls_to_indexnow(host, urls)
+          # Submit filtered URLs
+          submit_urls_to_indexnow(host, urls_to_submit)
