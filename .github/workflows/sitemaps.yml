@@ -109,7 +109,7 @@ jobs:
               modified_urls = []
               for file in modified_files:
                   # Convert file path to URL path, i.e. 'modes/index.html' -> 'https://docs.ultralytics.com/modes/'
-                  full_url = f'https://{host}/{file.replace('/index.html', '/')}'
+                  full_url = f'https://{host}/{file.replace('index.html', '')}'
                   if full_url in urls:
                       modified_urls.append(full_url)
               return modified_urls
