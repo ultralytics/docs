@@ -5,8 +5,6 @@ name: Submit Sitemaps
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches: [main]
   workflow_run:
     workflows: ["pages-build-deployment"]
     types:
@@ -15,7 +13,7 @@ on:
 jobs:
   submit-sitemaps:
     runs-on: ubuntu-latest
-    # if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
 
     steps:
       - name: Checkout Repo
@@ -101,4 +99,4 @@ jobs:
           print(f'\nFound {len(urls_to_submit)} URLs updated in last commit to submit:\n{"\n".join(urls_to_submit)}\n')
 
           # Submit filtered URLs
-          # submit_urls_to_indexnow(host, urls_to_submit)
+          submit_urls_to_indexnow(host, urls_to_submit)
