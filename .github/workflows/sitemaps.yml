@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # fetch the current and previous commit
 
       - name: Set up Python
         uses: actions/setup-python@v4
