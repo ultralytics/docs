@@ -36,10 +36,10 @@ jobs:
       - name: Get modified files
         id: modified_files
         run: |
-          modified_files=$(git diff --name-only HEAD^ HEAD)
+          modified_files=$(git diff --name-only HEAD^ HEAD | tr '\n' ' ')
+          echo "Modified files: $modified_files"
           echo "files=$modified_files" >> $GITHUB_ENV
-          echo "Modified files:"
-          echo "$modified_files"
+
 
       - name: Submit Sitemaps to Google
         env:
