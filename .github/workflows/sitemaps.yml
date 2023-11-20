@@ -40,32 +40,6 @@ jobs:
           echo "Modified files: $modified_files"
           echo "files=$modified_files" >> $GITHUB_ENV
 
-
-      - name: Submit Sitemaps to Google
-        env:
-          CREDENTIALS_JSON: ${{ secrets.GOOGLE_SEARCH_CONSOLE_API_JSON }}
-        shell: python
-        run: |
-          import os
-          import json
-          from googleapiclient.discovery import build
-          from oauth2client.service_account import ServiceAccountCredentials
-          def submit_sitemap(site_url, sitemap_url, credentials_json):
-              try:
-                credentials = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(credentials_json), ['https://www.googleapis.com/auth/webmasters'])
-                webmasters_service = build('webmasters', 'v3', credentials=credentials)
-                webmasters_service.sitemaps().submit(siteUrl=site_url, feedpath=sitemap_url).execute()
-                print(f'Submitted {sitemap_url} ✅')
-              except Exception as e:
-                print(f'ERROR ❌: {sitemap_url} failed to submit {e}')
-          credentials_json = os.environ['CREDENTIALS_JSON']
-          # Submit sitemap for the main site and main docs
-          # submit_sitemap('https://docs.ultralytics.com', 'https://docs.ultralytics.com/sitemap.xml', credentials_json)
-          # Submit sitemaps for each language
-          languages = ['zh', 'ko', 'ja', 'ru', 'de', 'fr', 'es', 'pt', 'hi', 'ar']
-          for lang in languages:
-              pass # submit_sitemap(f'https://docs.ultralytics.com/', f'https://docs.ultralytics.com/{lang}/sitemap.xml', credentials_json)
-
       - name: Submit URLs to IndexNow
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY_DOCS }}
@@ -124,7 +98,7 @@ jobs:
               print(f'Found {len(lang_urls)} in {sitemap} ({len(all_urls)} total)')
           
           # Filter URLs based on modified files
-          files = os.environ['MODIFIED_FILES'].split()
+          files = os.environ['files'].split()
           print(files)
           urls_to_submit = filter_modified_urls(all_urls, files)
           print(f'Filtered {len(urls_to_submit)} updated pages to submit)')
