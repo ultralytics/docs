@@ -124,7 +124,9 @@ jobs:
               print(f'Found {len(lang_urls)} in {sitemap} ({len(all_urls)} total)')
           
           # Filter URLs based on modified files
-          urls_to_submit = filter_modified_urls(all_urls, os.environ['MODIFIED_FILES'].split())
+          files = os.environ['MODIFIED_FILES'].split()
+          print(files)
+          urls_to_submit = filter_modified_urls(all_urls, files)
           print(f'Filtered {len(urls_to_submit)} updated pages to submit)')
 
           # Submit filtered URLs
