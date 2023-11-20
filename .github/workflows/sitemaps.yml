@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -93,7 +93,9 @@ jobs:
           urls = []
           host = "docs.ultralytics.com"
           for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/hi', '/ar']:
-              sitemap_url = f'https://{host}{lang}/sitemap.xml'
-              urls.extend(extract_urls_from_sitemap(sitemap_url))
-          
+              sitemap = f'https://{host}{lang}/sitemap.xml'
+              lang_urls = extract_urls_from_sitemap(sitemap)
+              urls.extend(lang_urls)
+              print(f'Found {len(lang_urls)} in {sitemap} ({len(urls)} total)')
+
           submit_urls_to_indexnow(host, urls)
