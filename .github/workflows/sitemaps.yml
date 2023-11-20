@@ -65,15 +65,17 @@ jobs:
           
           import requests
           
+          
           def submit_urls_to_indexnow(host, urls):
-              indexnow_endpoint = "https://api.indexnow.org/indexnow"  # Static IndexNow API endpoint
+              key = os.environ['INDEXNOW_KEY']
+              endpoint = "https://api.indexnow.org/indexnow"  # static API endpoint from https://www.indexnow.org/faq
               headers = {"Content-Type": "application/json; charset=utf-8"}
-              payload = {"host": host, "key": os.environ['INDEXNOW_KEY'], "urlList": urls}
+              payload = {"host": host, "key": key, "urlList": urls, "keyLocation": f"https://{host}/{key}.txt"}
           
               try:
-                  response = requests.post(indexnow_endpoint, headers=headers, data=json.dumps(payload))
+                  response = requests.post(endpoint, headers=headers, data=json.dumps(payload))
                   if response.status_code == 200:
-                      print("Submitted batch of URLs to IndexNow ✅")
+                      print(f"Submitted batch of {len(urls)} {host} URLs to IndexNow endpoint {endpoint} ✅")
                   else:
                       print(f"Failed to submit batch of URLs: Status code {response.status_code}, Response: {response.text}")
               except Exception as e:
