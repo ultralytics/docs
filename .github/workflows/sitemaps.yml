@@ -125,4 +125,5 @@ jobs:
           print(f'\nFound {len(urls_to_submit)} URLs updated in last commit to submit:\n{"\n".join(urls_to_submit)}\n')
 
           # Submit filtered URLs
-          submit_urls_to_indexnow(host, urls_to_submit)
+          if urls_to_submit:
+              submit_urls_to_indexnow(host, urls_to_submit)
