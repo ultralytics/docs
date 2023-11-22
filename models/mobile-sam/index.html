@@ -786,6 +786,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#available-models-supported-tasks-and-operating-modes">
+<span class="md-ellipsis">
+      Available Models, Supported Tasks, and Operating Modes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#adapting-from-sam-to-mobilesam">
 <span class="md-ellipsis">
       Adapting from SAM to MobileSAM
@@ -2329,6 +2336,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#available-models-supported-tasks-and-operating-modes">
+<span class="md-ellipsis">
+      Available Models, Supported Tasks, and Operating Modes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#adapting-from-sam-to-mobilesam">
 <span class="md-ellipsis">
       Adapting from SAM to MobileSAM
@@ -2390,6 +2404,32 @@
 <p>A demonstration of MobileSAM running on a CPU can be accessed at this <a href="https://huggingface.co/spaces/dhkim2810/MobileSAM">demo link</a>. The performance on a Mac i5 CPU takes approximately 3 seconds. On the Hugging Face demo, the interface and lower-performance CPUs contribute to a slower response, but it continues to function effectively.</p>
 <p>MobileSAM is implemented in various projects including <a href="https://github.com/IDEA-Research/Grounded-Segment-Anything">Grounding-SAM</a>, <a href="https://github.com/vietanhdev/anylabeling">AnyLabeling</a>, and <a href="https://github.com/Jumpat/SegmentAnythingin3D">Segment Anything in 3D</a>.</p>
 <p>MobileSAM is trained on a single GPU with a 100k dataset (1% of the original images) in less than a day. The code for this training will be made available in the future.</p>
+<h2 id="available-models-supported-tasks-and-operating-modes">Available Models, Supported Tasks, and Operating Modes</h2>
+<p>This table presents the available models with their specific pre-trained weights, the tasks they support, and their compatibility with different operating modes like <a href="../../modes/predict/">Inference</a>, <a href="../../modes/val/">Validation</a>, <a href="../../modes/train/">Training</a>, and <a href="../../modes/export/">Export</a>, indicated by ✅ emojis for supported modes and ❌ emojis for unsupported modes.</p>
+<table>
+<thead>
+<tr>
+<th>Model Type</th>
+<th>Pre-trained Weights</th>
+<th>Tasks Supported</th>
+<th>Inference</th>
+<th>Validation</th>
+<th>Training</th>
+<th>Export</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MobileSAM</td>
+<td><code>mobile_sam.pt</code></td>
+<td><a href="../../tasks/segment/">Instance Segmentation</a></td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
 <h2 id="adapting-from-sam-to-mobilesam">Adapting from SAM to MobileSAM</h2>
 <p>Since MobileSAM retains the same pipeline as the original SAM, we have incorporated the original's pre-processing, post-processing, and all other interfaces. Consequently, those currently using the original SAM can transition to MobileSAM with minimal effort.</p>
 <p>MobileSAM performs comparably to the original SAM and retains the same pipeline except for a change in the image encoder. Specifically, we replace the original heavyweight ViT-H encoder (632M) with a smaller Tiny-ViT (5M). On a single GPU, MobileSAM operates at about 12ms per image: 8ms on the image encoder and 4ms on the mask decoder.</p>
@@ -2469,6 +2509,7 @@
 <p>You can download the model <a href="https://github.com/ChaoningZhang/MobileSAM/blob/master/weights/mobile_sam.pt">here</a>.</p>
 <h3 id="point-prompt">Point Prompt</h3>
 <div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2486,6 +2527,7 @@
 </div>
 <h3 id="box-prompt">Box Prompt</h3>
 <div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2504,7 +2546,7 @@
 <p>We have implemented <code>MobileSAM</code> and <code>SAM</code> using the same API. For more usage information, please see the <a href="../sam/">SAM page</a>.</p>
 <h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
 <p>If you find MobileSAM useful in your research or development work, please consider citing our paper:</p>
-<div class="admonition note">
+<div class="admonition quote">
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2519,7 +2561,7 @@
 </div>
 </input></div>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/ChaoningZhang">ChaoningZhang</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/ChaoningZhang">ChaoningZhang</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

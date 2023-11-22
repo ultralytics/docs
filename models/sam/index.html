@@ -793,6 +793,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#available-models-supported-tasks-and-operating-modes">
+<span class="md-ellipsis">
+      Available Models, Supported Tasks, and Operating Modes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#how-to-use-sam-versatility-and-power-in-image-segmentation">
 <span class="md-ellipsis">
       How to Use SAM: Versatility and Power in Image Segmentation
@@ -809,20 +816,6 @@
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#available-models-and-supported-tasks">
-<span class="md-ellipsis">
-      Available Models and Supported Tasks
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#operating-modes">
-<span class="md-ellipsis">
-      Operating Modes
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sam-comparison-vs-yolov8">
@@ -2375,6 +2368,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#available-models-supported-tasks-and-operating-modes">
+<span class="md-ellipsis">
+      Available Models, Supported Tasks, and Operating Modes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#how-to-use-sam-versatility-and-power-in-image-segmentation">
 <span class="md-ellipsis">
       How to Use SAM: Versatility and Power in Image Segmentation
@@ -2391,20 +2391,6 @@
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#available-models-and-supported-tasks">
-<span class="md-ellipsis">
-      Available Models and Supported Tasks
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#operating-modes">
-<span class="md-ellipsis">
-      Operating Modes
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sam-comparison-vs-yolov8">
@@ -2463,6 +2449,41 @@ Example images with overlaid masks from our newly introduced dataset, SA-1B. SA-
 <li><strong>Zero-Shot Performance:</strong> SAM displays outstanding zero-shot performance across various segmentation tasks, making it a ready-to-use tool for diverse applications with minimal need for prompt engineering.</li>
 </ul>
 <p>For an in-depth look at the Segment Anything Model and the SA-1B dataset, please visit the <a href="https://segment-anything.com">Segment Anything website</a> and check out the research paper <a href="https://arxiv.org/abs/2304.02643">Segment Anything</a>.</p>
+<h2 id="available-models-supported-tasks-and-operating-modes">Available Models, Supported Tasks, and Operating Modes</h2>
+<p>This table presents the available models with their specific pre-trained weights, the tasks they support, and their compatibility with different operating modes like <a href="../../modes/predict/">Inference</a>, <a href="../../modes/val/">Validation</a>, <a href="../../modes/train/">Training</a>, and <a href="../../modes/export/">Export</a>, indicated by ✅ emojis for supported modes and ❌ emojis for unsupported modes.</p>
+<table>
+<thead>
+<tr>
+<th>Model Type</th>
+<th>Pre-trained Weights</th>
+<th>Tasks Supported</th>
+<th>Inference</th>
+<th>Validation</th>
+<th>Training</th>
+<th>Export</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SAM base</td>
+<td><code>sam_b.pt</code></td>
+<td><a href="../../tasks/segment/">Instance Segmentation</a></td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>SAM large</td>
+<td><code>sam_l.pt</code></td>
+<td><a href="../../tasks/segment/">Instance Segmentation</a></td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
 <h2 id="how-to-use-sam-versatility-and-power-in-image-segmentation">How to Use SAM: Versatility and Power in Image Segmentation</h2>
 <p>The Segment Anything Model can be employed for a multitude of downstream tasks that go beyond its training data. This includes edge detection, object proposal generation, instance segmentation, and preliminary text-to-mask prediction. With prompt engineering, SAM can swiftly adapt to new tasks and data distributions in a zero-shot manner, establishing it as a versatile and potent tool for all your image segmentation needs.</p>
 <h3 id="sam-prediction-example">SAM prediction example</h3>
@@ -2563,51 +2584,6 @@ Example images with overlaid masks from our newly introduced dataset, SA-1B. SA-
 <ul>
 <li>More additional args for <code>Segment everything</code> see <a href="../../reference/models/sam/predict/"><code>Predictor/generate</code> Reference</a>.</li>
 </ul>
-<h2 id="available-models-and-supported-tasks">Available Models and Supported Tasks</h2>
-<table>
-<thead>
-<tr>
-<th>Model Type</th>
-<th>Pre-trained Weights</th>
-<th>Tasks Supported</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SAM base</td>
-<td><code>sam_b.pt</code></td>
-<td>Instance Segmentation</td>
-</tr>
-<tr>
-<td>SAM large</td>
-<td><code>sam_l.pt</code></td>
-<td>Instance Segmentation</td>
-</tr>
-</tbody>
-</table>
-<h2 id="operating-modes">Operating Modes</h2>
-<table>
-<thead>
-<tr>
-<th>Mode</th>
-<th>Supported</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Inference</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>Validation</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>Training</td>
-<td>❌</td>
-</tr>
-</tbody>
-</table>
 <h2 id="sam-comparison-vs-yolov8">SAM comparison vs YOLOv8</h2>
 <p>Here we compare Meta's smallest SAM model, SAM-b, with Ultralytics smallest segmentation model, <a href="../../tasks/segment/">YOLOv8n-seg</a>:</p>
 <table>
@@ -2649,6 +2625,7 @@ Example images with overlaid masks from our newly introduced dataset, SA-1B. SA-
 <p>This comparison shows the order-of-magnitude differences in the model sizes and speeds between models. Whereas SAM presents unique capabilities for automatic segmenting, it is not a direct competitor to YOLOv8 segment models, which are smaller, faster and more efficient.</p>
 <p>Tests run on a 2023 Apple M2 Macbook with 16GB of RAM. To reproduce this test:</p>
 <div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2683,6 +2660,7 @@ Example images with overlaid masks from our newly introduced dataset, SA-1B. SA-
 <h3 id="generate-your-segmentation-dataset-using-a-detection-model">Generate Your Segmentation Dataset Using a Detection Model</h3>
 <p>To auto-annotate your dataset with the Ultralytics framework, use the <code>auto_annotate</code> function as shown below:</p>
 <div class="admonition example">
+<p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2740,7 +2718,7 @@ Example images with overlaid masks from our newly introduced dataset, SA-1B. SA-
 <p>Auto-annotation with pre-trained models can dramatically cut down the time and effort required for creating high-quality segmentation datasets. This feature is especially beneficial for researchers and developers dealing with large image collections, as it allows them to focus on model development and evaluation rather than manual annotation.</p>
 <h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
 <p>If you find SAM useful in your research or development work, please consider citing our paper:</p>
-<div class="admonition note">
+<div class="admonition quote">
 <div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2759,7 +2737,7 @@ Example images with overlaid masks from our newly introduced dataset, SA-1B. SA-
 </div>
 <p>We would like to express our gratitude to Meta AI for creating and maintaining this valuable resource for the computer vision community.</p>
 <p><em>keywords: Segment Anything, Segment Anything Model, SAM, Meta SAM, image segmentation, promptable segmentation, zero-shot performance, SA-1B dataset, advanced architecture, auto-annotation, Ultralytics, pre-trained models, SAM base, SAM large, instance segmentation, computer vision, AI, artificial intelligence, machine learning, data annotation, segmentation masks, detection model, YOLO detection model, bibtex, Meta AI.</em></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/ChaoningZhang">ChaoningZhang</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/ChaoningZhang">ChaoningZhang</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

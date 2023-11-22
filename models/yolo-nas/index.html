@@ -825,12 +825,12 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
+<a class="md-nav__link" href="#usage-examples">
 <span class="md-ellipsis">
-      Usage
+      Usage Examples
     </span>
 </a>
-<nav aria-label="Usage" class="md-nav">
+<nav aria-label="Usage Examples" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#inference-and-validation-examples">
@@ -839,22 +839,15 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#supported-tasks">
-<span class="md-ellipsis">
-      Supported Tasks
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#supported-modes">
-<span class="md-ellipsis">
-      Supported Modes
-    </span>
-</a>
-</li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#supported-tasks-and-modes">
+<span class="md-ellipsis">
+      Supported Tasks and Modes
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#citations-and-acknowledgements">
@@ -2372,12 +2365,12 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
+<a class="md-nav__link" href="#usage-examples">
 <span class="md-ellipsis">
-      Usage
+      Usage Examples
     </span>
 </a>
-<nav aria-label="Usage" class="md-nav">
+<nav aria-label="Usage Examples" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#inference-and-validation-examples">
@@ -2386,22 +2379,15 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#supported-tasks">
-<span class="md-ellipsis">
-      Supported Tasks
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#supported-modes">
-<span class="md-ellipsis">
-      Supported Modes
-    </span>
-</a>
-</li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#supported-tasks-and-modes">
+<span class="md-ellipsis">
+      Supported Tasks and Modes
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#citations-and-acknowledgements">
@@ -2475,12 +2461,13 @@
 </tbody>
 </table>
 <p>Each model variant is designed to offer a balance between Mean Average Precision (mAP) and latency, helping you optimize your object detection tasks for both performance and speed.</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage-examples">Usage Examples</h2>
 <p>Ultralytics has made YOLO-NAS models easy to integrate into your Python applications via our <code>ultralytics</code> python package. The package provides a user-friendly Python API to streamline the process.</p>
 <p>The following examples show how to use YOLO-NAS models with the <code>ultralytics</code> package for inference and validation:</p>
 <h3 id="inference-and-validation-examples">Inference and Validation Examples</h3>
 <p>In this example we validate YOLO-NAS-s on the COCO8 dataset.</p>
 <div class="admonition example">
+<p class="admonition-title">Example</p>
 <p>This example provides simple inference and validation code for YOLO-NAS. For handling inference results see <a href="../../modes/predict/">Predict</a> mode. For using YOLO-NAS with additional modes see <a href="../../modes/val/">Val</a> and <a href="../../modes/export/">Export</a>. YOLO-NAS on the <code>ultralytics</code> package does not support training.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
@@ -2513,62 +2500,59 @@
 </div>
 </input></input></div>
 </div>
-<h3 id="supported-tasks">Supported Tasks</h3>
-<p>The YOLO-NAS models are primarily designed for object detection tasks. You can download the pre-trained weights for each variant of the model as follows:</p>
+<h2 id="supported-tasks-and-modes">Supported Tasks and Modes</h2>
+<p>We offer three variants of the YOLO-NAS models: Small (s), Medium (m), and Large (l). Each variant is designed to cater to different computational and performance needs:</p>
+<ul>
+<li><strong>YOLO-NAS-s</strong>: Optimized for environments where computational resources are limited but efficiency is key.</li>
+<li><strong>YOLO-NAS-m</strong>: Offers a balanced approach, suitable for general-purpose object detection with higher accuracy.</li>
+<li><strong>YOLO-NAS-l</strong>: Tailored for scenarios requiring the highest accuracy, where computational resources are less of a constraint.</li>
+</ul>
+<p>Below is a detailed overview of each model, including links to their pre-trained weights, the tasks they support, and their compatibility with different operating modes.</p>
 <table>
 <thead>
 <tr>
 <th>Model Type</th>
 <th>Pre-trained Weights</th>
 <th>Tasks Supported</th>
+<th>Inference</th>
+<th>Validation</th>
+<th>Training</th>
+<th>Export</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>YOLO-NAS-s</td>
 <td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolo_nas_s.pt">yolo_nas_s.pt</a></td>
-<td>Object Detection</td>
+<td><a href="../../tasks/detect/">Object Detection</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
 </tr>
 <tr>
 <td>YOLO-NAS-m</td>
 <td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolo_nas_m.pt">yolo_nas_m.pt</a></td>
-<td>Object Detection</td>
+<td><a href="../../tasks/detect/">Object Detection</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
 </tr>
 <tr>
 <td>YOLO-NAS-l</td>
 <td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolo_nas_l.pt">yolo_nas_l.pt</a></td>
-<td>Object Detection</td>
-</tr>
-</tbody>
-</table>
-<h3 id="supported-modes">Supported Modes</h3>
-<p>The YOLO-NAS models support both inference and validation modes, allowing you to predict and validate results with ease. Training mode, however, is currently not supported.</p>
-<table>
-<thead>
-<tr>
-<th>Mode</th>
-<th>Supported</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Inference</td>
+<td><a href="../../tasks/detect/">Object Detection</a></td>
 <td>✅</td>
-</tr>
-<tr>
-<td>Validation</td>
 <td>✅</td>
-</tr>
-<tr>
-<td>Training</td>
 <td>❌</td>
+<td>✅</td>
 </tr>
 </tbody>
 </table>
-<p>Harness the power of the YOLO-NAS models to drive your object detection tasks to new heights of performance and speed.</p>
 <h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
 <p>If you employ YOLO-NAS in your research or development work, please cite SuperGradients:</p>
-<div class="admonition note">
+<div class="admonition quote">
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2588,7 +2572,7 @@
 </div>
 <p>We express our gratitude to Deci AI's <a href="https://github.com/Deci-AI/super-gradients/">SuperGradients</a> team for their efforts in creating and maintaining this valuable resource for the computer vision community. We believe YOLO-NAS, with its innovative architecture and superior object detection capabilities, will become a critical tool for developers and researchers alike.</p>
 <p><em>Keywords: YOLO-NAS, Deci AI, object detection, deep learning, neural architecture search, Ultralytics Python API, YOLO model, SuperGradients, pre-trained models, quantization-friendly basic block, advanced training schemes, post-training quantization, AutoNAC optimization, COCO, Objects365, Roboflow 100</em></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

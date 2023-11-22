@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="探索 Ultralytics 支持的 YOLO 系列、SAM、MobileSAM、FastSAM、YOLO-NAS 和 RT-DETR 模型多样化的范围。提供 CLI 和 Python 使用的示例以供入门。" name="description"/>
+<meta content="探索 Ultralytics 支持的多样化 YOLO 系列、SAM、MobileSAM、FastSAM、YOLO-NAS 和 RT-DETR 模型。开启您的 CLI 和 Python 使用示例之旅。" name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/zh/models/" rel="canonical"/>
 <link href="../tasks/pose/" rel="prev"/>
@@ -22,7 +22,7 @@
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Ultralytics 支持的模型" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, 文档, YOLO, SAM, MobileSAM, FastSAM, YOLO-NAS, RT-DETR, 模型, 架构, Python, CLI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/zh/models" property="og:url"/><meta content="Ultralytics 支持的模型" property="og:title"/><meta content="探索 Ultralytics 支持的 YOLO 系列、SAM、MobileSAM、FastSAM、YOLO-NAS 和 RT-DETR 模型多样化的范围。提供 CLI 和 Python 使用的示例以供入门。" property="og:description"/><meta content="https://img.youtube.com/vi/MWq1UxqTClU/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/zh/models" property="twitter:url"/><meta content="Ultralytics 支持的模型" property="twitter:title"/><meta content="探索 Ultralytics 支持的 YOLO 系列、SAM、MobileSAM、FastSAM、YOLO-NAS 和 RT-DETR 模型多样化的范围。提供 CLI 和 Python 使用的示例以供入门。" property="twitter:description"/><meta content="https://img.youtube.com/vi/MWq1UxqTClU/maxresdefault.jpg" property="twitter:image"/></head>
+<meta content="Ultralytics 支持的模型" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, 文档, YOLO, SAM, MobileSAM, FastSAM, YOLO-NAS, RT-DETR, 模型, 架构, Python, CLI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/zh/models" property="og:url"/><meta content="Ultralytics 支持的模型" property="og:title"/><meta content="探索 Ultralytics 支持的多样化 YOLO 系列、SAM、MobileSAM、FastSAM、YOLO-NAS 和 RT-DETR 模型。开启您的 CLI 和 Python 使用示例之旅。" property="og:description"/><meta content="https://img.youtube.com/vi/MWq1UxqTClU/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/zh/models" property="twitter:url"/><meta content="Ultralytics 支持的模型" property="twitter:title"/><meta content="探索 Ultralytics 支持的多样化 YOLO 系列、SAM、MobileSAM、FastSAM、YOLO-NAS 和 RT-DETR 模型。开启您的 CLI 和 Python 使用示例之旅。" property="twitter:description"/><meta content="https://img.youtube.com/vi/MWq1UxqTClU/maxresdefault.jpg" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -616,40 +616,42 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1 id="ultralytics">Ultralytics 支持的模型</h1>
-<p>欢迎来到 Ultralytics 的模型文档！我们支持多种模型，每种模型都针对特定任务进行了优化，如<a href="/../tasks/detect">对象检测</a>、<a href="/../tasks/segment">实例分割</a>、<a href="/../tasks/classify">图像分类</a>、<a href="/../tasks/pose">姿态估计</a>和<a href="/../modes/track">多对象追踪</a>。如果您有兴趣将您的模型架构贡献给 Ultralytics，请查看我们的<a href="/../help/contributing">贡献指南</a>。</p>
+<p>欢迎来到 Ultralytics 的模型文档！我们提供多种模型的支持，每种模型都针对特定任务量身定做，如<a href="../tasks/detect/">对象检测</a>、<a href="../tasks/segment/">实例分割</a>、<a href="../tasks/classify/">图像分类</a>、<a href="../tasks/pose/">姿态估计</a>以及<a href="../modes/track/">多对象跟踪</a>。如果您有兴趣将您的模型架构贡献给 Ultralytics，请查看我们的<a href="../../help/contributing">贡献指南</a>。</p>
 <div class="admonition note">
-<p class="admonition-title">笔记</p>
-<p>Ultralytics 团队正忙于将文档翻译成多种语言。本页面上的链接目前可能会导向英文文档页面，因为我们正在努力扩展多语言文档支持。感谢您的耐心等待 🙏！</p>
+<p class="admonition-title">注意</p>
+<p>🚧 我们的多语言文档目前正在建设中，我们正在努力进行完善。感谢您的耐心等待！🙏</p>
 </div>
 <h2 id="_1">特色模型</h2>
-<p>以下是一些关键支持的模型：</p>
+<p>以下是一些关键模型的介绍：</p>
 <ol>
-<li><strong><a href="/../models/yolov3">YOLOv3</a></strong>：YOLO 模型系列的第三个版本，最初由 Joseph Redmon 提出，以其高效的实时对象检测能力而闻名。</li>
-<li><strong><a href="/../models/yolov4">YOLOv4</a></strong>：YOLOv3 的 darknet 本地更新，由 Alexey Bochkovskiy 在 2020 年发布。</li>
-<li><strong><a href="/../models/yolov5">YOLOv5</a></strong>：Ultralytics 改进的 YOLO 架构版本，与之前的版本相比提供了更好的性能和速度折中选择。</li>
-<li><strong><a href="/../models/yolov6">YOLOv6</a></strong>：由 <a href="https://about.meituan.com/">美团</a> 在 2022 年发布，并在公司众多自主配送机器人中使用。</li>
-<li><strong><a href="/../models/yolov7">YOLOv7</a></strong>：YOLOv4 作者在 2022 年发布的更新版 YOLO 模型。</li>
-<li><strong><a href="/../models/yolov8">YOLOv8</a></strong>：YOLO 系列的最新版本，具备增强的功能，如实例分割、姿态/关键点估计和分类。</li>
-<li><strong><a href="/../models/sam">Segment Anything Model (SAM)</a></strong>：Meta's Segment Anything Model (SAM)。</li>
-<li><strong><a href="/../models/mobile-sam">Mobile Segment Anything Model (MobileSAM)</a></strong>：由庆熙大学为移动应用程序打造的 MobileSAM。</li>
-<li><strong><a href="/../models/fast-sam">Fast Segment Anything Model (FastSAM)</a></strong>：中国科学院自动化研究所图像与视频分析组的 FastSAM。</li>
-<li><strong><a href="/../models/yolo-nas">YOLO-NAS</a></strong>：YOLO 神经架构搜索 (NAS) 模型。</li>
-<li><strong><a href="/../models/rtdetr">Realtime Detection Transformers (RT-DETR)</a></strong>：百度 PaddlePaddle 实时检测变换器 (RT-DETR) 模型。</li>
+<li><strong><a href="yolov3/">YOLOv3</a></strong>：由 Joseph Redmon 最初开发的 YOLO 模型家族的第三版，以其高效的实时对象检测能力而闻名。</li>
+<li><strong><a href="yolov4/">YOLOv4</a></strong>：由 Alexey Bochkovskiy 在 2020 年发布的 YOLOv3 的 darknet 原生更新版本。</li>
+<li><strong><a href="yolov5/">YOLOv5</a></strong>：Ultralytics 改进的 YOLO 架构版本，与先前版本相比，提供了更好的性能和速度权衡。</li>
+<li><strong><a href="yolov6/">YOLOv6</a></strong>：由<a href="https://about.meituan.com/">美团</a>在 2022 年发布，用于公司多个自主送货机器人中。</li>
+<li><strong><a href="yolov7/">YOLOv7</a></strong>：YOLOv4 作者在 2022 年发布的更新版 YOLO 模型。</li>
+<li><strong><a href="yolov8/">YOLOv8</a> NEW 🚀</strong>：YOLO 家族的最新版本，具备实例分割、姿态/关键点估计和分类等增强能力。</li>
+<li><strong><a href="sam/">Segment Anything Model (SAM)</a></strong>：Meta 的 Segment Anything Model (SAM)。</li>
+<li><strong><a href="mobile-sam/">Mobile Segment Anything Model (MobileSAM)</a></strong>：由庆熙大学开发的移动应用 MobileSAM。</li>
+<li><strong><a href="fast-sam/">Fast Segment Anything Model (FastSAM)</a></strong>：中国科学院自动化研究所图像与视频分析组开发的 FastSAM。</li>
+<li><strong><a href="yolo-nas/">YOLO-NAS</a></strong>：YOLO 神经网络结构搜索 (NAS) 模型。</li>
+<li><strong><a href="rtdetr/">Realtime Detection Transformers (RT-DETR)</a></strong>：百度 PaddlePaddle 实时检测变换器 (RT-DETR) 模型。</li>
 </ol>
 <p align="center">
 <br/>
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/MWq1UxqTClU?si=nHAW-lYDzrz68jR0" title="YouTube 视频播放器" width="720">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" src="https://www.youtube.com/embed/MWq1UxqTClU?si=nHAW-lYDzrz68jR0" title="YouTube video player" width="720">
 </iframe>
 <br/>
-<strong>观看：</strong>仅使用几行代码运行 Ultralytics YOLO 模型。
+<strong>观看：</strong> 使用 Ultralytics YOLO 模型在几行代码中运行。
 </p>
 <h2 id="_2">入门：使用示例</h2>
+<p>此示例提供了简单的 YOLO 训练和推理示例。有关这些和其他<a href="../modes/">模式</a>的完整文档，请查看<a href="../modes/predict/">Predict</a>、<a href="../modes/train/">Train</a>、<a href="../modes/val/">Val</a> 和 <a href="../modes/export/">Export</a> 文档页面。</p>
+<p>请注意，以下示例适用于对象检测的 YOLOv8 <a href="../tasks/detect/">Detect</a> 模型。有关其他支持任务的详细信息，请查看<a href="../tasks/segment/">Segment</a>、<a href="../tasks/classify/">Classify</a> 和 <a href="../tasks/pose/">Pose</a> 文档。</p>
 <div class="admonition example">
 <p class="admonition-title">示例</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>PyTorch 预训练的 <code>*.pt</code> 模型以及配置 <code>*.yaml</code> 文件都可以传递给 <code>YOLO()</code>、<code>SAM()</code>、<code>NAS()</code> 和 <code>RTDETR()</code> 类来在 Python 中创建模型实例：</p>
+<p>可将 PyTorch 预训练的 <code>*.pt</code> 模型以及配置文件 <code>*.yaml</code> 传入 <code>YOLO()</code>、<code>SAM()</code>、<code>NAS()</code> 和 <code>RTDETR()</code> 类，以在 Python 中创建模型实例：</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># 加载 COCO 预训练的 YOLOv8n 模型</span>
@@ -667,7 +669,7 @@
 </div>
 <div class="tabbed-block">
 <p>CLI 命令可直接运行模型：</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># 加载 COCO 预训练的 YOLOv8n 模型，并在 COCO8 示例数据集上训练它 100 个周期</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># 加载 COCO 预训练的 YOLOv8n 模型，并在 COCO8 示例数据集上训练 100 个周期</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># 加载 COCO 预训练的 YOLOv8n 模型，并对 'bus.jpg' 图像进行推理</span>
@@ -678,29 +680,29 @@
 </input></input></div>
 </div>
 <h2 id="_3">贡献新模型</h2>
-<p>有兴趣将您的模型贡献给 Ultralytics 吗？太好了！我们始终欢迎扩展我们的模型组合。</p>
+<p>有兴趣将您的模型贡献给 Ultralytics 吗？太好了！我们始终欢迎扩展我们的模型投资组合。</p>
 <ol>
 <li>
-<p><strong>Fork 仓库</strong>：首先 Fork <a href="https://github.com/ultralytics/ultralytics">Ultralytics GitHub 仓库</a>。</p>
+<p><strong>Fork 仓库</strong>：从 Fork <a href="https://github.com/ultralytics/ultralytics">Ultralytics GitHub 仓库</a> 开始。</p>
 </li>
 <li>
-<p><strong>克隆您的 Fork</strong>：将您的 Fork 克隆到本地机器上，并创建一个新分支进行工作。</p>
+<p><strong>克隆您的 Fork</strong>：将您的 Fork 克隆到您的本地机器，并创建一个新的分支进行工作。</p>
 </li>
 <li>
-<p><strong>实现您的模型</strong>：按照我们在<a href="/../help/contributing">贡献指南</a>中提供的编码标准和指南添加您的模型。</p>
+<p><strong>实现您的模型</strong>：按照我们在<a href="../../help/contributing">贡献指南</a>中提供的编码标准和指南添加您的模型。</p>
 </li>
 <li>
-<p><strong>彻底测试</strong>：确保彻底测试您的模型，无论是独立还是作为整个管道的一部分。</p>
+<p><strong>彻底测试</strong>：确保彻底测试您的模型，无论是独立测试还是作为流水线的一部分。</p>
 </li>
 <li>
-<p><strong>创建 Pull Request</strong>：一旦您对您的模型感到满意，请创建一个到主仓库的 Pull Request 以便审查。</p>
+<p><strong>创建拉取请求</strong>：一旦您对您的模型满意，就创建一个拉取请求以供主仓库审查。</p>
 </li>
 <li>
-<p><strong>代码审查与合并</strong>：经审查，如果您的模型符合我们的标准，它将被合并到主仓库中。</p>
+<p><strong>代码审查与合并</strong>：经过审查，如果您的模型符合我们的标准，它将被合并到主仓库中。</p>
 </li>
 </ol>
-<p>有关详细步骤，请参阅我们的<a href="/../help/contributing">贡献指南</a>。</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-13, Updated 2023-11-19<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
+<p>有关详细步骤，请参阅我们的<a href="../../help/contributing">贡献指南</a>。</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-13, Updated 2023-11-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

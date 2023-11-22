@@ -786,23 +786,23 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#supported-tasks">
+<a class="md-nav__link" href="#supported-tasks-and-modes">
 <span class="md-ellipsis">
-      Supported Tasks
+      Supported Tasks and Modes
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#supported-modes">
+<a class="md-nav__link" href="#performance-metrics">
 <span class="md-ellipsis">
-      Supported Modes
+      Performance Metrics
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
+<a class="md-nav__link" href="#usage-examples">
 <span class="md-ellipsis">
-      Usage
+      Usage Examples
     </span>
 </a>
 </li>
@@ -2339,23 +2339,23 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#supported-tasks">
+<a class="md-nav__link" href="#supported-tasks-and-modes">
 <span class="md-ellipsis">
-      Supported Tasks
+      Supported Tasks and Modes
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#supported-modes">
+<a class="md-nav__link" href="#performance-metrics">
 <span class="md-ellipsis">
-      Supported Modes
+      Performance Metrics
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
+<a class="md-nav__link" href="#usage-examples">
 <span class="md-ellipsis">
-      Usage
+      Usage Examples
     </span>
 </a>
 </li>
@@ -2387,66 +2387,68 @@
 <li><strong>Optimized Accuracy-Speed Tradeoff:</strong> With a focus on maintaining an optimal balance between accuracy and speed, YOLOv8 is suitable for real-time object detection tasks in diverse application areas.</li>
 <li><strong>Variety of Pre-trained Models:</strong> YOLOv8 offers a range of pre-trained models to cater to various tasks and performance requirements, making it easier to find the right model for your specific use case.</li>
 </ul>
-<h2 id="supported-tasks">Supported Tasks</h2>
+<h2 id="supported-tasks-and-modes">Supported Tasks and Modes</h2>
+<p>The YOLOv8 series offers a diverse range of models, each specialized for specific tasks in computer vision. These models are designed to cater to various requirements, from object detection to more complex tasks like instance segmentation, pose/keypoints detection, and classification.</p>
+<p>Each variant of the YOLOv8 series is optimized for its respective task, ensuring high performance and accuracy. Additionally, these models are compatible with various operational modes including <a href="../../modes/predict/">Inference</a>, <a href="../../modes/val/">Validation</a>, <a href="../../modes/train/">Training</a>, and <a href="../../modes/export/">Export</a>, facilitating their use in different stages of deployment and development.</p>
 <table>
 <thead>
 <tr>
-<th>Model Type</th>
-<th>Pre-trained Weights</th>
+<th>Model</th>
+<th>Filenames</th>
 <th>Task</th>
+<th>Inference</th>
+<th>Validation</th>
+<th>Training</th>
+<th>Export</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>YOLOv8</td>
-<td><code>yolov8n.pt</code>, <code>yolov8s.pt</code>, <code>yolov8m.pt</code>, <code>yolov8l.pt</code>, <code>yolov8x.pt</code></td>
-<td>Detection</td>
+<td><code>yolov8n.pt</code> <code>yolov8s.pt</code> <code>yolov8m.pt</code> <code>yolov8l.pt</code> <code>yolov8x.pt</code></td>
+<td><a href="../../tasks/detect/">Detection</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
 </tr>
 <tr>
 <td>YOLOv8-seg</td>
-<td><code>yolov8n-seg.pt</code>, <code>yolov8s-seg.pt</code>, <code>yolov8m-seg.pt</code>, <code>yolov8l-seg.pt</code>, <code>yolov8x-seg.pt</code></td>
-<td>Instance Segmentation</td>
+<td><code>yolov8n-seg.pt</code> <code>yolov8s-seg.pt</code> <code>yolov8m-seg.pt</code> <code>yolov8l-seg.pt</code> <code>yolov8x-seg.pt</code></td>
+<td><a href="../../tasks/segment/">Instance Segmentation</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
 </tr>
 <tr>
 <td>YOLOv8-pose</td>
-<td><code>yolov8n-pose.pt</code>, <code>yolov8s-pose.pt</code>, <code>yolov8m-pose.pt</code>, <code>yolov8l-pose.pt</code>, <code>yolov8x-pose.pt</code>, <code>yolov8x-pose-p6.pt</code></td>
-<td>Pose/Keypoints</td>
+<td><code>yolov8n-pose.pt</code> <code>yolov8s-pose.pt</code> <code>yolov8m-pose.pt</code> <code>yolov8l-pose.pt</code> <code>yolov8x-pose.pt</code> <code>yolov8x-pose-p6.pt</code></td>
+<td><a href="../../tasks/pose/">Pose/Keypoints</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
 </tr>
 <tr>
 <td>YOLOv8-cls</td>
-<td><code>yolov8n-cls.pt</code>, <code>yolov8s-cls.pt</code>, <code>yolov8m-cls.pt</code>, <code>yolov8l-cls.pt</code>, <code>yolov8x-cls.pt</code></td>
-<td>Classification</td>
-</tr>
-</tbody>
-</table>
-<h2 id="supported-modes">Supported Modes</h2>
-<table>
-<thead>
-<tr>
-<th>Mode</th>
-<th>Supported</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Inference</td>
+<td><code>yolov8n-cls.pt</code> <code>yolov8s-cls.pt</code> <code>yolov8m-cls.pt</code> <code>yolov8l-cls.pt</code> <code>yolov8x-cls.pt</code></td>
+<td><a href="../../tasks/classify/">Classification</a></td>
 <td>✅</td>
-</tr>
-<tr>
-<td>Validation</td>
 <td>✅</td>
-</tr>
-<tr>
-<td>Training</td>
+<td>✅</td>
 <td>✅</td>
 </tr>
 </tbody>
 </table>
+<p>This table provides an overview of the YOLOv8 model variants, highlighting their applicability in specific tasks and their compatibility with various operational modes such as Inference, Validation, Training, and Export. It showcases the versatility and robustness of the YOLOv8 series, making them suitable for a variety of applications in computer vision.</p>
+<h2 id="performance-metrics">Performance Metrics</h2>
 <div class="admonition performance">
 <p class="admonition-title">Performance</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Detection (COCO)</label><label for="__tabbed_1_2">Detection (Open Images V7)</label><label for="__tabbed_1_3">Segmentation (COCO)</label><label for="__tabbed_1_4">Classification (ImageNet)</label><label for="__tabbed_1_5">Pose (COCO)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<p>See <a href="https://docs.ultralytics.com/tasks/detect/">Detection Docs</a> for usage examples with these models trained on <a href="https://docs.ultralytics.com/datasets/detect/coco/">COCO</a>, which include 80 pre-trained classes.</p>
 <table>
 <thead>
 <tr>
@@ -2572,6 +2574,7 @@
 </table>
 </div>
 <div class="tabbed-block">
+<p>See <a href="https://docs.ultralytics.com/tasks/segment/">Segmentation Docs</a> for usage examples with these models trained on <a href="https://docs.ultralytics.com/datasets/segment/coco/">COCO</a>, which include 80 pre-trained classes.</p>
 <table>
 <thead>
 <tr>
@@ -2640,6 +2643,7 @@
 </table>
 </div>
 <div class="tabbed-block">
+<p>See <a href="https://docs.ultralytics.com/tasks/classify/">Classification Docs</a> for usage examples with these models trained on <a href="https://docs.ultralytics.com/datasets/classify/imagenet/">ImageNet</a>, which include 1000 pre-trained classes.</p>
 <table>
 <thead>
 <tr>
@@ -2708,6 +2712,7 @@
 </table>
 </div>
 <div class="tabbed-block">
+<p>See <a href="https://docs.ultralytics.com/tasks/segment/">Pose Estimation Docs</a> for usage examples with these models trained on <a href="https://docs.ultralytics.com/datasets/pose/coco/">COCO</a>, which include 1 pre-trained class, 'person'.</p>
 <table>
 <thead>
 <tr>
@@ -2788,10 +2793,11 @@
 </div>
 </input></input></input></input></input></div>
 </div>
-<h2 id="usage">Usage</h2>
-<p>You can use YOLOv8 for object detection tasks using the Ultralytics pip package. The following is a sample code snippet showing how to use YOLOv8 models for inference:</p>
+<h2 id="usage-examples">Usage Examples</h2>
+<p>This example provides simple YOLOv8 training and inference examples. For full documentation on these and other <a href="../../modes/">modes</a> see the <a href="../../modes/predict/">Predict</a>,  <a href="../../modes/train/">Train</a>, <a href="../../modes/val/">Val</a> and <a href="../../modes/export/">Export</a> docs pages.</p>
+<p>Note the below example is for YOLOv8 <a href="../../tasks/detect/">Detect</a> models for object detection. For additional supported tasks see the <a href="../../tasks/segment/">Segment</a>, <a href="../../tasks/classify/">Classify</a> and <a href="../../tasks/pose/">Pose</a> docs.</p>
 <div class="admonition example">
-<p>This example provides simple inference code for YOLOv8. For more options including handling inference results see <a href="../../modes/predict/">Predict</a> mode. For using YOLOv8 with additional modes see <a href="../../modes/train/">Train</a>, <a href="../../modes/val/">Val</a> and <a href="../../modes/export/">Export</a>.</p>
+<p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2825,7 +2831,7 @@
 </div>
 <h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
 <p>If you use the YOLOv8 model or any other software from this repository in your work, please cite it using the following format:</p>
-<div class="admonition note">
+<div class="admonition quote">
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2843,8 +2849,8 @@
 </div>
 </input></div>
 </div>
-<p>Please note that the DOI is pending and will be added to the citation once it is available. The usage of the software is in accordance with the AGPL-3.0 license.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
+<p>Please note that the DOI is pending and will be added to the citation once it is available. YOLOv8 models are provided under <a href="https://github.com/ultralytics/ultralytics/blob/main/LICENSE">AGPL-3.0</a> and <a href="https://ultralytics.com/license">Enterprise</a> licenses.</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
