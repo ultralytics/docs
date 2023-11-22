@@ -8,9 +8,11 @@
 <meta content="Исследуйте YOLOv7, реальный детектор объектов в реальном времени. Познакомьтесь с его высокой скоростью, впечатляющей точностью и уникальным фокусом на тренируемой оптимизации с использованием " name="description" бесплатных="" мешка="" улучшений"."=""/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/ru/models/yolov7/" rel="canonical"/>
+<link href="../yolov6/" rel="prev"/>
+<link href="../yolov8/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.10" name="generator"/>
-<title>YOLOv7: Тренируемый "мешок бесплатных улучшений" - Документация Ultralytics YOLOv8</title>
+<title>YOLOv7 - Документация Ultralytics YOLOv8</title>
 <link href="../../assets/stylesheets/main.fad675c6.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,7 +22,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content='YOLOv7: Тренируемый "мешок бесплатных улучшений"' name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv7, детектор объектов в реальном времени, новейший, Ultralytics, набор данных MS COCO, репараметризация модели, динамическое присвоение меток, расширенное масштабирование, компаунд-масштабирование" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/ru/models/yolov7" property="og:url"/><meta content='YOLOv7: Тренируемый "мешок бесплатных улучшений"' property="og:title"/><meta content='Исследуйте YOLOv7, реальный детектор объектов в реальном времени. Познакомьтесь с его высокой скоростью, впечатляющей точностью и уникальным фокусом на тренируемой оптимизации с использованием "мешка бесплатных улучшений".' property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/5e1e0420-8122-4c79-b8d0-2860aa79af92" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/ru/models/yolov7" property="twitter:url"/><meta content='YOLOv7: Тренируемый "мешок бесплатных улучшений"' property="twitter:title"/><meta content='Исследуйте YOLOv7, реальный детектор объектов в реальном времени. Познакомьтесь с его высокой скоростью, впечатляющей точностью и уникальным фокусом на тренируемой оптимизации с использованием "мешка бесплатных улучшений".' property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/5e1e0420-8122-4c79-b8d0-2860aa79af92" property="twitter:image"/></head>
+<meta content="YOLOv7" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv7, детектор объектов в реальном времени, новейший, Ultralytics, набор данных MS COCO, репараметризация модели, динамическое присвоение меток, расширенное масштабирование, компаунд-масштабирование" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/ru/models/yolov7" property="og:url"/><meta content="YOLOv7" property="og:title"/><meta content='Исследуйте YOLOv7, реальный детектор объектов в реальном времени. Познакомьтесь с его высокой скоростью, впечатляющей точностью и уникальным фокусом на тренируемой оптимизации с использованием "мешка бесплатных улучшений".' property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/5e1e0420-8122-4c79-b8d0-2860aa79af92" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/ru/models/yolov7" property="twitter:url"/><meta content="YOLOv7" property="twitter:title"/><meta content='Исследуйте YOLOv7, реальный детектор объектов в реальном времени. Познакомьтесь с его высокой скоростью, впечатляющей точностью и уникальным фокусом на тренируемой оптимизации с использованием "мешка бесплатных улучшений".' property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/5e1e0420-8122-4c79-b8d0-2860aa79af92" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -51,7 +53,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              YOLOv7: Тренируемый "мешок бесплатных улучшений"
+              YOLOv7
             
           </span>
 </div>
@@ -225,7 +227,7 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
+<li class="md-tabs__item md-tabs__item--active">
 <a class="md-tabs__link" href="../">
           
   
@@ -532,21 +534,144 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Модели
   </span>
 </a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
             Модели
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov3/">
+<span class="md-ellipsis">
+    YOLOv3
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov4/">
+<span class="md-ellipsis">
+    YOLOv4
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov5/">
+<span class="md-ellipsis">
+    YOLOv5
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov6/">
+<span class="md-ellipsis">
+    YOLOv6
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    YOLOv7
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    YOLOv7
+  </span>
+</a>
+<nav aria-label="Содержание" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      Обзор
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      Основные функции
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      Примеры использования
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      Цитирования и благодарности
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov8/">
+<span class="md-ellipsis">
+    YOLOv8
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sam/">
+<span class="md-ellipsis">
+    SAM (Segment Anything Model)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mobile-sam/">
+<span class="md-ellipsis">
+    MobileSAM (Mobile Segment Anything Model)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fast-sam/">
+<span class="md-ellipsis">
+    FastSAM (Fast Segment Anything Model)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolo-nas/">
+<span class="md-ellipsis">
+    YOLO-NAS (Neural Architecture Search)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rtdetr/">
+<span class="md-ellipsis">
+    RT-DETR (Realtime Detection Transformer)
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -738,6 +863,34 @@
 </button>
 </main>
 <footer class="md-footer">
+<nav aria-label="Нижний колонтитул" class="md-footer__inner md-grid">
+<a aria-label="Назад: YOLOv6" class="md-footer__link md-footer__link--prev" href="../yolov6/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Назад
+              </span>
+<div class="md-ellipsis">
+                YOLOv6
+              </div>
+</div>
+</a>
+<a aria-label="Вперед: YOLOv8" class="md-footer__link md-footer__link--next" href="../yolov8/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Вперед
+              </span>
+<div class="md-ellipsis">
+                YOLOv8
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
