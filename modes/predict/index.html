@@ -3107,7 +3107,7 @@
 <a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<p>All supported arguments:</p>
+<p>Inference arguments:</p>
 <table>
 <thead>
 <tr>
@@ -3155,48 +3155,6 @@
 <td>device to run on, i.e. cuda device=0/1/2/3 or device=cpu</td>
 </tr>
 <tr>
-<td><code>show</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>show results if possible</td>
-</tr>
-<tr>
-<td><code>save</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>save images with results</td>
-</tr>
-<tr>
-<td><code>save_txt</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>save results as .txt file</td>
-</tr>
-<tr>
-<td><code>save_conf</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>save results with confidence scores</td>
-</tr>
-<tr>
-<td><code>save_crop</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>save cropped images with results</td>
-</tr>
-<tr>
-<td><code>hide_labels</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>hide labels</td>
-</tr>
-<tr>
-<td><code>hide_conf</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>hide confidence scores</td>
-</tr>
-<tr>
 <td><code>max_det</code></td>
 <td><code>int</code></td>
 <td><code>300</code></td>
@@ -3213,12 +3171,6 @@
 <td><code>bool</code></td>
 <td><code>False</code></td>
 <td>buffer all streaming frames (True) or return the most recent frame (False)</td>
-</tr>
-<tr>
-<td><code>line_width</code></td>
-<td><code>None or int</code></td>
-<td><code>None</code></td>
-<td>The line width of the bounding boxes. If None, it is scaled to the image size.</td>
 </tr>
 <tr>
 <td><code>visualize</code></td>
@@ -3250,11 +3202,72 @@
 <td><code>None</code></td>
 <td>filter results by class, i.e. classes=0, or classes=[0,2,3]</td>
 </tr>
+</tbody>
+</table>
+<p>Visualization arguments:</p>
+<table>
+<thead>
 <tr>
-<td><code>boxes</code></td>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>show</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>show predicted images and videos if environment allows</td>
+</tr>
+<tr>
+<td><code>save</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>save predicted images and videos</td>
+</tr>
+<tr>
+<td><code>save_txt</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>save results as <code>.txt</code> file</td>
+</tr>
+<tr>
+<td><code>save_conf</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>save results with confidence scores</td>
+</tr>
+<tr>
+<td><code>save_crop</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>save cropped images with results</td>
+</tr>
+<tr>
+<td><code>show_labels</code></td>
 <td><code>bool</code></td>
 <td><code>True</code></td>
-<td>Show boxes in segmentation predictions</td>
+<td>show prediction labels, i.e. 'person'</td>
+</tr>
+<tr>
+<td><code>show_conf</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>show prediction confidence, i.e. '0.99'</td>
+</tr>
+<tr>
+<td><code>show_boxes</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>show prediction boxes</td>
+</tr>
+<tr>
+<td><code>line_width</code></td>
+<td><code>None or int</code></td>
+<td><code>None</code></td>
+<td>line width of the bounding boxes. Scaled to image size if None.</td>
 </tr>
 </tbody>
 </table>
@@ -4006,7 +4019,7 @@
 </code></pre></div>
 </div>
 <p>This script will run predictions on each frame of the video, visualize the results, and display them in a window. The loop can be exited by pressing 'q'.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/AyushExel">AyushExel</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-25<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5), <a href="https://github.com/AyushExel">AyushExel</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

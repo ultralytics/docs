@@ -2406,7 +2406,7 @@
 </a>
 <h1>Configuration</h1>
 <p>YOLO settings and hyperparameters play a critical role in the model's performance, speed, and accuracy. These settings and hyperparameters can affect the model's behavior at various stages of the model development process, including training, validation, and prediction.</p>
-<p>YOLOv8 <code>yolo</code> CLI commands use the following syntax:</p>
+<p>Ultralytics commands use the following syntax:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label><label for="__tabbed_1_2">Python</label></div>
@@ -2430,11 +2430,11 @@
 </div>
 <p>Where:</p>
 <ul>
-<li><code>TASK</code> (optional) is one of <code>[detect, segment, classify, pose]</code>. If it is not passed explicitly YOLOv8 will try to guess the <code>TASK</code> from the model type.</li>
-<li><code>MODE</code> (required) is one of <code>[train, val, predict, export, track, benchmark]</code></li>
-<li><code>ARGS</code> (optional) are any number of custom <code>arg=value</code> pairs like <code>imgsz=320</code> that override defaults.</li>
+<li><code>TASK</code> (optional) is one of (<a href="../../tasks/detect/">detect</a>, <a href="../../tasks/segment/">segment</a>, <a href="../../tasks/classify/">classify</a>, <a href="../../tasks/pose/">pose</a>)</li>
+<li><code>MODE</code> (required) is one of (<a href="../../modes/train/">train</a>, <a href="../../modes/val/">val</a>, <a href="../../modes/predict/">predict</a>, <a href="../../modes/export/">export</a>, <a href="../../modes/track/">track</a>)</li>
+<li><code>ARGS</code> (optional) are <code>arg=value</code> pairs like <code>imgsz=640</code> that override defaults.</li>
 </ul>
-<p>For a full list of available <code>ARGS</code> see the <a href="./">Configuration</a> page and <code>defaults.yaml</code> GitHub <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/default.yaml">source</a>.</p>
+<p>Default <code>ARG</code> values are defined on this page from the <code>cfg/defaults.yaml</code> <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/default.yaml">file</a>.</p>
 <h4 id="tasks">Tasks</h4>
 <p>YOLO models can be used for a variety of tasks, including detection, segmentation, classification and pose. These tasks differ in the type of output they produce and the specific problem they are designed to solve.</p>
 <p><strong>Detect</strong>: For identifying and localizing objects or regions of interest in an image or video.
@@ -2457,7 +2457,7 @@
 </tr>
 </tbody>
 </table>
-<p><a class="md-button md-button--primary" href="../../tasks/">Tasks Guide</a></p>
+<p><a class="md-button" href="../../tasks/">Tasks Guide</a></p>
 <h4 id="modes">Modes</h4>
 <p>YOLO models can be used in different modes depending on the specific problem you are trying to solve. These modes include:</p>
 <p><strong>Train</strong>: For training a YOLOv8 model on a custom dataset.
@@ -2482,7 +2482,7 @@
 </tr>
 </tbody>
 </table>
-<p><a class="md-button md-button--primary" href="../../modes/">Modes Guide</a></p>
+<p><a class="md-button" href="../../modes/">Modes Guide</a></p>
 <h2 id="train">Train</h2>
 <p>The training settings for YOLO models encompass various hyperparameters and configurations used during the training process. These settings influence the model's performance, speed, and accuracy. Key training settings include batch size, learning rate, momentum, and weight decay. Additionally, the choice of optimizer, loss function, and training dataset composition can impact the training process. Careful tuning and experimentation with these settings are crucial for optimizing performance.</p>
 <table>
@@ -2522,7 +2522,7 @@
 <tr>
 <td><code>imgsz</code></td>
 <td><code>640</code></td>
-<td>size of input images as integer or w,h</td>
+<td>size of input images as integer</td>
 </tr>
 <tr>
 <td><code>save</code></td>
@@ -2724,133 +2724,181 @@
 <td><code>True</code></td>
 <td>validate/test during training</td>
 </tr>
+<tr>
+<td><code>plots</code></td>
+<td><code>False</code></td>
+<td>save plots and images during train/val</td>
+</tr>
 </tbody>
 </table>
-<p><a class="md-button md-button--primary" href="../../modes/train/">Train Guide</a></p>
+<p><a class="md-button" href="../../modes/train/">Train Guide</a></p>
 <h2 id="predict">Predict</h2>
 <p>The prediction settings for YOLO models encompass a range of hyperparameters and configurations that influence the model's performance, speed, and accuracy during inference on new data. Careful tuning and experimentation with these settings are essential to achieve optimal performance for a specific task. Key settings include the confidence threshold, Non-Maximum Suppression (NMS) threshold, and the number of classes considered. Additional factors affecting the prediction process are input data size and format, the presence of supplementary features such as masks or multiple labels per box, and the particular task the model is employed for.</p>
+<p>Inference arguments:</p>
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Value</th>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>source</code></td>
+<td><code>str</code></td>
 <td><code>'ultralytics/assets'</code></td>
 <td>source directory for images or videos</td>
 </tr>
 <tr>
 <td><code>conf</code></td>
+<td><code>float</code></td>
 <td><code>0.25</code></td>
 <td>object confidence threshold for detection</td>
 </tr>
 <tr>
 <td><code>iou</code></td>
+<td><code>float</code></td>
 <td><code>0.7</code></td>
 <td>intersection over union (IoU) threshold for NMS</td>
 </tr>
 <tr>
+<td><code>imgsz</code></td>
+<td><code>int or tuple</code></td>
+<td><code>640</code></td>
+<td>image size as scalar or (h, w) list, i.e. (640, 480)</td>
+</tr>
+<tr>
 <td><code>half</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
 <td>use half precision (FP16)</td>
 </tr>
 <tr>
 <td><code>device</code></td>
+<td><code>None or str</code></td>
 <td><code>None</code></td>
 <td>device to run on, i.e. cuda device=0/1/2/3 or device=cpu</td>
 </tr>
 <tr>
-<td><code>show</code></td>
-<td><code>False</code></td>
-<td>show results if possible</td>
-</tr>
-<tr>
-<td><code>save</code></td>
-<td><code>False</code></td>
-<td>save images with results</td>
-</tr>
-<tr>
-<td><code>save_txt</code></td>
-<td><code>False</code></td>
-<td>save results as .txt file</td>
-</tr>
-<tr>
-<td><code>save_conf</code></td>
-<td><code>False</code></td>
-<td>save results with confidence scores</td>
-</tr>
-<tr>
-<td><code>save_crop</code></td>
-<td><code>False</code></td>
-<td>save cropped images with results</td>
-</tr>
-<tr>
-<td><code>show_labels</code></td>
-<td><code>True</code></td>
-<td>show object labels in plots</td>
-</tr>
-<tr>
-<td><code>show_conf</code></td>
-<td><code>True</code></td>
-<td>show object confidence scores in plots</td>
-</tr>
-<tr>
 <td><code>max_det</code></td>
+<td><code>int</code></td>
 <td><code>300</code></td>
 <td>maximum number of detections per image</td>
 </tr>
 <tr>
 <td><code>vid_stride</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
 <td>video frame-rate stride</td>
 </tr>
 <tr>
 <td><code>stream_buffer</code></td>
 <td><code>bool</code></td>
+<td><code>False</code></td>
 <td>buffer all streaming frames (True) or return the most recent frame (False)</td>
 </tr>
 <tr>
-<td><code>line_width</code></td>
-<td><code>None</code></td>
-<td>The line width of the bounding boxes. If None, it is scaled to the image size.</td>
-</tr>
-<tr>
 <td><code>visualize</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
 <td>visualize model features</td>
 </tr>
 <tr>
 <td><code>augment</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
 <td>apply image augmentation to prediction sources</td>
 </tr>
 <tr>
 <td><code>agnostic_nms</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
 <td>class-agnostic NMS</td>
 </tr>
 <tr>
 <td><code>retina_masks</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
 <td>use high-resolution segmentation masks</td>
 </tr>
 <tr>
 <td><code>classes</code></td>
+<td><code>None or list</code></td>
 <td><code>None</code></td>
 <td>filter results by class, i.e. classes=0, or classes=[0,2,3]</td>
 </tr>
+</tbody>
+</table>
+<p>Visualization arguments:</p>
+<table>
+<thead>
 <tr>
-<td><code>boxes</code></td>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>show</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>show predicted images and videos if environment allows</td>
+</tr>
+<tr>
+<td><code>save</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>save predicted images and videos</td>
+</tr>
+<tr>
+<td><code>save_txt</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>save results as <code>.txt</code> file</td>
+</tr>
+<tr>
+<td><code>save_conf</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>save results with confidence scores</td>
+</tr>
+<tr>
+<td><code>save_crop</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>save cropped images with results</td>
+</tr>
+<tr>
+<td><code>show_labels</code></td>
+<td><code>bool</code></td>
 <td><code>True</code></td>
-<td>Show boxes in segmentation predictions</td>
+<td>show prediction labels, i.e. 'person'</td>
+</tr>
+<tr>
+<td><code>show_conf</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>show prediction confidence, i.e. '0.99'</td>
+</tr>
+<tr>
+<td><code>show_boxes</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>show prediction boxes</td>
+</tr>
+<tr>
+<td><code>line_width</code></td>
+<td><code>None or int</code></td>
+<td><code>None</code></td>
+<td>line width of the bounding boxes. Scaled to image size if None.</td>
 </tr>
 </tbody>
 </table>
-<p><a class="md-button md-button--primary" href="../../modes/predict/">Predict Guide</a></p>
+<p><a class="md-button" href="../../modes/predict/">Predict Guide</a></p>
 <h2 id="val">Val</h2>
 <p>The val (validation) settings for YOLO models involve various hyperparameters and configurations used to evaluate the model's performance on a validation dataset. These settings influence the model's performance, speed, and accuracy. Common YOLO validation settings include batch size, validation frequency during training, and performance evaluation metrics. Other factors affecting the validation process include the validation dataset's size and composition, as well as the specific task the model is employed for. Careful tuning and experimentation with these settings are crucial to ensure optimal performance on the validation dataset and detect and prevent overfitting.</p>
 <table>
@@ -2862,6 +2910,21 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>None</code></td>
+<td>path to data file, i.e. coco128.yaml</td>
+</tr>
+<tr>
+<td><code>imgsz</code></td>
+<td><code>640</code></td>
+<td>size of input images as integer</td>
+</tr>
+<tr>
+<td><code>batch</code></td>
+<td><code>16</code></td>
+<td>number of images per batch (-1 for AutoBatch)</td>
+</tr>
 <tr>
 <td><code>save_json</code></td>
 <td><code>False</code></td>
@@ -2905,7 +2968,7 @@
 <tr>
 <td><code>plots</code></td>
 <td><code>False</code></td>
-<td>show plots during training</td>
+<td>save plots and images during train/val</td>
 </tr>
 <tr>
 <td><code>rect</code></td>
@@ -2919,7 +2982,7 @@
 </tr>
 </tbody>
 </table>
-<p><a class="md-button md-button--primary" href="../../modes/val/">Val Guide</a></p>
+<p><a class="md-button" href="../../modes/val/">Val Guide</a></p>
 <h2 id="export">Export</h2>
 <p>Export settings for YOLO models encompass configurations and options related to saving or exporting the model for use in different environments or platforms. These settings can impact the model's performance, size, and compatibility with various systems. Key export settings include the exported model file format (e.g., ONNX, TensorFlow SavedModel), the target device (e.g., CPU, GPU), and additional features such as masks or multiple labels per box. The export process may also be affected by the model's specific task and the requirements or constraints of the destination environment or platform. It is crucial to thoughtfully configure these settings to ensure the exported model is optimized for the intended use case and functions effectively in the target environment.</p>
 <table>
@@ -2964,12 +3027,12 @@
 <tr>
 <td><code>dynamic</code></td>
 <td><code>False</code></td>
-<td>ONNX/TF/TensorRT: dynamic axes</td>
+<td>ONNX/TensorRT: dynamic axes</td>
 </tr>
 <tr>
 <td><code>simplify</code></td>
 <td><code>False</code></td>
-<td>ONNX: simplify model</td>
+<td>ONNX/TensorRT: simplify model</td>
 </tr>
 <tr>
 <td><code>opset</code></td>
@@ -2988,7 +3051,7 @@
 </tr>
 </tbody>
 </table>
-<p><a class="md-button md-button--primary" href="../../modes/export/">Export Guide</a></p>
+<p><a class="md-button" href="../../modes/export/">Export Guide</a></p>
 <h2 id="augmentation">Augmentation</h2>
 <p>Augmentation settings for YOLO models refer to the various transformations and modifications applied to the training data to increase the diversity and size of the dataset. These settings can affect the model's performance, speed, and accuracy. Some common YOLO augmentation settings include the type and intensity of the transformations applied (e.g. random flips, rotations, cropping, color changes), the probability with which each transformation is applied, and the presence of additional features such as masks or multiple labels per box. Other factors that may affect the augmentation process include the size and composition of the original dataset and the specific task the model is being used for. It is important to carefully tune and experiment with these settings to ensure that the augmented dataset is diverse and representative enough to train a high-performing model.</p>
 <table>
@@ -3112,7 +3175,7 @@
 </tr>
 </tbody>
 </table>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-25<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
