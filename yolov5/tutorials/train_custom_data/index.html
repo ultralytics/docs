@@ -2570,7 +2570,7 @@
 </code></pre></div>
 <h2 id="train-on-custom-data">Train On Custom Data</h2>
 <p><a href="https://bit.ly/ultralytics_hub" target="_blank">
-<img src="https://github.com/ultralytics/assets/raw/main/im/integrations-loop.png" width="100%"/></a>
+<img alt="Ultralytics active learning" src="https://github.com/ultralytics/assets/raw/main/im/integrations-loop.png" width="100%"/></a>
 <br/>
 <br/></p>
 <p>Creating a custom model to detect your objects is an iterative process of collecting and organizing images, labeling your objects of interest, training a model, deploying it into the wild to make predictions, and then using that deployed model to collect examples of edge cases to repeat and improve.</p>
@@ -2587,22 +2587,22 @@
 <p>If this is not possible, you can start from <a href="https://universe.roboflow.com/?ref=ultralytics">a public dataset</a> to train your initial model and then <a href="https://blog.roboflow.com/computer-vision-active-learning-tips/?ref=ultralytics">sample images from the wild during inference</a> to improve your dataset and model iteratively.</p>
 <h3 id="12-create-labels">1.2 Create Labels</h3>
 <p>Once you have collected images, you will need to annotate the objects of interest to create a ground truth for your model to learn from.</p>
-<p align="center"><a href="https://app.roboflow.com/?model=yolov5&amp;ref=ultralytics" title="Create a Free Roboflow Account"><img src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6152a275ad4b4ac20cd2e21a_roboflow-annotate.gif" width="450"/></a></p>
+<p align="center"><a href="https://app.roboflow.com/?model=yolov5&amp;ref=ultralytics" title="Create a Free Roboflow Account"><img alt="YOLOv5 accuracies" src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6152a275ad4b4ac20cd2e21a_roboflow-annotate.gif" width="450"/></a></p>
 <p><a href="https://roboflow.com/annotate?ref=ultralytics">Roboflow Annotate</a> is a simple web-based tool for managing and labeling your images with your team and exporting them in <a href="https://roboflow.com/formats/yolov5-pytorch-txt?ref=ultralytics">YOLOv5's annotation format</a>.</p>
 <h3 id="13-prepare-dataset-for-yolov5">1.3 Prepare Dataset for YOLOv5</h3>
 <p>Whether you <a href="https://roboflow.com/annotate?ref=ultralytics">label your images with Roboflow</a> or not, you can use it to convert your dataset into YOLO format, create a YOLOv5 YAML configuration file, and host it for importing into your training script.</p>
 <p><a href="https://app.roboflow.com/?model=yolov5&amp;ref=ultralytics">Create a free Roboflow account</a>
 and upload your dataset to a <code>Public</code> workspace, label any unannotated images, then generate and export a version of your dataset in <code>YOLOv5 Pytorch</code> format.</p>
 <p>Note: YOLOv5 does online augmentation during training, so we do not recommend applying any augmentation steps in Roboflow for training with YOLOv5. But we recommend applying the following preprocessing steps:</p>
-<p align="center"><img src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6152a273477fccf42a0fd3d6_roboflow-preprocessing.png" title="Recommended Preprocessing Steps" width="450"/></p>
+<p align="center"><img alt="Recommended Preprocessing Steps" src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6152a273477fccf42a0fd3d6_roboflow-preprocessing.png" width="450"/></p>
 <ul>
 <li><strong>Auto-Orient</strong> - to strip EXIF orientation from your images.</li>
 <li><strong>Resize (Stretch)</strong> - to the square input size of your model (640x640 is the YOLOv5 default).</li>
 </ul>
 <p>Generating a version will give you a point in time snapshot of your dataset so you can always go back and compare your future model training runs against it, even if you add more images or change its configuration later.</p>
-<p align="center"><img src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6152a2733fd1da943619934e_roboflow-export.png" title="Export in YOLOv5 Format" width="450"/></p>
+<p align="center"><img alt="Export in YOLOv5 Format" src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6152a2733fd1da943619934e_roboflow-export.png" width="450"/></p>
 <p>Export in <code>YOLOv5 Pytorch</code> format, then copy the snippet into your training script or notebook to download your dataset.</p>
-<p align="center"><img src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6152a273a92e4f5cb72594df_roboflow-snippet.png" title="Roboflow dataset download snippet" width="450"/></p>
+<p align="center"><img alt="Roboflow dataset download snippet" src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6152a273a92e4f5cb72594df_roboflow-snippet.png" width="450"/></p>
 <p>Now continue with <code>2. Select a Model</code>.</p>
 </details>
 <details>
@@ -2630,22 +2630,22 @@ and upload your dataset to a <code>Public</code> workspace, label any unannotate
 <ul>
 <li>One row per object</li>
 <li>Each row is <code>class x_center y_center width height</code> format.</li>
-<li>Box coordinates must be in <strong>normalized xywh</strong> format (from 0 - 1). If your boxes are in pixels, divide <code>x_center</code> and <code>width</code> by image width, and <code>y_center</code> and <code>height</code> by image height.</li>
+<li>Box coordinates must be in <strong>normalized xywh</strong> format (from 0 to 1). If your boxes are in pixels, divide <code>x_center</code> and <code>width</code> by image width, and <code>y_center</code> and <code>height</code> by image height.</li>
 <li>Class numbers are zero-indexed (start from 0).</li>
 </ul>
-<p align="center"><img src="https://user-images.githubusercontent.com/26833433/91506361-c7965000-e886-11ea-8291-c72b98c25eec.jpg" width="750"/></p>
+<p align="center"><img alt="Roboflow annotations" src="https://user-images.githubusercontent.com/26833433/91506361-c7965000-e886-11ea-8291-c72b98c25eec.jpg" width="750"/></p>
 <p>The label file corresponding to the above image contains 2 persons (class <code>0</code>) and a tie (class <code>27</code>):</p>
-<p align="center"><img src="https://user-images.githubusercontent.com/26833433/112467037-d2568c00-8d66-11eb-8796-55402ac0d62f.png" width="428"/></p>
+<p align="center"><img alt="Roboflow dataset preprocessing" src="https://user-images.githubusercontent.com/26833433/112467037-d2568c00-8d66-11eb-8796-55402ac0d62f.png" width="428"/></p>
 <h3 id="13-organize-directories">1.3 Organize Directories</h3>
 <p>Organize your train and val images and labels according to the example below. YOLOv5 assumes  <code>/coco128</code> is inside a <code>/datasets</code> directory <strong>next to</strong> the <code>/yolov5</code> directory. <strong>YOLOv5 locates labels automatically for each image</strong> by replacing the last instance of <code>/images/</code> in each image path with <code>/labels/</code>. For example:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>../datasets/coco128/images/im0.jpg<span class="w">  </span><span class="c1"># image</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>../datasets/coco128/labels/im0.txt<span class="w">  </span><span class="c1"># label</span>
 </code></pre></div>
-<p align="center"><img src="https://user-images.githubusercontent.com/26833433/134436012-65111ad1-9541-4853-81a6-f19a3468b75f.png" width="700"/></p>
+<p align="center"><img alt="YOLOv5 dataset structure" src="https://user-images.githubusercontent.com/26833433/134436012-65111ad1-9541-4853-81a6-f19a3468b75f.png" width="700"/></p>
 </details>
 <h3 id="2-select-a-model">2. Select a Model</h3>
 <p>Select a pretrained model to start training from. Here we select <a href="https://github.com/ultralytics/yolov5/blob/master/models/yolov5s.yaml">YOLOv5s</a>, the second-smallest and fastest model available. See our README <a href="https://github.com/ultralytics/yolov5#pretrained-checkpoints">table</a> for a full comparison of all models.</p>
-<p align="center"><img alt="YOLOv5 Models" src="https://github.com/ultralytics/yolov5/releases/download/v1.0/model_comparison.png" width="800"/></p>
+<p align="center"><img alt="YOLOv5 models" src="https://github.com/ultralytics/yolov5/releases/download/v1.0/model_comparison.png" width="800"/></p>
 <h3 id="3-train">3. Train</h3>
 <p>Train a YOLOv5s model on COCO128 by specifying dataset, batch-size, image size and either pretrained <code>--weights yolov5s.pt</code> (recommended), or randomly initialized <code>--weights '' --cfg yolov5s.yaml</code> (not recommended). Pretrained weights are auto-downloaded from the <a href="https://github.com/ultralytics/yolov5/releases">latest YOLOv5 release</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
@@ -2669,7 +2669,7 @@ and upload your dataset to a <code>Public</code> workspace, label any unannotate
 </code></pre></div>
 <p>To learn more about all the supported Comet features for this integration, check out the <a href="https://docs.ultralytics.com/yolov5/tutorials/comet_logging_integration">Comet Tutorial</a>. If you'd like to learn more about Comet, head over to our <a href="https://bit.ly/yolov5-colab-comet-docs">documentation</a>. Get started by trying out the Comet Colab Notebook:
 <a href="https://colab.research.google.com/drive/1RG0WOQyxlDlo5Km8GogJpIEJlg_5lyYO?usp=sharing"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
-<p><img alt="yolo-ui" src="https://user-images.githubusercontent.com/26833433/202851203-164e94e1-2238-46dd-91f8-de020e9d6b41.png" width="1920"/></p>
+<p><img alt="YOLO UI" src="https://user-images.githubusercontent.com/26833433/202851203-164e94e1-2238-46dd-91f8-de020e9d6b41.png" width="1920"/></p>
 <h4 id="clearml-logging-and-automation-new">ClearML Logging and Automation 🌟 NEW</h4>
 <p><a href="https://cutt.ly/yolov5-notebook-clearml">ClearML</a> is completely integrated into YOLOv5 to track your experimentation, manage dataset versions and even remotely execute training runs. To enable ClearML:</p>
 <ul>
@@ -2710,7 +2710,7 @@ and upload your dataset to a <code>Public</code> workspace, label any unannotate
 <h2 id="status">Status</h2>
 <p><a href="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml"><img alt="YOLOv5 CI" src="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml/badge.svg"/></a></p>
 <p>If this badge is green, all <a href="https://github.com/ultralytics/yolov5/actions">YOLOv5 GitHub Actions</a> Continuous Integration (CI) tests are currently passing. CI tests verify correct operation of YOLOv5 <a href="https://github.com/ultralytics/yolov5/blob/master/train.py">training</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/val.py">validation</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/detect.py">inference</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/export.py">export</a> and <a href="https://github.com/ultralytics/yolov5/blob/master/benchmarks.py">benchmarks</a> on macOS, Windows, and Ubuntu every 24 hours and on every commit.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-23<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-27<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -2604,7 +2604,7 @@ limitations under the License.
 <p>This guide explains how to deploy YOLOv5 with Neural Magic's DeepSparse.</p>
 <p>DeepSparse is an inference runtime with exceptional performance on CPUs. For instance, compared to the ONNX Runtime baseline, DeepSparse offers a 5.8x speed-up for YOLOv5s, running on the same machine!</p>
 <p align="center">
-<img src="https://github.com/neuralmagic/deepsparse/raw/main/examples/ultralytics-yolo/ultralytics-readmes/performance-chart-5.8x.png" width="60%"/>
+<img alt="YOLOv5 speed improvement" src="https://github.com/neuralmagic/deepsparse/raw/main/examples/ultralytics-yolo/ultralytics-readmes/performance-chart-5.8x.png" width="60%"/>
 </p>
 <p>For the first time, your deep learning workloads can meet the performance demands of production without the complexity and costs of hardware accelerators. Put simply, DeepSparse gives you the performance of GPUs and the simplicity of software:</p>
 <ul>
@@ -2616,7 +2616,7 @@ limitations under the License.
 <p>DeepSparse takes advantage of model sparsity to gain its performance speedup.</p>
 <p>Sparsification through pruning and quantization is a broadly studied technique, allowing order-of-magnitude reductions in the size and compute needed to execute a network, while maintaining high accuracy. DeepSparse is sparsity-aware, meaning it skips the zeroed out parameters, shrinking amount of compute in a forward pass. Since the sparse computation is now memory bound, DeepSparse executes the network depth-wise, breaking the problem into Tensor Columns, vertical stripes of computation that fit in cache.</p>
 <p align="center">
-<img src="https://github.com/neuralmagic/deepsparse/raw/main/examples/ultralytics-yolo/ultralytics-readmes/tensor-columns.png" width="60%"/>
+<img alt="YOLO model pruning" src="https://github.com/neuralmagic/deepsparse/raw/main/examples/ultralytics-yolo/ultralytics-readmes/tensor-columns.png" width="60%"/>
 </p>
 <p>Sparse networks with compressed computation, executed depth-wise in cache, allows DeepSparse to deliver GPU-class performance on CPUs!</p>
 <h3 id="how-do-i-create-a-sparse-version-of-yolov5-trained-on-my-data">How Do I Create A Sparse Version of YOLOv5 Trained on My Data?</h3>
@@ -2694,8 +2694,8 @@ limitations under the License.
 </code></pre></div>
 <p>Running the above command will create an <code>annotation-results</code> folder and save the annotated image inside.</p>
 <p align="center">
-<img alt="annotated" src="https://github.com/neuralmagic/deepsparse/raw/d31f02596ebff2ec62761d0bc9ca14c4663e8858/src/deepsparse/yolo/sample_images/basilica-annotated.jpg" width="60%">
-</img></p>
+<img alt="annotated" src="https://github.com/neuralmagic/deepsparse/raw/d31f02596ebff2ec62761d0bc9ca14c4663e8858/src/deepsparse/yolo/sample_images/basilica-annotated.jpg" width="60%"/>
+</p>
 <h2 id="benchmarking-performance">Benchmarking Performance</h2>
 <p>We will compare DeepSparse's throughput to ONNX Runtime's throughput on YOLOv5s, using DeepSparse's benchmarking script.</p>
 <p>The benchmarks were run on an AWS <code>c6i.8xlarge</code> instance (16 cores).</p>
@@ -2760,7 +2760,7 @@ limitations under the License.
 </code></pre></div>
 <h2 id="get-started-with-deepsparse">Get Started With DeepSparse</h2>
 <p><strong>Research or Testing?</strong> DeepSparse Community is free for research and testing. Get started with our <a href="https://docs.neuralmagic.com/">Documentation</a>.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-27<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
