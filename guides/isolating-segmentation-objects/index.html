@@ -5,32 +5,32 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore Argoverse, a comprehensive dataset for autonomous driving tasks including 3D tracking, motion forecasting and depth estimation used in YOLO." name="description"/>
+<meta content="A concise guide on isolating segmented objects using Ultralytics." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/datasets/detect/argoverse/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="../coco/" rel="next"/>
-<link href="../../../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.ultralytics.com/guides/isolating-segmentation-objects/" rel="canonical"/>
+<link href="../triton-inference-server/" rel="prev"/>
+<link href="../../integrations/" rel="next"/>
+<link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.14" name="generator"/>
-<title>Argoverse - Ultralytics YOLOv8 Docs</title>
-<link href="../../../assets/stylesheets/main.fad675c6.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<title>Isolating Segmentation Objects - Ultralytics YOLOv8 Docs</title>
+<link href="../../assets/stylesheets/main.fad675c6.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../../../stylesheets/style.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/style.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Argoverse" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Argoverse dataset, autonomous driving, YOLO, 3D tracking, motion forecasting, LiDAR data, HD maps, ultralytics documentation" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/detect/argoverse" property="og:url"/><meta content="Argoverse" property="og:title"/><meta content="Explore Argoverse, a comprehensive dataset for autonomous driving tasks including 3D tracking, motion forecasting and depth estimation used in YOLO." property="og:description"/><meta content="https://www.argoverse.org/assets/images/reference_images/av2_ground_height.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/detect/argoverse" property="twitter:url"/><meta content="Argoverse" property="twitter:title"/><meta content="Explore Argoverse, a comprehensive dataset for autonomous driving tasks including 3D tracking, motion forecasting and depth estimation used in YOLO." property="twitter:description"/><meta content="https://www.argoverse.org/assets/images/reference_images/av2_ground_height.png" property="twitter:image"/></head>
+<meta content="Isolating Segmentation Objects" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, segmentation, Python, object detection, inference, dataset, prediction, instance segmentation, contours, binary mask, object mask, image processing" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/isolating-segmentation-objects" property="og:url"/><meta content="Isolating Segmentation Objects" property="og:title"/><meta content="A concise guide on isolating segmented objects using Ultralytics." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/62214284/1787d76b-ad5f-43f9-a39c-d45c9157f38a" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/isolating-segmentation-objects" property="twitter:url"/><meta content="Isolating Segmentation Objects" property="twitter:title"/><meta content="A concise guide on isolating segmented objects using Ultralytics." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/62214284/1787d76b-ad5f-43f9-a39c-d45c9157f38a" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#argoverse-dataset">
+<a class="md-skip" href="#isolating-segmentation-objects">
           Skip to content
         </a>
 </div>
@@ -38,7 +38,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -54,7 +54,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Argoverse
+              Isolating Segmentation Objects
             
           </span>
 </div>
@@ -189,7 +189,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../..">
+<a class="md-tabs__link" href="../..">
           
   
     
@@ -199,7 +199,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../quickstart/">
+<a class="md-tabs__link" href="../../quickstart/">
         
   
     
@@ -209,7 +209,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../modes/">
+<a class="md-tabs__link" href="../../modes/">
           
   
     
@@ -219,7 +219,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../tasks/">
+<a class="md-tabs__link" href="../../tasks/">
           
   
     
@@ -229,7 +229,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../models/">
+<a class="md-tabs__link" href="../../models/">
           
   
     
@@ -238,8 +238,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../datasets/">
           
   
     
@@ -248,8 +248,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../guides/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
           
   
     
@@ -259,7 +259,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../integrations/">
+<a class="md-tabs__link" href="../../integrations/">
           
   
     
@@ -269,7 +269,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../usage/cli/">
+<a class="md-tabs__link" href="../../usage/cli/">
           
   
     
@@ -279,7 +279,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../yolov5/">
+<a class="md-tabs__link" href="../../yolov5/">
           
   
     
@@ -289,7 +289,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../hub/">
+<a class="md-tabs__link" href="../../hub/">
           
   
     
@@ -299,7 +299,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../reference/cfg/__init__/">
+<a class="md-tabs__link" href="../../reference/cfg/__init__/">
           
   
     
@@ -309,7 +309,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../help/">
+<a class="md-tabs__link" href="../../help/">
           
   
     
@@ -330,7 +330,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLOv8 Docs
@@ -349,7 +349,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../..">
+<a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -365,7 +365,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../quickstart/">
+<a class="md-nav__link" href="../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -374,7 +374,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../modes/">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -390,42 +390,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/train/">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/benchmark/">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -437,7 +437,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../tasks/">
+<a class="md-nav__link" href="../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -453,28 +453,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/detect/">
+<a class="md-nav__link" href="../../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/segment/">
+<a class="md-nav__link" href="../../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/classify/">
+<a class="md-nav__link" href="../../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/pose/">
+<a class="md-nav__link" href="../../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -581,7 +581,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../quickstart/">
+<a class="md-nav__link" href="../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -590,7 +590,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../modes/">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -606,42 +606,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/train/">
+<a class="md-nav__link" href="../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/val/">
+<a class="md-nav__link" href="../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/predict/">
+<a class="md-nav__link" href="../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/export/">
+<a class="md-nav__link" href="../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/track/">
+<a class="md-nav__link" href="../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../modes/benchmark/">
+<a class="md-nav__link" href="../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -653,7 +653,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../tasks/">
+<a class="md-nav__link" href="../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -669,28 +669,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/detect/">
+<a class="md-nav__link" href="../../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/segment/">
+<a class="md-nav__link" href="../../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/classify/">
+<a class="md-nav__link" href="../../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../tasks/pose/">
+<a class="md-nav__link" href="../../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -702,7 +702,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../models/">
+<a class="md-nav__link" href="../../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -718,77 +718,77 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov3/">
+<a class="md-nav__link" href="../../models/yolov3/">
 <span class="md-ellipsis">
     YOLOv3
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov4/">
+<a class="md-nav__link" href="../../models/yolov4/">
 <span class="md-ellipsis">
     YOLOv4
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov5/">
+<a class="md-nav__link" href="../../models/yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov6/">
+<a class="md-nav__link" href="../../models/yolov6/">
 <span class="md-ellipsis">
     YOLOv6
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov7/">
+<a class="md-nav__link" href="../../models/yolov7/">
 <span class="md-ellipsis">
     YOLOv7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolov8/">
+<a class="md-nav__link" href="../../models/yolov8/">
 <span class="md-ellipsis">
     YOLOv8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/sam/">
+<a class="md-nav__link" href="../../models/sam/">
 <span class="md-ellipsis">
     SAM (Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/mobile-sam/">
+<a class="md-nav__link" href="../../models/mobile-sam/">
 <span class="md-ellipsis">
     MobileSAM (Mobile Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/fast-sam/">
+<a class="md-nav__link" href="../../models/fast-sam/">
 <span class="md-ellipsis">
     FastSAM (Fast Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/yolo-nas/">
+<a class="md-nav__link" href="../../models/yolo-nas/">
 <span class="md-ellipsis">
     YOLO-NAS (Neural Architecture Search)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../models/rtdetr/">
+<a class="md-nav__link" href="../../models/rtdetr/">
 <span class="md-ellipsis">
     RT-DETR (Realtime Detection Transformer)
   </span>
@@ -797,10 +797,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../">
+<a class="md-nav__link" href="../../datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -809,16 +809,16 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
             Datasets
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_6_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../datasets/detect/">
 <span class="md-ellipsis">
     Detection
   </span>
@@ -827,141 +827,77 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_6_2_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_6_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_6_2">
 <span class="md-nav__icon md-icon"></span>
             Detection
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Argoverse
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/detect/argoverse/">
 <span class="md-ellipsis">
     Argoverse
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-features">
-<span class="md-ellipsis">
-      Key Features
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-structure">
-<span class="md-ellipsis">
-      Dataset Structure
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#applications">
-<span class="md-ellipsis">
-      Applications
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-yaml">
-<span class="md-ellipsis">
-      Dataset YAML
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
-<span class="md-ellipsis">
-      Usage
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sample-data-and-annotations">
-<span class="md-ellipsis">
-      Sample Data and Annotations
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#citations-and-acknowledgments">
-<span class="md-ellipsis">
-      Citations and Acknowledgments
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../coco/">
+<a class="md-nav__link" href="../../datasets/detect/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../coco8/">
+<a class="md-nav__link" href="../../datasets/detect/coco8/">
 <span class="md-ellipsis">
     COCO8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../globalwheat2020/">
+<a class="md-nav__link" href="../../datasets/detect/globalwheat2020/">
 <span class="md-ellipsis">
     GlobalWheat2020
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../objects365/">
+<a class="md-nav__link" href="../../datasets/detect/objects365/">
 <span class="md-ellipsis">
     Objects365
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../open-images-v7/">
+<a class="md-nav__link" href="../../datasets/detect/open-images-v7/">
 <span class="md-ellipsis">
     OpenImagesV7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../sku-110k/">
+<a class="md-nav__link" href="../../datasets/detect/sku-110k/">
 <span class="md-ellipsis">
     SKU-110K
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../visdrone/">
+<a class="md-nav__link" href="../../datasets/detect/visdrone/">
 <span class="md-ellipsis">
     VisDrone
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../voc/">
+<a class="md-nav__link" href="../../datasets/detect/voc/">
 <span class="md-ellipsis">
     VOC
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../xview/">
+<a class="md-nav__link" href="../../datasets/detect/xview/">
 <span class="md-ellipsis">
     xView
   </span>
@@ -973,7 +909,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../segment/">
+<a class="md-nav__link" href="../../datasets/segment/">
 <span class="md-ellipsis">
     Segmentation
   </span>
@@ -989,14 +925,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../segment/coco/">
+<a class="md-nav__link" href="../../datasets/segment/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../segment/coco8-seg/">
+<a class="md-nav__link" href="../../datasets/segment/coco8-seg/">
 <span class="md-ellipsis">
     COCO8-seg
   </span>
@@ -1008,7 +944,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../pose/">
+<a class="md-nav__link" href="../../datasets/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -1024,21 +960,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../pose/coco/">
+<a class="md-nav__link" href="../../datasets/pose/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../pose/coco8-pose/">
+<a class="md-nav__link" href="../../datasets/pose/coco8-pose/">
 <span class="md-ellipsis">
     COCO8-pose
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../pose/tiger-pose/">
+<a class="md-nav__link" href="../../datasets/pose/tiger-pose/">
 <span class="md-ellipsis">
     Tiger-pose
   </span>
@@ -1050,7 +986,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../classify/">
+<a class="md-nav__link" href="../../datasets/classify/">
 <span class="md-ellipsis">
     Classification
   </span>
@@ -1066,70 +1002,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/caltech101/">
+<a class="md-nav__link" href="../../datasets/classify/caltech101/">
 <span class="md-ellipsis">
     Caltech 101
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/caltech256/">
+<a class="md-nav__link" href="../../datasets/classify/caltech256/">
 <span class="md-ellipsis">
     Caltech 256
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/cifar10/">
+<a class="md-nav__link" href="../../datasets/classify/cifar10/">
 <span class="md-ellipsis">
     CIFAR-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/cifar100/">
+<a class="md-nav__link" href="../../datasets/classify/cifar100/">
 <span class="md-ellipsis">
     CIFAR-100
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/fashion-mnist/">
+<a class="md-nav__link" href="../../datasets/classify/fashion-mnist/">
 <span class="md-ellipsis">
     Fashion-MNIST
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/imagenet/">
+<a class="md-nav__link" href="../../datasets/classify/imagenet/">
 <span class="md-ellipsis">
     ImageNet
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/imagenet10/">
+<a class="md-nav__link" href="../../datasets/classify/imagenet10/">
 <span class="md-ellipsis">
     ImageNet-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/imagenette/">
+<a class="md-nav__link" href="../../datasets/classify/imagenette/">
 <span class="md-ellipsis">
     Imagenette
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/imagewoof/">
+<a class="md-nav__link" href="../../datasets/classify/imagewoof/">
 <span class="md-ellipsis">
     Imagewoof
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../classify/mnist/">
+<a class="md-nav__link" href="../../datasets/classify/mnist/">
 <span class="md-ellipsis">
     MNIST
   </span>
@@ -1141,7 +1077,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../obb/">
+<a class="md-nav__link" href="../../datasets/obb/">
 <span class="md-ellipsis">
     Oriented Bounding Boxes (OBB)
   </span>
@@ -1157,7 +1093,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../obb/dota-v2/">
+<a class="md-nav__link" href="../../datasets/obb/dota-v2/">
 <span class="md-ellipsis">
     DOTAv2
   </span>
@@ -1169,7 +1105,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../track/">
+<a class="md-nav__link" href="../../datasets/track/">
 <span class="md-ellipsis">
     Multi-Object Tracking
   </span>
@@ -1187,10 +1123,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../guides/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -1199,102 +1135,156 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
             Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/yolo-common-issues/">
+<a class="md-nav__link" href="../yolo-common-issues/">
 <span class="md-ellipsis">
     YOLO Common Issues
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/yolo-performance-metrics/">
+<a class="md-nav__link" href="../yolo-performance-metrics/">
 <span class="md-ellipsis">
     YOLO Performance Metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/yolo-thread-safe-inference/">
+<a class="md-nav__link" href="../yolo-thread-safe-inference/">
 <span class="md-ellipsis">
     YOLO Thread-Safe Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/model-deployment-options/">
+<a class="md-nav__link" href="../model-deployment-options/">
 <span class="md-ellipsis">
     Model Deployment Options
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/kfold-cross-validation/">
+<a class="md-nav__link" href="../kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/hyperparameter-tuning/">
+<a class="md-nav__link" href="../hyperparameter-tuning/">
 <span class="md-ellipsis">
     Hyperparameter Tuning
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/sahi-tiled-inference/">
+<a class="md-nav__link" href="../sahi-tiled-inference/">
 <span class="md-ellipsis">
     SAHI Tiled Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/azureml-quickstart/">
+<a class="md-nav__link" href="../azureml-quickstart/">
 <span class="md-ellipsis">
     AzureML Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/conda-quickstart/">
+<a class="md-nav__link" href="../conda-quickstart/">
 <span class="md-ellipsis">
     Conda Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/docker-quickstart/">
+<a class="md-nav__link" href="../docker-quickstart/">
 <span class="md-ellipsis">
     Docker Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/raspberry-pi/">
+<a class="md-nav__link" href="../raspberry-pi/">
 <span class="md-ellipsis">
     Raspberry Pi
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/triton-inference-server/">
+<a class="md-nav__link" href="../triton-inference-server/">
 <span class="md-ellipsis">
     Triton Inference Server
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/isolating-segmentation-objects/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Isolating Segmentation Objects
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Isolating Segmentation Objects
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recipe-walk-through">
+<span class="md-ellipsis">
+      Recipe Walk Through
+    </span>
+</a>
+<nav aria-label="Recipe Walk Through" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#object-isolation-options">
+<span class="md-ellipsis">
+      Object Isolation Options
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#isolate-with-black-pixels-sub-options">
+<span class="md-ellipsis">
+      Isolate with Black Pixels: Sub-options
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#isolate-with-transparent-pixels-sub-options">
+<span class="md-ellipsis">
+      Isolate with Transparent Pixels: Sub-options
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#full-example-code">
+<span class="md-ellipsis">
+      Full Example code
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1302,7 +1292,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../integrations/">
+<a class="md-nav__link" href="../../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1318,35 +1308,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/comet/">
+<a class="md-nav__link" href="../../integrations/comet/">
 <span class="md-ellipsis">
     Comet ML
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/openvino/">
+<a class="md-nav__link" href="../../integrations/openvino/">
 <span class="md-ellipsis">
     OpenVINO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/ray-tune/">
+<a class="md-nav__link" href="../../integrations/ray-tune/">
 <span class="md-ellipsis">
     Ray Tune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/roboflow/">
+<a class="md-nav__link" href="../../integrations/roboflow/">
 <span class="md-ellipsis">
     Roboflow
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../integrations/mlflow/">
+<a class="md-nav__link" href="../../integrations/mlflow/">
 <span class="md-ellipsis">
     MLflow
   </span>
@@ -1370,35 +1360,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/cli/">
+<a class="md-nav__link" href="../../usage/cli/">
 <span class="md-ellipsis">
     CLI
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/python/">
+<a class="md-nav__link" href="../../usage/python/">
 <span class="md-ellipsis">
     Python
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/callbacks/">
+<a class="md-nav__link" href="../../usage/callbacks/">
 <span class="md-ellipsis">
     Callbacks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/cfg/">
+<a class="md-nav__link" href="../../usage/cfg/">
 <span class="md-ellipsis">
     Configuration
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../usage/engine/">
+<a class="md-nav__link" href="../../usage/engine/">
 <span class="md-ellipsis">
     Advanced Customization
   </span>
@@ -1410,7 +1400,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../yolov5/">
+<a class="md-nav__link" href="../../yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
@@ -1426,7 +1416,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/quickstart_tutorial/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -1447,28 +1437,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/environments/aws_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/aws_quickstart_tutorial/">
 <span class="md-ellipsis">
     Amazon Web Services (AWS)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/environments/google_cloud_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/google_cloud_quickstart_tutorial/">
 <span class="md-ellipsis">
     Google Cloud (GCP)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/environments/azureml_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/azureml_quickstart_tutorial/">
 <span class="md-ellipsis">
     AzureML
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/environments/docker_image_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/docker_image_quickstart_tutorial/">
 <span class="md-ellipsis">
     Docker Image
   </span>
@@ -1492,112 +1482,112 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/train_custom_data/">
+<a class="md-nav__link" href="../../yolov5/tutorials/train_custom_data/">
 <span class="md-ellipsis">
     Train Custom Data
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/tips_for_best_training_results/">
+<a class="md-nav__link" href="../../yolov5/tutorials/tips_for_best_training_results/">
 <span class="md-ellipsis">
     Tips for Best Training Results
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/multi_gpu_training/">
+<a class="md-nav__link" href="../../yolov5/tutorials/multi_gpu_training/">
 <span class="md-ellipsis">
     Multi-GPU Training
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/pytorch_hub_model_loading/">
+<a class="md-nav__link" href="../../yolov5/tutorials/pytorch_hub_model_loading/">
 <span class="md-ellipsis">
     PyTorch Hub
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/model_export/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_export/">
 <span class="md-ellipsis">
     TFLite, ONNX, CoreML, TensorRT Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/running_on_jetson_nano/">
+<a class="md-nav__link" href="../../yolov5/tutorials/running_on_jetson_nano/">
 <span class="md-ellipsis">
     NVIDIA Jetson Nano Deployment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/test_time_augmentation/">
+<a class="md-nav__link" href="../../yolov5/tutorials/test_time_augmentation/">
 <span class="md-ellipsis">
     Test-Time Augmentation (TTA)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/model_ensembling/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_ensembling/">
 <span class="md-ellipsis">
     Model Ensembling
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/model_pruning_and_sparsity/">
+<a class="md-nav__link" href="../../yolov5/tutorials/model_pruning_and_sparsity/">
 <span class="md-ellipsis">
     Pruning/Sparsity Tutorial
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/hyperparameter_evolution/">
+<a class="md-nav__link" href="../../yolov5/tutorials/hyperparameter_evolution/">
 <span class="md-ellipsis">
     Hyperparameter evolution
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/transfer_learning_with_frozen_layers/">
+<a class="md-nav__link" href="../../yolov5/tutorials/transfer_learning_with_frozen_layers/">
 <span class="md-ellipsis">
     Transfer learning with frozen layers
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/architecture_description/">
+<a class="md-nav__link" href="../../yolov5/tutorials/architecture_description/">
 <span class="md-ellipsis">
     Architecture Summary
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/roboflow_datasets_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/roboflow_datasets_integration/">
 <span class="md-ellipsis">
     Roboflow Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/neural_magic_pruning_quantization/">
+<a class="md-nav__link" href="../../yolov5/tutorials/neural_magic_pruning_quantization/">
 <span class="md-ellipsis">
     Neural Magic's DeepSparse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/comet_logging_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/comet_logging_integration/">
 <span class="md-ellipsis">
     Comet Logging
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../yolov5/tutorials/clearml_logging_integration/">
+<a class="md-nav__link" href="../../yolov5/tutorials/clearml_logging_integration/">
 <span class="md-ellipsis">
     Clearml Logging
   </span>
@@ -1612,7 +1602,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../hub/">
+<a class="md-nav__link" href="../../hub/">
 <span class="md-ellipsis">
     HUB
   </span>
@@ -1628,35 +1618,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/quickstart/">
+<a class="md-nav__link" href="../../hub/quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/datasets/">
+<a class="md-nav__link" href="../../hub/datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/projects/">
+<a class="md-nav__link" href="../../hub/projects/">
 <span class="md-ellipsis">
     Projects
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/models/">
+<a class="md-nav__link" href="../../hub/models/">
 <span class="md-ellipsis">
     Models
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/integrations/">
+<a class="md-nav__link" href="../../hub/integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1665,7 +1655,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_11_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../hub/app/">
+<a class="md-nav__link" href="../../hub/app/">
 <span class="md-ellipsis">
     Ultralytics HUB App
   </span>
@@ -1681,14 +1671,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/app/ios/">
+<a class="md-nav__link" href="../../hub/app/ios/">
 <span class="md-ellipsis">
     iOS
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/app/android/">
+<a class="md-nav__link" href="../../hub/app/android/">
 <span class="md-ellipsis">
     Android
   </span>
@@ -1698,7 +1688,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../hub/inference_api/">
+<a class="md-nav__link" href="../../hub/inference_api/">
 <span class="md-ellipsis">
     Inference API
   </span>
@@ -1736,7 +1726,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/cfg/__init__/">
+<a class="md-nav__link" href="../../reference/cfg/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
@@ -1760,56 +1750,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/annotator/">
+<a class="md-nav__link" href="../../reference/data/annotator/">
 <span class="md-ellipsis">
     annotator
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/augment/">
+<a class="md-nav__link" href="../../reference/data/augment/">
 <span class="md-ellipsis">
     augment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/base/">
+<a class="md-nav__link" href="../../reference/data/base/">
 <span class="md-ellipsis">
     base
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/build/">
+<a class="md-nav__link" href="../../reference/data/build/">
 <span class="md-ellipsis">
     build
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/converter/">
+<a class="md-nav__link" href="../../reference/data/converter/">
 <span class="md-ellipsis">
     converter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/dataset/">
+<a class="md-nav__link" href="../../reference/data/dataset/">
 <span class="md-ellipsis">
     dataset
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/loaders/">
+<a class="md-nav__link" href="../../reference/data/loaders/">
 <span class="md-ellipsis">
     loaders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/data/utils/">
+<a class="md-nav__link" href="../../reference/data/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1833,49 +1823,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/exporter/">
+<a class="md-nav__link" href="../../reference/engine/exporter/">
 <span class="md-ellipsis">
     exporter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/model/">
+<a class="md-nav__link" href="../../reference/engine/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/predictor/">
+<a class="md-nav__link" href="../../reference/engine/predictor/">
 <span class="md-ellipsis">
     predictor
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/results/">
+<a class="md-nav__link" href="../../reference/engine/results/">
 <span class="md-ellipsis">
     results
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/trainer/">
+<a class="md-nav__link" href="../../reference/engine/trainer/">
 <span class="md-ellipsis">
     trainer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/tuner/">
+<a class="md-nav__link" href="../../reference/engine/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/engine/validator/">
+<a class="md-nav__link" href="../../reference/engine/validator/">
 <span class="md-ellipsis">
     validator
   </span>
@@ -1899,28 +1889,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/hub/__init__/">
+<a class="md-nav__link" href="../../reference/hub/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/hub/auth/">
+<a class="md-nav__link" href="../../reference/hub/auth/">
 <span class="md-ellipsis">
     auth
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/hub/session/">
+<a class="md-nav__link" href="../../reference/hub/session/">
 <span class="md-ellipsis">
     session
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/hub/utils/">
+<a class="md-nav__link" href="../../reference/hub/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1944,7 +1934,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/fastsam/model/">
+<a class="md-nav__link" href="../../reference/models/fastsam/model/">
 <span class="md-ellipsis">
     fastsam
   </span>
@@ -1952,7 +1942,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/nas/model/">
+<a class="md-nav__link" href="../../reference/models/nas/model/">
 <span class="md-ellipsis">
     nas
   </span>
@@ -1960,7 +1950,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/rtdetr/model/">
+<a class="md-nav__link" href="../../reference/models/rtdetr/model/">
 <span class="md-ellipsis">
     rtdetr
   </span>
@@ -1968,7 +1958,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/sam/amg/">
+<a class="md-nav__link" href="../../reference/models/sam/amg/">
 <span class="md-ellipsis">
     sam
   </span>
@@ -1976,7 +1966,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/utils/loss/">
+<a class="md-nav__link" href="../../reference/models/utils/loss/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -1984,7 +1974,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/models/yolo/classify/predict/">
+<a class="md-nav__link" href="../../reference/models/yolo/classify/predict/">
 <span class="md-ellipsis">
     yolo
   </span>
@@ -2009,14 +1999,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/nn/autobackend/">
+<a class="md-nav__link" href="../../reference/nn/autobackend/">
 <span class="md-ellipsis">
     autobackend
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/nn/modules/block/">
+<a class="md-nav__link" href="../../reference/nn/modules/block/">
 <span class="md-ellipsis">
     modules
   </span>
@@ -2024,7 +2014,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/nn/tasks/">
+<a class="md-nav__link" href="../../reference/nn/tasks/">
 <span class="md-ellipsis">
     tasks
   </span>
@@ -2048,35 +2038,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/trackers/basetrack/">
+<a class="md-nav__link" href="../../reference/trackers/basetrack/">
 <span class="md-ellipsis">
     basetrack
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/trackers/bot_sort/">
+<a class="md-nav__link" href="../../reference/trackers/bot_sort/">
 <span class="md-ellipsis">
     bot_sort
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/trackers/byte_tracker/">
+<a class="md-nav__link" href="../../reference/trackers/byte_tracker/">
 <span class="md-ellipsis">
     byte_tracker
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/trackers/track/">
+<a class="md-nav__link" href="../../reference/trackers/track/">
 <span class="md-ellipsis">
     track
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/trackers/utils/gmc/">
+<a class="md-nav__link" href="../../reference/trackers/utils/gmc/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -2101,28 +2091,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/__init__/">
+<a class="md-nav__link" href="../../reference/utils/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/autobatch/">
+<a class="md-nav__link" href="../../reference/utils/autobatch/">
 <span class="md-ellipsis">
     autobatch
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/benchmarks/">
+<a class="md-nav__link" href="../../reference/utils/benchmarks/">
 <span class="md-ellipsis">
     benchmarks
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/utils/callbacks/base/">
+<a class="md-nav__link" href="../../reference/utils/callbacks/base/">
 <span class="md-ellipsis">
     callbacks
   </span>
@@ -2130,105 +2120,105 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/checks/">
+<a class="md-nav__link" href="../../reference/utils/checks/">
 <span class="md-ellipsis">
     checks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/dist/">
+<a class="md-nav__link" href="../../reference/utils/dist/">
 <span class="md-ellipsis">
     dist
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/downloads/">
+<a class="md-nav__link" href="../../reference/utils/downloads/">
 <span class="md-ellipsis">
     downloads
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/errors/">
+<a class="md-nav__link" href="../../reference/utils/errors/">
 <span class="md-ellipsis">
     errors
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/files/">
+<a class="md-nav__link" href="../../reference/utils/files/">
 <span class="md-ellipsis">
     files
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/instance/">
+<a class="md-nav__link" href="../../reference/utils/instance/">
 <span class="md-ellipsis">
     instance
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/loss/">
+<a class="md-nav__link" href="../../reference/utils/loss/">
 <span class="md-ellipsis">
     loss
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/metrics/">
+<a class="md-nav__link" href="../../reference/utils/metrics/">
 <span class="md-ellipsis">
     metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/ops/">
+<a class="md-nav__link" href="../../reference/utils/ops/">
 <span class="md-ellipsis">
     ops
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/patches/">
+<a class="md-nav__link" href="../../reference/utils/patches/">
 <span class="md-ellipsis">
     patches
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/plotting/">
+<a class="md-nav__link" href="../../reference/utils/plotting/">
 <span class="md-ellipsis">
     plotting
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/tal/">
+<a class="md-nav__link" href="../../reference/utils/tal/">
 <span class="md-ellipsis">
     tal
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/torch_utils/">
+<a class="md-nav__link" href="../../reference/utils/torch_utils/">
 <span class="md-ellipsis">
     torch_utils
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/triton/">
+<a class="md-nav__link" href="../../reference/utils/triton/">
 <span class="md-ellipsis">
     triton
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/utils/tuner/">
+<a class="md-nav__link" href="../../reference/utils/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
@@ -2243,7 +2233,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_13" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../help/">
+<a class="md-nav__link" href="../../help/">
 <span class="md-ellipsis">
     Help
   </span>
@@ -2259,63 +2249,63 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/FAQ/">
+<a class="md-nav__link" href="../../help/FAQ/">
 <span class="md-ellipsis">
     Frequently Asked Questions (FAQ)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/contributing/">
+<a class="md-nav__link" href="../../help/contributing/">
 <span class="md-ellipsis">
     Contributing Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/CI/">
+<a class="md-nav__link" href="../../help/CI/">
 <span class="md-ellipsis">
     Continuous Integration (CI) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/CLA/">
+<a class="md-nav__link" href="../../help/CLA/">
 <span class="md-ellipsis">
     Contributor License Agreement (CLA)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/minimum_reproducible_example/">
+<a class="md-nav__link" href="../../help/minimum_reproducible_example/">
 <span class="md-ellipsis">
     Minimum Reproducible Example (MRE) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/code_of_conduct/">
+<a class="md-nav__link" href="../../help/code_of_conduct/">
 <span class="md-ellipsis">
     Code of Conduct
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/environmental-health-safety/">
+<a class="md-nav__link" href="../../help/environmental-health-safety/">
 <span class="md-ellipsis">
     Environmental, Health and Safety (EHS) Policy
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/security/">
+<a class="md-nav__link" href="../../help/security/">
 <span class="md-ellipsis">
     Security Policy
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../help/privacy/">
+<a class="md-nav__link" href="../../help/privacy/">
 <span class="md-ellipsis">
     Privacy Policy
   </span>
@@ -2339,51 +2329,41 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#key-features">
+<a class="md-nav__link" href="#recipe-walk-through">
 <span class="md-ellipsis">
-      Key Features
+      Recipe Walk Through
+    </span>
+</a>
+<nav aria-label="Recipe Walk Through" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#object-isolation-options">
+<span class="md-ellipsis">
+      Object Isolation Options
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-structure">
+<a class="md-nav__link" href="#isolate-with-black-pixels-sub-options">
 <span class="md-ellipsis">
-      Dataset Structure
+      Isolate with Black Pixels: Sub-options
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#applications">
+<a class="md-nav__link" href="#isolate-with-transparent-pixels-sub-options">
 <span class="md-ellipsis">
-      Applications
+      Isolate with Transparent Pixels: Sub-options
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-yaml">
-<span class="md-ellipsis">
-      Dataset YAML
-    </span>
-</a>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
+<a class="md-nav__link" href="#full-example-code">
 <span class="md-ellipsis">
-      Usage
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sample-data-and-annotations">
-<span class="md-ellipsis">
-      Sample Data and Annotations
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#citations-and-acknowledgments">
-<span class="md-ellipsis">
-      Citations and Acknowledgments
+      Full Example code
     </span>
 </a>
 </li>
@@ -2394,161 +2374,332 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/datasets/detect/argoverse.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/isolating-segmentation-objects.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="argoverse-dataset">Argoverse Dataset</h1>
-<p>The <a href="https://www.argoverse.org/">Argoverse</a> dataset is a collection of data designed to support research in autonomous driving tasks, such as 3D tracking, motion forecasting, and stereo depth estimation. Developed by Argo AI, the dataset provides a wide range of high-quality sensor data, including high-resolution images, LiDAR point clouds, and map data.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The Argoverse dataset *.zip file required for training was removed from Amazon S3 after the shutdown of Argo AI by Ford, but we have made it available for manual download on <a href="https://drive.google.com/file/d/1st9qW3BeIwQsnR0t8mRpvbsSWIo16ACi/view?usp=drive_link">Google Drive</a>.</p>
-</div>
-<h2 id="key-features">Key Features</h2>
-<ul>
-<li>Argoverse contains over 290K labeled 3D object tracks and 5 million object instances across 1,263 distinct scenes.</li>
-<li>The dataset includes high-resolution camera images, LiDAR point clouds, and richly annotated HD maps.</li>
-<li>Annotations include 3D bounding boxes for objects, object tracks, and trajectory information.</li>
-<li>Argoverse provides multiple subsets for different tasks, such as 3D tracking, motion forecasting, and stereo depth estimation.</li>
-</ul>
-<h2 id="dataset-structure">Dataset Structure</h2>
-<p>The Argoverse dataset is organized into three main subsets:</p>
+<h1 id="isolating-segmentation-objects">Isolating Segmentation Objects</h1>
+<p>After performing the <a href="../../tasks/segment/">Segment Task</a>, it's sometimes desirable to extract the isolated objects from the inference results. This guide provides a generic recipe on how to accomplish this using the Ultralytics <a href="../../modes/predict/">Predict Mode</a>.</p>
+<p align="center">
+<img alt="Example Isolated Object Segmentation" src="https://github.com/ultralytics/ultralytics/assets/62214284/1787d76b-ad5f-43f9-a39c-d45c9157f38a"/>
+</p>
+<h2 id="recipe-walk-through">Recipe Walk Through</h2>
 <ol>
-<li><strong>Argoverse 3D Tracking</strong>: This subset contains 113 scenes with over 290K labeled 3D object tracks, focusing on 3D object tracking tasks. It includes LiDAR point clouds, camera images, and sensor calibration information.</li>
-<li><strong>Argoverse Motion Forecasting</strong>: This subset consists of 324K vehicle trajectories collected from 60 hours of driving data, suitable for motion forecasting tasks.</li>
-<li><strong>Argoverse Stereo Depth Estimation</strong>: This subset is designed for stereo depth estimation tasks and includes over 10K stereo image pairs with corresponding LiDAR point clouds for ground truth depth estimation.</li>
-</ol>
-<h2 id="applications">Applications</h2>
-<p>The Argoverse dataset is widely used for training and evaluating deep learning models in autonomous driving tasks such as 3D object tracking, motion forecasting, and stereo depth estimation. The dataset's diverse set of sensor data, object annotations, and map information make it a valuable resource for researchers and practitioners in the field of autonomous driving.</p>
-<h2 id="dataset-yaml">Dataset YAML</h2>
-<p>A YAML (Yet Another Markup Language) file is used to define the dataset configuration. It contains information about the dataset's paths, classes, and other relevant information. For the case of the Argoverse dataset, the <code>Argoverse.yaml</code> file is maintained at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/Argoverse.yaml">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/Argoverse.yaml</a>.</p>
-<div class="admonition example">
-<p class="admonition-title">ultralytics/cfg/datasets/Argoverse.yaml</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Ultralytics YOLO 🚀, AGPL-3.0 license</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1"># Argoverse-HD dataset (ring-front-center camera) http://www.cs.cmu.edu/~mengtial/proj/streaming/ by Argo AI</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Example usage: yolo train data=Argoverse.yaml</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># parent</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># ├── ultralytics</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># └── datasets</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1">#     └── Argoverse  ← downloads here (31.5 GB)</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/Argoverse</span><span class="w">  </span><span class="c1"># dataset root dir</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Argoverse-1.1/images/train/</span><span class="w">  </span><span class="c1"># train images (relative to 'path') 39384 images</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Argoverse-1.1/images/val/</span><span class="w">  </span><span class="c1"># val images (relative to 'path') 15062 images</span>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Argoverse-1.1/images/test/</span><span class="w">  </span><span class="c1"># test images (optional) https://eval.ai/web/challenges/challenge-page/800/overview</span>
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="c1"># Classes</span>
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="nt">names</span><span class="p">:</span>
-<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
-<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
-<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
-<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">  </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">motorcycle</span>
-<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">  </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bus</span>
-<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">  </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">truck</span>
-<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">  </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traffic_light</span>
-<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">  </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stop_sign</span>
-<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>
-<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
-<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">  </span><span class="no">import json</span>
-<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">  </span><span class="no">from tqdm import tqdm</span>
-<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
-<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
-<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>
-<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">  </span><span class="no">def argoverse2yolo(set):</span>
-<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">      </span><span class="no">labels = {}</span>
-<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">      </span><span class="no">a = json.load(open(set, "rb"))</span>
-<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">      </span><span class="no">for annot in tqdm(a['annotations'], desc=f"Converting {set} to YOLOv5 format..."):</span>
-<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">          </span><span class="no">img_id = annot['image_id']</span>
-<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">          </span><span class="no">img_name = a['images'][img_id]['name']</span>
-<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">          </span><span class="no">img_label_name = f'{img_name[:-3]}txt'</span>
-<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">          </span><span class="no">cls = annot['category_id']  # instance class id</span>
-<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">          </span><span class="no">x_center, y_center, width, height = annot['bbox']</span>
-<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">          </span><span class="no">x_center = (x_center + width / 2) / 1920.0  # offset and scale</span>
-<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">          </span><span class="no">y_center = (y_center + height / 2) / 1200.0  # offset and scale</span>
-<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">          </span><span class="no">width /= 1920.0  # scale</span>
-<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">          </span><span class="no">height /= 1200.0  # scale</span>
-<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">          </span><span class="no">img_dir = set.parents[2] / 'Argoverse-1.1' / 'labels' / a['seq_dirs'][a['images'][annot['image_id']]['sid']]</span>
-<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">          </span><span class="no">if not img_dir.exists():</span>
-<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">              </span><span class="no">img_dir.mkdir(parents=True, exist_ok=True)</span>
-<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a>
-<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">          </span><span class="no">k = str(img_dir / img_label_name)</span>
-<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">          </span><span class="no">if k not in labels:</span>
-<a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">              </span><span class="no">labels[k] = []</span>
-<a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">          </span><span class="no">labels[k].append(f"{cls} {x_center} {y_center} {width} {height}\n")</span>
-<a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">      </span><span class="no">for k in labels:</span>
-<a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">          </span><span class="no">with open(k, "w") as f:</span>
-<a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">              </span><span class="no">f.writelines(labels[k])</span>
-<a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a>
-<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">  </span><span class="no"># Download 'https://argoverse-hd.s3.us-east-2.amazonaws.com/Argoverse-HD-Full.zip' (deprecated S3 link)</span>
-<a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">  </span><span class="no">dir = Path(yaml['path'])  # dataset root dir</span>
-<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">  </span><span class="no">urls = ['https://drive.google.com/file/d/1st9qW3BeIwQsnR0t8mRpvbsSWIo16ACi/view?usp=drive_link']</span>
-<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">  </span><span class="no">download(urls, dir=dir)</span>
-<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a>
-<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">  </span><span class="no"># Convert</span>
-<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">  </span><span class="no">annotations_dir = 'Argoverse-HD/annotations/'</span>
-<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">  </span><span class="no">(dir / 'Argoverse-1.1' / 'tracking').rename(dir / 'Argoverse-1.1' / 'images')  # rename 'tracking' to 'images'</span>
-<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">  </span><span class="no">for d in "train.json", "val.json":</span>
-<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">      </span><span class="no">argoverse2yolo(dir / annotations_dir / d)  # convert Argoverse annotations to YOLO labels</span>
+<li>
+<p>Begin with the necessary imports</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 </code></pre></div>
-</div>
-<h2 id="usage">Usage</h2>
-<p>To train a YOLOv8n model on the Argoverse dataset for 100 epochs with an image size of 640, you can use the following code snippets. For a comprehensive list of available arguments, refer to the model <a href="../../../modes/train/">Training</a> page.</p>
+<details class="tip" open="open">
+<summary>Ultralytics Install</summary>
+<p>See the Ultralytics <a href="../../quickstart/#install-ultralytics">Quickstart</a> Installation section for a quick walkthrough on installing the required libraries.</p>
+</details>
+<hr/>
+</li>
+<li>
+<p>Load a model and run <code>predict()</code> method on a source.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">m</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-seg.pt'</span><span class="p">)</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">res</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+</code></pre></div>
+<details class="question">
+<summary>No Prediction Arguments?</summary>
+<p>Without specifying a source, the example images from the library will be used:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>'ultralytics/assets/bus.jpg'
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>'ultralytics/assets/zidane.jpg'
+</code></pre></div>
+<p>This is helpful for rapid testing with the <code>predict()</code> method.</p>
+</details>
+<p>For additional information about Segmentation Models, visit the <a href="../../tasks/segment/#models">Segment Task</a> page. To learn more about <code>predict()</code> method, see <a href="../../modes/predict/">Predict Mode</a> section of the Documentation.</p>
+<hr/>
+</li>
+<li>
+<p>Now iterate over the results and the contours. For workflows that want to save an image to file, the source image <code>base-name</code> and the detection <code>class-label</code> are retrieved for later use (optional).</p>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># (2) Iterate detection results (helpful for multiple images)</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">orig_img</span><span class="p">)</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="n">img_name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="c1"># source image base-name</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span class="c1"># Iterate each object contour (multiple detections)</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="k">for</span> <span class="n">ci</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>        <span class="c1"># (1) Get detection class name</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>        <span class="n">label</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()]</span>
+</code></pre></div>
+<ol>
+<li>To learn more about working with detection results, see <a href="../../modes/predict/#boxes">Boxes Section for Predict Mode</a>.</li>
+<li>To learn more about <code>predict()</code> results see <a href="../../modes/predict/#working-with-results">Working with Results for Predict Mode</a></li>
+</ol>
+<details class="info">
+<summary>For-Loop</summary>
+<p>A single image will only iterate the first loop once. A single image with only a single detection will iterate each loop <em>only</em> once.</p>
+</details>
+<hr/>
+</li>
+<li>
+<p>Start with generating a binary mask from the source image and then draw a filled contour onto the mask. This will allow the object to be isolated from the other parts of the image. An example from <code>bus.jpg</code> for one of the detected <code>person</code> class objects is shown on the right.</p>
+<p><img _="," align="right" alt="Binary Mask Image" src="https://github.com/ultralytics/ultralytics/assets/62214284/59bce684-fdda-4b17-8104-0b4b51149aca" width="240">
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Create binary mask</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">b_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># (1) Extract contour result</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">contour</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">xy</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># (2) Changing the type</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">contour</span> <span class="o">=</span> <span class="n">contour</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="c1"># (3) Reshaping</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="n">contour</span> <span class="o">=</span> <span class="n">contour</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="c1"># Draw contour onto mask</span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="n">_</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">b_mask</span><span class="p">,</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>                    <span class="p">[</span><span class="n">contour</span><span class="p">],</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>                    <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>                    <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>                    <span class="n">cv</span><span class="o">.</span><span class="n">FILLED</span><span class="p">)</span>
+</code></pre></div></img></p>
+<ol>
+<li>
+<p>For more info on <code>c.masks.xy</code> see <a href="../../modes/predict/#masks">Masks Section from Predict Mode</a>.</p>
+</li>
+<li>
+<p>Here, the values are cast into <code>np.int32</code> for compatibility with <code>drawContours()</code> function from OpenCV.</p>
+</li>
+<li>
+<p>The OpenCV <code>drawContours()</code> function expects contours to have a shape of <code>[N, 1, 2]</code> expand section below for more details.</p>
+</li>
+</ol>
+<p><details>
+<summary> Expand to understand what is happening when defining the <code>contour</code> variable.</summary>
+<p></p>
+<ul>
+<li>
+<p><code>c.masks.xy</code> :: Provides the coordinates of the mask contour points in the format  <code>(x, y)</code>. For more details, refer to the <a href="../../modes/predict/#masks">Masks Section from Predict Mode</a>.</p>
+</li>
+<li>
+<p><code>.pop()</code> :: As <code>masks.xy</code> is a list containing a single element, this element is extracted using the <code>pop()</code> method.</p>
+</li>
+<li>
+<p><code>.astype(np.int32)</code> :: Using <code>masks.xy</code> will return with a data type of <code>float32</code>, but this won't be compatible with the OpenCV <code>drawContours()</code> function, so this will change the data type to <code>int32</code> for compatibility.</p>
+</li>
+<li>
+<p><code>.reshape(-1, 1, 2)</code> :: Reformats the data into the required shape of of <code>[N, 1, 2]</code> where <code>N</code> is the number of contour points, with each point represented by a single entry <code>1</code>, and the entry is composed of <code>2</code> values. The <code>-1</code> denotes that the number of values along this dimension is flexible.</p>
+</li>
+</ul>
+<p></p></details>
+<p></p>
+<details>
+<summary> Expand for an explanation of the <code>drawContours()</code> configuration.</summary>
+<p></p>
+<ul>
+<li>
+<p>Encapsulating the <code>contour</code> variable within square brackets, <code>[contour]</code>, was found to effectively generate the desired contour mask during testing.</p>
+</li>
+<li>
+<p>The value <code>-1</code> specified for the <code>drawContours()</code> parameter instructs the function to draw all contours present in the image.</p>
+</li>
+<li>
+<p>The <code>tuple</code> <code>(255, 255, 255)</code> represents the color white, which is the desired color for drawing the contour in this binary mask.</p>
+</li>
+<li>
+<p>The addition of <code>cv.FILLED</code> will color all pixels enclosed by the contour boundary the same, in this case, all enclosed pixels will be white.</p>
+</li>
+<li>
+<p>See <a href="https://docs.opencv.org/4.8.0/d6/d6e/group__imgproc__draw.html#ga746c0625f1781f1ffc9056259103edbc">OpenCV Documentation on <code>drawContours()</code></a> for more information.</p>
+</li>
+</ul>
+<p></p></details>
+<p></p></p>
+<hr/>
+</li>
+<li>
+<p>Next the there are 2 options for how to move forward with the image from this point and a subsequent option for each.</p>
+<h3 id="object-isolation-options">Object Isolation Options</h3>
 <div class="admonition example">
-<p class="admonition-title">Train Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Black Background Pixels</label><label for="__tabbed_1_2">Transparent Background Pixels</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'Argoverse.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Create 3-channel mask</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">mask3ch</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">b_mask</span><span class="p">,</span> <span class="n">cv</span><span class="o">.</span><span class="n">COLOR_GRAY2BGR</span><span class="p">)</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># Isolate object with binary mask</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">isolated</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">mask3ch</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
 </code></pre></div>
+<details class="question">
+<summary>How does this work?</summary>
+<ul>
+<li>
+<p>First, the binary mask is first converted from a single-channel image to a three-channel image. This conversion is necessary for the subsequent step where the mask and the original image are combined. Both images must have the same number of channels to be compatible with the blending operation.</p>
+</li>
+<li>
+<p>The original image and the three-channel binary mask are merged using the OpenCV function <code>bitwise_and()</code>. This operation retains <u>only</u> pixel values that are greater than zero <code>(&gt; 0)</code> from both images. Since the mask pixels are greater than zero <code>(&gt; 0)</code> <u>only</u> within the contour region, the pixels remaining from the original image are those that overlap with the contour.</p>
+</li>
+</ul>
+</details>
+<h3 id="isolate-with-black-pixels-sub-options">Isolate with Black Pixels: Sub-options</h3>
+<details class="info">
+<summary>Full-size Image</summary>
+<p>There are no additional steps required if keeping full size image.</p>
+<p><figure markdown="">
+<img alt="Example Full size Isolated Object Image Black Background" src="https://github.com/ultralytics/ultralytics/assets/62214284/845c00d0-52a6-4b1e-8010-4ba73e011b99" width="240">
+<figcaption>Example full-size output</figcaption>
+</img></figure></p>
+</details>
+<details class="info">
+<summary>Cropped object Image</summary>
+<p>Additional steps required to crop image to only include object region.</p>
+<p><img align="right" alt="Example Crop Isolated Object Image Black Background" src="https://github.com/ultralytics/ultralytics/assets/62214284/103dbf90-c169-4f77-b791-76cdf09c6f22">
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># (1) Bounding box coordinates</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Crop image to object region</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">iso_crop</span> <span class="o">=</span> <span class="n">isolated</span><span class="p">[</span><span class="n">y1</span><span class="p">:</span><span class="n">y2</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span><span class="n">x2</span><span class="p">]</span>
+</code></pre></div></img></p>
+<ol>
+<li>For more information on bounding box results, see <a href="../../modes/predict/#boxes">Boxes Section from Predict Mode</a></li>
+</ol>
+<details class="question">
+<summary>What does this code do?</summary>
+<ul>
+<li>
+<p>The <code>c.boxes.xyxy.cpu().numpy()</code> call retrieves the bounding boxes as a NumPy array in the <code>xyxy</code> format, where <code>xmin</code>, <code>ymin</code>, <code>xmax</code>, and <code>ymax</code> represent the coordinates of the bounding box rectangle. See <a href="../../modes/predict/#boxes">Boxes Section from Predict Mode</a> for more details.</p>
+</li>
+<li>
+<p>The <code>squeeze()</code> operation removes any unnecessary dimensions from the NumPy array, ensuring it has the expected shape.</p>
+</li>
+<li>
+<p>Converting the coordinate values using <code>.astype(np.int32)</code> changes the box coordinates data type from <code>float32</code> to <code>int32</code>, making them compatible for image cropping using index slices.</p>
+</li>
+<li>
+<p>Finally, the bounding box region is cropped from the image using index slicing. The bounds are defined by the <code>[ymin:ymax, xmin:xmax]</code> coordinates of the detection bounding box.</p>
+</li>
+</ul>
+</details>
+</details>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>Argoverse.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Isolate object with transparent background (when saved as PNG)</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">isolated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">([</span><span class="n">img</span><span class="p">,</span> <span class="n">b_mask</span><span class="p">])</span>
 </code></pre></div>
+<details class="question">
+<summary>How does this work?</summary>
+<ul>
+<li>Using the NumPy <code>dstack()</code> function (array stacking along depth-axis) in conjunction with the binary mask generated, will create an image with four channels. This allows for all pixels outside of the object contour to be transparent when saving as a <code>PNG</code> file.</li>
+</ul>
+</details>
+<h3 id="isolate-with-transparent-pixels-sub-options">Isolate with Transparent Pixels: Sub-options</h3>
+<details class="info">
+<summary>Full-size Image</summary>
+<p>There are no additional steps required if keeping full size image.</p>
+<p><figure markdown="">
+<img alt="Example Full size Isolated Object Image No Background" src="https://github.com/ultralytics/ultralytics/assets/62214284/b1043ee0-369a-4019-941a-9447a9771042" width="240"/>
+<figcaption>Example full-size output + transparent background</figcaption>
+</figure></p>
+</details>
+<details class="info">
+<summary>Cropped object Image</summary>
+<p>Additional steps required to crop image to only include object region.</p>
+<p><img align="right" alt="Example Crop Isolated Object Image No Background" src="https://github.com/ultralytics/ultralytics/assets/62214284/5910244f-d1e1-44af-af7f-6dea4c688da8"/>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># (1) Bounding box coordinates</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="c1"># Crop image to object region</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">iso_crop</span> <span class="o">=</span> <span class="n">isolated</span><span class="p">[</span><span class="n">y1</span><span class="p">:</span><span class="n">y2</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span><span class="n">x2</span><span class="p">]</span>
+</code></pre></div></p>
+<ol>
+<li>For more information on bounding box results, see <a href="../../modes/predict/#boxes">Boxes Section from Predict Mode</a></li>
+</ol>
+<details class="question">
+<summary>What does this code do?</summary>
+<ul>
+<li>
+<p>When using <code>c.boxes.xyxy.cpu().numpy()</code>, the bounding boxes are returned as a NumPy array, using the <code>xyxy</code> box coordinates format, which correspond to the points <code>xmin, ymin, xmax, ymax</code> for the bounding box (rectangle), see <a href="../../modes/predict/#boxes">Boxes Section from Predict Mode</a> for more information.</p>
+</li>
+<li>
+<p>Adding <code>squeeze()</code> ensures that any extraneous dimensions are removed from the NumPy array.</p>
+</li>
+<li>
+<p>Converting the coordinate values using <code>.astype(np.int32)</code> changes the box coordinates data type from <code>float32</code> to <code>int32</code> which will be compatible when cropping the image using index slices.</p>
+</li>
+<li>
+<p>Finally the image region for the bounding box is cropped using index slicing, where the bounds are set using the <code>[ymin:ymax, xmin:xmax]</code> coordinates of the detection bounding box.</p>
+</li>
+</ul>
+</details>
+</details>
 </div>
 </div>
 </input></input></div>
 </div>
-<h2 id="sample-data-and-annotations">Sample Data and Annotations</h2>
-<p>The Argoverse dataset contains a diverse set of sensor data, including camera images, LiDAR point clouds, and HD map information, providing rich context for autonomous driving tasks. Here are some examples of data from the dataset, along with their corresponding annotations:</p>
-<p><img alt="Dataset sample image" src="https://www.argoverse.org/assets/images/reference_images/av2_ground_height.png"/></p>
+<details class="question">
+<summary>What if I want the cropped object <strong>including</strong> the background?</summary>
+<p>This is a built in feature for the Ultralytics library. See the <code>save_crop</code> argument for  <a href="../../modes/predict/#inference-arguments">Predict Mode Inference Arguments</a> for details.</p>
+</details>
+<hr/>
+</li>
+<li>
+<p><u>What to do next is entirely left to the you as the developer.</u> A basic example of one possible next step (saving the image to file for future use) is shown.</p>
 <ul>
-<li><strong>Argoverse 3D Tracking</strong>: This image demonstrates an example of 3D object tracking, where objects are annotated with 3D bounding boxes. The dataset provides LiDAR point clouds and camera images to facilitate the development of models for this task.</li>
+<li><strong>NOTE:</strong> this step is optional and can be skipped if not required for your specific use case.</li>
 </ul>
-<p>The example showcases the variety and complexity of the data in the Argoverse dataset and highlights the importance of high-quality sensor data for autonomous driving tasks.</p>
-<h2 id="citations-and-acknowledgments">Citations and Acknowledgments</h2>
-<p>If you use the Argoverse dataset in your research or development work, please cite the following paper:</p>
-<div class="admonition quote">
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">chang2019argoverse</span><span class="p">,</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Argoverse: 3D Tracking and Forecasting with Rich Maps}</span><span class="p">,</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Chang, Ming-Fang and Lambert, John and Sangkloy, Patsorn and Singh, Jagjeet and Bak, Slawomir and Hartnett, Andrew and Wang, Dequan and Carr, Peter and Lucey, Simon and Ramanan, Deva and others}</span><span class="p">,</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">  </span><span class="na">booktitle</span><span class="p">=</span><span class="s">{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}</span><span class="p">,</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">  </span><span class="na">pages</span><span class="p">=</span><span class="s">{8748--8757}</span><span class="p">,</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2019}</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="p">}</span>
+<details class="example">
+<summary>Example Final Step</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># Save isolated object to file</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">_</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">img_name</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">ci</span><span class="si">}</span><span class="s1">.png'</span><span class="p">,</span> <span class="n">iso_crop</span><span class="p">)</span>
 </code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<p>We would like to acknowledge Argo AI for creating and maintaining the Argoverse dataset as a valuable resource for the autonomous driving research community. For more information about the Argoverse dataset and its creators, visit the <a href="https://www.argoverse.org/">Argoverse dataset website</a>.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<ul>
+<li>In this example, the <code>img_name</code> is the base-name of the source image file, <code>label</code> is the detected class-name, and <code>ci</code> is the index of the object detection (in case of multiple instances with the same class name).</li>
+</ul>
+</details>
+</li>
+</ol>
+<h2 id="full-example-code">Full Example code</h2>
+<p>Here, all steps from the previous section are combined into a single block of code. For repeated use, it would be optimal to define a function to do some or all commands contained in the <code>for</code>-loops, but that is an exercise left to the reader.</p>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">m</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-seg.pt'</span><span class="p">)</span><span class="c1">#(4)!</span>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="n">res</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span><span class="c1">#(3)!</span>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a>
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="c1"># iterate detection results (5)</span>
+<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">orig_img</span><span class="p">)</span>
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a>    <span class="n">img_name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
+<a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a>
+<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a>    <span class="c1"># iterate each object contour (6)</span>
+<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a>    <span class="k">for</span> <span class="n">ci</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+<a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a>        <span class="n">label</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="o">.</span><span class="n">pop</span><span class="p">()]</span>
+<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a>
+<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a>        <span class="n">b_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a>
+<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a>        <span class="c1"># Create contour mask (1)</span>
+<a href="#__codelineno-10-22" id="__codelineno-10-22" name="__codelineno-10-22"></a>        <span class="n">contour</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">xy</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a href="#__codelineno-10-23" id="__codelineno-10-23" name="__codelineno-10-23"></a>        <span class="n">_</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">b_mask</span><span class="p">,</span> <span class="p">[</span><span class="n">contour</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">cv</span><span class="o">.</span><span class="n">FILLED</span><span class="p">)</span>
+<a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a>
+<a href="#__codelineno-10-25" id="__codelineno-10-25" name="__codelineno-10-25"></a>        <span class="c1"># Choose one:</span>
+<a href="#__codelineno-10-26" id="__codelineno-10-26" name="__codelineno-10-26"></a>
+<a href="#__codelineno-10-27" id="__codelineno-10-27" name="__codelineno-10-27"></a>        <span class="c1"># OPTION-1: Isolate object with black background</span>
+<a href="#__codelineno-10-28" id="__codelineno-10-28" name="__codelineno-10-28"></a>        <span class="n">mask3ch</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">b_mask</span><span class="p">,</span> <span class="n">cv</span><span class="o">.</span><span class="n">COLOR_GRAY2BGR</span><span class="p">)</span>
+<a href="#__codelineno-10-29" id="__codelineno-10-29" name="__codelineno-10-29"></a>        <span class="n">isolated</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">mask3ch</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
+<a href="#__codelineno-10-30" id="__codelineno-10-30" name="__codelineno-10-30"></a>
+<a href="#__codelineno-10-31" id="__codelineno-10-31" name="__codelineno-10-31"></a>        <span class="c1"># OPTION-2: Isolate object with transparent background (when saved as PNG)</span>
+<a href="#__codelineno-10-32" id="__codelineno-10-32" name="__codelineno-10-32"></a>        <span class="n">isolated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">([</span><span class="n">img</span><span class="p">,</span> <span class="n">b_mask</span><span class="p">])</span>
+<a href="#__codelineno-10-33" id="__codelineno-10-33" name="__codelineno-10-33"></a>
+<a href="#__codelineno-10-34" id="__codelineno-10-34" name="__codelineno-10-34"></a>        <span class="c1"># OPTIONAL: detection crop (from either OPT1 or OPT2)</span>
+<a href="#__codelineno-10-35" id="__codelineno-10-35" name="__codelineno-10-35"></a>        <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<a href="#__codelineno-10-36" id="__codelineno-10-36" name="__codelineno-10-36"></a>        <span class="n">iso_crop</span> <span class="o">=</span> <span class="n">isolated</span><span class="p">[</span><span class="n">y1</span><span class="p">:</span><span class="n">y2</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span><span class="n">x2</span><span class="p">]</span>
+<a href="#__codelineno-10-37" id="__codelineno-10-37" name="__codelineno-10-37"></a>
+<a href="#__codelineno-10-38" id="__codelineno-10-38" name="__codelineno-10-38"></a>        <span class="c1"># TODO your actions go here (2)</span>
+</code></pre></div>
+<ol>
+<li>The line populating <code>contour</code> is combined into a single line here, where it was split to multiple above.</li>
+<li><mark class="critic">What goes here is up to you!</mark></li>
+<li>See <a href="../../modes/predict/">Predict Mode</a> for additional information.</li>
+<li>See <a href="../../tasks/segment/#models">Segment Task</a> for more information.</li>
+<li>Learn more about <a href="../../modes/predict/#working-with-results">Working with Results</a></li>
+<li>Learn more about <a href="../../modes/predict/#masks">Segmentation Mask Results</a></li>
+</ol>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-27, Updated 2023-11-27<br/>Authors: <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2559,10 +2710,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/datasets/detect/argoverse', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/isolating-segmentation-objects', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/datasets/detect/argoverse', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/isolating-segmentation-objects', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -2610,7 +2761,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Object Detection Datasets Overview" class="md-footer__link md-footer__link--prev" href="../">
+<a aria-label="Previous: Triton Inference Server" class="md-footer__link md-footer__link--prev" href="../triton-inference-server/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2619,17 +2770,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                Object Detection Datasets Overview
+                Triton Inference Server
               </div>
 </div>
 </a>
-<a aria-label="Next: COCO" class="md-footer__link md-footer__link--next" href="../coco/">
+<a aria-label="Next: Ultralytics Integrations" class="md-footer__link md-footer__link--next" href="../../integrations/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                COCO
+                Ultralytics Integrations
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2681,8 +2832,8 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
-<script src="../../../javascript/extra.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+<script src="../../javascript/extra.js"></script>
 </body>
 </html>
