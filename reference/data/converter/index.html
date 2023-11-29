@@ -1288,6 +1288,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../integrations/clearml/">
+<span class="md-ellipsis">
+    ClearML
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2860,17 +2867,17 @@ associated label from the original labels directory and writes new labels in YOL
 <summary>Notes</summary>
 <p>The directory structure assumed for the DOTA dataset:
     - DOTA
-        - images
-            - train
-            - val
-        - labels
-            - train_original
-            - val_original</p>
-<p>After the function execution, the new labels will be saved in:
+        ├─ images
+        │   ├─ train
+        │   └─ val
+        └─ labels
+            ├─ train_original
+            └─ val_original</p>
+<p>After execution, the function will organize the labels into:
     - DOTA
-        - labels
-            - train
-            - val</p>
+        └─ labels
+            ├─ train
+            └─ val</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
@@ -2983,18 +2990,18 @@ associated label from the original labels directory and writes new labels in YOL
 <a id="__codelineno-0-168" name="__codelineno-0-168"></a><span class="sd">    Notes:</span>
 <a id="__codelineno-0-169" name="__codelineno-0-169"></a><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
 <a id="__codelineno-0-170" name="__codelineno-0-170"></a><span class="sd">            - DOTA</span>
-<a id="__codelineno-0-171" name="__codelineno-0-171"></a><span class="sd">                - images</span>
-<a id="__codelineno-0-172" name="__codelineno-0-172"></a><span class="sd">                    - train</span>
-<a id="__codelineno-0-173" name="__codelineno-0-173"></a><span class="sd">                    - val</span>
-<a id="__codelineno-0-174" name="__codelineno-0-174"></a><span class="sd">                - labels</span>
-<a id="__codelineno-0-175" name="__codelineno-0-175"></a><span class="sd">                    - train_original</span>
-<a id="__codelineno-0-176" name="__codelineno-0-176"></a><span class="sd">                    - val_original</span>
+<a id="__codelineno-0-171" name="__codelineno-0-171"></a><span class="sd">                ├─ images</span>
+<a id="__codelineno-0-172" name="__codelineno-0-172"></a><span class="sd">                │   ├─ train</span>
+<a id="__codelineno-0-173" name="__codelineno-0-173"></a><span class="sd">                │   └─ val</span>
+<a id="__codelineno-0-174" name="__codelineno-0-174"></a><span class="sd">                └─ labels</span>
+<a id="__codelineno-0-175" name="__codelineno-0-175"></a><span class="sd">                    ├─ train_original</span>
+<a id="__codelineno-0-176" name="__codelineno-0-176"></a><span class="sd">                    └─ val_original</span>
 <a id="__codelineno-0-177" name="__codelineno-0-177"></a>
-<a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="sd">        After the function execution, the new labels will be saved in:</span>
+<a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="sd">        After execution, the function will organize the labels into:</span>
 <a id="__codelineno-0-179" name="__codelineno-0-179"></a><span class="sd">            - DOTA</span>
-<a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">                - labels</span>
-<a id="__codelineno-0-181" name="__codelineno-0-181"></a><span class="sd">                    - train</span>
-<a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">                    - val</span>
+<a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">                └─ labels</span>
+<a id="__codelineno-0-181" name="__codelineno-0-181"></a><span class="sd">                    ├─ train</span>
+<a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">                    └─ val</span>
 <a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="sd">    """</span>
 <a id="__codelineno-0-184" name="__codelineno-0-184"></a>    <span class="n">dota_root_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">dota_root_path</span><span class="p">)</span>
 <a id="__codelineno-0-185" name="__codelineno-0-185"></a>
