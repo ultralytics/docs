@@ -2497,7 +2497,7 @@
 </a>
 <h1 id="get-started-with-yolov5-in-docker">Get Started with YOLOv5 🚀 in Docker</h1>
 <p>This tutorial will guide you through the process of setting up and running YOLOv5 in a Docker container.</p>
-<p>You can also explore other quickstart options for YOLOv5, such as our <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb">Colab Notebook</a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a>, <a href="https://docs.ultralytics.com/yolov5/environments/google_cloud_quickstart_tutorial">GCP Deep Learning VM</a>, and <a href="https://docs.ultralytics.com/yolov5/environments/aws_quickstart_tutorial">Amazon AWS</a>. <em>Updated: 21 April 2023</em>.</p>
+<p>You can also explore other quickstart options for YOLOv5, such as our <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb">Colab Notebook</a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a>, <a href="https://docs.ultralytics.com/yolov5/environments/google_cloud_quickstart_tutorial">GCP Deep Learning VM</a>, and <a href="https://docs.ultralytics.com/yolov5/environments/aws_quickstart_tutorial">Amazon AWS</a>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ol>
 <li><strong>Nvidia Driver</strong>: Version 455.23 or higher. Download from <a href="https://www.nvidia.com/Download/index.aspx">Nvidia's website</a>.</li>
@@ -2523,13 +2523,20 @@
 </code></pre></div>
 <h2 id="step-3-use-yolov5-within-the-docker-container">Step 3: Use YOLOv5 🚀 within the Docker Container</h2>
 <p>Now you can train, test, detect, and export YOLOv5 models within the running Docker container:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>python<span class="w"> </span>train.py<span class="w">  </span><span class="c1"># train a model</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w">  </span><span class="c1"># validate a model for Precision, Recall, and mAP</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/images<span class="w">  </span><span class="c1"># run inference on images and videos</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite<span class="w">  </span><span class="c1"># export models to other formats</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Train a model on your data</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>python<span class="w"> </span>train.py
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># Validate the trained model for Precision, Recall, and mAP</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># Run inference using the trained model on your images or videos</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/images
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="c1"># Export the trained model to other formats for deployment</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite
 </code></pre></div>
 <p align="center"><img alt="GCP running Docker" src="https://user-images.githubusercontent.com/26833433/142224770-6e57caaf-ac01-4719-987f-c37d1b6f401f.png" width="1000"/></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-27<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-12-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

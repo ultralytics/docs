@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Step-by-step guide to run YOLOv5 on AWS Deep Learning instance. Learn how to create an instance, connect to it and train, validate and deploy models." name="description"/>
+<meta content="Follow this comprehensive guide to set up and operate YOLOv5 on an AWS Deep Learning instance for object detection tasks. Get started with model training and deployment." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/yolov5/environments/aws_quickstart_tutorial/" rel="canonical"/>
 <link href="../../quickstart_tutorial/" rel="prev"/>
@@ -23,14 +23,14 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Amazon Web Services (AWS)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="AWS, YOLOv5, instance, deep learning, Ultralytics, guide, training, deployment, object detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/environments/aws_quickstart_tutorial" property="og:url"/><meta content="Amazon Web Services (AWS)" property="og:title"/><meta content="Step-by-step guide to run YOLOv5 on AWS Deep Learning instance. Learn how to create an instance, connect to it and train, validate and deploy models." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/environments/aws_quickstart_tutorial" property="twitter:url"/><meta content="Amazon Web Services (AWS)" property="twitter:title"/><meta content="Step-by-step guide to run YOLOv5 on AWS Deep Learning instance. Learn how to create an instance, connect to it and train, validate and deploy models." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/></head>
+<meta content="Amazon Web Services (AWS)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, AWS Deep Learning AMIs, object detection, machine learning, AI, model training, instance setup, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/environments/aws_quickstart_tutorial" property="og:url"/><meta content="Amazon Web Services (AWS)" property="og:title"/><meta content="Follow this comprehensive guide to set up and operate YOLOv5 on an AWS Deep Learning instance for object detection tasks. Get started with model training and deployment." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/environments/aws_quickstart_tutorial" property="twitter:url"/><meta content="Amazon Web Services (AWS)" property="twitter:title"/><meta content="Follow this comprehensive guide to set up and operate YOLOv5 on an AWS Deep Learning instance for object detection tasks. Get started with model training and deployment." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#yolov5-on-aws-deep-learning-instance-a-comprehensive-guide">
+<a class="md-skip" href="#yolov5-on-aws-deep-learning-instance-your-complete-guide">
           Skip to content
         </a>
 </div>
@@ -1461,38 +1461,38 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-aws-console-sign-in">
+<a class="md-nav__link" href="#step-1-aws-console-sign-in">
 <span class="md-ellipsis">
-      1. AWS Console Sign-in
+      Step 1: AWS Console Sign-In
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-launch-instance">
+<a class="md-nav__link" href="#step-2-launch-your-instance">
 <span class="md-ellipsis">
-      2. Launch Instance
+      Step 2: Launch Your Instance
     </span>
 </a>
-<nav aria-label="2. Launch Instance" class="md-nav">
+<nav aria-label="Step 2: Launch Your Instance" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#choose-an-amazon-machine-image-ami">
+<a class="md-nav__link" href="#selecting-the-right-amazon-machine-image-ami">
 <span class="md-ellipsis">
-      Choose an Amazon Machine Image (AMI)
+      Selecting the Right Amazon Machine Image (AMI)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#select-an-instance-type">
+<a class="md-nav__link" href="#picking-an-instance-type">
 <span class="md-ellipsis">
-      Select an Instance Type
+      Picking an Instance Type
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#configure-instance-details">
+<a class="md-nav__link" href="#configuring-your-instance">
 <span class="md-ellipsis">
-      Configure Instance Details
+      Configuring Your Instance
     </span>
 </a>
 </li>
@@ -1500,16 +1500,16 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-connect-to-instance">
+<a class="md-nav__link" href="#step-3-connect-to-your-instance">
 <span class="md-ellipsis">
-      3. Connect to Instance
+      Step 3: Connect to Your Instance
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-run-yolov5">
+<a class="md-nav__link" href="#step-4-running-yolov5">
 <span class="md-ellipsis">
-      4. Run YOLOv5
+      Step 4: Running YOLOv5
     </span>
 </a>
 </li>
@@ -2440,38 +2440,38 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-aws-console-sign-in">
+<a class="md-nav__link" href="#step-1-aws-console-sign-in">
 <span class="md-ellipsis">
-      1. AWS Console Sign-in
+      Step 1: AWS Console Sign-In
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-launch-instance">
+<a class="md-nav__link" href="#step-2-launch-your-instance">
 <span class="md-ellipsis">
-      2. Launch Instance
+      Step 2: Launch Your Instance
     </span>
 </a>
-<nav aria-label="2. Launch Instance" class="md-nav">
+<nav aria-label="Step 2: Launch Your Instance" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#choose-an-amazon-machine-image-ami">
+<a class="md-nav__link" href="#selecting-the-right-amazon-machine-image-ami">
 <span class="md-ellipsis">
-      Choose an Amazon Machine Image (AMI)
+      Selecting the Right Amazon Machine Image (AMI)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#select-an-instance-type">
+<a class="md-nav__link" href="#picking-an-instance-type">
 <span class="md-ellipsis">
-      Select an Instance Type
+      Picking an Instance Type
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#configure-instance-details">
+<a class="md-nav__link" href="#configuring-your-instance">
 <span class="md-ellipsis">
-      Configure Instance Details
+      Configuring Your Instance
     </span>
 </a>
 </li>
@@ -2479,16 +2479,16 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-connect-to-instance">
+<a class="md-nav__link" href="#step-3-connect-to-your-instance">
 <span class="md-ellipsis">
-      3. Connect to Instance
+      Step 3: Connect to Your Instance
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-run-yolov5">
+<a class="md-nav__link" href="#step-4-running-yolov5">
 <span class="md-ellipsis">
-      4. Run YOLOv5
+      Step 4: Running YOLOv5
     </span>
 </a>
 </li>
@@ -2509,53 +2509,60 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/yolov5/environments/aws_quickstart_tutorial.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="yolov5-on-aws-deep-learning-instance-a-comprehensive-guide">YOLOv5 🚀 on AWS Deep Learning Instance: A Comprehensive Guide</h1>
-<p>This guide will help new users run YOLOv5 on an Amazon Web Services (AWS) Deep Learning instance. AWS offers a <a href="https://aws.amazon.com/free/">Free Tier</a> and a <a href="https://aws.amazon.com/activate/">credit program</a> for a quick and affordable start.</p>
-<p>Other quickstart options for YOLOv5 include our <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb">Colab Notebook</a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a>, <a href="https://docs.ultralytics.com/yolov5/environments/google_cloud_quickstart_tutorial">GCP Deep Learning VM</a>, and our Docker image at <a href="https://hub.docker.com/r/ultralytics/yolov5">Docker Hub</a> <a href="https://hub.docker.com/r/ultralytics/yolov5"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"/></a>. <em>Updated: 21 April 2023</em>.</p>
-<h2 id="1-aws-console-sign-in">1. AWS Console Sign-in</h2>
-<p>Create an account or sign in to the AWS console at <a href="https://aws.amazon.com/console/">https://aws.amazon.com/console/</a> and select the <strong>EC2</strong> service.</p>
+<h1 id="yolov5-on-aws-deep-learning-instance-your-complete-guide">YOLOv5 🚀 on AWS Deep Learning Instance: Your Complete Guide</h1>
+<p>Setting up a high-performance deep learning environment can be daunting for newcomers, but fear not! 🛠️ With this guide, we'll walk you through the process of getting YOLOv5 up and running on an AWS Deep Learning instance. By leveraging the power of Amazon Web Services (AWS), even those new to machine learning can get started quickly and cost-effectively. The AWS platform's scalability is perfect for both experimentation and production deployment.</p>
+<p>Other quickstart options for YOLOv5 include our <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb">Colab Notebook</a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a>, <a href="https://docs.ultralytics.com/yolov5/environments/google_cloud_quickstart_tutorial">GCP Deep Learning VM</a>, and our Docker image at <a href="https://hub.docker.com/r/ultralytics/yolov5">Docker Hub</a> <a href="https://hub.docker.com/r/ultralytics/yolov5"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"/></a>.</p>
+<h2 id="step-1-aws-console-sign-in">Step 1: AWS Console Sign-In</h2>
+<p>Start by creating an account or signing in to the AWS console at <a href="https://aws.amazon.com/console/">https://aws.amazon.com/console/</a>. Once logged in, select the <strong>EC2</strong> service to manage and set up your instances.</p>
 <p><img alt="Console" src="https://user-images.githubusercontent.com/26833433/106323804-debddd00-622c-11eb-997f-b8217dc0e975.png"/></p>
-<h2 id="2-launch-instance">2. Launch Instance</h2>
-<p>In the EC2 section of the AWS console, click the <strong>Launch instance</strong> button.</p>
+<h2 id="step-2-launch-your-instance">Step 2: Launch Your Instance</h2>
+<p>In the EC2 dashboard, you'll find the <strong>Launch Instance</strong> button which is your gateway to creating a new virtual server.</p>
 <p><img alt="Launch" src="https://user-images.githubusercontent.com/26833433/106323950-204e8800-622d-11eb-915d-5c90406973ea.png"/></p>
-<h3 id="choose-an-amazon-machine-image-ami">Choose an Amazon Machine Image (AMI)</h3>
-<p>Enter 'Deep Learning' in the search field and select the most recent Ubuntu Deep Learning AMI (recommended), or an alternative Deep Learning AMI. For more information on selecting an AMI, see <a href="https://docs.aws.amazon.com/dlami/latest/devguide/options.html">Choosing Your DLAMI</a>.</p>
+<h3 id="selecting-the-right-amazon-machine-image-ami">Selecting the Right Amazon Machine Image (AMI)</h3>
+<p>Here's where you choose the operating system and software stack for your instance. Type 'Deep Learning' into the search field and select the latest Ubuntu-based Deep Learning AMI, unless your needs dictate otherwise. Amazon's Deep Learning AMIs come pre-installed with popular frameworks and GPU drivers to streamline your setup process.</p>
 <p><img alt="Choose AMI" src="https://user-images.githubusercontent.com/26833433/106326107-c9e34880-6230-11eb-97c9-3b5fc2f4e2ff.png"/></p>
-<h3 id="select-an-instance-type">Select an Instance Type</h3>
-<p>A GPU instance is recommended for most deep learning purposes. Training new models will be faster on a GPU instance than a CPU instance. Multi-GPU instances or distributed training across multiple instances with GPUs can offer sub-linear scaling. To set up distributed training, see <a href="https://docs.aws.amazon.com/dlami/latest/devguide/distributed-training.html">Distributed Training</a>.</p>
+<h3 id="picking-an-instance-type">Picking an Instance Type</h3>
+<p>For deep learning tasks, selecting a GPU instance type is generally recommended as it can vastly accelerate model training. For instance size considerations, remember that the model's memory requirements should never exceed what your instance can provide.</p>
 <p><strong>Note:</strong> The size of your model should be a factor in selecting an instance. If your model exceeds an instance's available RAM, select a different instance type with enough memory for your application.</p>
-<p>Refer to <a href="https://aws.amazon.com/ec2/instance-types/">EC2 Instance Types</a> and choose Accelerated Computing to see the different GPU instance options.</p>
+<p>For a list of available GPU instance types, visit <a href="https://aws.amazon.com/ec2/instance-types/">EC2 Instance Types</a>, specifically under Accelerated Computing.</p>
 <p><img alt="Choose Type" src="https://user-images.githubusercontent.com/26833433/106324624-52141e80-622e-11eb-9662-1a376d9c887d.png"/></p>
 <p>For more information on GPU monitoring and optimization, see <a href="https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-gpu.html">GPU Monitoring and Optimization</a>. For pricing, see <a href="https://aws.amazon.com/ec2/pricing/on-demand/">On-Demand Pricing</a> and <a href="https://aws.amazon.com/ec2/spot/pricing/">Spot Pricing</a>.</p>
-<h3 id="configure-instance-details">Configure Instance Details</h3>
-<p>Amazon EC2 Spot Instances let you take advantage of unused EC2 capacity in the AWS cloud. Spot Instances are available at up to a 70% discount compared to On-Demand prices. We recommend a persistent spot instance, which will save your data and restart automatically when spot instance availability returns after spot instance termination. For full-price On-Demand instances, leave these settings at their default values.</p>
+<h3 id="configuring-your-instance">Configuring Your Instance</h3>
+<p>Amazon EC2 Spot Instances offer a cost-effective way to run applications as they allow you to bid for unused capacity at a fraction of the standard cost. For a persistent experience that retains data even when the Spot Instance goes down, opt for a persistent request.</p>
 <p><img alt="Spot Request" src="https://user-images.githubusercontent.com/26833433/106324835-ac14e400-622e-11eb-8853-df5ec9b16dfc.png"/></p>
-<p>Complete Steps 4-7 to finalize your instance hardware and security settings, and then launch the instance.</p>
-<h2 id="3-connect-to-instance">3. Connect to Instance</h2>
-<p>Select the checkbox next to your running instance, and then click Connect. Copy and paste the SSH terminal command into a terminal of your choice to connect to your instance.</p>
+<p>Remember to adjust the rest of your instance settings and security configurations as needed in Steps 4-7 before launching.</p>
+<h2 id="step-3-connect-to-your-instance">Step 3: Connect to Your Instance</h2>
+<p>Once your instance is running, select its checkbox and click Connect to access the SSH information. Use the displayed SSH command in your preferred terminal to establish a connection to your instance.</p>
 <p><img alt="Connect" src="https://user-images.githubusercontent.com/26833433/106325530-cf8c5e80-622f-11eb-9f64-5b313a9d57a1.png"/></p>
-<h2 id="4-run-yolov5">4. Run YOLOv5</h2>
-<p>Once you have logged in to your instance, clone the repository and install the dependencies in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w">  </span><span class="c1"># clone</span>
+<h2 id="step-4-running-yolov5">Step 4: Running YOLOv5</h2>
+<p>Logged into your instance, you're now ready to clone the YOLOv5 repository and install dependencies within a Python 3.8 or later environment. YOLOv5's models and datasets will automatically download from the latest <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w">  </span><span class="c1"># clone repository</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>yolov5
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># install</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># install dependencies</span>
 </code></pre></div>
-<p>Then, start training, testing, detecting, and exporting YOLOv5 models:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>python<span class="w"> </span>train.py<span class="w">  </span><span class="c1"># train a model</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w">  </span><span class="c1"># validate a model for Precision, Recall, and mAP</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/images<span class="w">  </span><span class="c1"># run inference on images and videos</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite<span class="w">  </span><span class="c1"># export models to other formats</span>
+<p>With your environment set up, you can begin training, validating, performing inference, and exporting your YOLOv5 models:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Train a model on your data</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>python<span class="w"> </span>train.py
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Validate the trained model for Precision, Recall, and mAP</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Run inference using the trained model on your images or videos</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/images
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1"># Export the trained model to other formats for deployment</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite
 </code></pre></div>
 <h2 id="optional-extras">Optional Extras</h2>
-<p>Add 64GB of swap memory (to <code>--cache</code> large datasets):</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo<span class="w"> </span>fallocate<span class="w"> </span>-l<span class="w"> </span>64G<span class="w"> </span>/swapfile
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>sudo<span class="w"> </span>mkswap<span class="w"> </span>/swapfile
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>sudo<span class="w"> </span>swapon<span class="w"> </span>/swapfile
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>free<span class="w"> </span>-h<span class="w">  </span><span class="c1"># check memory</span>
+<p>To add more swap memory, which can be a savior for large datasets, run:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo<span class="w"> </span>fallocate<span class="w"> </span>-l<span class="w"> </span>64G<span class="w"> </span>/swapfile<span class="w">  </span><span class="c1"># allocate 64GB swap file</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile<span class="w">  </span><span class="c1"># modify permissions</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>sudo<span class="w"> </span>mkswap<span class="w"> </span>/swapfile<span class="w">  </span><span class="c1"># set up a Linux swap area</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>sudo<span class="w"> </span>swapon<span class="w"> </span>/swapfile<span class="w">  </span><span class="c1"># activate swap file</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>free<span class="w"> </span>-h<span class="w">  </span><span class="c1"># verify swap memory</span>
 </code></pre></div>
-<p>Now you have successfully set up and run YOLOv5 on an AWS Deep Learning instance. Enjoy training, testing, and deploying your object detection models!</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<p>And that's it! 🎉 You've successfully created an AWS Deep Learning instance and run YOLOv5. Whether you're just starting with object detection or scaling up for production, this setup can help you achieve your machine learning goals. Happy training, validating, and deploying! If you encounter any hiccups along the way, the robust AWS documentation and the active Ultralytics community are here to support you.</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-12-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -1580,16 +1580,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#environments">
+<a class="md-nav__link" href="#supported-environments">
 <span class="md-ellipsis">
-      Environments
+      Supported Environments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#status">
+<a class="md-nav__link" href="#project-status">
 <span class="md-ellipsis">
-      Status
+      Project Status
     </span>
 </a>
 </li>
@@ -2521,16 +2521,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#environments">
+<a class="md-nav__link" href="#supported-environments">
 <span class="md-ellipsis">
-      Environments
+      Supported Environments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#status">
+<a class="md-nav__link" href="#project-status">
 <span class="md-ellipsis">
-      Status
+      Project Status
     </span>
 </a>
 </li>
@@ -2552,7 +2552,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1>Multi-GPU Training</h1>
-<p>📚 This guide explains how to properly use <strong>multiple</strong> GPUs to train a dataset with YOLOv5 🚀 on single or multiple machine(s). UPDATED 25 December 2022.</p>
+<p>📚 This guide explains how to properly use <strong>multiple</strong> GPUs to train a dataset with YOLOv5 🚀 on single or multiple machine(s).</p>
 <h2 id="before-you-start">Before You Start</h2>
 <p>Clone repo and install <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w">  </span><span class="c1"># clone</span>
@@ -2581,32 +2581,46 @@
 <p>The code above will use GPUs <code>0... (N-1)</code>.</p>
 <details>
 <summary>Use specific GPUs (click to expand)</summary>
-<p>You can do so by simply passing <code>--device</code> followed by your specific GPUs. For example, in the code below, we will use GPUs <code>2,3</code>.</p>
+
+You can do so by simply passing `--device` followed by your specific GPUs. For example, in the code below, we will use GPUs `2,3`.
+
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>python<span class="w"> </span>-m<span class="w"> </span>torch.distributed.run<span class="w"> </span>--nproc_per_node<span class="w"> </span><span class="m">2</span><span class="w"> </span>train.py<span class="w"> </span>--batch<span class="w"> </span><span class="m">64</span><span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--cfg<span class="w"> </span>yolov5s.yaml<span class="w"> </span>--weights<span class="w"> </span><span class="s1">''</span><span class="w"> </span>--device<span class="w"> </span><span class="m">2</span>,3
 </code></pre></div>
 </details>
 <details>
 <summary>Use SyncBatchNorm (click to expand)</summary>
-<p><a href="https://pytorch.org/docs/master/generated/torch.nn.SyncBatchNorm.html">SyncBatchNorm</a> could increase accuracy for multiple gpu training, however, it will slow down training by a significant factor. It is <strong>only</strong> available for Multiple GPU DistributedDataParallel training.</p>
-<p>It is best used when the batch-size on <strong>each</strong> GPU is small (&lt;= 8).</p>
-<p>To use SyncBatchNorm, simple pass <code>--sync-bn</code> to the command like below,</p>
+
+[SyncBatchNorm](https://pytorch.org/docs/master/generated/torch.nn.SyncBatchNorm.html) could increase accuracy for multiple gpu training, however, it will slow down training by a significant factor. It is **only** available for Multiple GPU DistributedDataParallel training.
+
+It is best used when the batch-size on **each** GPU is small (&lt;= 8).
+
+To use SyncBatchNorm, simple pass `--sync-bn` to the command like below,
+
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>torch.distributed.run<span class="w"> </span>--nproc_per_node<span class="w"> </span><span class="m">2</span><span class="w"> </span>train.py<span class="w"> </span>--batch<span class="w"> </span><span class="m">64</span><span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--cfg<span class="w"> </span>yolov5s.yaml<span class="w"> </span>--weights<span class="w"> </span><span class="s1">''</span><span class="w"> </span>--sync-bn
 </code></pre></div>
 </details>
 <details>
 <summary>Use Multiple machines (click to expand)</summary>
-<p>This is <strong>only</strong> available for Multiple GPU DistributedDataParallel training.</p>
-<p>Before we continue, make sure the files on all machines are the same, dataset, codebase, etc. Afterwards, make sure the machines can communicate to each other.</p>
-<p>You will have to choose a master machine(the machine that the others will talk to). Note down its address(<code>master_addr</code>) and choose a port(<code>master_port</code>). I will use <code>master_addr = 192.168.1.1</code> and <code>master_port = 1234</code> for the example below.</p>
-<p>To use it, you can do as the following,</p>
+
+This is **only** available for Multiple GPU DistributedDataParallel training.
+
+Before we continue, make sure the files on all machines are the same, dataset, codebase, etc. Afterward, make sure the machines can communicate to each other.
+
+You will have to choose a master machine(the machine that the others will talk to). Note down its address(`master_addr`) and choose a port(`master_port`). I will use `master_addr = 192.168.1.1` and `master_port = 1234` for the example below.
+
+To use it, you can do as the following,
+
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># On master machine 0</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>python<span class="w"> </span>-m<span class="w"> </span>torch.distributed.run<span class="w"> </span>--nproc_per_node<span class="w"> </span>G<span class="w"> </span>--nnodes<span class="w"> </span>N<span class="w"> </span>--node_rank<span class="w"> </span><span class="m">0</span><span class="w"> </span>--master_addr<span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="w"> </span>--master_port<span class="w"> </span><span class="m">1234</span><span class="w"> </span>train.py<span class="w"> </span>--batch<span class="w"> </span><span class="m">64</span><span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--cfg<span class="w"> </span>yolov5s.yaml<span class="w"> </span>--weights<span class="w"> </span><span class="s1">''</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># On machine R</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>python<span class="w"> </span>-m<span class="w"> </span>torch.distributed.run<span class="w"> </span>--nproc_per_node<span class="w"> </span>G<span class="w"> </span>--nnodes<span class="w"> </span>N<span class="w"> </span>--node_rank<span class="w"> </span>R<span class="w"> </span>--master_addr<span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="w"> </span>--master_port<span class="w"> </span><span class="m">1234</span><span class="w"> </span>train.py<span class="w"> </span>--batch<span class="w"> </span><span class="m">64</span><span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--cfg<span class="w"> </span>yolov5s.yaml<span class="w"> </span>--weights<span class="w"> </span><span class="s1">''</span>
 </code></pre></div>
-<p>where <code>G</code> is number of GPU per machine, <code>N</code> is the number of machines, and <code>R</code> is the machine number from <code>0...(N-1)</code>. Let's say I have two machines with two GPUs each, it would be <code>G = 2</code> , <code>N = 2</code>, and <code>R = 1</code> for the above.</p>
-<p>Training will not start until <b>all </b> <code>N</code> machines are connected. Output will only be shown on master machine!</p>
+
+where `G` is number of GPU per machine, `N` is the number of machines, and `R` is the machine number from `0...(N-1)`. Let's say I have two machines with two GPUs each, it would be `G = 2` , `N = 2`, and `R = 1` for the above.
+
+Training will not start until <b>all </b> `N` machines are connected. Output will only be shown on master machine!
+
 </details>
 <h3 id="notes">Notes</h3>
 <ul>
@@ -2681,28 +2695,31 @@
 <summary>Checklist (click to expand) </summary>
 <ul>
 <li>Have you properly read this post?  </li>
-<li>Have you tried to reclone the codebase? The code changes <b>daily</b>.</li>
+<li>Have you tried to re-clone the codebase? The code changes <b>daily</b>.</li>
 <li>Have you tried to search for your error? Someone may have already encountered it in this repo or in another and have the solution. </li>
 <li>Have you installed all the requirements listed on top (including the correct Python and Pytorch versions)? </li>
 <li>Have you tried in other environments listed in the "Environments" section below? </li>
 <li>Have you tried with another dataset like coco128 or coco2017? It will make it easier to find the root cause. </li>
 </ul>
-<p>If you went through all the above, feel free to raise an Issue by giving as much detail as possible following the template.</p>
+
+If you went through all the above, feel free to raise an Issue by giving as much detail as possible following the template.
+
 </details>
-<h2 id="environments">Environments</h2>
-<p>YOLOv5 is designed to be run in the following up-to-date verified environments (with all dependencies including <a href="https://developer.nvidia.com/cuda">CUDA</a>/<a href="https://developer.nvidia.com/cudnn">CUDNN</a>, <a href="https://www.python.org/">Python</a> and <a href="https://pytorch.org/">PyTorch</a> preinstalled):</p>
+<h2 id="supported-environments">Supported Environments</h2>
+<p>Ultralytics provides a range of ready-to-use environments, each pre-installed with essential dependencies such as <a href="https://developer.nvidia.com/cuda">CUDA</a>, <a href="https://developer.nvidia.com/cudnn">CUDNN</a>, <a href="https://www.python.org/">Python</a>, and <a href="https://pytorch.org/">PyTorch</a>, to kickstart your projects.</p>
 <ul>
-<li><strong>Notebooks</strong> with free GPU: <a href="https://bit.ly/yolov5-paperspace-notebook"><img alt="Run on Gradient" src="https://assets.paperspace.io/img/gradient-badge.svg"/></a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a></li>
-<li><strong>Google Cloud</strong> Deep Learning VM. See <a href="https://docs.ultralytics.com/yolov5/environments/google_cloud_quickstart_tutorial/">GCP Quickstart Guide</a></li>
-<li><strong>Amazon</strong> Deep Learning AMI. See <a href="https://docs.ultralytics.com/yolov5/environments/aws_quickstart_tutorial/">AWS Quickstart Guide</a></li>
-<li><strong>Docker Image</strong>. See <a href="https://docs.ultralytics.com/yolov5/environments/docker_image_quickstart_tutorial/">Docker Quickstart Guide</a> <a href="https://hub.docker.com/r/ultralytics/yolov5"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"/></a></li>
+<li><strong>Free GPU Notebooks</strong>: <a href="https://bit.ly/yolov5-paperspace-notebook"><img alt="Run on Gradient" src="https://assets.paperspace.io/img/gradient-badge.svg"/></a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a></li>
+<li><strong>Google Cloud</strong>: <a href="../../environments/google_cloud_quickstart_tutorial/">GCP Quickstart Guide</a></li>
+<li><strong>Amazon</strong>: <a href="../../environments/aws_quickstart_tutorial/">AWS Quickstart Guide</a></li>
+<li><strong>Azure</strong>: <a href="../../environments/azureml_quickstart_tutorial/">AzureML Quickstart Guide</a></li>
+<li><strong>Docker</strong>: <a href="../../environments/docker_image_quickstart_tutorial/">Docker Quickstart Guide</a> <a href="https://hub.docker.com/r/ultralytics/yolov5"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"/></a></li>
 </ul>
-<h2 id="status">Status</h2>
+<h2 id="project-status">Project Status</h2>
 <p><a href="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml"><img alt="YOLOv5 CI" src="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml/badge.svg"/></a></p>
-<p>If this badge is green, all <a href="https://github.com/ultralytics/yolov5/actions">YOLOv5 GitHub Actions</a> Continuous Integration (CI) tests are currently passing. CI tests verify correct operation of YOLOv5 <a href="https://github.com/ultralytics/yolov5/blob/master/train.py">training</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/val.py">validation</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/detect.py">inference</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/export.py">export</a> and <a href="https://github.com/ultralytics/yolov5/blob/master/benchmarks.py">benchmarks</a> on macOS, Windows, and Ubuntu every 24 hours and on every commit.</p>
+<p>This badge indicates that all <a href="https://github.com/ultralytics/yolov5/actions">YOLOv5 GitHub Actions</a> Continuous Integration (CI) tests are successfully passing. These CI tests rigorously check the functionality and performance of YOLOv5 across various key aspects: <a href="https://github.com/ultralytics/yolov5/blob/master/train.py">training</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/val.py">validation</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/detect.py">inference</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/export.py">export</a>, and <a href="https://github.com/ultralytics/yolov5/blob/master/benchmarks.py">benchmarks</a>. They ensure consistent and reliable operation on macOS, Windows, and Ubuntu, with tests conducted every 24 hours and upon each new commit.</p>
 <h2 id="credits">Credits</h2>
-<p>I would like to thank @MagicFrogSJTU, who did all the heavy lifting, and @glenn-jocher for guiding us along the way.</p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<p>We would like to thank @MagicFrogSJTU, who did all the heavy lifting, and @glenn-jocher for guiding us along the way.</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-12-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -2503,10 +2503,10 @@
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video/file.mp4"</span><span class="p">)</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">counter</span> <span class="o">=</span> <span class="n">object_counter</span><span class="o">.</span><span class="n">ObjectCounter</span><span class="p">()</span> <span class="c1"># Init Object Counter</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">counter</span> <span class="o">=</span> <span class="n">object_counter</span><span class="o">.</span><span class="n">ObjectCounter</span><span class="p">()</span>  <span class="c1"># Init Object Counter</span>
 <a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">region_points</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">404</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">360</span><span class="p">)]</span>
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">counter</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reg_pts</span><span class="o">=</span><span class="n">region_points</span><span class="p">,</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>                 <span class="n">classes_names</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">draw_tracks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>                 <span class="n">classes_names</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">draw_tracks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>
 <a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
 <a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -2516,7 +2516,7 @@
 <a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="n">counter</span><span class="o">.</span><span class="n">start_counting</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">tracks</span><span class="p">)</span>
 </code></pre></div>
 <details class="tip" open="open">
-<summary>Region is Moveable</summary>
+<summary>Region is Movable</summary>
 <p>You can move the region anywhere in the frame by clicking on its edges</p>
 </details>
 <h3 id="optional-arguments-set_args">Optional Arguments <code>set_args</code></h3>
@@ -2568,7 +2568,7 @@
 </tr>
 </tbody>
 </table>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-02, Updated 2023-12-02<br/>Authors: <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-02, Updated 2023-12-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

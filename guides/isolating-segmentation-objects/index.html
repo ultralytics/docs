@@ -2442,8 +2442,13 @@
 <ol>
 <li>
 <p>Load a model and run <code>predict()</code> method on a source.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">m</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-seg.pt'</span><span class="p">)</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">res</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a model</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-seg.pt'</span><span class="p">)</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Run inference</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
 </code></pre></div>
 </li>
 </ol>
@@ -2506,7 +2511,7 @@
 <a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>                    <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
 <a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>                    <span class="n">cv</span><span class="o">.</span><span class="n">FILLED</span><span class="p">)</span>
 </code></pre></div></img></p>
-<div class="highlight"><pre><span></span><code>1. For more info on `c.masks.xy` see [Masks Section from Predict Mode](../modes/predict.md/#masks).
+<div class="highlight"><pre><span></span><code>1. For more info on `c.masks.xy` see [Masks Section from Predict Mode](../modes/predict.md#masks).
 
 2. Here, the values are cast into `np.int32` for compatibility with `drawContours()` function from OpenCV.
 
@@ -2516,13 +2521,13 @@
 &lt;summary&gt; Expand to understand what is happening when defining the &lt;code&gt;contour&lt;/code&gt; variable.&lt;/summary&gt;
 &lt;p&gt;
 
-- `c.masks.xy` :: Provides the coordinates of the mask contour points in the format  `(x, y)`. For more details, refer to the [Masks Section from Predict Mode](../modes/predict.md/#masks).
+- `c.masks.xy` :: Provides the coordinates of the mask contour points in the format  `(x, y)`. For more details, refer to the [Masks Section from Predict Mode](../modes/predict.md#masks).
 
 - `.pop()` :: As `masks.xy` is a list containing a single element, this element is extracted using the `pop()` method.
 
 - `.astype(np.int32)` :: Using `masks.xy` will return with a data type of `float32`, but this won't be compatible with the OpenCV `drawContours()` function, so this will change the data type to `int32` for compatibility.
 
-- `.reshape(-1, 1, 2)` :: Reformats the data into the required shape of of `[N, 1, 2]` where `N` is the number of contour points, with each point represented by a single entry `1`, and the entry is composed of `2` values. The `-1` denotes that the number of values along this dimension is flexible.
+- `.reshape(-1, 1, 2)` :: Reformats the data into the required shape of `[N, 1, 2]` where `N` is the number of contour points, with each point represented by a single entry `1`, and the entry is composed of `2` values. The `-1` denotes that the number of values along this dimension is flexible.
 
 &lt;/details&gt;
 &lt;p&gt;&lt;/p&gt;
@@ -2658,7 +2663,7 @@
 </code></pre></div>
 <ol>
 <li>
-<p><u>What to do next is entirely left to the you as the developer.</u> A basic example of one possible next step (saving the image to file for future use) is shown.</p>
+<p><u>What to do next is entirely left to you as the developer.</u> A basic example of one possible next step (saving the image to file for future use) is shown.</p>
 <ul>
 <li><strong>NOTE:</strong> this step is optional and can be skipped if not required for your specific use case.</li>
 </ul>
@@ -2721,7 +2726,7 @@
 <li>Learn more about <a href="../../modes/predict/#working-with-results">Working with Results</a></li>
 <li>Learn more about <a href="../../modes/predict/#masks">Segmentation Mask Results</a></li>
 </ol>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-27, Updated 2023-12-02<br/>Authors: <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-27, Updated 2023-12-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

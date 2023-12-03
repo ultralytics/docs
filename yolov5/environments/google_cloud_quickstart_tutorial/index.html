@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Step-by-step tutorial on how to set up and run YOLOv5 on Google Cloud Platform Deep Learning VM. Perfect guide for beginners and GCP new users!." name="description"/>
+<meta content="Discover how to deploy YOLOv5 on a GCP Deep Learning VM for seamless object detection. Ideal for ML beginners and cloud learners. Get started with our easy-to-follow tutorial!" name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/yolov5/environments/google_cloud_quickstart_tutorial/" rel="canonical"/>
 <link href="../aws_quickstart_tutorial/" rel="prev"/>
@@ -23,14 +23,14 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Google Cloud (GCP)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, Google Cloud Platform, GCP, Deep Learning VM, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/environments/google_cloud_quickstart_tutorial" property="og:url"/><meta content="Google Cloud (GCP)" property="og:title"/><meta content="Step-by-step tutorial on how to set up and run YOLOv5 on Google Cloud Platform Deep Learning VM. Perfect guide for beginners and GCP new users!." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/environments/google_cloud_quickstart_tutorial" property="twitter:url"/><meta content="Google Cloud (GCP)" property="twitter:title"/><meta content="Step-by-step tutorial on how to set up and run YOLOv5 on Google Cloud Platform Deep Learning VM. Perfect guide for beginners and GCP new users!." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/></head>
+<meta content="Google Cloud (GCP)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, Google Cloud Platform, GCP, Deep Learning VM, ML model training, object detection, AI tutorial, cloud-based AI, machine learning setup" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/environments/google_cloud_quickstart_tutorial" property="og:url"/><meta content="Google Cloud (GCP)" property="og:title"/><meta content="Discover how to deploy YOLOv5 on a GCP Deep Learning VM for seamless object detection. Ideal for ML beginners and cloud learners. Get started with our easy-to-follow tutorial!" property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/environments/google_cloud_quickstart_tutorial" property="twitter:url"/><meta content="Google Cloud (GCP)" property="twitter:title"/><meta content="Discover how to deploy YOLOv5 on a GCP Deep Learning VM for seamless object detection. Ideal for ML beginners and cloud learners. Get started with our easy-to-follow tutorial!" property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#run-yolov5-on-google-cloud-platform-gcp-deep-learning-virtual-machine-vm">
+<a class="md-skip" href="#mastering-yolov5-deployment-on-google-cloud-platform-gcp-deep-learning-virtual-machine-vm">
           Skip to content
         </a>
 </div>
@@ -1468,25 +1468,43 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-create-a-deep-learning-vm">
+<a class="md-nav__link" href="#step-1-create-and-configure-your-deep-learning-vm">
 <span class="md-ellipsis">
-      Step 1: Create a Deep Learning VM
+      Step 1: Create and Configure Your Deep Learning VM
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-set-up-the-vm">
+<a class="md-nav__link" href="#step-2-ready-the-vm-for-yolov5">
 <span class="md-ellipsis">
-      Step 2: Set Up the VM
+      Step 2: Ready the VM for YOLOv5
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-run-yolov5-on-the-vm">
+<a class="md-nav__link" href="#step-3-train-and-deploy-your-yolov5-models">
 <span class="md-ellipsis">
-      Step 3: Run YOLOv5 🚀 on the VM
+      Step 3: Train and Deploy Your YOLOv5 Models 🌐
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#allocate-swap-space-optional">
+<span class="md-ellipsis">
+      Allocate Swap Space (optional)
+    </span>
+</a>
+<nav aria-label="Allocate Swap Space (optional)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#concluding-thoughts">
+<span class="md-ellipsis">
+      Concluding Thoughts
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -2401,25 +2419,43 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-create-a-deep-learning-vm">
+<a class="md-nav__link" href="#step-1-create-and-configure-your-deep-learning-vm">
 <span class="md-ellipsis">
-      Step 1: Create a Deep Learning VM
+      Step 1: Create and Configure Your Deep Learning VM
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-set-up-the-vm">
+<a class="md-nav__link" href="#step-2-ready-the-vm-for-yolov5">
 <span class="md-ellipsis">
-      Step 2: Set Up the VM
+      Step 2: Ready the VM for YOLOv5
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-run-yolov5-on-the-vm">
+<a class="md-nav__link" href="#step-3-train-and-deploy-your-yolov5-models">
 <span class="md-ellipsis">
-      Step 3: Run YOLOv5 🚀 on the VM
+      Step 3: Train and Deploy Your YOLOv5 Models 🌐
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#allocate-swap-space-optional">
+<span class="md-ellipsis">
+      Allocate Swap Space (optional)
+    </span>
+</a>
+<nav aria-label="Allocate Swap Space (optional)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#concluding-thoughts">
+<span class="md-ellipsis">
+      Concluding Thoughts
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -2431,36 +2467,63 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/yolov5/environments/google_cloud_quickstart_tutorial.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="run-yolov5-on-google-cloud-platform-gcp-deep-learning-virtual-machine-vm">Run YOLOv5 🚀 on Google Cloud Platform (GCP) Deep Learning Virtual Machine (VM) ⭐</h1>
-<p>This tutorial will guide you through the process of setting up and running YOLOv5 on a GCP Deep Learning VM. New GCP users are eligible for a <a href="https://cloud.google.com/free/docs/gcp-free-tier#free-trial">$300 free credit offer</a>.</p>
-<p>You can also explore other quickstart options for YOLOv5, such as our <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb">Colab Notebook</a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a>, <a href="https://docs.ultralytics.com/yolov5/environments/aws_quickstart_tutorial">Amazon AWS</a> and our Docker image at <a href="https://hub.docker.com/r/ultralytics/yolov5">Docker Hub</a> <a href="https://hub.docker.com/r/ultralytics/yolov5"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"/></a>. <em>Updated: 21 April 2023</em>.</p>
-<p><strong>Last Updated</strong>: 6 May 2022</p>
-<h2 id="step-1-create-a-deep-learning-vm">Step 1: Create a Deep Learning VM</h2>
+<h1 id="mastering-yolov5-deployment-on-google-cloud-platform-gcp-deep-learning-virtual-machine-vm">Mastering YOLOv5 🚀 Deployment on Google Cloud Platform (GCP) Deep Learning Virtual Machine (VM) ⭐</h1>
+<p>Embarking on the journey of artificial intelligence and machine learning can be exhilarating, especially when you leverage the power and flexibility of a cloud platform. Google Cloud Platform (GCP) offers robust tools tailored for machine learning enthusiasts and professionals alike. One such tool is the Deep Learning VM that is preconfigured for data science and ML tasks. In this tutorial, we will navigate through the process of setting up YOLOv5 on a GCP Deep Learning VM. Whether you’re taking your first steps in ML or you’re a seasoned practitioner, this guide is designed to provide you with a clear pathway to implementing object detection models powered by YOLOv5.</p>
+<p>🆓 Plus, if you're a fresh GCP user, you’re in luck with a <a href="https://cloud.google.com/free/docs/gcp-free-tier#free-trial">$300 free credit offer</a> to kickstart your projects.</p>
+<p>In addition to GCP, explore other accessible quickstart options for YOLOv5, like our <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb">Colab Notebook</a> <img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/> for a browser-based experience, or the scalability of <a href="https://docs.ultralytics.com/yolov5/environments/aws_quickstart_tutorial">Amazon AWS</a>. Furthermore, container aficionados can utilize our official Docker image at <a href="https://hub.docker.com/r/ultralytics/yolov5">Docker Hub</a> <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"/> for an encapsulated environment.</p>
+<h2 id="step-1-create-and-configure-your-deep-learning-vm">Step 1: Create and Configure Your Deep Learning VM</h2>
+<p>Let’s begin by creating a virtual machine that’s tuned for deep learning:</p>
 <ol>
-<li>Go to the <a href="https://console.cloud.google.com/marketplace/details/click-to-deploy-images/deeplearning">GCP marketplace</a> and select a <strong>Deep Learning VM</strong>.</li>
-<li>Choose an <strong>n1-standard-8</strong> instance (with 8 vCPUs and 30 GB memory).</li>
-<li>Add a GPU of your choice.</li>
-<li>Check 'Install NVIDIA GPU driver automatically on first startup?'</li>
-<li>Select a 300 GB SSD Persistent Disk for sufficient I/O speed.</li>
-<li>Click 'Deploy'.</li>
+<li>Head over to the <a href="https://console.cloud.google.com/marketplace/details/click-to-deploy-images/deeplearning">GCP marketplace</a> and select the <strong>Deep Learning VM</strong>.</li>
+<li>Opt for a <strong>n1-standard-8</strong> instance; it offers a balance of 8 vCPUs and 30 GB of memory, ideally suited for our needs.</li>
+<li>Next, select a GPU. This depends on your workload; even a basic one like the Tesla T4 will markedly accelerate your model training.</li>
+<li>Tick the box for 'Install NVIDIA GPU driver automatically on first startup?' for hassle-free setup.</li>
+<li>Allocate a 300 GB SSD Persistent Disk to ensure you don't bottleneck on I/O operations.</li>
+<li>Hit 'Deploy' and let GCP do its magic in provisioning your custom Deep Learning VM.</li>
 </ol>
-<p>The preinstalled <a href="https://docs.anaconda.com/anaconda/packages/pkg-docs/">Anaconda</a> Python environment includes all dependencies.</p>
-<p><img alt="GCP Marketplace" src="https://user-images.githubusercontent.com/26833433/105811495-95863880-5f61-11eb-841d-c2f2a5aa0ffe.png" width="1000"/></p>
-<h2 id="step-2-set-up-the-vm">Step 2: Set Up the VM</h2>
-<p>Clone the YOLOv5 repository and install the <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> will be downloaded automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w">  </span><span class="c1"># clone</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>yolov5
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># install</span>
+<p>This VM comes loaded with a treasure trove of preinstalled tools and frameworks, including the <a href="https://docs.anaconda.com/anaconda/packages/pkg-docs/">Anaconda</a> Python distribution, which conveniently bundles all the necessary dependencies for YOLOv5.</p>
+<p><img alt="GCP Marketplace illustration of setting up a Deep Learning VM" src="https://user-images.githubusercontent.com/26833433/105811495-95863880-5f61-11eb-841d-c2f2a5aa0ffe.png"/></p>
+<h2 id="step-2-ready-the-vm-for-yolov5">Step 2: Ready the VM for YOLOv5</h2>
+<p>Following the environment setup, let's get YOLOv5 up and running:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Clone the YOLOv5 repository</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># Change the directory to the cloned repository</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="nb">cd</span><span class="w"> </span>yolov5
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># Install the necessary Python packages from requirements.txt</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
-<h2 id="step-3-run-yolov5-on-the-vm">Step 3: Run YOLOv5 🚀 on the VM</h2>
-<p>You can now train, test, detect, and export YOLOv5 models on your VM:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>python<span class="w"> </span>train.py<span class="w">  </span><span class="c1"># train a model</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w">  </span><span class="c1"># validate a model for Precision, Recall, and mAP</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/images<span class="w">  </span><span class="c1"># run inference on images and videos</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite<span class="w">  </span><span class="c1"># export models to other formats</span>
+<p>This setup process ensures you're working with a Python environment version 3.8.0 or newer and PyTorch 1.8 or above. Our scripts smoothly download <a href="https://github.com/ultralytics/yolov5/tree/master/models">models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> rending from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>, making it hassle-free to start model training.</p>
+<h2 id="step-3-train-and-deploy-your-yolov5-models">Step 3: Train and Deploy Your YOLOv5 Models 🌐</h2>
+<p>With the setup complete, you're ready to delve into training and inference with YOLOv5 on your GCP VM:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Train a model on your data</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>python<span class="w"> </span>train.py
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Validate the trained model for Precision, Recall, and mAP</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Run inference using the trained model on your images or videos</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/images
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1"># Export the trained model to other formats for deployment</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite
 </code></pre></div>
-<p><img alt="GCP terminal" src="https://user-images.githubusercontent.com/26833433/142223900-275e5c9e-e2b5-43f7-a21c-35c4ca7de87c.png" width="1000"/></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<p>With just a few commands, YOLOv5 allows you to train custom object detection models tailored to your specific needs or utilize pre-trained weights for quick results on a variety of tasks.</p>
+<p><img alt="Terminal command image illustrating model training on a GCP Deep Learning VM" src="https://user-images.githubusercontent.com/26833433/142223900-275e5c9e-e2b5-43f7-a21c-35c4ca7de87c.png"/></p>
+<h2 id="allocate-swap-space-optional">Allocate Swap Space (optional)</h2>
+<p>For those dealing with hefty datasets, consider amplifying your GCP instance with an additional 64GB of swap memory:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo<span class="w"> </span>fallocate<span class="w"> </span>-l<span class="w"> </span>64G<span class="w"> </span>/swapfile
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>sudo<span class="w"> </span>mkswap<span class="w"> </span>/swapfile
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>sudo<span class="w"> </span>swapon<span class="w"> </span>/swapfile
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>free<span class="w"> </span>-h<span class="w">  </span><span class="c1"># confirm the memory increment</span>
+</code></pre></div>
+<h3 id="concluding-thoughts">Concluding Thoughts</h3>
+<p>Congratulations! You are now empowered to harness the capabilities of YOLOv5 with the computational prowess of Google Cloud Platform. This combination provides scalability, efficiency, and versatility for your object detection tasks. Whether for personal projects, academic research, or industrial applications, you have taken a pivotal step into the world of AI and machine learning on the cloud.</p>
+<p>Do remember to document your journey, share insights with the Ultralytics community, and leverage the collaborative arenas such as <a href="https://github.com/ultralytics/yolov5/discussions">GitHub discussions</a> to grow further. Now, go forth and innovate with YOLOv5 and GCP! 🌟</p>
+<p>Want to keep improving your ML skills and knowledge? Dive into our <a href="https://docs.ultralytics.com/">documentation and tutorials</a> for more resources. Let your AI adventure continue!</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-12-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

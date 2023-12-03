@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Kickstart your journey with YOLOv5. Learn how to install, run inference, and train models on your own images. Dive headfirst into object detection with PyTorch." name="description"/>
+<meta content="Dive into YOLOv5 for object detection with our easy-to-follow guide on setup, model training, and image inference using PyTorch. Get started now!" name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/yolov5/quickstart_tutorial/" rel="canonical"/>
 <link href="../" rel="prev"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Quickstart" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, Quickstart, Installation, Inference, Training, Object detection, PyTorch, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/quickstart_tutorial" property="og:url"/><meta content="Quickstart" property="og:title"/><meta content="Kickstart your journey with YOLOv5. Learn how to install, run inference, and train models on your own images. Dive headfirst into object detection with PyTorch." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/90222759-949d8800-ddc1-11ea-9fa1-1c97eed2b963.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/quickstart_tutorial" property="twitter:url"/><meta content="Quickstart" property="twitter:title"/><meta content="Kickstart your journey with YOLOv5. Learn how to install, run inference, and train models on your own images. Dive headfirst into object detection with PyTorch." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/90222759-949d8800-ddc1-11ea-9fa1-1c97eed2b963.png" property="twitter:image"/></head>
+<meta content="Quickstart" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 Tutorial, Object Detection Guide, PyTorch Model Training, Inference with YOLOv5, Ultralytics YOLOv5 Setup" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/quickstart_tutorial" property="og:url"/><meta content="Quickstart" property="og:title"/><meta content="Dive into YOLOv5 for object detection with our easy-to-follow guide on setup, model training, and image inference using PyTorch. Get started now!" property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/90222759-949d8800-ddc1-11ea-9fa1-1c97eed2b963.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/quickstart_tutorial" property="twitter:url"/><meta content="Quickstart" property="twitter:title"/><meta content="Dive into YOLOv5 for object detection with our easy-to-follow guide on setup, model training, and image inference using PyTorch. Get started now!" property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/90222759-949d8800-ddc1-11ea-9fa1-1c97eed2b963.png" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -1447,9 +1447,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#inference">
+<a class="md-nav__link" href="#inference-with-pytorch-hub">
 <span class="md-ellipsis">
-      Inference
+      Inference with PyTorch Hub
     </span>
 </a>
 </li>
@@ -2415,9 +2415,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#inference">
+<a class="md-nav__link" href="#inference-with-pytorch-hub">
 <span class="md-ellipsis">
-      Inference
+      Inference with PyTorch Hub
     </span>
 </a>
 </li>
@@ -2445,34 +2445,32 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/yolov5/quickstart_tutorial.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="yolov5-quickstart">YOLOv5 Quickstart</h1>
-<p>See below for quickstart examples.</p>
+<h1 id="yolov5-quickstart">YOLOv5 Quickstart 🚀</h1>
+<p>Embark on your journey into the dynamic realm of real-time object detection with YOLOv5! This guide is crafted to serve as a comprehensive starting point for AI enthusiasts and professionals aiming to master YOLOv5. From initial setup to advanced training techniques, we've got you covered. By the end of this guide, you'll have the knowledge to implement YOLOv5 into your projects confidently. Let's ignite the engines and soar into YOLOv5!</p>
 <h2 id="install">Install</h2>
-<p>Clone repo and install <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a
-<a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including
-<a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w">  </span><span class="c1"># clone</span>
+<p>Prepare for launch by cloning the repository and establishing the environment. This ensures that all the necessary <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements</a> are installed. Check that you have <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> and <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a> ready for takeoff.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w">  </span><span class="c1"># clone repository</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>yolov5
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># install</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># install dependencies</span>
 </code></pre></div>
-<h2 id="inference">Inference</h2>
-<p>YOLOv5 <a href="https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading">PyTorch Hub</a> inference. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
+<h2 id="inference-with-pytorch-hub">Inference with PyTorch Hub</h2>
+<p>Experience the simplicity of YOLOv5 <a href="https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading">PyTorch Hub</a> inference, where <a href="https://github.com/ultralytics/yolov5/tree/master/models">models</a> are seamlessly downloaded from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">torch</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Model</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"yolov5s"</span><span class="p">)</span>  <span class="c1"># or yolov5n - yolov5x6, custom</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Model loading</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"yolov5s"</span><span class="p">)</span>  <span class="c1"># Can be 'yolov5n' - 'yolov5x6', or 'custom'</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Images</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">img</span> <span class="o">=</span> <span class="s2">"https://ultralytics.com/images/zidane.jpg"</span>  <span class="c1"># or file, Path, PIL, OpenCV, numpy, list</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Inference on images</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">img</span> <span class="o">=</span> <span class="s2">"https://ultralytics.com/images/zidane.jpg"</span>  <span class="c1"># Can be a file, Path, PIL, OpenCV, numpy, or list of images</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Inference</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Run inference</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 <a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># Results</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">results</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>  <span class="c1"># or .show(), .save(), .crop(), .pandas(), etc.</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># Display results</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">results</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>  <span class="c1"># Other options: .show(), .save(), .crop(), .pandas(), etc.</span>
 </code></pre></div>
 <h2 id="inference-with-detectpy">Inference with detect.py</h2>
-<p><code>detect.py</code> runs inference on a variety of sources, downloading <a href="https://github.com/ultralytics/yolov5/tree/master/models">models</a> automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a> and saving results to <code>runs/detect</code>.</p>
+<p>Harness <code>detect.py</code> for versatile inference on various sources. It automatically fetches <a href="https://github.com/ultralytics/yolov5/tree/master/models">models</a> from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a> and saves results with ease.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span><span class="m">0</span><span class="w">                               </span><span class="c1"># webcam</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">                                               </span>img.jpg<span class="w">                         </span><span class="c1"># image</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">                                               </span>vid.mp4<span class="w">                         </span><span class="c1"># video</span>
@@ -2485,9 +2483,7 @@
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">                                               </span><span class="s1">'rtsp://example.com/media.mp4'</span><span class="w">  </span><span class="c1"># RTSP, RTMP, HTTP stream</span>
 </code></pre></div>
 <h2 id="training">Training</h2>
-<p>The commands below reproduce YOLOv5 <a href="https://github.com/ultralytics/yolov5/blob/master/data/scripts/get_coco.sh">COCO</a>
-results. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a>
-and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>. Training times for YOLOv5n/s/m/l/x are 1/2/4/6/8 days on a V100 GPU (<a href="https://docs.ultralytics.com/yolov5/tutorials/multi_gpu_training">Multi-GPU</a> times faster). Use the largest <code>--batch-size</code> possible, or pass <code>--batch-size -1</code> for YOLOv5 <a href="https://github.com/ultralytics/yolov5/pull/5092">AutoBatch</a>. Batch sizes shown for V100-16GB.</p>
+<p>Replicate the YOLOv5 <a href="https://github.com/ultralytics/yolov5/blob/master/data/scripts/get_coco.sh">COCO</a> benchmarks with the instructions below. The necessary <a href="https://github.com/ultralytics/yolov5/tree/master/models">models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> are pulled directly from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>. Training YOLOv5n/s/m/l/x on a V100 GPU should typically take 1/2/4/6/8 days respectively (note that <a href="https://docs.ultralytics.com/yolov5/tutorials/multi_gpu_training">Multi-GPU</a> setups work faster). Maximize performance by using the highest possible <code>--batch-size</code> or use <code>--batch-size -1</code> for the YOLOv5 <a href="https://github.com/ultralytics/yolov5/pull/5092">AutoBatch</a> feature. The following batch sizes are ideal for V100-16GB GPUs.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--epochs<span class="w"> </span><span class="m">300</span><span class="w"> </span>--weights<span class="w"> </span><span class="s1">''</span><span class="w"> </span>--cfg<span class="w"> </span>yolov5n.yaml<span class="w">  </span>--batch-size<span class="w"> </span><span class="m">128</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">                                                                 </span>yolov5s<span class="w">                    </span><span class="m">64</span>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">                                                                 </span>yolov5m<span class="w">                    </span><span class="m">40</span>
@@ -2495,7 +2491,8 @@ and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">                                                                 </span>yolov5x<span class="w">                    </span><span class="m">16</span>
 </code></pre></div>
 <p><img alt="YOLO training curves" src="https://user-images.githubusercontent.com/26833433/90222759-949d8800-ddc1-11ea-9fa1-1c97eed2b963.png" width="800"/></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<p>To conclude, YOLOv5 is not only a state-of-the-art tool for object detection but also a testament to the power of machine learning in transforming the way we interact with the world through visual understanding. As you progress through this guide and begin applying YOLOv5 to your projects, remember that you are at the forefront of a technological revolution, capable of achieving remarkable feats. Should you need further insights or support from fellow visionaries, you're invited to our <a href="https://github.com/ultralytics/yolov5">GitHub repository</a> home to a thriving community of developers and researchers. Keep exploring, keep innovating, and enjoy the marvels of YOLOv5. Happy detecting! 🌠🔍</p>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-12-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
