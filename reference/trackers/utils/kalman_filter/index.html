@@ -2870,7 +2870,7 @@ observation of the state space (linear observation model).</p>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">                and height h.</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">            tuple[ndarray, ndarray]: Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">            (tuple[ndarray, ndarray]): Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">                the new track. Unobserved velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        """</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="n">mean_pos</span> <span class="o">=</span> <span class="n">measurement</span>
@@ -2893,7 +2893,7 @@ observation of the state space (linear observation model).</p>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">            covariance (ndarray): The 8x8 dimensional covariance matrix of the object state at the previous time step.</span>
 <a id="__codelineno-0-63" name="__codelineno-0-63"></a>
 <a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">            tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">            (tuple[ndarray, ndarray]): Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">                velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        """</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="n">std_pos</span> <span class="o">=</span> <span class="p">[</span>
@@ -2918,7 +2918,7 @@ observation of the state space (linear observation model).</p>
 <a id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="sd">            covariance (ndarray): The state's covariance matrix (8x8 dimensional).</span>
 <a id="__codelineno-0-88" name="__codelineno-0-88"></a>
 <a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="sd">            tuple[ndarray, ndarray]: Returns the projected mean and covariance matrix of the given state estimate.</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="sd">            (tuple[ndarray, ndarray]): Returns the projected mean and covariance matrix of the given state estimate.</span>
 <a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">        """</span>
 <a id="__codelineno-0-92" name="__codelineno-0-92"></a>        <span class="n">std</span> <span class="o">=</span> <span class="p">[</span>
 <a id="__codelineno-0-93" name="__codelineno-0-93"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_std_weight_position</span> <span class="o">*</span> <span class="n">mean</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_std_weight_position</span> <span class="o">*</span> <span class="n">mean</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mf">1e-1</span><span class="p">,</span>
@@ -2938,7 +2938,7 @@ observation of the state space (linear observation model).</p>
 <a id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="sd">            covariance (ndarray): The Nx8x8 covariance matrix of the object states at the previous time step.</span>
 <a id="__codelineno-0-108" name="__codelineno-0-108"></a>
 <a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">            tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">            (tuple[ndarray, ndarray]): Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
 <a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">                velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="sd">        """</span>
 <a id="__codelineno-0-113" name="__codelineno-0-113"></a>        <span class="n">std_pos</span> <span class="o">=</span> <span class="p">[</span>
@@ -2969,7 +2969,7 @@ observation of the state space (linear observation model).</p>
 <a id="__codelineno-0-138" name="__codelineno-0-138"></a><span class="sd">                position, a the aspect ratio, and h the height of the bounding box.</span>
 <a id="__codelineno-0-139" name="__codelineno-0-139"></a>
 <a id="__codelineno-0-140" name="__codelineno-0-140"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-141" name="__codelineno-0-141"></a><span class="sd">            tuple[ndarray, ndarray]: Returns the measurement-corrected state distribution.</span>
+<a id="__codelineno-0-141" name="__codelineno-0-141"></a><span class="sd">            (tuple[ndarray, ndarray]): Returns the measurement-corrected state distribution.</span>
 <a id="__codelineno-0-142" name="__codelineno-0-142"></a><span class="sd">        """</span>
 <a id="__codelineno-0-143" name="__codelineno-0-143"></a>        <span class="n">projected_mean</span><span class="p">,</span> <span class="n">projected_cov</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
 <a id="__codelineno-0-144" name="__codelineno-0-144"></a>
@@ -3005,7 +3005,7 @@ observation of the state space (linear observation model).</p>
 <a id="__codelineno-0-174" name="__codelineno-0-174"></a><span class="sd">                squared Euclidean distance and 'maha' for the squared Mahalanobis distance. Defaults to 'maha'.</span>
 <a id="__codelineno-0-175" name="__codelineno-0-175"></a>
 <a id="__codelineno-0-176" name="__codelineno-0-176"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="sd">            ndarray: Returns an array of length N, where the i-th element contains the squared distance between</span>
+<a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="sd">            (np.ndarray): Returns an array of length N, where the i-th element contains the squared distance between</span>
 <a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="sd">                (mean, covariance) and `measurements[i]`.</span>
 <a id="__codelineno-0-179" name="__codelineno-0-179"></a><span class="sd">        """</span>
 <a id="__codelineno-0-180" name="__codelineno-0-180"></a>        <span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
@@ -3162,13 +3162,13 @@ squared Euclidean distance and 'maha' for the squared Mahalanobis distance. Defa
 <table>
 <thead>
 <tr>
-<th>Name</th> <th>Type</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>ndarray</code></td> <td>
+<td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -3242,7 +3242,7 @@ squared Euclidean distance and 'maha' for the squared Mahalanobis distance. Defa
 <a id="__codelineno-0-174" name="__codelineno-0-174"></a><span class="sd">            squared Euclidean distance and 'maha' for the squared Mahalanobis distance. Defaults to 'maha'.</span>
 <a id="__codelineno-0-175" name="__codelineno-0-175"></a>
 <a id="__codelineno-0-176" name="__codelineno-0-176"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="sd">        ndarray: Returns an array of length N, where the i-th element contains the squared distance between</span>
+<a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="sd">        (np.ndarray): Returns an array of length N, where the i-th element contains the squared distance between</span>
 <a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="sd">            (mean, covariance) and `measurements[i]`.</span>
 <a id="__codelineno-0-179" name="__codelineno-0-179"></a><span class="sd">    """</span>
 <a id="__codelineno-0-180" name="__codelineno-0-180"></a>    <span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
@@ -3308,11 +3308,11 @@ and height h.</p>
 <tbody>
 <tr>
 <td>
-<code>tuple</code>
+<code>tuple[ndarray, ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>tuple[ndarray, ndarray]: Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of
+<p>Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of
 the new track. Unobserved velocities are initialized to 0 mean.</p>
 </div>
 </td>
@@ -3351,7 +3351,7 @@ the new track. Unobserved velocities are initialized to 0 mean.</p>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">            and height h.</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        tuple[ndarray, ndarray]: Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        (tuple[ndarray, ndarray]): Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">            the new track. Unobserved velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    """</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="n">mean_pos</span> <span class="o">=</span> <span class="n">measurement</span>
@@ -3426,11 +3426,11 @@ the new track. Unobserved velocities are initialized to 0 mean.</p>
 <tbody>
 <tr>
 <td>
-<code>tuple</code>
+<code>tuple[ndarray, ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved
+<p>Returns the mean vector and covariance matrix of the predicted state. Unobserved
 velocities are initialized to 0 mean.</p>
 </div>
 </td>
@@ -3475,7 +3475,7 @@ velocities are initialized to 0 mean.</p>
 <a id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="sd">        covariance (ndarray): The Nx8x8 covariance matrix of the object states at the previous time step.</span>
 <a id="__codelineno-0-108" name="__codelineno-0-108"></a>
 <a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">        tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">        (tuple[ndarray, ndarray]): Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
 <a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">            velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="sd">    """</span>
 <a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="n">std_pos</span> <span class="o">=</span> <span class="p">[</span>
@@ -3556,11 +3556,11 @@ velocities are initialized to 0 mean.</p>
 <tbody>
 <tr>
 <td>
-<code>tuple</code>
+<code>tuple[ndarray, ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved
+<p>Returns the mean vector and covariance matrix of the predicted state. Unobserved
 velocities are initialized to 0 mean.</p>
 </div>
 </td>
@@ -3601,7 +3601,7 @@ velocities are initialized to 0 mean.</p>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">        covariance (ndarray): The 8x8 dimensional covariance matrix of the object state at the previous time step.</span>
 <a id="__codelineno-0-63" name="__codelineno-0-63"></a>
 <a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        (tuple[ndarray, ndarray]): Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">            velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    """</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="n">std_pos</span> <span class="o">=</span> <span class="p">[</span>
@@ -3678,11 +3678,11 @@ velocities are initialized to 0 mean.</p>
 <tbody>
 <tr>
 <td>
-<code>tuple</code>
+<code>tuple[ndarray, ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>tuple[ndarray, ndarray]: Returns the projected mean and covariance matrix of the given state estimate.</p>
+<p>Returns the projected mean and covariance matrix of the given state estimate.</p>
 </div>
 </td>
 </tr>
@@ -3717,7 +3717,7 @@ velocities are initialized to 0 mean.</p>
 <a id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="sd">        covariance (ndarray): The state's covariance matrix (8x8 dimensional).</span>
 <a id="__codelineno-0-88" name="__codelineno-0-88"></a>
 <a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="sd">        tuple[ndarray, ndarray]: Returns the projected mean and covariance matrix of the given state estimate.</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="sd">        (tuple[ndarray, ndarray]): Returns the projected mean and covariance matrix of the given state estimate.</span>
 <a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">    """</span>
 <a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="n">std</span> <span class="o">=</span> <span class="p">[</span>
 <a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_std_weight_position</span> <span class="o">*</span> <span class="n">mean</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_std_weight_position</span> <span class="o">*</span> <span class="n">mean</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="mf">1e-1</span><span class="p">,</span>
@@ -3804,11 +3804,11 @@ position, a the aspect ratio, and h the height of the bounding box.</p>
 <tbody>
 <tr>
 <td>
-<code>tuple</code>
+<code>tuple[ndarray, ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>tuple[ndarray, ndarray]: Returns the measurement-corrected state distribution.</p>
+<p>Returns the measurement-corrected state distribution.</p>
 </div>
 </td>
 </tr>
@@ -3850,7 +3850,7 @@ position, a the aspect ratio, and h the height of the bounding box.</p>
 <a id="__codelineno-0-138" name="__codelineno-0-138"></a><span class="sd">            position, a the aspect ratio, and h the height of the bounding box.</span>
 <a id="__codelineno-0-139" name="__codelineno-0-139"></a>
 <a id="__codelineno-0-140" name="__codelineno-0-140"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-141" name="__codelineno-0-141"></a><span class="sd">        tuple[ndarray, ndarray]: Returns the measurement-corrected state distribution.</span>
+<a id="__codelineno-0-141" name="__codelineno-0-141"></a><span class="sd">        (tuple[ndarray, ndarray]): Returns the measurement-corrected state distribution.</span>
 <a id="__codelineno-0-142" name="__codelineno-0-142"></a><span class="sd">    """</span>
 <a id="__codelineno-0-143" name="__codelineno-0-143"></a>    <span class="n">projected_mean</span><span class="p">,</span> <span class="n">projected_cov</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
 <a id="__codelineno-0-144" name="__codelineno-0-144"></a>
@@ -4024,7 +4024,7 @@ observation of the state space (linear observation model).</p>
 <a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="sd">            measurement (ndarray): Bounding box coordinates (x, y, w, h) with center position (x, y), width, and height.</span>
 <a id="__codelineno-0-213" name="__codelineno-0-213"></a>
 <a id="__codelineno-0-214" name="__codelineno-0-214"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="sd">            tuple[ndarray, ndarray]: Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of</span>
+<a id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="sd">            (tuple[ndarray, ndarray]): Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of</span>
 <a id="__codelineno-0-216" name="__codelineno-0-216"></a><span class="sd">                the new track. Unobserved velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-217" name="__codelineno-0-217"></a><span class="sd">        """</span>
 <a id="__codelineno-0-218" name="__codelineno-0-218"></a>        <span class="n">mean_pos</span> <span class="o">=</span> <span class="n">measurement</span>
@@ -4048,7 +4048,7 @@ observation of the state space (linear observation model).</p>
 <a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">            covariance (ndarray): The 8x8 dimensional covariance matrix of the object state at the previous time step.</span>
 <a id="__codelineno-0-237" name="__codelineno-0-237"></a>
 <a id="__codelineno-0-238" name="__codelineno-0-238"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-239" name="__codelineno-0-239"></a><span class="sd">            tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
+<a id="__codelineno-0-239" name="__codelineno-0-239"></a><span class="sd">            (tuple[ndarray, ndarray]): Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
 <a id="__codelineno-0-240" name="__codelineno-0-240"></a><span class="sd">                velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-241" name="__codelineno-0-241"></a><span class="sd">        """</span>
 <a id="__codelineno-0-242" name="__codelineno-0-242"></a>        <span class="n">std_pos</span> <span class="o">=</span> <span class="p">[</span>
@@ -4073,7 +4073,7 @@ observation of the state space (linear observation model).</p>
 <a id="__codelineno-0-261" name="__codelineno-0-261"></a><span class="sd">            covariance (ndarray): The state's covariance matrix (8x8 dimensional).</span>
 <a id="__codelineno-0-262" name="__codelineno-0-262"></a>
 <a id="__codelineno-0-263" name="__codelineno-0-263"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-264" name="__codelineno-0-264"></a><span class="sd">            tuple[ndarray, ndarray]: Returns the projected mean and covariance matrix of the given state estimate.</span>
+<a id="__codelineno-0-264" name="__codelineno-0-264"></a><span class="sd">            (tuple[ndarray, ndarray]): Returns the projected mean and covariance matrix of the given state estimate.</span>
 <a id="__codelineno-0-265" name="__codelineno-0-265"></a><span class="sd">        """</span>
 <a id="__codelineno-0-266" name="__codelineno-0-266"></a>        <span class="n">std</span> <span class="o">=</span> <span class="p">[</span>
 <a id="__codelineno-0-267" name="__codelineno-0-267"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_std_weight_position</span> <span class="o">*</span> <span class="n">mean</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_std_weight_position</span> <span class="o">*</span> <span class="n">mean</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
@@ -4093,7 +4093,7 @@ observation of the state space (linear observation model).</p>
 <a id="__codelineno-0-281" name="__codelineno-0-281"></a><span class="sd">            covariance (ndarray): The Nx8x8 covariance matrix of the object states at the previous time step.</span>
 <a id="__codelineno-0-282" name="__codelineno-0-282"></a>
 <a id="__codelineno-0-283" name="__codelineno-0-283"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-284" name="__codelineno-0-284"></a><span class="sd">            tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a><span class="sd">            (tuple[ndarray, ndarray]): Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
 <a id="__codelineno-0-285" name="__codelineno-0-285"></a><span class="sd">                velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-286" name="__codelineno-0-286"></a><span class="sd">        """</span>
 <a id="__codelineno-0-287" name="__codelineno-0-287"></a>        <span class="n">std_pos</span> <span class="o">=</span> <span class="p">[</span>
@@ -4121,10 +4121,10 @@ observation of the state space (linear observation model).</p>
 <a id="__codelineno-0-309" name="__codelineno-0-309"></a><span class="sd">            mean (ndarray): The predicted state's mean vector (8 dimensional).</span>
 <a id="__codelineno-0-310" name="__codelineno-0-310"></a><span class="sd">            covariance (ndarray): The state's covariance matrix (8x8 dimensional).</span>
 <a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="sd">            measurement (ndarray): The 4 dimensional measurement vector (x, y, w, h), where (x, y) is the center</span>
-<a id="__codelineno-0-312" name="__codelineno-0-312"></a><span class="sd">            position, w the width, and h the height of the bounding box.</span>
+<a id="__codelineno-0-312" name="__codelineno-0-312"></a><span class="sd">                position, w the width, and h the height of the bounding box.</span>
 <a id="__codelineno-0-313" name="__codelineno-0-313"></a>
 <a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="sd">            tuple[ndarray, ndarray]: Returns the measurement-corrected state distribution.</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="sd">            (tuple[ndarray, ndarray]): Returns the measurement-corrected state distribution.</span>
 <a id="__codelineno-0-316" name="__codelineno-0-316"></a><span class="sd">        """</span>
 <a id="__codelineno-0-317" name="__codelineno-0-317"></a>        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">measurement</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -4174,11 +4174,11 @@ observation of the state space (linear observation model).</p>
 <tbody>
 <tr>
 <td>
-<code>tuple</code>
+<code>tuple[ndarray, ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>tuple[ndarray, ndarray]: Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of
+<p>Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of
 the new track. Unobserved velocities are initialized to 0 mean.</p>
 </div>
 </td>
@@ -4216,7 +4216,7 @@ the new track. Unobserved velocities are initialized to 0 mean.</p>
 <a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="sd">        measurement (ndarray): Bounding box coordinates (x, y, w, h) with center position (x, y), width, and height.</span>
 <a id="__codelineno-0-213" name="__codelineno-0-213"></a>
 <a id="__codelineno-0-214" name="__codelineno-0-214"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="sd">        tuple[ndarray, ndarray]: Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of</span>
+<a id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="sd">        (tuple[ndarray, ndarray]): Returns the mean vector (8 dimensional) and covariance matrix (8x8 dimensional) of</span>
 <a id="__codelineno-0-216" name="__codelineno-0-216"></a><span class="sd">            the new track. Unobserved velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-217" name="__codelineno-0-217"></a><span class="sd">    """</span>
 <a id="__codelineno-0-218" name="__codelineno-0-218"></a>    <span class="n">mean_pos</span> <span class="o">=</span> <span class="n">measurement</span>
@@ -4292,11 +4292,11 @@ the new track. Unobserved velocities are initialized to 0 mean.</p>
 <tbody>
 <tr>
 <td>
-<code>tuple</code>
+<code>tuple[ndarray, ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved
+<p>Returns the mean vector and covariance matrix of the predicted state. Unobserved
 velocities are initialized to 0 mean.</p>
 </div>
 </td>
@@ -4341,7 +4341,7 @@ velocities are initialized to 0 mean.</p>
 <a id="__codelineno-0-281" name="__codelineno-0-281"></a><span class="sd">        covariance (ndarray): The Nx8x8 covariance matrix of the object states at the previous time step.</span>
 <a id="__codelineno-0-282" name="__codelineno-0-282"></a>
 <a id="__codelineno-0-283" name="__codelineno-0-283"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-284" name="__codelineno-0-284"></a><span class="sd">        tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a><span class="sd">        (tuple[ndarray, ndarray]): Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
 <a id="__codelineno-0-285" name="__codelineno-0-285"></a><span class="sd">            velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-286" name="__codelineno-0-286"></a><span class="sd">    """</span>
 <a id="__codelineno-0-287" name="__codelineno-0-287"></a>    <span class="n">std_pos</span> <span class="o">=</span> <span class="p">[</span>
@@ -4422,11 +4422,11 @@ velocities are initialized to 0 mean.</p>
 <tbody>
 <tr>
 <td>
-<code>tuple</code>
+<code>tuple[ndarray, ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved
+<p>Returns the mean vector and covariance matrix of the predicted state. Unobserved
 velocities are initialized to 0 mean.</p>
 </div>
 </td>
@@ -4467,7 +4467,7 @@ velocities are initialized to 0 mean.</p>
 <a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">        covariance (ndarray): The 8x8 dimensional covariance matrix of the object state at the previous time step.</span>
 <a id="__codelineno-0-237" name="__codelineno-0-237"></a>
 <a id="__codelineno-0-238" name="__codelineno-0-238"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-239" name="__codelineno-0-239"></a><span class="sd">        tuple[ndarray, ndarray]: Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
+<a id="__codelineno-0-239" name="__codelineno-0-239"></a><span class="sd">        (tuple[ndarray, ndarray]): Returns the mean vector and covariance matrix of the predicted state. Unobserved</span>
 <a id="__codelineno-0-240" name="__codelineno-0-240"></a><span class="sd">            velocities are initialized to 0 mean.</span>
 <a id="__codelineno-0-241" name="__codelineno-0-241"></a><span class="sd">    """</span>
 <a id="__codelineno-0-242" name="__codelineno-0-242"></a>    <span class="n">std_pos</span> <span class="o">=</span> <span class="p">[</span>
@@ -4544,11 +4544,11 @@ velocities are initialized to 0 mean.</p>
 <tbody>
 <tr>
 <td>
-<code>tuple</code>
+<code>tuple[ndarray, ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>tuple[ndarray, ndarray]: Returns the projected mean and covariance matrix of the given state estimate.</p>
+<p>Returns the projected mean and covariance matrix of the given state estimate.</p>
 </div>
 </td>
 </tr>
@@ -4583,7 +4583,7 @@ velocities are initialized to 0 mean.</p>
 <a id="__codelineno-0-261" name="__codelineno-0-261"></a><span class="sd">        covariance (ndarray): The state's covariance matrix (8x8 dimensional).</span>
 <a id="__codelineno-0-262" name="__codelineno-0-262"></a>
 <a id="__codelineno-0-263" name="__codelineno-0-263"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-264" name="__codelineno-0-264"></a><span class="sd">        tuple[ndarray, ndarray]: Returns the projected mean and covariance matrix of the given state estimate.</span>
+<a id="__codelineno-0-264" name="__codelineno-0-264"></a><span class="sd">        (tuple[ndarray, ndarray]): Returns the projected mean and covariance matrix of the given state estimate.</span>
 <a id="__codelineno-0-265" name="__codelineno-0-265"></a><span class="sd">    """</span>
 <a id="__codelineno-0-266" name="__codelineno-0-266"></a>    <span class="n">std</span> <span class="o">=</span> <span class="p">[</span>
 <a id="__codelineno-0-267" name="__codelineno-0-267"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_std_weight_position</span> <span class="o">*</span> <span class="n">mean</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_std_weight_position</span> <span class="o">*</span> <span class="n">mean</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
@@ -4649,7 +4649,8 @@ velocities are initialized to 0 mean.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The 4 dimensional measurement vector (x, y, w, h), where (x, y) is the center</p>
+<p>The 4 dimensional measurement vector (x, y, w, h), where (x, y) is the center
+position, w the width, and h the height of the bounding box.</p>
 </div>
 </td>
 <td>
@@ -4669,11 +4670,11 @@ velocities are initialized to 0 mean.</p>
 <tbody>
 <tr>
 <td>
-<code>tuple</code>
+<code>tuple[ndarray, ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>tuple[ndarray, ndarray]: Returns the measurement-corrected state distribution.</p>
+<p>Returns the measurement-corrected state distribution.</p>
 </div>
 </td>
 </tr>
@@ -4702,10 +4703,10 @@ velocities are initialized to 0 mean.</p>
 <a id="__codelineno-0-309" name="__codelineno-0-309"></a><span class="sd">        mean (ndarray): The predicted state's mean vector (8 dimensional).</span>
 <a id="__codelineno-0-310" name="__codelineno-0-310"></a><span class="sd">        covariance (ndarray): The state's covariance matrix (8x8 dimensional).</span>
 <a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="sd">        measurement (ndarray): The 4 dimensional measurement vector (x, y, w, h), where (x, y) is the center</span>
-<a id="__codelineno-0-312" name="__codelineno-0-312"></a><span class="sd">        position, w the width, and h the height of the bounding box.</span>
+<a id="__codelineno-0-312" name="__codelineno-0-312"></a><span class="sd">            position, w the width, and h the height of the bounding box.</span>
 <a id="__codelineno-0-313" name="__codelineno-0-313"></a>
 <a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="sd">        tuple[ndarray, ndarray]: Returns the measurement-corrected state distribution.</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="sd">        (tuple[ndarray, ndarray]): Returns the measurement-corrected state distribution.</span>
 <a id="__codelineno-0-316" name="__codelineno-0-316"></a><span class="sd">    """</span>
 <a id="__codelineno-0-317" name="__codelineno-0-317"></a>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">measurement</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
