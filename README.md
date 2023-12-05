@@ -119,7 +119,7 @@ Ultralytics offers two licensing options to accommodate diverse use cases:
 
 # Contact
 
-For Ultralytics bug reports and feature requests please visit [GitHub Issues](https://github.com/ultralytics/xview-yolov3/issues), and join our [Discord](https://ultralytics.com/discord) community for questions and discussions!
+For Ultralytics bug reports and feature requests please visit [GitHub Issues](https://github.com/ultralytics/docs/issues), and join our [Discord](https://ultralytics.com/discord) community for questions and discussions!
 
 <br>
 <div align="center">
