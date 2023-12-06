@@ -1285,14 +1285,7 @@
       Real World Applications
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#example">
-<span class="md-ellipsis">
-      Example
-    </span>
-</a>
-<nav aria-label="Example" class="md-nav">
+<nav aria-label="Real World Applications" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#keypoints-map">
@@ -1305,6 +1298,13 @@
 <a class="md-nav__link" href="#arguments-set_args">
 <span class="md-ellipsis">
       Arguments set_args
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arguments-modelpredict">
+<span class="md-ellipsis">
+      Arguments model.predict
     </span>
 </a>
 </li>
@@ -1325,6 +1325,13 @@
 <a class="md-nav__link" href="../security-alarm-system/">
 <span class="md-ellipsis">
     Security Alarm System
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../heatmaps/">
+<span class="md-ellipsis">
+    Heatmaps
   </span>
 </a>
 </li>
@@ -2431,14 +2438,7 @@
       Real World Applications
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#example">
-<span class="md-ellipsis">
-      Example
-    </span>
-</a>
-<nav aria-label="Example" class="md-nav">
+<nav aria-label="Real World Applications" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#keypoints-map">
@@ -2451,6 +2451,13 @@
 <a class="md-nav__link" href="#arguments-set_args">
 <span class="md-ellipsis">
       Arguments set_args
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arguments-modelpredict">
+<span class="md-ellipsis">
+      Arguments model.predict
     </span>
 </a>
 </li>
@@ -2496,31 +2503,81 @@
 </tr>
 </tbody>
 </table>
-<h2 id="example">Example</h2>
+<div class="admonition example">
+<p class="admonition-title">Workouts Monitoring Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Workouts Monitoring</label><label for="__tabbed_1_2">Workouts Monitoring with Save Output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">ultralytics.solutions</span> <span class="kn">import</span> <span class="n">ai_gym</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">cv2</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n-pose.pt"</span><span class="p">)</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">gym_object</span> <span class="o">=</span> <span class="n">ai_gym</span><span class="o">.</span><span class="n">AIGym</span><span class="p">()</span>  <span class="c1"># init AI GYM module</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">gym_object</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">line_thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">pose_type</span><span class="o">=</span><span class="s2">"pushup"</span><span class="p">,</span> <span class="n">kpts_to_check</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video/file.mp4"</span><span class="p">)</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error reading video file"</span><span class="p">)</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span> <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="n">gym_object</span><span class="o">.</span><span class="n">start_counting</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="n">gym_object</span> <span class="o">=</span> <span class="n">ai_gym</span><span class="o">.</span><span class="n">AIGym</span><span class="p">()</span>  <span class="c1"># init AI GYM module</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">gym_object</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">line_thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>                    <span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>                    <span class="n">pose_type</span><span class="o">=</span><span class="s2">"pushup"</span><span class="p">,</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>                    <span class="n">kpts_to_check</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="n">im0</span> <span class="o">=</span> <span class="n">gym_object</span><span class="o">.</span><span class="n">start_counting</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">ultralytics.solutions</span> <span class="kn">import</span> <span class="n">ai_gym</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n-pose.pt"</span><span class="p">)</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video/file.mp4"</span><span class="p">)</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error reading video file"</span><span class="p">)</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"workouts.avi"</span><span class="p">,</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>                               <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s1">'mp4v'</span><span class="p">),</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>                               <span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>                               <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">))))</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="n">gym_object</span> <span class="o">=</span> <span class="n">ai_gym</span><span class="o">.</span><span class="n">AIGym</span><span class="p">()</span>  <span class="c1"># init AI GYM module</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="n">gym_object</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">line_thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>                    <span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>                    <span class="n">pose_type</span><span class="o">=</span><span class="s2">"pushup"</span><span class="p">,</span>
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>                    <span class="n">kpts_to_check</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
+<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>    <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>    <span class="n">im0</span> <span class="o">=</span> <span class="n">gym_object</span><span class="o">.</span><span class="n">start_counting</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>
+<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>
+<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</div>
 <details class="tip" open="open">
 <summary>Support</summary>
 <p>"pushup", "pullup" and "abworkout" supported</p>
 </details>
 <h3 id="keypoints-map">KeyPoints Map</h3>
-<p><img alt="keyPoints Order Ultralytics YOLOv8 Pose" src="https://github.com/RizwanMunawar/ultralytics/assets/62513924/520059af-f961-433b-b2fb-7fe8c4336ee5"/></p>
+<p><img alt="keyPoints Order Ultralytics YOLOv8 Pose" src="https://github.com/ultralytics/ultralytics/assets/62513924/f45d8315-b59f-47b7-b9c8-c61af1ce865b"/></p>
 <h3 id="arguments-set_args">Arguments <code>set_args</code></h3>
 <table>
 <thead>
@@ -2570,7 +2627,104 @@
 </tr>
 </tbody>
 </table>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-02, Updated 2023-12-02<br/>Authors: <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1)</div>
+<h3 id="arguments-modelpredict">Arguments <code>model.predict</code></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source</code></td>
+<td><code>str</code></td>
+<td><code>'ultralytics/assets'</code></td>
+<td>source directory for images or videos</td>
+</tr>
+<tr>
+<td><code>conf</code></td>
+<td><code>float</code></td>
+<td><code>0.25</code></td>
+<td>object confidence threshold for detection</td>
+</tr>
+<tr>
+<td><code>iou</code></td>
+<td><code>float</code></td>
+<td><code>0.7</code></td>
+<td>intersection over union (IoU) threshold for NMS</td>
+</tr>
+<tr>
+<td><code>imgsz</code></td>
+<td><code>int or tuple</code></td>
+<td><code>640</code></td>
+<td>image size as scalar or (h, w) list, i.e. (640, 480)</td>
+</tr>
+<tr>
+<td><code>half</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>use half precision (FP16)</td>
+</tr>
+<tr>
+<td><code>device</code></td>
+<td><code>None or str</code></td>
+<td><code>None</code></td>
+<td>device to run on, i.e. cuda device=0/1/2/3 or device=cpu</td>
+</tr>
+<tr>
+<td><code>max_det</code></td>
+<td><code>int</code></td>
+<td><code>300</code></td>
+<td>maximum number of detections per image</td>
+</tr>
+<tr>
+<td><code>vid_stride</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>video frame-rate stride</td>
+</tr>
+<tr>
+<td><code>stream_buffer</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>buffer all streaming frames (True) or return the most recent frame (False)</td>
+</tr>
+<tr>
+<td><code>visualize</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>visualize model features</td>
+</tr>
+<tr>
+<td><code>augment</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>apply image augmentation to prediction sources</td>
+</tr>
+<tr>
+<td><code>agnostic_nms</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>class-agnostic NMS</td>
+</tr>
+<tr>
+<td><code>retina_masks</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>use high-resolution segmentation masks</td>
+</tr>
+<tr>
+<td><code>classes</code></td>
+<td><code>None or list</code></td>
+<td><code>None</code></td>
+<td>filter results by class, i.e. classes=0, or classes=[0,2,3]</td>
+</tr>
+</tbody>
+</table>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-02, Updated 2023-12-07<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/guides/workouts-monitoring.md">chr043416@gmail.com</a> (1), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

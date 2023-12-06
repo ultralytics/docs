@@ -1274,6 +1274,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/heatmaps/">
+<span class="md-ellipsis">
+    Heatmaps
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1630,15 +1637,15 @@
       🚀 Training YOLOv5 With ClearML
     </span>
 </a>
-</li>
+<nav aria-label="🚀 Training YOLOv5 With ClearML" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#dataset-version-management">
 <span class="md-ellipsis">
       🔗 Dataset Version Management
     </span>
 </a>
-<nav aria-label="🔗 Dataset Version Management" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#prepare-your-dataset">
 <span class="md-ellipsis">
@@ -1660,15 +1667,15 @@
     </span>
 </a>
 </li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#hyperparameter-optimization">
 <span class="md-ellipsis">
       👀 Hyperparameter Optimization
     </span>
 </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#remote-execution-advanced">
@@ -2491,15 +2498,15 @@
       🚀 Training YOLOv5 With ClearML
     </span>
 </a>
-</li>
+<nav aria-label="🚀 Training YOLOv5 With ClearML" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#dataset-version-management">
 <span class="md-ellipsis">
       🔗 Dataset Version Management
     </span>
 </a>
-<nav aria-label="🔗 Dataset Version Management" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#prepare-your-dataset">
 <span class="md-ellipsis">
@@ -2521,15 +2528,15 @@
     </span>
 </a>
 </li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#hyperparameter-optimization">
 <span class="md-ellipsis">
       👀 Hyperparameter Optimization
     </span>
 </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#remote-execution-advanced">
@@ -2592,14 +2599,14 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 <h2 id="setting-things-up">🦾 Setting Things Up</h2>
 <p>To keep track of your experiments and/or data, ClearML needs to communicate to a server. You have 2 options to get one:</p>
 <p>Either sign up for free to the <a href="https://cutt.ly/yolov5-tutorial-clearml">ClearML Hosted Service</a> or you can set up your own server, see <a href="https://clear.ml/docs/latest/docs/deploying_clearml/clearml_server">here</a>. Even the server is open-source, so even if you're dealing with sensitive data, you should be good to go!</p>
-<ol>
+<ul>
 <li>Install the <code>clearml</code> python package:</li>
-</ol>
+</ul>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>clearml
 </code></pre></div>
-<ol>
+<ul>
 <li>Connect the ClearML SDK to the server by <a href="https://app.clear.ml/settings/workspace-configuration">creating credentials</a> (go right top to Settings -&gt; Workspace -&gt; Create new credentials), then execute the command below and follow the instructions:</li>
-</ol>
+</ul>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>clearml-init
 </code></pre></div>
 <p>That's it! You're done 😎</p>
@@ -2628,12 +2635,10 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 <li>Images with bounding boxes per epoch</li>
 <li>Mosaic per epoch</li>
 <li>Validation images per epoch</li>
-<li>...</li>
 </ul>
 <p>That's a lot right? 🤯 Now, we can visualize all of this information in the ClearML UI to get an overview of our training progress. Add custom columns to the table view (such as e.g. mAP_0.5) so you can easily sort on the best performing model. Or select multiple experiments and directly compare them!</p>
 <p>There even more we can do with all of this information, like hyperparameter optimization and remote execution, so keep reading if you want to see how that works!</p>
-<p><br/></p>
-<h2 id="dataset-version-management">🔗 Dataset Version Management</h2>
+<h3 id="dataset-version-management">🔗 Dataset Version Management</h3>
 <p>Versioning your data separately from your code is generally a good idea and makes it easy to acquire the latest version too. This repository supports supplying a dataset version ID, and it will make sure to get the data if it's not there yet. Next to that, this workflow also saves the used dataset ID as part of the task parameters, so you will always know for sure which data was used in which experiment!</p>
 <p><img alt="ClearML Dataset Interface" src="https://github.com/thepycoder/clearml_screenshots/raw/main/clearml_data.gif"/></p>
 <h3 id="prepare-your-dataset">Prepare Your Dataset</h3>
@@ -2677,7 +2682,7 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>clearml://&lt;your_dataset_id&gt;<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--cache
 </code></pre></div>
 <p><br/></p>
-<h2 id="hyperparameter-optimization">👀 Hyperparameter Optimization</h2>
+<h3 id="hyperparameter-optimization">👀 Hyperparameter Optimization</h3>
 <p>Now that we have our experiments and data versioned, it's time to take a look at what we can build on top!</p>
 <p>Using the code information, installed packages and environment details, the experiment itself is now <strong>completely reproducible</strong>. In fact, ClearML allows you to clone an experiment and even change its parameters. We can then just rerun it with these new parameters automatically, this is basically what HPO does!</p>
 <p>To <strong>run hyperparameter optimization locally</strong>, we've included a pre-made script for you. Just make sure a training task has been run at least once, so it is in the ClearML experiment manager, we will essentially clone it and change its hyperparameters.</p>
@@ -2722,7 +2727,7 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 <p>ClearML comes with autoscalers too! This tool will automatically spin up new remote machines in the cloud of your choice (AWS, GCP, Azure) and turn them into ClearML agents for you whenever there are experiments detected in the queue. Once the tasks are processed, the autoscaler will automatically shut down the remote machines, and you stop paying!</p>
 <p>Check out the autoscalers getting started video below.</p>
 <p><a href="https://youtu.be/j4XVMAaUt3E"><img alt="Watch the video" src="https://img.youtube.com/vi/j4XVMAaUt3E/0.jpg"/></a></p>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-27<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-12-07<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/yolov5/tutorials/clearml_logging_integration.md">chr043416@gmail.com</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

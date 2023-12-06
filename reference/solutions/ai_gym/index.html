@@ -1274,6 +1274,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/heatmaps/">
+<span class="md-ellipsis">
+    Heatmaps
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2585,7 +2592,9 @@
 <span class="normal"><a href="#__codelineno-0-123">123</a></span>
 <span class="normal"><a href="#__codelineno-0-124">124</a></span>
 <span class="normal"><a href="#__codelineno-0-125">125</a></span>
-<span class="normal"><a href="#__codelineno-0-126">126</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">class</span> <span class="nc">AIGym</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-126">126</a></span>
+<span class="normal"><a href="#__codelineno-0-127">127</a></span>
+<span class="normal"><a href="#__codelineno-0-128">128</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">class</span> <span class="nc">AIGym</span><span class="p">:</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sd">"""A class to manage the gym steps of people in a real-time video stream based on their poses."""</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2704,6 +2713,8 @@
 <a id="__codelineno-0-124" name="__codelineno-0-124"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">'Ultralytics YOLOv8 AI GYM'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">)</span>
 <a id="__codelineno-0-125" name="__codelineno-0-125"></a>            <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">'q'</span><span class="p">):</span>
 <a id="__codelineno-0-126" name="__codelineno-0-126"></a>                <span class="k">return</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2907,7 +2918,9 @@ Args:
 <span class="normal"><a href="#__codelineno-0-123">123</a></span>
 <span class="normal"><a href="#__codelineno-0-124">124</a></span>
 <span class="normal"><a href="#__codelineno-0-125">125</a></span>
-<span class="normal"><a href="#__codelineno-0-126">126</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="k">def</span> <span class="nf">start_counting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-126">126</a></span>
+<span class="normal"><a href="#__codelineno-0-127">127</a></span>
+<span class="normal"><a href="#__codelineno-0-128">128</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="k">def</span> <span class="nf">start_counting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">):</span>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    function used to count the gym steps</span>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    Args:</span>
@@ -2975,6 +2988,8 @@ Args:
 <a id="__codelineno-0-124" name="__codelineno-0-124"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">'Ultralytics YOLOv8 AI GYM'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">)</span>
 <a id="__codelineno-0-125" name="__codelineno-0-125"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">'q'</span><span class="p">):</span>
 <a id="__codelineno-0-126" name="__codelineno-0-126"></a>            <span class="k">return</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
