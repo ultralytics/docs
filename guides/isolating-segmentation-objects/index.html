@@ -1250,6 +1250,31 @@
       Recipe Walk Through
     </span>
 </a>
+<nav aria-label="Recipe Walk Through" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#object-isolation-options">
+<span class="md-ellipsis">
+      Object Isolation Options
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#isolate-with-black-pixels-sub-options">
+<span class="md-ellipsis">
+      Isolate with Black Pixels: Sub-options
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#isolate-with-transparent-pixels-sub-options">
+<span class="md-ellipsis">
+      Isolate with Transparent Pixels: Sub-options
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#full-example-code">
@@ -2406,6 +2431,31 @@
       Recipe Walk Through
     </span>
 </a>
+<nav aria-label="Recipe Walk Through" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#object-isolation-options">
+<span class="md-ellipsis">
+      Object Isolation Options
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#isolate-with-black-pixels-sub-options">
+<span class="md-ellipsis">
+      Isolate with Black Pixels: Sub-options
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#isolate-with-transparent-pixels-sub-options">
+<span class="md-ellipsis">
+      Isolate with Transparent Pixels: Sub-options
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#full-example-code">
@@ -2439,14 +2489,12 @@
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 </code></pre></div>
+<details class="tip" open="open">
+<summary>Ultralytics Install</summary>
+<p>See the Ultralytics <a href="../../quickstart/#install-ultralytics">Quickstart</a> Installation section for a quick walkthrough on installing the required libraries.</p>
+</details>
+<hr/>
 </li>
-</ol>
-<p>???+ tip "Ultralytics Install"</p>
-<div class="highlight"><pre><span></span><code>    See the Ultralytics [Quickstart](../quickstart.md/#install-ultralytics) Installation section for a quick walkthrough on installing the required libraries.
-
----
-</code></pre></div>
-<ol>
 <li>
 <p>Load a model and run <code>predict()</code> method on a source.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
@@ -2457,22 +2505,17 @@
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Run inference</span>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
 </code></pre></div>
-</li>
-</ol>
-<p>??? question "No Prediction Arguments?"</p>
-<div class="highlight"><pre><span></span><code>    Without specifying a source, the example images from the library will be used:
-
-    ```
-    'ultralytics/assets/bus.jpg'
-    'ultralytics/assets/zidane.jpg'
-    ```
-
-    This is helpful for rapid testing with the `predict()` method.
+<details class="question">
+<summary>No Prediction Arguments?</summary>
+<p>Without specifying a source, the example images from the library will be used:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>'ultralytics/assets/bus.jpg'
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>'ultralytics/assets/zidane.jpg'
 </code></pre></div>
+<p>This is helpful for rapid testing with the <code>predict()</code> method.</p>
+</details>
 <p>For additional information about Segmentation Models, visit the <a href="../../tasks/segment/#models">Segment Task</a> page. To learn more about <code>predict()</code> method, see <a href="../../modes/predict/">Predict Mode</a> section of the Documentation.</p>
-<div class="highlight"><pre><span></span><code>---
-</code></pre></div>
-<ol>
+<hr/>
+</li>
 <li>
 <p>Now iterate over the results and the contours. For workflows that want to save an image to file, the source image <code>base-name</code> and the detection <code>class-label</code> are retrieved for later use (optional).</p>
 <div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># (2) Iterate detection results (helpful for multiple images)</span>
@@ -2489,17 +2532,15 @@
 <li>To learn more about working with detection results, see <a href="../../modes/predict/#boxes">Boxes Section for Predict Mode</a>.</li>
 <li>To learn more about <code>predict()</code> results see <a href="../../modes/predict/#working-with-results">Working with Results for Predict Mode</a></li>
 </ol>
+<details class="info">
+<summary>For-Loop</summary>
+<p>A single image will only iterate the first loop once. A single image with only a single detection will iterate each loop <em>only</em> once.</p>
+</details>
+<hr/>
 </li>
-</ol>
-<p>??? info "For-Loop"</p>
-<div class="highlight"><pre><span></span><code>    A single image will only iterate the first loop once. A single image with only a single detection will iterate each loop _only_ once.
-
----
-</code></pre></div>
-<ol>
-<li>Start with generating a binary mask from the source image and then draw a filled contour onto the mask. This will allow the object to be isolated from the other parts of the image. An example from <code>bus.jpg</code> for one of the detected <code>person</code> class objects is shown on the right.</li>
-</ol>
-<p><img _="," align="right" alt="Binary Mask Image" src="https://github.com/ultralytics/ultralytics/assets/62214284/59bce684-fdda-4b17-8104-0b4b51149aca" width="240">
+<li>
+<p>Start with generating a binary mask from the source image and then draw a filled contour onto the mask. This will allow the object to be isolated from the other parts of the image. An example from <code>bus.jpg</code> for one of the detected <code>person</code> class objects is shown on the right.</p>
+<p><img _="," align="right" alt="Binary Mask Image" src="https://github.com/ultralytics/ultralytics/assets/62214284/59bce684-fdda-4b17-8104-0b4b51149aca" width="240"/></p>
 <div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Create binary mask</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">b_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
@@ -2517,173 +2558,200 @@
 <a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>                    <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
 <a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>                    <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
 <a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>                    <span class="n">cv</span><span class="o">.</span><span class="n">FILLED</span><span class="p">)</span>
-</code></pre></div></img></p>
-<div class="highlight"><pre><span></span><code>1. For more info on `c.masks.xy` see [Masks Section from Predict Mode](../modes/predict.md#masks).
-
-2. Here, the values are cast into `np.int32` for compatibility with `drawContours()` function from OpenCV.
-
-3. The OpenCV `drawContours()` function expects contours to have a shape of `[N, 1, 2]` expand section below for more details.
-
-&lt;details&gt;
-&lt;summary&gt; Expand to understand what is happening when defining the &lt;code&gt;contour&lt;/code&gt; variable.&lt;/summary&gt;
-&lt;p&gt;
-
-- `c.masks.xy` :: Provides the coordinates of the mask contour points in the format  `(x, y)`. For more details, refer to the [Masks Section from Predict Mode](../modes/predict.md#masks).
-
-- `.pop()` :: As `masks.xy` is a list containing a single element, this element is extracted using the `pop()` method.
-
-- `.astype(np.int32)` :: Using `masks.xy` will return with a data type of `float32`, but this won't be compatible with the OpenCV `drawContours()` function, so this will change the data type to `int32` for compatibility.
-
-- `.reshape(-1, 1, 2)` :: Reformats the data into the required shape of `[N, 1, 2]` where `N` is the number of contour points, with each point represented by a single entry `1`, and the entry is composed of `2` values. The `-1` denotes that the number of values along this dimension is flexible.
-
-&lt;/details&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;details&gt;
-&lt;summary&gt; Expand for an explanation of the &lt;code&gt;drawContours()&lt;/code&gt; configuration.&lt;/summary&gt;
-&lt;p&gt;
-
-- Encapsulating the `contour` variable within square brackets, `[contour]`, was found to effectively generate the desired contour mask during testing.
-
-- The value `-1` specified for the `drawContours()` parameter instructs the function to draw all contours present in the image.
-
-- The `tuple` `(255, 255, 255)` represents the color white, which is the desired color for drawing the contour in this binary mask.
-
-- The addition of `cv.FILLED` will color all pixels enclosed by the contour boundary the same, in this case, all enclosed pixels will be white.
-
-- See [OpenCV Documentation on `drawContours()`](https://docs.opencv.org/4.8.0/d6/d6e/group__imgproc__draw.html#ga746c0625f1781f1ffc9056259103edbc) for more information.
-
-&lt;/details&gt;
-&lt;p&gt;&lt;/p&gt;
-
----
 </code></pre></div>
 <ol>
-<li>Next the there are 2 options for how to move forward with the image from this point and a subsequent option for each.</li>
+<li>
+<p>For more info on <code>c.masks.xy</code> see <a href="../../modes/predict/#masks">Masks Section from Predict Mode</a>.</p>
+</li>
+<li>
+<p>Here, the values are cast into <code>np.int32</code> for compatibility with <code>drawContours()</code> function from OpenCV.</p>
+</li>
+<li>
+<p>The OpenCV <code>drawContours()</code> function expects contours to have a shape of <code>[N, 1, 2]</code> expand section below for more details.</p>
+</li>
 </ol>
-<p>### Object Isolation Options</p>
-<p>!!! Example ""</p>
-<div class="highlight"><pre><span></span><code>    === "Black Background Pixels"
-
-        ```py
-        # Create 3-channel mask
-        mask3ch = cv.cvtColor(b_mask, cv.COLOR_GRAY2BGR)
-
-        # Isolate object with binary mask
-        isolated = cv.bitwise_and(mask3ch, img)
-
-        ```
-
-        ??? question "How does this work?"
-
-            - First, the binary mask is first converted from a single-channel image to a three-channel image. This conversion is necessary for the subsequent step where the mask and the original image are combined. Both images must have the same number of channels to be compatible with the blending operation.
-
-            - The original image and the three-channel binary mask are merged using the OpenCV function `bitwise_and()`. This operation retains &lt;u&gt;only&lt;/u&gt; pixel values that are greater than zero `(&gt; 0)` from both images. Since the mask pixels are greater than zero `(&gt; 0)` &lt;u&gt;only&lt;/u&gt; within the contour region, the pixels remaining from the original image are those that overlap with the contour.
-
-        ### Isolate with Black Pixels: Sub-options
-
-        ??? info "Full-size Image"
-
-            There are no additional steps required if keeping full size image.
-
-            &lt;figure markdown&gt;
-                ![Example Full size Isolated Object Image Black Background](https://github.com/ultralytics/ultralytics/assets/62214284/845c00d0-52a6-4b1e-8010-4ba73e011b99){ width=240 }
-                &lt;figcaption&gt;Example full-size output&lt;/figcaption&gt;
-            &lt;/figure&gt;
-
-        ??? info "Cropped object Image"
-
-            Additional steps required to crop image to only include object region.
-
-            ![Example Crop Isolated Object Image Black Background](https://github.com/ultralytics/ultralytics/assets/62214284/103dbf90-c169-4f77-b791-76cdf09c6f22){ align="right" }
-            ``` { .py .annotate }
-            # (1) Bounding box coordinates
-            x1, y1, x2, y2 = c.boxes.xyxy.cpu().numpy().squeeze().astype(np.int32)
-            # Crop image to object region
-            iso_crop = isolated[y1:y2, x1:x2]
-
-            ```
-
-            1.  For more information on bounding box results, see [Boxes Section from Predict Mode](../modes/predict.md/#boxes)
-
-            ??? question "What does this code do?"
-
-                - The `c.boxes.xyxy.cpu().numpy()` call retrieves the bounding boxes as a NumPy array in the `xyxy` format, where `xmin`, `ymin`, `xmax`, and `ymax` represent the coordinates of the bounding box rectangle. See [Boxes Section from Predict Mode](../modes/predict.md/#boxes) for more details.
-
-                - The `squeeze()` operation removes any unnecessary dimensions from the NumPy array, ensuring it has the expected shape.
-
-                - Converting the coordinate values using `.astype(np.int32)` changes the box coordinates data type from `float32` to `int32`, making them compatible for image cropping using index slices.
-
-                - Finally, the bounding box region is cropped from the image using index slicing. The bounds are defined by the `[ymin:ymax, xmin:xmax]` coordinates of the detection bounding box.
-
-    === "Transparent Background Pixels"
-
-        ```py
-        # Isolate object with transparent background (when saved as PNG)
-        isolated = np.dstack([img, b_mask])
-
-        ```
-
-        ??? question "How does this work?"
-
-            - Using the NumPy `dstack()` function (array stacking along depth-axis) in conjunction with the binary mask generated, will create an image with four channels. This allows for all pixels outside of the object contour to be transparent when saving as a `PNG` file.
-
-        ### Isolate with Transparent Pixels: Sub-options
-
-        ??? info "Full-size Image"
-
-            There are no additional steps required if keeping full size image.
-
-            &lt;figure markdown&gt;
-                ![Example Full size Isolated Object Image No Background](https://github.com/ultralytics/ultralytics/assets/62214284/b1043ee0-369a-4019-941a-9447a9771042){ width=240 }
-                &lt;figcaption&gt;Example full-size output + transparent background&lt;/figcaption&gt;
-            &lt;/figure&gt;
-
-        ??? info "Cropped object Image"
-
-            Additional steps required to crop image to only include object region.
-
-            ![Example Crop Isolated Object Image No Background](https://github.com/ultralytics/ultralytics/assets/62214284/5910244f-d1e1-44af-af7f-6dea4c688da8){ align="right" }
-            ``` { .py .annotate }
-            # (1) Bounding box coordinates
-            x1, y1, x2, y2 = c.boxes.xyxy.cpu().numpy().squeeze().astype(np.int32)
-            # Crop image to object region
-            iso_crop = isolated[y1:y2, x1:x2]
-
-            ```
-
-            1.  For more information on bounding box results, see [Boxes Section from Predict Mode](../modes/predict.md/#boxes)
-
-            ??? question "What does this code do?"
-
-                - When using `c.boxes.xyxy.cpu().numpy()`, the bounding boxes are returned as a NumPy array, using the `xyxy` box coordinates format, which correspond to the points `xmin, ymin, xmax, ymax` for the bounding box (rectangle), see [Boxes Section from Predict Mode](../modes/predict.md/#boxes) for more information.
-
-                - Adding `squeeze()` ensures that any extraneous dimensions are removed from the NumPy array.
-
-                - Converting the coordinate values using `.astype(np.int32)` changes the box coordinates data type from `float32` to `int32` which will be compatible when cropping the image using index slices.
-
-                - Finally the image region for the bounding box is cropped using index slicing, where the bounds are set using the `[ymin:ymax, xmin:xmax]` coordinates of the detection bounding box.
+<p><details>
+<summary> Expand to understand what is happening when defining the <code>contour</code> variable.</summary>
+<p></p>
+<ul>
+<li>
+<p><code>c.masks.xy</code> :: Provides the coordinates of the mask contour points in the format  <code>(x, y)</code>. For more details, refer to the <a href="../../modes/predict/#masks">Masks Section from Predict Mode</a>.</p>
+</li>
+<li>
+<p><code>.pop()</code> :: As <code>masks.xy</code> is a list containing a single element, this element is extracted using the <code>pop()</code> method.</p>
+</li>
+<li>
+<p><code>.astype(np.int32)</code> :: Using <code>masks.xy</code> will return with a data type of <code>float32</code>, but this won't be compatible with the OpenCV <code>drawContours()</code> function, so this will change the data type to <code>int32</code> for compatibility.</p>
+</li>
+<li>
+<p><code>.reshape(-1, 1, 2)</code> :: Reformats the data into the required shape of <code>[N, 1, 2]</code> where <code>N</code> is the number of contour points, with each point represented by a single entry <code>1</code>, and the entry is composed of <code>2</code> values. The <code>-1</code> denotes that the number of values along this dimension is flexible.</p>
+</li>
+</ul>
+<p></p></details>
+<p></p>
+<details>
+<summary> Expand for an explanation of the <code>drawContours()</code> configuration.</summary>
+<p></p>
+<ul>
+<li>
+<p>Encapsulating the <code>contour</code> variable within square brackets, <code>[contour]</code>, was found to effectively generate the desired contour mask during testing.</p>
+</li>
+<li>
+<p>The value <code>-1</code> specified for the <code>drawContours()</code> parameter instructs the function to draw all contours present in the image.</p>
+</li>
+<li>
+<p>The <code>tuple</code> <code>(255, 255, 255)</code> represents the color white, which is the desired color for drawing the contour in this binary mask.</p>
+</li>
+<li>
+<p>The addition of <code>cv.FILLED</code> will color all pixels enclosed by the contour boundary the same, in this case, all enclosed pixels will be white.</p>
+</li>
+<li>
+<p>See <a href="https://docs.opencv.org/4.8.0/d6/d6e/group__imgproc__draw.html#ga746c0625f1781f1ffc9056259103edbc">OpenCV Documentation on <code>drawContours()</code></a> for more information.</p>
+</li>
+</ul>
+<p></p></details>
+<p></p></p>
+<hr/>
+</li>
+<li>
+<p>Next the there are 2 options for how to move forward with the image from this point and a subsequent option for each.</p>
+<h3 id="object-isolation-options">Object Isolation Options</h3>
+<div class="admonition example">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Black Background Pixels</label><label for="__tabbed_1_2">Transparent Background Pixels</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Create 3-channel mask</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">mask3ch</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">b_mask</span><span class="p">,</span> <span class="n">cv</span><span class="o">.</span><span class="n">COLOR_GRAY2BGR</span><span class="p">)</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># Isolate object with binary mask</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">isolated</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">mask3ch</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
 </code></pre></div>
-<p>??? question "What if I want the cropped object <strong>including</strong> the background?"</p>
-<div class="highlight"><pre><span></span><code>    This is a built in feature for the Ultralytics library. See the `save_crop` argument for  [Predict Mode Inference Arguments](../modes/predict.md/#inference-arguments) for details.
-
----
-</code></pre></div>
+<details class="question">
+<summary>How does this work?</summary>
+<ul>
+<li>
+<p>First, the binary mask is first converted from a single-channel image to a three-channel image. This conversion is necessary for the subsequent step where the mask and the original image are combined. Both images must have the same number of channels to be compatible with the blending operation.</p>
+</li>
+<li>
+<p>The original image and the three-channel binary mask are merged using the OpenCV function <code>bitwise_and()</code>. This operation retains <u>only</u> pixel values that are greater than zero <code>(&gt; 0)</code> from both images. Since the mask pixels are greater than zero <code>(&gt; 0)</code> <u>only</u> within the contour region, the pixels remaining from the original image are those that overlap with the contour.</p>
+</li>
+</ul>
+</details>
+<h3 id="isolate-with-black-pixels-sub-options">Isolate with Black Pixels: Sub-options</h3>
+<details class="info">
+<summary>Full-size Image</summary>
+<p>There are no additional steps required if keeping full size image.</p>
+<p><figure markdown="">
+<img alt="Example Full size Isolated Object Image Black Background" src="https://github.com/ultralytics/ultralytics/assets/62214284/845c00d0-52a6-4b1e-8010-4ba73e011b99" width="240">
+<figcaption>Example full-size output</figcaption>
+</img></figure></p>
+</details>
+<details class="info">
+<summary>Cropped object Image</summary>
+<p>Additional steps required to crop image to only include object region.</p>
+<p><img align="right" alt="Example Crop Isolated Object Image Black Background" src="https://github.com/ultralytics/ultralytics/assets/62214284/103dbf90-c169-4f77-b791-76cdf09c6f22">
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># (1) Bounding box coordinates</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Crop image to object region</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">iso_crop</span> <span class="o">=</span> <span class="n">isolated</span><span class="p">[</span><span class="n">y1</span><span class="p">:</span><span class="n">y2</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span><span class="n">x2</span><span class="p">]</span>
+</code></pre></div></img></p>
 <ol>
+<li>For more information on bounding box results, see <a href="../../modes/predict/#boxes">Boxes Section from Predict Mode</a></li>
+</ol>
+<details class="question">
+<summary>What does this code do?</summary>
+<ul>
+<li>
+<p>The <code>c.boxes.xyxy.cpu().numpy()</code> call retrieves the bounding boxes as a NumPy array in the <code>xyxy</code> format, where <code>xmin</code>, <code>ymin</code>, <code>xmax</code>, and <code>ymax</code> represent the coordinates of the bounding box rectangle. See <a href="../../modes/predict/#boxes">Boxes Section from Predict Mode</a> for more details.</p>
+</li>
+<li>
+<p>The <code>squeeze()</code> operation removes any unnecessary dimensions from the NumPy array, ensuring it has the expected shape.</p>
+</li>
+<li>
+<p>Converting the coordinate values using <code>.astype(np.int32)</code> changes the box coordinates data type from <code>float32</code> to <code>int32</code>, making them compatible for image cropping using index slices.</p>
+</li>
+<li>
+<p>Finally, the bounding box region is cropped from the image using index slicing. The bounds are defined by the <code>[ymin:ymax, xmin:xmax]</code> coordinates of the detection bounding box.</p>
+</li>
+</ul>
+</details>
+</details>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Isolate object with transparent background (when saved as PNG)</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">isolated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">([</span><span class="n">img</span><span class="p">,</span> <span class="n">b_mask</span><span class="p">])</span>
+</code></pre></div>
+<details class="question">
+<summary>How does this work?</summary>
+<ul>
+<li>Using the NumPy <code>dstack()</code> function (array stacking along depth-axis) in conjunction with the binary mask generated, will create an image with four channels. This allows for all pixels outside of the object contour to be transparent when saving as a <code>PNG</code> file.</li>
+</ul>
+</details>
+<h3 id="isolate-with-transparent-pixels-sub-options">Isolate with Transparent Pixels: Sub-options</h3>
+<details class="info">
+<summary>Full-size Image</summary>
+<p>There are no additional steps required if keeping full size image.</p>
+<p><figure markdown="">
+<img alt="Example Full size Isolated Object Image No Background" src="https://github.com/ultralytics/ultralytics/assets/62214284/b1043ee0-369a-4019-941a-9447a9771042" width="240"/>
+<figcaption>Example full-size output + transparent background</figcaption>
+</figure></p>
+</details>
+<details class="info">
+<summary>Cropped object Image</summary>
+<p>Additional steps required to crop image to only include object region.</p>
+<p><img align="right" alt="Example Crop Isolated Object Image No Background" src="https://github.com/ultralytics/ultralytics/assets/62214284/5910244f-d1e1-44af-af7f-6dea4c688da8"/>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># (1) Bounding box coordinates</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="c1"># Crop image to object region</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">iso_crop</span> <span class="o">=</span> <span class="n">isolated</span><span class="p">[</span><span class="n">y1</span><span class="p">:</span><span class="n">y2</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span><span class="n">x2</span><span class="p">]</span>
+</code></pre></div></p>
+<ol>
+<li>For more information on bounding box results, see <a href="../../modes/predict/#boxes">Boxes Section from Predict Mode</a></li>
+</ol>
+<details class="question">
+<summary>What does this code do?</summary>
+<ul>
+<li>
+<p>When using <code>c.boxes.xyxy.cpu().numpy()</code>, the bounding boxes are returned as a NumPy array, using the <code>xyxy</code> box coordinates format, which correspond to the points <code>xmin, ymin, xmax, ymax</code> for the bounding box (rectangle), see <a href="../../modes/predict/#boxes">Boxes Section from Predict Mode</a> for more information.</p>
+</li>
+<li>
+<p>Adding <code>squeeze()</code> ensures that any extraneous dimensions are removed from the NumPy array.</p>
+</li>
+<li>
+<p>Converting the coordinate values using <code>.astype(np.int32)</code> changes the box coordinates data type from <code>float32</code> to <code>int32</code> which will be compatible when cropping the image using index slices.</p>
+</li>
+<li>
+<p>Finally the image region for the bounding box is cropped using index slicing, where the bounds are set using the <code>[ymin:ymax, xmin:xmax]</code> coordinates of the detection bounding box.</p>
+</li>
+</ul>
+</details>
+</details>
+</div>
+</div>
+</input></input></div>
+</div>
+<details class="question">
+<summary>What if I want the cropped object <strong>including</strong> the background?</summary>
+<p>This is a built in feature for the Ultralytics library. See the <code>save_crop</code> argument for  <a href="../../modes/predict/#inference-arguments">Predict Mode Inference Arguments</a> for details.</p>
+</details>
+<hr/>
+</li>
 <li>
 <p><u>What to do next is entirely left to you as the developer.</u> A basic example of one possible next step (saving the image to file for future use) is shown.</p>
 <ul>
 <li><strong>NOTE:</strong> this step is optional and can be skipped if not required for your specific use case.</li>
 </ul>
+<details class="example">
+<summary>Example Final Step</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># Save isolated object to file</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">_</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">img_name</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">ci</span><span class="si">}</span><span class="s1">.png'</span><span class="p">,</span> <span class="n">iso_crop</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>In this example, the <code>img_name</code> is the base-name of the source image file, <code>label</code> is the detected class-name, and <code>ci</code> is the index of the object detection (in case of multiple instances with the same class name).</li>
+</ul>
+</details>
 </li>
 </ol>
-<p>??? example "Example Final Step"</p>
-<div class="highlight"><pre><span></span><code>    ```py
-    # Save isolated object to file
-    _ = cv.imwrite(f'{img_name}_{label}-{ci}.png', iso_crop)
-    ```
-
-    - In this example, the `img_name` is the base-name of the source image file, `label` is the detected class-name, and `ci` is the index of the object detection (in case of multiple instances with the same class name).
-</code></pre></div>
 <h2 id="full-example-code">Full Example code</h2>
 <p>Here, all steps from the previous section are combined into a single block of code. For repeated use, it would be optimal to define a function to do some or all commands contained in the <code>for</code>-loops, but that is an exercise left to the reader.</p>
 <div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -2733,7 +2801,7 @@
 <li>Learn more about <a href="../../modes/predict/#working-with-results">Working with Results</a></li>
 <li>Learn more about <a href="../../modes/predict/#masks">Segmentation Mask Results</a></li>
 </ol>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-27, Updated 2023-12-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-27, Updated 2023-12-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
