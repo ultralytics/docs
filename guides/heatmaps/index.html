@@ -1329,6 +1329,13 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#heatmap-colormaps">
+<span class="md-ellipsis">
+      Heatmap COLORMAPs
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2461,6 +2468,13 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#heatmap-colormaps">
+<span class="md-ellipsis">
+      Heatmap COLORMAPs
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2508,31 +2522,30 @@
 </details>
 <div class="admonition example">
 <p class="admonition-title">Heatmap Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Heatmap</label><label for="__tabbed_1_2">Heatmap with Specific Classes</label><label for="__tabbed_1_3">Heatmap with Save Output</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Heatmap</label><label for="__tabbed_1_2">Heatmap with Specific Classes</label><label for="__tabbed_1_3">Heatmap with Save Output</label><label for="__tabbed_1_4">Heatmap with Object Counting</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">ultralytics.solutions</span> <span class="kn">import</span> <span class="n">heatmap</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">cv2</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s.pt"</span><span class="p">)</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s.pt"</span><span class="p">)</span>   <span class="c1"># YOLOv8 custom/pretrained model</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video/file.mp4"</span><span class="p">)</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error reading video file"</span><span class="p">)</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="n">heatmap_obj</span> <span class="o">=</span> <span class="n">heatmap</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">()</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">heatmap_obj</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_CIVIDIS</span><span class="p">,</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>                     <span class="n">imw</span><span class="o">=</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>  <span class="c1"># should same as im0 width</span>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>                     <span class="n">imh</span><span class="o">=</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="c1"># should same as im0 height</span>
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>                     <span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="n">frame</span> <span class="o">=</span> <span class="n">heatmap_obj</span><span class="o">.</span><span class="n">generate_heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="o">=</span><span class="n">results</span><span class="p">)</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Heatmap Init</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">heatmap_obj</span> <span class="o">=</span> <span class="n">heatmap</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">()</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="n">heatmap_obj</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_CIVIDIS</span><span class="p">,</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>                     <span class="n">imw</span><span class="o">=</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>  <span class="c1"># should same as im0 width</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>                     <span class="n">imh</span><span class="o">=</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="c1"># should same as im0 height</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>                     <span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="n">im0</span> <span class="o">=</span> <span class="n">heatmap_obj</span><span class="o">.</span><span class="n">generate_heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="o">=</span><span class="n">results</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2540,45 +2553,43 @@
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">ultralytics.solutions</span> <span class="kn">import</span> <span class="n">heatmap</span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">import</span> <span class="nn">cv2</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s.pt"</span><span class="p">)</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s.pt"</span><span class="p">)</span>   <span class="c1"># YOLOv8 custom/pretrained model</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video/file.mp4"</span><span class="p">)</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error reading video file"</span><span class="p">)</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="n">classes_for_heatmap</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">classes_for_heatmap</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">heatmap_obj</span> <span class="o">=</span> <span class="n">heatmap</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">()</span>
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="n">heatmap_obj</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_CIVIDIS</span><span class="p">,</span>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>                     <span class="n">imw</span><span class="o">=</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>  <span class="c1"># should same as im0 width</span>
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>                     <span class="n">imh</span><span class="o">=</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="c1"># should same as im0 height</span>
-<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>                     <span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>
-<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>                          <span class="n">classes</span><span class="o">=</span><span class="n">classes_for_heatmap</span><span class="p">)</span>
-<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>    <span class="n">frame</span> <span class="o">=</span> <span class="n">heatmap_obj</span><span class="o">.</span><span class="n">generate_heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="o">=</span><span class="n">results</span><span class="p">)</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="c1"># Heatmap init</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="n">heatmap_obj</span> <span class="o">=</span> <span class="n">heatmap</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">()</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">heatmap_obj</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_CIVIDIS</span><span class="p">,</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>                     <span class="n">imw</span><span class="o">=</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>  <span class="c1"># should same as im0 width</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>                     <span class="n">imh</span><span class="o">=</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="c1"># should same as im0 height</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>                     <span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">classes_for_heatmap</span><span class="p">)</span>
+<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>    <span class="n">im0</span> <span class="o">=</span> <span class="n">heatmap_obj</span><span class="o">.</span><span class="n">generate_heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="o">=</span><span class="n">results</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">import</span> <span class="nn">heatmap</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">ultralytics.solutions</span> <span class="kn">import</span> <span class="n">heatmap</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kn">import</span> <span class="nn">cv2</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s.pt"</span><span class="p">)</span>   <span class="c1"># YOLOv8 custom/pretrained model</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video/file.mp4"</span><span class="p">)</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error reading video file"</span><span class="p">)</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"heatmap_output.avi"</span><span class="p">,</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>                               <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s1">'mp4v'</span><span class="p">),</span>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>                               <span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>                               <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">))))</span>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1"># Video writer</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"heatmap_output.avi"</span><span class="p">,</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>                               <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s1">'mp4v'</span><span class="p">),</span>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>                               <span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span>
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>                               <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">))))</span>
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="c1"># Heatmap init</span>
 <a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="n">heatmap_obj</span> <span class="o">=</span> <span class="n">heatmap</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">()</span>
 <a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="n">heatmap_obj</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_CIVIDIS</span><span class="p">,</span>
 <a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>                     <span class="n">imw</span><span class="o">=</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>  <span class="c1"># should same as im0 width</span>
@@ -2589,15 +2600,42 @@
 <a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
 <a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a>        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a href="#__codelineno-2-27" id="__codelineno-2-27" name="__codelineno-2-27"></a>    <span class="n">frame</span> <span class="o">=</span> <span class="n">heatmap_obj</span><span class="o">.</span><span class="n">generate_heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="o">=</span><span class="n">results</span><span class="p">)</span>
+<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">classes_for_heatmap</span><span class="p">)</span>
+<a href="#__codelineno-2-27" id="__codelineno-2-27" name="__codelineno-2-27"></a>    <span class="n">im0</span> <span class="o">=</span> <span class="n">heatmap_obj</span><span class="o">.</span><span class="n">generate_heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="o">=</span><span class="n">results</span><span class="p">)</span>
 <a href="#__codelineno-2-28" id="__codelineno-2-28" name="__codelineno-2-28"></a>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-2-29" id="__codelineno-2-29" name="__codelineno-2-29"></a>
-<a href="#__codelineno-2-30" id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">from</span> <span class="nn">ultralytics.solutions</span> <span class="kn">import</span> <span class="n">heatmap</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s.pt"</span><span class="p">)</span>   <span class="c1"># YOLOv8 custom/pretrained model</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video/file.mp4"</span><span class="p">)</span>  <span class="c1"># Video file Path, webcam 0</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1"># Region for object counting</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">count_reg_pts</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">404</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">360</span><span class="p">)]</span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="c1"># Heatmap Init</span>
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="n">heatmap_obj</span> <span class="o">=</span> <span class="n">heatmap</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">()</span>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="n">heatmap_obj</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_JET</span><span class="p">,</span>
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>                     <span class="n">imw</span><span class="o">=</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>  <span class="c1"># should same as im0 width</span>
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>                     <span class="n">imh</span><span class="o">=</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>  <span class="c1"># should same as im0 height</span>
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>                     <span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>                     <span class="n">count_reg_pts</span><span class="o">=</span><span class="n">count_reg_pts</span><span class="p">)</span>
+<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>
+<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a>        <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a>    <span class="n">im0</span> <span class="o">=</span> <span class="n">heatmap_obj</span><span class="o">.</span><span class="n">generate_heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="o">=</span><span class="n">results</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></input></div>
+</input></input></input></input></div>
 </div>
 <h3 id="arguments-set_args">Arguments <code>set_args</code></h3>
 <table>
@@ -2639,6 +2677,30 @@
 <td><code>float</code></td>
 <td><code>0.5</code></td>
 <td>Heatmap alpha value</td>
+</tr>
+<tr>
+<td>count_reg_pts</td>
+<td><code>list</code></td>
+<td><code>None</code></td>
+<td>Object counting region points</td>
+</tr>
+<tr>
+<td>count_txt_thickness</td>
+<td><code>int</code></td>
+<td><code>2</code></td>
+<td>Count values text size</td>
+</tr>
+<tr>
+<td>count_reg_color</td>
+<td><code>tuple</code></td>
+<td><code>(255, 0, 255)</code></td>
+<td>Counting region color</td>
+</tr>
+<tr>
+<td>region_thickness</td>
+<td><code>int</code></td>
+<td><code>5</code></td>
+<td>Counting region thickness value</td>
 </tr>
 </tbody>
 </table>
@@ -2691,6 +2753,106 @@
 </tr>
 </tbody>
 </table>
+<h3 id="heatmap-colormaps">Heatmap COLORMAPs</h3>
+<table>
+<thead>
+<tr>
+<th>Colormap Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cv::COLORMAP_AUTUMN</code></td>
+<td>Autumn color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_BONE</code></td>
+<td>Bone color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_JET</code></td>
+<td>Jet color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_WINTER</code></td>
+<td>Winter color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_RAINBOW</code></td>
+<td>Rainbow color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_OCEAN</code></td>
+<td>Ocean color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_SUMMER</code></td>
+<td>Summer color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_SPRING</code></td>
+<td>Spring color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_COOL</code></td>
+<td>Cool color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_HSV</code></td>
+<td>HSV (Hue, Saturation, Value) color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_PINK</code></td>
+<td>Pink color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_HOT</code></td>
+<td>Hot color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_PARULA</code></td>
+<td>Parula color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_MAGMA</code></td>
+<td>Magma color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_INFERNO</code></td>
+<td>Inferno color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_PLASMA</code></td>
+<td>Plasma color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_VIRIDIS</code></td>
+<td>Viridis color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_CIVIDIS</code></td>
+<td>Cividis color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_TWILIGHT</code></td>
+<td>Twilight color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_TWILIGHT_SHIFTED</code></td>
+<td>Shifted Twilight color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_TURBO</code></td>
+<td>Turbo color map</td>
+</tr>
+<tr>
+<td><code>cv::COLORMAP_DEEPGREEN</code></td>
+<td>Deep Green color map</td>
+</tr>
+</tbody>
+</table>
+<p>These colormaps are commonly used for visualizing data with different color representations.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -2699,7 +2861,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-07, Updated 2023-12-07<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/guides/heatmaps.md">chr043416@gmail.com</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-07, Updated 2023-12-08<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/guides/heatmaps.md">chr043416@gmail.com</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
