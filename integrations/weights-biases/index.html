@@ -8,9 +8,11 @@
 <meta content="Discover how to train your YOLOv8 models efficiently with Weights &amp; Biases. This guide walks through integrating Weights &amp; Biases with YOLOv8 to enable seamless experiment tracking, result visualization, and model explainability." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/integrations/weights-biases/" rel="canonical"/>
+<link href="../dvc/" rel="prev"/>
+<link href="../../usage/cli/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.3" name="generator"/>
-<title>Enhancing YOLOv8 Experiment Tracking and Visualization with Weights &amp; Biases - Ultralytics YOLOv8 Docs</title>
+<title>Weights &amp; Biases - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Enhancing YOLOv8 Experiment Tracking and Visualization with Weights &amp; Biases" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Weights &amp; Biases, Model Training, Experiment Tracking, Visualizing Results" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/weights-biases" property="og:url"/><meta content="Enhancing YOLOv8 Experiment Tracking and Visualization with Weights &amp; Biases" property="og:title"/><meta content="Discover how to train your YOLOv8 models efficiently with Weights &amp; Biases. This guide walks through integrating Weights &amp; Biases with YOLOv8 to enable seamless experiment tracking, result visualization, and model explainability." property="og:description"/><meta content="https://docs.wandb.ai/assets/images/wandb_demo_experiments-4797af7fe7236d6c5c42adbdc93deb4c.gif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/weights-biases" property="twitter:url"/><meta content="Enhancing YOLOv8 Experiment Tracking and Visualization with Weights &amp; Biases" property="twitter:title"/><meta content="Discover how to train your YOLOv8 models efficiently with Weights &amp; Biases. This guide walks through integrating Weights &amp; Biases with YOLOv8 to enable seamless experiment tracking, result visualization, and model explainability." property="twitter:description"/><meta content="https://docs.wandb.ai/assets/images/wandb_demo_experiments-4797af7fe7236d6c5c42adbdc93deb4c.gif" property="twitter:image"/></head>
+<meta content="Weights &amp; Biases" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Weights &amp; Biases, Model Training, Experiment Tracking, Visualizing Results" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/weights-biases" property="og:url"/><meta content="Weights &amp; Biases" property="og:title"/><meta content="Discover how to train your YOLOv8 models efficiently with Weights &amp; Biases. This guide walks through integrating Weights &amp; Biases with YOLOv8 to enable seamless experiment tracking, result visualization, and model explainability." property="og:description"/><meta content="https://docs.wandb.ai/assets/images/wandb_demo_experiments-4797af7fe7236d6c5c42adbdc93deb4c.gif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/weights-biases" property="twitter:url"/><meta content="Weights &amp; Biases" property="twitter:title"/><meta content="Discover how to train your YOLOv8 models efficiently with Weights &amp; Biases. This guide walks through integrating Weights &amp; Biases with YOLOv8 to enable seamless experiment tracking, result visualization, and model explainability." property="twitter:description"/><meta content="https://docs.wandb.ai/assets/images/wandb_demo_experiments-4797af7fe7236d6c5c42adbdc93deb4c.gif" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -51,7 +53,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Enhancing YOLOv8 Experiment Tracking and Visualization with Weights &amp; Biases
+              Weights &amp; Biases
             
           </span>
 </div>
@@ -256,7 +258,7 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
+<li class="md-tabs__item md-tabs__item--active">
 <a class="md-tabs__link" href="../">
           
   
@@ -483,14 +485,68 @@
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_1_5" id="__nav_1_5_label" tabindex="">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../guides/">
+<span class="md-ellipsis">
+    Guides
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_5">
+<span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../models/">
+<span class="md-ellipsis">
+    Models
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_6">
+<span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../datasets/">
+<span class="md-ellipsis">
+    Datasets
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_7">
+<span class="md-nav__icon md-icon"></span>
+            Datasets
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1_8" id="__nav_1_8_label" tabindex="">
 <span class="md-ellipsis">
     Languages
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_1_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_1_5">
+<nav aria-expanded="false" aria-labelledby="__nav_1_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_1_8">
 <span class="md-nav__icon md-icon"></span>
             Languages
           </label>
@@ -1299,8 +1355,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../">
 <span class="md-ellipsis">
@@ -1311,7 +1367,7 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
             Integrations
@@ -1365,6 +1421,102 @@
     DVC
   </span>
 </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Weights &amp; Biases
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Weights &amp; Biases
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#weights-biases">
+<span class="md-ellipsis">
+      Weights &amp; Biases
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#yolov8-training-with-weights-biases">
+<span class="md-ellipsis">
+      YOLOv8 Training with Weights &amp; Biases
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+<span class="md-ellipsis">
+      Installation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuring-weights-biases">
+<span class="md-ellipsis">
+      Configuring Weights &amp; Biases
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage-training-yolov8-with-weights-biases">
+<span class="md-ellipsis">
+      Usage: Training YOLOv8 with Weights &amp; Biases
+    </span>
+</a>
+<nav aria-label="Usage: Training YOLOv8 with Weights &amp; Biases" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-the-code">
+<span class="md-ellipsis">
+      Understanding the Code
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-the-output">
+<span class="md-ellipsis">
+      Understanding the Output
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#viewing-the-weights-biases-dashboard">
+<span class="md-ellipsis">
+      Viewing the Weights &amp; Biases Dashboard
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-the-weights-biases-dashboard">
+<span class="md-ellipsis">
+      Key Features of the Weights &amp; Biases Dashboard
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -2446,20 +2598,16 @@
       Viewing the Weights &amp; Biases Dashboard
     </span>
 </a>
-<nav aria-label="Viewing the Weights &amp; Biases Dashboard" class="md-nav">
-<ul class="md-nav__list">
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-features-of-the-weights-biases-dashboard">
 <span class="md-ellipsis">
       Key Features of the Weights &amp; Biases Dashboard
     </span>
 </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#summary">
@@ -2479,7 +2627,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1 id="enhancing-yolov8-experiment-tracking-and-visualization-with-weights-biases">Enhancing YOLOv8 Experiment Tracking and Visualization with Weights &amp; Biases</h1>
-<p>Object detection models like <a href="https://ultralytics.com">Ultralytics’ YOLOv8</a> have become integral to many computer vision applications. However, training, evaluating, and deploying these complex models introduces several challenges. Tracking key training metrics, comparing model variants, analyzing model behavior, and detecting issues require substantial instrumentation and experiment management.</p>
+<p>Object detection models like <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLOv8</a> have become integral to many computer vision applications. However, training, evaluating, and deploying these complex models introduces several challenges. Tracking key training metrics, comparing model variants, analyzing model behavior, and detecting issues require substantial instrumentation and experiment management.</p>
 <p>This guide showcases Ultralytics YOLOv8 integration with Weights &amp; Biases’ for enhanced experiment tracking, model-checkpointing, and visualization of model performance. It also includes instructions for setting up the integration, training, fine-tuning, and visualizing results using Weights &amp; Biases’ interactive features.</p>
 <h2 id="weights-biases">Weights &amp; Biases</h2>
 <p align="center">
@@ -2559,13 +2707,29 @@
 </div>
 <h3 id="understanding-the-code">Understanding the Code</h3>
 <p>Let’s understand the steps showcased in the usage code snippet above.</p>
+<ul>
+<li>
 <p><strong>Step 1: Initialize a Weights &amp; Biases Run</strong>: Start by initializing a Weights &amp; Biases run, specifying the project name and the job type. This run will track and manage the training and validation processes of your model.</p>
+</li>
+<li>
 <p><strong>Step 2: Define the YOLOv8 Model and Dataset</strong>: Specify the model variant and the dataset you wish to use. The YOLO model is then initialized with the specified model file.</p>
+</li>
+<li>
 <p><strong>Step 3: Add Weights &amp; Biases Callback for Ultralytics</strong>: This step is crucial as it enables the automatic logging of training metrics and validation results to Weights &amp; Biases, providing a detailed view of the model's performance.</p>
+</li>
+<li>
 <p><strong>Step 4: Train and Fine-Tune the Model</strong>: Begin training the model with the specified dataset, number of epochs, and image size. The training process includes logging of metrics and predictions at the end of each epoch, offering a comprehensive view of the model's learning progress.</p>
+</li>
+<li>
 <p><strong>Step 5: Validate the Model</strong>: After training, the model is validated. This step is crucial for assessing the model's performance on unseen data and ensuring its generalizability.</p>
+</li>
+<li>
 <p><strong>Step 6: Perform Inference and Log Results</strong>: The model performs predictions on specified images. These predictions, along with visual overlays and insights, are automatically logged in a W&amp;B Table for interactive exploration.</p>
+</li>
+<li>
 <p><strong>Step 7: Finalize the W&amp;B Run</strong>: This step marks the end of data logging and saves the final state of your model's training and validation process in the W&amp;B dashboard.</p>
+</li>
+</ul>
 <h3 id="understanding-the-output">Understanding the Output</h3>
 <p>Upon running the usage code snippet above, you can expect the following key outputs:</p>
 <ul>
@@ -2577,14 +2741,13 @@
 </ul>
 <h3 id="viewing-the-weights-biases-dashboard">Viewing the Weights &amp; Biases Dashboard</h3>
 <p>After running the usage code snippet, you can access the Weights &amp; Biases (W&amp;B) dashboard through the provided link in the output. This dashboard offers a comprehensive view of your model's training process with YOLOv8.</p>
-<h4 id="key-features-of-the-weights-biases-dashboard">Key Features of the Weights &amp; Biases Dashboard</h4>
+<h2 id="key-features-of-the-weights-biases-dashboard">Key Features of the Weights &amp; Biases Dashboard</h2>
 <ul>
-<li>
-<p><strong>Real-Time Metrics Tracking</strong>: Observe metrics like loss, accuracy, and validation scores as they evolve during the training, offering immediate insights for model tuning.</p>
-<ul>
-<li><blockquote class="imgur-embed-pub" data-id="a/TB76U9O" lang="en"><a href="//imgur.com/D6NVnmN">Take a look at how the experiments are tracked using Weights &amp; Biases.</a></blockquote><script async="" charset="utf-8" src="//s.imgur.com/min/embed.js"></script></li>
+<li><strong>Real-Time Metrics Tracking</strong>: Observe metrics like loss, accuracy, and validation scores as they evolve during the training, offering immediate insights for model tuning.</li>
 </ul>
-</li>
+<div style="text-align:center;"><blockquote class="imgur-embed-pub" data-id="a/TB76U9O" lang="en"><a href="//imgur.com/D6NVnmN">Take a look at how the experiments are tracked using Weights &amp; Biases.</a></blockquote></div>
+<script async="" charset="utf-8" src="//s.imgur.com/min/embed.js"></script>
+<ul>
 <li>
 <p><strong>Hyperparameter Optimization</strong>: Weights &amp; Biases aids in fine-tuning critical parameters such as learning rate, batch size, and more, enhancing the performance of YOLOv8.</p>
 </li>
@@ -2593,10 +2756,11 @@
 </li>
 <li>
 <p><strong>Visualization of Training Progress</strong>: Graphical representations of key metrics provide an intuitive understanding of the model's performance across epochs.</p>
-<ul>
-<li><blockquote class="imgur-embed-pub" data-context="false" data-id="a/kU5h7W4" lang="en"><a href="//imgur.com/a/kU5h7W4">Take a look at how Weights &amp; Biases helps you visualize validation results.</a></blockquote><script async="" charset="utf-8" src="//s.imgur.com/min/embed.js"></script></li>
-</ul>
 </li>
+</ul>
+<div style="text-align:center;"><blockquote class="imgur-embed-pub" data-context="false" data-id="a/kU5h7W4" lang="en"><a href="//imgur.com/a/kU5h7W4">Take a look at how Weights &amp; Biases helps you visualize validation results.</a></blockquote></div>
+<script async="" charset="utf-8" src="//s.imgur.com/min/embed.js"></script>
+<ul>
 <li>
 <p><strong>Resource Monitoring</strong>: Keep track of CPU, GPU, and memory usage to optimize the efficiency of the training process.</p>
 </li>
@@ -2605,11 +2769,10 @@
 </li>
 <li>
 <p><strong>Viewing Inference Results with Image Overlay</strong>: Visualize the prediction results on images using interactive overlays in Weights &amp; Biases, providing a clear and detailed view of model performance on real-world data. For more detailed information on Weights &amp; Biases’ image overlay capabilities, check out this <a href="https://docs.wandb.ai/guides/track/log/media#image-overlays">link</a>.</p>
-<ul>
-<li><blockquote class="imgur-embed-pub" data-context="false" data-id="a/UTSiufs" lang="en"><a href="//imgur.com/a/UTSiufs">Take a look at how Weights &amp; Biases’ image overlays helps visualize model inferences.</a></blockquote><script async="" charset="utf-8" src="//s.imgur.com/min/embed.js"></script></li>
-</ul>
 </li>
 </ul>
+<div style="text-align:center;"><blockquote class="imgur-embed-pub" data-context="false" data-id="a/UTSiufs" lang="en"><a href="//imgur.com/a/UTSiufs">Take a look at how Weights &amp; Biases’ image overlays helps visualize model inferences.</a></blockquote></div>
+<script async="" charset="utf-8" src="//s.imgur.com/min/embed.js"></script>
 <p>By using these features, you can effectively track, analyze, and optimize your YOLOv8 model's training, ensuring the best possible performance and efficiency.</p>
 <h2 id="summary">Summary</h2>
 <p>This guide helped you explore Ultralytics’ YOLOv8 integration with Weights &amp; Biases. It illustrates the ability of this integration to efficiently track and visualize model training and prediction results.</p>
@@ -2623,7 +2786,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-28, Updated 2023-12-28<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-28, Updated 2024-01-01<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2685,6 +2848,34 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </button>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: DVC" class="md-footer__link md-footer__link--prev" href="../dvc/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                DVC
+              </div>
+</div>
+</a>
+<a aria-label="Next: CLI" class="md-footer__link md-footer__link--next" href="../../usage/cli/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                CLI
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
