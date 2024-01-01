@@ -5,7 +5,7 @@
 
 Ultralytics Docs are the gateway to understanding and utilizing our cutting-edge machine learning tools. These documents are deployed to [https://docs.ultralytics.com](https://docs.ultralytics.com) for your convenience.
 
-[![pages-build-deployment](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment)  [![Check Broken links](https://github.com/ultralytics/docs/actions/workflows/links.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/links.yml)
+[![pages-build-deployment](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment) [![Check Broken links](https://github.com/ultralytics/docs/actions/workflows/links.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/links.yml)
 
 ## 🛠️ Installation
 
@@ -15,21 +15,21 @@ To install the ultralytics package in developer mode, ensure you have Git and Py
 
 1. Clone the ultralytics repository to your local machine using Git:
 
-    ```bash
-    git clone https://github.com/ultralytics/ultralytics.git
-    ```
+   ```bash
+   git clone https://github.com/ultralytics/ultralytics.git
+   ```
 
 2. Navigate to the cloned repository's root directory:
 
-    ```bash
-    cd ultralytics
-    ```
+   ```bash
+   cd ultralytics
+   ```
 
 3. Install the package in developer mode using pip (or pip3 for Python 3):
 
-    ```bash
-    pip install -e '.[dev]'
-    ```
+   ```bash
+   pip install -e '.[dev]'
+   ```
 
 - This command installs the ultralytics package along with all development dependencies, allowing you to modify the package code and have the changes immediately reflected in your Python environment.
 
@@ -41,11 +41,13 @@ The `mkdocs serve` command builds and serves a local version of your MkDocs docu
 mkdocs serve
 ```
 
-+ #### Command Breakdown:
+- #### Command Breakdown:
+
   - `mkdocs` is the main MkDocs command-line interface.
   - `serve` is the subcommand to build and locally serve your documentation.
 
-+ 🧐 Note:
+- 🧐 Note:
+
   - Grasp changes to the docs in real-time as `mkdocs serve` supports live reloading.
   - To stop the local server, press `CTRL+C`.
 
@@ -53,35 +55,35 @@ mkdocs serve
 
 Supporting multi-language documentation? Follow these steps:
 
-1. Stage all new language *.md files with Git:
+1. Stage all new language \*.md files with Git:
 
-    ```bash
-    git add docs/**/*.md -f
-    ```
+   ```bash
+   git add docs/**/*.md -f
+   ```
 
 2. Build all languages to the `/site` folder, ensuring relevant root-level files are present:
 
-    ```bash
-    # Clear existing /site directory
-    rm -rf site
-    
-    # Loop through each language config file and build
-    mkdocs build -f docs/mkdocs.yml
-    for file in docs/mkdocs_*.yml; do
-      echo "Building MkDocs site with $file"
-      mkdocs build -f "$file"
-    done
-    ```
+   ```bash
+   # Clear existing /site directory
+   rm -rf site
+
+   # Loop through each language config file and build
+   mkdocs build -f docs/mkdocs.yml
+   for file in docs/mkdocs_*.yml; do
+     echo "Building MkDocs site with $file"
+     mkdocs build -f "$file"
+   done
+   ```
 
 3. To preview your site, initiate a simple HTTP server:
 
-    ```bash
-    cd site
-    python -m http.server
-    # Open in your preferred browser
-    ```
+   ```bash
+   cd site
+   python -m http.server
+   # Open in your preferred browser
+   ```
 
-+ 🖥️ Access the live site at `http://localhost:8000`.
+- 🖥️ Access the live site at `http://localhost:8000`.
 
 ## 📤 Deploying Your Documentation Site
 
@@ -90,10 +92,10 @@ Choose a hosting provider and deployment method for your MkDocs documentation:
 - Configure `mkdocs.yml` with deployment settings.
 - Use `mkdocs deploy` to build and deploy your site.
 
-+ ### GitHub Pages Deployment Example:
-    ```bash
-    mkdocs gh-deploy
-    ```
+* ### GitHub Pages Deployment Example:
+  ```bash
+  mkdocs gh-deploy
+  ```
 
 - Update the "Custom domain" in your repository's settings for a personalized URL.
 
@@ -106,6 +108,7 @@ Choose a hosting provider and deployment method for your MkDocs documentation:
 We cherish the community's input as it drives Ultralytics open-source initiatives. Dive into the [Contributing Guide](https://docs.ultralytics.com/help/contributing) and share your thoughts via our [Survey](https://ultralytics.com/survey?utm_source=github&utm_medium=social&utm_campaign=Survey). A heartfelt thank you 🙏 to each contributor!
 
 <!-- Pictorial representation of our dedicated contributor community -->
+
 ![Ultralytics open-source contributors](https://github.com/ultralytics/assets/raw/main/im/image-contributors.png)
 
 ## 📜 License
