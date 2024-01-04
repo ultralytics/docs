@@ -1493,6 +1493,27 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../integrations/neural-magic/">
+<span class="md-ellipsis">
+    Neural Magic
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../integrations/tensorboard/">
+<span class="md-ellipsis">
+    TensorBoard
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../integrations/amazon-sagemaker/">
+<span class="md-ellipsis">
+    Amazon SageMaker
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2196,16 +2217,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/solutions/object_counter/">
+<a class="md-nav__link" href="../../../reference/solutions/heatmap/">
 <span class="md-ellipsis">
-    object_counter
+    heatmap
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/solutions/heatmap/">
+<a class="md-nav__link" href="../../../reference/solutions/object_counter/">
 <span class="md-ellipsis">
-    heatmap
+    object_counter
   </span>
 </a>
 </li>
@@ -2681,7 +2702,7 @@
 <a href="#__codelineno-0-81" id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="w">  </span><span class="no">urls = [f'{url}VOCtrainval_06-Nov-2007.zip',  # 446MB, 5012 images</span>
 <a href="#__codelineno-0-82" id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="w">          </span><span class="no">f'{url}VOCtest_06-Nov-2007.zip',  # 438MB, 4953 images</span>
 <a href="#__codelineno-0-83" id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="w">          </span><span class="no">f'{url}VOCtrainval_11-May-2012.zip']  # 1.95GB, 17126 images</span>
-<a href="#__codelineno-0-84" id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="w">  </span><span class="no">download(urls, dir=dir / 'images', curl=True, threads=3)</span>
+<a href="#__codelineno-0-84" id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="w">  </span><span class="no">download(urls, dir=dir / 'images', curl=True, threads=3, exist_ok=True)  # download and unzip over existing paths (required)</span>
 <a href="#__codelineno-0-85" id="__codelineno-0-85" name="__codelineno-0-85"></a>
 <a href="#__codelineno-0-86" id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="w">  </span><span class="no"># Convert</span>
 <a href="#__codelineno-0-87" id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="w">  </span><span class="no">path = dir / 'images/VOCdevkit'</span>
