@@ -9,7 +9,7 @@
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/reference/solutions/object_counter/" rel="canonical"/>
 <link href="../heatmap/" rel="prev"/>
-<link href="../../trackers/basetrack/" rel="next"/>
+<link href="../speed_estimation/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.3" name="generator"/>
 <title>object_counter - Ultralytics YOLOv8 Docs</title>
@@ -1363,6 +1363,20 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/speed-estimation/">
+<span class="md-ellipsis">
+    Speed Estimation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../guides/distance-calculation/">
+<span class="md-ellipsis">
+    Distance Calculation
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2215,6 +2229,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.object_counter.ObjectCounter.display_frames">
+<span class="md-ellipsis">
+      display_frames()
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.solutions.object_counter.ObjectCounter.mouse_event_for_region">
 <span class="md-ellipsis">
       mouse_event_for_region()
@@ -2240,6 +2261,20 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../speed_estimation/">
+<span class="md-ellipsis">
+    speed_estimation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../distance_calculation/">
+<span class="md-ellipsis">
+    distance_calculation
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -2565,6 +2600,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.object_counter.ObjectCounter.display_frames">
+<span class="md-ellipsis">
+      display_frames()
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.solutions.object_counter.ObjectCounter.mouse_event_for_region">
 <span class="md-ellipsis">
       mouse_event_for_region()
@@ -2821,7 +2863,16 @@
 <span class="normal"><a href="#__codelineno-0-221">221</a></span>
 <span class="normal"><a href="#__codelineno-0-222">222</a></span>
 <span class="normal"><a href="#__codelineno-0-223">223</a></span>
-<span class="normal"><a href="#__codelineno-0-224">224</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="k">class</span> <span class="nc">ObjectCounter</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-224">224</a></span>
+<span class="normal"><a href="#__codelineno-0-225">225</a></span>
+<span class="normal"><a href="#__codelineno-0-226">226</a></span>
+<span class="normal"><a href="#__codelineno-0-227">227</a></span>
+<span class="normal"><a href="#__codelineno-0-228">228</a></span>
+<span class="normal"><a href="#__codelineno-0-229">229</a></span>
+<span class="normal"><a href="#__codelineno-0-230">230</a></span>
+<span class="normal"><a href="#__codelineno-0-231">231</a></span>
+<span class="normal"><a href="#__codelineno-0-232">232</a></span>
+<span class="normal"><a href="#__codelineno-0-233">233</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="k">class</span> <span class="nc">ObjectCounter</span><span class="p">:</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="sd">"""A class to manage the counting of objects in a real-time video stream based on their tracks."""</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -3007,30 +3058,39 @@
 <a id="__codelineno-0-198" name="__codelineno-0-198"></a>                                    <span class="n">txt_color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">count_txt_color</span><span class="p">,</span>
 <a id="__codelineno-0-199" name="__codelineno-0-199"></a>                                    <span class="n">color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">count_color</span><span class="p">)</span>
 <a id="__codelineno-0-200" name="__codelineno-0-200"></a>
-<a id="__codelineno-0-201" name="__codelineno-0-201"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">env_check</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">view_img</span><span class="p">:</span>
-<a id="__codelineno-0-202" name="__codelineno-0-202"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">namedWindow</span><span class="p">(</span><span class="s1">'Ultralytics YOLOv8 Object Counter'</span><span class="p">)</span>
-<a id="__codelineno-0-203" name="__codelineno-0-203"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reg_pts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>  <span class="c1"># only add mouse event If user drawn region</span>
-<a id="__codelineno-0-204" name="__codelineno-0-204"></a>                <span class="n">cv2</span><span class="o">.</span><span class="n">setMouseCallback</span><span class="p">(</span><span class="s1">'Ultralytics YOLOv8 Object Counter'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_event_for_region</span><span class="p">,</span>
-<a id="__codelineno-0-205" name="__codelineno-0-205"></a>                                     <span class="p">{</span><span class="s1">'region_points'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_pts</span><span class="p">})</span>
-<a id="__codelineno-0-206" name="__codelineno-0-206"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">'Ultralytics YOLOv8 Object Counter'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">)</span>
-<a id="__codelineno-0-207" name="__codelineno-0-207"></a>            <span class="c1"># Break Window</span>
-<a id="__codelineno-0-208" name="__codelineno-0-208"></a>            <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">'q'</span><span class="p">):</span>
-<a id="__codelineno-0-209" name="__codelineno-0-209"></a>                <span class="k">return</span>
-<a id="__codelineno-0-210" name="__codelineno-0-210"></a>
-<a id="__codelineno-0-211" name="__codelineno-0-211"></a>    <span class="k">def</span> <span class="nf">start_counting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="p">):</span>
-<a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-213" name="__codelineno-0-213"></a><span class="sd">        Main function to start the object counting process.</span>
-<a id="__codelineno-0-214" name="__codelineno-0-214"></a>
-<a id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-216" name="__codelineno-0-216"></a><span class="sd">            im0 (ndarray): Current frame from the video stream.</span>
-<a id="__codelineno-0-217" name="__codelineno-0-217"></a><span class="sd">            tracks (list): List of tracks obtained from the object tracking process.</span>
-<a id="__codelineno-0-218" name="__codelineno-0-218"></a><span class="sd">        """</span>
-<a id="__codelineno-0-219" name="__codelineno-0-219"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">im0</span> <span class="o">=</span> <span class="n">im0</span>  <span class="c1"># store image</span>
-<a id="__codelineno-0-220" name="__codelineno-0-220"></a>
-<a id="__codelineno-0-221" name="__codelineno-0-221"></a>        <span class="k">if</span> <span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-222" name="__codelineno-0-222"></a>            <span class="k">return</span>
-<a id="__codelineno-0-223" name="__codelineno-0-223"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">extract_and_process_tracks</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span>
-<a id="__codelineno-0-224" name="__codelineno-0-224"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span>
+<a id="__codelineno-0-201" name="__codelineno-0-201"></a>    <span class="k">def</span> <span class="nf">display_frames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-202" name="__codelineno-0-202"></a><span class="w">        </span><span class="sd">"""Display frame."""</span>
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">env_check</span><span class="p">:</span>
+<a id="__codelineno-0-204" name="__codelineno-0-204"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">namedWindow</span><span class="p">(</span><span class="s1">'Ultralytics YOLOv8 Object Counter'</span><span class="p">)</span>
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reg_pts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>  <span class="c1"># only add mouse event If user drawn region</span>
+<a id="__codelineno-0-206" name="__codelineno-0-206"></a>                <span class="n">cv2</span><span class="o">.</span><span class="n">setMouseCallback</span><span class="p">(</span><span class="s1">'Ultralytics YOLOv8 Object Counter'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_event_for_region</span><span class="p">,</span>
+<a id="__codelineno-0-207" name="__codelineno-0-207"></a>                                     <span class="p">{</span><span class="s1">'region_points'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_pts</span><span class="p">})</span>
+<a id="__codelineno-0-208" name="__codelineno-0-208"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">'Ultralytics YOLOv8 Object Counter'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">)</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a>            <span class="c1"># Break Window</span>
+<a id="__codelineno-0-210" name="__codelineno-0-210"></a>            <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">'q'</span><span class="p">):</span>
+<a id="__codelineno-0-211" name="__codelineno-0-211"></a>                <span class="k">return</span>
+<a id="__codelineno-0-212" name="__codelineno-0-212"></a>
+<a id="__codelineno-0-213" name="__codelineno-0-213"></a>    <span class="k">def</span> <span class="nf">start_counting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="p">):</span>
+<a id="__codelineno-0-214" name="__codelineno-0-214"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="sd">        Main function to start the object counting process.</span>
+<a id="__codelineno-0-216" name="__codelineno-0-216"></a>
+<a id="__codelineno-0-217" name="__codelineno-0-217"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-218" name="__codelineno-0-218"></a><span class="sd">            im0 (ndarray): Current frame from the video stream.</span>
+<a id="__codelineno-0-219" name="__codelineno-0-219"></a><span class="sd">            tracks (list): List of tracks obtained from the object tracking process.</span>
+<a id="__codelineno-0-220" name="__codelineno-0-220"></a><span class="sd">        """</span>
+<a id="__codelineno-0-221" name="__codelineno-0-221"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">im0</span> <span class="o">=</span> <span class="n">im0</span>  <span class="c1"># store image</span>
+<a id="__codelineno-0-222" name="__codelineno-0-222"></a>
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a>        <span class="k">if</span> <span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-224" name="__codelineno-0-224"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">view_img</span><span class="p">:</span>
+<a id="__codelineno-0-225" name="__codelineno-0-225"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">display_frames</span><span class="p">()</span>
+<a id="__codelineno-0-226" name="__codelineno-0-226"></a>                <span class="k">return</span>
+<a id="__codelineno-0-227" name="__codelineno-0-227"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-228" name="__codelineno-0-228"></a>                <span class="k">return</span>
+<a id="__codelineno-0-229" name="__codelineno-0-229"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">extract_and_process_tracks</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span>
+<a id="__codelineno-0-230" name="__codelineno-0-230"></a>
+<a id="__codelineno-0-231" name="__codelineno-0-231"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">view_img</span><span class="p">:</span>
+<a id="__codelineno-0-232" name="__codelineno-0-232"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">display_frames</span><span class="p">()</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -3117,6 +3177,39 @@
 <a id="__codelineno-0-53" name="__codelineno-0-53"></a>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="c1"># Check if environment support imshow</span>
 <a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">env_check</span> <span class="o">=</span> <span class="n">check_imshow</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.solutions.object_counter.ObjectCounter.display_frames">
+<code class="highlight language-python"><span class="n">display_frames</span><span class="p">()</span></code>
+</h3>
+<div class="doc doc-contents">
+<p>Display frame.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/solutions/object_counter.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-201">201</a></span>
+<span class="normal"><a href="#__codelineno-0-202">202</a></span>
+<span class="normal"><a href="#__codelineno-0-203">203</a></span>
+<span class="normal"><a href="#__codelineno-0-204">204</a></span>
+<span class="normal"><a href="#__codelineno-0-205">205</a></span>
+<span class="normal"><a href="#__codelineno-0-206">206</a></span>
+<span class="normal"><a href="#__codelineno-0-207">207</a></span>
+<span class="normal"><a href="#__codelineno-0-208">208</a></span>
+<span class="normal"><a href="#__codelineno-0-209">209</a></span>
+<span class="normal"><a href="#__codelineno-0-210">210</a></span>
+<span class="normal"><a href="#__codelineno-0-211">211</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="k">def</span> <span class="nf">display_frames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-202" name="__codelineno-0-202"></a><span class="w">    </span><span class="sd">"""Display frame."""</span>
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">env_check</span><span class="p">:</span>
+<a id="__codelineno-0-204" name="__codelineno-0-204"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">namedWindow</span><span class="p">(</span><span class="s1">'Ultralytics YOLOv8 Object Counter'</span><span class="p">)</span>
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reg_pts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>  <span class="c1"># only add mouse event If user drawn region</span>
+<a id="__codelineno-0-206" name="__codelineno-0-206"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">setMouseCallback</span><span class="p">(</span><span class="s1">'Ultralytics YOLOv8 Object Counter'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_event_for_region</span><span class="p">,</span>
+<a id="__codelineno-0-207" name="__codelineno-0-207"></a>                                 <span class="p">{</span><span class="s1">'region_points'</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_pts</span><span class="p">})</span>
+<a id="__codelineno-0-208" name="__codelineno-0-208"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">'Ultralytics YOLOv8 Object Counter'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">)</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a>        <span class="c1"># Break Window</span>
+<a id="__codelineno-0-210" name="__codelineno-0-210"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">'q'</span><span class="p">):</span>
+<a id="__codelineno-0-211" name="__codelineno-0-211"></a>            <span class="k">return</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3647,9 +3740,7 @@ cv2.EVENT_FLAG_SHIFTKEY, etc.).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/object_counter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-211">211</a></span>
-<span class="normal"><a href="#__codelineno-0-212">212</a></span>
-<span class="normal"><a href="#__codelineno-0-213">213</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-213">213</a></span>
 <span class="normal"><a href="#__codelineno-0-214">214</a></span>
 <span class="normal"><a href="#__codelineno-0-215">215</a></span>
 <span class="normal"><a href="#__codelineno-0-216">216</a></span>
@@ -3660,20 +3751,36 @@ cv2.EVENT_FLAG_SHIFTKEY, etc.).</p>
 <span class="normal"><a href="#__codelineno-0-221">221</a></span>
 <span class="normal"><a href="#__codelineno-0-222">222</a></span>
 <span class="normal"><a href="#__codelineno-0-223">223</a></span>
-<span class="normal"><a href="#__codelineno-0-224">224</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-211" name="__codelineno-0-211"></a><span class="k">def</span> <span class="nf">start_counting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="p">):</span>
-<a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-213" name="__codelineno-0-213"></a><span class="sd">    Main function to start the object counting process.</span>
-<a id="__codelineno-0-214" name="__codelineno-0-214"></a>
-<a id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-216" name="__codelineno-0-216"></a><span class="sd">        im0 (ndarray): Current frame from the video stream.</span>
-<a id="__codelineno-0-217" name="__codelineno-0-217"></a><span class="sd">        tracks (list): List of tracks obtained from the object tracking process.</span>
-<a id="__codelineno-0-218" name="__codelineno-0-218"></a><span class="sd">    """</span>
-<a id="__codelineno-0-219" name="__codelineno-0-219"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">im0</span> <span class="o">=</span> <span class="n">im0</span>  <span class="c1"># store image</span>
-<a id="__codelineno-0-220" name="__codelineno-0-220"></a>
-<a id="__codelineno-0-221" name="__codelineno-0-221"></a>    <span class="k">if</span> <span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-222" name="__codelineno-0-222"></a>        <span class="k">return</span>
-<a id="__codelineno-0-223" name="__codelineno-0-223"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_and_process_tracks</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span>
-<a id="__codelineno-0-224" name="__codelineno-0-224"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span>
+<span class="normal"><a href="#__codelineno-0-224">224</a></span>
+<span class="normal"><a href="#__codelineno-0-225">225</a></span>
+<span class="normal"><a href="#__codelineno-0-226">226</a></span>
+<span class="normal"><a href="#__codelineno-0-227">227</a></span>
+<span class="normal"><a href="#__codelineno-0-228">228</a></span>
+<span class="normal"><a href="#__codelineno-0-229">229</a></span>
+<span class="normal"><a href="#__codelineno-0-230">230</a></span>
+<span class="normal"><a href="#__codelineno-0-231">231</a></span>
+<span class="normal"><a href="#__codelineno-0-232">232</a></span>
+<span class="normal"><a href="#__codelineno-0-233">233</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-213" name="__codelineno-0-213"></a><span class="k">def</span> <span class="nf">start_counting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="p">):</span>
+<a id="__codelineno-0-214" name="__codelineno-0-214"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="sd">    Main function to start the object counting process.</span>
+<a id="__codelineno-0-216" name="__codelineno-0-216"></a>
+<a id="__codelineno-0-217" name="__codelineno-0-217"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-218" name="__codelineno-0-218"></a><span class="sd">        im0 (ndarray): Current frame from the video stream.</span>
+<a id="__codelineno-0-219" name="__codelineno-0-219"></a><span class="sd">        tracks (list): List of tracks obtained from the object tracking process.</span>
+<a id="__codelineno-0-220" name="__codelineno-0-220"></a><span class="sd">    """</span>
+<a id="__codelineno-0-221" name="__codelineno-0-221"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">im0</span> <span class="o">=</span> <span class="n">im0</span>  <span class="c1"># store image</span>
+<a id="__codelineno-0-222" name="__codelineno-0-222"></a>
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a>    <span class="k">if</span> <span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-224" name="__codelineno-0-224"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">view_img</span><span class="p">:</span>
+<a id="__codelineno-0-225" name="__codelineno-0-225"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">display_frames</span><span class="p">()</span>
+<a id="__codelineno-0-226" name="__codelineno-0-226"></a>            <span class="k">return</span>
+<a id="__codelineno-0-227" name="__codelineno-0-227"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-228" name="__codelineno-0-228"></a>            <span class="k">return</span>
+<a id="__codelineno-0-229" name="__codelineno-0-229"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_and_process_tracks</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span>
+<a id="__codelineno-0-230" name="__codelineno-0-230"></a>
+<a id="__codelineno-0-231" name="__codelineno-0-231"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">view_img</span><span class="p">:</span>
+<a id="__codelineno-0-232" name="__codelineno-0-232"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">display_frames</span><span class="p">()</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3732,13 +3839,13 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
               </div>
 </div>
 </a>
-<a aria-label="Next: basetrack" class="md-footer__link md-footer__link--next" href="../../trackers/basetrack/">
+<a aria-label="Next: speed_estimation" class="md-footer__link md-footer__link--next" href="../speed_estimation/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                basetrack
+                speed_estimation
               </div>
 </div>
 <div class="md-footer__button md-icon">
