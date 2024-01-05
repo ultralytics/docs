@@ -480,6 +480,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/obb/">
+<span class="md-ellipsis">
+    Obb
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -747,6 +754,13 @@
 <a class="md-nav__link" href="../../tasks/pose/">
 <span class="md-ellipsis">
     Pose
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/obb/">
+<span class="md-ellipsis">
+    Obb
   </span>
 </a>
 </li>
@@ -1964,6 +1978,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/data/split_dota/">
+<span class="md-ellipsis">
+    split_dota
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../reference/data/utils/">
 <span class="md-ellipsis">
     utils
@@ -2602,7 +2623,7 @@
 <li><strong>Variety of Pre-trained Models:</strong> YOLOv8 offers a range of pre-trained models to cater to various tasks and performance requirements, making it easier to find the right model for your specific use case.</li>
 </ul>
 <h2 id="supported-tasks-and-modes">Supported Tasks and Modes</h2>
-<p>The YOLOv8 series offers a diverse range of models, each specialized for specific tasks in computer vision. These models are designed to cater to various requirements, from object detection to more complex tasks like instance segmentation, pose/keypoints detection, and classification.</p>
+<p>The YOLOv8 series offers a diverse range of models, each specialized for specific tasks in computer vision. These models are designed to cater to various requirements, from object detection to more complex tasks like instance segmentation, pose/keypoints detection, oriented object detection, and classification.</p>
 <p>Each variant of the YOLOv8 series is optimized for its respective task, ensuring high performance and accuracy. Additionally, these models are compatible with various operational modes including <a href="../../modes/predict/">Inference</a>, <a href="../../modes/val/">Validation</a>, <a href="../../modes/train/">Training</a>, and <a href="../../modes/export/">Export</a>, facilitating their use in different stages of deployment and development.</p>
 <table>
 <thead>
@@ -2645,6 +2666,15 @@
 <td>✅</td>
 </tr>
 <tr>
+<td>YOLOv8-obb</td>
+<td><code>yolov8n-obb.pt</code> <code>yolov8s-obb.pt</code> <code>yolov8m-obb.pt</code> <code>yolov8l-obb.pt</code> <code>yolov8x-obb.pt</code></td>
+<td><a href="../../tasks/obb/">Oriented Detection</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
 <td>YOLOv8-cls</td>
 <td><code>yolov8n-cls.pt</code> <code>yolov8s-cls.pt</code> <code>yolov8m-cls.pt</code> <code>yolov8l-cls.pt</code> <code>yolov8x-cls.pt</code></td>
 <td><a href="../../tasks/classify/">Classification</a></td>
@@ -2659,7 +2689,7 @@
 <h2 id="performance-metrics">Performance Metrics</h2>
 <div class="admonition performance">
 <p class="admonition-title">Performance</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Detection (COCO)</label><label for="__tabbed_1_2">Detection (Open Images V7)</label><label for="__tabbed_1_3">Segmentation (COCO)</label><label for="__tabbed_1_4">Classification (ImageNet)</label><label for="__tabbed_1_5">Pose (COCO)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Detection (COCO)</label><label for="__tabbed_1_2">Detection (Open Images V7)</label><label for="__tabbed_1_3">Segmentation (COCO)</label><label for="__tabbed_1_4">Classification (ImageNet)</label><label for="__tabbed_1_5">Pose (COCO)</label><label for="__tabbed_1_6">OBB (DOTAv1)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>See <a href="https://docs.ultralytics.com/tasks/detect/">Detection Docs</a> for usage examples with these models trained on <a href="https://docs.ultralytics.com/datasets/detect/coco/">COCO</a>, which include 80 pre-trained classes.</p>
@@ -2926,7 +2956,7 @@
 </table>
 </div>
 <div class="tabbed-block">
-<p>See <a href="https://docs.ultralytics.com/tasks/segment/">Pose Estimation Docs</a> for usage examples with these models trained on <a href="https://docs.ultralytics.com/datasets/pose/coco/">COCO</a>, which include 1 pre-trained class, 'person'.</p>
+<p>See <a href="https://docs.ultralytics.com/tasks/pose/">Pose Estimation Docs</a> for usage examples with these models trained on <a href="https://docs.ultralytics.com/datasets/pose/coco/">COCO</a>, which include 1 pre-trained class, 'person'.</p>
 <table>
 <thead>
 <tr>
@@ -3004,12 +3034,75 @@
 </tbody>
 </table>
 </div>
+<div class="tabbed-block">
+<p>See <a href="https://docs.ultralytics.com/tasks/obb/">Oriented Detection Docs</a> for usage examples with these models trained on <a href="https://docs.ultralytics.com/datasets/obb/dota-v1/">DOTAv1</a>, which include 15 pre-trained classes.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>size<br/><sup>(pixels)</sup></th>
+<th>mAP<sup>box<br/>50</sup></th>
+<th>Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
+<th>Speed<br/><sup>A100 TensorRT<br/>(ms)</sup></th>
+<th>params<br/><sup>(M)</sup></th>
+<th>FLOPs<br/><sup>(B)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n-obb.pt">YOLOv8n-obb</a></td>
+<td>1024</td>
+<td>&lt;++&gt;</td>
+<td>&lt;++&gt;</td>
+<td>&lt;++&gt;</td>
+<td>3.2</td>
+<td>23.3</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s-obb.pt">YOLOv8s-obb</a></td>
+<td>1024</td>
+<td>&lt;++&gt;</td>
+<td>&lt;++&gt;</td>
+<td>&lt;++&gt;</td>
+<td>11.4</td>
+<td>76.3</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8m-obb.pt">YOLOv8m-obb</a></td>
+<td>1024</td>
+<td>&lt;++&gt;</td>
+<td>&lt;++&gt;</td>
+<td>&lt;++&gt;</td>
+<td>26.4</td>
+<td>208.6</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8l-obb.pt">YOLOv8l-obb</a></td>
+<td>1024</td>
+<td>&lt;++&gt;</td>
+<td>&lt;++&gt;</td>
+<td>&lt;++&gt;</td>
+<td>44.5</td>
+<td>433.8</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8x-obb.pt">YOLOv8x-obb</a></td>
+<td>1024</td>
+<td>&lt;++&gt;</td>
+<td>&lt;++&gt;</td>
+<td>&lt;++&gt;</td>
+<td>69.5</td>
+<td>676.7</td>
+</tr>
+</tbody>
+</table>
 </div>
-</input></input></input></input></input></div>
+</div>
+</input></input></input></input></input></input></div>
 </div>
 <h2 id="usage-examples">Usage Examples</h2>
 <p>This example provides simple YOLOv8 training and inference examples. For full documentation on these and other <a href="../../modes/">modes</a> see the <a href="../../modes/predict/">Predict</a>,  <a href="../../modes/train/">Train</a>, <a href="../../modes/val/">Val</a> and <a href="../../modes/export/">Export</a> docs pages.</p>
-<p>Note the below example is for YOLOv8 <a href="../../tasks/detect/">Detect</a> models for object detection. For additional supported tasks see the <a href="../../tasks/segment/">Segment</a>, <a href="../../tasks/classify/">Classify</a> and <a href="../../tasks/pose/">Pose</a> docs.</p>
+<p>Note the below example is for YOLOv8 <a href="../../tasks/detect/">Detect</a> models for object detection. For additional supported tasks see the <a href="../../tasks/segment/">Segment</a>, <a href="../../tasks/classify/">Classify</a>, <a href="../../tasks/obb/">Obb</a> docs and <a href="../../tasks/pose/">Pose</a> docs.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
@@ -3072,7 +3165,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-04<br/>Authors: <a href="https://github.com/fcakyon">fcakyon</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/fcakyon">fcakyon</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
