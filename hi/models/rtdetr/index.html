@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="{'Baidu के RT-DETR का अवलोकन करें': 'विज़न ट्रांसफॉर्मर के द्वारा संचालित, उन्नत और अनुकूलनयोग्य वास्तविक समय ऑब्जेक्ट डिटेक्टर, जिसमें तैयार मॉडल शामिल हैं।'}" name="description"/>
+<meta content="विभिन्न एप्लिकेशन्स और हार्डवेयर प्लेटफॉर्म्स के लिए Ultralytics YOLOv8 की खोज करें, एक अत्याधुनिक वास्तविक समय वस्तु पहचान और छवि विभाजन मॉडल।" name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/hi/models/rtdetr/" rel="canonical"/>
 <link href="../yolo-nas/" rel="prev"/>
@@ -22,7 +22,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="RT-DETR (Realtime Detection Transformer)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="RT-DETR, Baidu, विज़न ट्रांसफॉर्मर्स, ऑब्जेक्ट डिटेक्शन, वास्तविक समय प्रदर्शन, CUDA, TensorRT, IoU-जागरूक क्वेरी चयन, Ultralytics, पायथन एपीआई, PaddlePaddle" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hi/models/rtdetr" property="og:url"/><meta content="RT-DETR (Realtime Detection Transformer)" property="og:title"/><meta content="{'Baidu के RT-DETR का अवलोकन करें': 'विज़न ट्रांसफॉर्मर के द्वारा संचालित, उन्नत और अनुकूलनयोग्य वास्तविक समय ऑब्जेक्ट डिटेक्टर, जिसमें तैयार मॉडल शामिल हैं।'}" property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hi/models/rtdetr" property="twitter:url"/><meta content="RT-DETR (Realtime Detection Transformer)" property="twitter:title"/><meta content="{'Baidu के RT-DETR का अवलोकन करें': 'विज़न ट्रांसफॉर्मर के द्वारा संचालित, उन्नत और अनुकूलनयोग्य वास्तविक समय ऑब्जेक्ट डिटेक्टर, जिसमें तैयार मॉडल शामिल हैं।'}" property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png" property="twitter:image"/></head>
+<meta content="RT-DETR (Realtime Detection Transformer)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hi/models/rtdetr" property="og:url"/><meta content="RT-DETR (Realtime Detection Transformer)" property="og:title"/><meta content="" property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hi/models/rtdetr" property="twitter:url"/><meta content="RT-DETR (Realtime Detection Transformer)" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -781,6 +781,11 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/hi/models/rtdetr.md" title="इस पृष्ठ को संपादित करें">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
+<hr/>
+<p>comments: true
+description: Baidu के RT-DETR का अवलोकन करें: विज़न ट्रांसफॉर्मर के द्वारा संचालित, उन्नत और अनुकूलनयोग्य वास्तविक समय ऑब्जेक्ट डिटेक्टर, जिसमें तैयार मॉडल शामिल हैं।
+keywords: RT-DETR, Baidu, विज़न ट्रांसफॉर्मर्स, ऑब्जेक्ट डिटेक्शन, वास्तविक समय प्रदर्शन, CUDA, TensorRT, IoU-जागरूक क्वेरी चयन, Ultralytics, पायथन एपीआई, PaddlePaddle</p>
+<hr/>
 <h1 id="baidu-rt-detr">Baidu के RT-DETR: एक विज़न ट्रांसफॉर्मर के आधार पर वास्तविक समय ऑब्जेक्ट डिटेक्टर</h1>
 <h2 id="_1">अवलोकन</h2>
 <p>Baidu द्वारा विकसित रियल-टाइम डिटेक्शन ट्रांसफॉर्मर (RT-DETR) एक उन्नत, end-to-end ऑब्जेक्ट डिटेक्टर है जो उच्च नि: शुल्कता बनाए रखते हुए वास्तविक समय प्रदर्शन प्रदान करता है। यह Vision ट्रांसफॉर्मर्स (ViT) की शक्ति का उपयोग करके बहुस्तरीय सुविधाओं की कुशलतापूर्वक प्रोसेसिंग करता है और इंट्रा-स्केल इंटरेक्शन और क्रॉस-स्केल फ्यूजन को अलग करके विभिन्न मापों की सुविधा प्रदान करता है। RT-DETR अत्यधिक अनुकूलनयोग्य है, जिसमें ब्यावसायिक लिंग के विभिन्न डिकोडर लेयर का उपयोग करके उपन्यासात्मक गति को समायोजित करने की समर्थन की गई है बिना पुनर्प्रशिक्षण के। इस मॉडल का परिणामस्वरूप, जो कि CUDA और TensorRT के समर्थनयुक्त बैकेंड पर अच्छा क्रियाशील ऑब्जैक्ट डिटेक्टरों से अधिक प्रदर्शन करता है।</p>
@@ -895,7 +900,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-22, Updated 2023-11-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-22, Updated 2024-01-07<br/>Authors: <a href="https://github.com/AyushExel">AyushExel</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -913,39 +918,6 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
-<h2 id="__comments">टिप्पणियाँ</h2>
-<!-- Insert Giscus code snippet from https://giscus.app/ here -->
-<script async="" crossorigin="anonymous" data-category="Docs" data-category-id="DIC_kwDOH-jzvc4CWLkL" data-emit-metadata="0" data-input-position="top" data-lang="en" data-mapping="title" data-reactions-enabled="1" data-repo="ultralytics/ultralytics" data-repo-id="R_kgDOH-jzvQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    /* Set palette on initial load */
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate" ? "dark" : "light"
-      giscus.setAttribute("data-theme", theme)
-    }
-
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
-        var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark" : "light"
-
-          /* Instruct Giscus to change theme */
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
-        }
-      })
-    })
-</script>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
