@@ -2935,8 +2935,7 @@
 <p>This guide will cover how to use YOLOv5 with <a href="https://bit.ly/yolov5-readme-comet2">Comet</a></p>
 <h2 id="about-comet">About Comet</h2>
 <p>Comet builds tools that help data scientists, engineers, and team leaders accelerate and optimize machine learning and deep learning models.</p>
-<p>Track and visualize model metrics in real time, save your hyperparameters, datasets, and model checkpoints, and visualize your model predictions with <a href="https://www.comet.com/docs/v2/guides/comet-dashboard/code-panels/about-panels/?utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">Comet Custom Panels</a>!
-Comet makes sure you never lose track of your work and makes it easy to share results and collaborate across teams of all sizes!</p>
+<p>Track and visualize model metrics in real time, save your hyperparameters, datasets, and model checkpoints, and visualize your model predictions with <a href="https://www.comet.com/docs/v2/guides/comet-dashboard/code-panels/about-panels/?utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">Comet Custom Panels</a>! Comet makes sure you never lose track of your work and makes it easy to share results and collaborate across teams of all sizes!</p>
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="install-comet">Install Comet</h3>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>comet_ml
@@ -3047,12 +3046,9 @@ Comet makes sure you never lose track of your work and makes it easy to share re
 <a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
 <a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>--upload_dataset
 </code></pre></div>
-<p>You can find the uploaded dataset in the Artifacts tab in your Comet Workspace
-<img alt="artifact-1" src="https://user-images.githubusercontent.com/7529846/186929193-162718bf-ec7b-4eb9-8c3b-86b3763ef8ea.png" width="1073"/></p>
-<p>You can preview the data directly in the Comet UI.
-<img alt="artifact-2" src="https://user-images.githubusercontent.com/7529846/186929215-432c36a9-c109-4eb0-944b-84c2786590d6.png" width="1082"/></p>
-<p>Artifacts are versioned and also support adding metadata about the dataset. Comet will automatically log the metadata from your dataset <code>yaml</code> file
-<img alt="artifact-3" src="https://user-images.githubusercontent.com/7529846/186929256-9d44d6eb-1a19-42de-889a-bcbca3018f2e.png" width="963"/></p>
+<p>You can find the uploaded dataset in the Artifacts tab in your Comet Workspace <img alt="artifact-1" src="https://user-images.githubusercontent.com/7529846/186929193-162718bf-ec7b-4eb9-8c3b-86b3763ef8ea.png" width="1073"/></p>
+<p>You can preview the data directly in the Comet UI. <img alt="artifact-2" src="https://user-images.githubusercontent.com/7529846/186929215-432c36a9-c109-4eb0-944b-84c2786590d6.png" width="1082"/></p>
+<p>Artifacts are versioned and also support adding metadata about the dataset. Comet will automatically log the metadata from your dataset <code>yaml</code> file <img alt="artifact-3" src="https://user-images.githubusercontent.com/7529846/186929256-9d44d6eb-1a19-42de-889a-bcbca3018f2e.png" width="963"/></p>
 <h3 id="using-a-saved-artifact">Using a saved Artifact</h3>
 <p>If you would like to use a dataset from Comet Artifacts, set the <code>path</code> variable in your dataset <code>yaml</code> file to point to the following Artifact resource URL.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a># contents of artifact.yaml file
@@ -3066,8 +3062,7 @@ Comet makes sure you never lose track of your work and makes it easy to share re
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>--data<span class="w"> </span>artifact.yaml<span class="w"> </span><span class="se">\</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>--weights<span class="w"> </span>yolov5s.pt
 </code></pre></div>
-<p>Artifacts also allow you to track the lineage of data as it flows through your Experimentation workflow. Here you can see a graph that shows you all the experiments that have used your uploaded dataset.
-<img alt="artifact-4" src="https://user-images.githubusercontent.com/7529846/186929264-4c4014fa-fe51-4f3c-a5c5-f6d24649b1b4.png" width="1391"/></p>
+<p>Artifacts also allow you to track the lineage of data as it flows through your Experimentation workflow. Here you can see a graph that shows you all the experiments that have used your uploaded dataset. <img alt="artifact-4" src="https://user-images.githubusercontent.com/7529846/186929264-4c4014fa-fe51-4f3c-a5c5-f6d24649b1b4.png" width="1391"/></p>
 <h2 id="resuming-a-training-run">Resuming a Training Run</h2>
 <p>If your training run is interrupted for any reason, e.g. disrupted internet connection, you can resume the run using the <code>resume</code> flag and the Comet Run Path.</p>
 <p>The Run Path has the following format <code>comet://&lt;your workspace name&gt;/&lt;your project name&gt;/&lt;experiment id&gt;</code>.</p>
@@ -3103,7 +3098,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-12-07<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/yolov5/tutorials/comet_logging_integration.md">chr043416@gmail.com</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/yolov5/tutorials/comet_logging_integration.md">chr043416@gmail.com</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

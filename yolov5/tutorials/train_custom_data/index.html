@@ -2820,15 +2820,14 @@ Once you have collected images, you will need to annotate the objects of interes
 
 Whether you [label your images with Roboflow](https://roboflow.com/annotate?ref=ultralytics) or not, you can use it to convert your dataset into YOLO format, create a YOLOv5 YAML configuration file, and host it for importing into your training script.
 
-[Create a free Roboflow account](https://app.roboflow.com/?model=yolov5&amp;ref=ultralytics)
-and upload your dataset to a `Public` workspace, label any unannotated images, then generate and export a version of your dataset in `YOLOv5 Pytorch` format.
+[Create a free Roboflow account](https://app.roboflow.com/?model=yolov5&amp;ref=ultralytics) and upload your dataset to a `Public` workspace, label any unannotated images, then generate and export a version of your dataset in `YOLOv5 Pytorch` format.
 
 Note: YOLOv5 does online augmentation during training, so we do not recommend applying any augmentation steps in Roboflow for training with YOLOv5. But we recommend applying the following preprocessing steps:
 
 <p align="center"><img alt="Recommended Preprocessing Steps" src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6152a273477fccf42a0fd3d6_roboflow-preprocessing.png" width="450"/></p>
 
-* **Auto-Orient** - to strip EXIF orientation from your images.
-* **Resize (Stretch)** - to the square input size of your model (640x640 is the YOLOv5 default).
+- **Auto-Orient** - to strip EXIF orientation from your images.
+- **Resize (Stretch)** - to the square input size of your model (640x640 is the YOLOv5 default).
 
 Generating a version will give you a point in time snapshot of your dataset so you can always go back and compare your future model training runs against it, even if you add more images or change its configuration later.
 
@@ -2839,6 +2838,7 @@ Export in `YOLOv5 Pytorch` format, then copy the snippet into your training scri
 <p align="center"><img alt="Roboflow dataset download snippet" src="https://uploads-ssl.webflow.com/5f6bc60e665f54545a1e52a5/6152a273a92e4f5cb72594df_roboflow-snippet.png" width="450"/></p>
 
 Now continue with `2. Select a Model`.
+
 </details>
 <details>
 <summary>Or manually prepare your dataset</summary>
@@ -2912,8 +2912,7 @@ Organize your train and val images and labels according to the example below. YO
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_API_KEY</span><span class="o">=</span>&lt;Your<span class="w"> </span>API<span class="w"> </span>Key&gt;<span class="w">  </span><span class="c1"># 2. paste API key</span>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w">  </span><span class="c1"># 3. train</span>
 </code></pre></div>
-<p>To learn more about all the supported Comet features for this integration, check out the <a href="https://docs.ultralytics.com/yolov5/tutorials/comet_logging_integration">Comet Tutorial</a>. If you'd like to learn more about Comet, head over to our <a href="https://bit.ly/yolov5-colab-comet-docs">documentation</a>. Get started by trying out the Comet Colab Notebook:
-<a href="https://colab.research.google.com/drive/1RG0WOQyxlDlo5Km8GogJpIEJlg_5lyYO?usp=sharing"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
+<p>To learn more about all the supported Comet features for this integration, check out the <a href="https://docs.ultralytics.com/yolov5/tutorials/comet_logging_integration">Comet Tutorial</a>. If you'd like to learn more about Comet, head over to our <a href="https://bit.ly/yolov5-colab-comet-docs">documentation</a>. Get started by trying out the Comet Colab Notebook: <a href="https://colab.research.google.com/drive/1RG0WOQyxlDlo5Km8GogJpIEJlg_5lyYO?usp=sharing"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
 <p><img alt="YOLO UI" src="https://user-images.githubusercontent.com/26833433/202851203-164e94e1-2238-46dd-91f8-de020e9d6b41.png" width="1920"/></p>
 <h4 id="clearml-logging-and-automation-new">ClearML Logging and Automation 🌟 NEW</h4>
 <p><a href="https://cutt.ly/yolov5-notebook-clearml">ClearML</a> is completely integrated into YOLOv5 to track your experimentation, manage dataset versions and even remotely execute training runs. To enable ClearML:</p>
@@ -2964,7 +2963,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

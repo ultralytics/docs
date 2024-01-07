@@ -2787,27 +2787,33 @@
 <h3 id="commands">Commands</h3>
 <ol>
 <li>
-<p><strong>Set a Project Name</strong>: You can set the project name via an environment variable:
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MLFLOW_EXPERIMENT_NAME</span><span class="o">=</span>&lt;your_experiment_name&gt;
+<p><strong>Set a Project Name</strong>: You can set the project name via an environment variable:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MLFLOW_EXPERIMENT_NAME</span><span class="o">=</span>&lt;your_experiment_name&gt;
 </code></pre></div>
-   Or use the <code>project=&lt;project&gt;</code> argument when training a YOLO model, i.e. <code>yolo train project=my_project</code>.</p>
 </li>
+</ol>
+<p>Or use the <code>project=&lt;project&gt;</code> argument when training a YOLO model, i.e. <code>yolo train project=my_project</code>.</p>
+<ol>
 <li>
-<p><strong>Set a Run Name</strong>: Similar to setting a project name, you can set the run name via an environment variable:
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MLFLOW_RUN</span><span class="o">=</span>&lt;your_run_name&gt;
+<p><strong>Set a Run Name</strong>: Similar to setting a project name, you can set the run name via an environment variable:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MLFLOW_RUN</span><span class="o">=</span>&lt;your_run_name&gt;
 </code></pre></div>
-   Or use the <code>name=&lt;name&gt;</code> argument when training a YOLO model, i.e. <code>yolo train project=my_project name=my_name</code>.</p>
 </li>
+</ol>
+<p>Or use the <code>name=&lt;name&gt;</code> argument when training a YOLO model, i.e. <code>yolo train project=my_project name=my_name</code>.</p>
+<ol>
 <li>
-<p><strong>Start Local MLflow Server</strong>: To start tracking, use:
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>mlflow<span class="w"> </span>server<span class="w"> </span>--backend-store-uri<span class="w"> </span>runs/mlflow<span class="err">'</span>
+<p><strong>Start Local MLflow Server</strong>: To start tracking, use:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>mlflow<span class="w"> </span>server<span class="w"> </span>--backend-store-uri<span class="w"> </span>runs/mlflow<span class="err">'</span>
 </code></pre></div>
-   This will start a local server at http://127.0.0.1:5000 by default and save all mlflow logs to the 'runs/mlflow' directory. To specify a different URI, set the <code>MLFLOW_TRACKING_URI</code> environment variable.</p>
 </li>
+</ol>
+<p>This will start a local server at http://127.0.0.1:5000 by default and save all mlflow logs to the 'runs/mlflow' directory. To specify a different URI, set the <code>MLFLOW_TRACKING_URI</code> environment variable.</p>
+<ol>
 <li>
-<p><strong>Kill MLflow Server Instances</strong>: To stop all running MLflow instances, run:
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'mlflow'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">'grep'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-9
-</code></pre></div></p>
+<p><strong>Kill MLflow Server Instances</strong>: To stop all running MLflow instances, run:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'mlflow'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">'grep'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-9
+</code></pre></div>
 </li>
 </ol>
 <h3 id="logging">Logging</h3>
@@ -2818,12 +2824,10 @@
 <p><strong>Logging Custom Metrics</strong>: You can add custom metrics to be logged by modifying the <code>trainer.metrics</code> dictionary before <code>on_fit_epoch_end</code> is called.</p>
 </li>
 <li>
-<p><strong>View Experiment</strong>: To view your logs, navigate to your MLflow server (usually http://127.0.0.1:5000) and select your experiment and run.
-   <img alt="YOLO MLflow Experiment" src="https://user-images.githubusercontent.com/26833433/274933329-3127aa8c-4491-48ea-81df-ed09a5837f2a.png" width="1024"/></p>
+<p><strong>View Experiment</strong>: To view your logs, navigate to your MLflow server (usually http://127.0.0.1:5000) and select your experiment and run. <img alt="YOLO MLflow Experiment" src="https://user-images.githubusercontent.com/26833433/274933329-3127aa8c-4491-48ea-81df-ed09a5837f2a.png" width="1024"/></p>
 </li>
 <li>
-<p><strong>View Run</strong>: Runs are individual models inside an experiment. Click on a Run and see the Run details, including uploaded artifacts and model weights.
-   <img alt="YOLO MLflow Run" src="https://user-images.githubusercontent.com/26833433/274933337-ac61371c-2867-4099-a733-147a2583b3de.png" width="1024"/></p>
+<p><strong>View Run</strong>: Runs are individual models inside an experiment. Click on a Run and see the Run details, including uploaded artifacts and model weights. <img alt="YOLO MLflow Run" src="https://user-images.githubusercontent.com/26833433/274933337-ac61371c-2867-4099-a733-147a2583b3de.png" width="1024"/></p>
 </li>
 </ol>
 <h2 id="disabling-mlflow">Disabling MLflow</h2>
@@ -2840,7 +2844,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
