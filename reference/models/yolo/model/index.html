@@ -2667,38 +2667,50 @@
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
 <span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">class</span> <span class="nc">YOLO</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">class</span> <span class="nc">YOLO</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="sd">"""YOLO (You Only Look Once) object detection model."""</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="nd">@property</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">        </span><span class="sd">"""Map head to model, trainer, validator, and predictor classes."""</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="k">return</span> <span class="p">{</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>            <span class="s1">'classify'</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>                <span class="s1">'model'</span><span class="p">:</span> <span class="n">ClassificationModel</span><span class="p">,</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>                <span class="s1">'trainer'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">ClassificationTrainer</span><span class="p">,</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>                <span class="s1">'validator'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">ClassificationValidator</span><span class="p">,</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>                <span class="s1">'predictor'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">ClassificationPredictor</span><span class="p">,</span> <span class="p">},</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>            <span class="s1">'detect'</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>                <span class="s1">'model'</span><span class="p">:</span> <span class="n">DetectionModel</span><span class="p">,</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>                <span class="s1">'trainer'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">detect</span><span class="o">.</span><span class="n">DetectionTrainer</span><span class="p">,</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>                <span class="s1">'validator'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">detect</span><span class="o">.</span><span class="n">DetectionValidator</span><span class="p">,</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>                <span class="s1">'predictor'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">detect</span><span class="o">.</span><span class="n">DetectionPredictor</span><span class="p">,</span> <span class="p">},</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>            <span class="s1">'segment'</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>                <span class="s1">'model'</span><span class="p">:</span> <span class="n">SegmentationModel</span><span class="p">,</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>                <span class="s1">'trainer'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">SegmentationTrainer</span><span class="p">,</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>                <span class="s1">'validator'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">SegmentationValidator</span><span class="p">,</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>                <span class="s1">'predictor'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">SegmentationPredictor</span><span class="p">,</span> <span class="p">},</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>            <span class="s1">'pose'</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>                <span class="s1">'model'</span><span class="p">:</span> <span class="n">PoseModel</span><span class="p">,</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>                <span class="s1">'trainer'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PoseTrainer</span><span class="p">,</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>                <span class="s1">'validator'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PoseValidator</span><span class="p">,</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>                <span class="s1">'predictor'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PosePredictor</span><span class="p">,</span> <span class="p">},</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>            <span class="s1">'obb'</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>                <span class="s1">'model'</span><span class="p">:</span> <span class="n">OBBModel</span><span class="p">,</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>                <span class="s1">'trainer'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">OBBTrainer</span><span class="p">,</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>                <span class="s1">'validator'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">OBBValidator</span><span class="p">,</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>                <span class="s1">'predictor'</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">OBBPredictor</span><span class="p">,</span> <span class="p">},</span> <span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>            <span class="s2">"classify"</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>                <span class="s2">"model"</span><span class="p">:</span> <span class="n">ClassificationModel</span><span class="p">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>                <span class="s2">"trainer"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">ClassificationTrainer</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>                <span class="s2">"validator"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">ClassificationValidator</span><span class="p">,</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>                <span class="s2">"predictor"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">classify</span><span class="o">.</span><span class="n">ClassificationPredictor</span><span class="p">,</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>            <span class="p">},</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>            <span class="s2">"detect"</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>                <span class="s2">"model"</span><span class="p">:</span> <span class="n">DetectionModel</span><span class="p">,</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>                <span class="s2">"trainer"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">detect</span><span class="o">.</span><span class="n">DetectionTrainer</span><span class="p">,</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>                <span class="s2">"validator"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">detect</span><span class="o">.</span><span class="n">DetectionValidator</span><span class="p">,</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>                <span class="s2">"predictor"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">detect</span><span class="o">.</span><span class="n">DetectionPredictor</span><span class="p">,</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>            <span class="p">},</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>            <span class="s2">"segment"</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>                <span class="s2">"model"</span><span class="p">:</span> <span class="n">SegmentationModel</span><span class="p">,</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>                <span class="s2">"trainer"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">SegmentationTrainer</span><span class="p">,</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>                <span class="s2">"validator"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">SegmentationValidator</span><span class="p">,</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>                <span class="s2">"predictor"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">SegmentationPredictor</span><span class="p">,</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>            <span class="p">},</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>            <span class="s2">"pose"</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>                <span class="s2">"model"</span><span class="p">:</span> <span class="n">PoseModel</span><span class="p">,</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>                <span class="s2">"trainer"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PoseTrainer</span><span class="p">,</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>                <span class="s2">"validator"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PoseValidator</span><span class="p">,</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>                <span class="s2">"predictor"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PosePredictor</span><span class="p">,</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="p">},</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>            <span class="s2">"obb"</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>                <span class="s2">"model"</span><span class="p">:</span> <span class="n">OBBModel</span><span class="p">,</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>                <span class="s2">"trainer"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">OBBTrainer</span><span class="p">,</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>                <span class="s2">"validator"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">OBBValidator</span><span class="p">,</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>                <span class="s2">"predictor"</span><span class="p">:</span> <span class="n">yolo</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">OBBPredictor</span><span class="p">,</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>            <span class="p">},</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
