@@ -1,4 +1,4 @@
-
+<!--Ultralytics YOLO 🚀, AGPL-3.0 license-->
 <!DOCTYPE html>
 
 <html class="no-js" lang="en">
@@ -34,6 +34,15 @@
         </a>
 </div>
 <div data-md-component="announce">
+<aside class="md-banner">
+<div class="md-banner__inner md-grid md-typeset">
+<div style="text-align: center;">
+<a href="https://www.ultralytics.com/blog/ultralytics-yolov8-turns-one-a-year-of-breakthroughs-and-innovations" style="color: #FFFFFF;" target="_blank">
+        Ultralytics YOLOv8 Turns One! 🎉 A Year of Breakthroughs and Innovations   ➜
+      </a>
+</div>
+</div>
+</aside>
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
@@ -1062,12 +1071,12 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-working-with-embeddings-table-advanced">
+<a class="md-nav__link" href="#4-advanced-working-with-embeddings-table">
 <span class="md-ellipsis">
-      4. Working with embeddings Table (Advanced)
+      4. Advanced - Working with Embeddings Table
     </span>
 </a>
-<nav aria-label="4. Working with embeddings Table (Advanced)" class="md-nav">
+<nav aria-label="4. Advanced - Working with Embeddings Table" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#get-raw-embeddings">
@@ -1555,12 +1564,12 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-working-with-embeddings-table-advanced">
+<a class="md-nav__link" href="#4-advanced-working-with-embeddings-table">
 <span class="md-ellipsis">
-      4. Working with embeddings Table (Advanced)
+      4. Advanced - Working with Embeddings Table
     </span>
 </a>
-<nav aria-label="4. Working with embeddings Table (Advanced)" class="md-nav">
+<nav aria-label="4. Advanced - Working with Embeddings Table" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#get-raw-embeddings">
@@ -2840,12 +2849,12 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-working-with-embeddings-table-advanced">
+<a class="md-nav__link" href="#4-advanced-working-with-embeddings-table">
 <span class="md-ellipsis">
-      4. Working with embeddings Table (Advanced)
+      4. Advanced - Working with Embeddings Table
     </span>
 </a>
-<nav aria-label="4. Working with embeddings Table (Advanced)" class="md-nav">
+<nav aria-label="4. Advanced - Working with Embeddings Table" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#get-raw-embeddings">
@@ -2927,8 +2936,14 @@ The Explorer API is a Python API for exploring your datasets. It supports filter
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">dataframe</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s1">'path/to/image.jpg'</span><span class="p">)</span>
 <a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
 <a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># Or search for similar images to a given index/indices</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">dataframe</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">get_similar</span><span class="p">()(</span><span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">dataframe</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Note</p>
+<p>Embeddings table for a given dataset and model pair is only created once and reused. These use <a href="https://lancedb.github.io/lancedb/">LanceDB</a> under the hood, which scales on-disk, so you can create and reuse embeddings for large datasets like COCO without running out of memory.</p>
+</div>
+<p>In case you want to force update the embeddings table, you can pass <code>force=True</code> to <code>create_embeddings_table</code> method.
+You can direclty access the LanceDB table object to perform advanced analysis. Learn more about it in <a href="#4-advanced---working-with-embeddings-table">Working with table section</a></p>
 <h2 id="1-similarity-search">1. Similarity Search</h2>
 <p>Similarity search is a technique for finding similar images to a given image. It is based on the idea that similar images will have similar embeddings. Once the embeddings table is built, you can get run semantic search in any of the following ways:</p>
 <ul>
@@ -3058,7 +3073,7 @@ Note: This works using LLMs under the hood so the results are probabilistic and 
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </code></pre></div>
 </div>
-<h2 id="4-working-with-embeddings-table-advanced">4. Working with embeddings Table (Advanced)</h2>
+<h2 id="4-advanced-working-with-embeddings-table">4. Advanced - Working with Embeddings Table</h2>
 <p>You can also work with the embeddings table directly. Once the embeddings table is created, you can access it using the <code>Explorer.table</code></p>
 <div class="admonition tip">
 <p class="admonition-title">Explorer works on <a href="https://lancedb.github.io/lancedb/">LanceDB</a> tables internally. You can access this table directly, using <code>Explorer.table</code> object and run raw queries, push down pre- and post-filters, etc.</p>
@@ -3099,7 +3114,7 @@ Note: This works using LLMs under the hood so the results are probabilistic and 
 </div>
 <h3 id="create-vector-index">Create Vector Index</h3>
 <p>When using large datasets, you can also create a dedicated vector index for faster querying. This is done using the <code>create_index</code> method on LanceDB table.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>    <span class="n">table</span><span class="o">.</span><span class="n">create_index</span><span class="p">(</span><span class="n">num_partitions</span><span class="o">=...</span><span class="p">,</span> <span class="n">num_sub_vectors</span><span class="o">=...</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">table</span><span class="o">.</span><span class="n">create_index</span><span class="p">(</span><span class="n">num_partitions</span><span class="o">=...</span><span class="p">,</span> <span class="n">num_sub_vectors</span><span class="o">=...</span><span class="p">)</span>
 </code></pre></div>
 <p>Find more details on the type vector indices available and parameters <a href="https://lancedb.github.io/lancedb/ann_indexes/#types-of-index">here</a> In the future, we will add support for creating vector indices directly from Explorer API.</p>
 <h2 id="5-embeddings-applications">5. Embeddings Applications</h2>
@@ -3179,7 +3194,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-07, Updated 2024-01-10<br/>Authors: <a href="https://github.com/AyushExel">AyushExel</a> (2), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-07, Updated 2024-01-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/AyushExel">AyushExel</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -3313,7 +3328,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
 <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 </body>

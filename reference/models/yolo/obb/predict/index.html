@@ -1,4 +1,4 @@
-
+<!--Ultralytics YOLO 🚀, AGPL-3.0 license-->
 <!DOCTYPE html>
 
 <html class="no-js" lang="en">
@@ -34,6 +34,33 @@
         </a>
 </div>
 <div data-md-component="announce">
+<aside class="md-banner">
+<div class="md-banner__inner md-grid md-typeset">
+<div style="text-align: center;">
+<a href="https://www.ultralytics.com/blog/ultralytics-yolov8-turns-one-a-year-of-breakthroughs-and-innovations" style="color: #FFFFFF;" target="_blank">
+        Ultralytics YOLOv8 Turns One! 🎉 A Year of Breakthroughs and Innovations   ➜
+      </a>
+</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-05, Updated 2024-01-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<style>
+                .share-button:hover {
+                    filter: brightness(1.2);
+                }
+                .share-buttons {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            </style>
+<div class="share-buttons">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/models/yolo/obb/predict', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
+                </button>
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/models/yolo/obb/predict', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
+                </button>
+</div>
+</div>
+</aside>
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
@@ -2769,7 +2796,7 @@
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>            <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="k">for</span> <span class="n">pred</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a>            <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a>            <span class="c1"># xywh, r, conf, cls</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>            <span class="n">obb</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
@@ -2844,7 +2871,7 @@
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">for</span> <span class="n">pred</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="c1"># xywh, r, conf, cls</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="n">obb</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
@@ -2864,24 +2891,6 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <small>
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
-</div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-05, Updated 2024-01-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
-<style>
-                .share-button:hover {
-                    filter: brightness(1.2);
-                }
-                .share-buttons {
-                    display: flex;
-                    justify-content: flex-end;
-                }
-            </style>
-<div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/models/yolo/obb/predict', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
-<i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
-                </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/models/yolo/obb/predict', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
-<i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
-                </button>
 </div>
 </article>
 </div>
@@ -2966,7 +2975,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../../../../..", "features": ["announce.dismiss", "content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
 <script src="../../../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
 <script src="../../../../../javascript/extra.js"></script>
 </body>
