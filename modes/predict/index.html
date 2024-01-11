@@ -528,6 +528,13 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#obb">
+<span class="md-ellipsis">
+      OBB
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1035,6 +1042,13 @@
 <a class="md-nav__link" href="#probs">
 <span class="md-ellipsis">
       Probs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#obb">
+<span class="md-ellipsis">
+      OBB
     </span>
 </a>
 </li>
@@ -2911,6 +2925,13 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#obb">
+<span class="md-ellipsis">
+      OBB
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3721,6 +3742,11 @@
 <td>A Keypoints object containing detected keypoints for each object.</td>
 </tr>
 <tr>
+<td><code>obb</code></td>
+<td><code>OBB, optional</code></td>
+<td>A OBB object containing the oriented detection bounding boxes.</td>
+</tr>
+<tr>
 <td><code>speed</code></td>
 <td><code>dict</code></td>
 <td>A dictionary of preprocess, inference, and postprocess speeds in milliseconds per image.</td>
@@ -4100,25 +4126,110 @@
 </tbody>
 </table>
 <p>For more details see the <code>Probs</code> class <a href="../../reference/engine/results/#ultralytics.engine.results.Probs">documentation</a>.</p>
+<h3 id="obb">OBB</h3>
+<p><code>OBB</code> object can be used to index, manipulate, and convert oriented bounding boxes to different formats.</p>
+<div class="admonition example">
+<p class="admonition-title">OBB</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="c1"># Load a pretrained YOLOv8n model</span>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-obb.pt'</span><span class="p">)</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="c1"># Run inference on an image</span>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a>
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="c1"># View results</span>
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">obb</span><span class="p">)</span>  <span class="c1"># print the OBB object containing the oriented detection bounding boxes</span>
+</code></pre></div>
+</div>
+<p>Here is a table for the <code>OBB</code> class methods and properties, including their name, type, and description:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cpu()</code></td>
+<td>Method</td>
+<td>Move the object to CPU memory.</td>
+</tr>
+<tr>
+<td><code>numpy()</code></td>
+<td>Method</td>
+<td>Convert the object to a numpy array.</td>
+</tr>
+<tr>
+<td><code>cuda()</code></td>
+<td>Method</td>
+<td>Move the object to CUDA memory.</td>
+</tr>
+<tr>
+<td><code>to()</code></td>
+<td>Method</td>
+<td>Move the object to the specified device.</td>
+</tr>
+<tr>
+<td><code>conf</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the confidence values of the boxes.</td>
+</tr>
+<tr>
+<td><code>cls</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the class values of the boxes.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the track IDs of the boxes (if available).</td>
+</tr>
+<tr>
+<td><code>xyxy</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the horizontal boxes in xyxy format.</td>
+</tr>
+<tr>
+<td><code>xywhr</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the rotated boxes in xywhr format.</td>
+</tr>
+<tr>
+<td><code>xyxyxyxy</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the rotated boxes in xyxyxyxy format.</td>
+</tr>
+<tr>
+<td><code>xyxyxyxyn</code></td>
+<td>Property (<code>torch.Tensor</code>)</td>
+<td>Return the rotated boxes in xyxyxyxy format normalized by image size.</td>
+</tr>
+</tbody>
+</table>
+<p>For more details see the <code>OBB</code> class <a href="../../reference/engine/results/#ultralytics.engine.results.OBB">documentation</a>.</p>
 <h2 id="plotting-results">Plotting Results</h2>
 <p>You can use the <code>plot()</code> method of a <code>Result</code> objects to visualize predictions. It plots all prediction types (boxes, masks, keypoints, probabilities, etc.) contained in the <code>Results</code> object onto a numpy array that can then be shown or saved.</p>
 <div class="admonition example">
 <p class="admonition-title">Plotting</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>
-<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="c1"># Load a pretrained YOLOv8n model</span>
-<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
-<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a>
-<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="c1"># Run inference on 'bus.jpg'</span>
-<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># results list</span>
-<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a>
-<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="c1"># Show the results</span>
-<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a>    <span class="n">im_array</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>  <span class="c1"># plot a BGR numpy array of predictions</span>
-<a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im_array</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># RGB PIL image</span>
-<a href="#__codelineno-21-14" id="__codelineno-21-14" name="__codelineno-21-14"></a>    <span class="n">im</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># show image</span>
-<a href="#__codelineno-21-15" id="__codelineno-21-15" name="__codelineno-21-15"></a>    <span class="n">im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'results.jpg'</span><span class="p">)</span>  <span class="c1"># save image</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="c1"># Load a pretrained YOLOv8n model</span>
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>
+<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="c1"># Run inference on 'bus.jpg'</span>
+<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'bus.jpg'</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a>
+<a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="c1"># Show the results</span>
+<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a>    <span class="n">im_array</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>  <span class="c1"># plot a BGR numpy array of predictions</span>
+<a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im_array</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># RGB PIL image</span>
+<a href="#__codelineno-22-14" id="__codelineno-22-14" name="__codelineno-22-14"></a>    <span class="n">im</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># show image</span>
+<a href="#__codelineno-22-15" id="__codelineno-22-15" name="__codelineno-22-15"></a>    <span class="n">im</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'results.jpg'</span><span class="p">)</span>  <span class="c1"># save image</span>
 </code></pre></div>
 <p>The <code>plot()</code> method supports the following arguments:</p>
 <table>
@@ -4218,19 +4329,19 @@
 <div class="admonition example">
 <p class="admonition-title">Thread-Safe Inference</p>
 <p>Instantiate a single model inside each thread for thread-safe inference:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
-<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
-<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="k">def</span> <span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
-<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a>    <span class="c1"># Instantiate a new model inside the thread</span>
-<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>    <span class="n">local_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
-<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a>    <span class="c1"># Process results</span>
-<a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a>
-<a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a>
-<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="c1"># Starting threads that each have their own model instance</span>
-<a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>
+<a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="k">def</span> <span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a>    <span class="c1"># Instantiate a new model inside the thread</span>
+<a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>    <span class="n">local_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a>    <span class="c1"># Process results</span>
+<a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a>
+<a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a>
+<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="c1"># Starting threads that each have their own model instance</span>
+<a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a href="#__codelineno-23-13" id="__codelineno-23-13" name="__codelineno-23-13"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div></p>
 </div>
 <p>For an in-depth look at thread-safe inference with YOLO models and step-by-step instructions, please refer to our <a href="../../guides/yolo-thread-safe-inference/">YOLO Thread-Safe Inference Guide</a>. This guide will provide you with all the necessary information to avoid common pitfalls and ensure that your multi-threaded inference runs smoothly.</p>
@@ -4238,41 +4349,41 @@
 <p>Here's a Python script using OpenCV (<code>cv2</code>) and YOLOv8 to run inference on video frames. This script assumes you have already installed the necessary packages (<code>opencv-python</code> and <code>ultralytics</code>).</p>
 <div class="admonition example">
 <p class="admonition-title">Streaming for-loop</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
-<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>
-<a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="c1"># Load the YOLOv8 model</span>
-<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
-<a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>
-<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="c1"># Open the video file</span>
-<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/your/video/file.mp4"</span>
-<a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
-<a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a>
-<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="c1"># Loop through the video frames</span>
-<a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-23-13" id="__codelineno-23-13" name="__codelineno-23-13"></a>    <span class="c1"># Read a frame from the video</span>
-<a href="#__codelineno-23-14" id="__codelineno-23-14" name="__codelineno-23-14"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-23-15" id="__codelineno-23-15" name="__codelineno-23-15"></a>
-<a href="#__codelineno-23-16" id="__codelineno-23-16" name="__codelineno-23-16"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-23-17" id="__codelineno-23-17" name="__codelineno-23-17"></a>        <span class="c1"># Run YOLOv8 inference on the frame</span>
-<a href="#__codelineno-23-18" id="__codelineno-23-18" name="__codelineno-23-18"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-<a href="#__codelineno-23-19" id="__codelineno-23-19" name="__codelineno-23-19"></a>
-<a href="#__codelineno-23-20" id="__codelineno-23-20" name="__codelineno-23-20"></a>        <span class="c1"># Visualize the results on the frame</span>
-<a href="#__codelineno-23-21" id="__codelineno-23-21" name="__codelineno-23-21"></a>        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<a href="#__codelineno-23-22" id="__codelineno-23-22" name="__codelineno-23-22"></a>
-<a href="#__codelineno-23-23" id="__codelineno-23-23" name="__codelineno-23-23"></a>        <span class="c1"># Display the annotated frame</span>
-<a href="#__codelineno-23-24" id="__codelineno-23-24" name="__codelineno-23-24"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLOv8 Inference"</span><span class="p">,</span> <span class="n">annotated_frame</span><span class="p">)</span>
-<a href="#__codelineno-23-25" id="__codelineno-23-25" name="__codelineno-23-25"></a>
-<a href="#__codelineno-23-26" id="__codelineno-23-26" name="__codelineno-23-26"></a>        <span class="c1"># Break the loop if 'q' is pressed</span>
-<a href="#__codelineno-23-27" id="__codelineno-23-27" name="__codelineno-23-27"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
-<a href="#__codelineno-23-28" id="__codelineno-23-28" name="__codelineno-23-28"></a>            <span class="k">break</span>
-<a href="#__codelineno-23-29" id="__codelineno-23-29" name="__codelineno-23-29"></a>    <span class="k">else</span><span class="p">:</span>
-<a href="#__codelineno-23-30" id="__codelineno-23-30" name="__codelineno-23-30"></a>        <span class="c1"># Break the loop if the end of the video is reached</span>
-<a href="#__codelineno-23-31" id="__codelineno-23-31" name="__codelineno-23-31"></a>        <span class="k">break</span>
-<a href="#__codelineno-23-32" id="__codelineno-23-32" name="__codelineno-23-32"></a>
-<a href="#__codelineno-23-33" id="__codelineno-23-33" name="__codelineno-23-33"></a><span class="c1"># Release the video capture object and close the display window</span>
-<a href="#__codelineno-23-34" id="__codelineno-23-34" name="__codelineno-23-34"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-23-35" id="__codelineno-23-35" name="__codelineno-23-35"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a>
+<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="c1"># Load the YOLOv8 model</span>
+<a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a>
+<a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="c1"># Open the video file</span>
+<a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/your/video/file.mp4"</span>
+<a href="#__codelineno-24-9" id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
+<a href="#__codelineno-24-10" id="__codelineno-24-10" name="__codelineno-24-10"></a>
+<a href="#__codelineno-24-11" id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="c1"># Loop through the video frames</span>
+<a href="#__codelineno-24-12" id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-24-13" id="__codelineno-24-13" name="__codelineno-24-13"></a>    <span class="c1"># Read a frame from the video</span>
+<a href="#__codelineno-24-14" id="__codelineno-24-14" name="__codelineno-24-14"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-24-15" id="__codelineno-24-15" name="__codelineno-24-15"></a>
+<a href="#__codelineno-24-16" id="__codelineno-24-16" name="__codelineno-24-16"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-24-17" id="__codelineno-24-17" name="__codelineno-24-17"></a>        <span class="c1"># Run YOLOv8 inference on the frame</span>
+<a href="#__codelineno-24-18" id="__codelineno-24-18" name="__codelineno-24-18"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<a href="#__codelineno-24-19" id="__codelineno-24-19" name="__codelineno-24-19"></a>
+<a href="#__codelineno-24-20" id="__codelineno-24-20" name="__codelineno-24-20"></a>        <span class="c1"># Visualize the results on the frame</span>
+<a href="#__codelineno-24-21" id="__codelineno-24-21" name="__codelineno-24-21"></a>        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<a href="#__codelineno-24-22" id="__codelineno-24-22" name="__codelineno-24-22"></a>
+<a href="#__codelineno-24-23" id="__codelineno-24-23" name="__codelineno-24-23"></a>        <span class="c1"># Display the annotated frame</span>
+<a href="#__codelineno-24-24" id="__codelineno-24-24" name="__codelineno-24-24"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLOv8 Inference"</span><span class="p">,</span> <span class="n">annotated_frame</span><span class="p">)</span>
+<a href="#__codelineno-24-25" id="__codelineno-24-25" name="__codelineno-24-25"></a>
+<a href="#__codelineno-24-26" id="__codelineno-24-26" name="__codelineno-24-26"></a>        <span class="c1"># Break the loop if 'q' is pressed</span>
+<a href="#__codelineno-24-27" id="__codelineno-24-27" name="__codelineno-24-27"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
+<a href="#__codelineno-24-28" id="__codelineno-24-28" name="__codelineno-24-28"></a>            <span class="k">break</span>
+<a href="#__codelineno-24-29" id="__codelineno-24-29" name="__codelineno-24-29"></a>    <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-24-30" id="__codelineno-24-30" name="__codelineno-24-30"></a>        <span class="c1"># Break the loop if the end of the video is reached</span>
+<a href="#__codelineno-24-31" id="__codelineno-24-31" name="__codelineno-24-31"></a>        <span class="k">break</span>
+<a href="#__codelineno-24-32" id="__codelineno-24-32" name="__codelineno-24-32"></a>
+<a href="#__codelineno-24-33" id="__codelineno-24-33" name="__codelineno-24-33"></a><span class="c1"># Release the video capture object and close the display window</span>
+<a href="#__codelineno-24-34" id="__codelineno-24-34" name="__codelineno-24-34"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-24-35" id="__codelineno-24-35" name="__codelineno-24-35"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <p>This script will run predictions on each frame of the video, visualize the results, and display them in a window. The loop can be exited by pressing 'q'.</p>
@@ -4284,7 +4395,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/tensorturtle">tensorturtle</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/tensorturtle">tensorturtle</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

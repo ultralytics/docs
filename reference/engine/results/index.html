@@ -6851,13 +6851,35 @@ If present, the third last column contains track IDs, and the fifth column from 
 </td>
 </tr>
 <tr>
+<td><code><a class="autorefs autorefs-internal" title="ultralytics.engine.results.OBB.xyxyxyxyn" href="#ultralytics.engine.results.OBB.xyxyxyxyn">xyxyxyxyn</a></code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span> | <span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The rotated boxes in xyxyxyxy format normalized by original image size.</p>
+</div>
+</td>
+</tr>
+<tr>
 <td><code><a class="autorefs autorefs-internal" title="ultralytics.engine.results.OBB.xyxyxyxy" href="#ultralytics.engine.results.OBB.xyxyxyxy">xyxyxyxy</a></code></td>
 <td>
 <code><span title="torch.Tensor">Tensor</span> | <span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The boxes in xyxyxyxy format normalized by original image size.</p>
+<p>The rotated boxes in xyxyxyxy format.</p>
+</div>
+</td>
+</tr>
+<tr>
+<td><code><a class="autorefs autorefs-internal" title="ultralytics.engine.results.OBB.xyxy" href="#ultralytics.engine.results.OBB.xyxy">xyxy</a></code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span> | <span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The horizontal boxes in xyxyxyxy format.</p>
 </div>
 </td>
 </tr>
@@ -6999,7 +7021,9 @@ If present, the third last column contains track IDs, and the fifth column from 
 <span class="normal"><a href="#__codelineno-0-670">670</a></span>
 <span class="normal"><a href="#__codelineno-0-671">671</a></span>
 <span class="normal"><a href="#__codelineno-0-672">672</a></span>
-<span class="normal"><a href="#__codelineno-0-673">673</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-593" name="__codelineno-0-593"></a><span class="k">class</span> <span class="nc">OBB</span><span class="p">(</span><span class="n">BaseTensor</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-673">673</a></span>
+<span class="normal"><a href="#__codelineno-0-674">674</a></span>
+<span class="normal"><a href="#__codelineno-0-675">675</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-593" name="__codelineno-0-593"></a><span class="k">class</span> <span class="nc">OBB</span><span class="p">(</span><span class="n">BaseTensor</span><span class="p">):</span>
 <a id="__codelineno-0-594" name="__codelineno-0-594"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-595" name="__codelineno-0-595"></a><span class="sd">    A class for storing and manipulating Oriented Bounding Boxes (OBB).</span>
 <a id="__codelineno-0-596" name="__codelineno-0-596"></a>
@@ -7014,72 +7038,74 @@ If present, the third last column contains track IDs, and the fifth column from 
 <a id="__codelineno-0-605" name="__codelineno-0-605"></a><span class="sd">        conf (torch.Tensor | numpy.ndarray): The confidence values of the boxes.</span>
 <a id="__codelineno-0-606" name="__codelineno-0-606"></a><span class="sd">        cls (torch.Tensor | numpy.ndarray): The class values of the boxes.</span>
 <a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="sd">        id (torch.Tensor | numpy.ndarray): The track IDs of the boxes (if available).</span>
-<a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="sd">        xyxyxyxy (torch.Tensor | numpy.ndarray): The boxes in xyxyxyxy format normalized by original image size.</span>
-<a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">        data (torch.Tensor): The raw OBB tensor (alias for `boxes`).</span>
-<a id="__codelineno-0-610" name="__codelineno-0-610"></a>
-<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">    Methods:</span>
-<a id="__codelineno-0-612" name="__codelineno-0-612"></a><span class="sd">        cpu(): Move the object to CPU memory.</span>
-<a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="sd">        numpy(): Convert the object to a numpy array.</span>
-<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="sd">        cuda(): Move the object to CUDA memory.</span>
-<a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="sd">        to(*args, **kwargs): Move the object to the specified device.</span>
-<a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="sd">    """</span>
-<a id="__codelineno-0-617" name="__codelineno-0-617"></a>
-<a id="__codelineno-0-618" name="__codelineno-0-618"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a><span class="w">        </span><span class="sd">"""Initialize the Boxes class."""</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a>        <span class="k">if</span> <span class="n">boxes</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a>            <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-<a id="__codelineno-0-622" name="__codelineno-0-622"></a>        <span class="n">n</span> <span class="o">=</span> <span class="n">boxes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-623" name="__codelineno-0-623"></a>        <span class="k">assert</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"expected 7 or 8 values but got </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># xywh, rotation, track_id, conf, cls</span>
-<a id="__codelineno-0-624" name="__codelineno-0-624"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
-<a id="__codelineno-0-625" name="__codelineno-0-625"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_track</span> <span class="o">=</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">8</span>
-<a id="__codelineno-0-626" name="__codelineno-0-626"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span> <span class="o">=</span> <span class="n">orig_shape</span>
-<a id="__codelineno-0-627" name="__codelineno-0-627"></a>
-<a id="__codelineno-0-628" name="__codelineno-0-628"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-629" name="__codelineno-0-629"></a>    <span class="k">def</span> <span class="nf">xywhr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-630" name="__codelineno-0-630"></a><span class="w">        </span><span class="sd">"""Return the rotated boxes in xywhr format."""</span>
-<a id="__codelineno-0-631" name="__codelineno-0-631"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-<a id="__codelineno-0-632" name="__codelineno-0-632"></a>
-<a id="__codelineno-0-633" name="__codelineno-0-633"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-634" name="__codelineno-0-634"></a>    <span class="k">def</span> <span class="nf">conf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-635" name="__codelineno-0-635"></a><span class="w">        </span><span class="sd">"""Return the confidence values of the boxes."""</span>
-<a id="__codelineno-0-636" name="__codelineno-0-636"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-0-637" name="__codelineno-0-637"></a>
-<a id="__codelineno-0-638" name="__codelineno-0-638"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-639" name="__codelineno-0-639"></a>    <span class="k">def</span> <span class="nf">cls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-640" name="__codelineno-0-640"></a><span class="w">        </span><span class="sd">"""Return the class values of the boxes."""</span>
-<a id="__codelineno-0-641" name="__codelineno-0-641"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-642" name="__codelineno-0-642"></a>
-<a id="__codelineno-0-643" name="__codelineno-0-643"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-644" name="__codelineno-0-644"></a>    <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-645" name="__codelineno-0-645"></a><span class="w">        </span><span class="sd">"""Return the track IDs of the boxes (if available)."""</span>
-<a id="__codelineno-0-646" name="__codelineno-0-646"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_track</span> <span class="k">else</span> <span class="kc">None</span>
-<a id="__codelineno-0-647" name="__codelineno-0-647"></a>
-<a id="__codelineno-0-648" name="__codelineno-0-648"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-649" name="__codelineno-0-649"></a>    <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-650" name="__codelineno-0-650"></a>    <span class="k">def</span> <span class="nf">xyxyxyxy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-651" name="__codelineno-0-651"></a><span class="w">        </span><span class="sd">"""Return the boxes in xyxyxyxy format, (N, 4, 2)."""</span>
-<a id="__codelineno-0-652" name="__codelineno-0-652"></a>        <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">xywhr2xyxyxyxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xywhr</span><span class="p">)</span>
-<a id="__codelineno-0-653" name="__codelineno-0-653"></a>
-<a id="__codelineno-0-654" name="__codelineno-0-654"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-655" name="__codelineno-0-655"></a>    <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-656" name="__codelineno-0-656"></a>    <span class="k">def</span> <span class="nf">xyxyxyxyn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-657" name="__codelineno-0-657"></a><span class="w">        </span><span class="sd">"""Return the boxes in xyxyxyxy format, (N, 4, 2)."""</span>
-<a id="__codelineno-0-658" name="__codelineno-0-658"></a>        <span class="n">xyxyxyxyn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">)</span>
-<a id="__codelineno-0-659" name="__codelineno-0-659"></a>        <span class="n">xyxyxyxyn</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-660" name="__codelineno-0-660"></a>        <span class="n">xyxyxyxyn</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-661" name="__codelineno-0-661"></a>        <span class="k">return</span> <span class="n">xyxyxyxyn</span>
-<a id="__codelineno-0-662" name="__codelineno-0-662"></a>
-<a id="__codelineno-0-663" name="__codelineno-0-663"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-664" name="__codelineno-0-664"></a>    <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-665" name="__codelineno-0-665"></a>    <span class="k">def</span> <span class="nf">xyxy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-666" name="__codelineno-0-666"></a><span class="w">        </span><span class="sd">"""Return the horizontal boxes in xyxy format, (N, 4)."""</span>
-<a id="__codelineno-0-667" name="__codelineno-0-667"></a>        <span class="c1"># This way to fit both torch and numpy version</span>
-<a id="__codelineno-0-668" name="__codelineno-0-668"></a>        <span class="n">x1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<a id="__codelineno-0-669" name="__codelineno-0-669"></a>        <span class="n">x2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<a id="__codelineno-0-670" name="__codelineno-0-670"></a>        <span class="n">y1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<a id="__codelineno-0-671" name="__codelineno-0-671"></a>        <span class="n">y2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<a id="__codelineno-0-672" name="__codelineno-0-672"></a>        <span class="n">xyxy</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">]</span>
-<a id="__codelineno-0-673" name="__codelineno-0-673"></a>        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="sd">        xyxyxyxyn (torch.Tensor | numpy.ndarray): The rotated boxes in xyxyxyxy format normalized by original image size.</span>
+<a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">        xyxyxyxy (torch.Tensor | numpy.ndarray): The rotated boxes in xyxyxyxy format.</span>
+<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">        xyxy (torch.Tensor | numpy.ndarray): The horizontal boxes in xyxyxyxy format.</span>
+<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">        data (torch.Tensor): The raw OBB tensor (alias for `boxes`).</span>
+<a id="__codelineno-0-612" name="__codelineno-0-612"></a>
+<a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="sd">    Methods:</span>
+<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="sd">        cpu(): Move the object to CPU memory.</span>
+<a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="sd">        numpy(): Convert the object to a numpy array.</span>
+<a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="sd">        cuda(): Move the object to CUDA memory.</span>
+<a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="sd">        to(*args, **kwargs): Move the object to the specified device.</span>
+<a id="__codelineno-0-618" name="__codelineno-0-618"></a><span class="sd">    """</span>
+<a id="__codelineno-0-619" name="__codelineno-0-619"></a>
+<a id="__codelineno-0-620" name="__codelineno-0-620"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a><span class="w">        </span><span class="sd">"""Initialize the Boxes class."""</span>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a>        <span class="k">if</span> <span class="n">boxes</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a>            <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+<a id="__codelineno-0-624" name="__codelineno-0-624"></a>        <span class="n">n</span> <span class="o">=</span> <span class="n">boxes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-625" name="__codelineno-0-625"></a>        <span class="k">assert</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"expected 7 or 8 values but got </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># xywh, rotation, track_id, conf, cls</span>
+<a id="__codelineno-0-626" name="__codelineno-0-626"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<a id="__codelineno-0-627" name="__codelineno-0-627"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_track</span> <span class="o">=</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">8</span>
+<a id="__codelineno-0-628" name="__codelineno-0-628"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span> <span class="o">=</span> <span class="n">orig_shape</span>
+<a id="__codelineno-0-629" name="__codelineno-0-629"></a>
+<a id="__codelineno-0-630" name="__codelineno-0-630"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-631" name="__codelineno-0-631"></a>    <span class="k">def</span> <span class="nf">xywhr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-632" name="__codelineno-0-632"></a><span class="w">        </span><span class="sd">"""Return the rotated boxes in xywhr format."""</span>
+<a id="__codelineno-0-633" name="__codelineno-0-633"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-0-634" name="__codelineno-0-634"></a>
+<a id="__codelineno-0-635" name="__codelineno-0-635"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-636" name="__codelineno-0-636"></a>    <span class="k">def</span> <span class="nf">conf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-637" name="__codelineno-0-637"></a><span class="w">        </span><span class="sd">"""Return the confidence values of the boxes."""</span>
+<a id="__codelineno-0-638" name="__codelineno-0-638"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-0-639" name="__codelineno-0-639"></a>
+<a id="__codelineno-0-640" name="__codelineno-0-640"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-641" name="__codelineno-0-641"></a>    <span class="k">def</span> <span class="nf">cls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-642" name="__codelineno-0-642"></a><span class="w">        </span><span class="sd">"""Return the class values of the boxes."""</span>
+<a id="__codelineno-0-643" name="__codelineno-0-643"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-644" name="__codelineno-0-644"></a>
+<a id="__codelineno-0-645" name="__codelineno-0-645"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-646" name="__codelineno-0-646"></a>    <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-647" name="__codelineno-0-647"></a><span class="w">        </span><span class="sd">"""Return the track IDs of the boxes (if available)."""</span>
+<a id="__codelineno-0-648" name="__codelineno-0-648"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_track</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-649" name="__codelineno-0-649"></a>
+<a id="__codelineno-0-650" name="__codelineno-0-650"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-651" name="__codelineno-0-651"></a>    <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-652" name="__codelineno-0-652"></a>    <span class="k">def</span> <span class="nf">xyxyxyxy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-653" name="__codelineno-0-653"></a><span class="w">        </span><span class="sd">"""Return the boxes in xyxyxyxy format, (N, 4, 2)."""</span>
+<a id="__codelineno-0-654" name="__codelineno-0-654"></a>        <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">xywhr2xyxyxyxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xywhr</span><span class="p">)</span>
+<a id="__codelineno-0-655" name="__codelineno-0-655"></a>
+<a id="__codelineno-0-656" name="__codelineno-0-656"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-657" name="__codelineno-0-657"></a>    <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-658" name="__codelineno-0-658"></a>    <span class="k">def</span> <span class="nf">xyxyxyxyn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-659" name="__codelineno-0-659"></a><span class="w">        </span><span class="sd">"""Return the boxes in xyxyxyxy format, (N, 4, 2)."""</span>
+<a id="__codelineno-0-660" name="__codelineno-0-660"></a>        <span class="n">xyxyxyxyn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">)</span>
+<a id="__codelineno-0-661" name="__codelineno-0-661"></a>        <span class="n">xyxyxyxyn</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-662" name="__codelineno-0-662"></a>        <span class="n">xyxyxyxyn</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-663" name="__codelineno-0-663"></a>        <span class="k">return</span> <span class="n">xyxyxyxyn</span>
+<a id="__codelineno-0-664" name="__codelineno-0-664"></a>
+<a id="__codelineno-0-665" name="__codelineno-0-665"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-666" name="__codelineno-0-666"></a>    <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-667" name="__codelineno-0-667"></a>    <span class="k">def</span> <span class="nf">xyxy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-668" name="__codelineno-0-668"></a><span class="w">        </span><span class="sd">"""Return the horizontal boxes in xyxy format, (N, 4)."""</span>
+<a id="__codelineno-0-669" name="__codelineno-0-669"></a>        <span class="c1"># This way to fit both torch and numpy version</span>
+<a id="__codelineno-0-670" name="__codelineno-0-670"></a>        <span class="n">x1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<a id="__codelineno-0-671" name="__codelineno-0-671"></a>        <span class="n">x2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<a id="__codelineno-0-672" name="__codelineno-0-672"></a>        <span class="n">y1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<a id="__codelineno-0-673" name="__codelineno-0-673"></a>        <span class="n">y2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<a id="__codelineno-0-674" name="__codelineno-0-674"></a>        <span class="n">xyxy</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">]</span>
+<a id="__codelineno-0-675" name="__codelineno-0-675"></a>        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -7171,23 +7197,23 @@ If present, the third last column contains track IDs, and the fifth column from 
 <p>Initialize the Boxes class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-618">618</a></span>
-<span class="normal"><a href="#__codelineno-0-619">619</a></span>
-<span class="normal"><a href="#__codelineno-0-620">620</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-620">620</a></span>
 <span class="normal"><a href="#__codelineno-0-621">621</a></span>
 <span class="normal"><a href="#__codelineno-0-622">622</a></span>
 <span class="normal"><a href="#__codelineno-0-623">623</a></span>
 <span class="normal"><a href="#__codelineno-0-624">624</a></span>
 <span class="normal"><a href="#__codelineno-0-625">625</a></span>
-<span class="normal"><a href="#__codelineno-0-626">626</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-618" name="__codelineno-0-618"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a><span class="w">    </span><span class="sd">"""Initialize the Boxes class."""</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a>    <span class="k">if</span> <span class="n">boxes</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-<a id="__codelineno-0-622" name="__codelineno-0-622"></a>    <span class="n">n</span> <span class="o">=</span> <span class="n">boxes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-623" name="__codelineno-0-623"></a>    <span class="k">assert</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"expected 7 or 8 values but got </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># xywh, rotation, track_id, conf, cls</span>
-<a id="__codelineno-0-624" name="__codelineno-0-624"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
-<a id="__codelineno-0-625" name="__codelineno-0-625"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">is_track</span> <span class="o">=</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">8</span>
-<a id="__codelineno-0-626" name="__codelineno-0-626"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span> <span class="o">=</span> <span class="n">orig_shape</span>
+<span class="normal"><a href="#__codelineno-0-626">626</a></span>
+<span class="normal"><a href="#__codelineno-0-627">627</a></span>
+<span class="normal"><a href="#__codelineno-0-628">628</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-620" name="__codelineno-0-620"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a><span class="w">    </span><span class="sd">"""Initialize the Boxes class."""</span>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a>    <span class="k">if</span> <span class="n">boxes</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+<a id="__codelineno-0-624" name="__codelineno-0-624"></a>    <span class="n">n</span> <span class="o">=</span> <span class="n">boxes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-625" name="__codelineno-0-625"></a>    <span class="k">assert</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"expected 7 or 8 values but got </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># xywh, rotation, track_id, conf, cls</span>
+<a id="__codelineno-0-626" name="__codelineno-0-626"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<a id="__codelineno-0-627" name="__codelineno-0-627"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">is_track</span> <span class="o">=</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">8</span>
+<a id="__codelineno-0-628" name="__codelineno-0-628"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span> <span class="o">=</span> <span class="n">orig_shape</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
