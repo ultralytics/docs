@@ -2982,23 +2982,21 @@
 <p>Callback function called at end of training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-85"> 85</a></span>
-<span class="normal"><a href="#__codelineno-0-86"> 86</a></span>
-<span class="normal"><a href="#__codelineno-0-87"> 87</a></span>
-<span class="normal"><a href="#__codelineno-0-88"> 88</a></span>
-<span class="normal"><a href="#__codelineno-0-89"> 89</a></span>
-<span class="normal"><a href="#__codelineno-0-90"> 90</a></span>
-<span class="normal"><a href="#__codelineno-0-91"> 91</a></span>
-<span class="normal"><a href="#__codelineno-0-92"> 92</a></span>
-<span class="normal"><a href="#__codelineno-0-93"> 93</a></span>
-<span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
-<span class="normal"><a href="#__codelineno-0-95"> 95</a></span>
-<span class="normal"><a href="#__codelineno-0-96"> 96</a></span>
-<span class="normal"><a href="#__codelineno-0-97"> 97</a></span>
-<span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
-<span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
-<span class="normal"><a href="#__codelineno-0-100">100</a></span>
-<span class="normal"><a href="#__codelineno-0-101">101</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="k">def</span> <span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-85">85</a></span>
+<span class="normal"><a href="#__codelineno-0-86">86</a></span>
+<span class="normal"><a href="#__codelineno-0-87">87</a></span>
+<span class="normal"><a href="#__codelineno-0-88">88</a></span>
+<span class="normal"><a href="#__codelineno-0-89">89</a></span>
+<span class="normal"><a href="#__codelineno-0-90">90</a></span>
+<span class="normal"><a href="#__codelineno-0-91">91</a></span>
+<span class="normal"><a href="#__codelineno-0-92">92</a></span>
+<span class="normal"><a href="#__codelineno-0-93">93</a></span>
+<span class="normal"><a href="#__codelineno-0-94">94</a></span>
+<span class="normal"><a href="#__codelineno-0-95">95</a></span>
+<span class="normal"><a href="#__codelineno-0-96">96</a></span>
+<span class="normal"><a href="#__codelineno-0-97">97</a></span>
+<span class="normal"><a href="#__codelineno-0-98">98</a></span>
+<span class="normal"><a href="#__codelineno-0-99">99</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="k">def</span> <span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="w">    </span><span class="sd">"""Callback function called at end of training."""</span>
 <a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="k">if</span> <span class="n">run</span><span class="p">:</span>
 <a id="__codelineno-0-88" name="__codelineno-0-88"></a>        <span class="c1"># Log final results, CM matrix + PR plots</span>
@@ -3012,9 +3010,7 @@
 <a id="__codelineno-0-96" name="__codelineno-0-96"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
 <a id="__codelineno-0-97" name="__codelineno-0-97"></a>            <span class="n">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">plot_path</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 <a id="__codelineno-0-98" name="__codelineno-0-98"></a>        <span class="c1"># Log the final model</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>        <span class="n">run</span><span class="p">[</span><span class="sa">f</span><span class="s2">"weights/</span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>            <span class="n">File</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="p">))</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="p">)</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>        <span class="n">run</span><span class="p">[</span><span class="sa">f</span><span class="s2">"weights/</span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">File</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="p">)))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
