@@ -2781,7 +2781,7 @@
 <li><strong>Speed</strong> averaged over DOTAv1 val images using an <a href="https://aws.amazon.com/ec2/instance-types/p4/">Amazon EC2 P4d</a> instance. <br/>Reproduce by <code>yolo val obb data=DOTAv1.yaml batch=1 device=0|cpu</code></li>
 </ul>
 <h2 id="train">Train</h2>
-<p>Train YOLOv8n-obb on the dota8.yaml dataset for 100 epochs at image size 640. For a full list of available arguments see the <a href="../../usage/cfg/">Configuration</a> page.</p>
+<p>Train YOLOv8n-obb on the <code>dota8.yaml</code> dataset for 100 epochs at image size 640. For a full list of available arguments see the <a href="../../usage/cfg/">Configuration</a> page.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
@@ -2795,18 +2795,18 @@
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-obb.yaml'</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>  <span class="c1"># build from YAML and transfer weights</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'dota8-obb.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'dota8.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Build a new model from YAML and start training from scratch</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8-obb.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-obb.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-obb.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8-obb.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Build a new model from YAML, transfer pretrained weights to it and start training</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8-obb.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-obb.yaml<span class="w"> </span><span class="nv">pretrained</span><span class="o">=</span>yolov8n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-obb.yaml<span class="w"> </span><span class="nv">pretrained</span><span class="o">=</span>yolov8n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -2815,7 +2815,7 @@
 <h3 id="dataset-format">Dataset format</h3>
 <p>OBB dataset format can be found in detail in the <a href="../../datasets/obb/">Dataset Guide</a>.</p>
 <h2 id="val">Val</h2>
-<p>Validate trained YOLOv8n-obb model accuracy on the dota8-obb dataset. No argument need to passed as the <code>model</code>
+<p>Validate trained YOLOv8n-obb model accuracy on the DOTA8 dataset. No argument need to passed as the <code>model</code>
 retains it's training <code>data</code> and arguments as model attributes.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -2829,7 +2829,7 @@ retains it's training <code>data</code> and arguments as model attributes.</p>
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'path/to/best.pt'</span><span class="p">)</span>  <span class="c1"># load a custom model</span>
 <a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1"># Validate the model</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">()</span>  <span class="c1"># no arguments needed, dataset and settings remembered</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'dota8.yaml'</span><span class="p">)</span>  <span class="c1"># no arguments needed, dataset and settings remembered</span>
 <a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">metrics</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span>    <span class="c1"># map50-95(B)</span>
 <a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">metrics</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map50</span>  <span class="c1"># map50(B)</span>
 <a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">metrics</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map75</span>  <span class="c1"># map75(B)</span>
@@ -2837,8 +2837,8 @@ retains it's training <code>data</code> and arguments as model attributes.</p>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>yolo<span class="w"> </span>obb<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-obb.pt<span class="w">  </span><span class="c1"># val official model</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w">  </span><span class="c1"># val custom model</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>yolo<span class="w"> </span>obb<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-obb.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w">  </span><span class="c1"># val official model</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>path/to/data.yaml<span class="w">  </span><span class="c1"># val custom model</span>
 </code></pre></div>
 </div>
 </div>
@@ -3009,7 +3009,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-05, Updated 2024-01-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/Laughing-q">Laughing-q</a> (2), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-05, Updated 2024-01-13<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/Laughing-q">Laughing-q</a> (2), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
