@@ -72,7 +72,7 @@ jobs:
             --exclude-loopback \
             --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|wellfound\.com|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
-            "https://ultralytics.com/es"
+            -r "https://ultralytics.com/es"
 
       - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
         if: github.event_name == 'workflow_dispatch'
