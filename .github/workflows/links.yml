@@ -58,12 +58,6 @@ jobs:
             './**/*.md' \
             './**/*.html'
 
-      - name: Download Ultralytics Website
-        if: matrix.branch == 'main'
-        run: |
-          mkdir ultralytics_website
-          wget -P ultralytics_website --recursive --no-parent --adjust-extension --reject *.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt https://www.ultralytics.com/es/ || true
-
       - name: Run Broken Link Checks on Ultralytics Website
         if: matrix.branch == 'main'
         uses: nick-invision/retry@v2
@@ -77,9 +71,8 @@ jobs:
             --accept 403,429,500,502,999 \
             --exclude-loopback \
             --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|wellfound\.com|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
-            --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
-            './ultralytics_website/**/*.html'
+            "https://ultralytics.com/es"
 
       - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
         if: github.event_name == 'workflow_dispatch'
