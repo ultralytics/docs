@@ -50,6 +50,8 @@ jobs:
           command: |
             rm -rf .lycheecache
             lychee \
+            --scheme 'https' \
+            --require-https \
             --accept 403,429,500,502,999 \
             --exclude-loopback \
             --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com)' \
@@ -62,7 +64,7 @@ jobs:
         if: matrix.branch == 'main'
         run: |
           mkdir ultralytics_website
-          wget -P ultralytics_website --recursive --no-parent --adjust-extension --reject *.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt https://www.ultralytics.com/es/ || true
+          wget -P ultralytics_website --recursive --no-parent --adjust-extension --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" https://www.ultralytics.com/es/ || true
 
       - name: Run Broken Link Checks on Ultralytics Website
         if: matrix.branch == 'main'
@@ -74,6 +76,8 @@ jobs:
           command: |
             rm -rf .lycheecache
             lychee \
+            --scheme 'https' \
+            --require-https \
             --accept 403,429,500,502,999 \
             --exclude-loopback \
             --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|wellfound\.com|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
@@ -91,6 +95,8 @@ jobs:
           command: |
             rm -rf .lycheecache
             lychee \
+            --scheme 'https' \
+            --require-https \
             --accept 429,999 \
             --exclude-loopback \
             --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com)' \
