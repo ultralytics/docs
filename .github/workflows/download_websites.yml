@@ -1,7 +1,7 @@
 # Ultralytics YOLO 🚀, AGPL-3.0 license
 # Action to download Ultralytics website and docs
 
-name: Download websites
+name: Download Websites
 
 on:
   workflow_dispatch:
@@ -18,8 +18,8 @@ jobs:
       - name: Download Ultralytics Website
         run: |
           mkdir ultralytics_website
-          wget -P ultralytics_website --recursive --no-parent --adjust-extension --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" https://ultralytics.com/ || true
+          wget -P ultralytics_website --recursive --no-parent --adjust-extension --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" https://www.ultralytics.com/
       - name: Download Ultralytics Docs
         run: |
           mkdir ultralytics_docs
-          wget -P ultralytics_docs --recursive --no-parent --adjust-extension --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" https://docs.ultralytics.com/ || true
+          wget -P ultralytics_docs --recursive --no-parent --adjust-extension --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" https://docs.ultralytics.com/
