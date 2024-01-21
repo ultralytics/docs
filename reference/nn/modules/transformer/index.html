@@ -41,24 +41,6 @@
         Ultralytics YOLOv8 Turns One! 🎉 A Year of Breakthroughs and Innovations   ➜
       </a>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-25<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/reference/nn/modules/transformer.md">glenn.jocher@ultralytics.com</a> (3)</div>
-<style>
-                .share-button:hover {
-                    filter: brightness(1.2);
-                }
-                .share-buttons {
-                    display: flex;
-                    justify-content: flex-end;
-                }
-            </style>
-<div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/nn/modules/transformer', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
-<i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
-                </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/nn/modules/transformer', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
-<i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
-                </button>
-</div>
 </div>
 </aside>
 </div>
@@ -3463,10 +3445,10 @@
 <a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="nd">@staticmethod</span>
 <a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="k">def</span> <span class="nf">build_2d_sincos_position_embedding</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">embed_dim</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">10000.0</span><span class="p">):</span>
 <a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="w">        </span><span class="sd">"""Builds 2D sine-cosine position embedding."""</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>        <span class="n">grid_w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="n">grid_h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>        <span class="n">grid_w</span><span class="p">,</span> <span class="n">grid_h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid_w</span><span class="p">,</span> <span class="n">grid_h</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">"ij"</span><span class="p">)</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>        <span class="k">assert</span> <span class="n">embed_dim</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"Embed dimension must be divisible by 4 for 2D sin-cos position embedding"</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>        <span class="k">assert</span> <span class="n">embed_dim</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"Embed dimension must be divisible by 4 for 2D sin-cos position embedding"</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="n">grid_w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>        <span class="n">grid_h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>        <span class="n">grid_w</span><span class="p">,</span> <span class="n">grid_h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid_w</span><span class="p">,</span> <span class="n">grid_h</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">"ij"</span><span class="p">)</span>
 <a id="__codelineno-0-108" name="__codelineno-0-108"></a>        <span class="n">pos_dim</span> <span class="o">=</span> <span class="n">embed_dim</span> <span class="o">//</span> <span class="mi">4</span>
 <a id="__codelineno-0-109" name="__codelineno-0-109"></a>        <span class="n">omega</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">pos_dim</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">pos_dim</span>
 <a id="__codelineno-0-110" name="__codelineno-0-110"></a>        <span class="n">omega</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">temperature</span><span class="o">**</span><span class="n">omega</span><span class="p">)</span>
@@ -3523,10 +3505,10 @@
 <span class="normal"><a href="#__codelineno-0-115">115</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="nd">@staticmethod</span>
 <a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="k">def</span> <span class="nf">build_2d_sincos_position_embedding</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">embed_dim</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">10000.0</span><span class="p">):</span>
 <a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="w">    </span><span class="sd">"""Builds 2D sine-cosine position embedding."""</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="n">grid_w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="n">grid_h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="n">grid_w</span><span class="p">,</span> <span class="n">grid_h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid_w</span><span class="p">,</span> <span class="n">grid_h</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">"ij"</span><span class="p">)</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>    <span class="k">assert</span> <span class="n">embed_dim</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"Embed dimension must be divisible by 4 for 2D sin-cos position embedding"</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="k">assert</span> <span class="n">embed_dim</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"Embed dimension must be divisible by 4 for 2D sin-cos position embedding"</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="n">grid_w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="n">grid_h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>    <span class="n">grid_w</span><span class="p">,</span> <span class="n">grid_h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">grid_w</span><span class="p">,</span> <span class="n">grid_h</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">"ij"</span><span class="p">)</span>
 <a id="__codelineno-0-108" name="__codelineno-0-108"></a>    <span class="n">pos_dim</span> <span class="o">=</span> <span class="n">embed_dim</span> <span class="o">//</span> <span class="mi">4</span>
 <a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="n">omega</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">pos_dim</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">pos_dim</span>
 <a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="n">omega</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">temperature</span><span class="o">**</span><span class="n">omega</span><span class="p">)</span>
@@ -5039,6 +5021,24 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <small>
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
+</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-25<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/reference/nn/modules/transformer.md">glenn.jocher@ultralytics.com</a> (3)</div>
+<style>
+                .share-button:hover {
+                    filter: brightness(1.2);
+                }
+                .share-buttons {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            </style>
+<div class="share-buttons">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/nn/modules/transformer', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
+                </button>
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/nn/modules/transformer', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
+                </button>
 </div>
 </article>
 </div>

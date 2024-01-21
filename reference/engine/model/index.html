@@ -41,24 +41,6 @@
         Ultralytics YOLOv8 Turns One! 🎉 A Year of Breakthroughs and Innovations   ➜
       </a>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-25<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/reference/engine/model.md">glenn.jocher@ultralytics.com</a> (3)</div>
-<style>
-                .share-button:hover {
-                    filter: brightness(1.2);
-                }
-                .share-buttons {
-                    display: flex;
-                    justify-content: flex-end;
-                }
-            </style>
-<div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/engine/model', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
-<i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
-                </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/engine/model', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
-<i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
-                </button>
-</div>
 </div>
 </aside>
 </div>
@@ -3571,7 +3553,9 @@ Logs the model info.</p>
 <span class="normal"><a href="#__codelineno-0-482">482</a></span>
 <span class="normal"><a href="#__codelineno-0-483">483</a></span>
 <span class="normal"><a href="#__codelineno-0-484">484</a></span>
-<span class="normal"><a href="#__codelineno-0-485">485</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-485">485</a></span>
+<span class="normal"><a href="#__codelineno-0-486">486</a></span>
+<span class="normal"><a href="#__codelineno-0-487">487</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">    A base class to unify APIs for all models.</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>
@@ -3987,62 +3971,64 @@ Logs the model info.</p>
 <a id="__codelineno-0-427" name="__codelineno-0-427"></a>    <span class="nd">@property</span>
 <a id="__codelineno-0-428" name="__codelineno-0-428"></a>    <span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-429" name="__codelineno-0-429"></a><span class="w">        </span><span class="sd">"""Returns class names of the loaded model."""</span>
-<a id="__codelineno-0-430" name="__codelineno-0-430"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"names"</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-430" name="__codelineno-0-430"></a>        <span class="kn">from</span> <span class="nn">ultralytics.nn.autobackend</span> <span class="kn">import</span> <span class="n">check_class_names</span>
 <a id="__codelineno-0-431" name="__codelineno-0-431"></a>
-<a id="__codelineno-0-432" name="__codelineno-0-432"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-433" name="__codelineno-0-433"></a>    <span class="k">def</span> <span class="nf">device</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-434" name="__codelineno-0-434"></a><span class="w">        </span><span class="sd">"""Returns device if PyTorch model."""</span>
-<a id="__codelineno-0-435" name="__codelineno-0-435"></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
-<a id="__codelineno-0-436" name="__codelineno-0-436"></a>
-<a id="__codelineno-0-437" name="__codelineno-0-437"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-438" name="__codelineno-0-438"></a>    <span class="k">def</span> <span class="nf">transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="w">        </span><span class="sd">"""Returns transform of the loaded model."""</span>
-<a id="__codelineno-0-440" name="__codelineno-0-440"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transforms</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"transforms"</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
-<a id="__codelineno-0-441" name="__codelineno-0-441"></a>
-<a id="__codelineno-0-442" name="__codelineno-0-442"></a>    <span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-<a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="w">        </span><span class="sd">"""Add a callback."""</span>
-<a id="__codelineno-0-444" name="__codelineno-0-444"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<a id="__codelineno-0-445" name="__codelineno-0-445"></a>
-<a id="__codelineno-0-446" name="__codelineno-0-446"></a>    <span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="w">        </span><span class="sd">"""Clear all event callbacks."""</span>
-<a id="__codelineno-0-448" name="__codelineno-0-448"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-449" name="__codelineno-0-449"></a>
-<a id="__codelineno-0-450" name="__codelineno-0-450"></a>    <span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-451" name="__codelineno-0-451"></a><span class="w">        </span><span class="sd">"""Reset all registered callbacks."""</span>
-<a id="__codelineno-0-452" name="__codelineno-0-452"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<a id="__codelineno-0-453" name="__codelineno-0-453"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
-<a id="__codelineno-0-454" name="__codelineno-0-454"></a>
-<a id="__codelineno-0-455" name="__codelineno-0-455"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-456" name="__codelineno-0-456"></a>    <span class="k">def</span> <span class="nf">_reset_ckpt_args</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-<a id="__codelineno-0-457" name="__codelineno-0-457"></a><span class="w">        </span><span class="sd">"""Reset arguments when loading a PyTorch model."""</span>
-<a id="__codelineno-0-458" name="__codelineno-0-458"></a>        <span class="n">include</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"imgsz"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"task"</span><span class="p">,</span> <span class="s2">"single_cls"</span><span class="p">}</span>  <span class="c1"># only remember these arguments when loading a PyTorch model</span>
-<a id="__codelineno-0-459" name="__codelineno-0-459"></a>        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">include</span><span class="p">}</span>
-<a id="__codelineno-0-460" name="__codelineno-0-460"></a>
-<a id="__codelineno-0-461" name="__codelineno-0-461"></a>    <span class="c1"># def __getattr__(self, attr):</span>
-<a id="__codelineno-0-462" name="__codelineno-0-462"></a>    <span class="c1">#    """Raises error if object has no requested attribute."""</span>
-<a id="__codelineno-0-463" name="__codelineno-0-463"></a>    <span class="c1">#    name = self.__class__.__name__</span>
-<a id="__codelineno-0-464" name="__codelineno-0-464"></a>    <span class="c1">#    raise AttributeError(f"'{name}' object has no attribute '{attr}'. See valid attributes below.\n{self.__doc__}")</span>
-<a id="__codelineno-0-465" name="__codelineno-0-465"></a>
-<a id="__codelineno-0-466" name="__codelineno-0-466"></a>    <span class="k">def</span> <span class="nf">_smart_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<a id="__codelineno-0-467" name="__codelineno-0-467"></a><span class="w">        </span><span class="sd">"""Load model/trainer/validator/predictor."""</span>
-<a id="__codelineno-0-468" name="__codelineno-0-468"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-469" name="__codelineno-0-469"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_map</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
-<a id="__codelineno-0-470" name="__codelineno-0-470"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-471" name="__codelineno-0-471"></a>            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
-<a id="__codelineno-0-472" name="__codelineno-0-472"></a>            <span class="n">mode</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># get the function name.</span>
-<a id="__codelineno-0-473" name="__codelineno-0-473"></a>            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-<a id="__codelineno-0-474" name="__codelineno-0-474"></a>                <span class="n">emojis</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">' model does not support '</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">' mode for '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' task yet."</span><span class="p">)</span>
-<a id="__codelineno-0-475" name="__codelineno-0-475"></a>            <span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<a id="__codelineno-0-476" name="__codelineno-0-476"></a>
-<a id="__codelineno-0-477" name="__codelineno-0-477"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-478" name="__codelineno-0-478"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-479" name="__codelineno-0-479"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-480" name="__codelineno-0-480"></a><span class="sd">        Map head to model, trainer, validator, and predictor classes.</span>
-<a id="__codelineno-0-481" name="__codelineno-0-481"></a>
-<a id="__codelineno-0-482" name="__codelineno-0-482"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-483" name="__codelineno-0-483"></a><span class="sd">            task_map (dict): The map of model task to mode classes.</span>
-<a id="__codelineno-0-484" name="__codelineno-0-484"></a><span class="sd">        """</span>
-<a id="__codelineno-0-485" name="__codelineno-0-485"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Please provide task map for your model!"</span><span class="p">)</span>
+<a id="__codelineno-0-432" name="__codelineno-0-432"></a>        <span class="k">return</span> <span class="n">check_class_names</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">)</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"names"</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-433" name="__codelineno-0-433"></a>
+<a id="__codelineno-0-434" name="__codelineno-0-434"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-435" name="__codelineno-0-435"></a>    <span class="k">def</span> <span class="nf">device</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="w">        </span><span class="sd">"""Returns device if PyTorch model."""</span>
+<a id="__codelineno-0-437" name="__codelineno-0-437"></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-438" name="__codelineno-0-438"></a>
+<a id="__codelineno-0-439" name="__codelineno-0-439"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-440" name="__codelineno-0-440"></a>    <span class="k">def</span> <span class="nf">transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-441" name="__codelineno-0-441"></a><span class="w">        </span><span class="sd">"""Returns transform of the loaded model."""</span>
+<a id="__codelineno-0-442" name="__codelineno-0-442"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transforms</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"transforms"</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-443" name="__codelineno-0-443"></a>
+<a id="__codelineno-0-444" name="__codelineno-0-444"></a>    <span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="w">        </span><span class="sd">"""Add a callback."""</span>
+<a id="__codelineno-0-446" name="__codelineno-0-446"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<a id="__codelineno-0-447" name="__codelineno-0-447"></a>
+<a id="__codelineno-0-448" name="__codelineno-0-448"></a>    <span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-0-449" name="__codelineno-0-449"></a><span class="w">        </span><span class="sd">"""Clear all event callbacks."""</span>
+<a id="__codelineno-0-450" name="__codelineno-0-450"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-451" name="__codelineno-0-451"></a>
+<a id="__codelineno-0-452" name="__codelineno-0-452"></a>    <span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-453" name="__codelineno-0-453"></a><span class="w">        </span><span class="sd">"""Reset all registered callbacks."""</span>
+<a id="__codelineno-0-454" name="__codelineno-0-454"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-0-455" name="__codelineno-0-455"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+<a id="__codelineno-0-456" name="__codelineno-0-456"></a>
+<a id="__codelineno-0-457" name="__codelineno-0-457"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-458" name="__codelineno-0-458"></a>    <span class="k">def</span> <span class="nf">_reset_ckpt_args</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="w">        </span><span class="sd">"""Reset arguments when loading a PyTorch model."""</span>
+<a id="__codelineno-0-460" name="__codelineno-0-460"></a>        <span class="n">include</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"imgsz"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"task"</span><span class="p">,</span> <span class="s2">"single_cls"</span><span class="p">}</span>  <span class="c1"># only remember these arguments when loading a PyTorch model</span>
+<a id="__codelineno-0-461" name="__codelineno-0-461"></a>        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">include</span><span class="p">}</span>
+<a id="__codelineno-0-462" name="__codelineno-0-462"></a>
+<a id="__codelineno-0-463" name="__codelineno-0-463"></a>    <span class="c1"># def __getattr__(self, attr):</span>
+<a id="__codelineno-0-464" name="__codelineno-0-464"></a>    <span class="c1">#    """Raises error if object has no requested attribute."""</span>
+<a id="__codelineno-0-465" name="__codelineno-0-465"></a>    <span class="c1">#    name = self.__class__.__name__</span>
+<a id="__codelineno-0-466" name="__codelineno-0-466"></a>    <span class="c1">#    raise AttributeError(f"'{name}' object has no attribute '{attr}'. See valid attributes below.\n{self.__doc__}")</span>
+<a id="__codelineno-0-467" name="__codelineno-0-467"></a>
+<a id="__codelineno-0-468" name="__codelineno-0-468"></a>    <span class="k">def</span> <span class="nf">_smart_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<a id="__codelineno-0-469" name="__codelineno-0-469"></a><span class="w">        </span><span class="sd">"""Load model/trainer/validator/predictor."""</span>
+<a id="__codelineno-0-470" name="__codelineno-0-470"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-471" name="__codelineno-0-471"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_map</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+<a id="__codelineno-0-472" name="__codelineno-0-472"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-0-473" name="__codelineno-0-473"></a>            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+<a id="__codelineno-0-474" name="__codelineno-0-474"></a>            <span class="n">mode</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># get the function name.</span>
+<a id="__codelineno-0-475" name="__codelineno-0-475"></a>            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+<a id="__codelineno-0-476" name="__codelineno-0-476"></a>                <span class="n">emojis</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">' model does not support '</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">' mode for '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' task yet."</span><span class="p">)</span>
+<a id="__codelineno-0-477" name="__codelineno-0-477"></a>            <span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<a id="__codelineno-0-478" name="__codelineno-0-478"></a>
+<a id="__codelineno-0-479" name="__codelineno-0-479"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-480" name="__codelineno-0-480"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-481" name="__codelineno-0-481"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-482" name="__codelineno-0-482"></a><span class="sd">        Map head to model, trainer, validator, and predictor classes.</span>
+<a id="__codelineno-0-483" name="__codelineno-0-483"></a>
+<a id="__codelineno-0-484" name="__codelineno-0-484"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-485" name="__codelineno-0-485"></a><span class="sd">            task_map (dict): The map of model task to mode classes.</span>
+<a id="__codelineno-0-486" name="__codelineno-0-486"></a><span class="sd">        """</span>
+<a id="__codelineno-0-487" name="__codelineno-0-487"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Please provide task map for your model!"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -4290,11 +4276,11 @@ Logs the model info.</p>
 <p>Add a callback.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-442">442</a></span>
-<span class="normal"><a href="#__codelineno-0-443">443</a></span>
-<span class="normal"><a href="#__codelineno-0-444">444</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-442" name="__codelineno-0-442"></a><span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
-<a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="w">    </span><span class="sd">"""Add a callback."""</span>
-<a id="__codelineno-0-444" name="__codelineno-0-444"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-444">444</a></span>
+<span class="normal"><a href="#__codelineno-0-445">445</a></span>
+<span class="normal"><a href="#__codelineno-0-446">446</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="w">    </span><span class="sd">"""Add a callback."""</span>
+<a id="__codelineno-0-446" name="__codelineno-0-446"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4386,11 +4372,11 @@ Logs the model info.</p>
 <p>Clear all event callbacks.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-446">446</a></span>
-<span class="normal"><a href="#__codelineno-0-447">447</a></span>
-<span class="normal"><a href="#__codelineno-0-448">448</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-446" name="__codelineno-0-446"></a><span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="w">    </span><span class="sd">"""Clear all event callbacks."""</span>
-<a id="__codelineno-0-448" name="__codelineno-0-448"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-448">448</a></span>
+<span class="normal"><a href="#__codelineno-0-449">449</a></span>
+<span class="normal"><a href="#__codelineno-0-450">450</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-0-449" name="__codelineno-0-449"></a><span class="w">    </span><span class="sd">"""Clear all event callbacks."""</span>
+<a id="__codelineno-0-450" name="__codelineno-0-450"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4942,13 +4928,13 @@ Check the 'configuration' section in the documentation for all available options
 <p>Reset all registered callbacks.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-450">450</a></span>
-<span class="normal"><a href="#__codelineno-0-451">451</a></span>
-<span class="normal"><a href="#__codelineno-0-452">452</a></span>
-<span class="normal"><a href="#__codelineno-0-453">453</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-450" name="__codelineno-0-450"></a><span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-451" name="__codelineno-0-451"></a><span class="w">    </span><span class="sd">"""Reset all registered callbacks."""</span>
-<a id="__codelineno-0-452" name="__codelineno-0-452"></a>    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<a id="__codelineno-0-453" name="__codelineno-0-453"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-452">452</a></span>
+<span class="normal"><a href="#__codelineno-0-453">453</a></span>
+<span class="normal"><a href="#__codelineno-0-454">454</a></span>
+<span class="normal"><a href="#__codelineno-0-455">455</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-452" name="__codelineno-0-452"></a><span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-453" name="__codelineno-0-453"></a><span class="w">    </span><span class="sd">"""Reset all registered callbacks."""</span>
+<a id="__codelineno-0-454" name="__codelineno-0-454"></a>    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-0-455" name="__codelineno-0-455"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5432,6 +5418,24 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <small>
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
+</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-25<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/reference/engine/model.md">glenn.jocher@ultralytics.com</a> (3)</div>
+<style>
+                .share-button:hover {
+                    filter: brightness(1.2);
+                }
+                .share-buttons {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            </style>
+<div class="share-buttons">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/engine/model', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
+                </button>
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/engine/model', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
+                </button>
 </div>
 </article>
 </div>

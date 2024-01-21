@@ -2660,13 +2660,15 @@
 <a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">  </span><span class="no"># Download 'https://argoverse-hd.s3.us-east-2.amazonaws.com/Argoverse-HD-Full.zip' (deprecated S3 link)</span>
 <a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">  </span><span class="no">dir = Path(yaml['path'])  # dataset root dir</span>
 <a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">  </span><span class="no">urls = ['https://drive.google.com/file/d/1st9qW3BeIwQsnR0t8mRpvbsSWIo16ACi/view?usp=drive_link']</span>
-<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">  </span><span class="no">download(urls, dir=dir)</span>
-<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a>
-<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">  </span><span class="no"># Convert</span>
-<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">  </span><span class="no">annotations_dir = 'Argoverse-HD/annotations/'</span>
-<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">  </span><span class="no">(dir / 'Argoverse-1.1' / 'tracking').rename(dir / 'Argoverse-1.1' / 'images')  # rename 'tracking' to 'images'</span>
-<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">  </span><span class="no">for d in "train.json", "val.json":</span>
-<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">      </span><span class="no">argoverse2yolo(dir / annotations_dir / d)  # convert Argoverse annotations to YOLO labels</span>
+<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">  </span><span class="no">print("\n\nWARNING: Argoverse dataset MUST be downloaded manually, autodownload will NOT work.")</span>
+<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">  </span><span class="no">print(f"WARNING: Manually download Argoverse dataset '{urls[0]}' to '{dir}' and re-run your command.\n\n")</span>
+<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">  </span><span class="no"># download(urls, dir=dir)</span>
+<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a>
+<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">  </span><span class="no"># Convert</span>
+<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">  </span><span class="no">annotations_dir = 'Argoverse-HD/annotations/'</span>
+<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">  </span><span class="no">(dir / 'Argoverse-1.1' / 'tracking').rename(dir / 'Argoverse-1.1' / 'images')  # rename 'tracking' to 'images'</span>
+<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">  </span><span class="no">for d in "train.json", "val.json":</span>
+<a href="#__codelineno-0-74" id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="w">      </span><span class="no">argoverse2yolo(dir / annotations_dir / d)  # convert Argoverse annotations to YOLO labels</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>

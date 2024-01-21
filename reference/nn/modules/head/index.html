@@ -41,24 +41,6 @@
         Ultralytics YOLOv8 Turns One! 🎉 A Year of Breakthroughs and Innovations   ➜
       </a>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-05<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/reference/nn/modules/head.md">glenn.jocher@ultralytics.com</a> (4)</div>
-<style>
-                .share-button:hover {
-                    filter: brightness(1.2);
-                }
-                .share-buttons {
-                    display: flex;
-                    justify-content: flex-end;
-                }
-            </style>
-<div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/nn/modules/head', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
-<i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
-                </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/nn/modules/head', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
-<i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
-                </button>
-</div>
 </div>
 </aside>
 </div>
@@ -4199,7 +4181,7 @@ Transformer decoder layers to output the final predictions.</p>
 <a id="__codelineno-0-376" name="__codelineno-0-376"></a>
 <a id="__codelineno-0-377" name="__codelineno-0-377"></a>    <span class="k">def</span> <span class="nf">_get_decoder_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feats</span><span class="p">,</span> <span class="n">shapes</span><span class="p">,</span> <span class="n">dn_embed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dn_bbox</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="w">        </span><span class="sd">"""Generates and prepares the input required for the decoder from the provided features and shapes."""</span>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a>        <span class="n">bs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">feats</span><span class="p">)</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a>        <span class="n">bs</span> <span class="o">=</span> <span class="n">feats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <a id="__codelineno-0-380" name="__codelineno-0-380"></a>        <span class="c1"># Prepare input for decoder</span>
 <a id="__codelineno-0-381" name="__codelineno-0-381"></a>        <span class="n">anchors</span><span class="p">,</span> <span class="n">valid_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_anchors</span><span class="p">(</span><span class="n">shapes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">feats</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">feats</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <a id="__codelineno-0-382" name="__codelineno-0-382"></a>        <span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enc_output</span><span class="p">(</span><span class="n">valid_mask</span> <span class="o">*</span> <span class="n">feats</span><span class="p">)</span>  <span class="c1"># bs, h*w, 256</span>
@@ -4749,6 +4731,24 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <small>
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
+</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-05<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/reference/nn/modules/head.md">glenn.jocher@ultralytics.com</a> (4)</div>
+<style>
+                .share-button:hover {
+                    filter: brightness(1.2);
+                }
+                .share-buttons {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            </style>
+<div class="share-buttons">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/nn/modules/head', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
+                </button>
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/nn/modules/head', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
+                </button>
 </div>
 </article>
 </div>
