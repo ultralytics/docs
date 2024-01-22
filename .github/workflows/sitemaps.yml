@@ -5,6 +5,11 @@ name: Submit Sitemaps
 
 on:
   workflow_dispatch:
+    inputs:
+      submit_all_urls:
+        type: boolean
+        description: Submit all URLs to IndexNow (do not filter by changed)
+        default: false
   workflow_run:
     workflows: ["pages-build-deployment"]
     types:
@@ -57,31 +62,28 @@ jobs:
               except Exception as e:
                 print(f'ERROR ❌: {sitemap_url} failed to submit {e}')
           credentials_json = os.environ['CREDENTIALS_JSON']
-          # Submit sitemap for the main site and main docs
-          submit_sitemap('https://docs.ultralytics.com', 'https://docs.ultralytics.com/sitemap.xml', credentials_json)
           # Submit sitemaps for each language
-          languages = ['zh', 'ko', 'ja', 'ru', 'de', 'fr', 'es', 'pt', 'hi', 'ar', 'tr', 'vi', 'it']:
-          for lang in languages:
-              submit_sitemap(f'https://docs.ultralytics.com/', f'https://docs.ultralytics.com/{lang}/sitemap.xml', credentials_json)
+          host = "docs.ultralytics.com"
+          for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/hi', '/ar', '/tr', '/vi', '/it']:
+              sitemap = f'https://{host}{lang}/sitemap.xml'
+              submit_sitemap(f'https://docs.ultralytics.com/', sitemap, credentials_json)
 
       - name: Submit URLs to IndexNow
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY_DOCS }}
+          SUBMIT_ALL_URLS: ${{ github.event.inputs.submit_all_urls }}
         shell: python
         run: |
           import json
           import os
           import re
-          
           import requests
-          
           
           def submit_urls_to_indexnow(host, urls):
               key = os.environ['INDEXNOW_KEY']
               endpoint = "https://api.indexnow.org/indexnow"  # static API endpoint from https://www.indexnow.org/faq
               headers = {"Content-Type": "application/json; charset=utf-8"}
               payload = {"host": host, "key": key, "urlList": urls, "keyLocation": f"https://{host}/{key}.txt"}
-          
               try:
                   response = requests.post(endpoint, headers=headers, data=json.dumps(payload))
                   if response.status_code == 200:
@@ -91,7 +93,6 @@ jobs:
               except Exception as e:
                   print(f"ERROR ❌: Failed to submit batch of URLs - {e}")
           
-          
           def extract_urls_from_sitemap(sitemap_url):
               try:
                   response = requests.get(sitemap_url)
@@ -99,7 +100,6 @@ jobs:
               except Exception as e:
                   print(f"ERROR ❌: Failed to extract URLs from {sitemap_url} - {e}")
                   return []
-          
           
           def filter_modified_urls(urls, modified_files):
               # Filter URLs based on modified files
@@ -119,10 +119,13 @@ jobs:
               lang_urls = extract_urls_from_sitemap(sitemap)
               all_urls.extend(lang_urls)
               print(f'Found {len(lang_urls)} in {sitemap} ({len(all_urls)} total)')
-          
+
           # Filter URLs based on modified files
-          urls_to_submit = filter_modified_urls(all_urls, os.environ['MODIFIED_FILES'].split())
-          print(f'\nFound {len(urls_to_submit)} URLs updated in last commit to submit:\n{"\n".join(urls_to_submit)}\n')
+          if os.getenv('SUBMIT_ALL_URLS', 'false').lower() == 'true':
+              urls_to_submit = all_urls
+          else:
+              urls_to_submit = filter_modified_urls(all_urls, os.environ['MODIFIED_FILES'].split())
+              print(f'\nFound {len(urls_to_submit)} URLs updated in last commit to submit:\n{"\n".join(urls_to_submit)}\n')
 
           # Submit filtered URLs
           if urls_to_submit:
