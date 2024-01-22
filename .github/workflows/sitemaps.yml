@@ -5,6 +5,11 @@ name: Submit Sitemaps
 
 on:
   workflow_dispatch:
+    inputs:
+      submit_all_urls:
+        type: boolean
+        description: Submit all URLs to IndexNow (do not filter by changed)
+        default: false
   workflow_run:
     workflows: ["pages-build-deployment"]
     types:
@@ -66,6 +71,7 @@ jobs:
       - name: Submit URLs to IndexNow
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY_DOCS }}
+          SUBMIT_ALL_URLS: ${{ github.event.inputs.submit_all_urls }}
         shell: python
         run: |
           import json
@@ -113,9 +119,12 @@ jobs:
               lang_urls = extract_urls_from_sitemap(sitemap)
               all_urls.extend(lang_urls)
               print(f'Found {len(lang_urls)} in {sitemap} ({len(all_urls)} total)')
-          
+
           # Filter URLs based on modified files
-          urls_to_submit = filter_modified_urls(all_urls, os.environ['MODIFIED_FILES'].split())
+          if os.getenv('SUBMIT_ALL_URLS', 'false').lower() == 'true'
+              urls_to_submit = all_urls
+          else:
+              urls_to_submit = filter_modified_urls(all_urls, os.environ['MODIFIED_FILES'].split())
           print(f'\nFound {len(urls_to_submit)} URLs updated in last commit to submit:\n{"\n".join(urls_to_submit)}\n')
 
           # Submit filtered URLs
