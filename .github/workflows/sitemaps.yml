@@ -63,10 +63,10 @@ jobs:
                 print(f'ERROR ❌: {sitemap_url} failed to submit {e}')
           credentials_json = os.environ['CREDENTIALS_JSON']
           # Submit sitemaps for each language
-          host = "www.ultralytics.com"
+          host = "docs.ultralytics.com"
           for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/hi', '/ar', '/tr', '/vi', '/it']:
               sitemap = f'https://{host}{lang}/sitemap.xml'
-              submit_sitemap(f'https://www.ultralytics.com/', sitemap, credentials_json)
+              submit_sitemap(f'https://docs.ultralytics.com/', sitemap, credentials_json)
 
       - name: Submit URLs to IndexNow
         env:
