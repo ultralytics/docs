@@ -5,13 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Access object detection capabilities of YOLOv8 via our RESTful API. Learn how to use the YOLO Inference API with Python or CLI for swift object detection." name="description"/>
+<meta content="Access object detection capabilities of YOLOv8 via our RESTful API. Learn how to use the YOLO Inference API with Python or cURL for swift object detection." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/hub/inference-api/" rel="canonical"/>
 <link href="../integrations/" rel="prev"/>
 <link href="../on-premise/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.4" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.5" name="generator"/>
 <title>Inference API - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Inference API" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Inference API, object detection, RESTful API, Python, CLI, Quickstart" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/inference-api" property="og:url"/><meta content="Inference API" property="og:title"/><meta content="Access object detection capabilities of YOLOv8 via our RESTful API. Learn how to use the YOLO Inference API with Python or CLI for swift object detection." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/c0109ec0-7bb0-46e1-b0d2-bae687960a01" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/inference-api" property="twitter:url"/><meta content="Inference API" property="twitter:title"/><meta content="Access object detection capabilities of YOLOv8 via our RESTful API. Learn how to use the YOLO Inference API with Python or CLI for swift object detection." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/c0109ec0-7bb0-46e1-b0d2-bae687960a01" property="twitter:image"/></head>
+<meta content="Inference API" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Inference API, object detection, RESTful API, Python, cURL, Quickstart" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/inference-api" property="og:url"/><meta content="Inference API" property="og:title"/><meta content="Access object detection capabilities of YOLOv8 via our RESTful API. Learn how to use the YOLO Inference API with Python or cURL for swift object detection." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/c0109ec0-7bb0-46e1-b0d2-bae687960a01" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/inference-api" property="twitter:url"/><meta content="Inference API" property="twitter:title"/><meta content="Access object detection capabilities of YOLOv8 via our RESTful API. Learn how to use the YOLO Inference API with Python or cURL for swift object detection." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/c0109ec0-7bb0-46e1-b0d2-bae687960a01" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1751,9 +1751,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-usage-with-cli">
+<a class="md-nav__link" href="#example-usage-with-curl">
 <span class="md-ellipsis">
-      Example Usage with CLI
+      Example Usage with cURL
     </span>
 </a>
 </li>
@@ -2638,9 +2638,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-usage-with-cli">
+<a class="md-nav__link" href="#example-usage-with-curl">
 <span class="md-ellipsis">
-      Example Usage with CLI
+      Example Usage with cURL
     </span>
 </a>
 </li>
@@ -2721,8 +2721,8 @@
 <a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 <p>In this example, replace <code>API_KEY</code> with your actual API key, <code>MODEL_ID</code> with the desired model ID, and <code>path/to/image.jpg</code> with the path to the image you want to analyze.</p>
-<h2 id="example-usage-with-cli">Example Usage with CLI</h2>
-<p>You can use the YOLO Inference API with the command-line interface (CLI) by utilizing the <code>curl</code> command. Replace <code>API_KEY</code> with your actual API key, <code>MODEL_ID</code> with the desired model ID, and <code>image.jpg</code> with the path to the image you want to analyze:</p>
+<h2 id="example-usage-with-curl">Example Usage with cURL</h2>
+<p>You can use the YOLO Inference API with client URL (cURL) by utilizing the <code>curl</code> command. Replace <code>API_KEY</code> with your actual API key, <code>MODEL_ID</code> with the desired model ID, and <code>image.jpg</code> with the path to the image you want to analyze:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span><span class="w"> </span><span class="se">\</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"x-api-key: API_KEY"</span><span class="w"> </span><span class="se">\</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"image=@/path/to/image.jpg"</span><span class="w"> </span><span class="se">\</span>
@@ -2799,10 +2799,10 @@
 <p>The YOLO Inference API returns a JSON list with the detection results. The format of the JSON list will be the same as the one produced locally by the <code>results[0].tojson()</code> command.</p>
 <p>The JSON list contains information about the detected objects, their coordinates, classes, and confidence scores.</p>
 <h3 id="detect-model-format">Detect Model Format</h3>
-<p>YOLO detection models, such as <code>yolov8n.pt</code>, can return JSON responses from local inference, CLI inference, and Python inference. All of these methods produce the same JSON response format.</p>
+<p>YOLO detection models, such as <code>yolov8n.pt</code>, can return JSON responses from local inference, cURL inference, and Python inference. All of these methods produce the same JSON response format.</p>
 <div class="admonition example">
 <p class="admonition-title">Detect Model JSON Response</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Local</label><label for="__tabbed_1_2">CLI</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">JSON Response</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><code>ultralytics</code></label><label for="__tabbed_1_2">cURL</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">JSON Response</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
@@ -2892,10 +2892,10 @@
 </input></input></input></input></div>
 </div>
 <h3 id="segment-model-format">Segment Model Format</h3>
-<p>YOLO segmentation models, such as <code>yolov8n-seg.pt</code>, can return JSON responses from local inference, CLI inference, and Python inference. All of these methods produce the same JSON response format.</p>
+<p>YOLO segmentation models, such as <code>yolov8n-seg.pt</code>, can return JSON responses from local inference, cURL inference, and Python inference. All of these methods produce the same JSON response format.</p>
 <div class="admonition example">
 <p class="admonition-title">Segment Model JSON Response</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Local</label><label for="__tabbed_2_2">CLI</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">JSON Response</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1"><code>ultralytics</code></label><label for="__tabbed_2_2">cURL</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">JSON Response</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
@@ -3028,10 +3028,10 @@
 </input></input></input></input></div>
 </div>
 <h3 id="pose-model-format">Pose Model Format</h3>
-<p>YOLO pose models, such as <code>yolov8n-pose.pt</code>, can return JSON responses from local inference, CLI inference, and Python inference. All of these methods produce the same JSON response format.</p>
+<p>YOLO pose models, such as <code>yolov8n-pose.pt</code>, can return JSON responses from local inference, cURL inference, and Python inference. All of these methods produce the same JSON response format.</p>
 <div class="admonition example">
 <p class="admonition-title">Pose Model JSON Response</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Local</label><label for="__tabbed_3_2">CLI</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">JSON Response</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1"><code>ultralytics</code></label><label for="__tabbed_3_2">cURL</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">JSON Response</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
@@ -3158,7 +3158,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-23, Updated 2024-01-23<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/hub/inference-api.md">glenn.jocher@ultralytics.com</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-23, Updated 2024-01-24<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/hub/inference-api.md">glenn.jocher@ultralytics.com</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -3292,8 +3292,8 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.c18c5fb9.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 </body>
 </html>
