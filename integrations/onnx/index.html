@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Discover how to train your YOLOv8 models efficiently with Weights &amp; Biases. This guide walks through integrating Weights &amp; Biases with YOLOv8 to enable seamless experiment tracking, result visualization, and model explainability." name="description"/>
+<meta content="Explore how to improve your Ultralytics YOLOv8 model's performance and interoperability using the ONNX (Open Neural Network Exchange) export format that is suitable for diverse hardware and software environments." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/integrations/weights-biases/" rel="canonical"/>
-<link href="../dvc/" rel="prev"/>
-<link href="../neural-magic/" rel="next"/>
+<link href="https://docs.ultralytics.com/integrations/onnx/" rel="canonical"/>
+<link href="../openvino/" rel="prev"/>
+<link href="../ray-tune/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.5" name="generator"/>
-<title>Weights &amp; Biases - Ultralytics YOLOv8 Docs</title>
+<title>ONNX - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Weights &amp; Biases" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Weights &amp; Biases, Model Training, Experiment Tracking, Visualizing Results" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/weights-biases" property="og:url"/><meta content="Weights &amp; Biases" property="og:title"/><meta content="Discover how to train your YOLOv8 models efficiently with Weights &amp; Biases. This guide walks through integrating Weights &amp; Biases with YOLOv8 to enable seamless experiment tracking, result visualization, and model explainability." property="og:description"/><meta content="https://docs.wandb.ai/assets/images/wandb_demo_experiments-4797af7fe7236d6c5c42adbdc93deb4c.gif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/weights-biases" property="twitter:url"/><meta content="Weights &amp; Biases" property="twitter:title"/><meta content="Discover how to train your YOLOv8 models efficiently with Weights &amp; Biases. This guide walks through integrating Weights &amp; Biases with YOLOv8 to enable seamless experiment tracking, result visualization, and model explainability." property="twitter:description"/><meta content="https://docs.wandb.ai/assets/images/wandb_demo_experiments-4797af7fe7236d6c5c42adbdc93deb4c.gif" property="twitter:image"/></head>
+<meta content="ONNX" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, ONNX Format, Export YOLOv8, CUDA Support, Model Deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/onnx" property="og:url"/><meta content="ONNX" property="og:title"/><meta content="Explore how to improve your Ultralytics YOLOv8 model's performance and interoperability using the ONNX (Open Neural Network Exchange) export format that is suitable for diverse hardware and software environments." property="og:description"/><meta content="https://www.aurigait.com/wp-content/uploads/2023/01/1_unnamed.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/onnx" property="twitter:url"/><meta content="ONNX" property="twitter:title"/><meta content="Explore how to improve your Ultralytics YOLOv8 model's performance and interoperability using the ONNX (Open Neural Network Exchange) export format that is suitable for diverse hardware and software environments." property="twitter:description"/><meta content="https://www.aurigait.com/wp-content/uploads/2023/01/1_unnamed.png" property="twitter:image"/></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#enhancing-yolov8-experiment-tracking-and-visualization-with-weights-biases">
+<a class="md-skip" href="#onnx-export-for-yolov8-models">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Weights &amp; Biases
+              ONNX
             
           </span>
 </div>
@@ -1584,12 +1584,105 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../onnx/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    ONNX
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     ONNX
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#onnx-and-onnx-runtime">
+<span class="md-ellipsis">
+      ONNX and ONNX Runtime
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-onnx-models">
+<span class="md-ellipsis">
+      Key Features of ONNX Models
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-usage-of-onnx">
+<span class="md-ellipsis">
+      Common Usage of ONNX
+    </span>
+</a>
+<nav aria-label="Common Usage of ONNX" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cpu-deployment">
+<span class="md-ellipsis">
+      CPU Deployment
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#supported-deployment-options">
+<span class="md-ellipsis">
+      Supported Deployment Options
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exporting-yolov8-models-to-onnx">
+<span class="md-ellipsis">
+      Exporting YOLOv8 Models to ONNX
+    </span>
+</a>
+<nav aria-label="Exporting YOLOv8 Models to ONNX" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+<span class="md-ellipsis">
+      Installation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage">
+<span class="md-ellipsis">
+      Usage
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying-exported-yolov8-onnx-models">
+<span class="md-ellipsis">
+      Deploying Exported YOLOv8 ONNX Models
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../ray-tune/">
@@ -1626,101 +1719,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Weights &amp; Biases
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../weights-biases/">
 <span class="md-ellipsis">
     Weights &amp; Biases
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#weights-biases">
-<span class="md-ellipsis">
-      Weights &amp; Biases
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yolov8-training-with-weights-biases">
-<span class="md-ellipsis">
-      YOLOv8 Training with Weights &amp; Biases
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installation">
-<span class="md-ellipsis">
-      Installation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#configuring-weights-biases">
-<span class="md-ellipsis">
-      Configuring Weights &amp; Biases
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-training-yolov8-with-weights-biases">
-<span class="md-ellipsis">
-      Usage: Training YOLOv8 with Weights &amp; Biases
-    </span>
-</a>
-<nav aria-label="Usage: Training YOLOv8 with Weights &amp; Biases" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#understanding-the-code">
-<span class="md-ellipsis">
-      Understanding the Code
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#understanding-the-output">
-<span class="md-ellipsis">
-      Understanding the Output
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#viewing-the-weights-biases-dashboard">
-<span class="md-ellipsis">
-      Viewing the Weights &amp; Biases Dashboard
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-the-weights-biases-dashboard">
-<span class="md-ellipsis">
-      Key Features of the Weights &amp; Biases Dashboard
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
-<span class="md-ellipsis">
-      Summary
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../neural-magic/">
@@ -2645,19 +2649,52 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#weights-biases">
+<a class="md-nav__link" href="#onnx-and-onnx-runtime">
 <span class="md-ellipsis">
-      Weights &amp; Biases
+      ONNX and ONNX Runtime
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#yolov8-training-with-weights-biases">
+<a class="md-nav__link" href="#key-features-of-onnx-models">
 <span class="md-ellipsis">
-      YOLOv8 Training with Weights &amp; Biases
+      Key Features of ONNX Models
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-usage-of-onnx">
+<span class="md-ellipsis">
+      Common Usage of ONNX
+    </span>
+</a>
+<nav aria-label="Common Usage of ONNX" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cpu-deployment">
+<span class="md-ellipsis">
+      CPU Deployment
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#supported-deployment-options">
+<span class="md-ellipsis">
+      Supported Deployment Options
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exporting-yolov8-models-to-onnx">
+<span class="md-ellipsis">
+      Exporting YOLOv8 Models to ONNX
+    </span>
+</a>
+<nav aria-label="Exporting YOLOv8 Models to ONNX" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation">
 <span class="md-ellipsis">
@@ -2666,38 +2703,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#configuring-weights-biases">
+<a class="md-nav__link" href="#usage">
 <span class="md-ellipsis">
-      Configuring Weights &amp; Biases
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-training-yolov8-with-weights-biases">
-<span class="md-ellipsis">
-      Usage: Training YOLOv8 with Weights &amp; Biases
-    </span>
-</a>
-<nav aria-label="Usage: Training YOLOv8 with Weights &amp; Biases" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#understanding-the-code">
-<span class="md-ellipsis">
-      Understanding the Code
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#understanding-the-output">
-<span class="md-ellipsis">
-      Understanding the Output
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#viewing-the-weights-biases-dashboard">
-<span class="md-ellipsis">
-      Viewing the Weights &amp; Biases Dashboard
+      Usage
     </span>
 </a>
 </li>
@@ -2705,9 +2713,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-the-weights-biases-dashboard">
+<a class="md-nav__link" href="#deploying-exported-yolov8-onnx-models">
 <span class="md-ellipsis">
-      Key Features of the Weights &amp; Biases Dashboard
+      Deploying Exported YOLOv8 ONNX Models
     </span>
 </a>
 </li>
@@ -2725,156 +2733,123 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/weights-biases.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/onnx.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="enhancing-yolov8-experiment-tracking-and-visualization-with-weights-biases">Enhancing YOLOv8 Experiment Tracking and Visualization with Weights &amp; Biases</h1>
-<p>Object detection models like <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLOv8</a> have become integral to many computer vision applications. However, training, evaluating, and deploying these complex models introduces several challenges. Tracking key training metrics, comparing model variants, analyzing model behavior, and detecting issues require substantial instrumentation and experiment management.</p>
-<p>This guide showcases Ultralytics YOLOv8 integration with Weights &amp; Biases’ for enhanced experiment tracking, model-checkpointing, and visualization of model performance. It also includes instructions for setting up the integration, training, fine-tuning, and visualizing results using Weights &amp; Biases’ interactive features.</p>
-<h2 id="weights-biases">Weights &amp; Biases</h2>
+<h1 id="onnx-export-for-yolov8-models">ONNX Export for YOLOv8 Models</h1>
+<p>Often, when deploying computer vision models, you’ll need a model format that's both flexible and compatible with multiple platforms. </p>
+<p>Exporting <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLOv8</a> models to ONNX format streamlines deployment and ensures optimal performance across various environments. This guide will show you how to easily convert your YOLOv8 models to ONNX and enhance their scalability and effectiveness in real-world applications.</p>
+<h2 id="onnx-and-onnx-runtime">ONNX and ONNX Runtime</h2>
+<p><a href="https://onnx.ai/">ONNX</a>, which stands for Open Neural Network Exchange, is a community project that Facebook and Microsoft initially developed. The ongoing development of ONNX is a collaborative effort supported by various organizations like IBM, Amazon (through AWS), and Google. The project aims to create an open file format designed to represent machine learning models in a way that allows them to be used across different AI frameworks and hardware.</p>
+<p>ONNX models can be used to transition between different frameworks seamlessly. For instance, a deep learning model trained in PyTorch can be exported to ONNX format and then easily imported into TensorFlow.</p>
 <p align="center">
-<img alt="Weights &amp; Biases Overview" src="https://docs.wandb.ai/assets/images/wandb_demo_experiments-4797af7fe7236d6c5c42adbdc93deb4c.gif" width="640"/>
+<img alt="ONNX" src="https://www.aurigait.com/wp-content/uploads/2023/01/1_unnamed.png" width="100%"/>
 </p>
-<p><a href="https://wandb.ai/site">Weights &amp; Biases</a> is a cutting-edge MLOps platform designed for tracking, visualizing, and managing machine learning experiments. It features automatic logging of training metrics for full experiment reproducibility, an interactive UI for streamlined data analysis, and efficient model management tools for deploying across various environments.</p>
-<h2 id="yolov8-training-with-weights-biases">YOLOv8 Training with Weights &amp; Biases</h2>
-<p>You can use Weights &amp; Biases to bring efficiency and automation to your YOLOv8 training process.</p>
-<h2 id="installation">Installation</h2>
-<p>To install the required packages, run:</p>
+<p>Alternatively, ONNX models can be used with ONNX Runtime. <a href="https://onnxruntime.ai/">ONNX Runtime</a> is a versatile cross-platform accelerator for machine learning models that is compatible with frameworks like PyTorch, TensorFlow, TFLite, scikit-learn, etc. </p>
+<p>ONNX Runtime optimizes the execution of ONNX models by leveraging hardware-specific capabilities. This optimization allows the models to run efficiently and with high performance on various hardware platforms, including CPUs, GPUs, and specialized accelerators.</p>
+<p align="center">
+<img alt="ONNX with ONNX Runtime" src="https://www.aurigait.com/wp-content/uploads/2023/01/unnamed-1.png" width="100%"/>
+</p>
+<p>Whether used independently or in tandem with ONNX Runtime, ONNX provides a flexible solution for machine learning model deployment and compatibility.</p>
+<h2 id="key-features-of-onnx-models">Key Features of ONNX Models</h2>
+<p>The ability of ONNX to handle various formats can be attributed to the following key features:</p>
+<ul>
+<li>
+<p><strong>Common Model Representation</strong>: ONNX defines a common set of operators (like convolutions, layers, etc.) and a standard data format. When a model is converted to ONNX format, its architecture and weights are translated into this common representation. This uniformity ensures that the model can be understood by any framework that supports ONNX.</p>
+</li>
+<li>
+<p><strong>Versioning and Backward Compatibility</strong>: ONNX maintains a versioning system for its operators. This ensures that even as the standard evolves, models created in older versions remain usable. Backward compatibility is a crucial feature that prevents models from becoming obsolete quickly.</p>
+</li>
+<li>
+<p><strong>Graph-based Model Representation</strong>: ONNX represents models as computational graphs. This graph-based structure is a universal way of representing machine learning models, where nodes represent operations or computations, and edges represent the tensors flowing between them. This format is easily adaptable to various frameworks which also represent models as graphs.</p>
+</li>
+<li>
+<p><strong>Tools and Ecosystem</strong>: There is a rich ecosystem of tools around ONNX that assist in model conversion, visualization, and optimization. These tools make it easier for developers to work with ONNX models and to convert models between different frameworks seamlessly.</p>
+</li>
+</ul>
+<h2 id="common-usage-of-onnx">Common Usage of ONNX</h2>
+<p>Before we jump into how to export YOLOv8 models to the ONNX format, let’s take a look at where ONNX models are usually used. </p>
+<h3 id="cpu-deployment">CPU Deployment</h3>
+<p>ONNX models are often deployed on CPUs due to their compatibility with ONNX Runtime. This runtime is optimized for CPU execution. It significantly improves inference speed and makes real-time CPU deployments feasible.</p>
+<h3 id="supported-deployment-options">Supported Deployment Options</h3>
+<p>While ONNX models are commonly used on CPUs, they can also be deployed on the following platforms:</p>
+<ul>
+<li>
+<p>GPU Acceleration: ONNX fully supports GPU acceleration, particularly NVIDIA CUDA. This enables efficient execution on NVIDIA GPUs for tasks that demand high computational power.</p>
+</li>
+<li>
+<p>Edge and Mobile Devices: ONNX extends to edge and mobile devices, perfect for on-device and real-time inference scenarios. It's lightweight and compatible with edge hardware.</p>
+</li>
+<li>
+<p>Web Browsers: ONNX can run directly in web browsers, powering interactive and dynamic web-based AI applications.</p>
+</li>
+</ul>
+<h2 id="exporting-yolov8-models-to-onnx">Exporting YOLOv8 Models to ONNX</h2>
+<p>You can expand model compatibility and deployment flexibility by converting YOLOv8 models to ONNX format.</p>
+<h3 id="installation">Installation</h3>
+<p>To install the required package, run:</p>
 <div class="admonition tip">
 <p class="admonition-title">Installation</p>
+</div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the required packages for YOLOv8 and Weights &amp; Biases</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span><span class="nv">ultralytics</span><span class="o">==</span><span class="m">8</span>.0.186<span class="w"> </span>wandb
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the required package for YOLOv8</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 </div>
 </div>
 </input></div>
-</div>
-<p>For detailed instructions and best practices related to the installation process, be sure to check our <a href="../../quickstart/">YOLOv8 Installation guide</a>. While installing the required packages for YOLOv8, if you encounter any difficulties, consult our <a href="../../guides/yolo-common-issues/">Common Issues guide</a> for solutions and tips.</p>
-<h2 id="configuring-weights-biases">Configuring Weights &amp; Biases</h2>
-<p>After installing the necessary packages, the next step is to set up your Weights &amp; Biases environment. This includes creating a Weights &amp; Biases account and obtaining the necessary API key for a smooth connection between your development environment and the W&amp;B platform.</p>
-<p>Start by initializing the Weights &amp; Biases environment in your workspace. You can do this by running the following command and following the prompted instructions.</p>
-<div class="admonition tip">
-<p class="admonition-title">Initial SDK Setup</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Initialize your Weights &amp; Biases environment</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>import<span class="w"> </span>wandb
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>wandb.login<span class="o">()</span>
+<p>For detailed instructions and best practices related to the installation process, check our <a href="../../quickstart/">YOLOv8 Installation guide</a>. While installing the required packages for YOLOv8, if you encounter any difficulties, consult our <a href="../../guides/yolo-common-issues/">Common Issues guide</a> for solutions and tips.</p>
+<h3 id="usage">Usage</h3>
+<p>Before diving into the usage instructions, be sure to check out the range of <a href="../../models/">YOLOv8 models offered by Ultralytics</a>. This will help you choose the most appropriate model for your project requirements.</p>
+<p>!!! Example “Usage”</p>
+<div class="highlight"><pre><span></span><code>=== "Python"
+
+    ```python
+    from ultralytics import YOLO
+
+    # Load the YOLOv8 model
+    model = YOLO('yolov8n.pt')
+
+    # Export the model to ONNX format
+    model.export(format='onnx')  # creates 'yolov8n.onnx'
+
+    # Load the exported ONNX model
+    onnx_model = YOLO('yolov8n.onnx')
+
+    # Run inference
+    results = onnx_model('https://ultralytics.com/images/bus.jpg')
+    ```
+
+=== "CLI"
+
+    ```bash
+    # Export a YOLOv8n PyTorch model to ONNX format
+    yolo export model=yolov8n.pt format=onnx  # creates 'yolov8n.onnx'
+
+    # Run inference with the exported model
+    yolo predict model=yolov8n.onnx source='https://ultralytics.com/images/bus.jpg'
+    ```
 </code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<p>Navigate to the Weights &amp; Biases authorization page to create and retrieve your API key. Use this key to authenticate your environment with W&amp;B.</p>
-<h2 id="usage-training-yolov8-with-weights-biases">Usage: Training YOLOv8 with Weights &amp; Biases</h2>
-<p>Before diving into the usage instructions for YOLOv8 model training with Weights &amp; Biases, be sure to check out the range of <a href="../../models/">YOLOv8 models offered by Ultralytics</a>. This will help you choose the most appropriate model for your project requirements.</p>
-<div class="admonition example">
-<p class="admonition-title">Usage: Training YOLOv8 with Weights &amp; Biases</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</input></div>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">wandb.integration.ultralytics</span> <span class="kn">import</span> <span class="n">add_wandb_callback</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kn">import</span> <span class="nn">wandb</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1"># Step 1: Initialize a Weights &amp; Biases run</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">wandb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">"ultralytics"</span><span class="p">,</span> <span class="n">job_type</span><span class="o">=</span><span class="s2">"training"</span><span class="p">)</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="c1"># Step 2: Define the YOLOv8 Model and Dataset</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">model_name</span> <span class="o">=</span> <span class="s2">"yolov8n"</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">dataset_name</span> <span class="o">=</span> <span class="s2">"coco128.yaml"</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">.pt"</span><span class="p">)</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="c1"># Step 3: Add W&amp;B Callback for Ultralytics</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="n">add_wandb_callback</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">enable_model_checkpointing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="c1"># Step 4: Train and Fine-Tune the Model</span>
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">"ultralytics"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>
-<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="c1"># Step 5: Validate the Model</span>
-<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">()</span>
-<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a>
-<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="c1"># Step 6: Perform Inference and Log Results</span>
-<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="n">model</span><span class="p">([</span><span class="s2">"path/to/image1"</span><span class="p">,</span> <span class="s2">"path/to/image2"</span><span class="p">])</span>
-<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a>
-<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="c1"># Step 7: Finalize the W&amp;B Run</span>
-<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="n">wandb</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
-</code></pre></div>
-</div>
-<h3 id="understanding-the-code">Understanding the Code</h3>
-<p>Let’s understand the steps showcased in the usage code snippet above.</p>
+<p>For more details about the export process, visit the <a href="../../modes/export/">Ultralytics documentation page on exporting</a>.</p>
+<h2 id="deploying-exported-yolov8-onnx-models">Deploying Exported YOLOv8 ONNX Models</h2>
+<p>Once you've successfully exported your Ultralytics YOLOv8 models to ONNX format, the next step is deploying these models in various environments. For detailed instructions on deploying your ONNX models, take a look at the following resources:</p>
 <ul>
 <li>
-<p><strong>Step 1: Initialize a Weights &amp; Biases Run</strong>: Start by initializing a Weights &amp; Biases run, specifying the project name and the job type. This run will track and manage the training and validation processes of your model.</p>
+<p><strong><a href="https://onnxruntime.ai/docs/api/python/api_summary.html">ONNX Runtime Python API Documentation</a></strong>: This guide provides essential information for loading and running ONNX models using ONNX Runtime.</p>
 </li>
 <li>
-<p><strong>Step 2: Define the YOLOv8 Model and Dataset</strong>: Specify the model variant and the dataset you wish to use. The YOLO model is then initialized with the specified model file.</p>
+<p><strong><a href="https://onnxruntime.ai/docs/tutorials/iot-edge/">Deploying on Edge Devices</a></strong>: Check out this docs page for different examples of deploying ONNX models on edge.</p>
 </li>
 <li>
-<p><strong>Step 3: Add Weights &amp; Biases Callback for Ultralytics</strong>: This step is crucial as it enables the automatic logging of training metrics and validation results to Weights &amp; Biases, providing a detailed view of the model's performance.</p>
-</li>
-<li>
-<p><strong>Step 4: Train and Fine-Tune the Model</strong>: Begin training the model with the specified dataset, number of epochs, and image size. The training process includes logging of metrics and predictions at the end of each epoch, offering a comprehensive view of the model's learning progress.</p>
-</li>
-<li>
-<p><strong>Step 5: Validate the Model</strong>: After training, the model is validated. This step is crucial for assessing the model's performance on unseen data and ensuring its generalizability.</p>
-</li>
-<li>
-<p><strong>Step 6: Perform Inference and Log Results</strong>: The model performs predictions on specified images. These predictions, along with visual overlays and insights, are automatically logged in a W&amp;B Table for interactive exploration.</p>
-</li>
-<li>
-<p><strong>Step 7: Finalize the W&amp;B Run</strong>: This step marks the end of data logging and saves the final state of your model's training and validation process in the W&amp;B dashboard.</p>
+<p><strong><a href="https://github.com/onnx/tutorials">ONNX Tutorials on GitHub</a></strong>: A collection of comprehensive tutorials that cover various aspects of using and implementing ONNX models in different scenarios.</p>
 </li>
 </ul>
-<h3 id="understanding-the-output">Understanding the Output</h3>
-<p>Upon running the usage code snippet above, you can expect the following key outputs:</p>
-<ul>
-<li>The setup of a new run with its unique ID, indicating the start of the training process.</li>
-<li>A concise summary of the model’s structure, including the number of layers and parameters.</li>
-<li>Regular updates on important metrics such as box loss, cls loss, dfl loss, precision, recall, and mAP scores during each training epoch.</li>
-<li>At the end of training, detailed metrics including the model's inference speed, and overall accuracy metrics are displayed.</li>
-<li>Links to the Weights &amp; Biases dashboard for in-depth analysis and visualization of the training process, along with information on local log file locations.</li>
-</ul>
-<h3 id="viewing-the-weights-biases-dashboard">Viewing the Weights &amp; Biases Dashboard</h3>
-<p>After running the usage code snippet, you can access the Weights &amp; Biases (W&amp;B) dashboard through the provided link in the output. This dashboard offers a comprehensive view of your model's training process with YOLOv8.</p>
-<h2 id="key-features-of-the-weights-biases-dashboard">Key Features of the Weights &amp; Biases Dashboard</h2>
-<ul>
-<li>
-<p><strong>Real-Time Metrics Tracking</strong>: Observe metrics like loss, accuracy, and validation scores as they evolve during the training, offering immediate insights for model tuning.</p>
-<p><div style="text-align:center;"><blockquote class="imgur-embed-pub" data-id="a/TB76U9O" lang="en"><a href="//imgur.com/D6NVnmN">Take a look at how the experiments are tracked using Weights &amp; Biases.</a></blockquote></div><script async="" charset="utf-8" src="//s.imgur.com/min/embed.js"></script></p>
-</li>
-<li>
-<p><strong>Hyperparameter Optimization</strong>: Weights &amp; Biases aids in fine-tuning critical parameters such as learning rate, batch size, and more, enhancing the performance of YOLOv8.</p>
-</li>
-<li>
-<p><strong>Comparative Analysis</strong>: The platform allows side-by-side comparisons of different training runs, essential for assessing the impact of various model configurations.</p>
-</li>
-<li>
-<p><strong>Visualization of Training Progress</strong>: Graphical representations of key metrics provide an intuitive understanding of the model's performance across epochs.</p>
-<p><div style="text-align:center;"><blockquote class="imgur-embed-pub" data-context="false" data-id="a/kU5h7W4" lang="en"><a href="//imgur.com/a/kU5h7W4">Take a look at how Weights &amp; Biases helps you visualize validation results.</a></blockquote></div><script async="" charset="utf-8" src="//s.imgur.com/min/embed.js"></script></p>
-</li>
-<li>
-<p><strong>Resource Monitoring</strong>: Keep track of CPU, GPU, and memory usage to optimize the efficiency of the training process.</p>
-</li>
-<li>
-<p><strong>Model Artifacts Management</strong>: Access and share model checkpoints, facilitating easy deployment and collaboration.</p>
-</li>
-<li>
-<p><strong>Viewing Inference Results with Image Overlay</strong>: Visualize the prediction results on images using interactive overlays in Weights &amp; Biases, providing a clear and detailed view of model performance on real-world data. For more detailed information on Weights &amp; Biases’ image overlay capabilities, check out this <a href="https://docs.wandb.ai/guides/track/log/media#image-overlays">link</a>.</p>
-<p><div style="text-align:center;"><blockquote class="imgur-embed-pub" data-context="false" data-id="a/UTSiufs" lang="en"><a href="//imgur.com/a/UTSiufs">Take a look at how Weights &amp; Biases’ image overlays helps visualize model inferences.</a></blockquote></div><script async="" charset="utf-8" src="//s.imgur.com/min/embed.js"></script></p>
-</li>
-</ul>
-<p>By using these features, you can effectively track, analyze, and optimize your YOLOv8 model's training, ensuring the best possible performance and efficiency.</p>
 <h2 id="summary">Summary</h2>
-<p>This guide helped you explore Ultralytics’ YOLOv8 integration with Weights &amp; Biases. It illustrates the ability of this integration to efficiently track and visualize model training and prediction results.</p>
-<p>For further details on usage, visit <a href="https://docs.wandb.ai/guides/integrations/ultralytics">Weights &amp; Biases' official documentation</a>.</p>
-<p>Also, be sure to check out the <a href="../">Ultralytics integration guide page</a>, to learn more about different exciting integrations.</p>
+<p>In this guide, you've learned how to export Ultralytics YOLOv8 models to ONNX format to increase their interoperability and performance across various platforms. You were also introduced to the ONNX Runtime and ONNX deployment options.</p>
+<p>For further details on usage, visit <a href="https://onnx.ai/onnx/intro/">ONNX's official documentation</a>.</p>
+<p>Also, if you’d like to know more about other Ultralytics YOLOv8 integrations, visit our <a href="../">integration guide page</a>. You'll find plenty of useful resources and insights there.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -2883,7 +2858,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-28, Updated 2024-01-15<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/integrations/weights-biases.md">glenn.jocher@ultralytics.com</a> (3), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-25, Updated 2024-01-25<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2894,10 +2869,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/weights-biases', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/onnx', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/weights-biases', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/onnx', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -2946,7 +2921,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: DVC" class="md-footer__link md-footer__link--prev" href="../dvc/">
+<a aria-label="Previous: OpenVINO" class="md-footer__link md-footer__link--prev" href="../openvino/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2955,17 +2930,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                DVC
+                OpenVINO
               </div>
 </div>
 </a>
-<a aria-label="Next: Neural Magic" class="md-footer__link md-footer__link--next" href="../neural-magic/">
+<a aria-label="Next: Ray Tune" class="md-footer__link md-footer__link--next" href="../ray-tune/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Neural Magic
+                Ray Tune
               </div>
 </div>
 <div class="md-footer__button md-icon">
