@@ -1161,6 +1161,27 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/segment/crack-seg/">
+<span class="md-ellipsis">
+    Crack-seg
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/segment/carparts-seg/">
+<span class="md-ellipsis">
+    Carparts-seg
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../datasets/segment/package-seg/">
+<span class="md-ellipsis">
+    Package-seg
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2906,26 +2927,26 @@
 </li>
 <li>
 <p>Use FastSAM for inference. Example commands:</p>
-</li>
-<li>
-<p>Segment everything in an image:</p>
+<ul>
+<li>Segment everything in an image:</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>python<span class="w"> </span>Inference.py<span class="w"> </span>--model_path<span class="w"> </span>./weights/FastSAM.pt<span class="w"> </span>--img_path<span class="w"> </span>./images/dogs.jpg
 </code></pre></div>
-</li>
-<li>
-<p>Segment specific objects using text prompt:</p>
+<ul>
+<li>Segment specific objects using text prompt:</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>python<span class="w"> </span>Inference.py<span class="w"> </span>--model_path<span class="w"> </span>./weights/FastSAM.pt<span class="w"> </span>--img_path<span class="w"> </span>./images/dogs.jpg<span class="w"> </span>--text_prompt<span class="w"> </span><span class="s2">"the yellow dog"</span>
 </code></pre></div>
-</li>
-<li>
-<p>Segment objects within a bounding box (provide box coordinates in xywh format):</p>
+<ul>
+<li>Segment objects within a bounding box (provide box coordinates in xywh format):</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>python<span class="w"> </span>Inference.py<span class="w"> </span>--model_path<span class="w"> </span>./weights/FastSAM.pt<span class="w"> </span>--img_path<span class="w"> </span>./images/dogs.jpg<span class="w"> </span>--box_prompt<span class="w"> </span><span class="s2">"[570,200,230,400]"</span>
 </code></pre></div>
-</li>
-<li>
-<p>Segment objects near specific points:
-     <div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>python<span class="w"> </span>Inference.py<span class="w"> </span>--model_path<span class="w"> </span>./weights/FastSAM.pt<span class="w"> </span>--img_path<span class="w"> </span>./images/dogs.jpg<span class="w"> </span>--point_prompt<span class="w"> </span><span class="s2">"[[520,360],[620,300]]"</span><span class="w"> </span>--point_label<span class="w"> </span><span class="s2">"[1,0]"</span>
-</code></pre></div></p>
+<ul>
+<li>Segment objects near specific points:
+  <div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>python<span class="w"> </span>Inference.py<span class="w"> </span>--model_path<span class="w"> </span>./weights/FastSAM.pt<span class="w"> </span>--img_path<span class="w"> </span>./images/dogs.jpg<span class="w"> </span>--point_prompt<span class="w"> </span><span class="s2">"[[520,360],[620,300]]"</span><span class="w"> </span>--point_label<span class="w"> </span><span class="s2">"[1,0]"</span>
+</code></pre></div></li>
+</ul>
 </li>
 </ol>
 <p>Additionally, you can try FastSAM through a <a href="https://colab.research.google.com/drive/1oX14f6IneGGw612WgVlAiy91UHwFAvr9?usp=sharing">Colab demo</a> or on the <a href="https://huggingface.co/spaces/An-619/FastSAM">HuggingFace web demo</a> for a visual experience.</p>
@@ -2956,7 +2977,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-16<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/models/fast-sam.md">glenn.jocher@ultralytics.com</a> (6), <a href="https://github.com/berry-ding">berry-ding</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-25<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/models/fast-sam.md">glenn.jocher@ultralytics.com</a> (7), <a href="https://github.com/berry-ding">berry-ding</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
