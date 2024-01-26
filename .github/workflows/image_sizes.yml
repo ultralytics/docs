@@ -1,0 +1,41 @@
+name: Check and Print Image Sizes
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'  # runs at 00:00 UTC every day
+  push:
+    branches:
+      - main  # or the branch you want to monitor
+
+jobs:
+  CheckImages:
+    runs-on: ubuntu-latest
+    continue-on-error: true # continue all steps if any fail
+
+    steps:
+      - name: Check Ultralytics Website Images
+        run: |
+          wget --spider --force-html -r -l2 https://www.ultralytics.com/ 2>&1 \
+          | grep '^--' | grep '.jpg\|.png\|.jpeg\|.gif\|.webp\|.svg' | awk '{ print $3 }' \
+          | xargs -n 1 curl -sI | grep -E 'Content-Length|^(http|https)' \
+          | awk 'ORS=NR%2?", ":"\n"' | sort -t, -k2 -nr | head -n 30 > website_images.txt
+        continue-on-error: true
+
+      - name: Check Ultralytics Docs Images
+        run: |
+          wget --spider --force-html -r -l2 https://docs.ultralytics.com/ 2>&1 \
+          | grep '^--' | grep '.jpg\|.png\|.jpeg\|.gif\|.webp\|.svg' | awk '{ print $3 }' \
+          | xargs -n 1 curl -sI | grep -E 'Content-Length|^(http|https)' \
+          | awk 'ORS=NR%2?", ":"\n"' | sort -t, -k2 -nr | head -n 30 > docs_images.txt
+        continue-on-error: true
+
+      - name: Print Website Images Results
+        run: |
+          echo "Top 30 Largest Images on Ultralytics Website:"
+          cat website_images.txt
+
+      - name: Print Docs Images Results
+        run: |
+          echo "Top 30 Largest Images on Ultralytics Docs:"
+          cat docs_images.txt
