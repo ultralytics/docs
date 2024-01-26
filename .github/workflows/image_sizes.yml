@@ -1,12 +1,13 @@
 name: Check and Print Image Sizes
 
 on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'  # runs at 00:00 UTC every day
-  push:
-    branches:
-      - main  # or the branch you want to monitor
 
 jobs:
   CheckImages:
