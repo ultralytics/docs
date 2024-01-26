@@ -1854,6 +1854,14 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../hub/sdk/reference/base/api_client/">
+<span class="md-ellipsis">
+    Reference
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3697,26 +3705,26 @@ models across various platforms.</p>
 <a id="__codelineno-0-508" name="__codelineno-0-508"></a>
 <a id="__codelineno-0-509" name="__codelineno-0-509"></a><span class="sd">        Args:</span>
 <a id="__codelineno-0-510" name="__codelineno-0-510"></a><span class="sd">            imgsz (tuple): The shape of the dummy input tensor in the format (batch_size, channels, height, width)</span>
-<a id="__codelineno-0-511" name="__codelineno-0-511"></a>
-<a id="__codelineno-0-512" name="__codelineno-0-512"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-513" name="__codelineno-0-513"></a><span class="sd">            (None): This method runs the forward pass and don't return any value</span>
-<a id="__codelineno-0-514" name="__codelineno-0-514"></a><span class="sd">        """</span>
-<a id="__codelineno-0-515" name="__codelineno-0-515"></a>        <span class="n">warmup_types</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">onnx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nn_module</span>
-<a id="__codelineno-0-516" name="__codelineno-0-516"></a>        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">warmup_types</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">"cpu"</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">):</span>
-<a id="__codelineno-0-517" name="__codelineno-0-517"></a>            <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="o">*</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">half</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># input</span>
-<a id="__codelineno-0-518" name="__codelineno-0-518"></a>            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span> <span class="k">else</span> <span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-519" name="__codelineno-0-519"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># warmup</span>
-<a id="__codelineno-0-520" name="__codelineno-0-520"></a>
-<a id="__codelineno-0-521" name="__codelineno-0-521"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-522" name="__codelineno-0-522"></a>    <span class="k">def</span> <span class="nf">_model_type</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="s2">"path/to/model.pt"</span><span class="p">):</span>
-<a id="__codelineno-0-523" name="__codelineno-0-523"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-524" name="__codelineno-0-524"></a><span class="sd">        This function takes a path to a model file and returns the model type.</span>
-<a id="__codelineno-0-525" name="__codelineno-0-525"></a>
-<a id="__codelineno-0-526" name="__codelineno-0-526"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-527" name="__codelineno-0-527"></a><span class="sd">            p: path to the model file. Defaults to path/to/model.pt</span>
-<a id="__codelineno-0-528" name="__codelineno-0-528"></a><span class="sd">        """</span>
-<a id="__codelineno-0-529" name="__codelineno-0-529"></a>        <span class="c1"># Return model type from model path, i.e. path='path/to/model.onnx' -&gt; type=onnx</span>
-<a id="__codelineno-0-530" name="__codelineno-0-530"></a>        <span class="c1"># types = [pt, jit, onnx, xml, engine, coreml, saved_model, pb, tflite, edgetpu, tfjs, paddle]</span>
+<a id="__codelineno-0-511" name="__codelineno-0-511"></a><span class="sd">        """</span>
+<a id="__codelineno-0-512" name="__codelineno-0-512"></a>        <span class="n">warmup_types</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">onnx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nn_module</span>
+<a id="__codelineno-0-513" name="__codelineno-0-513"></a>        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">warmup_types</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">"cpu"</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">):</span>
+<a id="__codelineno-0-514" name="__codelineno-0-514"></a>            <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="o">*</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">half</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># input</span>
+<a id="__codelineno-0-515" name="__codelineno-0-515"></a>            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span> <span class="k">else</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-516" name="__codelineno-0-516"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># warmup</span>
+<a id="__codelineno-0-517" name="__codelineno-0-517"></a>
+<a id="__codelineno-0-518" name="__codelineno-0-518"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-519" name="__codelineno-0-519"></a>    <span class="k">def</span> <span class="nf">_model_type</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="s2">"path/to/model.pt"</span><span class="p">):</span>
+<a id="__codelineno-0-520" name="__codelineno-0-520"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-521" name="__codelineno-0-521"></a><span class="sd">        This function takes a path to a model file and returns the model type. Possibles types are pt, jit, onnx, xml,</span>
+<a id="__codelineno-0-522" name="__codelineno-0-522"></a><span class="sd">        engine, coreml, saved_model, pb, tflite, edgetpu, tfjs, ncnn or paddle.</span>
+<a id="__codelineno-0-523" name="__codelineno-0-523"></a>
+<a id="__codelineno-0-524" name="__codelineno-0-524"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-525" name="__codelineno-0-525"></a><span class="sd">            p: path to the model file. Defaults to path/to/model.pt</span>
+<a id="__codelineno-0-526" name="__codelineno-0-526"></a>
+<a id="__codelineno-0-527" name="__codelineno-0-527"></a><span class="sd">        Examples:</span>
+<a id="__codelineno-0-528" name="__codelineno-0-528"></a><span class="sd">            &gt;&gt;&gt; model = AutoBackend(weights="path/to/model.onnx")</span>
+<a id="__codelineno-0-529" name="__codelineno-0-529"></a><span class="sd">            &gt;&gt;&gt; model_type = model._model_type()  # returns "onnx"</span>
+<a id="__codelineno-0-530" name="__codelineno-0-530"></a><span class="sd">        """</span>
 <a id="__codelineno-0-531" name="__codelineno-0-531"></a>        <span class="kn">from</span> <span class="nn">ultralytics.engine.exporter</span> <span class="kn">import</span> <span class="n">export_formats</span>
 <a id="__codelineno-0-532" name="__codelineno-0-532"></a>
 <a id="__codelineno-0-533" name="__codelineno-0-533"></a>        <span class="n">sf</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">export_formats</span><span class="p">()</span><span class="o">.</span><span class="n">Suffix</span><span class="p">)</span>  <span class="c1"># export suffixes</span>
@@ -4895,27 +4903,6 @@ models across various platforms.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>None</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>This method runs the forward pass and don't return any value</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-505">505</a></span>
@@ -4929,24 +4916,18 @@ models across various platforms.</p>
 <span class="normal"><a href="#__codelineno-0-513">513</a></span>
 <span class="normal"><a href="#__codelineno-0-514">514</a></span>
 <span class="normal"><a href="#__codelineno-0-515">515</a></span>
-<span class="normal"><a href="#__codelineno-0-516">516</a></span>
-<span class="normal"><a href="#__codelineno-0-517">517</a></span>
-<span class="normal"><a href="#__codelineno-0-518">518</a></span>
-<span class="normal"><a href="#__codelineno-0-519">519</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-505" name="__codelineno-0-505"></a><span class="k">def</span> <span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)):</span>
+<span class="normal"><a href="#__codelineno-0-516">516</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-505" name="__codelineno-0-505"></a><span class="k">def</span> <span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)):</span>
 <a id="__codelineno-0-506" name="__codelineno-0-506"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-507" name="__codelineno-0-507"></a><span class="sd">    Warm up the model by running one forward pass with a dummy input.</span>
 <a id="__codelineno-0-508" name="__codelineno-0-508"></a>
 <a id="__codelineno-0-509" name="__codelineno-0-509"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-510" name="__codelineno-0-510"></a><span class="sd">        imgsz (tuple): The shape of the dummy input tensor in the format (batch_size, channels, height, width)</span>
-<a id="__codelineno-0-511" name="__codelineno-0-511"></a>
-<a id="__codelineno-0-512" name="__codelineno-0-512"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-513" name="__codelineno-0-513"></a><span class="sd">        (None): This method runs the forward pass and don't return any value</span>
-<a id="__codelineno-0-514" name="__codelineno-0-514"></a><span class="sd">    """</span>
-<a id="__codelineno-0-515" name="__codelineno-0-515"></a>    <span class="n">warmup_types</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">onnx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nn_module</span>
-<a id="__codelineno-0-516" name="__codelineno-0-516"></a>    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">warmup_types</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">"cpu"</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">):</span>
-<a id="__codelineno-0-517" name="__codelineno-0-517"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="o">*</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">half</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># input</span>
-<a id="__codelineno-0-518" name="__codelineno-0-518"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span> <span class="k">else</span> <span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-519" name="__codelineno-0-519"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># warmup</span>
+<a id="__codelineno-0-511" name="__codelineno-0-511"></a><span class="sd">    """</span>
+<a id="__codelineno-0-512" name="__codelineno-0-512"></a>    <span class="n">warmup_types</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">onnx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nn_module</span>
+<a id="__codelineno-0-513" name="__codelineno-0-513"></a>    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">warmup_types</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">"cpu"</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">):</span>
+<a id="__codelineno-0-514" name="__codelineno-0-514"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="o">*</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">half</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># input</span>
+<a id="__codelineno-0-515" name="__codelineno-0-515"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span> <span class="k">else</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-516" name="__codelineno-0-516"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># warmup</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5039,7 +5020,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-12-22<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/reference/nn/autobackend.md">glenn.jocher@ultralytics.com</a> (4)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-12-22<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

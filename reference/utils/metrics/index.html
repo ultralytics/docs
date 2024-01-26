@@ -1854,6 +1854,14 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../hub/sdk/reference/base/api_client/">
+<span class="md-ellipsis">
+    Reference
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -9542,7 +9550,7 @@ Based on https://github.com/pytorch/vision/blob/master/torchvision/ops/boxes.py<
 <a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-181" name="__codelineno-0-181"></a><span class="sd">        (torch.Tensor): Covariance metrixs corresponding to original rotated bounding boxes.</span>
 <a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">    """</span>
-<a id="__codelineno-0-183" name="__codelineno-0-183"></a>    <span class="c1"># Gaussian bounding boxes, ignored the center points(the first two columns) cause it's not needed here.</span>
+<a id="__codelineno-0-183" name="__codelineno-0-183"></a>    <span class="c1"># Gaussian bounding boxes, ignore the center points (the first two columns) because they are not needed here.</span>
 <a id="__codelineno-0-184" name="__codelineno-0-184"></a>    <span class="n">gbbs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">torch</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">boxes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">12</span><span class="p">,</span> <span class="n">boxes</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:]),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-0-185" name="__codelineno-0-185"></a>    <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">gbbs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-0-186" name="__codelineno-0-186"></a>    <span class="k">return</span> <span class="p">(</span>
@@ -10650,7 +10658,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-05<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/reference/utils/metrics.md">glenn.jocher@ultralytics.com</a> (4), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

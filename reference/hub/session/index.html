@@ -1854,6 +1854,14 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../hub/sdk/reference/base/api_client/">
+<span class="md-ellipsis">
+    Reference
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -3423,7 +3431,7 @@
 <a id="__codelineno-0-277" name="__codelineno-0-277"></a><span class="sd">            timeout: The maximum timeout duration.</span>
 <a id="__codelineno-0-278" name="__codelineno-0-278"></a>
 <a id="__codelineno-0-279" name="__codelineno-0-279"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-280" name="__codelineno-0-280"></a><span class="sd">            str: The retry message.</span>
+<a id="__codelineno-0-280" name="__codelineno-0-280"></a><span class="sd">            (str): The retry message.</span>
 <a id="__codelineno-0-281" name="__codelineno-0-281"></a><span class="sd">        """</span>
 <a id="__codelineno-0-282" name="__codelineno-0-282"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_retry</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">):</span>
 <a id="__codelineno-0-283" name="__codelineno-0-283"></a>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"Retrying </span><span class="si">{</span><span class="n">retry</span><span class="si">}</span><span class="s2">x for </span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s2">s."</span> <span class="k">if</span> <span class="n">retry</span> <span class="k">else</span> <span class="s2">""</span>
@@ -3487,7 +3495,7 @@
 <a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="sd">            response (requests.Response): The response object from the file download request.</span>
 <a id="__codelineno-0-342" name="__codelineno-0-342"></a>
 <a id="__codelineno-0-343" name="__codelineno-0-343"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-344" name="__codelineno-0-344"></a><span class="sd">            (None)</span>
+<a id="__codelineno-0-344" name="__codelineno-0-344"></a><span class="sd">            None</span>
 <a id="__codelineno-0-345" name="__codelineno-0-345"></a><span class="sd">        """</span>
 <a id="__codelineno-0-346" name="__codelineno-0-346"></a>        <span class="k">with</span> <span class="n">TQDM</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">content_length</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">"B"</span><span class="p">,</span> <span class="n">unit_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unit_divisor</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
 <a id="__codelineno-0-347" name="__codelineno-0-347"></a>            <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
@@ -3961,7 +3969,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-25<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/reference/hub/session.md">glenn.jocher@ultralytics.com</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-25<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -1854,6 +1854,14 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../hub/sdk/reference/base/api_client/">
+<span class="md-ellipsis">
+    Reference
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -7077,7 +7085,10 @@ If present, the third last column contains track IDs, and the fifth column from 
 <span class="normal"><a href="#__codelineno-0-674">674</a></span>
 <span class="normal"><a href="#__codelineno-0-675">675</a></span>
 <span class="normal"><a href="#__codelineno-0-676">676</a></span>
-<span class="normal"><a href="#__codelineno-0-677">677</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-595" name="__codelineno-0-595"></a><span class="k">class</span> <span class="nc">OBB</span><span class="p">(</span><span class="n">BaseTensor</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-677">677</a></span>
+<span class="normal"><a href="#__codelineno-0-678">678</a></span>
+<span class="normal"><a href="#__codelineno-0-679">679</a></span>
+<span class="normal"><a href="#__codelineno-0-680">680</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-595" name="__codelineno-0-595"></a><span class="k">class</span> <span class="nc">OBB</span><span class="p">(</span><span class="n">BaseTensor</span><span class="p">):</span>
 <a id="__codelineno-0-596" name="__codelineno-0-596"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-597" name="__codelineno-0-597"></a><span class="sd">    A class for storing and manipulating Oriented Bounding Boxes (OBB).</span>
 <a id="__codelineno-0-598" name="__codelineno-0-598"></a>
@@ -7152,14 +7163,17 @@ If present, the third last column contains track IDs, and the fifth column from 
 <a id="__codelineno-0-667" name="__codelineno-0-667"></a>    <span class="nd">@property</span>
 <a id="__codelineno-0-668" name="__codelineno-0-668"></a>    <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <a id="__codelineno-0-669" name="__codelineno-0-669"></a>    <span class="k">def</span> <span class="nf">xyxy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-670" name="__codelineno-0-670"></a><span class="w">        </span><span class="sd">"""Return the horizontal boxes in xyxy format, (N, 4)."""</span>
-<a id="__codelineno-0-671" name="__codelineno-0-671"></a>        <span class="c1"># This way to fit both torch and numpy version</span>
-<a id="__codelineno-0-672" name="__codelineno-0-672"></a>        <span class="n">x1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<a id="__codelineno-0-673" name="__codelineno-0-673"></a>        <span class="n">x2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<a id="__codelineno-0-674" name="__codelineno-0-674"></a>        <span class="n">y1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<a id="__codelineno-0-675" name="__codelineno-0-675"></a>        <span class="n">y2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<a id="__codelineno-0-676" name="__codelineno-0-676"></a>        <span class="n">xyxy</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">]</span>
-<a id="__codelineno-0-677" name="__codelineno-0-677"></a>        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-670" name="__codelineno-0-670"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-671" name="__codelineno-0-671"></a><span class="sd">        Return the horizontal boxes in xyxy format, (N, 4).</span>
+<a id="__codelineno-0-672" name="__codelineno-0-672"></a>
+<a id="__codelineno-0-673" name="__codelineno-0-673"></a><span class="sd">        Accepts both torch and numpy boxes.</span>
+<a id="__codelineno-0-674" name="__codelineno-0-674"></a><span class="sd">        """</span>
+<a id="__codelineno-0-675" name="__codelineno-0-675"></a>        <span class="n">x1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<a id="__codelineno-0-676" name="__codelineno-0-676"></a>        <span class="n">x2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<a id="__codelineno-0-677" name="__codelineno-0-677"></a>        <span class="n">y1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<a id="__codelineno-0-678" name="__codelineno-0-678"></a>        <span class="n">y2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<a id="__codelineno-0-679" name="__codelineno-0-679"></a>        <span class="n">xyxy</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">]</span>
+<a id="__codelineno-0-680" name="__codelineno-0-680"></a>        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -7217,6 +7231,7 @@ If present, the third last column contains track IDs, and the fifth column from 
 </h3>
 <div class="doc doc-contents">
 <p>Return the horizontal boxes in xyxy format, (N, 4).</p>
+<p>Accepts both torch and numpy boxes.</p>
 </div>
 </div>
 <div class="doc doc-object doc-attribute">
@@ -7283,7 +7298,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-05<br/>Authors: <a href="https://github.com/ultralytics/ultralytics/blob/main/docs/en/reference/engine/results.md">glenn.jocher@ultralytics.com</a> (4), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
