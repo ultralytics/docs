@@ -5,31 +5,31 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Discover the features and benefits of RT-DETR, Baidu’s efficient and adaptable real-time object detector powered by Vision Transformers, including pre-trained models." name="description"/>
+<meta content="Get to know Roboflow 100, a comprehensive object detection benchmark that brings together 100 datasets from different domains." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/models/rtdetr/" rel="canonical"/>
-<link href="../yolo-nas/" rel="prev"/>
-<link href="../../datasets/" rel="next"/>
-<link href="../../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.ultralytics.com/datasets/detect/roboflow-100/" rel="canonical"/>
+<link href="../xview/" rel="prev"/>
+<link href="../../segment/" rel="next"/>
+<link href="../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.7" name="generator"/>
-<title>RT-DETR (Realtime Detection Transformer) - Ultralytics YOLOv8 Docs</title>
-<link href="../../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<title>Roboflow 100 - Ultralytics YOLOv8 Docs</title>
+<link href="../../../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../../stylesheets/style.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../../stylesheets/style.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="RT-DETR (Realtime Detection Transformer)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="RT-DETR, Baidu, Vision Transformers, object detection, real-time performance, CUDA, TensorRT, IoU-aware query selection, Ultralytics, Python API, PaddlePaddle" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/rtdetr" property="og:url"/><meta content="RT-DETR (Realtime Detection Transformer)" property="og:title"/><meta content="Discover the features and benefits of RT-DETR, Baidu’s efficient and adaptable real-time object detector powered by Vision Transformers, including pre-trained models." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/rtdetr" property="twitter:url"/><meta content="RT-DETR (Realtime Detection Transformer)" property="twitter:title"/><meta content="Discover the features and benefits of RT-DETR, Baidu’s efficient and adaptable real-time object detector powered by Vision Transformers, including pre-trained models." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "RT-DETR (Realtime Detection Transformer)", "image": ["https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-01-16 20:48:28 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Roboflow 100" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, YOLO models, Roboflow 100, object detection, benchmark, computer vision, datasets, deep learning models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/detect/roboflow-100" property="og:url"/><meta content="Roboflow 100" property="og:title"/><meta content="Get to know Roboflow 100, a comprehensive object detection benchmark that brings together 100 datasets from different domains." property="og:description"/><meta content="https://user-images.githubusercontent.com/15908060/202452898-9ca6b8f7-4805-4e8e-949a-6e080d7b94d2.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/detect/roboflow-100" property="twitter:url"/><meta content="Roboflow 100" property="twitter:title"/><meta content="Get to know Roboflow 100, a comprehensive object detection benchmark that brings together 100 datasets from different domains." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/15908060/202452898-9ca6b8f7-4805-4e8e-949a-6e080d7b94d2.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Roboflow 100", "image": ["https://user-images.githubusercontent.com/15908060/202452898-9ca6b8f7-4805-4e8e-949a-6e080d7b94d2.jpg"], "datePublished": "2024-02-07 04:19:29 +0300", "dateModified": "2024-02-07 04:19:29 +0300", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#baidus-rt-detr-a-vision-transformer-based-real-time-object-detector">
+<a class="md-skip" href="#roboflow-100-dataset">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              RT-DETR (Realtime Detection Transformer)
+              Roboflow 100
             
           </span>
 </div>
@@ -132,7 +132,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+<a class="md-tabs__link" href="../../..">
           
   
     
@@ -142,7 +142,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../quickstart/">
+<a class="md-tabs__link" href="../../../quickstart/">
           
   
     
@@ -152,7 +152,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../modes/">
+<a class="md-tabs__link" href="../../../modes/">
           
   
     
@@ -162,7 +162,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../tasks/">
+<a class="md-tabs__link" href="../../../tasks/">
           
   
     
@@ -171,8 +171,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../models/">
           
   
     
@@ -181,8 +181,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../datasets/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../">
           
   
     
@@ -192,7 +192,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../datasets/explorer/">
+<a class="md-tabs__link" href="../../explorer/">
           
   
     
@@ -202,7 +202,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../guides/">
+<a class="md-tabs__link" href="../../../guides/">
           
   
     
@@ -212,7 +212,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../integrations/">
+<a class="md-tabs__link" href="../../../integrations/">
           
   
     
@@ -222,7 +222,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../hub/">
+<a class="md-tabs__link" href="../../../hub/">
           
   
     
@@ -232,7 +232,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../reference/cfg/__init__/">
+<a class="md-tabs__link" href="../../../reference/cfg/__init__/">
           
   
     
@@ -242,7 +242,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../help/">
+<a class="md-tabs__link" href="../../../help/">
           
   
     
@@ -263,7 +263,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLOv8 Docs
@@ -282,7 +282,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../..">
+<a class="md-nav__link" href="../../..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -298,7 +298,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../quickstart/">
+<a class="md-nav__link" href="../../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -307,7 +307,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../modes/">
+<a class="md-nav__link" href="../../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -323,42 +323,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/train/">
+<a class="md-nav__link" href="../../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/val/">
+<a class="md-nav__link" href="../../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/predict/">
+<a class="md-nav__link" href="../../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/export/">
+<a class="md-nav__link" href="../../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/track/">
+<a class="md-nav__link" href="../../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/benchmark/">
+<a class="md-nav__link" href="../../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -370,7 +370,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../tasks/">
+<a class="md-nav__link" href="../../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -386,35 +386,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../tasks/detect/">
+<a class="md-nav__link" href="../../../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../tasks/segment/">
+<a class="md-nav__link" href="../../../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../tasks/classify/">
+<a class="md-nav__link" href="../../../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../tasks/pose/">
+<a class="md-nav__link" href="../../../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../tasks/obb/">
+<a class="md-nav__link" href="../../../tasks/obb/">
 <span class="md-ellipsis">
     OBB
   </span>
@@ -426,7 +426,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -444,7 +444,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../datasets/">
+<a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -462,7 +462,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../guides/">
+<a class="md-nav__link" href="../../../guides/">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -480,7 +480,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../datasets/explorer/">
+<a class="md-nav__link" href="../../explorer/">
 <span class="md-ellipsis">
     NEW 🚀 Explorer
   </span>
@@ -607,7 +607,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../quickstart/">
+<a class="md-nav__link" href="../../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -628,35 +628,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../usage/cli/">
+<a class="md-nav__link" href="../../../usage/cli/">
 <span class="md-ellipsis">
     CLI
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../usage/python/">
+<a class="md-nav__link" href="../../../usage/python/">
 <span class="md-ellipsis">
     Python
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../usage/callbacks/">
+<a class="md-nav__link" href="../../../usage/callbacks/">
 <span class="md-ellipsis">
     Callbacks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../usage/cfg/">
+<a class="md-nav__link" href="../../../usage/cfg/">
 <span class="md-ellipsis">
     Configuration
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../usage/engine/">
+<a class="md-nav__link" href="../../../usage/engine/">
 <span class="md-ellipsis">
     Advanced Customization
   </span>
@@ -671,7 +671,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../modes/">
+<a class="md-nav__link" href="../../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -687,42 +687,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/train/">
+<a class="md-nav__link" href="../../../modes/train/">
 <span class="md-ellipsis">
     Train
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/val/">
+<a class="md-nav__link" href="../../../modes/val/">
 <span class="md-ellipsis">
     Val
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/predict/">
+<a class="md-nav__link" href="../../../modes/predict/">
 <span class="md-ellipsis">
     Predict
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/export/">
+<a class="md-nav__link" href="../../../modes/export/">
 <span class="md-ellipsis">
     Export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/track/">
+<a class="md-nav__link" href="../../../modes/track/">
 <span class="md-ellipsis">
     Track
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../modes/benchmark/">
+<a class="md-nav__link" href="../../../modes/benchmark/">
 <span class="md-ellipsis">
     Benchmark
   </span>
@@ -734,7 +734,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../tasks/">
+<a class="md-nav__link" href="../../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -750,35 +750,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../tasks/detect/">
+<a class="md-nav__link" href="../../../tasks/detect/">
 <span class="md-ellipsis">
     Detect
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../tasks/segment/">
+<a class="md-nav__link" href="../../../tasks/segment/">
 <span class="md-ellipsis">
     Segment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../tasks/classify/">
+<a class="md-nav__link" href="../../../tasks/classify/">
 <span class="md-ellipsis">
     Classify
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../tasks/pose/">
+<a class="md-nav__link" href="../../../tasks/pose/">
 <span class="md-ellipsis">
     Pose
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../tasks/obb/">
+<a class="md-nav__link" href="../../../tasks/obb/">
 <span class="md-ellipsis">
     OBB
   </span>
@@ -787,10 +787,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -799,157 +799,96 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
             Models
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov3/">
+<a class="md-nav__link" href="../../../models/yolov3/">
 <span class="md-ellipsis">
     YOLOv3
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov4/">
+<a class="md-nav__link" href="../../../models/yolov4/">
 <span class="md-ellipsis">
     YOLOv4
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov5/">
+<a class="md-nav__link" href="../../../models/yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov6/">
+<a class="md-nav__link" href="../../../models/yolov6/">
 <span class="md-ellipsis">
     YOLOv6
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov7/">
+<a class="md-nav__link" href="../../../models/yolov7/">
 <span class="md-ellipsis">
     YOLOv7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolov8/">
+<a class="md-nav__link" href="../../../models/yolov8/">
 <span class="md-ellipsis">
     YOLOv8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../sam/">
+<a class="md-nav__link" href="../../../models/sam/">
 <span class="md-ellipsis">
     SAM (Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../mobile-sam/">
+<a class="md-nav__link" href="../../../models/mobile-sam/">
 <span class="md-ellipsis">
     MobileSAM (Mobile Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../fast-sam/">
+<a class="md-nav__link" href="../../../models/fast-sam/">
 <span class="md-ellipsis">
     FastSAM (Fast Segment Anything Model)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../yolo-nas/">
+<a class="md-nav__link" href="../../../models/yolo-nas/">
 <span class="md-ellipsis">
     YOLO-NAS (Neural Architecture Search)
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    RT-DETR (Realtime Detection Transformer)
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../models/rtdetr/">
 <span class="md-ellipsis">
     RT-DETR (Realtime Detection Transformer)
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#overview">
-<span class="md-ellipsis">
-      Overview
-    </span>
-</a>
-<nav aria-label="Overview" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-features">
-<span class="md-ellipsis">
-      Key Features
-    </span>
-</a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#pre-trained-models">
-<span class="md-ellipsis">
-      Pre-trained Models
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-examples">
-<span class="md-ellipsis">
-      Usage Examples
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#supported-tasks-and-modes">
-<span class="md-ellipsis">
-      Supported Tasks and Modes
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#citations-and-acknowledgements">
-<span class="md-ellipsis">
-      Citations and Acknowledgements
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../datasets/">
+<a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -958,7 +897,7 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_6">
 <span class="md-nav__icon md-icon"></span>
             Datasets
@@ -967,7 +906,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../datasets/explorer/">
+<a class="md-nav__link" href="../../explorer/">
 <span class="md-ellipsis">
     NEW 🚀 Explorer
   </span>
@@ -983,21 +922,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/explorer/api/">
+<a class="md-nav__link" href="../../explorer/api/">
 <span class="md-ellipsis">
     Explorer API
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/explorer/dashboard/">
+<a class="md-nav__link" href="../../explorer/dashboard/">
 <span class="md-ellipsis">
     Explorer Dashboard
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/explorer/explorer/">
+<a class="md-nav__link" href="../../explorer/explorer/">
 <span class="md-ellipsis">
     VOC Exploration Example
   </span>
@@ -1006,10 +945,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_6_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../datasets/detect/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Detection
   </span>
@@ -1018,88 +957,145 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_6_3_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_6_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_6_3">
 <span class="md-nav__icon md-icon"></span>
             Detection
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/argoverse/">
+<a class="md-nav__link" href="../argoverse/">
 <span class="md-ellipsis">
     Argoverse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/coco/">
+<a class="md-nav__link" href="../coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/coco8/">
+<a class="md-nav__link" href="../coco8/">
 <span class="md-ellipsis">
     COCO8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/globalwheat2020/">
+<a class="md-nav__link" href="../globalwheat2020/">
 <span class="md-ellipsis">
     GlobalWheat2020
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/objects365/">
+<a class="md-nav__link" href="../objects365/">
 <span class="md-ellipsis">
     Objects365
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/open-images-v7/">
+<a class="md-nav__link" href="../open-images-v7/">
 <span class="md-ellipsis">
     OpenImagesV7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/sku-110k/">
+<a class="md-nav__link" href="../sku-110k/">
 <span class="md-ellipsis">
     SKU-110K
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/visdrone/">
+<a class="md-nav__link" href="../visdrone/">
 <span class="md-ellipsis">
     VisDrone
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/voc/">
+<a class="md-nav__link" href="../voc/">
 <span class="md-ellipsis">
     VOC
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/xview/">
+<a class="md-nav__link" href="../xview/">
 <span class="md-ellipsis">
     xView
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/detect/roboflow-100/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Roboflow 100
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Roboflow 100
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features">
+<span class="md-ellipsis">
+      Key Features
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dataset-structure">
+<span class="md-ellipsis">
+      Dataset Structure
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#applications">
+<span class="md-ellipsis">
+      Applications
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage">
+<span class="md-ellipsis">
+      Usage
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-data-and-annotations">
+<span class="md-ellipsis">
+      Sample Data and Annotations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#citations-and-acknowledgments">
+<span class="md-ellipsis">
+      Citations and Acknowledgments
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1107,7 +1103,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../datasets/segment/">
+<a class="md-nav__link" href="../../segment/">
 <span class="md-ellipsis">
     Segmentation
   </span>
@@ -1123,35 +1119,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/segment/coco/">
+<a class="md-nav__link" href="../../segment/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/segment/coco8-seg/">
+<a class="md-nav__link" href="../../segment/coco8-seg/">
 <span class="md-ellipsis">
     COCO8-seg
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/segment/crack-seg/">
+<a class="md-nav__link" href="../../segment/crack-seg/">
 <span class="md-ellipsis">
     Crack-seg
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/segment/carparts-seg/">
+<a class="md-nav__link" href="../../segment/carparts-seg/">
 <span class="md-ellipsis">
     Carparts-seg
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/segment/package-seg/">
+<a class="md-nav__link" href="../../segment/package-seg/">
 <span class="md-ellipsis">
     Package-seg
   </span>
@@ -1163,7 +1159,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../datasets/pose/">
+<a class="md-nav__link" href="../../pose/">
 <span class="md-ellipsis">
     Pose
   </span>
@@ -1179,21 +1175,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/pose/coco/">
+<a class="md-nav__link" href="../../pose/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/pose/coco8-pose/">
+<a class="md-nav__link" href="../../pose/coco8-pose/">
 <span class="md-ellipsis">
     COCO8-pose
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/pose/tiger-pose/">
+<a class="md-nav__link" href="../../pose/tiger-pose/">
 <span class="md-ellipsis">
     Tiger-pose
   </span>
@@ -1205,7 +1201,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../datasets/classify/">
+<a class="md-nav__link" href="../../classify/">
 <span class="md-ellipsis">
     Classification
   </span>
@@ -1221,70 +1217,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/caltech101/">
+<a class="md-nav__link" href="../../classify/caltech101/">
 <span class="md-ellipsis">
     Caltech 101
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/caltech256/">
+<a class="md-nav__link" href="../../classify/caltech256/">
 <span class="md-ellipsis">
     Caltech 256
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/cifar10/">
+<a class="md-nav__link" href="../../classify/cifar10/">
 <span class="md-ellipsis">
     CIFAR-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/cifar100/">
+<a class="md-nav__link" href="../../classify/cifar100/">
 <span class="md-ellipsis">
     CIFAR-100
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/fashion-mnist/">
+<a class="md-nav__link" href="../../classify/fashion-mnist/">
 <span class="md-ellipsis">
     Fashion-MNIST
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/imagenet/">
+<a class="md-nav__link" href="../../classify/imagenet/">
 <span class="md-ellipsis">
     ImageNet
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/imagenet10/">
+<a class="md-nav__link" href="../../classify/imagenet10/">
 <span class="md-ellipsis">
     ImageNet-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/imagenette/">
+<a class="md-nav__link" href="../../classify/imagenette/">
 <span class="md-ellipsis">
     Imagenette
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/imagewoof/">
+<a class="md-nav__link" href="../../classify/imagewoof/">
 <span class="md-ellipsis">
     Imagewoof
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/classify/mnist/">
+<a class="md-nav__link" href="../../classify/mnist/">
 <span class="md-ellipsis">
     MNIST
   </span>
@@ -1296,7 +1292,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../datasets/obb/">
+<a class="md-nav__link" href="../../obb/">
 <span class="md-ellipsis">
     Oriented Bounding Boxes (OBB)
   </span>
@@ -1312,14 +1308,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/obb/dota-v2/">
+<a class="md-nav__link" href="../../obb/dota-v2/">
 <span class="md-ellipsis">
     DOTAv2
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/obb/dota8/">
+<a class="md-nav__link" href="../../obb/dota8/">
 <span class="md-ellipsis">
     DOTA8
   </span>
@@ -1331,7 +1327,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../datasets/track/">
+<a class="md-nav__link" href="../../track/">
 <span class="md-ellipsis">
     Multi-Object Tracking
   </span>
@@ -1352,7 +1348,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../datasets/explorer/">
+<a class="md-nav__link" href="../../explorer/">
 <span class="md-ellipsis">
     NEW 🚀 Explorer
   </span>
@@ -1368,21 +1364,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/explorer/api/">
+<a class="md-nav__link" href="../../explorer/api/">
 <span class="md-ellipsis">
     Explorer API
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/explorer/dashboard/">
+<a class="md-nav__link" href="../../explorer/dashboard/">
 <span class="md-ellipsis">
     Explorer Dashboard Demo
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/explorer/explorer/">
+<a class="md-nav__link" href="../../explorer/explorer/">
 <span class="md-ellipsis">
     VOC Exploration Example
   </span>
@@ -1394,7 +1390,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../guides/">
+<a class="md-nav__link" href="../../../guides/">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -1410,91 +1406,91 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/yolo-common-issues/">
+<a class="md-nav__link" href="../../../guides/yolo-common-issues/">
 <span class="md-ellipsis">
     YOLO Common Issues
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/yolo-performance-metrics/">
+<a class="md-nav__link" href="../../../guides/yolo-performance-metrics/">
 <span class="md-ellipsis">
     YOLO Performance Metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/yolo-thread-safe-inference/">
+<a class="md-nav__link" href="../../../guides/yolo-thread-safe-inference/">
 <span class="md-ellipsis">
     YOLO Thread-Safe Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/model-deployment-options/">
+<a class="md-nav__link" href="../../../guides/model-deployment-options/">
 <span class="md-ellipsis">
     Model Deployment Options
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/kfold-cross-validation/">
+<a class="md-nav__link" href="../../../guides/kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/hyperparameter-tuning/">
+<a class="md-nav__link" href="../../../guides/hyperparameter-tuning/">
 <span class="md-ellipsis">
     Hyperparameter Tuning
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/sahi-tiled-inference/">
+<a class="md-nav__link" href="../../../guides/sahi-tiled-inference/">
 <span class="md-ellipsis">
     SAHI Tiled Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/azureml-quickstart/">
+<a class="md-nav__link" href="../../../guides/azureml-quickstart/">
 <span class="md-ellipsis">
     AzureML Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/conda-quickstart/">
+<a class="md-nav__link" href="../../../guides/conda-quickstart/">
 <span class="md-ellipsis">
     Conda Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/docker-quickstart/">
+<a class="md-nav__link" href="../../../guides/docker-quickstart/">
 <span class="md-ellipsis">
     Docker Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/raspberry-pi/">
+<a class="md-nav__link" href="../../../guides/raspberry-pi/">
 <span class="md-ellipsis">
     Raspberry Pi
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/triton-inference-server/">
+<a class="md-nav__link" href="../../../guides/triton-inference-server/">
 <span class="md-ellipsis">
     Triton Inference Server
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/isolating-segmentation-objects/">
+<a class="md-nav__link" href="../../../guides/isolating-segmentation-objects/">
 <span class="md-ellipsis">
     Isolating Segmentation Objects
   </span>
@@ -1515,77 +1511,77 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/object-counting/">
+<a class="md-nav__link" href="../../../guides/object-counting/">
 <span class="md-ellipsis">
     Object Counting
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/object-cropping/">
+<a class="md-nav__link" href="../../../guides/object-cropping/">
 <span class="md-ellipsis">
     Object Cropping
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/object-blurring/">
+<a class="md-nav__link" href="../../../guides/object-blurring/">
 <span class="md-ellipsis">
     Object Blurring
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/workouts-monitoring/">
+<a class="md-nav__link" href="../../../guides/workouts-monitoring/">
 <span class="md-ellipsis">
     Workouts Monitoring
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/region-counting/">
+<a class="md-nav__link" href="../../../guides/region-counting/">
 <span class="md-ellipsis">
     Objects Counting in Regions
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/security-alarm-system/">
+<a class="md-nav__link" href="../../../guides/security-alarm-system/">
 <span class="md-ellipsis">
     Security Alarm System
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/heatmaps/">
+<a class="md-nav__link" href="../../../guides/heatmaps/">
 <span class="md-ellipsis">
     Heatmaps
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/instance-segmentation-and-tracking/">
+<a class="md-nav__link" href="../../../guides/instance-segmentation-and-tracking/">
 <span class="md-ellipsis">
     Instance Segmentation with Object Tracking
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/vision-eye/">
+<a class="md-nav__link" href="../../../guides/vision-eye/">
 <span class="md-ellipsis">
     VisionEye Mapping
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/speed-estimation/">
+<a class="md-nav__link" href="../../../guides/speed-estimation/">
 <span class="md-ellipsis">
     Speed Estimation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../guides/distance-calculation/">
+<a class="md-nav__link" href="../../../guides/distance-calculation/">
 <span class="md-ellipsis">
     Distance Calculation
   </span>
@@ -1597,7 +1593,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8_16" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../yolov5/">
+<a class="md-nav__link" href="../../../yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
@@ -1613,14 +1609,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../yolov5/quickstart_tutorial/">
+<a class="md-nav__link" href="../../../yolov5/quickstart_tutorial/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../yolov5/environments/aws_quickstart_tutorial/">
+<a class="md-nav__link" href="../../../yolov5/environments/aws_quickstart_tutorial/">
 <span class="md-ellipsis">
     Environments
   </span>
@@ -1628,7 +1624,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../yolov5/tutorials/train_custom_data/">
+<a class="md-nav__link" href="../../../yolov5/tutorials/train_custom_data/">
 <span class="md-ellipsis">
     Tutorials
   </span>
@@ -1644,7 +1640,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../integrations/">
+<a class="md-nav__link" href="../../../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -1660,105 +1656,105 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/comet/">
+<a class="md-nav__link" href="../../../integrations/comet/">
 <span class="md-ellipsis">
     Comet ML
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/openvino/">
+<a class="md-nav__link" href="../../../integrations/openvino/">
 <span class="md-ellipsis">
     OpenVINO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/onnx/">
+<a class="md-nav__link" href="../../../integrations/onnx/">
 <span class="md-ellipsis">
     ONNX
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/tensorrt/">
+<a class="md-nav__link" href="../../../integrations/tensorrt/">
 <span class="md-ellipsis">
     TensorRT
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/coreml/">
+<a class="md-nav__link" href="../../../integrations/coreml/">
 <span class="md-ellipsis">
     CoreML
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/ray-tune/">
+<a class="md-nav__link" href="../../../integrations/ray-tune/">
 <span class="md-ellipsis">
     Ray Tune
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/roboflow/">
+<a class="md-nav__link" href="../../../integrations/roboflow/">
 <span class="md-ellipsis">
     Roboflow
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/mlflow/">
+<a class="md-nav__link" href="../../../integrations/mlflow/">
 <span class="md-ellipsis">
     MLflow
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/clearml/">
+<a class="md-nav__link" href="../../../integrations/clearml/">
 <span class="md-ellipsis">
     ClearML
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/dvc/">
+<a class="md-nav__link" href="../../../integrations/dvc/">
 <span class="md-ellipsis">
     DVC
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/weights-biases/">
+<a class="md-nav__link" href="../../../integrations/weights-biases/">
 <span class="md-ellipsis">
     Weights &amp; Biases
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/neural-magic/">
+<a class="md-nav__link" href="../../../integrations/neural-magic/">
 <span class="md-ellipsis">
     Neural Magic
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/gradio/">
+<a class="md-nav__link" href="../../../integrations/gradio/">
 <span class="md-ellipsis">
     Gradio
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/tensorboard/">
+<a class="md-nav__link" href="../../../integrations/tensorboard/">
 <span class="md-ellipsis">
     TensorBoard
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/amazon-sagemaker/">
+<a class="md-nav__link" href="../../../integrations/amazon-sagemaker/">
 <span class="md-ellipsis">
     Amazon SageMaker
   </span>
@@ -1784,7 +1780,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../hub/">
+<a class="md-nav__link" href="../../../hub/">
 <span class="md-ellipsis">
     Cloud
   </span>
@@ -1800,42 +1796,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/quickstart/">
+<a class="md-nav__link" href="../../../hub/quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/datasets/">
+<a class="md-nav__link" href="../../../hub/datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/projects/">
+<a class="md-nav__link" href="../../../hub/projects/">
 <span class="md-ellipsis">
     Projects
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/models/">
+<a class="md-nav__link" href="../../../hub/models/">
 <span class="md-ellipsis">
     Models
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/integrations/">
+<a class="md-nav__link" href="../../../hub/integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/inference-api/">
+<a class="md-nav__link" href="../../../hub/inference-api/">
 <span class="md-ellipsis">
     Inference API
   </span>
@@ -1847,7 +1843,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../hub/on-premise/">
+<a class="md-nav__link" href="../../../hub/on-premise/">
 <span class="md-ellipsis">
     On-Premise
   </span>
@@ -1865,7 +1861,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../hub/app/">
+<a class="md-nav__link" href="../../../hub/app/">
 <span class="md-ellipsis">
     App
   </span>
@@ -1881,14 +1877,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/app/ios/">
+<a class="md-nav__link" href="../../../hub/app/ios/">
 <span class="md-ellipsis">
     iOS
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/app/android/">
+<a class="md-nav__link" href="../../../hub/app/android/">
 <span class="md-ellipsis">
     Android
   </span>
@@ -1900,7 +1896,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../hub/sdk/">
+<a class="md-nav__link" href="../../../hub/sdk/">
 <span class="md-ellipsis">
     Python SDK
   </span>
@@ -1916,35 +1912,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/sdk/quickstart/">
+<a class="md-nav__link" href="../../../hub/sdk/quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/sdk/model/">
+<a class="md-nav__link" href="../../../hub/sdk/model/">
 <span class="md-ellipsis">
     Model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/sdk/dataset/">
+<a class="md-nav__link" href="../../../hub/sdk/dataset/">
 <span class="md-ellipsis">
     Dataset
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../hub/sdk/project/">
+<a class="md-nav__link" href="../../../hub/sdk/project/">
 <span class="md-ellipsis">
     Project
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../hub/sdk/reference/base/api_client/">
+<a class="md-nav__link" href="../../../hub/sdk/reference/base/api_client/">
 <span class="md-ellipsis">
     Reference
   </span>
@@ -1957,7 +1953,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../hub/api/">
+<a class="md-nav__link" href="../../../hub/api/">
 <span class="md-ellipsis">
     REST API
   </span>
@@ -2004,7 +2000,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/cfg/__init__/">
+<a class="md-nav__link" href="../../../reference/cfg/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
@@ -2028,49 +2024,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/data/annotator/">
+<a class="md-nav__link" href="../../../reference/data/annotator/">
 <span class="md-ellipsis">
     annotator
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/data/augment/">
+<a class="md-nav__link" href="../../../reference/data/augment/">
 <span class="md-ellipsis">
     augment
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/data/base/">
+<a class="md-nav__link" href="../../../reference/data/base/">
 <span class="md-ellipsis">
     base
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/data/build/">
+<a class="md-nav__link" href="../../../reference/data/build/">
 <span class="md-ellipsis">
     build
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/data/converter/">
+<a class="md-nav__link" href="../../../reference/data/converter/">
 <span class="md-ellipsis">
     converter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/data/dataset/">
+<a class="md-nav__link" href="../../../reference/data/dataset/">
 <span class="md-ellipsis">
     dataset
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/data/explorer/explorer/">
+<a class="md-nav__link" href="../../../reference/data/explorer/explorer/">
 <span class="md-ellipsis">
     explorer
   </span>
@@ -2078,21 +2074,21 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/data/loaders/">
+<a class="md-nav__link" href="../../../reference/data/loaders/">
 <span class="md-ellipsis">
     loaders
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/data/split_dota/">
+<a class="md-nav__link" href="../../../reference/data/split_dota/">
 <span class="md-ellipsis">
     split_dota
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/data/utils/">
+<a class="md-nav__link" href="../../../reference/data/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -2116,49 +2112,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/engine/exporter/">
+<a class="md-nav__link" href="../../../reference/engine/exporter/">
 <span class="md-ellipsis">
     exporter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/engine/model/">
+<a class="md-nav__link" href="../../../reference/engine/model/">
 <span class="md-ellipsis">
     model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/engine/predictor/">
+<a class="md-nav__link" href="../../../reference/engine/predictor/">
 <span class="md-ellipsis">
     predictor
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/engine/results/">
+<a class="md-nav__link" href="../../../reference/engine/results/">
 <span class="md-ellipsis">
     results
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/engine/trainer/">
+<a class="md-nav__link" href="../../../reference/engine/trainer/">
 <span class="md-ellipsis">
     trainer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/engine/tuner/">
+<a class="md-nav__link" href="../../../reference/engine/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/engine/validator/">
+<a class="md-nav__link" href="../../../reference/engine/validator/">
 <span class="md-ellipsis">
     validator
   </span>
@@ -2182,28 +2178,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/hub/__init__/">
+<a class="md-nav__link" href="../../../reference/hub/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/hub/auth/">
+<a class="md-nav__link" href="../../../reference/hub/auth/">
 <span class="md-ellipsis">
     auth
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/hub/session/">
+<a class="md-nav__link" href="../../../reference/hub/session/">
 <span class="md-ellipsis">
     session
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/hub/utils/">
+<a class="md-nav__link" href="../../../reference/hub/utils/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -2227,7 +2223,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/models/fastsam/model/">
+<a class="md-nav__link" href="../../../reference/models/fastsam/model/">
 <span class="md-ellipsis">
     fastsam
   </span>
@@ -2235,7 +2231,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/models/nas/model/">
+<a class="md-nav__link" href="../../../reference/models/nas/model/">
 <span class="md-ellipsis">
     nas
   </span>
@@ -2243,7 +2239,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/models/rtdetr/model/">
+<a class="md-nav__link" href="../../../reference/models/rtdetr/model/">
 <span class="md-ellipsis">
     rtdetr
   </span>
@@ -2251,7 +2247,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/models/sam/amg/">
+<a class="md-nav__link" href="../../../reference/models/sam/amg/">
 <span class="md-ellipsis">
     sam
   </span>
@@ -2259,7 +2255,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/models/utils/loss/">
+<a class="md-nav__link" href="../../../reference/models/utils/loss/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -2267,7 +2263,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/models/yolo/classify/predict/">
+<a class="md-nav__link" href="../../../reference/models/yolo/classify/predict/">
 <span class="md-ellipsis">
     yolo
   </span>
@@ -2292,14 +2288,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/nn/autobackend/">
+<a class="md-nav__link" href="../../../reference/nn/autobackend/">
 <span class="md-ellipsis">
     autobackend
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/nn/modules/block/">
+<a class="md-nav__link" href="../../../reference/nn/modules/block/">
 <span class="md-ellipsis">
     modules
   </span>
@@ -2307,7 +2303,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/nn/tasks/">
+<a class="md-nav__link" href="../../../reference/nn/tasks/">
 <span class="md-ellipsis">
     tasks
   </span>
@@ -2331,35 +2327,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/solutions/ai_gym/">
+<a class="md-nav__link" href="../../../reference/solutions/ai_gym/">
 <span class="md-ellipsis">
     ai_gym
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/solutions/distance_calculation/">
+<a class="md-nav__link" href="../../../reference/solutions/distance_calculation/">
 <span class="md-ellipsis">
     distance_calculation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/solutions/heatmap/">
+<a class="md-nav__link" href="../../../reference/solutions/heatmap/">
 <span class="md-ellipsis">
     heatmap
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/solutions/object_counter/">
+<a class="md-nav__link" href="../../../reference/solutions/object_counter/">
 <span class="md-ellipsis">
     object_counter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/solutions/speed_estimation/">
+<a class="md-nav__link" href="../../../reference/solutions/speed_estimation/">
 <span class="md-ellipsis">
     speed_estimation
   </span>
@@ -2383,35 +2379,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/trackers/basetrack/">
+<a class="md-nav__link" href="../../../reference/trackers/basetrack/">
 <span class="md-ellipsis">
     basetrack
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/trackers/bot_sort/">
+<a class="md-nav__link" href="../../../reference/trackers/bot_sort/">
 <span class="md-ellipsis">
     bot_sort
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/trackers/byte_tracker/">
+<a class="md-nav__link" href="../../../reference/trackers/byte_tracker/">
 <span class="md-ellipsis">
     byte_tracker
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/trackers/track/">
+<a class="md-nav__link" href="../../../reference/trackers/track/">
 <span class="md-ellipsis">
     track
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/trackers/utils/gmc/">
+<a class="md-nav__link" href="../../../reference/trackers/utils/gmc/">
 <span class="md-ellipsis">
     utils
   </span>
@@ -2436,28 +2432,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/__init__/">
+<a class="md-nav__link" href="../../../reference/utils/__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/autobatch/">
+<a class="md-nav__link" href="../../../reference/utils/autobatch/">
 <span class="md-ellipsis">
     autobatch
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/benchmarks/">
+<a class="md-nav__link" href="../../../reference/utils/benchmarks/">
 <span class="md-ellipsis">
     benchmarks
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/utils/callbacks/base/">
+<a class="md-nav__link" href="../../../reference/utils/callbacks/base/">
 <span class="md-ellipsis">
     callbacks
   </span>
@@ -2465,105 +2461,105 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/checks/">
+<a class="md-nav__link" href="../../../reference/utils/checks/">
 <span class="md-ellipsis">
     checks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/dist/">
+<a class="md-nav__link" href="../../../reference/utils/dist/">
 <span class="md-ellipsis">
     dist
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/downloads/">
+<a class="md-nav__link" href="../../../reference/utils/downloads/">
 <span class="md-ellipsis">
     downloads
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/errors/">
+<a class="md-nav__link" href="../../../reference/utils/errors/">
 <span class="md-ellipsis">
     errors
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/files/">
+<a class="md-nav__link" href="../../../reference/utils/files/">
 <span class="md-ellipsis">
     files
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/instance/">
+<a class="md-nav__link" href="../../../reference/utils/instance/">
 <span class="md-ellipsis">
     instance
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/loss/">
+<a class="md-nav__link" href="../../../reference/utils/loss/">
 <span class="md-ellipsis">
     loss
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/metrics/">
+<a class="md-nav__link" href="../../../reference/utils/metrics/">
 <span class="md-ellipsis">
     metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/ops/">
+<a class="md-nav__link" href="../../../reference/utils/ops/">
 <span class="md-ellipsis">
     ops
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/patches/">
+<a class="md-nav__link" href="../../../reference/utils/patches/">
 <span class="md-ellipsis">
     patches
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/plotting/">
+<a class="md-nav__link" href="../../../reference/utils/plotting/">
 <span class="md-ellipsis">
     plotting
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/tal/">
+<a class="md-nav__link" href="../../../reference/utils/tal/">
 <span class="md-ellipsis">
     tal
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/torch_utils/">
+<a class="md-nav__link" href="../../../reference/utils/torch_utils/">
 <span class="md-ellipsis">
     torch_utils
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/triton/">
+<a class="md-nav__link" href="../../../reference/utils/triton/">
 <span class="md-ellipsis">
     triton
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../reference/utils/tuner/">
+<a class="md-nav__link" href="../../../reference/utils/tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
@@ -2578,7 +2574,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_12" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../help/">
+<a class="md-nav__link" href="../../../help/">
 <span class="md-ellipsis">
     Help
   </span>
@@ -2594,63 +2590,63 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../help/FAQ/">
+<a class="md-nav__link" href="../../../help/FAQ/">
 <span class="md-ellipsis">
     Frequently Asked Questions (FAQ)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../help/contributing/">
+<a class="md-nav__link" href="../../../help/contributing/">
 <span class="md-ellipsis">
     Contributing Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../help/CI/">
+<a class="md-nav__link" href="../../../help/CI/">
 <span class="md-ellipsis">
     Continuous Integration (CI) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../help/CLA/">
+<a class="md-nav__link" href="../../../help/CLA/">
 <span class="md-ellipsis">
     Contributor License Agreement (CLA)
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../help/minimum_reproducible_example/">
+<a class="md-nav__link" href="../../../help/minimum_reproducible_example/">
 <span class="md-ellipsis">
     Minimum Reproducible Example (MRE) Guide
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../help/code_of_conduct/">
+<a class="md-nav__link" href="../../../help/code_of_conduct/">
 <span class="md-ellipsis">
     Code of Conduct
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../help/environmental-health-safety/">
+<a class="md-nav__link" href="../../../help/environmental-health-safety/">
 <span class="md-ellipsis">
     Environmental, Health and Safety (EHS) Policy
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../help/security/">
+<a class="md-nav__link" href="../../../help/security/">
 <span class="md-ellipsis">
     Security Policy
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../help/privacy/">
+<a class="md-nav__link" href="../../../help/privacy/">
 <span class="md-ellipsis">
     Privacy Policy
   </span>
@@ -2674,48 +2670,44 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#overview">
-<span class="md-ellipsis">
-      Overview
-    </span>
-</a>
-<nav aria-label="Overview" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
 <a class="md-nav__link" href="#key-features">
 <span class="md-ellipsis">
       Key Features
     </span>
 </a>
 </li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pre-trained-models">
+<a class="md-nav__link" href="#dataset-structure">
 <span class="md-ellipsis">
-      Pre-trained Models
+      Dataset Structure
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usage-examples">
+<a class="md-nav__link" href="#applications">
 <span class="md-ellipsis">
-      Usage Examples
+      Applications
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#supported-tasks-and-modes">
+<a class="md-nav__link" href="#usage">
 <span class="md-ellipsis">
-      Supported Tasks and Modes
+      Usage
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#citations-and-acknowledgements">
+<a class="md-nav__link" href="#sample-data-and-annotations">
 <span class="md-ellipsis">
-      Citations and Acknowledgements
+      Sample Data and Annotations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#citations-and-acknowledgments">
+<span class="md-ellipsis">
+      Citations and Acknowledgments
     </span>
 </a>
 </li>
@@ -2726,114 +2718,68 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/models/rtdetr.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/datasets/detect/roboflow-100.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="baidus-rt-detr-a-vision-transformer-based-real-time-object-detector">Baidu's RT-DETR: A Vision Transformer-Based Real-Time Object Detector</h1>
-<h2 id="overview">Overview</h2>
-<p>Real-Time Detection Transformer (RT-DETR), developed by Baidu, is a cutting-edge end-to-end object detector that provides real-time performance while maintaining high accuracy. It leverages the power of Vision Transformers (ViT) to efficiently process multiscale features by decoupling intra-scale interaction and cross-scale fusion. RT-DETR is highly adaptable, supporting flexible adjustment of inference speed using different decoder layers without retraining. The model excels on accelerated backends like CUDA with TensorRT, outperforming many other real-time object detectors.</p>
-<p><img alt="Model example image" src="https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png"> <strong>Overview of Baidu's RT-DETR.</strong> The RT-DETR model architecture diagram shows the last three stages of the backbone {S3, S4, S5} as the input to the encoder. The efficient hybrid encoder transforms multiscale features into a sequence of image features through intrascale feature interaction (AIFI) and cross-scale feature-fusion module (CCFM). The IoU-aware query selection is employed to select a fixed number of image features to serve as initial object queries for the decoder. Finally, the decoder with auxiliary prediction heads iteratively optimizes object queries to generate boxes and confidence scores (<a href="https://arxiv.org/pdf/2304.08069.pdf">source</a>).</img></p>
-<h3 id="key-features">Key Features</h3>
+<h1 id="roboflow-100-dataset">Roboflow 100 Dataset</h1>
+<p>Roboflow 100, developed by <a href="https://roboflow.com/?ref=ultralytics">Roboflow</a> and sponsored by Intel, is a groundbreaking <a href="../../../tasks/detect/">object detection</a> benchmark. It includes 100 diverse datasets sampled from over 90,000 public datasets. This benchmark is designed to test the adaptability of models to various domains, including healthcare, aerial imagery, and video games.</p>
+<p align="center">
+<img alt="Roboflow 100 Overview" src="https://user-images.githubusercontent.com/15908060/202452898-9ca6b8f7-4805-4e8e-949a-6e080d7b94d2.jpg" width="640"/>
+</p>
+<h2 id="key-features">Key Features</h2>
 <ul>
-<li><strong>Efficient Hybrid Encoder:</strong> Baidu's RT-DETR uses an efficient hybrid encoder that processes multiscale features by decoupling intra-scale interaction and cross-scale fusion. This unique Vision Transformers-based design reduces computational costs and allows for real-time object detection.</li>
-<li><strong>IoU-aware Query Selection:</strong> Baidu's RT-DETR improves object query initialization by utilizing IoU-aware query selection. This allows the model to focus on the most relevant objects in the scene, enhancing the detection accuracy.</li>
-<li><strong>Adaptable Inference Speed:</strong> Baidu's RT-DETR supports flexible adjustments of inference speed by using different decoder layers without the need for retraining. This adaptability facilitates practical application in various real-time object detection scenarios.</li>
+<li>Includes 100 datasets across seven domains: Aerial, Videogames, Microscopic, Underwater, Documents, Electromagnetic, and Real World.</li>
+<li>The benchmark comprises 224,714 images across 805 classes, thanks to over 11,170 hours of labeling efforts.</li>
+<li>All images are resized to 640x640 pixels, with a focus on eliminating class ambiguity and filtering out underrepresented classes.</li>
+<li>Annotations include bounding boxes for objects, making it suitable for <a href="../../../modes/train/">training</a> and evaluating object detection models.</li>
 </ul>
-<h2 id="pre-trained-models">Pre-trained Models</h2>
-<p>The Ultralytics Python API provides pre-trained PaddlePaddle RT-DETR models with different scales:</p>
+<h2 id="dataset-structure">Dataset Structure</h2>
+<p>The Roboflow 100 dataset is organized into seven categories, each with a distinct set of datasets, images, and classes:</p>
 <ul>
-<li>RT-DETR-L: 53.0% AP on COCO val2017, 114 FPS on T4 GPU</li>
-<li>RT-DETR-X: 54.8% AP on COCO val2017, 74 FPS on T4 GPU</li>
+<li><strong>Aerial</strong>: Consists of 7 datasets with a total of 9,683 images, covering 24 distinct classes.</li>
+<li><strong>Videogames</strong>: Includes 7 datasets, featuring 11,579 images across 88 classes.</li>
+<li><strong>Microscopic</strong>: Comprises 11 datasets with 13,378 images, spanning 28 classes.</li>
+<li><strong>Underwater</strong>: Contains 5 datasets, encompassing 18,003 images in 39 classes.</li>
+<li><strong>Documents</strong>: Consists of 8 datasets with 24,813 images, divided into 90 classes.</li>
+<li><strong>Electromagnetic</strong>: Made up of 12 datasets, totaling 36,381 images in 41 classes.</li>
+<li><strong>Real World</strong>: The largest category with 50 datasets, offering 110,615 images across 495 classes.</li>
 </ul>
-<h2 id="usage-examples">Usage Examples</h2>
-<p>This example provides simple RT-DETRR training and inference examples. For full documentation on these and other <a href="../../modes/">modes</a> see the <a href="../../modes/predict/">Predict</a>, <a href="../../modes/train/">Train</a>, <a href="../../modes/val/">Val</a> and <a href="../../modes/export/">Export</a> docs pages.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">RTDETR</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a COCO-pretrained RT-DETR-l model</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">RTDETR</span><span class="p">(</span><span class="s1">'rtdetr-l.pt'</span><span class="p">)</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Display model information (optional)</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># Run inference with the RT-DETR-l model on the 'bus.jpg' image</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'path/to/bus.jpg'</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Load a COCO-pretrained RT-DETR-l model and train it on the COCO8 example dataset for 100 epochs</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>rtdetr-l.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Load a COCO-pretrained RT-DETR-l model and run inference on the 'bus.jpg' image</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>rtdetr-l.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/bus.jpg
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-</div>
-<h2 id="supported-tasks-and-modes">Supported Tasks and Modes</h2>
-<p>This table presents the model types, the specific pre-trained weights, the tasks supported by each model, and the various modes (<a href="../../modes/train/">Train</a> , <a href="../../modes/val/">Val</a>, <a href="../../modes/predict/">Predict</a>, <a href="../../modes/export/">Export</a>) that are supported, indicated by ✅ emojis.</p>
-<table>
-<thead>
-<tr>
-<th>Model Type</th>
-<th>Pre-trained Weights</th>
-<th>Tasks Supported</th>
-<th>Inference</th>
-<th>Validation</th>
-<th>Training</th>
-<th>Export</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RT-DETR Large</td>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v8.1.0/rtdetr-l.pt">rtdetr-l.pt</a></td>
-<td><a href="../../tasks/detect/">Object Detection</a></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>RT-DETR Extra-Large</td>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v8.1.0/rtdetr-x.pt">rtdetr-x.pt</a></td>
-<td><a href="../../tasks/detect/">Object Detection</a></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
-<h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
-<p>If you use Baidu's RT-DETR in your research or development work, please cite the <a href="https://arxiv.org/abs/2304.08069">original paper</a>:</p>
+<p>This structure enables a diverse and extensive testing ground for object detection models, reflecting real-world application scenarios.</p>
+<h2 id="applications">Applications</h2>
+<p>Roboflow 100 is invaluable for various applications related to computer vision and deep learning. Researchers and engineers can use this benchmark to:</p>
+<ul>
+<li>Evaluate the performance of object detection models in a multi-domain context.</li>
+<li>Test the adaptability of models to real-world scenarios beyond common object recognition.</li>
+<li>Benchmark the capabilities of object detection models across diverse datasets, including those in healthcare, aerial imagery, and video games.</li>
+</ul>
+<p>For more ideas and inspiration on real-world applications, be sure to check out <a href="../../../guides/">our guides on real-world projects</a>.</p>
+<h2 id="usage">Usage</h2>
+<p>The Roboflow 100 dataset is available on both <a href="https://github.com/roboflow/roboflow-100-benchmark">GitHub</a> and <a href="https://universe.roboflow.com/roboflow-100">Roboflow Universe</a>. </p>
+<p>You can access it directly from the Roboflow 100 GitHub repository. In addition, on Roboflow Universe, you have the flexibility to download individual datasets by simply clicking the export button within each dataset.</p>
+<h2 id="sample-data-and-annotations">Sample Data and Annotations</h2>
+<p>Roboflow 100 consists of datasets with diverse images and videos captured from various angles and domains. Here’s a look at examples of annotated images in the RF100 benchmark.</p>
+<p align="center">
+<img alt="Sample Data and Annotations" src="https://blog.roboflow.com/content/images/2022/11/image-2.png" width="640"/>
+</p>
+<p>The diversity in the Roboflow 100 benchmark that can be seen above is a significant advancement from traditional benchmarks which often focus on optimizing a single metric within a limited domain.</p>
+<h2 id="citations-and-acknowledgments">Citations and Acknowledgments</h2>
+<p>If you use the Roboflow 100 dataset in your research or development work, please cite the following paper:</p>
 <div class="admonition quote">
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">lv2023detrs</span><span class="p">,</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{DETRs Beat YOLOs on Real-time Object Detection}</span><span class="p">,</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Wenyu Lv and Shangliang Xu and Yian Zhao and Guanzhong Wang and Jinman Wei and Cheng Cui and Yuning Du and Qingqing Dang and Yi Liu}</span><span class="p">,</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2023}</span><span class="p">,</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{2304.08069}</span><span class="p">,</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">2211.13523</span><span class="p">,</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="na">Author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Floriana Ciaglia and Francesco Saverio Zuppichini and Paul Guerrie and Mark McQuade and Jacob Solawetz}</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="na">Title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Roboflow 100: A Rich, Multi-Domain Object Detection Benchmark}</span><span class="p">,</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="na">Eprint</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv:2211.13523}</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
 </input></div>
 </div>
-<p>We would like to acknowledge Baidu and the <a href="https://github.com/PaddlePaddle/PaddleDetection">PaddlePaddle</a> team for creating and maintaining this valuable resource for the computer vision community. Their contribution to the field with the development of the Vision Transformers-based real-time object detector, RT-DETR, is greatly appreciated.</p>
-<p><em>Keywords: RT-DETR, Transformer, ViT, Vision Transformers, Baidu RT-DETR, PaddlePaddle, Paddle Paddle RT-DETR, real-time object detection, Vision Transformers-based object detection, pre-trained PaddlePaddle RT-DETR models, Baidu's RT-DETR usage, Ultralytics Python API</em></p>
+<p>Our thanks go to the Roboflow team and all the contributors for their hard work in creating and sustaining the Roboflow 100 dataset.</p>
+<p>If you are interested in exploring more datasets to enhance your object detection and machine learning projects, feel free to visit <a href="../../">our comprehensive dataset collection</a>.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -2842,7 +2788,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-16<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-02-07, Updated 2024-02-07<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -2853,10 +2799,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/models/rtdetr', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/datasets/detect/roboflow-100', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/models/rtdetr', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/datasets/detect/roboflow-100', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -2905,7 +2851,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: YOLO-NAS (Neural Architecture Search)" class="md-footer__link md-footer__link--prev" href="../yolo-nas/">
+<a aria-label="Previous: xView" class="md-footer__link md-footer__link--prev" href="../xview/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -2914,17 +2860,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                YOLO-NAS (Neural Architecture Search)
+                xView
               </div>
 </div>
 </a>
-<a aria-label="Next: Datasets Overview" class="md-footer__link md-footer__link--next" href="../../datasets/">
+<a aria-label="Next: Instance Segmentation Datasets Overview" class="md-footer__link md-footer__link--next" href="../../segment/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Datasets Overview
+                Instance Segmentation Datasets Overview
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -2976,8 +2922,8 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.caa56a14.min.js"></script>
-<script src="../../javascript/extra.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.caa56a14.min.js"></script>
+<script src="../../../javascript/extra.js"></script>
 </body>
 </html>
