@@ -64,7 +64,7 @@ jobs:
           credentials_json = os.environ['CREDENTIALS_JSON']
           # Submit sitemaps for each language
           host = "docs.ultralytics.com"
-          for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/hi', '/ar', '/tr', '/vi', '/it']:
+          for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/hi', '/ar', '/tr', '/vi', '/it', '/nl']:
               sitemap = f'https://{host}{lang}/sitemap.xml'
               submit_sitemap(f'https://docs.ultralytics.com/', sitemap, credentials_json)
 
@@ -114,7 +114,7 @@ jobs:
           # Submit URLs from each sitemap to IndexNow
           host = "docs.ultralytics.com"
           all_urls = []
-          for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/hi', '/ar', '/tr', '/vi', '/it']:
+          for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/hi', '/ar', '/tr', '/vi', '/it', '/nl']:
               sitemap = f'https://{host}{lang}/sitemap.xml'
               lang_urls = extract_urls_from_sitemap(sitemap)
               all_urls.extend(lang_urls)
