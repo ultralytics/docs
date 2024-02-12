@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Predict" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, predict mode, inference sources, prediction tasks, streaming mode, image processing, video processing, machine learning, AI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/predict" property="og:url"/><meta content="Predict" property="og:title"/><meta content="Discover how to use YOLOv8 predict mode for various tasks. Learn about different inference sources like images, videos, and data formats." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/predict" property="twitter:url"/><meta content="Predict" property="twitter:title"/><meta content="Discover how to use YOLOv8 predict mode for various tasks. Learn about different inference sources like images, videos, and data formats." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Predict", "image": ["https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-03 23:24:20 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Predict" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, predict mode, inference sources, prediction tasks, streaming mode, image processing, video processing, machine learning, AI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/predict" property="og:url"/><meta content="Predict" property="og:title"/><meta content="Discover how to use YOLOv8 predict mode for various tasks. Learn about different inference sources like images, videos, and data formats." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/predict" property="twitter:url"/><meta content="Predict" property="twitter:title"/><meta content="Discover how to use YOLOv8 predict mode for various tasks. Learn about different inference sources like images, videos, and data formats." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Predict", "image": ["https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-12 01:39:32 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1156,7 +1156,7 @@
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>Argument</th>
 <th>Type</th>
 <th>Default</th>
 <th>Description</th>
@@ -1167,91 +1167,91 @@
 <td><code>source</code></td>
 <td><code>str</code></td>
 <td><code>'ultralytics/assets'</code></td>
-<td>source directory for images or videos</td>
+<td>Specifies the data source for inference. Can be an image path, video file, directory, URL, or device ID for live feeds. Supports a wide range of formats and sources, enabling flexible application across different types of input.</td>
 </tr>
 <tr>
 <td><code>conf</code></td>
 <td><code>float</code></td>
 <td><code>0.25</code></td>
-<td>object confidence threshold for detection</td>
+<td>Sets the minimum confidence threshold for detections. Objects detected with confidence below this threshold will be disregarded. Adjusting this value can help reduce false positives.</td>
 </tr>
 <tr>
 <td><code>iou</code></td>
 <td><code>float</code></td>
 <td><code>0.7</code></td>
-<td>intersection over union (IoU) threshold for NMS</td>
+<td>Intersection Over Union (IoU) threshold for Non-Maximum Suppression (NMS). Higher values result in fewer detections by eliminating overlapping boxes, useful for reducing duplicates.</td>
 </tr>
 <tr>
 <td><code>imgsz</code></td>
 <td><code>int or tuple</code></td>
 <td><code>640</code></td>
-<td>image size as scalar or (h, w) list, i.e. (640, 480)</td>
+<td>Defines the image size for inference. Can be a single integer <code>640</code> for square resizing or a (height, width) tuple. Proper sizing can improve detection accuracy and processing speed.</td>
 </tr>
 <tr>
 <td><code>half</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>use half precision (FP16)</td>
+<td>Enables half-precision (FP16) inference, which can speed up model inference on supported GPUs with minimal impact on accuracy.</td>
 </tr>
 <tr>
 <td><code>device</code></td>
-<td><code>None or str</code></td>
+<td><code>str</code></td>
 <td><code>None</code></td>
-<td>device to run on, i.e. cuda device=0/1/2/3 or device=cpu</td>
+<td>Specifies the device for inference (e.g., <code>cpu</code>, <code>cuda:0</code> or <code>0</code>). Allows users to select between CPU, a specific GPU, or other compute devices for model execution.</td>
 </tr>
 <tr>
 <td><code>max_det</code></td>
 <td><code>int</code></td>
 <td><code>300</code></td>
-<td>maximum number of detections per image</td>
+<td>Maximum number of detections allowed per image. Limits the total number of objects the model can detect in a single inference, preventing excessive outputs in dense scenes.</td>
 </tr>
 <tr>
 <td><code>vid_stride</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>video frame-rate stride</td>
+<td><code>int</code></td>
+<td><code>1</code></td>
+<td>Frame stride for video inputs. Allows skipping frames in videos to speed up processing at the cost of temporal resolution. A value of 1 processes every frame, higher values skip frames.</td>
 </tr>
 <tr>
 <td><code>stream_buffer</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>buffer all streaming frames (True) or return the most recent frame (False)</td>
+<td>Determines if all frames should be buffered when processing video streams (<code>True</code>), or if the model should return the most recent frame (<code>False</code>). Useful for real-time applications.</td>
 </tr>
 <tr>
 <td><code>visualize</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>visualize model features</td>
+<td>Activates visualization of model features during inference, providing insights into what the model is "seeing". Useful for debugging and model interpretation.</td>
 </tr>
 <tr>
 <td><code>augment</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>apply image augmentation to prediction sources</td>
+<td>Enables test-time augmentation (TTA) for predictions, potentially improving detection robustness at the cost of inference speed.</td>
 </tr>
 <tr>
 <td><code>agnostic_nms</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>class-agnostic NMS</td>
+<td>Enables class-agnostic Non-Maximum Suppression (NMS), which merges overlapping boxes of different classes. Useful in multi-class detection scenarios where class overlap is common.</td>
 </tr>
 <tr>
 <td><code>classes</code></td>
 <td><code>list[int]</code></td>
 <td><code>None</code></td>
-<td>filter results by class, i.e. classes=0, or classes=[0,2,3]</td>
+<td>Filters predictions to a set of class IDs. Only detections belonging to the specified classes will be returned. Useful for focusing on relevant objects in multi-class detection tasks.</td>
 </tr>
 <tr>
 <td><code>retina_masks</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>use high-resolution segmentation masks</td>
+<td>Uses high-resolution segmentation masks if available in the model. This can enhance mask quality for segmentation tasks, providing finer detail.</td>
 </tr>
 <tr>
 <td><code>embed</code></td>
 <td><code>list[int]</code></td>
 <td><code>None</code></td>
-<td>return feature vectors/embeddings from given layers</td>
+<td>Specifies the layers from which to extract feature vectors or embeddings. Useful for downstream tasks like clustering or similarity search.</td>
 </tr>
 </tbody>
 </table>
@@ -1259,7 +1259,7 @@
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>Argument</th>
 <th>Type</th>
 <th>Default</th>
 <th>Description</th>
@@ -1270,61 +1270,61 @@
 <td><code>show</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>show predicted images and videos if environment allows</td>
+<td>If <code>True</code>, displays the annotated images or videos in a window. Useful for immediate visual feedback during development or testing.</td>
 </tr>
 <tr>
 <td><code>save</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>save predicted images and videos</td>
+<td>Enables saving of the annotated images or videos to file. Useful for documentation, further analysis, or sharing results.</td>
 </tr>
 <tr>
 <td><code>save_frames</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>save predicted individual video frames</td>
+<td>When processing videos, saves individual frames as images. Useful for extracting specific frames or for detailed frame-by-frame analysis.</td>
 </tr>
 <tr>
 <td><code>save_txt</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>save results as <code>.txt</code> file</td>
+<td>Saves detection results in a text file, following the format <code>[class] [x_center] [y_center] [width] [height] [confidence]</code>. Useful for integration with other analysis tools.</td>
 </tr>
 <tr>
 <td><code>save_conf</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>save results with confidence scores</td>
+<td>Includes confidence scores in the saved text files. Enhances the detail available for post-processing and analysis.</td>
 </tr>
 <tr>
 <td><code>save_crop</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>save cropped images with results</td>
+<td>Saves cropped images of detections. Useful for dataset augmentation, analysis, or creating focused datasets for specific objects.</td>
 </tr>
 <tr>
 <td><code>show_labels</code></td>
 <td><code>bool</code></td>
 <td><code>True</code></td>
-<td>show prediction labels, i.e. 'person'</td>
+<td>Displays labels for each detection in the visual output. Provides immediate understanding of detected objects.</td>
 </tr>
 <tr>
 <td><code>show_conf</code></td>
 <td><code>bool</code></td>
 <td><code>True</code></td>
-<td>show prediction confidence, i.e. '0.99'</td>
+<td>Displays the confidence score for each detection alongside the label. Gives insight into the model's certainty for each detection.</td>
 </tr>
 <tr>
 <td><code>show_boxes</code></td>
 <td><code>bool</code></td>
 <td><code>True</code></td>
-<td>show prediction boxes</td>
+<td>Draws bounding boxes around detected objects. Essential for visual identification and location of objects in images or video frames.</td>
 </tr>
 <tr>
 <td><code>line_width</code></td>
 <td><code>None or int</code></td>
 <td><code>None</code></td>
-<td>line width of the bounding boxes. Scaled to image size if None.</td>
+<td>Specifies the line width of bounding boxes. If <code>None</code>, the line width is automatically adjusted based on the image size. Provides visual customization for clarity.</td>
 </tr>
 </tbody>
 </table>
@@ -2174,7 +2174,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (13), <a href="https://github.com/tensorturtle">tensorturtle</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (14), <a href="https://github.com/tensorturtle">tensorturtle</a> (1), <a href="https://github.com/AyushExel">AyushExel</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

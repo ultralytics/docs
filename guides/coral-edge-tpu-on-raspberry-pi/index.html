@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Complete guide to setting up and using Ultralytics YOLO models with Docker. Learn how to install Docker, manage GPU support, and run YOLO models in isolated containers." name="description"/>
+<meta content="Using Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/guides/docker-quickstart/" rel="canonical"/>
-<link href="../conda-quickstart/" rel="prev"/>
-<link href="../raspberry-pi/" rel="next"/>
+<link href="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi/" rel="canonical"/>
+<link href="../isolating-segmentation-objects/" rel="prev"/>
+<link href="../object-counting/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.9" name="generator"/>
-<title>Docker Quickstart - Ultralytics YOLOv8 Docs</title>
+<title>Edge TPU on Raspberry Pi - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Docker Quickstart" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, Docker, GPU, containerization, object detection, package installation, deep learning, machine learning, guide" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/docker-quickstart" property="og:url"/><meta content="Docker Quickstart" property="og:title"/><meta content="Complete guide to setting up and using Ultralytics YOLO models with Docker. Learn how to install Docker, manage GPU support, and run YOLO models in isolated containers." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/270173601-fc7011bd-e67c-452f-a31a-aa047dcd2771.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/docker-quickstart" property="twitter:url"/><meta content="Docker Quickstart" property="twitter:title"/><meta content="Complete guide to setting up and using Ultralytics YOLO models with Docker. Learn how to install Docker, manage GPU support, and run YOLO models in isolated containers." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/270173601-fc7011bd-e67c-452f-a31a-aa047dcd2771.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Docker Quickstart", "image": ["https://user-images.githubusercontent.com/26833433/270173601-fc7011bd-e67c-452f-a31a-aa047dcd2771.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2023-11-16 21:51:45 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Edge TPU on Raspberry Pi" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Coral, Edge TPU, Raspberry Pi, embedded, edge compute, sbc, accelerator, mobile" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi" property="og:url"/><meta content="Edge TPU on Raspberry Pi" property="og:title"/><meta content="Using Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." property="og:description"/><meta content="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi" property="twitter:url"/><meta content="Edge TPU on Raspberry Pi" property="twitter:title"/><meta content="Using Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." property="twitter:description"/><meta content="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Edge TPU on Raspberry Pi", "image": ["https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800"], "datePublished": "2024-02-12 01:39:32 +0100", "dateModified": "2024-02-12 01:39:32 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#docker-quickstart-guide-for-ultralytics">
+<a class="md-skip" href="#coral-edge-tpu-on-a-raspberry-pi-with-ultralytics-yolov8">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Docker Quickstart
+              Edge TPU on Raspberry Pi
             
           </span>
 </div>
@@ -416,91 +416,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Docker Quickstart
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-quickstart/">
 <span class="md-ellipsis">
     Docker Quickstart
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-you-will-learn">
-<span class="md-ellipsis">
-      What You Will Learn
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
-<span class="md-ellipsis">
-      Prerequisites
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#setting-up-docker-with-nvidia-support">
-<span class="md-ellipsis">
-      Setting up Docker with NVIDIA Support
-    </span>
-</a>
-<nav aria-label="Setting up Docker with NVIDIA Support" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installing-nvidia-docker-runtime">
-<span class="md-ellipsis">
-      Installing NVIDIA Docker Runtime
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#verify-nvidia-runtime-with-docker">
-<span class="md-ellipsis">
-      Verify NVIDIA Runtime with Docker
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installing-ultralytics-docker-images">
-<span class="md-ellipsis">
-      Installing Ultralytics Docker Images
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#running-ultralytics-in-docker-container">
-<span class="md-ellipsis">
-      Running Ultralytics in Docker Container
-    </span>
-</a>
-<nav aria-label="Running Ultralytics in Docker Container" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#note-on-file-accessibility">
-<span class="md-ellipsis">
-      Note on File Accessibility
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../raspberry-pi/">
@@ -523,12 +444,87 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../coral-edge-tpu-on-raspberry-pi/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Edge TPU on Raspberry Pi
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Edge TPU on Raspberry Pi
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-a-coral-edge-tpu">
+<span class="md-ellipsis">
+      What is a Coral Edge TPU?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why">
+<span class="md-ellipsis">
+      Why?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-this-guide">
+<span class="md-ellipsis">
+      Why this guide?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+<span class="md-ellipsis">
+      Prerequisites
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+<span class="md-ellipsis">
+      Installation
+    </span>
+</a>
+<nav aria-label="Installation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installing-the-edge-tpu-runtime">
+<span class="md-ellipsis">
+      Installing the Edge TPU runtime
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exporting-your-model-to-a-edge-tpu-compatible-model">
+<span class="md-ellipsis">
+      Exporting your model to a Edge TPU compatible model
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-the-model">
+<span class="md-ellipsis">
+      Running the model
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8_16" type="checkbox"/>
@@ -718,9 +714,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-you-will-learn">
+<a class="md-nav__link" href="#what-is-a-coral-edge-tpu">
 <span class="md-ellipsis">
-      What You Will Learn
+      What is a Coral Edge TPU?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why">
+<span class="md-ellipsis">
+      Why?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-this-guide">
+<span class="md-ellipsis">
+      Why this guide?
     </span>
 </a>
 </li>
@@ -732,24 +742,17 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#setting-up-docker-with-nvidia-support">
+<a class="md-nav__link" href="#installation">
 <span class="md-ellipsis">
-      Setting up Docker with NVIDIA Support
+      Installation
     </span>
 </a>
-<nav aria-label="Setting up Docker with NVIDIA Support" class="md-nav">
+<nav aria-label="Installation" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#installing-nvidia-docker-runtime">
+<a class="md-nav__link" href="#installing-the-edge-tpu-runtime">
 <span class="md-ellipsis">
-      Installing NVIDIA Docker Runtime
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#verify-nvidia-runtime-with-docker">
-<span class="md-ellipsis">
-      Verify NVIDIA Runtime with Docker
+      Installing the Edge TPU runtime
     </span>
 </a>
 </li>
@@ -757,29 +760,18 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#installing-ultralytics-docker-images">
+<a class="md-nav__link" href="#exporting-your-model-to-a-edge-tpu-compatible-model">
 <span class="md-ellipsis">
-      Installing Ultralytics Docker Images
+      Exporting your model to a Edge TPU compatible model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#running-ultralytics-in-docker-container">
+<a class="md-nav__link" href="#running-the-model">
 <span class="md-ellipsis">
-      Running Ultralytics in Docker Container
+      Running the model
     </span>
 </a>
-<nav aria-label="Running Ultralytics in Docker Container" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#note-on-file-accessibility">
-<span class="md-ellipsis">
-      Note on File Accessibility
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -788,87 +780,151 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/docker-quickstart.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/coral-edge-tpu-on-raspberry-pi.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="docker-quickstart-guide-for-ultralytics">Docker Quickstart Guide for Ultralytics</h1>
+<h1 id="coral-edge-tpu-on-a-raspberry-pi-with-ultralytics-yolov8">Coral Edge TPU on a Raspberry Pi with Ultralytics YOLOv8. 🚀</h1>
 <p align="center">
-<img alt="Ultralytics Docker Package Visual" src="https://user-images.githubusercontent.com/26833433/270173601-fc7011bd-e67c-452f-a31a-aa047dcd2771.png" width="800"/>
+<img alt="Raspberry Pi single board computer with USB Edge TPU accelerator" src="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" width="800"/>
 </p>
-<p>This guide serves as a comprehensive introduction to setting up a Docker environment for your Ultralytics projects. <a href="https://docker.com/">Docker</a> is a platform for developing, shipping, and running applications in containers. It is particularly beneficial for ensuring that the software will always run the same, regardless of where it's deployed. For more details, visit the Ultralytics Docker repository on <a href="https://hub.docker.com/r/ultralytics/ultralytics">Docker Hub</a>.</p>
-<p><a href="https://hub.docker.com/r/ultralytics/ultralytics"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/ultralytics?logo=docker"/></a></p>
-<h2 id="what-you-will-learn">What You Will Learn</h2>
-<ul>
-<li>Setting up Docker with NVIDIA support</li>
-<li>Installing Ultralytics Docker images</li>
-<li>Running Ultralytics in a Docker container</li>
-<li>Mounting local directories into the container</li>
-</ul>
-<hr/>
+<h2 id="what-is-a-coral-edge-tpu">What is a Coral Edge TPU?</h2>
+<p>The Coral USB Accelerator is a compact device that adds an Edge TPU coprocessor to your system. It enables low-power, high-performance ML inferencing for TensorFlow Lite models. Read more at the <a href="https://coral.ai/products/accelerator">Coral Edge TPU home page</a>.</p>
+<h2 id="why">Why?</h2>
+<p>Many people want to run their models on an embedded or mobile device such as a Raspberry Pi, since they are very power efficient and can be used in many different applications. However, the inference performance on these devices is usually poor even when using formats like <code>onnx</code> or <code>openvino</code>. The Coral Edge TPU is a great solution to this problem, since it can be used with a Raspberry Pi and accelerate inference performance greatly.</p>
+<h2 id="why-this-guide">Why this guide?</h2>
+<p>The <a href="https://coral.ai/docs/accelerator/get-started/">current guide</a> by Coral on how to use the Edge TPU with a Raspberry Pi is outdated, and the current Coral Edge TPU runtime builds do not work with the current TensorFlow Lite runtime versions anymore. In addition to that, Google seems to have completely abandoned the Coral project, and there have not been any updates between 2021 and 2024. This guide will show you how to get the Edge TPU working with the latest versions of the TensorFlow Lite runtime and an updated Coral Edge TPU runtime on a Raspberry Pi single board computer (SBC).</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>Make sure Docker is installed on your system. If not, you can download and install it from <a href="https://www.docker.com/products/docker-desktop">Docker's website</a>.</li>
-<li>Ensure that your system has an NVIDIA GPU and NVIDIA drivers are installed.</li>
+<li><a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/">Raspberry Pi 4B</a> (2GB or more recommended) or <a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5</a> (Recommended)</li>
+<li><a href="https://www.raspberrypi.com/software/">Raspberry Pi OS</a> Bullseye/Bookworm (64-bit) with desktop (Recommended)</li>
+<li><a href="https://coral.ai/products/accelerator/">Coral USB Accelerator</a></li>
+<li>A non-ARM based platform for exporting an Ultralytics PyTorch model</li>
 </ul>
-<hr/>
-<h2 id="setting-up-docker-with-nvidia-support">Setting up Docker with NVIDIA Support</h2>
-<p>First, verify that the NVIDIA drivers are properly installed by running:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>nvidia-smi
+<h2 id="installation">Installation</h2>
+<p>This guide assumes that you already have a working Raspberry Pi OS install and have installed <code>ultralytics</code> and all dependencies. To get <code>ultralytics</code> installed, visit the <a href="../../quickstart/">quickstart guide</a> to get setup before continuing here.</p>
+<h3 id="installing-the-edge-tpu-runtime">Installing the Edge TPU runtime</h3>
+<p>First, we need to install the Edge TPU runtime. There are many different versions available, so you need to choose the version for your device and operating system.</p>
+<table>
+<thead>
+<tr>
+<th>Raspberry Pi OS</th>
+<th style="text-align: center;">High frequency mode</th>
+<th>Version to download</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bullseye 32bit</td>
+<td style="text-align: center;">No</td>
+<td>libedgetpu1-std_ ... .bullseye_armhf.deb</td>
+</tr>
+<tr>
+<td>Bullseye 64bit</td>
+<td style="text-align: center;">No</td>
+<td>libedgetpu1-std_ ... .bullseye_arm64.deb</td>
+</tr>
+<tr>
+<td>Bullseye 32bit</td>
+<td style="text-align: center;">Yes</td>
+<td>libedgetpu1-max_ ... .bullseye_armhf.deb</td>
+</tr>
+<tr>
+<td>Bullseye 64bit</td>
+<td style="text-align: center;">Yes</td>
+<td>libedgetpu1-max_ ... .bullseye_arm64.deb</td>
+</tr>
+<tr>
+<td>Bookworm 32bit</td>
+<td style="text-align: center;">No</td>
+<td>libedgetpu1-std_ ... .bookworm_armhf.deb</td>
+</tr>
+<tr>
+<td>Bookworm 64bit</td>
+<td style="text-align: center;">No</td>
+<td>libedgetpu1-std_ ... .bookworm_arm64.deb</td>
+</tr>
+<tr>
+<td>Bookworm 32bit</td>
+<td style="text-align: center;">Yes</td>
+<td>libedgetpu1-max_ ... .bookworm_armhf.deb</td>
+</tr>
+<tr>
+<td>Bookworm 64bit</td>
+<td style="text-align: center;">Yes</td>
+<td>libedgetpu1-max_ ... .bookworm_arm64.deb</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://github.com/feranick/libedgetpu/releases">Download the latest version</a>.</p>
+<p>After downloading the file, you can install it with the following command:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>path/to/file
 </code></pre></div>
-<h3 id="installing-nvidia-docker-runtime">Installing NVIDIA Docker Runtime</h3>
-<p>Now, let's install the NVIDIA Docker runtime to enable GPU support in Docker containers:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Add NVIDIA package repositories</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/nvidia-docker/gpgkey<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/nvidia-docker/<span class="nv">$distribution</span>/nvidia-docker.list<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/nvidia-docker.list
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Install NVIDIA Docker runtime</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nvidia-docker2
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1"># Restart Docker service to apply changes</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
+<p>After installing the runtime, you need to plug in your Coral Edge TPU into a USB 3.0 port on your Raspberry Pi. This is because, according to the official guide, a new <code>udev</code> rule needs to take effect after installation.</p>
+<details class="warning" open="open">
+<summary>Important</summary>
+<p>If you already have the Coral Edge TPU runtime installed, uninstall it using the following command.
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># If you installed the standard version</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>libedgetpu1-std<span class="w"> </span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># If you installed the high frequency version</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>libedgetpu1-max<span class="w"> </span>
+</code></pre></div></p>
+</details>
+<h2 id="exporting-your-model-to-a-edge-tpu-compatible-model">Exporting your model to a Edge TPU compatible model</h2>
+<p>To use the Edge TPU, you need to convert your model into a compatible format. It is recommended that you run export on Google Colab, x86_64 Linux machine, using the official <a href="../docker-quickstart/">Ultralytics Docker container</a>, or using <a href="../../hub/quickstart/">Ultralytics HUB</a>, since the Edge TPU compiler is not available on ARM. See the <a href="../../modes/export/">Export Mode</a> for the available arguments.</p>
+<div class="admonition exporting the model">
+<p class="admonition-title">Exporting</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Load a model</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'path/to/model.pt'</span><span class="p">)</span>  <span class="c1"># Load a official model or custom model</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Export the model</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'edgetpu'</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="verify-nvidia-runtime-with-docker">Verify NVIDIA Runtime with Docker</h3>
-<p>Run <code>docker info | grep -i runtime</code> to ensure that <code>nvidia</code> appears in the list of runtimes:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>docker<span class="w"> </span>info<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>runtime
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/model.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>edgetpu<span class="w">  </span><span class="c1"># Export a official model or custom model</span>
 </code></pre></div>
-<hr/>
-<h2 id="installing-ultralytics-docker-images">Installing Ultralytics Docker Images</h2>
-<p>Ultralytics offers several Docker images optimized for various platforms and use-cases:</p>
-<ul>
-<li><strong>Dockerfile:</strong> GPU image, ideal for training.</li>
-<li><strong>Dockerfile-arm64:</strong> For ARM64 architecture, suitable for devices like <a href="../raspberry-pi/">Raspberry Pi</a>.</li>
-<li><strong>Dockerfile-cpu:</strong> CPU-only version for inference and non-GPU environments.</li>
-<li><strong>Dockerfile-jetson:</strong> Optimized for NVIDIA Jetson devices.</li>
-<li><strong>Dockerfile-python:</strong> Minimal Python environment for lightweight applications.</li>
-<li><strong>Dockerfile-conda:</strong> Includes <a href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda3</a> and Ultralytics package installed via Conda.</li>
-</ul>
-<p>To pull the latest image:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Set image name as a variable</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Pull the latest Ultralytics image from Docker Hub</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
+</div>
+</div>
+</input></input></div>
+</div>
+<p>The exported model will be saved in the <code>&lt;model_name&gt;_saved_model/</code> folder with the name <code>&lt;model_name&gt;_full_integer_quant_edgetpu.tflite</code>.</p>
+<h2 id="running-the-model">Running the model</h2>
+<p>After exporting your model, you can run inference with it using the following code:</p>
+<div class="admonition running the model">
+<p class="admonition-title">Running</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Load a model</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'path/to/model.tflite'</span><span class="p">)</span>  <span class="c1"># Load a official model or custom model</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Run Prediction</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/source.png"</span><span class="p">)</span>
 </code></pre></div>
-<hr/>
-<h2 id="running-ultralytics-in-docker-container">Running Ultralytics in Docker Container</h2>
-<p>Here's how to execute the Ultralytics Docker container:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Run with all GPUs</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># Run specifying which GPUs to use</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span>
+</div>
+</div>
+</input></div>
+</div>
+<p>For a more detailed guide on how to use the Predict Mode for inference, visit the <a href="../../modes/predict/">Prediction Mode</a> page.</p>
+<details class="warning" open="open">
+<summary>Important</summary>
+<p>You should run the model using <code>tflite-runtime</code> and not <code>tensorflow</code>.
+If <code>tensorflow</code> is installed, uninstall tensorflow with the following command:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>pip<span class="w"> </span>uninstall<span class="w"> </span>tensorflow<span class="w"> </span>tensorflow-aarch64
 </code></pre></div>
-<p>The <code>-it</code> flag assigns a pseudo-TTY and keeps stdin open, allowing you to interact with the container. The <code>--ipc=host</code> flag enables sharing of host's IPC namespace, essential for sharing memory between processes. The <code>--gpus</code> flag allows the container to access the host's GPUs.</p>
-<h3 id="note-on-file-accessibility">Note on File Accessibility</h3>
-<p>To work with files on your local machine within the container, you can use Docker volumes:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Mount a local directory into the container</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span><span class="nv">$t</span>
+<p>Then install/update <code>tflite-runtime</code>:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>pip install -U tflite-runtime
 </code></pre></div>
-<p>Replace <code>/path/on/host</code> with the directory path on your local machine and <code>/path/in/container</code> with the desired path inside the Docker container.</p>
-<hr/>
-<p>Congratulations! You're now set up to use Ultralytics with Docker and ready to take advantage of its powerful capabilities. For alternate installation methods, feel free to explore the <a href="../../quickstart/">Ultralytics quickstart documentation</a>.</p>
+<p>If you want a <code>tflite-runtime</code> wheel for <code>tensorflow</code> 2.15.0 download it from <a href="https://github.com/feranick/TFlite-builds/releases">here</a> and install it using <code>pip</code> or your package manager of choice.</p>
+</details>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -877,7 +933,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-16<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-02-12, Updated 2024-02-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -888,10 +944,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/docker-quickstart', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/docker-quickstart', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -940,7 +996,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Conda Quickstart" class="md-footer__link md-footer__link--prev" href="../conda-quickstart/">
+<a aria-label="Previous: Isolating Segmentation Objects" class="md-footer__link md-footer__link--prev" href="../isolating-segmentation-objects/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -949,17 +1005,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                Conda Quickstart
+                Isolating Segmentation Objects
               </div>
 </div>
 </a>
-<a aria-label="Next: Raspberry Pi" class="md-footer__link md-footer__link--next" href="../raspberry-pi/">
+<a aria-label="Next: Object Counting" class="md-footer__link md-footer__link--next" href="../object-counting/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Raspberry Pi
+                Object Counting
               </div>
 </div>
 <div class="md-footer__button md-icon">
