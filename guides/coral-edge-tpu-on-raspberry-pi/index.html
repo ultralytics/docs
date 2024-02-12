@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Using Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." name="description"/>
+<meta content="Guide on how to use Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi/" rel="canonical"/>
 <link href="../isolating-segmentation-objects/" rel="prev"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Edge TPU on Raspberry Pi" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Coral, Edge TPU, Raspberry Pi, embedded, edge compute, sbc, accelerator, mobile" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi" property="og:url"/><meta content="Edge TPU on Raspberry Pi" property="og:title"/><meta content="Using Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." property="og:description"/><meta content="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi" property="twitter:url"/><meta content="Edge TPU on Raspberry Pi" property="twitter:title"/><meta content="Using Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." property="twitter:description"/><meta content="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Edge TPU on Raspberry Pi", "image": ["https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800"], "datePublished": "2024-02-12 01:39:32 +0100", "dateModified": "2024-02-12 01:39:32 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Edge TPU on Raspberry Pi" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Coral, Edge TPU, Raspberry Pi, embedded, edge compute, sbc, accelerator, mobile" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi" property="og:url"/><meta content="Edge TPU on Raspberry Pi" property="og:title"/><meta content="Guide on how to use Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." property="og:description"/><meta content="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi" property="twitter:url"/><meta content="Edge TPU on Raspberry Pi" property="twitter:title"/><meta content="Guide on how to use Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." property="twitter:description"/><meta content="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Edge TPU on Raspberry Pi", "image": ["https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800"], "datePublished": "2024-02-12 01:39:32 +0100", "dateModified": "2024-02-12 21:36:48 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -471,16 +471,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why">
+<a class="md-nav__link" href="#boost-raspberry-pi-model-performance-with-coral-edge-tpu">
 <span class="md-ellipsis">
-      Why?
+      Boost Raspberry Pi Model Performance with Coral Edge TPU
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-this-guide">
+<a class="md-nav__link" href="#edge-tpu-on-raspberry-pi-with-tensorflow-lite-new">
 <span class="md-ellipsis">
-      Why this guide?
+      Edge TPU on Raspberry Pi with TensorFlow Lite (New)⭐
     </span>
 </a>
 </li>
@@ -492,12 +492,12 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#installation">
+<a class="md-nav__link" href="#installation-walkthrough">
 <span class="md-ellipsis">
-      Installation
+      Installation Walkthrough
     </span>
 </a>
-<nav aria-label="Installation" class="md-nav">
+<nav aria-label="Installation Walkthrough" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installing-the-edge-tpu-runtime">
@@ -510,9 +510,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#exporting-your-model-to-a-edge-tpu-compatible-model">
+<a class="md-nav__link" href="#export-your-model-to-a-edge-tpu-compatible-model">
 <span class="md-ellipsis">
-      Exporting your model to a Edge TPU compatible model
+      Export your model to a Edge TPU compatible model
     </span>
 </a>
 </li>
@@ -721,16 +721,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why">
+<a class="md-nav__link" href="#boost-raspberry-pi-model-performance-with-coral-edge-tpu">
 <span class="md-ellipsis">
-      Why?
+      Boost Raspberry Pi Model Performance with Coral Edge TPU
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-this-guide">
+<a class="md-nav__link" href="#edge-tpu-on-raspberry-pi-with-tensorflow-lite-new">
 <span class="md-ellipsis">
-      Why this guide?
+      Edge TPU on Raspberry Pi with TensorFlow Lite (New)⭐
     </span>
 </a>
 </li>
@@ -742,12 +742,12 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#installation">
+<a class="md-nav__link" href="#installation-walkthrough">
 <span class="md-ellipsis">
-      Installation
+      Installation Walkthrough
     </span>
 </a>
-<nav aria-label="Installation" class="md-nav">
+<nav aria-label="Installation Walkthrough" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installing-the-edge-tpu-runtime">
@@ -760,9 +760,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#exporting-your-model-to-a-edge-tpu-compatible-model">
+<a class="md-nav__link" href="#export-your-model-to-a-edge-tpu-compatible-model">
 <span class="md-ellipsis">
-      Exporting your model to a Edge TPU compatible model
+      Export your model to a Edge TPU compatible model
     </span>
 </a>
 </li>
@@ -783,16 +783,16 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/coral-edge-tpu-on-raspberry-pi.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="coral-edge-tpu-on-a-raspberry-pi-with-ultralytics-yolov8">Coral Edge TPU on a Raspberry Pi with Ultralytics YOLOv8. 🚀</h1>
+<h1 id="coral-edge-tpu-on-a-raspberry-pi-with-ultralytics-yolov8">Coral Edge TPU on a Raspberry Pi with Ultralytics YOLOv8 🚀</h1>
 <p align="center">
 <img alt="Raspberry Pi single board computer with USB Edge TPU accelerator" src="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" width="800"/>
 </p>
 <h2 id="what-is-a-coral-edge-tpu">What is a Coral Edge TPU?</h2>
-<p>The Coral USB Accelerator is a compact device that adds an Edge TPU coprocessor to your system. It enables low-power, high-performance ML inferencing for TensorFlow Lite models. Read more at the <a href="https://coral.ai/products/accelerator">Coral Edge TPU home page</a>.</p>
-<h2 id="why">Why?</h2>
-<p>Many people want to run their models on an embedded or mobile device such as a Raspberry Pi, since they are very power efficient and can be used in many different applications. However, the inference performance on these devices is usually poor even when using formats like <code>onnx</code> or <code>openvino</code>. The Coral Edge TPU is a great solution to this problem, since it can be used with a Raspberry Pi and accelerate inference performance greatly.</p>
-<h2 id="why-this-guide">Why this guide?</h2>
-<p>The <a href="https://coral.ai/docs/accelerator/get-started/">current guide</a> by Coral on how to use the Edge TPU with a Raspberry Pi is outdated, and the current Coral Edge TPU runtime builds do not work with the current TensorFlow Lite runtime versions anymore. In addition to that, Google seems to have completely abandoned the Coral project, and there have not been any updates between 2021 and 2024. This guide will show you how to get the Edge TPU working with the latest versions of the TensorFlow Lite runtime and an updated Coral Edge TPU runtime on a Raspberry Pi single board computer (SBC).</p>
+<p>The Coral Edge TPU is a compact device that adds an Edge TPU coprocessor to your system. It enables low-power, high-performance ML inferencing for TensorFlow Lite models. Read more at the <a href="https://coral.ai/products/accelerator">Coral Edge TPU home page</a>.</p>
+<h2 id="boost-raspberry-pi-model-performance-with-coral-edge-tpu">Boost Raspberry Pi Model Performance with Coral Edge TPU</h2>
+<p>Many people want to run their models on an embedded or mobile device such as a Raspberry Pi, since they are very power efficient and can be used in many different applications. However, the inference performance on these devices is usually poor even when using formats like <a href="../../integrations/onnx/">onnx</a> or <a href="../../integrations/openvino/">openvino</a>. The Coral Edge TPU is a great solution to this problem, since it can be used with a Raspberry Pi and accelerate inference performance greatly.</p>
+<h2 id="edge-tpu-on-raspberry-pi-with-tensorflow-lite-new">Edge TPU on Raspberry Pi with TensorFlow Lite (New)⭐</h2>
+<p>The <a href="https://coral.ai/docs/accelerator/get-started/">existing guide</a> by Coral on how to use the Edge TPU with a Raspberry Pi is outdated, and the current Coral Edge TPU runtime builds do not work with the current TensorFlow Lite runtime versions anymore. In addition to that, Google seems to have completely abandoned the Coral project, and there have not been any updates between 2021 and 2024. This guide will show you how to get the Edge TPU working with the latest versions of the TensorFlow Lite runtime and an updated Coral Edge TPU runtime on a Raspberry Pi single board computer (SBC).</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li><a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/">Raspberry Pi 4B</a> (2GB or more recommended) or <a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5</a> (Recommended)</li>
@@ -800,10 +800,10 @@
 <li><a href="https://coral.ai/products/accelerator/">Coral USB Accelerator</a></li>
 <li>A non-ARM based platform for exporting an Ultralytics PyTorch model</li>
 </ul>
-<h2 id="installation">Installation</h2>
+<h2 id="installation-walkthrough">Installation Walkthrough</h2>
 <p>This guide assumes that you already have a working Raspberry Pi OS install and have installed <code>ultralytics</code> and all dependencies. To get <code>ultralytics</code> installed, visit the <a href="../../quickstart/">quickstart guide</a> to get setup before continuing here.</p>
 <h3 id="installing-the-edge-tpu-runtime">Installing the Edge TPU runtime</h3>
-<p>First, we need to install the Edge TPU runtime. There are many different versions available, so you need to choose the version for your device and operating system.</p>
+<p>First, we need to install the Edge TPU runtime. There are many different versions available, so you need to choose the right version for your operating system.</p>
 <table>
 <thead>
 <tr>
@@ -855,22 +855,22 @@
 </tr>
 </tbody>
 </table>
-<p><a href="https://github.com/feranick/libedgetpu/releases">Download the latest version</a>.</p>
+<p><a href="https://github.com/feranick/libedgetpu/releases">Download the latest version from here</a>.</p>
 <p>After downloading the file, you can install it with the following command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>path/to/file
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>path/to/package.deb
 </code></pre></div>
 <p>After installing the runtime, you need to plug in your Coral Edge TPU into a USB 3.0 port on your Raspberry Pi. This is because, according to the official guide, a new <code>udev</code> rule needs to take effect after installation.</p>
 <details class="warning" open="open">
 <summary>Important</summary>
-<p>If you already have the Coral Edge TPU runtime installed, uninstall it using the following command.
+<p>If you already have the Coral Edge TPU runtime installed, uninstall it using the following command.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># If you installed the standard version</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>libedgetpu1-std<span class="w"> </span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># If you installed the high frequency version</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>libedgetpu1-max<span class="w"> </span>
-</code></pre></div></p>
+</code></pre></div>
 </details>
-<h2 id="exporting-your-model-to-a-edge-tpu-compatible-model">Exporting your model to a Edge TPU compatible model</h2>
+<h2 id="export-your-model-to-a-edge-tpu-compatible-model">Export your model to a Edge TPU compatible model</h2>
 <p>To use the Edge TPU, you need to convert your model into a compatible format. It is recommended that you run export on Google Colab, x86_64 Linux machine, using the official <a href="../docker-quickstart/">Ultralytics Docker container</a>, or using <a href="../../hub/quickstart/">Ultralytics HUB</a>, since the Edge TPU compiler is not available on ARM. See the <a href="../../modes/export/">Export Mode</a> for the available arguments.</p>
 <div class="admonition exporting the model">
 <p class="admonition-title">Exporting</p>
@@ -898,30 +898,34 @@
 <p>After exporting your model, you can run inference with it using the following code:</p>
 <div class="admonition running the model">
 <p class="admonition-title">Running</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'path/to/model.tflite'</span><span class="p">)</span>  <span class="c1"># Load a official model or custom model</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'path/to/edgetpu_model.tflite'</span><span class="p">)</span>  <span class="c1"># Load a official model or custom model</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Run Prediction</span>
 <a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/source.png"</span><span class="p">)</span>
 </code></pre></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/edgetpu_model.tflite<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/source.png<span class="w">  </span><span class="c1"># Load a official model or custom model</span>
+</code></pre></div>
 </div>
-</input></div>
 </div>
-<p>For a more detailed guide on how to use the Predict Mode for inference, visit the <a href="../../modes/predict/">Prediction Mode</a> page.</p>
+</input></input></div>
+</div>
+<p>Find comprehensive information on the <a href="../../modes/predict/">Predict</a> page for full prediction mode details.</p>
 <details class="warning" open="open">
 <summary>Important</summary>
 <p>You should run the model using <code>tflite-runtime</code> and not <code>tensorflow</code>.
 If <code>tensorflow</code> is installed, uninstall tensorflow with the following command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>pip<span class="w"> </span>uninstall<span class="w"> </span>tensorflow<span class="w"> </span>tensorflow-aarch64
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>pip<span class="w"> </span>uninstall<span class="w"> </span>tensorflow<span class="w"> </span>tensorflow-aarch64
 </code></pre></div>
 <p>Then install/update <code>tflite-runtime</code>:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>pip install -U tflite-runtime
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>pip install -U tflite-runtime
 </code></pre></div>
 <p>If you want a <code>tflite-runtime</code> wheel for <code>tensorflow</code> 2.15.0 download it from <a href="https://github.com/feranick/TFlite-builds/releases">here</a> and install it using <code>pip</code> or your package manager of choice.</p>
 </details>
@@ -933,7 +937,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-02-12, Updated 2024-02-12<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-02-12, Updated 2024-02-12<br/>Authors: <a href="https://github.com/Skillnoob">Skillnoob</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
