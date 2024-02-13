@@ -5,31 +5,31 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn about the Ultralytics Android App, enabling real-time object detection using YOLO models. Discover in-app features, quantization methods, and delegate options for optimal performance." name="description"/>
+<meta content="Learn how to use Ultralytics HUB for cloud for efficient and user-friendly AI model training. For easy model creation, training, evaluation and deployment, follow our detailed guide." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/hub/app/android/" rel="canonical"/>
-<link href="../ios/" rel="prev"/>
-<link href="../../sdk/" rel="next"/>
-<link href="../../../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.ultralytics.com/hub/cloud-training/" rel="canonical"/>
+<link href="../models/" rel="prev"/>
+<link href="../integrations/" rel="next"/>
+<link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.9" name="generator"/>
-<title>Android - Ultralytics YOLOv8 Docs</title>
-<link href="../../../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<title>Cloud Training - Ultralytics YOLOv8 Docs</title>
+<link href="../../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../../../stylesheets/style.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/style.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Android" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, Android App, real-time object detection, YOLO models, TensorFlow Lite, FP16 quantization, INT8 quantization, CPU, GPU, Hexagon, NNAPI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/app/android" property="og:url"/><meta content="Android" property="og:title"/><meta content="Learn about the Ultralytics Android App, enabling real-time object detection using YOLO models. Discover in-app features, quantization methods, and delegate options for optimal performance." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/281124469-6b3b0945-dbb1-44c8-80a9-ef6bc778b299.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/app/android" property="twitter:url"/><meta content="Android" property="twitter:title"/><meta content="Learn about the Ultralytics Android App, enabling real-time object detection using YOLO models. Discover in-app features, quantization methods, and delegate options for optimal performance." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/281124469-6b3b0945-dbb1-44c8-80a9-ef6bc778b299.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Android", "image": ["https://user-images.githubusercontent.com/26833433/281124469-6b3b0945-dbb1-44c8-80a9-ef6bc778b299.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2023-11-27 17:46:29 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Cloud Training" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, HUB Models, AI model training, model creation, model training, model evaluation, model deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/cloud-training" property="og:url"/><meta content="Cloud Training" property="og:title"/><meta content="Learn how to use Ultralytics HUB for cloud for efficient and user-friendly AI model training. For easy model creation, training, evaluation and deployment, follow our detailed guide." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/19519529/cbfdb3b8-ad35-44a6-afe6-61ec0b8e8b8d" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/cloud-training" property="twitter:url"/><meta content="Cloud Training" property="twitter:title"/><meta content="Learn how to use Ultralytics HUB for cloud for efficient and user-friendly AI model training. For easy model creation, training, evaluation and deployment, follow our detailed guide." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/19519529/cbfdb3b8-ad35-44a6-afe6-61ec0b8e8b8d" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cloud Training", "image": ["https://github.com/ultralytics/ultralytics/assets/19519529/cbfdb3b8-ad35-44a6-afe6-61ec0b8e8b8d"], "datePublished": "2024-02-14 00:22:28 +0530", "dateModified": "2024-02-14 00:22:28 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ultralytics-android-app-real-time-object-detection-with-yolo-models">
+<a class="md-skip" href="#cloud-training">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Android
+              Cloud Training
             
           </span>
 </div>
@@ -132,7 +132,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../..">
+<a class="md-tabs__link" href="../..">
           
   
     
@@ -142,7 +142,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../quickstart/">
+<a class="md-tabs__link" href="../../quickstart/">
           
   
     
@@ -152,7 +152,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../modes/">
+<a class="md-tabs__link" href="../../modes/">
           
   
     
@@ -162,7 +162,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../tasks/">
+<a class="md-tabs__link" href="../../tasks/">
           
   
     
@@ -172,7 +172,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../models/">
+<a class="md-tabs__link" href="../../models/">
           
   
     
@@ -182,7 +182,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../datasets/">
+<a class="md-tabs__link" href="../../datasets/">
           
   
     
@@ -192,7 +192,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../datasets/explorer/">
+<a class="md-tabs__link" href="../../datasets/explorer/">
           
   
     
@@ -202,7 +202,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../guides/">
+<a class="md-tabs__link" href="../../guides/">
           
   
     
@@ -212,7 +212,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../integrations/">
+<a class="md-tabs__link" href="../../integrations/">
           
   
     
@@ -222,7 +222,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../">
+<a class="md-tabs__link" href="../">
           
   
     
@@ -232,7 +232,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../reference/cfg/__init__/">
+<a class="md-tabs__link" href="../../reference/cfg/__init__/">
           
   
     
@@ -242,7 +242,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../help/">
+<a class="md-tabs__link" href="../../help/">
           
   
     
@@ -263,7 +263,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLOv8 Docs
@@ -280,7 +280,7 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../..">
+<a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -288,7 +288,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../quickstart/">
+<a class="md-nav__link" href="../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -296,7 +296,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../modes/">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -304,7 +304,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../tasks/">
+<a class="md-nav__link" href="../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -312,7 +312,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../models/">
+<a class="md-nav__link" href="../../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -320,7 +320,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../datasets/">
+<a class="md-nav__link" href="../../datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -328,7 +328,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../datasets/explorer/">
+<a class="md-nav__link" href="../../datasets/explorer/">
 <span class="md-ellipsis">
     NEW 🚀 Explorer
   </span>
@@ -336,7 +336,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../guides/">
+<a class="md-nav__link" href="../../guides/">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -344,7 +344,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../integrations/">
+<a class="md-nav__link" href="../../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -365,10 +365,10 @@
             HUB
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_10_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_10_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Cloud
   </span>
@@ -377,56 +377,113 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_10_1_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_10_1_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_10_1">
 <span class="md-nav__icon md-icon"></span>
             Cloud
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../quickstart/">
+<a class="md-nav__link" href="../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../datasets/">
+<a class="md-nav__link" href="../datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../projects/">
+<a class="md-nav__link" href="../projects/">
 <span class="md-ellipsis">
     Projects
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../models/">
+<a class="md-nav__link" href="../models/">
 <span class="md-ellipsis">
     Models
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../cloud-training/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Cloud Training
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Cloud Training
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#selecting-an-instance">
+<span class="md-ellipsis">
+      Selecting an Instance
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../integrations/">
+<a class="md-nav__link" href="#steps-to-train-the-model">
+<span class="md-ellipsis">
+      Steps to train the Model
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#training-via-ultralytics-cloud">
+<span class="md-ellipsis">
+      Training via Ultralytics Cloud
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monitor-your-training">
+<span class="md-ellipsis">
+      Monitor your training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stopping-and-resuming-your-training">
+<span class="md-ellipsis">
+      Stopping and resuming your training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#payments-and-billing-options">
+<span class="md-ellipsis">
+      Payments and Billing options
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../inference-api/">
+<a class="md-nav__link" href="../inference-api/">
 <span class="md-ellipsis">
     Inference API
   </span>
@@ -438,7 +495,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../on-premise/">
+<a class="md-nav__link" href="../on-premise/">
 <span class="md-ellipsis">
     On-Premise
   </span>
@@ -453,10 +510,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_10_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../app/">
 <span class="md-ellipsis">
     App
   </span>
@@ -465,79 +522,25 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_10_3_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_10_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_10_3">
 <span class="md-nav__icon md-icon"></span>
             App
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ios/">
+<a class="md-nav__link" href="../app/ios/">
 <span class="md-ellipsis">
     iOS
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Android
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../app/android/">
 <span class="md-ellipsis">
     Android
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#quantization-and-acceleration">
-<span class="md-ellipsis">
-      Quantization and Acceleration
-    </span>
-</a>
-<nav aria-label="Quantization and Acceleration" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fp16-quantization">
-<span class="md-ellipsis">
-      FP16 Quantization
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#int8-quantization">
-<span class="md-ellipsis">
-      INT8 Quantization
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#delegates-and-performance-variability">
-<span class="md-ellipsis">
-      Delegates and Performance Variability
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#getting-started-with-the-ultralytics-android-app">
-<span class="md-ellipsis">
-      Getting Started with the Ultralytics Android App
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -545,7 +548,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../sdk/">
+<a class="md-nav__link" href="../sdk/">
 <span class="md-ellipsis">
     Python SDK
   </span>
@@ -561,35 +564,35 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../sdk/quickstart/">
+<a class="md-nav__link" href="../sdk/quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../sdk/model/">
+<a class="md-nav__link" href="../sdk/model/">
 <span class="md-ellipsis">
     Model
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../sdk/dataset/">
+<a class="md-nav__link" href="../sdk/dataset/">
 <span class="md-ellipsis">
     Dataset
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../sdk/project/">
+<a class="md-nav__link" href="../sdk/project/">
 <span class="md-ellipsis">
     Project
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../sdk/reference/base/api_client/">
+<a class="md-nav__link" href="../sdk/reference/base/api_client/">
 <span class="md-ellipsis">
     Reference
   </span>
@@ -602,7 +605,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../api/">
+<a class="md-nav__link" href="../api/">
 <span class="md-ellipsis">
     REST API
   </span>
@@ -621,7 +624,7 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/cfg/__init__/">
+<a class="md-nav__link" href="../../reference/cfg/__init__/">
 <span class="md-ellipsis">
     Reference
   </span>
@@ -629,7 +632,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../help/">
+<a class="md-nav__link" href="../../help/">
 <span class="md-ellipsis">
     Help
   </span>
@@ -651,41 +654,44 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#quantization-and-acceleration">
+<a class="md-nav__link" href="#selecting-an-instance">
 <span class="md-ellipsis">
-      Quantization and Acceleration
-    </span>
-</a>
-<nav aria-label="Quantization and Acceleration" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#fp16-quantization">
-<span class="md-ellipsis">
-      FP16 Quantization
+      Selecting an Instance
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#int8-quantization">
+<a class="md-nav__link" href="#steps-to-train-the-model">
 <span class="md-ellipsis">
-      INT8 Quantization
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#delegates-and-performance-variability">
-<span class="md-ellipsis">
-      Delegates and Performance Variability
+      Steps to train the Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#getting-started-with-the-ultralytics-android-app">
+<a class="md-nav__link" href="#training-via-ultralytics-cloud">
 <span class="md-ellipsis">
-      Getting Started with the Ultralytics Android App
+      Training via Ultralytics Cloud
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monitor-your-training">
+<span class="md-ellipsis">
+      Monitor your training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stopping-and-resuming-your-training">
+<span class="md-ellipsis">
+      Stopping and resuming your training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#payments-and-billing-options">
+<span class="md-ellipsis">
+      Payments and Billing options
     </span>
 </a>
 </li>
@@ -696,119 +702,54 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/hub/app/android.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/hub/cloud-training.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="ultralytics-android-app-real-time-object-detection-with-yolo-models">Ultralytics Android App: Real-time Object Detection with YOLO Models</h1>
-<p><a href="https://bit.ly/ultralytics_hub" target="_blank">
-<img alt="Ultralytics HUB preview image" src="https://user-images.githubusercontent.com/26833433/281124469-6b3b0945-dbb1-44c8-80a9-ef6bc778b299.jpg" width="100%"/></a>
-<br/></p>
-<div align="center">
-<a href="https://github.com/ultralytics"><img alt="Ultralytics GitHub" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-github.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://www.linkedin.com/company/ultralytics/"><img alt="Ultralytics LinkedIn" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-linkedin.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://twitter.com/ultralytics"><img alt="Ultralytics Twitter" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-twitter.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://youtube.com/ultralytics"><img alt="Ultralytics YouTube" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-youtube.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://www.tiktok.com/@ultralytics"><img alt="Ultralytics TikTok" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-tiktok.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://www.instagram.com/ultralytics/"><img alt="Ultralytics Instagram" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-instagram.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://ultralytics.com/discord"><img alt="Ultralytics Discord" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-discord.png" width="3%"/></a>
-<br/>
-<br/>
-<a href="https://play.google.com/store/apps/details?id=com.ultralytics.ultralytics_app" style="text-decoration:none;">
-<img alt="Google Play store" src="https://raw.githubusercontent.com/ultralytics/assets/master/app/google-play.svg" width="15%"/></a> 
-</div>
-<p>The Ultralytics Android App is a powerful tool that allows you to run YOLO models directly on your Android device for real-time object detection. This app utilizes TensorFlow Lite for model optimization and various hardware delegates for acceleration, enabling fast and efficient object detection.</p>
-<h2 id="quantization-and-acceleration">Quantization and Acceleration</h2>
-<p>To achieve real-time performance on your Android device, YOLO models are quantized to either FP16 or INT8 precision. Quantization is a process that reduces the numerical precision of the model's weights and biases, thus reducing the model's size and the amount of computation required. This results in faster inference times without significantly affecting the model's accuracy.</p>
-<h3 id="fp16-quantization">FP16 Quantization</h3>
-<p>FP16 (or half-precision) quantization converts the model's 32-bit floating-point numbers to 16-bit floating-point numbers. This reduces the model's size by half and speeds up the inference process, while maintaining a good balance between accuracy and performance.</p>
-<h3 id="int8-quantization">INT8 Quantization</h3>
-<p>INT8 (or 8-bit integer) quantization further reduces the model's size and computation requirements by converting its 32-bit floating-point numbers to 8-bit integers. This quantization method can result in a significant speedup, but it may lead to a slight reduction in mean average precision (mAP) due to the lower numerical precision.</p>
-<div class="admonition tip">
-<p class="admonition-title">mAP Reduction in INT8 Models</p>
-<p>The reduced numerical precision in INT8 models can lead to some loss of information during the quantization process, which may result in a slight decrease in mAP. However, this trade-off is often acceptable considering the substantial performance gains offered by INT8 quantization.</p>
-</div>
-<h2 id="delegates-and-performance-variability">Delegates and Performance Variability</h2>
-<p>Different delegates are available on Android devices to accelerate model inference. These delegates include CPU, <a href="https://www.tensorflow.org/lite/android/delegates/gpu">GPU</a>, <a href="https://www.tensorflow.org/lite/android/delegates/hexagon">Hexagon</a> and <a href="https://www.tensorflow.org/lite/android/delegates/nnapi">NNAPI</a>. The performance of these delegates varies depending on the device's hardware vendor, product line, and specific chipsets used in the device.</p>
+<h1 id="cloud-training">Cloud Training</h1>
+<p>Ultralytics provides a web-based cloud training platform, enabling rapid and streamlined deployment of custom object detection models. Users benefit from a straightforward interface that facilitates the selection of their desired dataset and training method. Ultralytics further streamlines the process by offering a diverse array of pre-built options and architectural configurations.</p>
+<p><img alt="cloud training cover" src="https://github.com/ultralytics/ultralytics/assets/19519529/cbfdb3b8-ad35-44a6-afe6-61ec0b8e8b8d"/></p>
+<p>Read more about creating and other details of a Model at our <a href="../models/">HUB Models page</a></p>
+<h2 id="selecting-an-instance">Selecting an Instance</h2>
+<p>For details on Picking a model, and instances for it, please read <a href="../models/">Instances guide Page</a></p>
+<h2 id="steps-to-train-the-model">Steps to train the Model</h2>
+<p>Once the instance has been selected, training a model using ultralytics Hub is a three step process, as below: <br/></p>
 <ol>
-<li><strong>CPU</strong>: The default option, with reasonable performance on most devices.</li>
-<li><strong>GPU</strong>: Utilizes the device's GPU for faster inference. It can provide a significant performance boost on devices with powerful GPUs.</li>
-<li><strong>Hexagon</strong>: Leverages Qualcomm's Hexagon DSP for faster and more efficient processing. This option is available on devices with Qualcomm Snapdragon processors.</li>
-<li><strong>NNAPI</strong>: The Android Neural Networks API (NNAPI) serves as an abstraction layer for running ML models on Android devices. NNAPI can utilize various hardware accelerators, such as CPU, GPU, and dedicated AI chips (e.g., Google's Edge TPU, or the Pixel Neural Core).</li>
+<li>Picking a Dataset - Read more about Dataset, steps to add/remove dataset from <a href="../datasets/">Dataset page</a> <br/></li>
+<li>Picking a Model - Read more about Models, steps to create / share and handle a model <a href="../models/">HUB Models page</a> <br/></li>
+<li>Training the Model on the chosen Dataset <br/></li>
 </ol>
-<p>Here's a table showing the primary vendors, their product lines, popular devices, and supported delegates:</p>
-<table>
-<thead>
-<tr>
-<th>Vendor</th>
-<th>Product Lines</th>
-<th>Popular Devices</th>
-<th>Delegates Supported</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://www.qualcomm.com/">Qualcomm</a></td>
-<td><a href="https://www.qualcomm.com/snapdragon">Snapdragon (e.g., 800 series)</a></td>
-<td><a href="https://www.samsung.com/global/galaxy/galaxy-s21-5g/">Samsung Galaxy S21</a>, <a href="https://www.oneplus.com/9">OnePlus 9</a>, <a href="https://store.google.com/product/pixel_6">Google Pixel 6</a></td>
-<td>CPU, GPU, Hexagon, NNAPI</td>
-</tr>
-<tr>
-<td><a href="https://www.samsung.com/">Samsung</a></td>
-<td><a href="https://www.samsung.com/semiconductor/minisite/exynos/">Exynos (e.g., Exynos 2100)</a></td>
-<td><a href="https://www.samsung.com/global/galaxy/galaxy-s21-5g/">Samsung Galaxy S21 (Global version)</a></td>
-<td>CPU, GPU, NNAPI</td>
-</tr>
-<tr>
-<td><a href="https://i.mediatek.com/">MediaTek</a></td>
-<td><a href="https://i.mediatek.com/dimensity-1200">Dimensity (e.g., Dimensity 1200)</a></td>
-<td><a href="https://www.realme.com/global/realme-gt">Realme GT</a>, <a href="https://www.mi.com/en/phone/redmi/note-list">Xiaomi Redmi Note</a></td>
-<td>CPU, GPU, NNAPI</td>
-</tr>
-<tr>
-<td><a href="https://www.hisilicon.com/">HiSilicon</a></td>
-<td><a href="https://www.hisilicon.com/en/products/Kirin">Kirin (e.g., Kirin 990)</a></td>
-<td><a href="https://consumer.huawei.com/en/phones/p40-pro/">Huawei P40 Pro</a>, <a href="https://consumer.huawei.com/en/phones/mate30-pro/">Huawei Mate 30 Pro</a></td>
-<td>CPU, GPU, NNAPI</td>
-</tr>
-<tr>
-<td><a href="https://www.nvidia.com/">NVIDIA</a></td>
-<td><a href="https://developer.nvidia.com/content/tegra-x1">Tegra (e.g., Tegra X1)</a></td>
-<td><a href="https://www.nvidia.com/en-us/shield/shield-tv/">NVIDIA Shield TV</a>, <a href="https://www.nintendo.com/switch/">Nintendo Switch</a></td>
-<td>CPU, GPU, NNAPI</td>
-</tr>
-</tbody>
-</table>
-<p>Please note that the list of devices mentioned is not exhaustive and may vary depending on the specific chipsets and device models. Always test your models on your target devices to ensure compatibility and optimal performance.</p>
-<p>Keep in mind that the choice of delegate can affect performance and model compatibility. For example, some models may not work with certain delegates, or a delegate may not be available on a specific device. As such, it's essential to test your model and the chosen delegate on your target devices for the best results.</p>
-<h2 id="getting-started-with-the-ultralytics-android-app">Getting Started with the Ultralytics Android App</h2>
-<p>To get started with the Ultralytics Android App, follow these steps:</p>
+<p>Ultralytics HUB offers three training options:</p>
+<ul>
+<li><strong>Ultralytics Cloud</strong></li>
+<li><strong>Google Colab</strong> - Read more about training via Google Colab <a href="../models/">HUB Models page</a></li>
+<li><strong>Bring your own agent</strong> - Read more about training via your own Agent <a href="../models/">HUB Models page</a></li>
+</ul>
+<p>In order to start training your model, follow the instructions presented in these steps.</p>
+<h2 id="training-via-ultralytics-cloud">Training via Ultralytics Cloud</h2>
+<p>To start training your model using Ultralytics Cloud, we need to simply select the Training Duration, Available Instances, and Payment options.<br/></p>
+<p><strong>Training Duration</strong> - The Ultralytics offers two kind of training durations <br/></p>
 <ol>
-<li>
-<p>Download the Ultralytics App from the <a href="https://play.google.com/store/apps/details?id=com.ultralytics.ultralytics_app">Google Play Store</a>.</p>
-</li>
-<li>
-<p>Launch the app on your Android device and sign in with your Ultralytics account. If you don't have an account yet, create one <a href="https://hub.ultralytics.com/">here</a>.</p>
-</li>
-<li>
-<p>Once signed in, you will see a list of your trained YOLO models. Select a model to use for object detection.</p>
-</li>
-<li>
-<p>Grant the app permission to access your device's camera.</p>
-</li>
-<li>
-<p>Point your device's camera at objects you want to detect. The app will display bounding boxes and class labels in real-time as it detects objects.</p>
-</li>
-<li>
-<p>Explore the app's settings to adjust the detection threshold, enable or disable specific object classes, and more.</p>
-</li>
+<li>Training based on <code>Epochs</code> - This option lets you train your model based on number of times your Dataset needs to go through the cycle of Train, Label and Test. The exact pricing based on number of Epochs is hard to determine. Hence, if the credit gets exhausted before intended number of Epochs, the training pauses and we get a prompt to Top-up and resume Training. <br/></li>
+<li>Timed Training - The timed training features allows you to fix the time duration of the entire Training process and also determines the estimated amount before the start of Training. <br/></li>
 </ol>
-<p>With the Ultralytics Android App, you now have the power of real-time object detection using YOLO models right at your fingertips. Enjoy exploring the app's features and optimizing its settings to suit your specific use cases.</p>
+<p><img alt="Ultralytics cloud screenshot of training Duration options" src="https://github.com/ultralytics/ultralytics/assets/19519529/47b96f3f-a9ea-441a-b065-cba97edc333f"/></p>
+<p>When the training starts, you can click <strong>Done</strong> and monitor the training progress on the Model page.</p>
+<h2 id="monitor-your-training">Monitor your training</h2>
+<p>Once the model and mode of the training has been selected, a User can monitor the training procedure on the <code>Train</code> section with the link provided in the terminal (on your agent / Google colab) or a button from Ultralytics Cloud.</p>
+<p><img alt="Monitor your Training" src="https://github.com/ultralytics/ultralytics/assets/19519529/316f8301-0d60-465e-8c99-aa3daf66433c"/></p>
+<h2 id="stopping-and-resuming-your-training">Stopping and resuming your training</h2>
+<p>Once the training has started a user can <code>Stop</code> the training, which will also correspondingly pause the credit usage for the user. A user can again <code>Resume</code> the training from the point as described in the below screenshot.</p>
+<p><img alt="Pausing and Resuming Training" src="https://github.com/ultralytics/ultralytics/assets/19519529/b2707a93-fa5c-4ee2-8443-6be9e1c2857d"/></p>
+<h2 id="payments-and-billing-options">Payments and Billing options</h2>
+<p>Ultralytics HUB offers <code>Pay Now</code> as upfront and/or use <code>Ultralytics HUB Account</code> as a wallet to top-up and fulfil the billing. A user can pick from amongst two types of Account namely <code>Free</code> and <code>Pro</code> user. <br/>
+The user can navigate to the profile by clicking the Profile picture in the bottom left corner
+<img alt="Clicking profile picture" src="https://github.com/ultralytics/ultralytics/assets/19519529/53e5410e-06f5-4b40-b29d-ef00b5779163"/></p>
+<p>Click on the Billing tab to know about your current plan and option to upgrade it.
+<img alt="Clicking Upgrade button" src="https://github.com/ultralytics/ultralytics/assets/19519529/361b43c7-a9d4-4d05-b80b-dc1fa8bce829"/></p>
+<p>User is prompted about different available plans, and can pick from the available plans as stated below.
+<img alt="Picking a plan" src="https://github.com/ultralytics/ultralytics/assets/19519529/4326b01c-0d7d-4850-ac4f-ced2de3339ee"/></p>
+<p>The user will then Navigate to the Payment page, fill in the details and payment is done.
+<img alt="Payment Page" src="https://github.com/ultralytics/ultralytics/assets/19519529/5deebabe-1d8a-485a-b290-e038729c849f"/></p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -817,7 +758,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-27<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-02-14, Updated 2024-02-14<br/>Authors: <a href="https://github.com/ultralytics/ultralytics">priytosh.revolution@live.com</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -828,10 +769,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/hub/app/android', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/hub/cloud-training', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/hub/app/android', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/hub/cloud-training', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -880,7 +821,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: iOS" class="md-footer__link md-footer__link--prev" href="../ios/">
+<a aria-label="Previous: Models" class="md-footer__link md-footer__link--prev" href="../models/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -889,17 +830,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                iOS
+                Models
               </div>
 </div>
 </a>
-<a aria-label="Next: Ultralytics HUB-SDK" class="md-footer__link md-footer__link--next" href="../../sdk/">
+<a aria-label="Next: Integrations" class="md-footer__link md-footer__link--next" href="../integrations/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Ultralytics HUB-SDK
+                Integrations
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -951,8 +892,8 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
-<script src="../../../javascript/extra.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+<script src="../../javascript/extra.js"></script>
 </body>
 </html>
