@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Val" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO Docs, YOLOv8, validation, model evaluation, hyperparameters, accuracy, metrics, Python, CLI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/val" property="og:url"/><meta content="Val" property="og:title"/><meta content="Guide for Validating YOLOv8 Models. Learn how to evaluate the performance of your YOLO models using validation settings and metrics with Python and CLI examples." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/val" property="twitter:url"/><meta content="Val" property="twitter:title"/><meta content="Guide for Validating YOLOv8 Models. Learn how to evaluate the performance of your YOLO models using validation settings and metrics with Python and CLI examples." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Val", "image": ["https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-03 23:24:20 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Val" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO Docs, YOLOv8, validation, model evaluation, hyperparameters, accuracy, metrics, Python, CLI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/val" property="og:url"/><meta content="Val" property="og:title"/><meta content="Guide for Validating YOLOv8 Models. Learn how to evaluate the performance of your YOLO models using validation settings and metrics with Python and CLI examples." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/val" property="twitter:url"/><meta content="Val" property="twitter:title"/><meta content="Guide for Validating YOLOv8 Models. Learn how to evaluate the performance of your YOLO models using validation settings and metrics with Python and CLI examples." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Val", "image": ["https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-17 20:28:56 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -372,11 +372,22 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#arguments">
+<a class="md-nav__link" href="#arguments-for-yolo-model-validation">
 <span class="md-ellipsis">
-      Arguments
+      Arguments for YOLO Model Validation
     </span>
 </a>
+<nav aria-label="Arguments for YOLO Model Validation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-validation-with-arguments">
+<span class="md-ellipsis">
+      Example Validation with Arguments
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -531,11 +542,22 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#arguments">
+<a class="md-nav__link" href="#arguments-for-yolo-model-validation">
 <span class="md-ellipsis">
-      Arguments
+      Arguments for YOLO Model Validation
     </span>
 </a>
+<nav aria-label="Arguments for YOLO Model Validation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-validation-with-arguments">
+<span class="md-ellipsis">
+      Example Validation with Arguments
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -609,13 +631,13 @@
 </div>
 </input></input></div>
 </div>
-<h2 id="arguments">Arguments</h2>
-<p>Validation settings for YOLO models refer to the various hyperparameters and configurations used to evaluate the model's performance on a validation dataset. These settings can affect the model's performance, speed, and accuracy. Some common YOLO validation settings include the batch size, the frequency with which validation is performed during training, and the metrics used to evaluate the model's performance. Other factors that may affect the validation process include the size and composition of the validation dataset and the specific task the model is being used for. It is important to carefully tune and experiment with these settings to ensure that the model is performing well on the validation dataset and to detect and prevent overfitting.</p>
+<h2 id="arguments-for-yolo-model-validation">Arguments for YOLO Model Validation</h2>
+<p>When validating YOLO models, several arguments can be fine-tuned to optimize the evaluation process. These arguments control aspects such as input image size, batch processing, and performance thresholds. Below is a detailed breakdown of each argument to help you customize your validation settings effectively.</p>
 <table>
 <thead>
 <tr>
 <th>Key</th>
-<th>Value</th>
+<th>Default Value</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -623,75 +645,104 @@
 <tr>
 <td><code>data</code></td>
 <td><code>None</code></td>
-<td>path to data file, i.e. coco128.yaml</td>
+<td>The path to the dataset configuration file (e.g., <code>coco128.yaml</code>). This file specifies the dataset's structure, including the classes, train, and validation set paths.</td>
 </tr>
 <tr>
 <td><code>imgsz</code></td>
 <td><code>640</code></td>
-<td>size of input images as integer</td>
+<td>The input image size as an integer. This size is used to resize images during validation, impacting detection accuracy and inference speed.</td>
 </tr>
 <tr>
 <td><code>batch</code></td>
 <td><code>16</code></td>
-<td>number of images per batch (-1 for AutoBatch)</td>
+<td>The number of images processed in each batch. A larger batch size can speed up validation but requires more memory. Use <code>-1</code> for AutoBatch to automatically adjust based on available memory.</td>
 </tr>
 <tr>
 <td><code>save_json</code></td>
 <td><code>False</code></td>
-<td>save results to JSON file</td>
+<td>If set to <code>True</code>, validation results are saved in a JSON format, useful for further analysis or submission to evaluation servers.</td>
 </tr>
 <tr>
 <td><code>save_hybrid</code></td>
 <td><code>False</code></td>
-<td>save hybrid version of labels (labels + additional predictions)</td>
+<td>When <code>True</code>, saves a hybrid version of labels combining ground truth with model predictions. This can be useful for visualizing model performance or training enhancements.</td>
 </tr>
 <tr>
 <td><code>conf</code></td>
 <td><code>0.001</code></td>
-<td>object confidence threshold for detection</td>
+<td>The minimum confidence threshold for considering detections. Increasing this value may reduce false positives but could also miss less confident detections.</td>
 </tr>
 <tr>
 <td><code>iou</code></td>
 <td><code>0.6</code></td>
-<td>intersection over union (IoU) threshold for NMS</td>
+<td>The Intersection Over Union (IoU) threshold for Non-Maximum Suppression (NMS). Higher values result in fewer detections by eliminating more overlapping boxes.</td>
 </tr>
 <tr>
 <td><code>max_det</code></td>
 <td><code>300</code></td>
-<td>maximum number of detections per image</td>
+<td>The maximum number of detections allowed per image. Useful for limiting outputs in images with many objects.</td>
 </tr>
 <tr>
 <td><code>half</code></td>
 <td><code>True</code></td>
-<td>use half precision (FP16)</td>
+<td>Enables half precision (FP16) to speed up validation on compatible hardware without significantly affecting accuracy.</td>
 </tr>
 <tr>
 <td><code>device</code></td>
 <td><code>None</code></td>
-<td>device to run on, i.e. cuda device=0/1/2/3 or device=cpu</td>
+<td>Specifies the computation device, such as a specific GPU (<code>cuda:0</code>) or CPU (<code>cpu</code>). This setting allows for model validation on different hardware configurations.</td>
 </tr>
 <tr>
 <td><code>dnn</code></td>
 <td><code>False</code></td>
-<td>use OpenCV DNN for ONNX inference</td>
+<td>If <code>True</code>, uses OpenCV's DNN module for ONNX model inference. This option can be beneficial for environments where CUDA is unavailable.</td>
 </tr>
 <tr>
 <td><code>plots</code></td>
 <td><code>False</code></td>
-<td>save plots and images during train/val</td>
+<td>Enables the generation of plots and saved images during validation, providing visual insights into model performance.</td>
 </tr>
 <tr>
 <td><code>rect</code></td>
 <td><code>False</code></td>
-<td>rectangular val with each batch collated for minimum padding</td>
+<td>Applies rectangular inference, minimizing padding by processing images in their original aspect ratio. This can improve accuracy and speed but may require more memory.</td>
 </tr>
 <tr>
 <td><code>split</code></td>
 <td><code>val</code></td>
-<td>dataset split to use for validation, i.e. 'val', 'test' or 'train'</td>
+<td>Defines the dataset split to use for validation (e.g., 'val', 'test', 'train'). This allows for flexible validation across different parts of the dataset.</td>
 </tr>
 </tbody>
 </table>
+<p>Each of these settings plays a vital role in the validation process, allowing for a customizable and efficient evaluation of YOLO models. Adjusting these parameters according to your specific needs and resources can help achieve the best balance between accuracy and performance.</p>
+<h3 id="example-validation-with-arguments">Example Validation with Arguments</h3>
+<p>The below examples showcase YOLO model validation with custom arguments in Python and CLI.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Load a model</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Customize validation settings</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">validation_results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="p">,</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>                               <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>                               <span class="n">batch</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>                               <span class="n">conf</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>                               <span class="n">iou</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>                               <span class="n">device</span><span class="o">=</span><span class="s1">'0'</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span><span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">16</span><span class="w"> </span><span class="nv">conf</span><span class="o">=</span><span class="m">0</span>.25<span class="w"> </span><span class="nv">iou</span><span class="o">=</span><span class="m">0</span>.6<span class="w"> </span><span class="nv">device</span><span class="o">=</span><span class="m">0</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</div>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -700,7 +751,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/ultralytics/ultralytics">chr043416@gmail.com</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-17<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/ultralytics/ultralytics">chr043416@gmail.com</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Benchmark" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, benchmarking, speed profiling, accuracy profiling, mAP50-95, accuracy_top5, ONNX, OpenVINO, TensorRT, YOLO export formats" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/benchmark" property="og:url"/><meta content="Benchmark" property="og:title"/><meta content="Learn how to profile speed and accuracy of YOLOv8 across various export formats; get insights on mAP50-95, accuracy_top5 metrics, and more." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/benchmark" property="twitter:url"/><meta content="Benchmark" property="twitter:title"/><meta content="Learn how to profile speed and accuracy of YOLOv8 across various export formats; get insights on mAP50-95, accuracy_top5 metrics, and more." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Benchmark", "image": ["https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-03 23:24:20 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Benchmark" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, benchmarking, speed profiling, accuracy profiling, mAP50-95, accuracy_top5, ONNX, OpenVINO, TensorRT, YOLO export formats" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/benchmark" property="og:url"/><meta content="Benchmark" property="og:title"/><meta content="Learn how to profile speed and accuracy of YOLOv8 across various export formats; get insights on mAP50-95, accuracy_top5 metrics, and more." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/benchmark" property="twitter:url"/><meta content="Benchmark" property="twitter:title"/><meta content="Learn how to profile speed and accuracy of YOLOv8 across various export formats; get insights on mAP50-95, accuracy_top5 metrics, and more." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Benchmark", "image": ["https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-17 20:28:56 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -639,7 +639,7 @@
 <thead>
 <tr>
 <th>Key</th>
-<th>Value</th>
+<th>Default Value</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -647,37 +647,37 @@
 <tr>
 <td><code>model</code></td>
 <td><code>None</code></td>
-<td>path to model file, i.e. yolov8n.pt, yolov8n.yaml</td>
+<td>Specifies the path to the model file. Accepts both <code>.pt</code> and <code>.yaml</code> formats, e.g., <code>"yolov8n.pt"</code> for pre-trained models or configuration files.</td>
 </tr>
 <tr>
 <td><code>data</code></td>
 <td><code>None</code></td>
-<td>path to YAML referencing the benchmarking dataset (under <code>val</code> label)</td>
+<td>Path to a YAML file defining the dataset for benchmarking, typically including paths and settings for validation data. Example: <code>"coco128.yaml"</code>.</td>
 </tr>
 <tr>
 <td><code>imgsz</code></td>
 <td><code>640</code></td>
-<td>image size as scalar or (h, w) list, i.e. (640, 480)</td>
+<td>The input image size for the model. Can be a single integer for square images or a tuple <code>(width, height)</code> for non-square, e.g., <code>(640, 480)</code>.</td>
 </tr>
 <tr>
 <td><code>half</code></td>
 <td><code>False</code></td>
-<td>FP16 quantization</td>
+<td>Enables FP16 (half-precision) inference, reducing memory usage and possibly increasing speed on compatible hardware. Use <code>half=True</code> to enable.</td>
 </tr>
 <tr>
 <td><code>int8</code></td>
 <td><code>False</code></td>
-<td>INT8 quantization</td>
+<td>Activates INT8 quantization for further optimized performance on supported devices, especially useful for edge devices. Set <code>int8=True</code> to use.</td>
 </tr>
 <tr>
 <td><code>device</code></td>
 <td><code>None</code></td>
-<td>device to run on, i.e. cuda device=0 or device=0,1,2,3 or device=cpu</td>
+<td>Defines the computation device(s) for benchmarking, such as <code>"cpu"</code>, <code>"cuda:0"</code>, or a list of devices like <code>"cuda:0,1"</code> for multi-GPU setups.</td>
 </tr>
 <tr>
 <td><code>verbose</code></td>
 <td><code>False</code></td>
-<td>do not continue on error (bool), or val floor threshold (float)</td>
+<td>Controls the level of detail in logging output. A boolean value; set <code>verbose=True</code> for detailed logs or a float for thresholding errors.</td>
 </tr>
 </tbody>
 </table>
@@ -796,7 +796,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/ultralytics/ultralytics">chr043416@gmail.com</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/maianumerosky">maianumerosky</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-17<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (9), <a href="https://github.com/ultralytics/ultralytics">chr043416@gmail.com</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/maianumerosky">maianumerosky</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
