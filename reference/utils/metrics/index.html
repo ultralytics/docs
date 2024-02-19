@@ -11,9 +11,9 @@
 <link href="../loss/" rel="prev"/>
 <link href="../ops/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.9" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.10" name="generator"/>
 <title>metrics - Ultralytics YOLOv8 Docs</title>
-<link href="../../../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -2372,7 +2372,7 @@
 <tr>
 <td><code><a class="autorefs autorefs-internal" title="ultralytics.utils.metrics.ConfusionMatrix.matrix" href="#ultralytics.utils.metrics.ConfusionMatrix.matrix">matrix</a></code></td>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2568,7 +2568,7 @@
 <a id="__codelineno-0-295" name="__codelineno-0-295"></a>
 <a id="__codelineno-0-296" name="__codelineno-0-296"></a><span class="sd">    Attributes:</span>
 <a id="__codelineno-0-297" name="__codelineno-0-297"></a><span class="sd">        task (str): The type of task, either 'detect' or 'classify'.</span>
-<a id="__codelineno-0-298" name="__codelineno-0-298"></a><span class="sd">        matrix (np.array): The confusion matrix, with dimensions depending on the task.</span>
+<a id="__codelineno-0-298" name="__codelineno-0-298"></a><span class="sd">        matrix (np.ndarray): The confusion matrix, with dimensions depending on the task.</span>
 <a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">        nc (int): The number of classes.</span>
 <a id="__codelineno-0-300" name="__codelineno-0-300"></a><span class="sd">        conf (float): The confidence threshold for detections.</span>
 <a id="__codelineno-0-301" name="__codelineno-0-301"></a><span class="sd">        iou_thres (float): The Intersection over Union threshold.</span>
@@ -7061,7 +7061,7 @@ keys (List[str]): A list of keys for the results_dict.</p>
 <tr>
 <td><code>box1</code></td>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7075,7 +7075,7 @@ keys (List[str]): A list of keys for the results_dict.</p>
 <tr>
 <td><code>box2</code></td>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7127,7 +7127,7 @@ keys (List[str]): A list of keys for the results_dict.</p>
 <tbody>
 <tr>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7174,13 +7174,13 @@ keys (List[str]): A list of keys for the results_dict.</p>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    Calculate the intersection over box2 area given box1 and box2. Boxes are in x1y1x2y2 format.</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        box1 (np.array): A numpy array of shape (n, 4) representing n bounding boxes.</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        box2 (np.array): A numpy array of shape (m, 4) representing m bounding boxes.</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        box1 (np.ndarray): A numpy array of shape (n, 4) representing n bounding boxes.</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        box2 (np.ndarray): A numpy array of shape (m, 4) representing m bounding boxes.</span>
 <a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        iou (bool): Calculate the standard iou if True else return inter_area/box2_area.</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">        eps (float, optional): A small value to avoid division by zero. Defaults to 1e-7.</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        (np.array): A numpy array of shape (n, m) representing the intersection over box2 area.</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        (np.ndarray): A numpy array of shape (n, m) representing the intersection over box2 area.</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    """</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="c1"># Get the coordinates of bounding boxes</span>

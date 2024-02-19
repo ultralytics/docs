@@ -11,9 +11,9 @@
 <link href="../../track/" rel="prev"/>
 <link href="../kalman_filter/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.9" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.10" name="generator"/>
 <title>gmc - Ultralytics YOLOv8 Docs</title>
-<link href="../../../../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -1191,7 +1191,7 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <tr>
 <td><code><span title="ultralytics.trackers.utils.gmc.GMC.prevFrame">prevFrame</span></code></td>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1213,7 +1213,7 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <tr>
 <td><code><span title="ultralytics.trackers.utils.gmc.GMC.prevDescriptors">prevDescriptors</span></code></td>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1651,9 +1651,9 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    Attributes:</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">        method (str): The method used for tracking. Options include 'orb', 'sift', 'ecc', 'sparseOptFlow', 'none'.</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        downscale (int): Factor by which to downscale the frames for processing.</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        prevFrame (np.array): Stores the previous frame for tracking.</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        prevFrame (np.ndarray): Stores the previous frame for tracking.</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        prevKeyPoints (list): Stores the keypoints from the previous frame.</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        prevDescriptors (np.array): Stores the descriptors from the previous frame.</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        prevDescriptors (np.ndarray): Stores the descriptors from the previous frame.</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        initializedFirstFrame (bool): Flag to indicate if the first frame has been processed.</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a>
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    Methods:</span>
@@ -1715,11 +1715,11 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">        Apply object detection on a raw frame using specified method.</span>
 <a id="__codelineno-0-83" name="__codelineno-0-83"></a>
 <a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">            raw_frame (np.array): The raw frame to be processed.</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">            raw_frame (np.ndarray): The raw frame to be processed.</span>
 <a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">            detections (list): List of detections to be used in the processing.</span>
 <a id="__codelineno-0-87" name="__codelineno-0-87"></a>
 <a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="sd">            (np.array): Processed frame.</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="sd">            (np.ndarray): Processed frame.</span>
 <a id="__codelineno-0-90" name="__codelineno-0-90"></a>
 <a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">        Examples:</span>
 <a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="sd">            &gt;&gt;&gt; gmc = GMC()</span>
@@ -1741,10 +1741,10 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="sd">        Apply ECC algorithm to a raw frame.</span>
 <a id="__codelineno-0-109" name="__codelineno-0-109"></a>
 <a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">            raw_frame (np.array): The raw frame to be processed.</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">            raw_frame (np.ndarray): The raw frame to be processed.</span>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a>
 <a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="sd">            (np.array): Processed frame.</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="sd">            (np.ndarray): Processed frame.</span>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="sd">        Examples:</span>
 <a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">            &gt;&gt;&gt; gmc = GMC()</span>
@@ -1787,11 +1787,11 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <a id="__codelineno-0-154" name="__codelineno-0-154"></a><span class="sd">        Apply feature-based methods like ORB or SIFT to a raw frame.</span>
 <a id="__codelineno-0-155" name="__codelineno-0-155"></a>
 <a id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="sd">            raw_frame (np.array): The raw frame to be processed.</span>
+<a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="sd">            raw_frame (np.ndarray): The raw frame to be processed.</span>
 <a id="__codelineno-0-158" name="__codelineno-0-158"></a><span class="sd">            detections (list): List of detections to be used in the processing.</span>
 <a id="__codelineno-0-159" name="__codelineno-0-159"></a>
 <a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">            (np.array): Processed frame.</span>
+<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">            (np.ndarray): Processed frame.</span>
 <a id="__codelineno-0-162" name="__codelineno-0-162"></a>
 <a id="__codelineno-0-163" name="__codelineno-0-163"></a><span class="sd">        Examples:</span>
 <a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="sd">            &gt;&gt;&gt; gmc = GMC()</span>
@@ -1929,10 +1929,10 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <a id="__codelineno-0-296" name="__codelineno-0-296"></a><span class="sd">        Apply Sparse Optical Flow method to a raw frame.</span>
 <a id="__codelineno-0-297" name="__codelineno-0-297"></a>
 <a id="__codelineno-0-298" name="__codelineno-0-298"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">            raw_frame (np.array): The raw frame to be processed.</span>
+<a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">            raw_frame (np.ndarray): The raw frame to be processed.</span>
 <a id="__codelineno-0-300" name="__codelineno-0-300"></a>
 <a id="__codelineno-0-301" name="__codelineno-0-301"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">            (np.array): Processed frame.</span>
+<a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">            (np.ndarray): Processed frame.</span>
 <a id="__codelineno-0-303" name="__codelineno-0-303"></a>
 <a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="sd">        Examples:</span>
 <a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="sd">            &gt;&gt;&gt; gmc = GMC()</span>
@@ -2155,7 +2155,7 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <tr>
 <td><code>raw_frame</code></td>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2193,7 +2193,7 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <tbody>
 <tr>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2240,11 +2240,11 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">    Apply object detection on a raw frame using specified method.</span>
 <a id="__codelineno-0-83" name="__codelineno-0-83"></a>
 <a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">        raw_frame (np.array): The raw frame to be processed.</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">        raw_frame (np.ndarray): The raw frame to be processed.</span>
 <a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">        detections (list): List of detections to be used in the processing.</span>
 <a id="__codelineno-0-87" name="__codelineno-0-87"></a>
 <a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="sd">        (np.array): Processed frame.</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="sd">        (np.ndarray): Processed frame.</span>
 <a id="__codelineno-0-90" name="__codelineno-0-90"></a>
 <a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="sd">        &gt;&gt;&gt; gmc = GMC()</span>
@@ -2284,7 +2284,7 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <tr>
 <td><code>raw_frame</code></td>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2308,7 +2308,7 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <tbody>
 <tr>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2375,10 +2375,10 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="sd">    Apply ECC algorithm to a raw frame.</span>
 <a id="__codelineno-0-109" name="__codelineno-0-109"></a>
 <a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">        raw_frame (np.array): The raw frame to be processed.</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">        raw_frame (np.ndarray): The raw frame to be processed.</span>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a>
 <a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="sd">        (np.array): Processed frame.</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="sd">        (np.ndarray): Processed frame.</span>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">        &gt;&gt;&gt; gmc = GMC()</span>
@@ -2439,7 +2439,7 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <tr>
 <td><code>raw_frame</code></td>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2477,7 +2477,7 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <tbody>
 <tr>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2640,11 +2640,11 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <a id="__codelineno-0-154" name="__codelineno-0-154"></a><span class="sd">    Apply feature-based methods like ORB or SIFT to a raw frame.</span>
 <a id="__codelineno-0-155" name="__codelineno-0-155"></a>
 <a id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="sd">        raw_frame (np.array): The raw frame to be processed.</span>
+<a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="sd">        raw_frame (np.ndarray): The raw frame to be processed.</span>
 <a id="__codelineno-0-158" name="__codelineno-0-158"></a><span class="sd">        detections (list): List of detections to be used in the processing.</span>
 <a id="__codelineno-0-159" name="__codelineno-0-159"></a>
 <a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">        (np.array): Processed frame.</span>
+<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">        (np.ndarray): Processed frame.</span>
 <a id="__codelineno-0-162" name="__codelineno-0-162"></a>
 <a id="__codelineno-0-163" name="__codelineno-0-163"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="sd">        &gt;&gt;&gt; gmc = GMC()</span>
@@ -2800,7 +2800,7 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <tr>
 <td><code>raw_frame</code></td>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2824,7 +2824,7 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <tbody>
 <tr>
 <td>
-<code><span title="numpy.array">array</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2909,10 +2909,10 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <a id="__codelineno-0-296" name="__codelineno-0-296"></a><span class="sd">    Apply Sparse Optical Flow method to a raw frame.</span>
 <a id="__codelineno-0-297" name="__codelineno-0-297"></a>
 <a id="__codelineno-0-298" name="__codelineno-0-298"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">        raw_frame (np.array): The raw frame to be processed.</span>
+<a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">        raw_frame (np.ndarray): The raw frame to be processed.</span>
 <a id="__codelineno-0-300" name="__codelineno-0-300"></a>
 <a id="__codelineno-0-301" name="__codelineno-0-301"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">        (np.array): Processed frame.</span>
+<a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">        (np.ndarray): Processed frame.</span>
 <a id="__codelineno-0-303" name="__codelineno-0-303"></a>
 <a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="sd">        &gt;&gt;&gt; gmc = GMC()</span>
