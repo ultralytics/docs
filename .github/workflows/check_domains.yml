@@ -59,6 +59,11 @@ jobs:
             "yolov5.com",
         ]
         
+        # Run checks
+        results = []
         for prefix in ["www.", ""]:
             for domain in domains:
-                check_domain_redirection(domain, prefix)
+                results.append(check_domain_redirection(domain, prefix))
+        
+        # Assert all domains are working correctly
+        assert all(results)
