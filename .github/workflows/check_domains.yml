@@ -26,38 +26,39 @@ jobs:
       run: |
         import requests
         
+        
         def check_domain_redirection(domain, prefix, max_attempts=3):
             """Check if the given domain redirects to ultralytics.com correctly, with up to 3 retries using a for-loop."""
+            url = f"https://{prefix}{domain}"
+            print(f"\nChecking {url}")
             for attempt in range(max_attempts):
                 try:
-                    url = f'https://{prefix}{domain}'
-                    print(f'Attempt {attempt + 1}: Checking {url}')
                     response = requests.get(url, allow_redirects=True)
+                    response.raise_for_status()
                     final_url = response.url
-                    if 'ultralytics.com' in final_url and response.status_code == 200:
-                        print(f'{domain} redirects correctly to ultralytics.com ✅')
+                    if "ultralytics.com" in final_url and response.status_code == 200:
+                        print("Success ✅")
                         return True
-                    else:
-                        print(f'{domain} redirect issue. Final URL: {final_url}, Response code: {response.status_code}')
-                        return False
                 except requests.RequestException as e:
-                    print(f'Error checking {domain}: {e}')
+                    print(f"Error: {e}")
                     if attempt == max_attempts - 1:
-                        print(f'Failed to check {domain} after {max_attempts} attempts ❌.')
+                        print(f"Failed after {max_attempts} attempts ❌.")
                         return False
+        
         
         domains = [
-            'ultralitics.com',
-            'ultralytics.ai',
-            'ultralytics.app',
-            'ultralytics.eu',
-            'ultralytics.es',
-            'ultralytics.io',
-            'ultralytics.net',
-            'ultralytics.org',
-            'yolov5.com',
+            "ultralytics.com",
+            "ultralitics.com",
+            "ultralytics.ai",
+            "ultralytics.app",
+            "ultralytics.eu",
+            "ultralytics.es",
+            "ultralytics.io",
+            "ultralytics.net",
+            "ultralytics.org",
+            "yolov5.com",
         ]
         
-        for prefix in ['www.', '']:
+        for prefix in ["www.", ""]:
             for domain in domains:
                 check_domain_redirection(domain, prefix)
