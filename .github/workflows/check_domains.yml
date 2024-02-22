@@ -12,6 +12,10 @@ on:
 jobs:
   checks:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        domain: ["ultralytics.com", "ultralitics.com", "ultralytics.ai", "ultralytics.app", "ultralytics.eu", "ultralytics.es", "ultralytics.io", "ultralytics.net", "ultralytics.org", "yolov5.com"]
+        prefix: ["www.", ""]
     steps:
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -26,9 +30,10 @@ jobs:
       run: |
         import requests
         
-        
         def check_domain_redirection(domain, prefix, max_attempts=3):
-            """Check if the given domain redirects to ultralytics.com correctly, with up to 3 retries using a for-loop."""
+            """
+            Check if the given domain redirects to ultralytics.com correctly, with up to 3 retries.
+            """
             url = f"https://{prefix}{domain}"
             print(f"\nChecking {url}")
             for attempt in range(max_attempts):
@@ -44,26 +49,8 @@ jobs:
                     if attempt == max_attempts - 1:
                         print(f"Failed after {max_attempts} attempts ❌.")
                         return False
-        
-        
-        domains = [
-            "ultralytics.com",  # actual domain to verify script is working
-            "ultralitics.com",  # intentional mispelling
-            "ultralytics.ai",
-            "ultralytics.app",
-            "ultralytics.eu",
-            "ultralytics.es",
-            "ultralytics.io",
-            "ultralytics.net",
-            "ultralytics.org",
-            "yolov5.com",
-        ]
-        
-        # Run checks
-        results = []
-        for prefix in ["www.", ""]:
-            for domain in domains:
-                results.append(check_domain_redirection(domain, prefix))
-        
-        # Assert all domains are working correctly
-        assert all(results)
+            return False
+
+        success = check_domain_redirection('${{ matrix.domain }}', '${{ matrix.prefix }}')
+        if not success:
+            raise Exception(f"Domain check failed for ${{ matrix.domain }} with prefix '${{ matrix.prefix }}'")
