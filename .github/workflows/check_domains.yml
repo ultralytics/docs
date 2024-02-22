@@ -32,7 +32,7 @@ jobs:
                     response = requests.get(url, allow_redirects=True)
                     final_url = response.url
                     if 'ultralytics.com' in final_url and response.status_code == 200:
-                        print(f'{domain} redirects correctly to ultralytics.com')
+                        print(f'{domain} redirects correctly to ultralytics.com ✅')
                         return True
                     else:
                         print(f'{domain} redirect issue. Final URL: {final_url}, Response code: {response.status_code}')
@@ -40,7 +40,7 @@ jobs:
                 except requests.RequestException as e:
                     print(f'Error checking {domain}: {e}')
                     if attempt == max_attempts - 1:
-                        print(f'Failed to check {domain} after {max_attempts} attempts.')
+                        print(f'Failed to check {domain} after {max_attempts} attempts ❌.')
                         return False
         
         domains = [
