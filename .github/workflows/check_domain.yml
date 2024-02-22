@@ -1,7 +1,7 @@
 # Ultralytics YOLO 🚀, AGPL-3.0 license
 # Ultralics website domain checks
 
-name: Check Domain Redirection
+name: Check Domains
 
 on:
   schedule:
@@ -44,6 +44,7 @@ jobs:
                         return False
         
         domains = [
+            'ultralitics.com',
             'ultralytics.ai',
             'ultralytics.app',
             'ultralytics.eu',
@@ -52,8 +53,6 @@ jobs:
             'ultralytics.net',
             'ultralytics.org',
             'yolov5.com',
-            'pjreddie.net',
-            'pjreddie.org',
         ]
         
         for prefix in ['www.', '']:
