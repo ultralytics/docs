@@ -13,9 +13,10 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        domain: ["ultralytics.com", "ultralitics.com", "ultralytics.ai", "ultralytics.app", "ultralytics.eu", "ultralytics.es", "ultralytics.io", "ultralytics.net", "ultralytics.org", "yolov5.com"]
         prefix: ["www.", ""]
+        domain: ["ultralytics.com", "ultralitics.com", "ultralytics.ai", "ultralytics.app", "ultralytics.eu", "ultralytics.es", "ultralytics.io", "ultralytics.net", "ultralytics.org", "yolov5.com"]
     steps:
     - name: Set up Python
       uses: actions/setup-python@v5
