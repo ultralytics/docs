@@ -11,7 +11,7 @@
 <link href="../callbacks/" rel="prev"/>
 <link href="../simple-utilities/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.11" name="generator"/>
 <title>Configuration - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Configuration" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv8, settings, hyperparameters, YOLO CLI commands, YOLO tasks, YOLO modes, Ultralytics documentation, model optimization, YOLOv8 training" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/usage/cfg" property="og:url"/><meta content="Configuration" property="og:title"/><meta content="Master YOLOv8 settings and hyperparameters for improved model performance. Learn to use YOLO CLI commands, adjust training settings, and optimize YOLO tasks &amp; modes." property="og:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/usage/cfg" property="twitter:url"/><meta content="Configuration" property="twitter:title"/><meta content="Master YOLOv8 settings and hyperparameters for improved model performance. Learn to use YOLO CLI commands, adjust training settings, and optimize YOLO tasks &amp; modes." property="twitter:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Configuration", "image": ["https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-19 23:59:24 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Configuration" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv8, settings, hyperparameters, YOLO CLI commands, YOLO tasks, YOLO modes, Ultralytics documentation, model optimization, YOLOv8 training" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/usage/cfg" property="og:url"/><meta content="Configuration" property="og:title"/><meta content="Master YOLOv8 settings and hyperparameters for improved model performance. Learn to use YOLO CLI commands, adjust training settings, and optimize YOLO tasks &amp; modes." property="og:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/usage/cfg" property="twitter:url"/><meta content="Configuration" property="twitter:title"/><meta content="Master YOLOv8 settings and hyperparameters for improved model performance. Learn to use YOLO CLI commands, adjust training settings, and optimize YOLO tasks &amp; modes." property="twitter:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Configuration", "image": ["https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-25 09:42:17 -0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -377,44 +377,44 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#train">
+<a class="md-nav__link" href="#train-settings">
 <span class="md-ellipsis">
-      Train
+      Train Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#predict">
+<a class="md-nav__link" href="#predict-settings">
 <span class="md-ellipsis">
-      Predict
+      Predict Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#val">
+<a class="md-nav__link" href="#validation-settings">
 <span class="md-ellipsis">
-      Val
+      Validation Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#export">
+<a class="md-nav__link" href="#export-settings">
 <span class="md-ellipsis">
-      Export
+      Export Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#augmentation">
+<a class="md-nav__link" href="#augmentation-settings">
 <span class="md-ellipsis">
-      Augmentation
+      Augmentation Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#logging-checkpoints-plotting-and-file-management">
+<a class="md-nav__link" href="#logging-checkpoints-and-plotting-settings">
 <span class="md-ellipsis">
-      Logging, checkpoints, plotting and file management
+      Logging, Checkpoints and Plotting Settings
     </span>
 </a>
 </li>
@@ -550,44 +550,44 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#train">
+<a class="md-nav__link" href="#train-settings">
 <span class="md-ellipsis">
-      Train
+      Train Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#predict">
+<a class="md-nav__link" href="#predict-settings">
 <span class="md-ellipsis">
-      Predict
+      Predict Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#val">
+<a class="md-nav__link" href="#validation-settings">
 <span class="md-ellipsis">
-      Val
+      Validation Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#export">
+<a class="md-nav__link" href="#export-settings">
 <span class="md-ellipsis">
-      Export
+      Export Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#augmentation">
+<a class="md-nav__link" href="#augmentation-settings">
 <span class="md-ellipsis">
-      Augmentation
+      Augmentation Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#logging-checkpoints-plotting-and-file-management">
+<a class="md-nav__link" href="#logging-checkpoints-and-plotting-settings">
 <span class="md-ellipsis">
-      Logging, checkpoints, plotting and file management
+      Logging, Checkpoints and Plotting Settings
     </span>
 </a>
 </li>
@@ -646,12 +646,13 @@
 <li><strong>Segment</strong>: For dividing an image or video into regions or pixels that correspond to different objects or classes.</li>
 <li><strong>Classify</strong>: For predicting the class label of an input image.</li>
 <li><strong>Pose</strong>: For identifying objects and estimating their keypoints in an image or video.</li>
+<li><strong>OBB</strong>: Oriented (i.e. rotated) bounding boxes suitable for satellite or medical imagery.</li>
 </ul>
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Value</th>
+<th>Argument</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -659,7 +660,7 @@
 <tr>
 <td><code>task</code></td>
 <td><code>'detect'</code></td>
-<td>YOLO task, i.e. detect, segment, classify, pose</td>
+<td>Specifies the YOLO task to be executed. Options include <code>detect</code> for object detection, <code>segment</code> for segmentation, <code>classify</code> for classification, <code>pose</code> for pose estimation and <code>OBB</code> for oriented bounding boxes. Each task is tailored to specific types of output and problems within image and video analysis.</td>
 </tr>
 </tbody>
 </table>
@@ -677,8 +678,8 @@
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Value</th>
+<th>Argument</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -686,17 +687,17 @@
 <tr>
 <td><code>mode</code></td>
 <td><code>'train'</code></td>
-<td>YOLO mode, i.e. train, val, predict, export, track, benchmark</td>
+<td>Specifies the mode in which the YOLO model operates. Options are <code>train</code> for model training, <code>val</code> for validation, <code>predict</code> for inference on new data, <code>export</code> for model conversion to deployment formats, <code>track</code> for object tracking, and <code>benchmark</code> for performance evaluation. Each mode is designed for different stages of the model lifecycle, from development through deployment.</td>
 </tr>
 </tbody>
 </table>
 <p><a class="md-button" href="../../modes/">Modes Guide</a></p>
-<h2 id="train">Train</h2>
+<h2 id="train-settings">Train Settings</h2>
 <p>The training settings for YOLO models encompass various hyperparameters and configurations used during the training process. These settings influence the model's performance, speed, and accuracy. Key training settings include batch size, learning rate, momentum, and weight decay. Additionally, the choice of optimizer, loss function, and training dataset composition can impact the training process. Careful tuning and experimentation with these settings are crucial for optimizing performance.</p>
 <table>
 <thead>
 <tr>
-<th>Key</th>
+<th>Argument</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -945,7 +946,7 @@
 </tbody>
 </table>
 <p><a class="md-button" href="../../modes/train/">Train Guide</a></p>
-<h2 id="predict">Predict</h2>
+<h2 id="predict-settings">Predict Settings</h2>
 <p>The prediction settings for YOLO models encompass a range of hyperparameters and configurations that influence the model's performance, speed, and accuracy during inference on new data. Careful tuning and experimentation with these settings are essential to achieve optimal performance for a specific task. Key settings include the confidence threshold, Non-Maximum Suppression (NMS) threshold, and the number of classes considered. Additional factors affecting the prediction process are input data size and format, the presence of supplementary features such as masks or multiple labels per box, and the particular task the model is employed for.</p>
 <p>Inference arguments:</p>
 <table>
@@ -1124,248 +1125,310 @@
 </tbody>
 </table>
 <p><a class="md-button" href="../../modes/predict/">Predict Guide</a></p>
-<h2 id="val">Val</h2>
-<p>The val (validation) settings for YOLO models involve various hyperparameters and configurations used to evaluate the model's performance on a validation dataset. These settings influence the model's performance, speed, and accuracy. Common YOLO validation settings include batch size, validation frequency during training, and performance evaluation metrics. Other factors affecting the validation process include the validation dataset's size and composition, as well as the specific task the model is employed for. Careful tuning and experimentation with these settings are crucial to ensure optimal performance on the validation dataset and detect and prevent overfitting.</p>
+<h2 id="validation-settings">Validation Settings</h2>
+<p>The val (validation) settings for YOLO models involve various hyperparameters and configurations used to evaluate the model's performance on a validation dataset. These settings influence the model's performance, speed, and accuracy. Common YOLO validation settings include batch size, validation frequency during training, and performance evaluation metrics. Other factors affecting the validation process include the validation dataset's size and composition, as well as the specific task the model is employed for.</p>
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Value</th>
+<th>Argument</th>
+<th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>data</code></td>
+<td><code>str</code></td>
 <td><code>None</code></td>
-<td>path to data file, i.e. coco128.yaml</td>
+<td>Specifies the path to the dataset configuration file (e.g., <code>coco128.yaml</code>). This file includes paths to validation data, class names, and number of classes.</td>
 </tr>
 <tr>
 <td><code>imgsz</code></td>
+<td><code>int</code></td>
 <td><code>640</code></td>
-<td>size of input images as integer</td>
+<td>Defines the size of input images. All images are resized to this dimension before processing.</td>
 </tr>
 <tr>
 <td><code>batch</code></td>
+<td><code>int</code></td>
 <td><code>16</code></td>
-<td>number of images per batch (-1 for AutoBatch)</td>
+<td>Sets the number of images per batch. Use <code>-1</code> for AutoBatch, which automatically adjusts based on GPU memory availability.</td>
 </tr>
 <tr>
 <td><code>save_json</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>save results to JSON file</td>
+<td>If <code>True</code>, saves the results to a JSON file for further analysis or integration with other tools.</td>
 </tr>
 <tr>
 <td><code>save_hybrid</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>save hybrid version of labels (labels + additional predictions)</td>
+<td>If <code>True</code>, saves a hybrid version of labels that combines original annotations with additional model predictions.</td>
 </tr>
 <tr>
 <td><code>conf</code></td>
+<td><code>float</code></td>
 <td><code>0.001</code></td>
-<td>object confidence threshold for detection</td>
+<td>Sets the minimum confidence threshold for detections. Detections with confidence below this threshold are discarded.</td>
 </tr>
 <tr>
 <td><code>iou</code></td>
+<td><code>float</code></td>
 <td><code>0.6</code></td>
-<td>intersection over union (IoU) threshold for NMS</td>
+<td>Sets the Intersection Over Union (IoU) threshold for Non-Maximum Suppression (NMS). Helps in reducing duplicate detections.</td>
 </tr>
 <tr>
 <td><code>max_det</code></td>
+<td><code>int</code></td>
 <td><code>300</code></td>
-<td>maximum number of detections per image</td>
+<td>Limits the maximum number of detections per image. Useful in dense scenes to prevent excessive detections.</td>
 </tr>
 <tr>
 <td><code>half</code></td>
+<td><code>bool</code></td>
 <td><code>True</code></td>
-<td>use half precision (FP16)</td>
+<td>Enables half-precision (FP16) computation, reducing memory usage and potentially increasing speed with minimal impact on accuracy.</td>
 </tr>
 <tr>
 <td><code>device</code></td>
+<td><code>str</code></td>
 <td><code>None</code></td>
-<td>device to run on, i.e. cuda device=0/1/2/3 or device=cpu</td>
+<td>Specifies the device for validation (<code>cpu</code>, <code>cuda:0</code>, etc.). Allows flexibility in utilizing CPU or GPU resources.</td>
 </tr>
 <tr>
 <td><code>dnn</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>use OpenCV DNN for ONNX inference</td>
+<td>If <code>True</code>, uses OpenCV's DNN module for ONNX model inference, offering an alternative to PyTorch inference methods.</td>
 </tr>
 <tr>
 <td><code>plots</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>save plots and images during train/val</td>
+<td>When set to <code>True</code>, generates and saves plots of predictions versus ground truth for visual evaluation of the model's performance.</td>
 </tr>
 <tr>
 <td><code>rect</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>rectangular val with each batch collated for minimum padding</td>
+<td>If <code>True</code>, uses rectangular inference for batching, reducing padding and potentially increasing speed and efficiency.</td>
 </tr>
 <tr>
 <td><code>split</code></td>
+<td><code>str</code></td>
 <td><code>val</code></td>
-<td>dataset split to use for validation, i.e. 'val', 'test' or 'train'</td>
+<td>Determines the dataset split to use for validation (<code>val</code>, <code>test</code>, or <code>train</code>). Allows flexibility in choosing the data segment for performance evaluation.</td>
 </tr>
 </tbody>
 </table>
+<p>Careful tuning and experimentation with these settings are crucial to ensure optimal performance on the validation dataset and detect and prevent overfitting.</p>
 <p><a class="md-button" href="../../modes/val/">Val Guide</a></p>
-<h2 id="export">Export</h2>
-<p>Export settings for YOLO models encompass configurations and options related to saving or exporting the model for use in different environments or platforms. These settings can impact the model's performance, size, and compatibility with various systems. Key export settings include the exported model file format (e.g., ONNX, TensorFlow SavedModel), the target device (e.g., CPU, GPU), and additional features such as masks or multiple labels per box. The export process may also be affected by the model's specific task and the requirements or constraints of the destination environment or platform. It is crucial to thoughtfully configure these settings to ensure the exported model is optimized for the intended use case and functions effectively in the target environment.</p>
+<h2 id="export-settings">Export Settings</h2>
+<p>Export settings for YOLO models encompass configurations and options related to saving or exporting the model for use in different environments or platforms. These settings can impact the model's performance, size, and compatibility with various systems. Key export settings include the exported model file format (e.g., ONNX, TensorFlow SavedModel), the target device (e.g., CPU, GPU), and additional features such as masks or multiple labels per box. The export process may also be affected by the model's specific task and the requirements or constraints of the destination environment or platform.</p>
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Value</th>
+<th>Argument</th>
+<th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>format</code></td>
+<td><code>str</code></td>
 <td><code>'torchscript'</code></td>
-<td>format to export to</td>
+<td>Target format for the exported model, such as <code>'onnx'</code>, <code>'torchscript'</code>, <code>'tensorflow'</code>, or others, defining compatibility with various deployment environments.</td>
 </tr>
 <tr>
 <td><code>imgsz</code></td>
+<td><code>int</code> or <code>tuple</code></td>
 <td><code>640</code></td>
-<td>image size as scalar or (h, w) list, i.e. (640, 480)</td>
+<td>Desired image size for the model input. Can be an integer for square images or a tuple <code>(height, width)</code> for specific dimensions.</td>
 </tr>
 <tr>
 <td><code>keras</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>use Keras for TF SavedModel export</td>
+<td>Enables export to Keras format for TensorFlow SavedModel, providing compatibility with TensorFlow serving and APIs.</td>
 </tr>
 <tr>
 <td><code>optimize</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>TorchScript: optimize for mobile</td>
+<td>Applies optimization for mobile devices when exporting to TorchScript, potentially reducing model size and improving performance.</td>
 </tr>
 <tr>
 <td><code>half</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>FP16 quantization</td>
+<td>Enables FP16 (half-precision) quantization, reducing model size and potentially speeding up inference on supported hardware.</td>
 </tr>
 <tr>
 <td><code>int8</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>INT8 quantization</td>
+<td>Activates INT8 quantization, further compressing the model and speeding up inference with minimal accuracy loss, primarily for edge devices.</td>
 </tr>
 <tr>
 <td><code>dynamic</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>ONNX/TensorRT: dynamic axes</td>
+<td>Allows dynamic input sizes for ONNX and TensorRT exports, enhancing flexibility in handling varying image dimensions.</td>
 </tr>
 <tr>
 <td><code>simplify</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>ONNX/TensorRT: simplify model</td>
+<td>Simplifies the model graph for ONNX exports, potentially improving performance and compatibility.</td>
 </tr>
 <tr>
 <td><code>opset</code></td>
+<td><code>int</code></td>
 <td><code>None</code></td>
-<td>ONNX: opset version (optional, defaults to latest)</td>
+<td>Specifies the ONNX opset version for compatibility with different ONNX parsers and runtimes. If not set, uses the latest supported version.</td>
 </tr>
 <tr>
 <td><code>workspace</code></td>
-<td><code>4</code></td>
-<td>TensorRT: workspace size (GB)</td>
+<td><code>float</code></td>
+<td><code>4.0</code></td>
+<td>Sets the maximum workspace size in GB for TensorRT optimizations, balancing memory usage and performance.</td>
 </tr>
 <tr>
 <td><code>nms</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>CoreML: add NMS</td>
+<td>Adds Non-Maximum Suppression (NMS) to the CoreML export, essential for accurate and efficient detection post-processing.</td>
 </tr>
 </tbody>
 </table>
+<p>It is crucial to thoughtfully configure these settings to ensure the exported model is optimized for the intended use case and functions effectively in the target environment.</p>
 <p><a class="md-button" href="../../modes/export/">Export Guide</a></p>
-<h2 id="augmentation">Augmentation</h2>
-<p>Augmentation settings for YOLO models refer to the various transformations and modifications applied to the training data to increase the diversity and size of the dataset. These settings can affect the model's performance, speed, and accuracy. Some common YOLO augmentation settings include the type and intensity of the transformations applied (e.g. random flips, rotations, cropping, color changes), the probability with which each transformation is applied, and the presence of additional features such as masks or multiple labels per box. Other factors that may affect the augmentation process include the size and composition of the original dataset and the specific task the model is being used for. It is important to carefully tune and experiment with these settings to ensure that the augmented dataset is diverse and representative enough to train a high-performing model.</p>
+<h2 id="augmentation-settings">Augmentation Settings</h2>
+<p>Augmentation techniques are essential for improving the robustness and performance of YOLO models by introducing variability into the training data, helping the model generalize better to unseen data. The following table outlines the purpose and effect of each augmentation argument:</p>
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Value</th>
+<th>Argument</th>
+<th>Type</th>
+<th>Default</th>
+<th>Range</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>hsv_h</code></td>
+<td><code>float</code></td>
 <td><code>0.015</code></td>
-<td>image HSV-Hue augmentation (fraction)</td>
+<td><code>0.0 - 1.0</code></td>
+<td>Adjusts the hue of the image by a fraction of the color wheel, introducing color variability. Helps the model generalize across different lighting conditions.</td>
 </tr>
 <tr>
 <td><code>hsv_s</code></td>
+<td><code>float</code></td>
 <td><code>0.7</code></td>
-<td>image HSV-Saturation augmentation (fraction)</td>
+<td><code>0.0 - 1.0</code></td>
+<td>Alters the saturation of the image by a fraction, affecting the intensity of colors. Useful for simulating different environmental conditions.</td>
 </tr>
 <tr>
 <td><code>hsv_v</code></td>
+<td><code>float</code></td>
 <td><code>0.4</code></td>
-<td>image HSV-Value augmentation (fraction)</td>
+<td><code>0.0 - 1.0</code></td>
+<td>Modifies the value (brightness) of the image by a fraction, helping the model to perform well under various lighting conditions.</td>
 </tr>
 <tr>
 <td><code>degrees</code></td>
+<td><code>float</code></td>
 <td><code>0.0</code></td>
-<td>image rotation (+/- deg)</td>
+<td><code>-180 - +180</code></td>
+<td>Rotates the image randomly within the specified degree range, improving the model's ability to recognize objects at various orientations.</td>
 </tr>
 <tr>
 <td><code>translate</code></td>
+<td><code>float</code></td>
 <td><code>0.1</code></td>
-<td>image translation (+/- fraction)</td>
+<td><code>0.0 - 1.0</code></td>
+<td>Translates the image horizontally and vertically by a fraction of the image size, aiding in learning to detect partially visible objects.</td>
 </tr>
 <tr>
 <td><code>scale</code></td>
+<td><code>float</code></td>
 <td><code>0.5</code></td>
-<td>image scale (+/- gain)</td>
+<td><code>&gt;=0.0</code></td>
+<td>Scales the image by a gain factor, simulating objects at different distances from the camera.</td>
 </tr>
 <tr>
 <td><code>shear</code></td>
+<td><code>float</code></td>
 <td><code>0.0</code></td>
-<td>image shear (+/- deg)</td>
+<td><code>-180 - +180</code></td>
+<td>Shears the image by a specified degree, mimicking the effect of objects being viewed from different angles.</td>
 </tr>
 <tr>
 <td><code>perspective</code></td>
+<td><code>float</code></td>
 <td><code>0.0</code></td>
-<td>image perspective (+/- fraction), range 0-0.001</td>
+<td><code>0.0 - 0.001</code></td>
+<td>Applies a random perspective transformation to the image, enhancing the model's ability to understand objects in 3D space.</td>
 </tr>
 <tr>
 <td><code>flipud</code></td>
+<td><code>float</code></td>
 <td><code>0.0</code></td>
-<td>image flip up-down (probability)</td>
+<td><code>0.0 - 1.0</code></td>
+<td>Flips the image upside down with the specified probability, increasing the data variability without affecting the object's characteristics.</td>
 </tr>
 <tr>
 <td><code>fliplr</code></td>
+<td><code>float</code></td>
 <td><code>0.5</code></td>
-<td>image flip left-right (probability)</td>
+<td><code>0.0 - 1.0</code></td>
+<td>Flips the image left to right with the specified probability, useful for learning symmetrical objects and increasing dataset diversity.</td>
 </tr>
 <tr>
 <td><code>mosaic</code></td>
+<td><code>float</code></td>
 <td><code>1.0</code></td>
-<td>image mosaic (probability)</td>
+<td><code>0.0 - 1.0</code></td>
+<td>Combines four training images into one, simulating different scene compositions and object interactions. Highly effective for complex scene understanding.</td>
 </tr>
 <tr>
 <td><code>mixup</code></td>
+<td><code>float</code></td>
 <td><code>0.0</code></td>
-<td>image mixup (probability)</td>
+<td><code>0.0 - 1.0</code></td>
+<td>Blends two images and their labels, creating a composite image. Enhances the model's ability to generalize by introducing label noise and visual variability.</td>
 </tr>
 <tr>
 <td><code>copy_paste</code></td>
+<td><code>float</code></td>
 <td><code>0.0</code></td>
-<td>segment copy-paste (probability)</td>
+<td><code>0.0 - 1.0</code></td>
+<td>Copies objects from one image and pastes them onto another, useful for increasing object instances and learning object occlusion.</td>
 </tr>
 <tr>
 <td><code>auto_augment</code></td>
-<td><code>'randaugment'</code></td>
-<td>auto augmentation policy for classification (randaugment, autoaugment, augmix)</td>
+<td><code>str</code></td>
+<td><code>randaugment</code></td>
+<td>-</td>
+<td>Automatically applies a predefined augmentation policy (<code>randaugment</code>, <code>autoaugment</code>, <code>augmix</code>), optimizing for classification tasks by diversifying the visual features.</td>
 </tr>
 <tr>
 <td><code>erasing</code></td>
+<td><code>float</code></td>
 <td><code>0.4</code></td>
-<td>probability o random erasing during classification training (0-1) training</td>
+<td><code>0.0 - 1.0</code></td>
+<td>Randomly erases a portion of the image during classification training, encouraging the model to focus on less obvious features for recognition.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="logging-checkpoints-plotting-and-file-management">Logging, checkpoints, plotting and file management</h2>
+<p>These settings can be adjusted to meet the specific requirements of the dataset and task at hand. Experimenting with different values can help find the optimal augmentation strategy that leads to the best model performance.</p>
+<h2 id="logging-checkpoints-and-plotting-settings">Logging, Checkpoints and Plotting Settings</h2>
 <p>Logging, checkpoints, plotting, and file management are important considerations when training a YOLO model.</p>
 <ul>
 <li>Logging: It is often helpful to log various metrics and statistics during training to track the model's progress and diagnose any issues that may arise. This can be done using a logging library such as TensorBoard or by writing log messages to a file.</li>
@@ -1377,8 +1440,8 @@
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Value</th>
+<th>Argument</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1386,27 +1449,27 @@
 <tr>
 <td><code>project</code></td>
 <td><code>'runs'</code></td>
-<td>project name</td>
+<td>Specifies the root directory for saving training runs. Each run will be saved in a separate subdirectory within this directory.</td>
 </tr>
 <tr>
 <td><code>name</code></td>
 <td><code>'exp'</code></td>
-<td>experiment name. <code>exp</code> gets automatically incremented if not specified, i.e, <code>exp</code>, <code>exp2</code> ...</td>
+<td>Defines the name of the experiment. If not specified, YOLO automatically increments this name for each run, e.g., <code>exp</code>, <code>exp2</code>, etc., to avoid overwriting previous experiments.</td>
 </tr>
 <tr>
 <td><code>exist_ok</code></td>
 <td><code>False</code></td>
-<td>whether to overwrite existing experiment</td>
+<td>Determines whether to overwrite an existing experiment directory if one with the same name already exists. Setting this to <code>True</code> allows overwriting, while <code>False</code> prevents it.</td>
 </tr>
 <tr>
 <td><code>plots</code></td>
 <td><code>False</code></td>
-<td>save plots during train/val</td>
+<td>Controls the generation and saving of training and validation plots. Set to <code>True</code> to create plots such as loss curves, precision-recall curves, and sample predictions. Useful for visually tracking model performance over time.</td>
 </tr>
 <tr>
 <td><code>save</code></td>
 <td><code>False</code></td>
-<td>save train checkpoints and predict results</td>
+<td>Enables the saving of training checkpoints and final model weights. Set to <code>True</code> to periodically save model states, allowing training to be resumed from these checkpoints or models to be deployed.</td>
 </tr>
 </tbody>
 </table>
@@ -1418,7 +1481,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-19<br/>Authors: <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (11), <a href="https://github.com/AyushExel">AyushExel</a> (1), <a href="https://github.com/fcakyon">fcakyon</a> (1), <a href="https://github.com/ultralytics/ultralytics">chr043416@gmail.com</a> (1), <a href="https://github.com/tensorturtle">tensorturtle</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-25<br/>Authors: <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (11), <a href="https://github.com/AyushExel">AyushExel</a> (1), <a href="https://github.com/fcakyon">fcakyon</a> (1), <a href="https://github.com/ultralytics/ultralytics">chr043416@gmail.com</a> (1), <a href="https://github.com/tensorturtle">tensorturtle</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

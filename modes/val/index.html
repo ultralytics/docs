@@ -11,7 +11,7 @@
 <link href="../train/" rel="prev"/>
 <link href="../predict/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.11" name="generator"/>
 <title>Val - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Val" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO Docs, YOLOv8, validation, model evaluation, hyperparameters, accuracy, metrics, Python, CLI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/val" property="og:url"/><meta content="Val" property="og:title"/><meta content="Guide for Validating YOLOv8 Models. Learn how to evaluate the performance of your YOLO models using validation settings and metrics with Python and CLI examples." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/val" property="twitter:url"/><meta content="Val" property="twitter:title"/><meta content="Guide for Validating YOLOv8 Models. Learn how to evaluate the performance of your YOLO models using validation settings and metrics with Python and CLI examples." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Val", "image": ["https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-17 20:28:56 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Val" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO Docs, YOLOv8, validation, model evaluation, hyperparameters, accuracy, metrics, Python, CLI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/val" property="og:url"/><meta content="Val" property="og:title"/><meta content="Guide for Validating YOLOv8 Models. Learn how to evaluate the performance of your YOLO models using validation settings and metrics with Python and CLI examples." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/val" property="twitter:url"/><meta content="Val" property="twitter:title"/><meta content="Guide for Validating YOLOv8 Models. Learn how to evaluate the performance of your YOLO models using validation settings and metrics with Python and CLI examples." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Val", "image": ["https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-25 09:42:17 -0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -636,81 +636,96 @@
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Default Value</th>
+<th>Argument</th>
+<th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>data</code></td>
+<td><code>str</code></td>
 <td><code>None</code></td>
-<td>The path to the dataset configuration file (e.g., <code>coco128.yaml</code>). This file specifies the dataset's structure, including the classes, train, and validation set paths.</td>
+<td>Specifies the path to the dataset configuration file (e.g., <code>coco128.yaml</code>). This file includes paths to validation data, class names, and number of classes.</td>
 </tr>
 <tr>
 <td><code>imgsz</code></td>
+<td><code>int</code></td>
 <td><code>640</code></td>
-<td>The input image size as an integer. This size is used to resize images during validation, impacting detection accuracy and inference speed.</td>
+<td>Defines the size of input images. All images are resized to this dimension before processing.</td>
 </tr>
 <tr>
 <td><code>batch</code></td>
+<td><code>int</code></td>
 <td><code>16</code></td>
-<td>The number of images processed in each batch. A larger batch size can speed up validation but requires more memory. Use <code>-1</code> for AutoBatch to automatically adjust based on available memory.</td>
+<td>Sets the number of images per batch. Use <code>-1</code> for AutoBatch, which automatically adjusts based on GPU memory availability.</td>
 </tr>
 <tr>
 <td><code>save_json</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>If set to <code>True</code>, validation results are saved in a JSON format, useful for further analysis or submission to evaluation servers.</td>
+<td>If <code>True</code>, saves the results to a JSON file for further analysis or integration with other tools.</td>
 </tr>
 <tr>
 <td><code>save_hybrid</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>When <code>True</code>, saves a hybrid version of labels combining ground truth with model predictions. This can be useful for visualizing model performance or training enhancements.</td>
+<td>If <code>True</code>, saves a hybrid version of labels that combines original annotations with additional model predictions.</td>
 </tr>
 <tr>
 <td><code>conf</code></td>
+<td><code>float</code></td>
 <td><code>0.001</code></td>
-<td>The minimum confidence threshold for considering detections. Increasing this value may reduce false positives but could also miss less confident detections.</td>
+<td>Sets the minimum confidence threshold for detections. Detections with confidence below this threshold are discarded.</td>
 </tr>
 <tr>
 <td><code>iou</code></td>
+<td><code>float</code></td>
 <td><code>0.6</code></td>
-<td>The Intersection Over Union (IoU) threshold for Non-Maximum Suppression (NMS). Higher values result in fewer detections by eliminating more overlapping boxes.</td>
+<td>Sets the Intersection Over Union (IoU) threshold for Non-Maximum Suppression (NMS). Helps in reducing duplicate detections.</td>
 </tr>
 <tr>
 <td><code>max_det</code></td>
+<td><code>int</code></td>
 <td><code>300</code></td>
-<td>The maximum number of detections allowed per image. Useful for limiting outputs in images with many objects.</td>
+<td>Limits the maximum number of detections per image. Useful in dense scenes to prevent excessive detections.</td>
 </tr>
 <tr>
 <td><code>half</code></td>
+<td><code>bool</code></td>
 <td><code>True</code></td>
-<td>Enables half precision (FP16) to speed up validation on compatible hardware without significantly affecting accuracy.</td>
+<td>Enables half-precision (FP16) computation, reducing memory usage and potentially increasing speed with minimal impact on accuracy.</td>
 </tr>
 <tr>
 <td><code>device</code></td>
+<td><code>str</code></td>
 <td><code>None</code></td>
-<td>Specifies the computation device, such as a specific GPU (<code>cuda:0</code>) or CPU (<code>cpu</code>). This setting allows for model validation on different hardware configurations.</td>
+<td>Specifies the device for validation (<code>cpu</code>, <code>cuda:0</code>, etc.). Allows flexibility in utilizing CPU or GPU resources.</td>
 </tr>
 <tr>
 <td><code>dnn</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>If <code>True</code>, uses OpenCV's DNN module for ONNX model inference. This option can be beneficial for environments where CUDA is unavailable.</td>
+<td>If <code>True</code>, uses OpenCV's DNN module for ONNX model inference, offering an alternative to PyTorch inference methods.</td>
 </tr>
 <tr>
 <td><code>plots</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>Enables the generation of plots and saved images during validation, providing visual insights into model performance.</td>
+<td>When set to <code>True</code>, generates and saves plots of predictions versus ground truth for visual evaluation of the model's performance.</td>
 </tr>
 <tr>
 <td><code>rect</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>Applies rectangular inference, minimizing padding by processing images in their original aspect ratio. This can improve accuracy and speed but may require more memory.</td>
+<td>If <code>True</code>, uses rectangular inference for batching, reducing padding and potentially increasing speed and efficiency.</td>
 </tr>
 <tr>
 <td><code>split</code></td>
+<td><code>str</code></td>
 <td><code>val</code></td>
-<td>Defines the dataset split to use for validation (e.g., 'val', 'test', 'train'). This allows for flexible validation across different parts of the dataset.</td>
+<td>Determines the dataset split to use for validation (<code>val</code>, <code>test</code>, or <code>train</code>). Allows flexibility in choosing the data segment for performance evaluation.</td>
 </tr>
 </tbody>
 </table>
@@ -751,7 +766,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-17<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/ultralytics/ultralytics">chr043416@gmail.com</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-25<br/>Authors: <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/ultralytics/ultralytics">chr043416@gmail.com</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

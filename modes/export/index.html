@@ -11,7 +11,7 @@
 <link href="../predict/" rel="prev"/>
 <link href="../track/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.11" name="generator"/>
 <title>Export - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Export" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO, YOLOv8, Ultralytics, Model export, ONNX, TensorRT, CoreML, TensorFlow SavedModel, OpenVINO, PyTorch, export model" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/export" property="og:url"/><meta content="Export" property="og:title"/><meta content="Step-by-step guide on exporting your YOLOv8 models to various format like ONNX, TensorRT, CoreML and more for deployment. Explore now!." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/export" property="twitter:url"/><meta content="Export" property="twitter:title"/><meta content="Step-by-step guide on exporting your YOLOv8 models to various format like ONNX, TensorRT, CoreML and more for deployment. Explore now!." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Export", "image": ["https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-17 20:28:56 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Export" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO, YOLOv8, Ultralytics, Model export, ONNX, TensorRT, CoreML, TensorFlow SavedModel, OpenVINO, PyTorch, export model" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/export" property="og:url"/><meta content="Export" property="og:title"/><meta content="Step-by-step guide on exporting your YOLOv8 models to various format like ONNX, TensorRT, CoreML and more for deployment. Explore now!." property="og:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/export" property="twitter:url"/><meta content="Export" property="twitter:title"/><meta content="Step-by-step guide on exporting your YOLOv8 models to various format like ONNX, TensorRT, CoreML and more for deployment. Explore now!." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Export", "image": ["https://github.com/ultralytics/assets/raw/main/yolov8/banner-integrations.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-25 09:42:17 -0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -624,66 +624,78 @@
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Default Value</th>
+<th>Argument</th>
+<th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>format</code></td>
+<td><code>str</code></td>
 <td><code>'torchscript'</code></td>
-<td>Specifies the export format. Supported values include <code>'torchscript'</code>, <code>'onnx'</code>, <code>'coreml'</code>, <code>'engine'</code> (TensorRT), <code>'saved_model'</code> (TensorFlow SavedModel), etc.</td>
+<td>Target format for the exported model, such as <code>'onnx'</code>, <code>'torchscript'</code>, <code>'tensorflow'</code>, or others, defining compatibility with various deployment environments.</td>
 </tr>
 <tr>
 <td><code>imgsz</code></td>
+<td><code>int</code> or <code>tuple</code></td>
 <td><code>640</code></td>
-<td>Defines the image size for export. Accepts an integer for square images or a tuple <code>(height, width)</code> for non-square images.</td>
+<td>Desired image size for the model input. Can be an integer for square images or a tuple <code>(height, width)</code> for specific dimensions.</td>
 </tr>
 <tr>
 <td><code>keras</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>When exporting to TensorFlow SavedModel, setting this to <code>True</code> utilizes Keras for the export process.</td>
+<td>Enables export to Keras format for TensorFlow SavedModel, providing compatibility with TensorFlow serving and APIs.</td>
 </tr>
 <tr>
 <td><code>optimize</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>Applies to TorchScript exports, enabling optimization for mobile deployments.</td>
+<td>Applies optimization for mobile devices when exporting to TorchScript, potentially reducing model size and improving performance.</td>
 </tr>
 <tr>
 <td><code>half</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>Enables half-precision (FP16) quantization for the exported model, reducing size and potentially increasing inference speed on compatible hardware.</td>
+<td>Enables FP16 (half-precision) quantization, reducing model size and potentially speeding up inference on supported hardware.</td>
 </tr>
 <tr>
 <td><code>int8</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>Activates INT8 quantization, further reducing model size and increasing inference speed at the cost of precision. Useful for edge devices.</td>
+<td>Activates INT8 quantization, further compressing the model and speeding up inference with minimal accuracy loss, primarily for edge devices.</td>
 </tr>
 <tr>
 <td><code>dynamic</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>For ONNX and TensorRT formats, enables dynamic axes, allowing variable input sizes for inference.</td>
+<td>Allows dynamic input sizes for ONNX and TensorRT exports, enhancing flexibility in handling varying image dimensions.</td>
 </tr>
 <tr>
 <td><code>simplify</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>Simplifies the model structure for ONNX and TensorRT formats, potentially improving efficiency and compatibility.</td>
+<td>Simplifies the model graph for ONNX exports, potentially improving performance and compatibility.</td>
 </tr>
 <tr>
 <td><code>opset</code></td>
+<td><code>int</code></td>
 <td><code>None</code></td>
-<td>Specifies the ONNX opset version for export. If not set, uses the latest supported version. Useful for ensuring compatibility with older ONNX parsers.</td>
+<td>Specifies the ONNX opset version for compatibility with different ONNX parsers and runtimes. If not set, uses the latest supported version.</td>
 </tr>
 <tr>
 <td><code>workspace</code></td>
-<td><code>4</code></td>
-<td>Defines the maximum workspace size in GB for TensorRT exports, affecting the optimization process and memory usage.</td>
+<td><code>float</code></td>
+<td><code>4.0</code></td>
+<td>Sets the maximum workspace size in GB for TensorRT optimizations, balancing memory usage and performance.</td>
 </tr>
 <tr>
 <td><code>nms</code></td>
+<td><code>bool</code></td>
 <td><code>False</code></td>
-<td>When exporting to CoreML, adds a Non-Maximum Suppression (NMS) layer to the model, useful for filtering overlapping detections.</td>
+<td>Adds Non-Maximum Suppression (NMS) to the CoreML export, essential for accurate and efficient detection post-processing.</td>
 </tr>
 </tbody>
 </table>
@@ -802,7 +814,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-17<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (9)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-25<br/>Authors: <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (9)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
