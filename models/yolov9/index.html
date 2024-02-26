@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Discover the features and benefits of RT-DETR, Baidu’s efficient and adaptable real-time object detector powered by Vision Transformers, including pre-trained models." name="description"/>
+<meta content="Discover YOLOv9, the latest addition to the real-time object detection arsenal, leveraging Programmable Gradient Information and GELAN architecture for unparalleled performance." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/models/rtdetr/" rel="canonical"/>
-<link href="../yolo-nas/" rel="prev"/>
-<link href="../yolo-world/" rel="next"/>
+<link href="https://docs.ultralytics.com/models/yolov9/" rel="canonical"/>
+<link href="../yolov8/" rel="prev"/>
+<link href="../sam/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.11" name="generator"/>
-<title>RT-DETR (Realtime Detection Transformer) - Ultralytics YOLOv8 Docs</title>
+<title>YOLOv9 - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="RT-DETR (Realtime Detection Transformer)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="RT-DETR, Baidu, Vision Transformers, object detection, real-time performance, CUDA, TensorRT, IoU-aware query selection, Ultralytics, Python API, PaddlePaddle" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/rtdetr" property="og:url"/><meta content="RT-DETR (Realtime Detection Transformer)" property="og:title"/><meta content="Discover the features and benefits of RT-DETR, Baidu’s efficient and adaptable real-time object detector powered by Vision Transformers, including pre-trained models." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/rtdetr" property="twitter:url"/><meta content="RT-DETR (Realtime Detection Transformer)" property="twitter:title"/><meta content="Discover the features and benefits of RT-DETR, Baidu’s efficient and adaptable real-time object detector powered by Vision Transformers, including pre-trained models." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "RT-DETR (Realtime Detection Transformer)", "image": ["https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-01-16 20:48:28 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="YOLOv9" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv9, real-time object detection, Programmable Gradient Information, GELAN architecture, Ultralytics, MS COCO dataset, open-source, lightweight model, computer vision, AI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/yolov9" property="og:url"/><meta content="YOLOv9" property="og:title"/><meta content="Discover YOLOv9, the latest addition to the real-time object detection arsenal, leveraging Programmable Gradient Information and GELAN architecture for unparalleled performance." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/9f41ef7b-6008-43eb-8ba1-0a9b89600100" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/yolov9" property="twitter:url"/><meta content="YOLOv9" property="twitter:title"/><meta content="Discover YOLOv9, the latest addition to the real-time object detection arsenal, leveraging Programmable Gradient Information and GELAN architecture for unparalleled performance." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/9f41ef7b-6008-43eb-8ba1-0a9b89600100" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLOv9", "image": ["https://github.com/ultralytics/ultralytics/assets/26833433/9f41ef7b-6008-43eb-8ba1-0a9b89600100"], "datePublished": "2024-02-26 23:09:07 +0100", "dateModified": "2024-02-26 23:09:07 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#baidus-rt-detr-a-vision-transformer-based-real-time-object-detector">
+<a class="md-skip" href="#yolov9-a-leap-forward-in-object-detection-technology">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              RT-DETR (Realtime Detection Transformer)
+              YOLOv9
             
           </span>
 </div>
@@ -371,12 +371,108 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../yolov9/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    YOLOv9
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     YOLOv9
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction-to-yolov9">
+<span class="md-ellipsis">
+      Introduction to YOLOv9
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#core-innovations-of-yolov9">
+<span class="md-ellipsis">
+      Core Innovations of YOLOv9
+    </span>
+</a>
+<nav aria-label="Core Innovations of YOLOv9" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#information-bottleneck-principle">
+<span class="md-ellipsis">
+      Information Bottleneck Principle
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reversible-functions">
+<span class="md-ellipsis">
+      Reversible Functions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#impact-on-lightweight-models">
+<span class="md-ellipsis">
+      Impact on Lightweight Models
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#programmable-gradient-information-pgi">
+<span class="md-ellipsis">
+      Programmable Gradient Information (PGI)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generalized-efficient-layer-aggregation-network-gelan">
+<span class="md-ellipsis">
+      Generalized Efficient Layer Aggregation Network (GELAN)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#performance-on-ms-coco-dataset">
+<span class="md-ellipsis">
+      Performance on MS COCO Dataset
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#integration-and-future-directions">
+<span class="md-ellipsis">
+      Integration and Future Directions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#citations-and-acknowledgements">
+<span class="md-ellipsis">
+      Citations and Acknowledgements
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../sam/">
@@ -406,73 +502,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    RT-DETR (Realtime Detection Transformer)
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rtdetr/">
 <span class="md-ellipsis">
     RT-DETR (Realtime Detection Transformer)
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#overview">
-<span class="md-ellipsis">
-      Overview
-    </span>
-</a>
-<nav aria-label="Overview" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-features">
-<span class="md-ellipsis">
-      Key Features
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#pre-trained-models">
-<span class="md-ellipsis">
-      Pre-trained Models
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-examples">
-<span class="md-ellipsis">
-      Usage Examples
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#supported-tasks-and-modes">
-<span class="md-ellipsis">
-      Supported Tasks and Modes
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#citations-and-acknowledgements">
-<span class="md-ellipsis">
-      Citations and Acknowledgements
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../yolo-world/">
@@ -555,17 +590,52 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#overview">
+<a class="md-nav__link" href="#introduction-to-yolov9">
 <span class="md-ellipsis">
-      Overview
+      Introduction to YOLOv9
     </span>
 </a>
-<nav aria-label="Overview" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#core-innovations-of-yolov9">
+<span class="md-ellipsis">
+      Core Innovations of YOLOv9
+    </span>
+</a>
+<nav aria-label="Core Innovations of YOLOv9" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#key-features">
+<a class="md-nav__link" href="#information-bottleneck-principle">
 <span class="md-ellipsis">
-      Key Features
+      Information Bottleneck Principle
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reversible-functions">
+<span class="md-ellipsis">
+      Reversible Functions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#impact-on-lightweight-models">
+<span class="md-ellipsis">
+      Impact on Lightweight Models
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#programmable-gradient-information-pgi">
+<span class="md-ellipsis">
+      Programmable Gradient Information (PGI)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generalized-efficient-layer-aggregation-network-gelan">
+<span class="md-ellipsis">
+      Generalized Efficient Layer Aggregation Network (GELAN)
     </span>
 </a>
 </li>
@@ -573,23 +643,23 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pre-trained-models">
+<a class="md-nav__link" href="#performance-on-ms-coco-dataset">
 <span class="md-ellipsis">
-      Pre-trained Models
+      Performance on MS COCO Dataset
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usage-examples">
+<a class="md-nav__link" href="#integration-and-future-directions">
 <span class="md-ellipsis">
-      Usage Examples
+      Integration and Future Directions
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#supported-tasks-and-modes">
+<a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
-      Supported Tasks and Modes
+      Conclusion
     </span>
 </a>
 </li>
@@ -607,114 +677,128 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/models/rtdetr.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/models/yolov9.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="baidus-rt-detr-a-vision-transformer-based-real-time-object-detector">Baidu's RT-DETR: A Vision Transformer-Based Real-Time Object Detector</h1>
-<h2 id="overview">Overview</h2>
-<p>Real-Time Detection Transformer (RT-DETR), developed by Baidu, is a cutting-edge end-to-end object detector that provides real-time performance while maintaining high accuracy. It leverages the power of Vision Transformers (ViT) to efficiently process multiscale features by decoupling intra-scale interaction and cross-scale fusion. RT-DETR is highly adaptable, supporting flexible adjustment of inference speed using different decoder layers without retraining. The model excels on accelerated backends like CUDA with TensorRT, outperforming many other real-time object detectors.</p>
-<p><img alt="Model example image" src="https://user-images.githubusercontent.com/26833433/238963168-90e8483f-90aa-4eb6-a5e1-0d408b23dd33.png"> <strong>Overview of Baidu's RT-DETR.</strong> The RT-DETR model architecture diagram shows the last three stages of the backbone {S3, S4, S5} as the input to the encoder. The efficient hybrid encoder transforms multiscale features into a sequence of image features through intrascale feature interaction (AIFI) and cross-scale feature-fusion module (CCFM). The IoU-aware query selection is employed to select a fixed number of image features to serve as initial object queries for the decoder. Finally, the decoder with auxiliary prediction heads iteratively optimizes object queries to generate boxes and confidence scores (<a href="https://arxiv.org/pdf/2304.08069.pdf">source</a>).</img></p>
-<h3 id="key-features">Key Features</h3>
-<ul>
-<li><strong>Efficient Hybrid Encoder:</strong> Baidu's RT-DETR uses an efficient hybrid encoder that processes multiscale features by decoupling intra-scale interaction and cross-scale fusion. This unique Vision Transformers-based design reduces computational costs and allows for real-time object detection.</li>
-<li><strong>IoU-aware Query Selection:</strong> Baidu's RT-DETR improves object query initialization by utilizing IoU-aware query selection. This allows the model to focus on the most relevant objects in the scene, enhancing the detection accuracy.</li>
-<li><strong>Adaptable Inference Speed:</strong> Baidu's RT-DETR supports flexible adjustments of inference speed by using different decoder layers without the need for retraining. This adaptability facilitates practical application in various real-time object detection scenarios.</li>
-</ul>
-<h2 id="pre-trained-models">Pre-trained Models</h2>
-<p>The Ultralytics Python API provides pre-trained PaddlePaddle RT-DETR models with different scales:</p>
-<ul>
-<li>RT-DETR-L: 53.0% AP on COCO val2017, 114 FPS on T4 GPU</li>
-<li>RT-DETR-X: 54.8% AP on COCO val2017, 74 FPS on T4 GPU</li>
-</ul>
-<h2 id="usage-examples">Usage Examples</h2>
-<p>This example provides simple RT-DETRR training and inference examples. For full documentation on these and other <a href="../../modes/">modes</a> see the <a href="../../modes/predict/">Predict</a>, <a href="../../modes/train/">Train</a>, <a href="../../modes/val/">Val</a> and <a href="../../modes/export/">Export</a> docs pages.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">RTDETR</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a COCO-pretrained RT-DETR-l model</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">RTDETR</span><span class="p">(</span><span class="s1">'rtdetr-l.pt'</span><span class="p">)</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Display model information (optional)</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># Run inference with the RT-DETR-l model on the 'bus.jpg' image</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'path/to/bus.jpg'</span><span class="p">)</span>
+<h1 id="yolov9-a-leap-forward-in-object-detection-technology">YOLOv9: A Leap Forward in Object Detection Technology</h1>
+<p>YOLOv9 marks a significant advancement in real-time object detection, introducing groundbreaking techniques such as Programmable Gradient Information (PGI) and the Generalized Efficient Layer Aggregation Network (GELAN). This model demonstrates remarkable improvements in efficiency, accuracy, and adaptability, setting new benchmarks on the MS COCO dataset. The YOLOv9 project, while developed by a separate open-source team, builds upon the robust codebase provided by <a href="https://ultralytics.com">Ultralytics</a> <a href="../yolov5/">YOLOv5</a>, showcasing the collaborative spirit of the AI research community.</p>
+<p><img alt="YOLOv9 performance comparison" src="https://github.com/ultralytics/ultralytics/assets/26833433/9f41ef7b-6008-43eb-8ba1-0a9b89600100"/></p>
+<h2 id="introduction-to-yolov9">Introduction to YOLOv9</h2>
+<p>In the quest for optimal real-time object detection, YOLOv9 stands out with its innovative approach to overcoming information loss challenges inherent in deep neural networks. By integrating PGI and the versatile GELAN architecture, YOLOv9 not only enhances the model's learning capacity but also ensures the retention of crucial information throughout the detection process, thereby achieving exceptional accuracy and performance.</p>
+<h2 id="core-innovations-of-yolov9">Core Innovations of YOLOv9</h2>
+<p>YOLOv9's advancements are deeply rooted in addressing the challenges posed by information loss in deep neural networks. The Information Bottleneck Principle and the innovative use of Reversible Functions are central to its design, ensuring YOLOv9 maintains high efficiency and accuracy.</p>
+<h3 id="information-bottleneck-principle">Information Bottleneck Principle</h3>
+<p>The Information Bottleneck Principle reveals a fundamental challenge in deep learning: as data passes through successive layers of a network, the potential for information loss increases. This phenomenon is mathematically represented as:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">I</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">I</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">f_theta</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="n">I</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">g_phi</span><span class="p">(</span><span class="n">f_theta</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Load a COCO-pretrained RT-DETR-l model and train it on the COCO8 example dataset for 100 epochs</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>rtdetr-l.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Load a COCO-pretrained RT-DETR-l model and run inference on the 'bus.jpg' image</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>rtdetr-l.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/bus.jpg
+<p>where <code>I</code> denotes mutual information, and <code>f</code> and <code>g</code> represent transformation functions with parameters <code>theta</code> and <code>phi</code>, respectively. YOLOv9 counters this challenge by implementing Programmable Gradient Information (PGI), which aids in preserving essential data across the network's depth, ensuring more reliable gradient generation and, consequently, better model convergence and performance.</p>
+<h3 id="reversible-functions">Reversible Functions</h3>
+<p>The concept of Reversible Functions is another cornerstone of YOLOv9's design. A function is deemed reversible if it can be inverted without any loss of information, as expressed by:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">X</span> <span class="o">=</span> <span class="n">v_zeta</span><span class="p">(</span><span class="n">r_psi</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
 </code></pre></div>
-</div>
-</div>
-</input></input></div>
-</div>
-<h2 id="supported-tasks-and-modes">Supported Tasks and Modes</h2>
-<p>This table presents the model types, the specific pre-trained weights, the tasks supported by each model, and the various modes (<a href="../../modes/train/">Train</a> , <a href="../../modes/val/">Val</a>, <a href="../../modes/predict/">Predict</a>, <a href="../../modes/export/">Export</a>) that are supported, indicated by ✅ emojis.</p>
+<p>with <code>psi</code> and <code>zeta</code> as parameters for the reversible and its inverse function, respectively. This property is crucial for deep learning architectures, as it allows the network to retain a complete information flow, thereby enabling more accurate updates to the model's parameters. YOLOv9 incorporates reversible functions within its architecture to mitigate the risk of information degradation, especially in deeper layers, ensuring the preservation of critical data for object detection tasks.</p>
+<h3 id="impact-on-lightweight-models">Impact on Lightweight Models</h3>
+<p>Addressing information loss is particularly vital for lightweight models, which are often under-parameterized and prone to losing significant information during the feedforward process. YOLOv9's architecture, through the use of PGI and reversible functions, ensures that even with a streamlined model, the essential information required for accurate object detection is retained and effectively utilized.</p>
+<h3 id="programmable-gradient-information-pgi">Programmable Gradient Information (PGI)</h3>
+<p>PGI is a novel concept introduced in YOLOv9 to combat the information bottleneck problem, ensuring the preservation of essential data across deep network layers. This allows for the generation of reliable gradients, facilitating accurate model updates and improving the overall detection performance.</p>
+<h3 id="generalized-efficient-layer-aggregation-network-gelan">Generalized Efficient Layer Aggregation Network (GELAN)</h3>
+<p>GELAN represents a strategic architectural advancement, enabling YOLOv9 to achieve superior parameter utilization and computational efficiency. Its design allows for flexible integration of various computational blocks, making YOLOv9 adaptable to a wide range of applications without sacrificing speed or accuracy.</p>
+<p><img alt="YOLOv9 architecture comparison" src="https://github.com/ultralytics/ultralytics/assets/26833433/286a3971-677b-45e6-a90b-4b6bd565a7af"/></p>
+<h2 id="performance-on-ms-coco-dataset">Performance on MS COCO Dataset</h2>
+<p>The performance of YOLOv9 on the <a href="../../datasets/detect/coco/">COCO dataset</a> exemplifies its significant advancements in real-time object detection, setting new benchmarks across various model sizes. Table 1 presents a comprehensive comparison of state-of-the-art real-time object detectors, illustrating YOLOv9's superior efficiency and accuracy.</p>
+<p><strong>Table 1. Comparison of State-of-the-Art Real-Time Object Detectors</strong></p>
 <table>
 <thead>
 <tr>
-<th>Model Type</th>
-<th>Pre-trained Weights</th>
-<th>Tasks Supported</th>
-<th>Inference</th>
-<th>Validation</th>
-<th>Training</th>
-<th>Export</th>
+<th>Model</th>
+<th>Parameters (M)</th>
+<th>FLOPs (G)</th>
+<th>APval 50:95 (%)</th>
+<th>APval 50 (%)</th>
+<th>APval 75 (%)</th>
+<th>APval S (%)</th>
+<th>APval M (%)</th>
+<th>APval L (%)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>RT-DETR Large</td>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v8.1.0/rtdetr-l.pt">rtdetr-l.pt</a></td>
-<td><a href="../../tasks/detect/">Object Detection</a></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
+<td>YOLOv9-S</td>
+<td>7.2</td>
+<td>26.7</td>
+<td>46.8</td>
+<td>63.4</td>
+<td>50.7</td>
+<td>26.6</td>
+<td>56.0</td>
+<td>64.5</td>
 </tr>
 <tr>
-<td>RT-DETR Extra-Large</td>
-<td><a href="https://github.com/ultralytics/assets/releases/download/v8.1.0/rtdetr-x.pt">rtdetr-x.pt</a></td>
-<td><a href="../../tasks/detect/">Object Detection</a></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
+<td>YOLOv9-M</td>
+<td>20.1</td>
+<td>76.8</td>
+<td>51.4</td>
+<td>68.1</td>
+<td>56.1</td>
+<td>33.6</td>
+<td>57.0</td>
+<td>68.0</td>
+</tr>
+<tr>
+<td>YOLOv9-C</td>
+<td>25.5</td>
+<td>102.8</td>
+<td>53.0</td>
+<td>70.2</td>
+<td>57.8</td>
+<td>36.2</td>
+<td>58.5</td>
+<td>69.3</td>
+</tr>
+<tr>
+<td>YOLOv9-E</td>
+<td>58.1</td>
+<td>192.5</td>
+<td>55.6</td>
+<td>72.8</td>
+<td>60.6</td>
+<td>40.2</td>
+<td>61.0</td>
+<td>71.4</td>
 </tr>
 </tbody>
 </table>
+<p>YOLOv9's iterations, ranging from the smaller S variant to the extensive E model, demonstrate improvements not only in accuracy (AP metrics) but also in efficiency with a reduced number of parameters and computational needs (FLOPs). This table underscores YOLOv9's ability to deliver high precision while maintaining or reducing the computational overhead compared to prior versions and competing models.</p>
+<p>Comparatively, YOLOv9 exhibits remarkable gains:</p>
+<ul>
+<li><strong>Lightweight Models</strong>: YOLOv9-S surpasses the YOLO MS-S in parameter efficiency and computational load while achieving an improvement of 0.4∼0.6% in AP.</li>
+<li><strong>Medium to Large Models</strong>: YOLOv9-M and YOLOv9-E show notable advancements in balancing the trade-off between model complexity and detection performance, offering significant reductions in parameters and computations against the backdrop of improved accuracy.</li>
+</ul>
+<p>The YOLOv9-C model, in particular, highlights the effectiveness of the architecture's optimizations. It operates with 42% fewer parameters and 21% less computational demand than YOLOv7 AF, yet it achieves comparable accuracy, demonstrating YOLOv9's significant efficiency improvements. Furthermore, the YOLOv9-E model sets a new standard for large models, with 15% fewer parameters and 25% less computational need than YOLOv8-X, alongside a substantial 1.7% improvement in AP.</p>
+<p>These results showcase YOLOv9's strategic advancements in model design, emphasizing its enhanced efficiency without compromising on the precision essential for real-time object detection tasks. The model not only pushes the boundaries of performance metrics but also emphasizes the importance of computational efficiency, making it a pivotal development in the field of computer vision.</p>
+<h2 id="integration-and-future-directions">Integration and Future Directions</h2>
+<p>YOLOv9 embodies the spirit of open-source collaboration that is central to the advancement of AI technology. With plans for future integration into the Ultralytics package, YOLOv9 is poised to become an accessible tool for researchers and practitioners alike, further enhancing its impact on the field of computer vision.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>YOLOv9 represents a pivotal development in real-time object detection, offering significant improvements in terms of efficiency, accuracy, and adaptability. By addressing critical challenges through innovative solutions like PGI and GELAN, YOLOv9 sets a new precedent for future research and application in the field. As the AI community continues to evolve, YOLOv9 stands as a testament to the power of collaboration and innovation in driving technological progress.</p>
+<p>Stay tuned for updates on Ultralytics package integration and explore the possibilities that YOLOv9 brings to the realm of computer vision.</p>
 <h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
-<p>If you use Baidu's RT-DETR in your research or development work, please cite the <a href="https://arxiv.org/abs/2304.08069">original paper</a>:</p>
+<p>We would like to acknowledge the YOLOv9 authors for their significant contributions in the field of real-time object detection:</p>
 <div class="admonition quote">
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">lv2023detrs</span><span class="p">,</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{DETRs Beat YOLOs on Real-time Object Detection}</span><span class="p">,</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Wenyu Lv and Shangliang Xu and Yian Zhao and Guanzhong Wang and Jinman Wei and Cheng Cui and Yuning Du and Qingqing Dang and Yi Liu}</span><span class="p">,</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2023}</span><span class="p">,</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{2304.08069}</span><span class="p">,</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">wang2024yolov9</span><span class="p">,</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{{YOLOv9}: Learning What You Want to Learn Using Programmable Gradient Information}</span><span class="p">,</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Wang, Chien-Yao  and Liao, Hong-Yuan Mark}</span><span class="p">,</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="na">booktitle</span><span class="p">=</span><span class="s">{arXiv preprint arXiv:2402.13616}</span><span class="p">,</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2024}</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
 </input></div>
 </div>
-<p>We would like to acknowledge Baidu and the <a href="https://github.com/PaddlePaddle/PaddleDetection">PaddlePaddle</a> team for creating and maintaining this valuable resource for the computer vision community. Their contribution to the field with the development of the Vision Transformers-based real-time object detector, RT-DETR, is greatly appreciated.</p>
-<p><em>Keywords: RT-DETR, Transformer, ViT, Vision Transformers, Baidu RT-DETR, PaddlePaddle, Paddle Paddle RT-DETR, real-time object detection, Vision Transformers-based object detection, pre-trained PaddlePaddle RT-DETR models, Baidu's RT-DETR usage, Ultralytics Python API</em></p>
+<p>The original YOLOv9 paper can be found on <a href="https://arxiv.org/pdf/2402.13616.pdf">arXiv</a>. The authors have made their work publicly available, and the codebase can be accessed on <a href="https://github.com/WongKinYiu/yolov9">GitHub</a>. We appreciate their efforts in advancing the field and making their work accessible to the broader community.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -723,7 +807,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-16<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-02-26, Updated 2024-02-26<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -734,10 +818,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/models/rtdetr', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/models/yolov9', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/models/rtdetr', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/models/yolov9', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -786,7 +870,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: YOLO-NAS (Neural Architecture Search)" class="md-footer__link md-footer__link--prev" href="../yolo-nas/">
+<a aria-label="Previous: YOLOv8" class="md-footer__link md-footer__link--prev" href="../yolov8/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -795,17 +879,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                YOLO-NAS (Neural Architecture Search)
+                YOLOv8
               </div>
 </div>
 </a>
-<a aria-label="Next: YOLO-World (Real-Time Open-Vocabulary Object Detection)" class="md-footer__link md-footer__link--next" href="../yolo-world/">
+<a aria-label="Next: SAM (Segment Anything Model)" class="md-footer__link md-footer__link--next" href="../sam/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                YOLO-World (Real-Time Open-Vocabulary Object Detection)
+                SAM (Segment Anything Model)
               </div>
 </div>
 <div class="md-footer__button md-icon">
