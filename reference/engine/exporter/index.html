@@ -2502,7 +2502,7 @@
 <a id="__codelineno-0-293" name="__codelineno-0-293"></a>                <span class="n">f</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_tfjs</span><span class="p">()</span>
 <a id="__codelineno-0-294" name="__codelineno-0-294"></a>        <span class="k">if</span> <span class="n">paddle</span><span class="p">:</span>  <span class="c1"># PaddlePaddle</span>
 <a id="__codelineno-0-295" name="__codelineno-0-295"></a>            <span class="n">f</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_paddle</span><span class="p">()</span>
-<a id="__codelineno-0-296" name="__codelineno-0-296"></a>        <span class="k">if</span> <span class="n">ncnn</span><span class="p">:</span>  <span class="c1"># ncnn</span>
+<a id="__codelineno-0-296" name="__codelineno-0-296"></a>        <span class="k">if</span> <span class="n">ncnn</span><span class="p">:</span>  <span class="c1"># NCNN</span>
 <a id="__codelineno-0-297" name="__codelineno-0-297"></a>            <span class="n">f</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_ncnn</span><span class="p">()</span>
 <a id="__codelineno-0-298" name="__codelineno-0-298"></a>
 <a id="__codelineno-0-299" name="__codelineno-0-299"></a>        <span class="c1"># Finish</span>
@@ -2705,14 +2705,14 @@
 <a id="__codelineno-0-496" name="__codelineno-0-496"></a>        <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
 <a id="__codelineno-0-497" name="__codelineno-0-497"></a>
 <a id="__codelineno-0-498" name="__codelineno-0-498"></a>    <span class="nd">@try_export</span>
-<a id="__codelineno-0-499" name="__codelineno-0-499"></a>    <span class="k">def</span> <span class="nf">export_ncnn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"ncnn:"</span><span class="p">)):</span>
+<a id="__codelineno-0-499" name="__codelineno-0-499"></a>    <span class="k">def</span> <span class="nf">export_ncnn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"NCNN:"</span><span class="p">)):</span>
 <a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="sd">        YOLOv8 ncnn export using PNNX https://github.com/pnnx/pnnx.</span>
+<a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="sd">        YOLOv8 NCNN export using PNNX https://github.com/pnnx/pnnx.</span>
 <a id="__codelineno-0-502" name="__codelineno-0-502"></a><span class="sd">        """</span>
 <a id="__codelineno-0-503" name="__codelineno-0-503"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"ncnn"</span><span class="p">)</span>
 <a id="__codelineno-0-504" name="__codelineno-0-504"></a>        <span class="kn">import</span> <span class="nn">ncnn</span>  <span class="c1"># noqa</span>
 <a id="__codelineno-0-505" name="__codelineno-0-505"></a>
-<a id="__codelineno-0-506" name="__codelineno-0-506"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with ncnn </span><span class="si">{</span><span class="n">ncnn</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
+<a id="__codelineno-0-506" name="__codelineno-0-506"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with NCNN </span><span class="si">{</span><span class="n">ncnn</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
 <a id="__codelineno-0-507" name="__codelineno-0-507"></a>        <span class="n">f</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">suffix</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"_ncnn_model</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">"</span><span class="p">))</span>
 <a id="__codelineno-0-508" name="__codelineno-0-508"></a>        <span class="n">f_ts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".torchscript"</span><span class="p">)</span>
 <a id="__codelineno-0-509" name="__codelineno-0-509"></a>
@@ -3600,7 +3600,7 @@
 <a id="__codelineno-0-293" name="__codelineno-0-293"></a>            <span class="n">f</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_tfjs</span><span class="p">()</span>
 <a id="__codelineno-0-294" name="__codelineno-0-294"></a>    <span class="k">if</span> <span class="n">paddle</span><span class="p">:</span>  <span class="c1"># PaddlePaddle</span>
 <a id="__codelineno-0-295" name="__codelineno-0-295"></a>        <span class="n">f</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_paddle</span><span class="p">()</span>
-<a id="__codelineno-0-296" name="__codelineno-0-296"></a>    <span class="k">if</span> <span class="n">ncnn</span><span class="p">:</span>  <span class="c1"># ncnn</span>
+<a id="__codelineno-0-296" name="__codelineno-0-296"></a>    <span class="k">if</span> <span class="n">ncnn</span><span class="p">:</span>  <span class="c1"># NCNN</span>
 <a id="__codelineno-0-297" name="__codelineno-0-297"></a>        <span class="n">f</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_ncnn</span><span class="p">()</span>
 <a id="__codelineno-0-298" name="__codelineno-0-298"></a>
 <a id="__codelineno-0-299" name="__codelineno-0-299"></a>    <span class="c1"># Finish</span>
@@ -4121,10 +4121,10 @@
 </div>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.engine.exporter.Exporter.export_ncnn">
-<code class="highlight language-python"><span class="n">export_ncnn</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'ncnn:'</span><span class="p">))</span></code>
+<code class="highlight language-python"><span class="n">export_ncnn</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'NCNN:'</span><span class="p">))</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>YOLOv8 ncnn export using PNNX https://github.com/pnnx/pnnx.</p>
+<p>YOLOv8 NCNN export using PNNX https://github.com/pnnx/pnnx.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-498">498</a></span>
@@ -4195,14 +4195,14 @@
 <span class="normal"><a href="#__codelineno-0-563">563</a></span>
 <span class="normal"><a href="#__codelineno-0-564">564</a></span>
 <span class="normal"><a href="#__codelineno-0-565">565</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-498" name="__codelineno-0-498"></a><span class="nd">@try_export</span>
-<a id="__codelineno-0-499" name="__codelineno-0-499"></a><span class="k">def</span> <span class="nf">export_ncnn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"ncnn:"</span><span class="p">)):</span>
+<a id="__codelineno-0-499" name="__codelineno-0-499"></a><span class="k">def</span> <span class="nf">export_ncnn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"NCNN:"</span><span class="p">)):</span>
 <a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="sd">    YOLOv8 ncnn export using PNNX https://github.com/pnnx/pnnx.</span>
+<a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="sd">    YOLOv8 NCNN export using PNNX https://github.com/pnnx/pnnx.</span>
 <a id="__codelineno-0-502" name="__codelineno-0-502"></a><span class="sd">    """</span>
 <a id="__codelineno-0-503" name="__codelineno-0-503"></a>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"ncnn"</span><span class="p">)</span>
 <a id="__codelineno-0-504" name="__codelineno-0-504"></a>    <span class="kn">import</span> <span class="nn">ncnn</span>  <span class="c1"># noqa</span>
 <a id="__codelineno-0-505" name="__codelineno-0-505"></a>
-<a id="__codelineno-0-506" name="__codelineno-0-506"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with ncnn </span><span class="si">{</span><span class="n">ncnn</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
+<a id="__codelineno-0-506" name="__codelineno-0-506"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with NCNN </span><span class="si">{</span><span class="n">ncnn</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
 <a id="__codelineno-0-507" name="__codelineno-0-507"></a>    <span class="n">f</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">suffix</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"_ncnn_model</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">"</span><span class="p">))</span>
 <a id="__codelineno-0-508" name="__codelineno-0-508"></a>    <span class="n">f_ts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".torchscript"</span><span class="p">)</span>
 <a id="__codelineno-0-509" name="__codelineno-0-509"></a>
