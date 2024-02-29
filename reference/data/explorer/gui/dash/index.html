@@ -11,7 +11,7 @@
 <link href="../../explorer/" rel="prev"/>
 <link href="../../utils/" rel="next"/>
 <link href="../../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.11" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.12" name="generator"/>
 <title>dash - Ultralytics YOLOv8 Docs</title>
 <link href="../../../../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -1521,9 +1521,9 @@
 <span class="normal"><a href="#__codelineno-0-160">160</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-144" name="__codelineno-0-144"></a><span class="k">def</span> <span class="nf">run_ai_query</span><span class="p">():</span>
 <a id="__codelineno-0-145" name="__codelineno-0-145"></a><span class="w">    </span><span class="sd">"""Execute SQL query and update session state with query results."""</span>
 <a id="__codelineno-0-146" name="__codelineno-0-146"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"openai_api_key"</span><span class="p">]:</span>
-<a id="__codelineno-0-147" name="__codelineno-0-147"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span>
-<a id="__codelineno-0-148" name="__codelineno-0-148"></a>            <span class="s2">"error"</span>
-<a id="__codelineno-0-149" name="__codelineno-0-149"></a>        <span class="p">]</span> <span class="o">=</span> <span class="s1">'OpenAI API key not found in settings. Please run yolo settings openai_api_key="..."'</span>
+<a id="__codelineno-0-147" name="__codelineno-0-147"></a>        <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s2">"error"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-148" name="__codelineno-0-148"></a>            <span class="s1">'OpenAI API key not found in settings. Please run yolo settings openai_api_key="..."'</span>
+<a id="__codelineno-0-149" name="__codelineno-0-149"></a>        <span class="p">)</span>
 <a id="__codelineno-0-150" name="__codelineno-0-150"></a>        <span class="k">return</span>
 <a id="__codelineno-0-151" name="__codelineno-0-151"></a>    <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="p">[</span><span class="s2">"error"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <a id="__codelineno-0-152" name="__codelineno-0-152"></a>    <span class="n">query</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">session_state</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ai_query"</span><span class="p">)</span>
@@ -1911,7 +1911,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+<script src="../../../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
 <script src="../../../../../javascript/extra.js"></script>
 </body>
 </html>
