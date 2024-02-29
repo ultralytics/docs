@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore Ultralytics YOLOv8, a cutting-edge real-time object detection and image segmentation model for various applications and hardware platforms." name="description"/>
+<meta content="Explore how to improve your Ultralytics YOLOv8 model's performance and interoperability using the TFLite export format suitable for edge computing environments." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/integrations/amazon-sagemaker/" rel="canonical"/>
-<link href="../tensorboard/" rel="prev"/>
-<link href="../../hub/" rel="next"/>
+<link href="https://docs.ultralytics.com/integrations/tflite/" rel="canonical"/>
+<link href="../coreml/" rel="prev"/>
+<link href="../torchscript/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.12" name="generator"/>
-<title>Amazon SageMaker - Ultralytics YOLOv8 Docs</title>
+<title>TFLite - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Amazon SageMaker" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv8, Ultralytics, Amazon SageMaker, AWS, CloudFormation, AWS CDK, PyTorch, Model Deployment, Machine Learning, Computer Vision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/amazon-sagemaker" property="og:url"/><meta content="Amazon SageMaker" property="og:title"/><meta content="" property="og:description"/><meta content="https://d1.awsstatic.com/sagemaker/Amazon-SageMaker-Studio%402x.aa0572ebf4ea9237571644c7f853c914c1d0c985.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/amazon-sagemaker" property="twitter:url"/><meta content="Amazon SageMaker" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://d1.awsstatic.com/sagemaker/Amazon-SageMaker-Studio%402x.aa0572ebf4ea9237571644c7f853c914c1d0c985.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Amazon SageMaker", "image": ["https://d1.awsstatic.com/sagemaker/Amazon-SageMaker-Studio%402x.aa0572ebf4ea9237571644c7f853c914c1d0c985.png"], "datePublished": "2024-01-04 03:19:42 +0530", "dateModified": "2024-01-07 17:13:42 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="TFLite" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, TFLite Export, Export YOLOv8, Model Deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/tflite" property="og:url"/><meta content="TFLite" property="og:title"/><meta content="Explore how to improve your Ultralytics YOLOv8 model's performance and interoperability using the TFLite export format suitable for edge computing environments." property="og:description"/><meta content="https://2.bp.blogspot.com/-mNcMMMsyQCc/XpT0ReRUTBI/AAAAAAAAC-g/-yQX6bCqbxEuSAlDNSUPQkytsn6Ml8qrQCLcBGAsYHQ/s1600/Screen%2BShot%2B2020-04-13%2Bat%2B4.22.27%2BPM.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/tflite" property="twitter:url"/><meta content="TFLite" property="twitter:title"/><meta content="Explore how to improve your Ultralytics YOLOv8 model's performance and interoperability using the TFLite export format suitable for edge computing environments." property="twitter:description"/><meta content="https://2.bp.blogspot.com/-mNcMMMsyQCc/XpT0ReRUTBI/AAAAAAAAC-g/-yQX6bCqbxEuSAlDNSUPQkytsn6Ml8qrQCLcBGAsYHQ/s1600/Screen%2BShot%2B2020-04-13%2Bat%2B4.22.27%2BPM.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TFLite", "image": ["https://2.bp.blogspot.com/-mNcMMMsyQCc/XpT0ReRUTBI/AAAAAAAAC-g/-yQX6bCqbxEuSAlDNSUPQkytsn6Ml8qrQCLcBGAsYHQ/s1600/Screen%2BShot%2B2020-04-13%2Bat%2B4.22.27%2BPM.png"], "datePublished": "2024-03-01 05:07:06 +0530", "dateModified": "2024-03-01 05:07:06 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#a-guide-to-deploying-yolov8-on-amazon-sagemaker-endpoints">
+<a class="md-skip" href="#a-guide-on-yolov8-model-export-to-tflite-for-deployment">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Amazon SageMaker
+              TFLite
             
           </span>
 </div>
@@ -396,12 +396,87 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../tflite/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    TFLite
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     TFLite
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-you-export-to-tflite">
+<span class="md-ellipsis">
+      Why should you export to TFLite?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-tflite-models">
+<span class="md-ellipsis">
+      Key Features of TFLite Models
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deployment-options-in-tflite">
+<span class="md-ellipsis">
+      Deployment Options in TFLite
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#export-to-tflite-converting-your-yolov8-model">
+<span class="md-ellipsis">
+      Export to TFLite: Converting Your YOLOv8 Model
+    </span>
+</a>
+<nav aria-label="Export to TFLite: Converting Your YOLOv8 Model" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+<span class="md-ellipsis">
+      Installation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage">
+<span class="md-ellipsis">
+      Usage
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying-exported-yolov8-tflite-models">
+<span class="md-ellipsis">
+      Deploying Exported YOLOv8 TFLite Models
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../torchscript/">
@@ -473,101 +548,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Amazon SageMaker
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../amazon-sagemaker/">
 <span class="md-ellipsis">
     Amazon SageMaker
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#amazon-sagemaker">
-<span class="md-ellipsis">
-      Amazon SageMaker
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-yolov8-on-amazon-sagemaker-endpoints">
-<span class="md-ellipsis">
-      Deploying YOLOv8 on Amazon SageMaker Endpoints
-    </span>
-</a>
-<nav aria-label="Deploying YOLOv8 on Amazon SageMaker Endpoints" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-setup-your-aws-environment">
-<span class="md-ellipsis">
-      Step 1: Setup Your AWS Environment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-clone-the-yolov8-sagemaker-repository">
-<span class="md-ellipsis">
-      Step 2: Clone the YOLOv8 SageMaker Repository
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-set-up-the-cdk-environment">
-<span class="md-ellipsis">
-      Step 3: Set Up the CDK Environment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-create-the-aws-cloudformation-stack">
-<span class="md-ellipsis">
-      Step 4: Create the AWS CloudFormation Stack
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-deploy-the-yolov8-model">
-<span class="md-ellipsis">
-      Step 5: Deploy the YOLOv8 Model
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-6-testing-your-deployment">
-<span class="md-ellipsis">
-      Step 6: Testing Your Deployment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-7-monitoring-and-management">
-<span class="md-ellipsis">
-      Step 7: Monitoring and Management
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
-<span class="md-ellipsis">
-      Summary
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -611,71 +597,57 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#amazon-sagemaker">
+<a class="md-nav__link" href="#why-should-you-export-to-tflite">
 <span class="md-ellipsis">
-      Amazon SageMaker
+      Why should you export to TFLite?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-yolov8-on-amazon-sagemaker-endpoints">
+<a class="md-nav__link" href="#key-features-of-tflite-models">
 <span class="md-ellipsis">
-      Deploying YOLOv8 on Amazon SageMaker Endpoints
+      Key Features of TFLite Models
     </span>
 </a>
-<nav aria-label="Deploying YOLOv8 on Amazon SageMaker Endpoints" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deployment-options-in-tflite">
+<span class="md-ellipsis">
+      Deployment Options in TFLite
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#export-to-tflite-converting-your-yolov8-model">
+<span class="md-ellipsis">
+      Export to TFLite: Converting Your YOLOv8 Model
+    </span>
+</a>
+<nav aria-label="Export to TFLite: Converting Your YOLOv8 Model" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-setup-your-aws-environment">
+<a class="md-nav__link" href="#installation">
 <span class="md-ellipsis">
-      Step 1: Setup Your AWS Environment
+      Installation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-clone-the-yolov8-sagemaker-repository">
+<a class="md-nav__link" href="#usage">
 <span class="md-ellipsis">
-      Step 2: Clone the YOLOv8 SageMaker Repository
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-set-up-the-cdk-environment">
-<span class="md-ellipsis">
-      Step 3: Set Up the CDK Environment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-create-the-aws-cloudformation-stack">
-<span class="md-ellipsis">
-      Step 4: Create the AWS CloudFormation Stack
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-deploy-the-yolov8-model">
-<span class="md-ellipsis">
-      Step 5: Deploy the YOLOv8 Model
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-6-testing-your-deployment">
-<span class="md-ellipsis">
-      Step 6: Testing Your Deployment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-7-monitoring-and-management">
-<span class="md-ellipsis">
-      Step 7: Monitoring and Management
+      Usage
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying-exported-yolov8-tflite-models">
+<span class="md-ellipsis">
+      Deploying Exported YOLOv8 TFLite Models
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#summary">
@@ -691,150 +663,119 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/amazon-sagemaker.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/tflite.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="a-guide-to-deploying-yolov8-on-amazon-sagemaker-endpoints">A Guide to Deploying YOLOv8 on Amazon SageMaker Endpoints</h1>
-<p>Deploying advanced computer vision models like <a href="https://github.com/ultralytics/ultralytics">Ultralytics’ YOLOv8</a> on Amazon SageMaker Endpoints opens up a wide range of possibilities for various machine learning applications. The key to effectively using these models lies in understanding their setup, configuration, and deployment processes. YOLOv8 becomes even more powerful when integrated seamlessly with Amazon SageMaker, a robust and scalable machine learning service by AWS.</p>
-<p>This guide will take you through the process of deploying YOLOv8 PyTorch models on Amazon SageMaker Endpoints step by step. You'll learn the essentials of preparing your AWS environment, configuring the model appropriately, and using tools like AWS CloudFormation and the AWS Cloud Development Kit (CDK) for deployment.</p>
-<h2 id="amazon-sagemaker">Amazon SageMaker</h2>
+<h1 id="a-guide-on-yolov8-model-export-to-tflite-for-deployment">A Guide on YOLOv8 Model Export to TFLite for Deployment</h1>
+<p>Deploying computer vision models on edge devices or embedded devices requires a format that can ensure seamless performance.</p>
+<p>The TensorFlow Lite or TFLite export format allows you to optimize your <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLOv8</a> models for tasks like object detection and image classification in edge device-based applications. In this guide, we'll walk through the steps for converting your models to the TFLite format, making it easier for your models to perform well on various edge devices.</p>
+<h2 id="why-should-you-export-to-tflite">Why should you export to TFLite?</h2>
 <p align="center">
-<img alt="Amazon SageMaker Overview" src="https://d1.awsstatic.com/sagemaker/Amazon-SageMaker-Studio%402x.aa0572ebf4ea9237571644c7f853c914c1d0c985.png" width="640"/>
+<img alt="TFLite Logo" src="https://2.bp.blogspot.com/-mNcMMMsyQCc/XpT0ReRUTBI/AAAAAAAAC-g/-yQX6bCqbxEuSAlDNSUPQkytsn6Ml8qrQCLcBGAsYHQ/s1600/Screen%2BShot%2B2020-04-13%2Bat%2B4.22.27%2BPM.png" width="100%"/>
 </p>
-<p><a href="https://aws.amazon.com/sagemaker/">Amazon SageMaker</a> is a machine learning service from Amazon Web Services (AWS) that simplifies the process of building, training, and deploying machine learning models. It provides a broad range of tools for handling various aspects of machine learning workflows. This includes automated features for tuning models, options for training models at scale, and straightforward methods for deploying models into production. SageMaker supports popular machine learning frameworks, offering the flexibility needed for diverse projects. Its features also cover data labeling, workflow management, and performance analysis.</p>
-<h2 id="deploying-yolov8-on-amazon-sagemaker-endpoints">Deploying YOLOv8 on Amazon SageMaker Endpoints</h2>
-<p>Deploying YOLOv8 on Amazon SageMaker lets you use its managed environment for real-time inference and take advantage of features like autoscaling. Take a look at the AWS architecture below.</p>
-<p align="center">
-<img alt="AWS Architecture" src="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2023/02/28/ML13353_AWSArchitecture-1024x605.png" width="640"/>
-</p>
-<h3 id="step-1-setup-your-aws-environment">Step 1: Setup Your AWS Environment</h3>
-<p>First, ensure you have the following prerequisites in place:</p>
+<p>Introduced by Google in May 2017 as part of their TensorFlow framework, <a href="https://www.tensorflow.org/lite/guide">TensorFlow Lite</a>, or TFLite for short, is an open-source deep learning framework designed for on-device inference, also known as edge computing. It gives developers the necessary tools to execute their trained models on mobile, embedded, and IoT devices, as well as traditional computers. </p>
+<p>TensorFlow Lite is compatible with a wide range of platforms, including embedded Linux, Android, iOS, and MCU. Exporting your model to TFLite makes your applications faster, more reliable, and capable of running offline.</p>
+<h2 id="key-features-of-tflite-models">Key Features of TFLite Models</h2>
+<p>TFLite models offer a wide range of key features that enable on-device machine learning by helping developers run their models on mobile, embedded, and edge devices:</p>
 <ul>
 <li>
-<p>An AWS Account: If you don't already have one, sign up for an AWS account.</p>
+<p><strong>On-device Optimization</strong>: TFLite optimizes for on-device ML, reducing latency by processing data locally, enhancing privacy by not transmitting personal data, and minimizing model size to save space.</p>
 </li>
 <li>
-<p>Configured IAM Roles: You’ll need an IAM role with the necessary permissions for Amazon SageMaker, AWS CloudFormation, and Amazon S3. This role should have policies that allow it to access these services.</p>
+<p><strong>Multiple Platform Support</strong>: TFLite offers extensive platform compatibility, supporting Android, iOS, embedded Linux, and microcontrollers.</p>
 </li>
 <li>
-<p>AWS CLI: If not already installed, download and install the AWS Command Line Interface (CLI) and configure it with your account details. Follow <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">the AWS CLI instructions</a> for installation.</p>
+<p><strong>Diverse Language Support</strong>: TFLite is compatible with various programming languages, including Java, Swift, Objective-C, C++, and Python.</p>
 </li>
 <li>
-<p>AWS CDK: If not already installed, install the AWS Cloud Development Kit (CDK), which will be used for scripting the deployment. Follow <a href="https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html#getting_started_install">the AWS CDK instructions</a> for installation.</p>
-</li>
-<li>
-<p>Adequate Service Quota: Confirm that you have sufficient quotas for two separate resources in Amazon SageMaker: one for ml.m5.4xlarge for endpoint usage and another for ml.m5.4xlarge for notebook instance usage. Each of these requires a minimum of one quota value. If your current quotas are below this requirement, it's important to request an increase for each. You can request a quota increase by following the detailed instructions in the <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html#quota-console-increase">AWS Service Quotas documentation</a>.</p>
+<p><strong>High Performance</strong>: Achieves superior performance through hardware acceleration and model optimization.</p>
 </li>
 </ul>
-<h3 id="step-2-clone-the-yolov8-sagemaker-repository">Step 2: Clone the YOLOv8 SageMaker Repository</h3>
-<p>The next step is to clone the specific AWS repository that contains the resources for deploying YOLOv8 on SageMaker. This repository, hosted on GitHub, includes the necessary CDK scripts and configuration files.</p>
+<h2 id="deployment-options-in-tflite">Deployment Options in TFLite</h2>
+<p>Before we look at the code for exporting YOLOv8 models to the TFLite format, let’s understand how TFLite models are normally used.</p>
+<p>TFLite offers various on-device deployment options for machine learning models, including:</p>
 <ul>
-<li>Clone the GitHub Repository: Execute the following command in your terminal to clone the host-yolov8-on-sagemaker-endpoint repository:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/aws-samples/host-yolov8-on-sagemaker-endpoint.git
-</code></pre></div>
-<ul>
-<li>Navigate to the Cloned Directory: Change your directory to the cloned repository:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>host-yolov8-on-sagemaker-endpoint/yolov8-pytorch-cdk
-</code></pre></div>
-<h3 id="step-3-set-up-the-cdk-environment">Step 3: Set Up the CDK Environment</h3>
-<p>Now that you have the necessary code, set up your environment for deploying with AWS CDK.</p>
-<ul>
-<li>Create a Python Virtual Environment: This isolates your Python environment and dependencies. Run:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
-</code></pre></div>
-<ul>
-<li>Activate the Virtual Environment:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-</code></pre></div>
-<ul>
-<li>Install Dependencies: Install the required Python dependencies for the project:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</code></pre></div>
-<ul>
-<li>Upgrade AWS CDK Library: Ensure you have the latest version of the AWS CDK library:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>aws-cdk-lib
-</code></pre></div>
-<h3 id="step-4-create-the-aws-cloudformation-stack">Step 4: Create the AWS CloudFormation Stack</h3>
-<ul>
-<li>Synthesize the CDK Application: Generate the AWS CloudFormation template from your CDK code:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>cdk<span class="w"> </span>synth
-</code></pre></div>
-<ul>
-<li>Bootstrap the CDK Application: Prepare your AWS environment for CDK deployment:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>cdk<span class="w"> </span>bootstrap
-</code></pre></div>
-<ul>
-<li>Deploy the Stack: This will create the necessary AWS resources and deploy your model:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>cdk<span class="w"> </span>deploy
-</code></pre></div>
-<h3 id="step-5-deploy-the-yolov8-model">Step 5: Deploy the YOLOv8 Model</h3>
-<p>Before diving into the deployment instructions, be sure to check out the range of <a href="../../models/">YOLOv8 models offered by Ultralytics</a>. This will help you choose the most appropriate model for your project requirements.</p>
-<p>After creating the AWS CloudFormation Stack, the next step is to deploy YOLOv8.</p>
-<ul>
-<li>
-<p>Open the Notebook Instance: Go to the AWS Console and navigate to the Amazon SageMaker service. Select "Notebook Instances" from the dashboard, then locate the notebook instance that was created by your CDK deployment script. Open the notebook instance to access the Jupyter environment.</p>
-</li>
-<li>
-<p>Access and Modify inference.py: After opening the SageMaker notebook instance in Jupyter, locate the inference.py file. Edit the output_fn function in inference.py as shown below and save your changes to the script, ensuring that there are no syntax errors.</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">def</span> <span class="nf">output_fn</span><span class="p">(</span><span class="n">prediction_output</span><span class="p">,</span> <span class="n">content_type</span><span class="p">):</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Executing output_fn from inference.py ..."</span><span class="p">)</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="n">infer</span> <span class="o">=</span> <span class="p">{}</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">prediction_output</span><span class="p">:</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>        <span class="k">if</span> <span class="s1">'boxes'</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">_keys</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>            <span class="n">infer</span><span class="p">[</span><span class="s1">'boxes'</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>        <span class="k">if</span> <span class="s1">'masks'</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">_keys</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>            <span class="n">infer</span><span class="p">[</span><span class="s1">'masks'</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>        <span class="k">if</span> <span class="s1">'keypoints'</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">_keys</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a>            <span class="n">infer</span><span class="p">[</span><span class="s1">'keypoints'</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a>        <span class="k">if</span> <span class="s1">'probs'</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">_keys</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a>            <span class="n">infer</span><span class="p">[</span><span class="s1">'probs'</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a>    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
-</code></pre></div>
-<ul>
-<li>Deploy the Endpoint Using 1_DeployEndpoint.ipynb: In the Jupyter environment, open the 1_DeployEndpoint.ipynb notebook located in the sm-notebook directory. Follow the instructions in the notebook and run the cells to download the YOLOv8 model, package it with the updated inference code, and upload it to an Amazon S3 bucket. The notebook will guide you through creating and deploying a SageMaker endpoint for the YOLOv8 model.</li>
-</ul>
-<h3 id="step-6-testing-your-deployment">Step 6: Testing Your Deployment</h3>
-<p>Now that your YOLOv8 model is deployed, it's important to test its performance and functionality.</p>
-<ul>
-<li>
-<p>Open the Test Notebook: In the same Jupyter environment, locate and open the 2_TestEndpoint.ipynb notebook, also in the sm-notebook directory.</p>
-</li>
-<li>
-<p>Run the Test Notebook: Follow the instructions within the notebook to test the deployed SageMaker endpoint. This includes sending an image to the endpoint and running inferences. Then, you’ll plot the output to visualize the model’s performance and accuracy, as shown below.</p>
-</li>
+<li><strong>Deploying with Android and iOS</strong>: Both Android and iOS applications with TFLite can analyze edge-based camera feeds and sensors to detect and identify objects. TFLite also offers native iOS libraries written in <a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/swift">Swift</a> and <a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/objc">Objective-C</a>. The architecture diagram below shows the process of deploying a trained model onto Android and iOS platforms using TensorFlow Lite.</li>
 </ul>
 <p align="center">
-<img alt="Testing Results YOLOv8" src="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2023/02/28/ML13353_InferenceOutput.png" width="640"/>
+<img alt="Architecture" src="https://1.bp.blogspot.com/-6fS9FD8KD7g/XhJ1l8y2S4I/AAAAAAAACKw/MW9MQZ8gtiYmUe0naRdN0n2FwkT1l4trACLcBGAsYHQ/s1600/architecture.png" width="100%"/>
 </p>
 <ul>
-<li>Clean-Up Resources: The test notebook will also guide you through the process of cleaning up the endpoint and the hosted model. This is an important step to manage costs and resources effectively, especially if you do not plan to use the deployed model immediately.</li>
+<li>
+<p><strong>Implementing with Embedded Linux</strong>: If running inferences on a <a href="https://www.raspberrypi.org/">Raspberry Pi</a> using the <a href="../../guides/raspberry-pi/">Ultralytics Guide</a> does not meet the speed requirements for your use case, you can use an exported TFLite model to accelerate inference times. Additionally, it's possible to further improve performance by utilizing a <a href="(https://coral.withgoogle.com/)">Coral Edge TPU device</a>.</p>
+</li>
+<li>
+<p><strong>Deploying with Microcontrollers</strong>: TFLite models can also be deployed on microcontrollers and other devices with only a few kilobytes of memory. The core runtime just fits in 16 KB on an Arm Cortex M3 and can run many basic models. It doesn't require operating system support, any standard C or C++ libraries, or dynamic memory allocation.</p>
+</li>
 </ul>
-<h3 id="step-7-monitoring-and-management">Step 7: Monitoring and Management</h3>
-<p>After testing, continuous monitoring and management of your deployed model are essential.</p>
+<h2 id="export-to-tflite-converting-your-yolov8-model">Export to TFLite: Converting Your YOLOv8 Model</h2>
+<p>You can improve on-device model execution efficiency and optimize performance by converting them to TFLite format.</p>
+<h3 id="installation">Installation</h3>
+<p>To install the required packages, run:</p>
+<div class="admonition tip">
+<p class="admonition-title">Installation</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the required package for YOLOv8</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+</code></pre></div>
+</div>
+</div>
+</input></div>
+</div>
+<p>For detailed instructions and best practices related to the installation process, check our <a href="../../quickstart/">Ultralytics Installation guide</a>. While installing the required packages for YOLOv8, if you encounter any difficulties, consult our <a href="../../guides/yolo-common-issues/">Common Issues guide</a> for solutions and tips.</p>
+<h3 id="usage">Usage</h3>
+<p>Before diving into the usage instructions, it's important to note that while all <a href="(../models/index.md)">Ultralytics YOLOv8 models</a> are available for exporting, you can ensure that the model you select supports export functionality <a href="../../modes/export/">here</a>.</p>
+<div class="admonition example">
+<p class="admonition-title">Usage</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load the YOLOv8 model</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Export the model to TFLite format</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'tflite'</span><span class="p">)</span> <span class="c1"># creates 'yolov8n_float32.tflite'</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Load the exported TFLite model</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">tflite_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n_float32.tflite'</span><span class="p">)</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># Run inference</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">tflite_model</span><span class="p">(</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Export a YOLOv8n PyTorch model to TFLite format</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>tflite<span class="w">  </span><span class="c1"># creates 'yolov8n_float32.tflite'</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Run inference with the exported model</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s1">'yolov8n_float32.tflite'</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</div>
+<p>For more details about the export process, visit the <a href="../../modes/export/">Ultralytics documentation page on exporting</a>.</p>
+<h2 id="deploying-exported-yolov8-tflite-models">Deploying Exported YOLOv8 TFLite Models</h2>
+<p>After successfully exporting your Ultralytics YOLOv8 models to TFLite format, you can now deploy them. The primary and recommended first step for running a TFLite model is to utilize the YOLO("model.tflite") method, as outlined in the previous usage code snippet. However, for in-depth instructions on deploying your TFLite models in various other settings, take a look at the following resources:</p>
 <ul>
 <li>
-<p>Monitor with Amazon CloudWatch: Regularly check the performance and health of your SageMaker endpoint using <a href="https://aws.amazon.com/cloudwatch/">Amazon CloudWatch</a>.</p>
+<p><strong><a href="https://www.tensorflow.org/lite/android/quickstart">Android</a></strong>: A quick start guide for integrating TensorFlow Lite into Android applications, providing easy-to-follow steps for setting up and running machine learning models. </p>
 </li>
 <li>
-<p>Manage the Endpoint: Use the SageMaker console for ongoing management of the endpoint. This includes scaling, updating, or redeploying the model as required.</p>
+<p><strong><a href="https://www.tensorflow.org/lite/guide/ios">iOS</a></strong>: Check out this detailed guide for developers on integrating and deploying TensorFlow Lite models in iOS applications, offering step-by-step instructions and resources.</p>
+</li>
+<li>
+<p><strong><a href="https://www.tensorflow.org/lite/examples">End-To-End Examples</a></strong>: This page provides an overview of various TensorFlow Lite examples, showcasing practical applications and tutorials designed to help developers implement TensorFlow Lite in their machine learning projects on mobile and edge devices.</p>
 </li>
 </ul>
-<p>By completing these steps, you will have successfully deployed and tested a YOLOv8 model on Amazon SageMaker Endpoints. This process not only equips you with practical experience in using AWS services for machine learning deployment but also lays the foundation for deploying other advanced models in the future.</p>
 <h2 id="summary">Summary</h2>
-<p>This guide took you step by step through deploying YOLOv8 on Amazon SageMaker Endpoints using AWS CloudFormation and the AWS Cloud Development Kit (CDK). The process includes cloning the necessary GitHub repository, setting up the CDK environment, deploying the model using AWS services, and testing its performance on SageMaker.</p>
-<p>For more technical details, refer to <a href="https://aws.amazon.com/blogs/machine-learning/hosting-yolov8-pytorch-model-on-amazon-sagemaker-endpoints/">this article</a> on the AWS Machine Learning Blog. You can also check out the official <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html">Amazon SageMaker Documentation</a> for more insights into various features and functionalities.</p>
-<p>Are you interested in learning more about different YOLOv8 integrations? Visit the <a href="../">Ultralytics integrations guide page</a> to discover additional tools and capabilities that can enhance your machine-learning projects.</p>
+<p>In this guide, we focused on how to export to TFLite format. By converting your Ultralytics YOLOv8 models to TFLite model format, you can improve the efficiency and speed of YOLOv8 models, making them more effective and suitable for edge computing environments.</p>
+<p>For further details on usage, visit <a href="https://www.tensorflow.org/lite/guide">TFLite’s official documentation</a>.</p>
+<p>Also, if you're curious about other Ultralytics YOLOv8 integrations, make sure to check out our <a href="../">integration guide page</a>. You'll find tons of helpful info and insights waiting for you there.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -843,7 +784,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-04, Updated 2024-01-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-03-01, Updated 2024-03-01<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -854,10 +795,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/amazon-sagemaker', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/tflite', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/amazon-sagemaker', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/tflite', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -906,7 +847,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: TensorBoard" class="md-footer__link md-footer__link--prev" href="../tensorboard/">
+<a aria-label="Previous: CoreML" class="md-footer__link md-footer__link--prev" href="../coreml/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -915,17 +856,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                TensorBoard
+                CoreML
               </div>
 </div>
 </a>
-<a aria-label="Next: Ultralytics HUB" class="md-footer__link md-footer__link--next" href="../../hub/">
+<a aria-label="Next: TorchScript" class="md-footer__link md-footer__link--next" href="../torchscript/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Ultralytics HUB
+                TorchScript
               </div>
 </div>
 <div class="md-footer__button md-icon">
