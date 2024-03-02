@@ -2277,7 +2277,7 @@ rescaling.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Iou threshold.</p>
+<p>IoU threshold.</p>
 </div>
 </td>
 <td>
@@ -2313,7 +2313,7 @@ rescaling.</p>
 <a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="sd">        boxes (torch.Tensor): (N, 5), xywhr.</span>
 <a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="sd">        scores (torch.Tensor): (N, ).</span>
-<a id="__codelineno-0-150" name="__codelineno-0-150"></a><span class="sd">        threshold (float): Iou threshold.</span>
+<a id="__codelineno-0-150" name="__codelineno-0-150"></a><span class="sd">        threshold (float): IoU threshold.</span>
 <a id="__codelineno-0-151" name="__codelineno-0-151"></a>
 <a id="__codelineno-0-152" name="__codelineno-0-152"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-153" name="__codelineno-0-153"></a><span class="sd">    """</span>
@@ -2827,7 +2827,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <a id="__codelineno-0-287" name="__codelineno-0-287"></a>        <span class="c1"># if merge and (1 &lt; n &lt; 3E3):  # Merge NMS (boxes merged using weighted mean)</span>
 <a id="__codelineno-0-288" name="__codelineno-0-288"></a>        <span class="c1">#     # Update boxes as boxes(i,4) = weights(i,n) * boxes(n,4)</span>
 <a id="__codelineno-0-289" name="__codelineno-0-289"></a>        <span class="c1">#     from .metrics import box_iou</span>
-<a id="__codelineno-0-290" name="__codelineno-0-290"></a>        <span class="c1">#     iou = box_iou(boxes[i], boxes) &gt; iou_thres  # iou matrix</span>
+<a id="__codelineno-0-290" name="__codelineno-0-290"></a>        <span class="c1">#     iou = box_iou(boxes[i], boxes) &gt; iou_thres  # IoU matrix</span>
 <a id="__codelineno-0-291" name="__codelineno-0-291"></a>        <span class="c1">#     weights = iou * scores[None]  # box weights</span>
 <a id="__codelineno-0-292" name="__codelineno-0-292"></a>        <span class="c1">#     x[i, :4] = torch.mm(weights, x[:, :4]).float() / weights.sum(1, keepdim=True)  # merged boxes</span>
 <a id="__codelineno-0-293" name="__codelineno-0-293"></a>        <span class="c1">#     redundant = True  # require redundant detections</span>

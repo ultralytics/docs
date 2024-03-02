@@ -1701,7 +1701,7 @@ classification and localization information.</p>
 <a id="__codelineno-0-121" name="__codelineno-0-121"></a>        <span class="k">return</span> <span class="n">align_metric</span><span class="p">,</span> <span class="n">overlaps</span>
 <a id="__codelineno-0-122" name="__codelineno-0-122"></a>
 <a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="k">def</span> <span class="nf">iou_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">):</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="w">        </span><span class="sd">"""Iou calculation for horizontal bounding boxes."""</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="w">        </span><span class="sd">"""IoU calculation for horizontal bounding boxes."""</span>
 <a id="__codelineno-0-125" name="__codelineno-0-125"></a>        <span class="k">return</span> <span class="n">bbox_iou</span><span class="p">(</span><span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">CIoU</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-0-126" name="__codelineno-0-126"></a>
 <a id="__codelineno-0-127" name="__codelineno-0-127"></a>    <span class="k">def</span> <span class="nf">select_topk_candidates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">largest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">topk_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1811,7 +1811,7 @@ classification and localization information.</p>
 <a id="__codelineno-0-231" name="__codelineno-0-231"></a>    <span class="nd">@staticmethod</span>
 <a id="__codelineno-0-232" name="__codelineno-0-232"></a>    <span class="k">def</span> <span class="nf">select_highest_overlaps</span><span class="p">(</span><span class="n">mask_pos</span><span class="p">,</span> <span class="n">overlaps</span><span class="p">,</span> <span class="n">n_max_boxes</span><span class="p">):</span>
 <a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">        If an anchor box is assigned to multiple gts, the one with the highest IoI will be selected.</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">        If an anchor box is assigned to multiple gts, the one with the highest IoU will be selected.</span>
 <a id="__codelineno-0-235" name="__codelineno-0-235"></a>
 <a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">        Args:</span>
 <a id="__codelineno-0-237" name="__codelineno-0-237"></a><span class="sd">            mask_pos (Tensor): shape(b, n_max_boxes, h*w)</span>
@@ -2437,13 +2437,13 @@ https://github.com/Nioolek/PPYOLOE_pytorch/blob/master/ppyoloe/assigner/tal_assi
 <code class="highlight language-python"><span class="n">iou_calculation</span><span class="p">(</span><span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Iou calculation for horizontal bounding boxes.</p>
+<p>IoU calculation for horizontal bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-123">123</a></span>
 <span class="normal"><a href="#__codelineno-0-124">124</a></span>
 <span class="normal"><a href="#__codelineno-0-125">125</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-123" name="__codelineno-0-123"></a><span class="k">def</span> <span class="nf">iou_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">):</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="w">    </span><span class="sd">"""Iou calculation for horizontal bounding boxes."""</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="w">    </span><span class="sd">"""IoU calculation for horizontal bounding boxes."""</span>
 <a id="__codelineno-0-125" name="__codelineno-0-125"></a>    <span class="k">return</span> <span class="n">bbox_iou</span><span class="p">(</span><span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">CIoU</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2569,7 +2569,7 @@ https://github.com/Nioolek/PPYOLOE_pytorch/blob/master/ppyoloe/assigner/tal_assi
 </span>
 </h3>
 <div class="doc doc-contents">
-<p>If an anchor box is assigned to multiple gts, the one with the highest IoI will be selected.</p>
+<p>If an anchor box is assigned to multiple gts, the one with the highest IoU will be selected.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -2684,7 +2684,7 @@ https://github.com/Nioolek/PPYOLOE_pytorch/blob/master/ppyoloe/assigner/tal_assi
 <span class="normal"><a href="#__codelineno-0-258">258</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="nd">@staticmethod</span>
 <a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="k">def</span> <span class="nf">select_highest_overlaps</span><span class="p">(</span><span class="n">mask_pos</span><span class="p">,</span> <span class="n">overlaps</span><span class="p">,</span> <span class="n">n_max_boxes</span><span class="p">):</span>
 <a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">    If an anchor box is assigned to multiple gts, the one with the highest IoI will be selected.</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">    If an anchor box is assigned to multiple gts, the one with the highest IoU will be selected.</span>
 <a id="__codelineno-0-235" name="__codelineno-0-235"></a>
 <a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-237" name="__codelineno-0-237"></a><span class="sd">        mask_pos (Tensor): shape(b, n_max_boxes, h*w)</span>
@@ -2918,7 +2918,7 @@ https://github.com/Nioolek/PPYOLOE_pytorch/blob/master/ppyoloe/assigner/tal_assi
 <span class="normal"><a href="#__codelineno-0-290">290</a></span>
 <span class="normal"><a href="#__codelineno-0-291">291</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-261" name="__codelineno-0-261"></a><span class="k">class</span> <span class="nc">RotatedTaskAlignedAssigner</span><span class="p">(</span><span class="n">TaskAlignedAssigner</span><span class="p">):</span>
 <a id="__codelineno-0-262" name="__codelineno-0-262"></a>    <span class="k">def</span> <span class="nf">iou_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">):</span>
-<a id="__codelineno-0-263" name="__codelineno-0-263"></a><span class="w">        </span><span class="sd">"""Iou calculation for rotated bounding boxes."""</span>
+<a id="__codelineno-0-263" name="__codelineno-0-263"></a><span class="w">        </span><span class="sd">"""IoU calculation for rotated bounding boxes."""</span>
 <a id="__codelineno-0-264" name="__codelineno-0-264"></a>        <span class="k">return</span> <span class="n">probiou</span><span class="p">(</span><span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-0-265" name="__codelineno-0-265"></a>
 <a id="__codelineno-0-266" name="__codelineno-0-266"></a>    <span class="nd">@staticmethod</span>
@@ -2955,13 +2955,13 @@ https://github.com/Nioolek/PPYOLOE_pytorch/blob/master/ppyoloe/assigner/tal_assi
 <code class="highlight language-python"><span class="n">iou_calculation</span><span class="p">(</span><span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Iou calculation for rotated bounding boxes.</p>
+<p>IoU calculation for rotated bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-262">262</a></span>
 <span class="normal"><a href="#__codelineno-0-263">263</a></span>
 <span class="normal"><a href="#__codelineno-0-264">264</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-262" name="__codelineno-0-262"></a><span class="k">def</span> <span class="nf">iou_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">):</span>
-<a id="__codelineno-0-263" name="__codelineno-0-263"></a><span class="w">    </span><span class="sd">"""Iou calculation for rotated bounding boxes."""</span>
+<a id="__codelineno-0-263" name="__codelineno-0-263"></a><span class="w">    </span><span class="sd">"""IoU calculation for rotated bounding boxes."""</span>
 <a id="__codelineno-0-264" name="__codelineno-0-264"></a>    <span class="k">return</span> <span class="n">probiou</span><span class="p">(</span><span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>

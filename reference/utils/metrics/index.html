@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore Ultralytics YOLO metrics tools - from confusion matrix, detection metrics, pose metrics to box IOU. Learn how to compute and plot precision-recall curves." name="description"/>
+<meta content="Explore Ultralytics YOLO metrics tools - from confusion matrix, detection metrics, pose metrics to box IoU. Learn how to compute and plot precision-recall curves." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/reference/utils/metrics/" rel="canonical"/>
 <link href="../loss/" rel="prev"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="metrics" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, YOLOv3, YOLOv4, metrics, confusion matrix, detection metrics, pose metrics, box IOU, mask IOU, plot precision-recall curves, compute average precision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/utils/metrics" property="og:url"/><meta content="metrics" property="og:title"/><meta content="Explore Ultralytics YOLO metrics tools - from confusion matrix, detection metrics, pose metrics to box IOU. Learn how to compute and plot precision-recall curves." property="og:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/utils/metrics" property="twitter:url"/><meta content="metrics" property="twitter:title"/><meta content="Explore Ultralytics YOLO metrics tools - from confusion matrix, detection metrics, pose metrics to box IOU. Learn how to compute and plot precision-recall curves." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "metrics", "image": ["https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-01-05 03:00:26 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="metrics" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, YOLOv3, YOLOv4, metrics, confusion matrix, detection metrics, pose metrics, box IoU, mask IoU, plot precision-recall curves, compute average precision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/utils/metrics" property="og:url"/><meta content="metrics" property="og:title"/><meta content="Explore Ultralytics YOLO metrics tools - from confusion matrix, detection metrics, pose metrics to box IoU. Learn how to compute and plot precision-recall curves." property="og:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/utils/metrics" property="twitter:url"/><meta content="metrics" property="twitter:title"/><meta content="Explore Ultralytics YOLO metrics tools - from confusion matrix, detection metrics, pose metrics to box IoU. Learn how to compute and plot precision-recall curves." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "metrics", "image": ["https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-03-02 22:12:23 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -7118,7 +7118,7 @@ keys (List[str]): A list of keys for the results_dict.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Calculate the standard iou if True else return inter_area/box2_area.</p>
+<p>Calculate the standard IoU if True else return inter_area/box2_area.</p>
 </div>
 </td>
 <td>
@@ -7201,7 +7201,7 @@ keys (List[str]): A list of keys for the results_dict.</p>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        box1 (np.ndarray): A numpy array of shape (n, 4) representing n bounding boxes.</span>
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        box2 (np.ndarray): A numpy array of shape (m, 4) representing m bounding boxes.</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        iou (bool): Calculate the standard iou if True else return inter_area/box2_area.</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        iou (bool): Calculate the standard IoU if True else return inter_area/box2_area.</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">        eps (float, optional): A small value to avoid division by zero. Defaults to 1e-7.</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    Returns:</span>
@@ -7993,7 +7993,7 @@ Based on https://github.com/pytorch/vision/blob/master/torchvision/ops/boxes.py<
 <code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">probiou</span><span class="p">(</span><span class="n">obb1</span><span class="p">,</span> <span class="n">obb2</span><span class="p">,</span> <span class="n">CIoU</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-07</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
-<p>Calculate the prob iou between oriented bounding boxes, https://arxiv.org/pdf/2106.06072v1.pdf.</p>
+<p>Calculate the prob IoU between oriented bounding boxes, https://arxiv.org/pdf/2106.06072v1.pdf.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -8110,7 +8110,7 @@ Based on https://github.com/pytorch/vision/blob/master/torchvision/ops/boxes.py<
 <span class="normal"><a href="#__codelineno-0-230">230</a></span>
 <span class="normal"><a href="#__codelineno-0-231">231</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-195" name="__codelineno-0-195"></a><span class="k">def</span> <span class="nf">probiou</span><span class="p">(</span><span class="n">obb1</span><span class="p">,</span> <span class="n">obb2</span><span class="p">,</span> <span class="n">CIoU</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
 <a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="sd">    Calculate the prob iou between oriented bounding boxes, https://arxiv.org/pdf/2106.06072v1.pdf.</span>
+<a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="sd">    Calculate the prob IoU between oriented bounding boxes, https://arxiv.org/pdf/2106.06072v1.pdf.</span>
 <a id="__codelineno-0-198" name="__codelineno-0-198"></a>
 <a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-200" name="__codelineno-0-200"></a><span class="sd">        obb1 (torch.Tensor): A tensor of shape (N, 5) representing ground truth obbs, with xywhr format.</span>
@@ -8154,7 +8154,7 @@ Based on https://github.com/pytorch/vision/blob/master/torchvision/ops/boxes.py<
 <code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">batch_probiou</span><span class="p">(</span><span class="n">obb1</span><span class="p">,</span> <span class="n">obb2</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-07</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
-<p>Calculate the prob iou between oriented bounding boxes, https://arxiv.org/pdf/2106.06072v1.pdf.</p>
+<p>Calculate the prob IoU between oriented bounding boxes, https://arxiv.org/pdf/2106.06072v1.pdf.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -8266,7 +8266,7 @@ Based on https://github.com/pytorch/vision/blob/master/torchvision/ops/boxes.py<
 <span class="normal"><a href="#__codelineno-0-264">264</a></span>
 <span class="normal"><a href="#__codelineno-0-265">265</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="k">def</span> <span class="nf">batch_probiou</span><span class="p">(</span><span class="n">obb1</span><span class="p">,</span> <span class="n">obb2</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
 <a id="__codelineno-0-235" name="__codelineno-0-235"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">    Calculate the prob iou between oriented bounding boxes, https://arxiv.org/pdf/2106.06072v1.pdf.</span>
+<a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">    Calculate the prob IoU between oriented bounding boxes, https://arxiv.org/pdf/2106.06072v1.pdf.</span>
 <a id="__codelineno-0-237" name="__codelineno-0-237"></a>
 <a id="__codelineno-0-238" name="__codelineno-0-238"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-239" name="__codelineno-0-239"></a><span class="sd">        obb1 (torch.Tensor | np.ndarray): A tensor of shape (N, 5) representing ground truth obbs, with xywhr format.</span>
@@ -9064,7 +9064,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-03-02<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
