@@ -1245,8 +1245,8 @@
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolov8n.pt"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">        </span><span class="sd">"""Initialize YOLO model, switching to YOLOWorld if model filename contains '-world'."""</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="n">stem</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>  <span class="c1"># filename stem without suffix, i.e. "yolov8n"</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="k">if</span> <span class="s2">"-world"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="k">if</span> <span class="s2">"-world"</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">stem</span> <span class="ow">and</span> <span class="n">model</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">".pt"</span><span class="p">,</span> <span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">".yml"</span><span class="p">}:</span>  <span class="c1"># if YOLOWorld PyTorch model</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>            <span class="n">new_instance</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a>            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">new_instance</span><span class="p">)</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a>            <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="n">new_instance</span><span class="o">.</span><span class="vm">__dict__</span>
@@ -1322,8 +1322,8 @@
 <span class="normal"><a href="#__codelineno-0-22">22</a></span>
 <span class="normal"><a href="#__codelineno-0-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolov8n.pt"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="sd">"""Initialize YOLO model, switching to YOLOWorld if model filename contains '-world'."""</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">stem</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>  <span class="c1"># filename stem without suffix, i.e. "yolov8n"</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="k">if</span> <span class="s2">"-world"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="k">if</span> <span class="s2">"-world"</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">stem</span> <span class="ow">and</span> <span class="n">model</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">".pt"</span><span class="p">,</span> <span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">".yml"</span><span class="p">}:</span>  <span class="c1"># if YOLOWorld PyTorch model</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="n">new_instance</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">new_instance</span><span class="p">)</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="n">new_instance</span><span class="o">.</span><span class="vm">__dict__</span>
@@ -1398,7 +1398,7 @@
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        Initializes the YOLOv8-World model with the given pre-trained model file. Supports *.pt and *.yaml formats.</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>
 <a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">            model (str): Path to the pre-trained model. Defaults to 'yolov8s-world.pt'.</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">            model (str | Path): Path to the pre-trained model. Defaults to 'yolov8s-world.pt'.</span>
 <a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        """</span>
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a>
@@ -1468,7 +1468,7 @@
 <tr>
 <td><code>model</code></td>
 <td>
-<code>str</code>
+<code>str | <span title="pathlib.Path">Path</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1498,7 +1498,7 @@
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Initializes the YOLOv8-World model with the given pre-trained model file. Supports *.pt and *.yaml formats.</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>
 <a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        model (str): Path to the pre-trained model. Defaults to 'yolov8s-world.pt'.</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        model (str | Path): Path to the pre-trained model. Defaults to 'yolov8s-world.pt'.</span>
 <a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    """</span>
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a>
