@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Edge TPU on Raspberry Pi" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Coral, Edge TPU, Raspberry Pi, embedded, edge compute, sbc, accelerator, mobile" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi" property="og:url"/><meta content="Edge TPU on Raspberry Pi" property="og:title"/><meta content="Guide on how to use Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." property="og:description"/><meta content="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi" property="twitter:url"/><meta content="Edge TPU on Raspberry Pi" property="twitter:title"/><meta content="Guide on how to use Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." property="twitter:description"/><meta content="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Edge TPU on Raspberry Pi", "image": ["https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800"], "datePublished": "2024-02-12 01:39:32 +0100", "dateModified": "2024-02-12 21:36:48 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Edge TPU on Raspberry Pi" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Coral, Edge TPU, Raspberry Pi, embedded, edge compute, sbc, accelerator, mobile" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi" property="og:url"/><meta content="Edge TPU on Raspberry Pi" property="og:title"/><meta content="Guide on how to use Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." property="og:description"/><meta content="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/coral-edge-tpu-on-raspberry-pi" property="twitter:url"/><meta content="Edge TPU on Raspberry Pi" property="twitter:title"/><meta content="Guide on how to use Ultralytics with a Coral Edge TPU on a Raspberry Pi for increased inference performance." property="twitter:description"/><meta content="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Edge TPU on Raspberry Pi", "image": ["https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800"], "datePublished": "2024-02-12 01:39:32 +0100", "dateModified": "2024-03-03 01:59:43 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -788,7 +788,7 @@
 <img alt="Raspberry Pi single board computer with USB Edge TPU accelerator" src="https://images.ctfassets.net/2lpsze4g694w/5XK2dV0w55U0TefijPli1H/bf0d119d77faef9a5d2cc0dad2aa4b42/Edge-TPU-USB-Accelerator-and-Pi.jpg?w=800" width="800"/>
 </p>
 <h2 id="what-is-a-coral-edge-tpu">What is a Coral Edge TPU?</h2>
-<p>The Coral Edge TPU is a compact device that adds an Edge TPU coprocessor to your system. It enables low-power, high-performance ML inferencing for TensorFlow Lite models. Read more at the <a href="https://coral.ai/products/accelerator">Coral Edge TPU home page</a>.</p>
+<p>The Coral Edge TPU is a compact device that adds an Edge TPU coprocessor to your system. It enables low-power, high-performance ML inference for TensorFlow Lite models. Read more at the <a href="https://coral.ai/products/accelerator">Coral Edge TPU home page</a>.</p>
 <h2 id="boost-raspberry-pi-model-performance-with-coral-edge-tpu">Boost Raspberry Pi Model Performance with Coral Edge TPU</h2>
 <p>Many people want to run their models on an embedded or mobile device such as a Raspberry Pi, since they are very power efficient and can be used in many different applications. However, the inference performance on these devices is usually poor even when using formats like <a href="../../integrations/onnx/">onnx</a> or <a href="../../integrations/openvino/">openvino</a>. The Coral Edge TPU is a great solution to this problem, since it can be used with a Raspberry Pi and accelerate inference performance greatly.</p>
 <h2 id="edge-tpu-on-raspberry-pi-with-tensorflow-lite-new">Edge TPU on Raspberry Pi with TensorFlow Lite (New)⭐</h2>
@@ -816,42 +816,42 @@
 <tr>
 <td>Bullseye 32bit</td>
 <td style="text-align: center;">No</td>
-<td>libedgetpu1-std_ ... .bullseye_armhf.deb</td>
+<td><code>libedgetpu1-std_ ... .bullseye_armhf.deb</code></td>
 </tr>
 <tr>
 <td>Bullseye 64bit</td>
 <td style="text-align: center;">No</td>
-<td>libedgetpu1-std_ ... .bullseye_arm64.deb</td>
+<td><code>libedgetpu1-std_ ... .bullseye_arm64.deb</code></td>
 </tr>
 <tr>
 <td>Bullseye 32bit</td>
 <td style="text-align: center;">Yes</td>
-<td>libedgetpu1-max_ ... .bullseye_armhf.deb</td>
+<td><code>libedgetpu1-max_ ... .bullseye_armhf.deb</code></td>
 </tr>
 <tr>
 <td>Bullseye 64bit</td>
 <td style="text-align: center;">Yes</td>
-<td>libedgetpu1-max_ ... .bullseye_arm64.deb</td>
+<td><code>libedgetpu1-max_ ... .bullseye_arm64.deb</code></td>
 </tr>
 <tr>
 <td>Bookworm 32bit</td>
 <td style="text-align: center;">No</td>
-<td>libedgetpu1-std_ ... .bookworm_armhf.deb</td>
+<td><code>libedgetpu1-std_ ... .bookworm_armhf.deb</code></td>
 </tr>
 <tr>
 <td>Bookworm 64bit</td>
 <td style="text-align: center;">No</td>
-<td>libedgetpu1-std_ ... .bookworm_arm64.deb</td>
+<td><code>libedgetpu1-std_ ... .bookworm_arm64.deb</code></td>
 </tr>
 <tr>
 <td>Bookworm 32bit</td>
 <td style="text-align: center;">Yes</td>
-<td>libedgetpu1-max_ ... .bookworm_armhf.deb</td>
+<td><code>libedgetpu1-max_ ... .bookworm_armhf.deb</code></td>
 </tr>
 <tr>
 <td>Bookworm 64bit</td>
 <td style="text-align: center;">Yes</td>
-<td>libedgetpu1-max_ ... .bookworm_arm64.deb</td>
+<td><code>libedgetpu1-max_ ... .bookworm_arm64.deb</code></td>
 </tr>
 </tbody>
 </table>
@@ -937,7 +937,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-02-12, Updated 2024-02-12<br/>Authors: <a href="https://github.com/Skillnoob">Skillnoob</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-02-12, Updated 2024-03-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2), <a href="https://github.com/Skillnoob">Skillnoob</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
