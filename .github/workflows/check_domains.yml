@@ -55,3 +55,12 @@ jobs:
         success = check_domain_redirection('${{ matrix.domain }}', '${{ matrix.prefix }}')
         if not success:
             raise Exception(f"Domain check failed for ${{ matrix.domain }} with prefix '${{ matrix.prefix }}'")
+
+    - name: Notify on failure
+      if: github.event_name == 'schedule' && failure() # do not notify on cancelled() as cancelling is performed by hand
+      uses: slackapi/slack-github-action@v1.25.0
+      with:
+        payload: |
+          {"text": "<!channel> GitHub Actions error for ${{ github.workflow }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n"}
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_WEBSITE }}
