@@ -2825,7 +2825,7 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">                Defaults to None.</span>
 <a id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="sd">            stream (bool, optional): If True, treats the input source as a continuous stream for predictions.</span>
 <a id="__codelineno-0-163" name="__codelineno-0-163"></a><span class="sd">                Defaults to False.</span>
-<a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="sd">            **kwargs (any): Additional keyword arguments for configuring the prediction process.</span>
+<a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="sd">            **kwargs (dict): Additional keyword arguments for configuring the prediction process.</span>
 <a id="__codelineno-0-165" name="__codelineno-0-165"></a>
 <a id="__codelineno-0-166" name="__codelineno-0-166"></a><span class="sd">        Returns:</span>
 <a id="__codelineno-0-167" name="__codelineno-0-167"></a><span class="sd">            (List[ultralytics.engine.results.Results]): A list of prediction results, encapsulated in the Results class.</span>
@@ -3032,7 +3032,7 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <a id="__codelineno-0-368" name="__codelineno-0-368"></a><span class="sd">            source (str | int | PIL.Image | np.ndarray): The source of the image for generating embeddings.</span>
 <a id="__codelineno-0-369" name="__codelineno-0-369"></a><span class="sd">                The source can be a file path, URL, PIL image, numpy array, etc. Defaults to None.</span>
 <a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="sd">            stream (bool): If True, predictions are streamed. Defaults to False.</span>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="sd">            **kwargs (any): Additional keyword arguments for configuring the embedding process.</span>
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="sd">            **kwargs (dict): Additional keyword arguments for configuring the embedding process.</span>
 <a id="__codelineno-0-372" name="__codelineno-0-372"></a>
 <a id="__codelineno-0-373" name="__codelineno-0-373"></a><span class="sd">        Returns:</span>
 <a id="__codelineno-0-374" name="__codelineno-0-374"></a><span class="sd">            (List[torch.Tensor]): A list containing the image embeddings.</span>
@@ -3070,7 +3070,7 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <a id="__codelineno-0-406" name="__codelineno-0-406"></a><span class="sd">            stream (bool, optional): Treats the input source as a continuous stream for predictions. Defaults to False.</span>
 <a id="__codelineno-0-407" name="__codelineno-0-407"></a><span class="sd">            predictor (BasePredictor, optional): An instance of a custom predictor class for making predictions.</span>
 <a id="__codelineno-0-408" name="__codelineno-0-408"></a><span class="sd">                If None, the method uses a default predictor. Defaults to None.</span>
-<a id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="sd">            **kwargs (any): Additional keyword arguments for configuring the prediction process. These arguments allow</span>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="sd">            **kwargs (dict): Additional keyword arguments for configuring the prediction process. These arguments allow</span>
 <a id="__codelineno-0-410" name="__codelineno-0-410"></a><span class="sd">                for further customization of the prediction behavior.</span>
 <a id="__codelineno-0-411" name="__codelineno-0-411"></a>
 <a id="__codelineno-0-412" name="__codelineno-0-412"></a><span class="sd">        Returns:</span>
@@ -3124,7 +3124,7 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <a id="__codelineno-0-460" name="__codelineno-0-460"></a><span class="sd">            source (str, optional): The input source for object tracking. It can be a file path, URL, or video stream.</span>
 <a id="__codelineno-0-461" name="__codelineno-0-461"></a><span class="sd">            stream (bool, optional): Treats the input source as a continuous video stream. Defaults to False.</span>
 <a id="__codelineno-0-462" name="__codelineno-0-462"></a><span class="sd">            persist (bool, optional): Persists the trackers between different calls to this method. Defaults to False.</span>
-<a id="__codelineno-0-463" name="__codelineno-0-463"></a><span class="sd">            **kwargs (any): Additional keyword arguments for configuring the tracking process. These arguments allow</span>
+<a id="__codelineno-0-463" name="__codelineno-0-463"></a><span class="sd">            **kwargs (dict): Additional keyword arguments for configuring the tracking process. These arguments allow</span>
 <a id="__codelineno-0-464" name="__codelineno-0-464"></a><span class="sd">                for further customization of the tracking behavior.</span>
 <a id="__codelineno-0-465" name="__codelineno-0-465"></a>
 <a id="__codelineno-0-466" name="__codelineno-0-466"></a><span class="sd">        Returns:</span>
@@ -3161,7 +3161,7 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <a id="__codelineno-0-497" name="__codelineno-0-497"></a><span class="sd">        Args:</span>
 <a id="__codelineno-0-498" name="__codelineno-0-498"></a><span class="sd">            validator (BaseValidator, optional): An instance of a custom validator class for validating the model. If</span>
 <a id="__codelineno-0-499" name="__codelineno-0-499"></a><span class="sd">                None, the method uses a default validator. Defaults to None.</span>
-<a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="sd">            **kwargs (any): Arbitrary keyword arguments representing the validation configuration. These arguments are</span>
+<a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="sd">            **kwargs (dict): Arbitrary keyword arguments representing the validation configuration. These arguments are</span>
 <a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="sd">                used to customize various aspects of the validation process.</span>
 <a id="__codelineno-0-502" name="__codelineno-0-502"></a>
 <a id="__codelineno-0-503" name="__codelineno-0-503"></a><span class="sd">        Returns:</span>
@@ -3195,7 +3195,7 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="sd">        configurable options, users should refer to the 'configuration' section in the documentation.</span>
 <a id="__codelineno-0-532" name="__codelineno-0-532"></a>
 <a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">            **kwargs (any): Arbitrary keyword arguments to customize the benchmarking process. These are combined with</span>
+<a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">            **kwargs (dict): Arbitrary keyword arguments to customize the benchmarking process. These are combined with</span>
 <a id="__codelineno-0-535" name="__codelineno-0-535"></a><span class="sd">                default configurations, model-specific arguments, and method defaults.</span>
 <a id="__codelineno-0-536" name="__codelineno-0-536"></a>
 <a id="__codelineno-0-537" name="__codelineno-0-537"></a><span class="sd">        Returns:</span>
@@ -3234,7 +3234,7 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <a id="__codelineno-0-570" name="__codelineno-0-570"></a><span class="sd">        possible arguments, refer to the 'configuration' section in the documentation.</span>
 <a id="__codelineno-0-571" name="__codelineno-0-571"></a>
 <a id="__codelineno-0-572" name="__codelineno-0-572"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a><span class="sd">            **kwargs (any): Arbitrary keyword arguments to customize the export process. These are combined with the</span>
+<a id="__codelineno-0-573" name="__codelineno-0-573"></a><span class="sd">            **kwargs (dict): Arbitrary keyword arguments to customize the export process. These are combined with the</span>
 <a id="__codelineno-0-574" name="__codelineno-0-574"></a><span class="sd">                model's overrides and method defaults.</span>
 <a id="__codelineno-0-575" name="__codelineno-0-575"></a>
 <a id="__codelineno-0-576" name="__codelineno-0-576"></a><span class="sd">        Returns:</span>
@@ -3271,7 +3271,7 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="sd">        Args:</span>
 <a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="sd">            trainer (BaseTrainer, optional): An instance of a custom trainer class for training the model. If None, the</span>
 <a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">                method uses a default trainer. Defaults to None.</span>
-<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">            **kwargs (any): Arbitrary keyword arguments representing the training configuration. These arguments are</span>
+<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">            **kwargs (dict): Arbitrary keyword arguments representing the training configuration. These arguments are</span>
 <a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">                used to customize various aspects of the training process.</span>
 <a id="__codelineno-0-612" name="__codelineno-0-612"></a>
 <a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="sd">        Returns:</span>
@@ -3343,7 +3343,7 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <a id="__codelineno-0-679" name="__codelineno-0-679"></a><span class="sd">            use_ray (bool): If True, uses Ray Tune for hyperparameter tuning. Defaults to False.</span>
 <a id="__codelineno-0-680" name="__codelineno-0-680"></a><span class="sd">            iterations (int): The number of tuning iterations to perform. Defaults to 10.</span>
 <a id="__codelineno-0-681" name="__codelineno-0-681"></a><span class="sd">            *args (list): Variable length argument list for additional arguments.</span>
-<a id="__codelineno-0-682" name="__codelineno-0-682"></a><span class="sd">            **kwargs (any): Arbitrary keyword arguments. These are combined with the model's overrides and defaults.</span>
+<a id="__codelineno-0-682" name="__codelineno-0-682"></a><span class="sd">            **kwargs (dict): Arbitrary keyword arguments. These are combined with the model's overrides and defaults.</span>
 <a id="__codelineno-0-683" name="__codelineno-0-683"></a>
 <a id="__codelineno-0-684" name="__codelineno-0-684"></a><span class="sd">        Returns:</span>
 <a id="__codelineno-0-685" name="__codelineno-0-685"></a><span class="sd">            (dict): A dictionary containing the results of the hyperparameter search.</span>
@@ -3671,7 +3671,7 @@ Defaults to False.</p>
 <tr>
 <td><code>**kwargs</code></td>
 <td>
-<code>any</code>
+<code>dict</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3748,7 +3748,7 @@ Defaults to False.</p>
 <a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">            Defaults to None.</span>
 <a id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="sd">        stream (bool, optional): If True, treats the input source as a continuous stream for predictions.</span>
 <a id="__codelineno-0-163" name="__codelineno-0-163"></a><span class="sd">            Defaults to False.</span>
-<a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="sd">        **kwargs (any): Additional keyword arguments for configuring the prediction process.</span>
+<a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="sd">        **kwargs (dict): Additional keyword arguments for configuring the prediction process.</span>
 <a id="__codelineno-0-165" name="__codelineno-0-165"></a>
 <a id="__codelineno-0-166" name="__codelineno-0-166"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-167" name="__codelineno-0-167"></a><span class="sd">        (List[ultralytics.engine.results.Results]): A list of prediction results, encapsulated in the Results class.</span>
@@ -4125,7 +4125,7 @@ configurable options, users should refer to the 'configuration' section in the d
 <tr>
 <td><code>**kwargs</code></td>
 <td>
-<code>any</code>
+<code>dict</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4239,7 +4239,7 @@ default configurations, model-specific arguments, and method defaults.</p>
 <a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="sd">    configurable options, users should refer to the 'configuration' section in the documentation.</span>
 <a id="__codelineno-0-532" name="__codelineno-0-532"></a>
 <a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">        **kwargs (any): Arbitrary keyword arguments to customize the benchmarking process. These are combined with</span>
+<a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">        **kwargs (dict): Arbitrary keyword arguments to customize the benchmarking process. These are combined with</span>
 <a id="__codelineno-0-535" name="__codelineno-0-535"></a><span class="sd">            default configurations, model-specific arguments, and method defaults.</span>
 <a id="__codelineno-0-536" name="__codelineno-0-536"></a>
 <a id="__codelineno-0-537" name="__codelineno-0-537"></a><span class="sd">    Returns:</span>
@@ -4403,7 +4403,7 @@ The source can be a file path, URL, PIL image, numpy array, etc. Defaults to Non
 <tr>
 <td><code>**kwargs</code></td>
 <td>
-<code>any</code>
+<code>dict</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4502,7 +4502,7 @@ The source can be a file path, URL, PIL image, numpy array, etc. Defaults to Non
 <a id="__codelineno-0-368" name="__codelineno-0-368"></a><span class="sd">        source (str | int | PIL.Image | np.ndarray): The source of the image for generating embeddings.</span>
 <a id="__codelineno-0-369" name="__codelineno-0-369"></a><span class="sd">            The source can be a file path, URL, PIL image, numpy array, etc. Defaults to None.</span>
 <a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="sd">        stream (bool): If True, predictions are streamed. Defaults to False.</span>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="sd">        **kwargs (any): Additional keyword arguments for configuring the embedding process.</span>
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="sd">        **kwargs (dict): Additional keyword arguments for configuring the embedding process.</span>
 <a id="__codelineno-0-372" name="__codelineno-0-372"></a>
 <a id="__codelineno-0-373" name="__codelineno-0-373"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-374" name="__codelineno-0-374"></a><span class="sd">        (List[torch.Tensor]): A list containing the image embeddings.</span>
@@ -4542,7 +4542,7 @@ possible arguments, refer to the 'configuration' section in the documentation.</
 <tr>
 <td><code>**kwargs</code></td>
 <td>
-<code>any</code>
+<code>dict</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4644,7 +4644,7 @@ model's overrides and method defaults.</p>
 <a id="__codelineno-0-570" name="__codelineno-0-570"></a><span class="sd">    possible arguments, refer to the 'configuration' section in the documentation.</span>
 <a id="__codelineno-0-571" name="__codelineno-0-571"></a>
 <a id="__codelineno-0-572" name="__codelineno-0-572"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a><span class="sd">        **kwargs (any): Arbitrary keyword arguments to customize the export process. These are combined with the</span>
+<a id="__codelineno-0-573" name="__codelineno-0-573"></a><span class="sd">        **kwargs (dict): Arbitrary keyword arguments to customize the export process. These are combined with the</span>
 <a id="__codelineno-0-574" name="__codelineno-0-574"></a><span class="sd">            model's overrides and method defaults.</span>
 <a id="__codelineno-0-575" name="__codelineno-0-575"></a>
 <a id="__codelineno-0-576" name="__codelineno-0-576"></a><span class="sd">    Returns:</span>
@@ -5110,7 +5110,7 @@ If None, the method uses a default predictor. Defaults to None.</p>
 <tr>
 <td><code>**kwargs</code></td>
 <td>
-<code>any</code>
+<code>dict</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5250,7 +5250,7 @@ for further customization of the prediction behavior.</p>
 <a id="__codelineno-0-406" name="__codelineno-0-406"></a><span class="sd">        stream (bool, optional): Treats the input source as a continuous stream for predictions. Defaults to False.</span>
 <a id="__codelineno-0-407" name="__codelineno-0-407"></a><span class="sd">        predictor (BasePredictor, optional): An instance of a custom predictor class for making predictions.</span>
 <a id="__codelineno-0-408" name="__codelineno-0-408"></a><span class="sd">            If None, the method uses a default predictor. Defaults to None.</span>
-<a id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="sd">        **kwargs (any): Additional keyword arguments for configuring the prediction process. These arguments allow</span>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="sd">        **kwargs (dict): Additional keyword arguments for configuring the prediction process. These arguments allow</span>
 <a id="__codelineno-0-410" name="__codelineno-0-410"></a><span class="sd">            for further customization of the prediction behavior.</span>
 <a id="__codelineno-0-411" name="__codelineno-0-411"></a>
 <a id="__codelineno-0-412" name="__codelineno-0-412"></a><span class="sd">    Returns:</span>
@@ -5604,7 +5604,7 @@ confidence predictions as input. The tracking mode is explicitly set in the keyw
 <tr>
 <td><code>**kwargs</code></td>
 <td>
-<code>any</code>
+<code>dict</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5721,7 +5721,7 @@ for further customization of the tracking behavior.</p>
 <a id="__codelineno-0-460" name="__codelineno-0-460"></a><span class="sd">        source (str, optional): The input source for object tracking. It can be a file path, URL, or video stream.</span>
 <a id="__codelineno-0-461" name="__codelineno-0-461"></a><span class="sd">        stream (bool, optional): Treats the input source as a continuous video stream. Defaults to False.</span>
 <a id="__codelineno-0-462" name="__codelineno-0-462"></a><span class="sd">        persist (bool, optional): Persists the trackers between different calls to this method. Defaults to False.</span>
-<a id="__codelineno-0-463" name="__codelineno-0-463"></a><span class="sd">        **kwargs (any): Additional keyword arguments for configuring the tracking process. These arguments allow</span>
+<a id="__codelineno-0-463" name="__codelineno-0-463"></a><span class="sd">        **kwargs (dict): Additional keyword arguments for configuring the tracking process. These arguments allow</span>
 <a id="__codelineno-0-464" name="__codelineno-0-464"></a><span class="sd">            for further customization of the tracking behavior.</span>
 <a id="__codelineno-0-465" name="__codelineno-0-465"></a>
 <a id="__codelineno-0-466" name="__codelineno-0-466"></a><span class="sd">    Returns:</span>
@@ -5784,7 +5784,7 @@ method uses a default trainer. Defaults to None.</p>
 <tr>
 <td><code>**kwargs</code></td>
 <td>
-<code>any</code>
+<code>dict</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5955,7 +5955,7 @@ used to customize various aspects of the training process.</p>
 <a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="sd">        trainer (BaseTrainer, optional): An instance of a custom trainer class for training the model. If None, the</span>
 <a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">            method uses a default trainer. Defaults to None.</span>
-<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">        **kwargs (any): Arbitrary keyword arguments representing the training configuration. These arguments are</span>
+<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">        **kwargs (dict): Arbitrary keyword arguments representing the training configuration. These arguments are</span>
 <a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">            used to customize various aspects of the training process.</span>
 <a id="__codelineno-0-612" name="__codelineno-0-612"></a>
 <a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="sd">    Returns:</span>
@@ -6077,7 +6077,7 @@ custom arguments to configure the tuning process.</p>
 <tr>
 <td><code>**kwargs</code></td>
 <td>
-<code>any</code>
+<code>dict</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6190,7 +6190,7 @@ custom arguments to configure the tuning process.</p>
 <a id="__codelineno-0-679" name="__codelineno-0-679"></a><span class="sd">        use_ray (bool): If True, uses Ray Tune for hyperparameter tuning. Defaults to False.</span>
 <a id="__codelineno-0-680" name="__codelineno-0-680"></a><span class="sd">        iterations (int): The number of tuning iterations to perform. Defaults to 10.</span>
 <a id="__codelineno-0-681" name="__codelineno-0-681"></a><span class="sd">        *args (list): Variable length argument list for additional arguments.</span>
-<a id="__codelineno-0-682" name="__codelineno-0-682"></a><span class="sd">        **kwargs (any): Arbitrary keyword arguments. These are combined with the model's overrides and defaults.</span>
+<a id="__codelineno-0-682" name="__codelineno-0-682"></a><span class="sd">        **kwargs (dict): Arbitrary keyword arguments. These are combined with the model's overrides and defaults.</span>
 <a id="__codelineno-0-683" name="__codelineno-0-683"></a>
 <a id="__codelineno-0-684" name="__codelineno-0-684"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-685" name="__codelineno-0-685"></a><span class="sd">        (dict): A dictionary containing the results of the hyperparameter search.</span>
@@ -6255,7 +6255,7 @@ None, the method uses a default validator. Defaults to None.</p>
 <tr>
 <td><code>**kwargs</code></td>
 <td>
-<code>any</code>
+<code>dict</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6368,7 +6368,7 @@ used to customize various aspects of the validation process.</p>
 <a id="__codelineno-0-497" name="__codelineno-0-497"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-498" name="__codelineno-0-498"></a><span class="sd">        validator (BaseValidator, optional): An instance of a custom validator class for validating the model. If</span>
 <a id="__codelineno-0-499" name="__codelineno-0-499"></a><span class="sd">            None, the method uses a default validator. Defaults to None.</span>
-<a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="sd">        **kwargs (any): Arbitrary keyword arguments representing the validation configuration. These arguments are</span>
+<a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="sd">        **kwargs (dict): Arbitrary keyword arguments representing the validation configuration. These arguments are</span>
 <a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="sd">            used to customize various aspects of the validation process.</span>
 <a id="__codelineno-0-502" name="__codelineno-0-502"></a>
 <a id="__codelineno-0-503" name="__codelineno-0-503"></a><span class="sd">    Returns:</span>
