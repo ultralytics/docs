@@ -5,31 +5,31 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Deep dive into Ultralytics' YOLOv5. Learn about object detection model - YOLOv5, how to train it on custom data, multi-GPU training and more." name="description"/>
+<meta content="Learn how to view image results inside a compatible VSCode terminal." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/yolov5/" rel="canonical"/>
-<link href="../guides/distance-calculation/" rel="prev"/>
-<link href="quickstart_tutorial/" rel="next"/>
-<link href="../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.ultralytics.com/guides/view-results-in-terminal/" rel="canonical"/>
+<link href="../coral-edge-tpu-on-raspberry-pi/" rel="prev"/>
+<link href="../object-counting/" rel="next"/>
+<link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.13" name="generator"/>
-<title>Comprehensive Guide to Ultralytics YOLOv5 - Ultralytics YOLOv8 Docs</title>
-<link href="../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<title>Viewing Inference Images in a Terminal - Ultralytics YOLOv8 Docs</title>
+<link href="../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../stylesheets/style.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/style.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Comprehensive Guide to Ultralytics YOLOv5" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, object detection, computer vision, CUDA, PyTorch tutorial, multi-GPU training, custom dataset, model export, deployment, CI tests" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5" property="og:url"/><meta content="Comprehensive Guide to Ultralytics YOLOv5" property="og:title"/><meta content="Deep dive into Ultralytics' YOLOv5. Learn about object detection model - YOLOv5, how to train it on custom data, multi-GPU training and more." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov5/v70/splash.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5" property="twitter:url"/><meta content="Comprehensive Guide to Ultralytics YOLOv5" property="twitter:title"/><meta content="Deep dive into Ultralytics' YOLOv5. Learn about object detection model - YOLOv5, how to train it on custom data, multi-GPU training and more." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov5/v70/splash.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Comprehensive Guide to Ultralytics YOLOv5", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov5/v70/splash.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-01-07 17:13:42 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Viewing Inference Images in a Terminal" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv8, VSCode, Terminal, Remote Development, Ultralytics, SSH, Object Detection, Inference, Results, Remote Tunnel, Images, Helpful, Productivity Hack" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/view-results-in-terminal" property="og:url"/><meta content="Viewing Inference Images in a Terminal" property="og:title"/><meta content="Learn how to view image results inside a compatible VSCode terminal." property="og:description"/><meta content="https://raw.githubusercontent.com/saitoha/libsixel/data/data/sixel.gif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/view-results-in-terminal" property="twitter:url"/><meta content="Viewing Inference Images in a Terminal" property="twitter:title"/><meta content="Learn how to view image results inside a compatible VSCode terminal." property="twitter:description"/><meta content="https://raw.githubusercontent.com/saitoha/libsixel/data/data/sixel.gif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Viewing Inference Images in a Terminal", "image": ["https://raw.githubusercontent.com/saitoha/libsixel/data/data/sixel.gif"], "datePublished": "2024-03-09 17:03:42 -0500", "dateModified": "2024-03-09 17:03:42 -0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#comprehensive-guide-to-ultralytics-yolov5">
+<a class="md-skip" href="#viewing-inference-results-in-a-terminal">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Comprehensive Guide to Ultralytics YOLOv5
+              Viewing Inference Images in a Terminal
             
           </span>
 </div>
@@ -132,7 +132,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="..">
+<a class="md-tabs__link" href="../..">
           
   
     
@@ -142,7 +142,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../quickstart/">
+<a class="md-tabs__link" href="../../quickstart/">
           
   
     
@@ -152,7 +152,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../modes/">
+<a class="md-tabs__link" href="../../modes/">
           
   
     
@@ -162,7 +162,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../tasks/">
+<a class="md-tabs__link" href="../../tasks/">
           
   
     
@@ -172,7 +172,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../models/">
+<a class="md-tabs__link" href="../../models/">
           
   
     
@@ -182,7 +182,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../datasets/">
+<a class="md-tabs__link" href="../../datasets/">
           
   
     
@@ -192,7 +192,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../datasets/explorer/">
+<a class="md-tabs__link" href="../../datasets/explorer/">
           
   
     
@@ -202,7 +202,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../guides/">
+<a class="md-tabs__link" href="../">
           
   
     
@@ -212,7 +212,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../integrations/">
+<a class="md-tabs__link" href="../../integrations/">
           
   
     
@@ -222,7 +222,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../hub/">
+<a class="md-tabs__link" href="../../hub/">
           
   
     
@@ -232,7 +232,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../reference/cfg/__init__/">
+<a class="md-tabs__link" href="../../reference/cfg/__init__/">
           
   
     
@@ -242,7 +242,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../help/">
+<a class="md-tabs__link" href="../../help/">
           
   
     
@@ -263,7 +263,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLOv8 Docs
@@ -280,7 +280,7 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="..">
+<a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -288,7 +288,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../quickstart/">
+<a class="md-nav__link" href="../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -296,7 +296,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../modes/">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -304,7 +304,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../tasks/">
+<a class="md-nav__link" href="../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -312,7 +312,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../models/">
+<a class="md-nav__link" href="../../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -320,7 +320,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../datasets/">
+<a class="md-nav__link" href="../../datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -328,7 +328,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../datasets/explorer/">
+<a class="md-nav__link" href="../../datasets/explorer/">
 <span class="md-ellipsis">
     NEW 🚀 Explorer
   </span>
@@ -338,7 +338,7 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../guides/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -354,109 +354,152 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/yolo-common-issues/">
+<a class="md-nav__link" href="../yolo-common-issues/">
 <span class="md-ellipsis">
     YOLO Common Issues
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/yolo-performance-metrics/">
+<a class="md-nav__link" href="../yolo-performance-metrics/">
 <span class="md-ellipsis">
     YOLO Performance Metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/yolo-thread-safe-inference/">
+<a class="md-nav__link" href="../yolo-thread-safe-inference/">
 <span class="md-ellipsis">
     YOLO Thread-Safe Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/model-deployment-options/">
+<a class="md-nav__link" href="../model-deployment-options/">
 <span class="md-ellipsis">
     Model Deployment Options
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/kfold-cross-validation/">
+<a class="md-nav__link" href="../kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/hyperparameter-tuning/">
+<a class="md-nav__link" href="../hyperparameter-tuning/">
 <span class="md-ellipsis">
     Hyperparameter Tuning
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/sahi-tiled-inference/">
+<a class="md-nav__link" href="../sahi-tiled-inference/">
 <span class="md-ellipsis">
     SAHI Tiled Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/azureml-quickstart/">
+<a class="md-nav__link" href="../azureml-quickstart/">
 <span class="md-ellipsis">
     AzureML Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/conda-quickstart/">
+<a class="md-nav__link" href="../conda-quickstart/">
 <span class="md-ellipsis">
     Conda Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/docker-quickstart/">
+<a class="md-nav__link" href="../docker-quickstart/">
 <span class="md-ellipsis">
     Docker Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/raspberry-pi/">
+<a class="md-nav__link" href="../raspberry-pi/">
 <span class="md-ellipsis">
     Raspberry Pi
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/triton-inference-server/">
+<a class="md-nav__link" href="../triton-inference-server/">
 <span class="md-ellipsis">
     Triton Inference Server
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/isolating-segmentation-objects/">
+<a class="md-nav__link" href="../isolating-segmentation-objects/">
 <span class="md-ellipsis">
     Isolating Segmentation Objects
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/coral-edge-tpu-on-raspberry-pi/">
+<a class="md-nav__link" href="../coral-edge-tpu-on-raspberry-pi/">
 <span class="md-ellipsis">
     Edge TPU on Raspberry Pi
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../guides/view-results-in-terminal/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Viewing Inference Images in a Terminal
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Viewing Inference Images in a Terminal
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motivation">
+<span class="md-ellipsis">
+      Motivation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#process">
+<span class="md-ellipsis">
+      Process
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-inference-results">
+<span class="md-ellipsis">
+      Example Inference Results
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#full-code-example">
+<span class="md-ellipsis">
+      Full Code Example
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8_17" type="checkbox"/>
@@ -473,77 +516,77 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/object-counting/">
+<a class="md-nav__link" href="../object-counting/">
 <span class="md-ellipsis">
     Object Counting
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/object-cropping/">
+<a class="md-nav__link" href="../object-cropping/">
 <span class="md-ellipsis">
     Object Cropping
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/object-blurring/">
+<a class="md-nav__link" href="../object-blurring/">
 <span class="md-ellipsis">
     Object Blurring
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/workouts-monitoring/">
+<a class="md-nav__link" href="../workouts-monitoring/">
 <span class="md-ellipsis">
     Workouts Monitoring
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/region-counting/">
+<a class="md-nav__link" href="../region-counting/">
 <span class="md-ellipsis">
     Objects Counting in Regions
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/security-alarm-system/">
+<a class="md-nav__link" href="../security-alarm-system/">
 <span class="md-ellipsis">
     Security Alarm System
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/heatmaps/">
+<a class="md-nav__link" href="../heatmaps/">
 <span class="md-ellipsis">
     Heatmaps
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/instance-segmentation-and-tracking/">
+<a class="md-nav__link" href="../instance-segmentation-and-tracking/">
 <span class="md-ellipsis">
     Instance Segmentation with Object Tracking
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/vision-eye/">
+<a class="md-nav__link" href="../vision-eye/">
 <span class="md-ellipsis">
     VisionEye Mapping
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/speed-estimation/">
+<a class="md-nav__link" href="../speed-estimation/">
 <span class="md-ellipsis">
     Speed Estimation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../guides/distance-calculation/">
+<a class="md-nav__link" href="../distance-calculation/">
 <span class="md-ellipsis">
     Distance Calculation
   </span>
@@ -552,33 +595,33 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_8_18" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_18" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link md-nav__link--active" href="./">
+<a class="md-nav__link" href="../../yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
 </a>
-<label class="md-nav__link md-nav__link--active" for="__nav_8_18" id="__nav_8_18_label" tabindex="">
+<label class="md-nav__link" for="__nav_8_18" id="__nav_8_18_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_8_18_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_8_18_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_18">
 <span class="md-nav__icon md-icon"></span>
             YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/quickstart_tutorial/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="environments/aws_quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/environments/aws_quickstart_tutorial/">
 <span class="md-ellipsis">
     Environments
   </span>
@@ -586,7 +629,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="tutorials/train_custom_data/">
+<a class="md-nav__link" href="../../yolov5/tutorials/train_custom_data/">
 <span class="md-ellipsis">
     Tutorials
   </span>
@@ -600,7 +643,7 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../integrations/">
+<a class="md-nav__link" href="../../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -608,7 +651,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../hub/">
+<a class="md-nav__link" href="../../hub/">
 <span class="md-ellipsis">
     HUB
   </span>
@@ -616,7 +659,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../reference/cfg/__init__/">
+<a class="md-nav__link" href="../../reference/cfg/__init__/">
 <span class="md-ellipsis">
     Reference
   </span>
@@ -624,7 +667,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../help/">
+<a class="md-nav__link" href="../../help/">
 <span class="md-ellipsis">
     Help
   </span>
@@ -646,30 +689,30 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#explore-and-learn">
+<a class="md-nav__link" href="#motivation">
 <span class="md-ellipsis">
-      Explore and Learn
+      Motivation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#supported-environments">
+<a class="md-nav__link" href="#process">
 <span class="md-ellipsis">
-      Supported Environments
+      Process
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#project-status">
+<a class="md-nav__link" href="#example-inference-results">
 <span class="md-ellipsis">
-      Project Status
+      Example Inference Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#connect-and-contribute">
+<a class="md-nav__link" href="#full-code-example">
 <span class="md-ellipsis">
-      Connect and Contribute
+      Full Code Example
     </span>
 </a>
 </li>
@@ -680,84 +723,137 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/yolov5/index.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/view-results-in-terminal.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="comprehensive-guide-to-ultralytics-yolov5">Comprehensive Guide to Ultralytics YOLOv5</h1>
-<div align="center">
-<p>
-<a href="https://ultralytics.com/yolov5" target="_blank">
-<img alt="Ultralytics YOLOv5 v7.0 banner" src="https://raw.githubusercontent.com/ultralytics/assets/main/yolov5/v70/splash.png" width="100%"/></a>
+<h1 id="viewing-inference-results-in-a-terminal">Viewing Inference Results in a Terminal</h1>
+<p align="center">
+<img alt="Sixel example of image in Terminal" src="https://raw.githubusercontent.com/saitoha/libsixel/data/data/sixel.gif" width="800"/>
 </p>
-<a href="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml"><img alt="YOLOv5 CI" src="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml/badge.svg"/></a>
-<a href="https://zenodo.org/badge/latestdoi/264818686"><img alt="YOLOv5 Citation" src="https://zenodo.org/badge/264818686.svg"/></a>
-<a href="https://hub.docker.com/r/ultralytics/yolov5"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"/></a>
-<br/>
-<a href="https://bit.ly/yolov5-paperspace-notebook"><img alt="Run on Gradient" src="https://assets.paperspace.io/img/gradient-badge.svg"/></a>
-<a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>
-<a href="https://www.kaggle.com/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a>
-<br/>
-<br/>
-
-Welcome to the Ultralytics' <a href="https://github.com/ultralytics/yolov5">YOLOv5</a>🚀 Documentation! YOLOv5, the fifth iteration of the revolutionary "You Only Look Once" object detection model, is designed to deliver high-speed, high-accuracy results in real-time.
-
-<br/><br/>
-
-Built on PyTorch, this powerful deep learning framework has garnered immense popularity for its versatility, ease of use, and high performance. Our documentation guides you through the installation process, explains the architectural nuances of the model, showcases various use-cases, and provides a series of detailed tutorials. These resources will help you harness the full potential of YOLOv5 for your computer vision projects. Let's get started!
-
+<p>Image from the the <a href="https://saitoha.github.io/libsixel/">libsixel</a> website.</p>
+<h2 id="motivation">Motivation</h2>
+<p>When connecting to a remote machine, normally visualizing image results is not possible or requires moving data to a local device with a GUI. The VSCode integrated terminal allows for directly rendering images. This is a short demonstration on how to use this in conjunction with <code>ultralytics</code> with <a href="../../modes/predict/">prediction results</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only compatible with Linux and MacOS. Check the VSCode <a href="https://github.com/microsoft/vscode">repository</a>, check <a href="https://github.com/microsoft/vscode/issues/198622">Issue status</a>, or <a href="https://code.visualstudio.com/docs">documentation</a> for updates about Windows support to view images in terminal with <code>sixel</code>.</p>
 </div>
-<h2 id="explore-and-learn">Explore and Learn</h2>
-<p>Here's a compilation of comprehensive tutorials that will guide you through different aspects of YOLOv5.</p>
-<ul>
-<li><a href="tutorials/train_custom_data/">Train Custom Data</a> 🚀 RECOMMENDED: Learn how to train the YOLOv5 model on your custom dataset.</li>
-<li><a href="tutorials/tips_for_best_training_results/">Tips for Best Training Results</a> ☘️: Uncover practical tips to optimize your model training process.</li>
-<li><a href="tutorials/multi_gpu_training/">Multi-GPU Training</a>: Understand how to leverage multiple GPUs to expedite your training.</li>
-<li><a href="tutorials/pytorch_hub_model_loading/">PyTorch Hub</a> 🌟 NEW: Learn to load pre-trained models via PyTorch Hub.</li>
-<li><a href="tutorials/model_export/">TFLite, ONNX, CoreML, TensorRT Export</a> 🚀: Understand how to export your model to different formats.</li>
-<li><a href="tutorials/running_on_jetson_nano/">NVIDIA Jetson platform Deployment</a> 🌟 NEW: Learn how to deploy your YOLOv5 model on NVIDIA Jetson platform.</li>
-<li><a href="tutorials/test_time_augmentation/">Test-Time Augmentation (TTA)</a>: Explore how to use TTA to improve your model's prediction accuracy.</li>
-<li><a href="tutorials/model_ensembling/">Model Ensembling</a>: Learn the strategy of combining multiple models for improved performance.</li>
-<li><a href="tutorials/model_pruning_and_sparsity/">Model Pruning/Sparsity</a>: Understand pruning and sparsity concepts, and how to create a more efficient model.</li>
-<li><a href="tutorials/hyperparameter_evolution/">Hyperparameter Evolution</a>: Discover the process of automated hyperparameter tuning for better model performance.</li>
-<li><a href="tutorials/transfer_learning_with_frozen_layers/">Transfer Learning with Frozen Layers</a>: Learn how to implement transfer learning by freezing layers in YOLOv5.</li>
-<li><a href="tutorials/architecture_description/">Architecture Summary</a> 🌟 Delve into the structural details of the YOLOv5 model.</li>
-<li><a href="tutorials/roboflow_datasets_integration/">Roboflow for Datasets</a>: Understand how to utilize Roboflow for dataset management, labeling, and active learning.</li>
-<li><a href="tutorials/clearml_logging_integration/">ClearML Logging</a> 🌟 Learn how to integrate ClearML for efficient logging during your model training.</li>
-<li><a href="tutorials/neural_magic_pruning_quantization/">YOLOv5 with Neural Magic</a> Discover how to use Neural Magic's Deepsparse to prune and quantize your YOLOv5 model.</li>
-<li><a href="tutorials/comet_logging_integration/">Comet Logging</a> 🌟 NEW: Explore how to utilize Comet for improved model training logging.</li>
-</ul>
-<h2 id="supported-environments">Supported Environments</h2>
-<p>Ultralytics provides a range of ready-to-use environments, each pre-installed with essential dependencies such as <a href="https://developer.nvidia.com/cuda">CUDA</a>, <a href="https://developer.nvidia.com/cudnn">CUDNN</a>, <a href="https://www.python.org/">Python</a>, and <a href="https://pytorch.org/">PyTorch</a>, to kickstart your projects.</p>
-<ul>
-<li><strong>Free GPU Notebooks</strong>: <a href="https://bit.ly/yolov5-paperspace-notebook"><img alt="Run on Gradient" src="https://assets.paperspace.io/img/gradient-badge.svg"/></a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a></li>
-<li><strong>Google Cloud</strong>: <a href="environments/google_cloud_quickstart_tutorial/">GCP Quickstart Guide</a></li>
-<li><strong>Amazon</strong>: <a href="environments/aws_quickstart_tutorial/">AWS Quickstart Guide</a></li>
-<li><strong>Azure</strong>: <a href="environments/azureml_quickstart_tutorial/">AzureML Quickstart Guide</a></li>
-<li><strong>Docker</strong>: <a href="environments/docker_image_quickstart_tutorial/">Docker Quickstart Guide</a> <a href="https://hub.docker.com/r/ultralytics/yolov5"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"/></a></li>
-</ul>
-<h2 id="project-status">Project Status</h2>
-<p><a href="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml"><img alt="YOLOv5 CI" src="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml/badge.svg"/></a></p>
-<p>This badge indicates that all <a href="https://github.com/ultralytics/yolov5/actions">YOLOv5 GitHub Actions</a> Continuous Integration (CI) tests are successfully passing. These CI tests rigorously check the functionality and performance of YOLOv5 across various key aspects: <a href="https://github.com/ultralytics/yolov5/blob/master/train.py">training</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/val.py">validation</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/detect.py">inference</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/export.py">export</a>, and <a href="https://github.com/ultralytics/yolov5/blob/master/benchmarks.py">benchmarks</a>. They ensure consistent and reliable operation on macOS, Windows, and Ubuntu, with tests conducted every 24 hours and upon each new commit.</p>
-<p><br/></p>
-<div align="center">
-<a href="https://github.com/ultralytics"><img alt="Ultralytics GitHub" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-github.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://www.linkedin.com/company/ultralytics/"><img alt="Ultralytics LinkedIn" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-linkedin.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://twitter.com/ultralytics"><img alt="Ultralytics Twitter" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-twitter.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://youtube.com/ultralytics"><img alt="Ultralytics YouTube" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-youtube.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://www.tiktok.com/@ultralytics"><img alt="Ultralytics TikTok" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-tiktok.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://www.instagram.com/ultralytics/"><img alt="Ultralytics Instagram" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-instagram.png" width="3%"/></a>
-<img alt="space" src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%"/>
-<a href="https://ultralytics.com/discord"><img alt="Ultralytics Discord" src="https://github.com/ultralytics/assets/raw/main/social/logo-social-discord.png" width="3%"/></a>
+<p>The VSCode compatible protocols for viewing images using the integrated terminal are <a href="https://en.wikipedia.org/wiki/Sixel"><code>sixel</code></a> and <a href="https://iterm2.com/documentation-images.html"><code>iTerm</code></a>. This guide will demonstrate use of the <code>sixel</code> protocol.</p>
+<h2 id="process">Process</h2>
+<ol>
+<li>
+<p>First, you must enable settings <code>terminal.integrated.enableImages</code> and <code>terminal.integrated.gpuAcceleration</code> in VSCode.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="s">"terminal.integrated.gpuAcceleration"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"auto"</span><span class="w"> </span><span class="c1"># "auto" is default, can also use "on"</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="s">"terminal.integrated.enableImages"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+</li>
+</ol>
+<p align="center">
+<img alt="VSCode enable terminal images setting" src="https://github.com/ultralytics/ultralytics/assets/62214284/d158ab1c-893c-4397-a5de-2f9f74f81175" width="800"/>
+</p>
+<ol>
+<li>
+<p>Install the <code>python-sixel</code> library in your virtual environment. This is a <a href="https://github.com/lubosz/python-sixel?tab=readme-ov-file">fork</a> of the <code>PySixel</code> library, which is no longer maintained.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>sixel
+</code></pre></div>
+</li>
+<li>
+<p>Import the relevant libraries</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">io</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="kn">from</span> <span class="nn">sixel</span> <span class="kn">import</span> <span class="n">SixelWriter</span>
+</code></pre></div>
+</li>
+<li>
+<p>Load a model and execute inference, then plot the results and store in a variable. See more about inference arguments and working with results on the <a href="../../modes/predict/">predict mode</a> page.</p>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Load a model</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># Run inference on an image</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">)</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1"># Plot inference results</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">plot</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="c1">#(1)!</span>
+</code></pre></div>
+<ol>
+<li>See <a href="../../modes/predict/#plot-method-parameters">plot method parameters</a> to see possible arguments to use.</li>
+</ol>
+</li>
+<li>
+<p>Now, use OpenCV to convert the <code>numpy.ndarray</code> to <code>bytes</code> data. Then use <code>io.BytesIO</code> to make a "file-like" object.</p>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Results image as bytes</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">im_bytes</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imencode</span><span class="p">(</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span class="s2">".png"</span><span class="p">,</span> <span class="c1">#(1)!</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>    <span class="n">plot</span><span class="p">,</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span> <span class="c1">#(2)!</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># Image bytes as a file-like object</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="n">mem_file</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">im_bytes</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li>It's possible to use other image extensions as well.</li>
+<li>Only the object at index <code>1</code> that is returned is needed.</li>
+</ol>
+</li>
+<li>
+<p>Create a <code>SixelWriter</code> instance, and then use the <code>.draw()</code> method to draw the image in the terminal.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Create sixel writer object</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">w</span> <span class="o">=</span> <span class="n">SixelWriter</span><span class="p">()</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># Draw the sixel image in the terminal</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">w</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">mem_file</span><span class="p">)</span>
+</code></pre></div>
+</li>
+</ol>
+<h2 id="example-inference-results">Example Inference Results</h2>
+<p align="center">
+<img alt="View Image in Terminal" src="https://github.com/ultralytics/ultralytics/assets/62214284/6743ab64-300d-4429-bdce-e246455f7b68" width="800"/>
+</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Using this example with videos or animated GIF frames has <strong>not</strong> been tested. Attempt at your own risk.</p>
 </div>
-<h2 id="connect-and-contribute">Connect and Contribute</h2>
-<p>Your journey with YOLOv5 doesn't have to be a solitary one. Join our vibrant community on <a href="https://github.com/ultralytics/yolov5">GitHub</a>, connect with professionals on <a href="https://www.linkedin.com/company/ultralytics/">LinkedIn</a>, share your results on <a href="https://twitter.com/ultralytics">Twitter</a>, and find educational resources on <a href="https://youtube.com/ultralytics">YouTube</a>. Follow us on <a href="https://www.tiktok.com/@ultralytics">TikTok</a> and <a href="https://www.instagram.com/ultralytics/">Instagram</a> for more engaging content.</p>
-<p>Interested in contributing? We welcome contributions of all forms; from code improvements and bug reports to documentation updates. Check out our <a href="https://github.com/ultralytics/yolov5/blob/master/CONTRIBUTING.md">contributing guidelines</a> for more information.</p>
-<p>We're excited to see the innovative ways you'll use YOLOv5. Dive in, experiment, and revolutionize your computer vision projects! 🚀</p>
+<h2 id="full-code-example">Full Code Example</h2>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">io</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="kn">from</span> <span class="nn">sixel</span> <span class="kn">import</span> <span class="n">SixelWriter</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="c1"># Load a model</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="c1"># Run inference on an image</span>
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">)</span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a>
+<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="c1"># Plot inference results</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="n">plot</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="c1">#(3)!</span>
+<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a>
+<a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="c1"># Results image as bytes</span>
+<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="n">im_bytes</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imencode</span><span class="p">(</span>
+<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a>    <span class="s2">".png"</span><span class="p">,</span> <span class="c1">#(1)!</span>
+<a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a>    <span class="n">plot</span><span class="p">,</span>
+<a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a>    <span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span> <span class="c1">#(2)!</span>
+<a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a>
+<a href="#__codelineno-6-23" id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="n">mem_file</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">im_bytes</span><span class="p">)</span>
+<a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="n">w</span> <span class="o">=</span> <span class="n">SixelWriter</span><span class="p">()</span>
+<a href="#__codelineno-6-25" id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="n">w</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">mem_file</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li>It's possible to use other image extensions as well.</li>
+<li>Only the object at index <code>1</code> that is returned is needed.</li>
+<li>See <a href="../../modes/predict/#plot-method-parameters">plot method parameters</a> to see possible arguments to use.</li>
+</ol>
+<hr/>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You may need to use <code>clear</code> to "erase" the view of the image in the terminal.</p>
+</div>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -766,7 +862,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-03-09, Updated 2024-03-09<br/>Authors: <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -777,10 +873,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/yolov5', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/view-results-in-terminal', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/yolov5', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/view-results-in-terminal', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -829,7 +925,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Distance Calculation" class="md-footer__link md-footer__link--prev" href="../guides/distance-calculation/">
+<a aria-label="Previous: Edge TPU on Raspberry Pi" class="md-footer__link md-footer__link--prev" href="../coral-edge-tpu-on-raspberry-pi/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -838,17 +934,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                Distance Calculation
+                Edge TPU on Raspberry Pi
               </div>
 </div>
 </a>
-<a aria-label="Next: Quickstart" class="md-footer__link md-footer__link--next" href="quickstart_tutorial/">
+<a aria-label="Next: Object Counting" class="md-footer__link md-footer__link--next" href="../object-counting/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Quickstart
+                Object Counting
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -900,8 +996,8 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.c8d2eff1.min.js"></script>
-<script src="../javascript/extra.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+<script src="../../javascript/extra.js"></script>
 </body>
 </html>
