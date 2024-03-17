@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="A comprehensive guide to troubleshooting common issues encountered while working with YOLOv8 in the Ultralytics ecosystem." name="description"/>
+<meta content="Learn how to optimize Ultralytics YOLOv8 models with Intel OpenVINO for maximum performance. Discover expert techniques to minimize latency and maximize throughput for real-time object detection applications." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/guides/yolo-common-issues/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="../yolo-performance-metrics/" rel="next"/>
+<link href="https://docs.ultralytics.com/guides/optimizing-openvino-latency-vs-throughput-modes/" rel="canonical"/>
+<link href="../view-results-in-terminal/" rel="prev"/>
+<link href="../object-counting/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.13" name="generator"/>
-<title>YOLO Common Issues - Ultralytics YOLOv8 Docs</title>
+<title>OpenVINO Latency vs Throughput modes - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.7e359304.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLO Common Issues" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Troubleshooting, Ultralytics, YOLOv8, Installation Errors, Training Data, Model Performance, Hyperparameter Tuning, Deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-common-issues" property="og:url"/><meta content="YOLO Common Issues" property="og:title"/><meta content="A comprehensive guide to troubleshooting common issues encountered while working with YOLOv8 in the Ultralytics ecosystem." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/273067258-7c1b9aee-b4e8-43b5-befd-588d4f0bd361.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-common-issues" property="twitter:url"/><meta content="YOLO Common Issues" property="twitter:title"/><meta content="A comprehensive guide to troubleshooting common issues encountered while working with YOLOv8 in the Ultralytics ecosystem." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/273067258-7c1b9aee-b4e8-43b5-befd-588d4f0bd361.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLO Common Issues", "image": ["https://user-images.githubusercontent.com/26833433/273067258-7c1b9aee-b4e8-43b5-befd-588d4f0bd361.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2023-11-16 21:51:45 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="OpenVINO Latency vs Throughput modes" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, OpenVINO, optimization, latency, throughput, inference, object detection, deep learning, machine learning, guide, Intel" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/optimizing-openvino-latency-vs-throughput-modes" property="og:url"/><meta content="OpenVINO Latency vs Throughput modes" property="og:title"/><meta content="Learn how to optimize Ultralytics YOLOv8 models with Intel OpenVINO for maximum performance. Discover expert techniques to minimize latency and maximize throughput for real-time object detection applications." property="og:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/2b181f68-aa91-4514-ba09-497cc3c83b00" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/optimizing-openvino-latency-vs-throughput-modes" property="twitter:url"/><meta content="OpenVINO Latency vs Throughput modes" property="twitter:title"/><meta content="Learn how to optimize Ultralytics YOLOv8 models with Intel OpenVINO for maximum performance. Discover expert techniques to minimize latency and maximize throughput for real-time object detection applications." property="twitter:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/2b181f68-aa91-4514-ba09-497cc3c83b00" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "OpenVINO Latency vs Throughput modes", "image": ["https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/2b181f68-aa91-4514-ba09-497cc3c83b00"], "datePublished": "2024-03-17 14:26:15 +0100", "dateModified": "2024-03-17 14:26:15 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#troubleshooting-common-yolo-issues">
+<a class="md-skip" href="#optimizing-openvino-inference-for-ultralytics-yolo-models-a-comprehensive-guide">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              YOLO Common Issues
+              OpenVINO Latency vs Throughput modes
             
           </span>
 </div>
@@ -353,201 +353,12 @@
             Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    YOLO Common Issues
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolo-common-issues/">
 <span class="md-ellipsis">
     YOLO Common Issues
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction">
-<span class="md-ellipsis">
-      Introduction
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#common-issues">
-<span class="md-ellipsis">
-      Common Issues
-    </span>
-</a>
-<nav aria-label="Common Issues" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installation-errors">
-<span class="md-ellipsis">
-      Installation Errors
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#model-training-issues">
-<span class="md-ellipsis">
-      Model Training Issues
-    </span>
-</a>
-<nav aria-label="Model Training Issues" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#verification-of-configuration-settings">
-<span class="md-ellipsis">
-      Verification of Configuration Settings
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#accelerating-training-with-multiple-gpus">
-<span class="md-ellipsis">
-      Accelerating Training with Multiple GPUs
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#continuous-monitoring-parameters">
-<span class="md-ellipsis">
-      Continuous Monitoring Parameters
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#tools-for-tracking-training-progress">
-<span class="md-ellipsis">
-      Tools for Tracking Training Progress
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-to-check-if-training-is-happening-on-the-gpu">
-<span class="md-ellipsis">
-      How to Check if Training is Happening on the GPU
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-considerations-for-effective-model-training">
-<span class="md-ellipsis">
-      Key Considerations for Effective Model Training
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#issues-related-to-model-predictions">
-<span class="md-ellipsis">
-      Issues Related to Model Predictions
-    </span>
-</a>
-<nav aria-label="Issues Related to Model Predictions" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#getting-bounding-box-predictions-with-your-yolov8-custom-model">
-<span class="md-ellipsis">
-      Getting Bounding Box Predictions With Your YOLOv8 Custom Model
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#filtering-objects-in-yolov8-predictions">
-<span class="md-ellipsis">
-      Filtering Objects in YOLOv8 Predictions
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#understanding-precision-metrics-in-yolov8">
-<span class="md-ellipsis">
-      Understanding Precision Metrics in YOLOv8
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#extracting-object-dimensions-in-yolov8">
-<span class="md-ellipsis">
-      Extracting Object Dimensions in YOLOv8
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deployment-challenges">
-<span class="md-ellipsis">
-      Deployment Challenges
-    </span>
-</a>
-<nav aria-label="Deployment Challenges" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#gpu-deployment-issues">
-<span class="md-ellipsis">
-      GPU Deployment Issues
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#model-conversionexporting-issues">
-<span class="md-ellipsis">
-      Model Conversion/Exporting Issues
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#community-and-support">
-<span class="md-ellipsis">
-      Community and Support
-    </span>
-</a>
-<nav aria-label="Community and Support" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#forums-and-channels-for-getting-help">
-<span class="md-ellipsis">
-      Forums and Channels for Getting Help
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#official-documentation-and-resources">
-<span class="md-ellipsis">
-      Official Documentation and Resources
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
-<span class="md-ellipsis">
-      Conclusion
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../yolo-performance-metrics/">
@@ -647,12 +458,98 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../optimizing-openvino-latency-vs-throughput-modes/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    OpenVINO Latency vs Throughput modes
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     OpenVINO Latency vs Throughput modes
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optimizing-for-latency">
+<span class="md-ellipsis">
+      Optimizing for Latency
+    </span>
+</a>
+<nav aria-label="Optimizing for Latency" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-strategies-for-latency-optimization">
+<span class="md-ellipsis">
+      Key Strategies for Latency Optimization:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#managing-first-inference-latency">
+<span class="md-ellipsis">
+      Managing First-Inference Latency:
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optimizing-for-throughput">
+<span class="md-ellipsis">
+      Optimizing for Throughput
+    </span>
+</a>
+<nav aria-label="Optimizing for Throughput" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#approaches-to-throughput-optimization">
+<span class="md-ellipsis">
+      Approaches to Throughput Optimization:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#designing-throughput-oriented-applications">
+<span class="md-ellipsis">
+      Designing Throughput-Oriented Applications:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multi-device-execution">
+<span class="md-ellipsis">
+      Multi-Device Execution:
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8_18" type="checkbox"/>
@@ -849,67 +746,24 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#common-issues">
+<a class="md-nav__link" href="#optimizing-for-latency">
 <span class="md-ellipsis">
-      Common Issues
+      Optimizing for Latency
     </span>
 </a>
-<nav aria-label="Common Issues" class="md-nav">
+<nav aria-label="Optimizing for Latency" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#installation-errors">
+<a class="md-nav__link" href="#key-strategies-for-latency-optimization">
 <span class="md-ellipsis">
-      Installation Errors
+      Key Strategies for Latency Optimization:
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#model-training-issues">
+<a class="md-nav__link" href="#managing-first-inference-latency">
 <span class="md-ellipsis">
-      Model Training Issues
-    </span>
-</a>
-<nav aria-label="Model Training Issues" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#verification-of-configuration-settings">
-<span class="md-ellipsis">
-      Verification of Configuration Settings
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#accelerating-training-with-multiple-gpus">
-<span class="md-ellipsis">
-      Accelerating Training with Multiple GPUs
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#continuous-monitoring-parameters">
-<span class="md-ellipsis">
-      Continuous Monitoring Parameters
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#tools-for-tracking-training-progress">
-<span class="md-ellipsis">
-      Tools for Tracking Training Progress
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-to-check-if-training-is-happening-on-the-gpu">
-<span class="md-ellipsis">
-      How to Check if Training is Happening on the GPU
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-considerations-for-effective-model-training">
-<span class="md-ellipsis">
-      Key Considerations for Effective Model Training
+      Managing First-Inference Latency:
     </span>
 </a>
 </li>
@@ -917,91 +771,31 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#issues-related-to-model-predictions">
+<a class="md-nav__link" href="#optimizing-for-throughput">
 <span class="md-ellipsis">
-      Issues Related to Model Predictions
+      Optimizing for Throughput
     </span>
 </a>
-<nav aria-label="Issues Related to Model Predictions" class="md-nav">
+<nav aria-label="Optimizing for Throughput" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#getting-bounding-box-predictions-with-your-yolov8-custom-model">
+<a class="md-nav__link" href="#approaches-to-throughput-optimization">
 <span class="md-ellipsis">
-      Getting Bounding Box Predictions With Your YOLOv8 Custom Model
+      Approaches to Throughput Optimization:
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#filtering-objects-in-yolov8-predictions">
+<a class="md-nav__link" href="#designing-throughput-oriented-applications">
 <span class="md-ellipsis">
-      Filtering Objects in YOLOv8 Predictions
+      Designing Throughput-Oriented Applications:
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#understanding-precision-metrics-in-yolov8">
+<a class="md-nav__link" href="#multi-device-execution">
 <span class="md-ellipsis">
-      Understanding Precision Metrics in YOLOv8
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#extracting-object-dimensions-in-yolov8">
-<span class="md-ellipsis">
-      Extracting Object Dimensions in YOLOv8
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deployment-challenges">
-<span class="md-ellipsis">
-      Deployment Challenges
-    </span>
-</a>
-<nav aria-label="Deployment Challenges" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#gpu-deployment-issues">
-<span class="md-ellipsis">
-      GPU Deployment Issues
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#model-conversionexporting-issues">
-<span class="md-ellipsis">
-      Model Conversion/Exporting Issues
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#community-and-support">
-<span class="md-ellipsis">
-      Community and Support
-    </span>
-</a>
-<nav aria-label="Community and Support" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#forums-and-channels-for-getting-help">
-<span class="md-ellipsis">
-      Forums and Channels for Getting Help
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#official-documentation-and-resources">
-<span class="md-ellipsis">
-      Official Documentation and Resources
+      Multi-Device Execution:
     </span>
 </a>
 </li>
@@ -1022,262 +816,56 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/yolo-common-issues.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/optimizing-openvino-latency-vs-throughput-modes.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="troubleshooting-common-yolo-issues">Troubleshooting Common YOLO Issues</h1>
-<p align="center">
-<img alt="YOLO Common Issues Image" src="https://user-images.githubusercontent.com/26833433/273067258-7c1b9aee-b4e8-43b5-befd-588d4f0bd361.png" width="800"/>
-</p>
+<h1 id="optimizing-openvino-inference-for-ultralytics-yolo-models-a-comprehensive-guide">Optimizing OpenVINO Inference for Ultralytics YOLO Models: A Comprehensive Guide</h1>
+<p><img alt="OpenVINO Ecosystem" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/2b181f68-aa91-4514-ba09-497cc3c83b00" width="1024"/></p>
 <h2 id="introduction">Introduction</h2>
-<p>This guide serves as a comprehensive aid for troubleshooting common issues encountered while working with YOLOv8 on your Ultralytics projects. Navigating through these issues can be a breeze with the right guidance, ensuring your projects remain on track without unnecessary delays.</p>
-<h2 id="common-issues">Common Issues</h2>
-<h3 id="installation-errors">Installation Errors</h3>
-<p>Installation errors can arise due to various reasons, such as incompatible versions, missing dependencies, or incorrect environment setups. First, check to make sure you are doing the following:</p>
+<p>When deploying deep learning models, particularly those for object detection such as Ultralytics YOLO models, achieving optimal performance is crucial. This guide delves into leveraging Intel's OpenVINO toolkit to optimize inference, focusing on latency and throughput. Whether you're working on consumer-grade applications or large-scale deployments, understanding and applying these optimization strategies will ensure your models run efficiently on various devices.</p>
+<h2 id="optimizing-for-latency">Optimizing for Latency</h2>
+<p>Latency optimization is vital for applications requiring immediate response from a single model given a single input, typical in consumer scenarios. The goal is to minimize the delay between input and inference result. However, achieving low latency involves careful consideration, especially when running concurrent inferences or managing multiple models.</p>
+<h3 id="key-strategies-for-latency-optimization">Key Strategies for Latency Optimization:</h3>
 <ul>
-<li>
-<p>You're using Python 3.8 or later as recommended.</p>
-</li>
-<li>
-<p>Ensure that you have the correct version of PyTorch (1.8 or later) installed.</p>
-</li>
-<li>
-<p>Consider using virtual environments to avoid conflicts.</p>
-</li>
-<li>
-<p>Follow the <a href="../../quickstart/">official installation guide</a> step by step.</p>
-</li>
+<li><strong>Single Inference per Device:</strong> The simplest way to achieve low latency is by limiting to one inference at a time per device. Additional concurrency often leads to increased latency.</li>
+<li><strong>Leveraging Sub-Devices:</strong> Devices like multi-socket CPUs or multi-tile GPUs can execute multiple requests with minimal latency increase by utilizing their internal sub-devices.</li>
+<li><strong>OpenVINO Performance Hints:</strong> Utilizing OpenVINO's <code>ov::hint::PerformanceMode::LATENCY</code> for the <code>ov::hint::performance_mode</code> property during model compilation simplifies performance tuning, offering a device-agnostic and future-proof approach.</li>
 </ul>
-<p>Additionally, here are some common installation issues users have encountered, along with their respective solutions:</p>
+<h3 id="managing-first-inference-latency">Managing First-Inference Latency:</h3>
 <ul>
-<li>
-<p>Import Errors or Dependency Issues - If you're getting errors during the import of YOLOv8, or you're having issues related to dependencies, consider the following troubleshooting steps:</p>
-<ul>
-<li>
-<p><strong>Fresh Installation</strong>: Sometimes, starting with a fresh installation can resolve unexpected issues. Especially with libraries like Ultralytics, where updates might introduce changes to the file tree structure or functionalities.</p>
-</li>
-<li>
-<p><strong>Update Regularly</strong>: Ensure you're using the latest version of the library. Older versions might not be compatible with recent updates, leading to potential conflicts or issues.</p>
-</li>
-<li>
-<p><strong>Check Dependencies</strong>: Verify that all required dependencies are correctly installed and are of the compatible versions.</p>
-</li>
-<li>
-<p><strong>Review Changes</strong>: If you initially cloned or installed an older version, be aware that significant updates might affect the library's structure or functionalities. Always refer to the official documentation or changelogs to understand any major changes.</p>
-</li>
-<li>
-<p>Remember, keeping your libraries and dependencies up-to-date is crucial for a smooth and error-free experience.</p>
-</li>
+<li><strong>Model Caching:</strong> To mitigate model load and compile times impacting latency, use model caching where possible. For scenarios where caching isn't viable, CPUs generally offer the fastest model load times.</li>
+<li><strong>Model Mapping vs. Reading:</strong> To reduce load times, OpenVINO replaced model reading with mapping. However, if the model is on a removable or network drive, consider using <code>ov::enable_mmap(false)</code> to switch back to reading.</li>
+<li><strong>AUTO Device Selection:</strong> This mode begins inference on the CPU, shifting to an accelerator once ready, seamlessly reducing first-inference latency.</li>
 </ul>
-</li>
-<li>
-<p>Running YOLOv8 on GPU - If you're having trouble running YOLOv8 on GPU, consider the following troubleshooting steps:</p>
-<ul>
-<li>
-<p><strong>Verify CUDA Compatibility and Installation</strong>: Ensure your GPU is CUDA compatible and that CUDA is correctly installed. Use the <code>nvidia-smi</code> command to check the status of your NVIDIA GPU and CUDA version.</p>
-</li>
-<li>
-<p><strong>Check PyTorch and CUDA Integration</strong>: Ensure PyTorch can utilize CUDA by running <code>import torch; print(torch.cuda.is_available())</code> in a Python terminal. If it returns 'True', PyTorch is set up to use CUDA.</p>
-</li>
-<li>
-<p><strong>Environment Activation</strong>: Ensure you're in the correct environment where all necessary packages are installed.</p>
-</li>
-<li>
-<p><strong>Update Your Packages</strong>: Outdated packages might not be compatible with your GPU. Keep them updated.</p>
-</li>
-<li>
-<p><strong>Program Configuration</strong>: Check if the program or code specifies GPU usage. In YOLOv8, this might be in the settings or configuration.</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="model-training-issues">Model Training Issues</h3>
-<p>This section will address common issues faced while training and their respective explanations and solutions.</p>
-<h4 id="verification-of-configuration-settings">Verification of Configuration Settings</h4>
-<p><strong>Issue</strong>: You are unsure whether the configuration settings in the <code>.yaml</code> file are being applied correctly during model training.</p>
-<p><strong>Solution</strong>: The configuration settings in the <code>.yaml</code> file should be applied when using the <code>model.train()</code> function. To ensure that these settings are correctly applied, follow these steps:</p>
-<ul>
-<li>Confirm that the path to your <code>.yaml</code> configuration file is correct.</li>
-<li>Make sure you pass the path to your <code>.yaml</code> file as the <code>data</code> argument when calling <code>model.train()</code>, as shown below:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'/path/to/your/data.yaml'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<h2 id="optimizing-for-throughput">Optimizing for Throughput</h2>
+<p>Throughput optimization is crucial for scenarios serving numerous inference requests simultaneously, maximizing resource utilization without significantly sacrificing individual request performance.</p>
+<h3 id="approaches-to-throughput-optimization">Approaches to Throughput Optimization:</h3>
+<ol>
+<li><strong>OpenVINO Performance Hints:</strong> A high-level, future-proof method to enhance throughput across devices using performance hints.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">openvino.properties</span> <span class="k">as</span> <span class="nn">props</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">openvino.properties.hint</span> <span class="k">as</span> <span class="nn">hints</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="n">hints</span><span class="o">.</span><span class="n">performance_mode</span><span class="p">:</span> <span class="n">hints</span><span class="o">.</span><span class="n">PerformanceMode</span><span class="o">.</span><span class="n">THROUGHPUT</span><span class="p">}</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">compiled_model</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">compile_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">"GPU"</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
 </code></pre></div>
-<h4 id="accelerating-training-with-multiple-gpus">Accelerating Training with Multiple GPUs</h4>
-<p><strong>Issue</strong>: Training is slow on a single GPU, and you want to speed up the process using multiple GPUs.</p>
-<p><strong>Solution</strong>: Increasing the batch size can accelerate training, but it's essential to consider GPU memory capacity. To speed up training with multiple GPUs, follow these steps:</p>
+<ol>
+<li><strong>Explicit Batching and Streams:</strong> A more granular approach involving explicit batching and the use of streams for advanced performance tuning.</li>
+</ol>
+<h3 id="designing-throughput-oriented-applications">Designing Throughput-Oriented Applications:</h3>
+<p>To maximize throughput, applications should:</p>
 <ul>
-<li>
-<p>Ensure that you have multiple GPUs available.</p>
-</li>
-<li>
-<p>Modify your .yaml configuration file to specify the number of GPUs to use, e.g., gpus: 4.</p>
-</li>
-<li>
-<p>Increase the batch size accordingly to fully utilize the multiple GPUs without exceeding memory limits.</p>
-</li>
-<li>
-<p>Modify your training command to utilize multiple GPUs:</p>
-</li>
+<li>Process inputs in parallel, making full use of the device's capabilities.</li>
+<li>Decompose data flow into concurrent inference requests, scheduled for parallel execution.</li>
+<li>Utilize the Async API with callbacks to maintain efficiency and avoid device starvation.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Adjust the batch size and other settings as needed to optimize training speed</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'/path/to/your/data.yaml'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">multi_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-<h4 id="continuous-monitoring-parameters">Continuous Monitoring Parameters</h4>
-<p><strong>Issue</strong>: You want to know which parameters should be continuously monitored during training, apart from loss.</p>
-<p><strong>Solution</strong>: While loss is a crucial metric to monitor, it's also essential to track other metrics for model performance optimization. Some key metrics to monitor during training include:</p>
-<ul>
-<li>Precision</li>
-<li>Recall</li>
-<li>Mean Average Precision (mAP)</li>
-</ul>
-<p>You can access these metrics from the training logs or by using tools like TensorBoard or wandb for visualization. Implementing early stopping based on these metrics can help you achieve better results.</p>
-<h4 id="tools-for-tracking-training-progress">Tools for Tracking Training Progress</h4>
-<p><strong>Issue</strong>: You are looking for recommendations on tools to track training progress.</p>
-<p><strong>Solution</strong>: To track and visualize training progress, you can consider using the following tools:</p>
-<ul>
-<li><a href="https://www.tensorflow.org/tensorboard">TensorBoard</a>: TensorBoard is a popular choice for visualizing training metrics, including loss, accuracy, and more. You can integrate it with your YOLOv8 training process.</li>
-<li><a href="https://bit.ly/yolov8-readme-comet">Comet</a>: Comet provides an extensive toolkit for experiment tracking and comparison. It allows you to track metrics, hyperparameters, and even model weights. Integration with YOLO models is also straightforward, providing you with a complete overview of your experiment cycle.</li>
-<li><a href="https://hub.ultralytics.com">Ultralytics HUB</a>: Ultralytics HUB offers a specialized environment for tracking YOLO models, giving you a one-stop platform to manage metrics, datasets, and even collaborate with your team. Given its tailored focus on YOLO, it offers more customized tracking options.</li>
-</ul>
-<p>Each of these tools offers its own set of advantages, so you may want to consider the specific needs of your project when making a choice.</p>
-<h4 id="how-to-check-if-training-is-happening-on-the-gpu">How to Check if Training is Happening on the GPU</h4>
-<p><strong>Issue</strong>: The 'device' value in the training logs is 'null,' and you're unsure if training is happening on the GPU.</p>
-<p><strong>Solution</strong>: The 'device' value being 'null' typically means that the training process is set to automatically use an available GPU, which is the default behavior. To ensure training occurs on a specific GPU, you can manually set the 'device' value to the GPU index (e.g., '0' for the first GPU) in your .yaml configuration file:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-</code></pre></div>
-<p>This will explicitly assign the training process to the specified GPU. If you wish to train on the CPU, set 'device' to 'cpu'.</p>
-<p>Keep an eye on the 'runs' folder for logs and metrics to monitor training progress effectively.</p>
-<h4 id="key-considerations-for-effective-model-training">Key Considerations for Effective Model Training</h4>
-<p>Here are some things to keep in mind, if you are facing issues related to model training.</p>
-<p><strong>Dataset Format and Labels</strong></p>
-<ul>
-<li>
-<p>Importance: The foundation of any machine learning model lies in the quality and format of the data it is trained on.</p>
-</li>
-<li>
-<p>Recommendation: Ensure that your custom dataset and its associated labels adhere to the expected format. It's crucial to verify that annotations are accurate and of high quality. Incorrect or subpar annotations can derail the model's learning process, leading to unpredictable outcomes.</p>
-</li>
-</ul>
-<p><strong>Model Convergence</strong></p>
-<ul>
-<li>
-<p>Importance: Achieving model convergence ensures that the model has sufficiently learned from the training data.</p>
-</li>
-<li>
-<p>Recommendation: When training a model 'from scratch', it's vital to ensure that the model reaches a satisfactory level of convergence. This might necessitate a longer training duration, with more epochs, compared to when you're fine-tuning an existing model.</p>
-</li>
-</ul>
-<p><strong>Learning Rate and Batch Size</strong></p>
-<ul>
-<li>
-<p>Importance: These hyperparameters play a pivotal role in determining how the model updates its weights during training.</p>
-</li>
-<li>
-<p>Recommendation: Regularly evaluate if the chosen learning rate and batch size are optimal for your specific dataset. Parameters that are not in harmony with the dataset's characteristics can hinder the model's performance.</p>
-</li>
-</ul>
-<p><strong>Class Distribution</strong></p>
-<ul>
-<li>
-<p>Importance: The distribution of classes in your dataset can influence the model's prediction tendencies.</p>
-</li>
-<li>
-<p>Recommendation: Regularly assess the distribution of classes within your dataset. If there's a class imbalance, there's a risk that the model will develop a bias towards the more prevalent class. This bias can be evident in the confusion matrix, where the model might predominantly predict the majority class.</p>
-</li>
-</ul>
-<p><strong>Cross-Check with Pretrained Weights</strong></p>
-<ul>
-<li>
-<p>Importance: Leveraging pretrained weights can provide a solid starting point for model training, especially when data is limited.</p>
-</li>
-<li>
-<p>Recommendation: As a diagnostic step, consider training your model using the same data but initializing it with pretrained weights. If this approach yields a well-formed confusion matrix, it could suggest that the 'from scratch' model might require further training or adjustments.</p>
-</li>
-</ul>
-<h3 id="issues-related-to-model-predictions">Issues Related to Model Predictions</h3>
-<p>This section will address common issues faced during model prediction.</p>
-<h4 id="getting-bounding-box-predictions-with-your-yolov8-custom-model">Getting Bounding Box Predictions With Your YOLOv8 Custom Model</h4>
-<p><strong>Issue</strong>: When running predictions with a custom YOLOv8 model, there are challenges with the format and visualization of the bounding box coordinates.</p>
-<p><strong>Solution</strong>:</p>
-<ul>
-<li>Coordinate Format: YOLOv8 provides bounding box coordinates in absolute pixel values. To convert these to relative coordinates (ranging from 0 to 1), you need to divide by the image dimensions. For example, let’s say your image size is 640x640. Then you would do the following:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Convert absolute coordinates to relative coordinates</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">/</span> <span class="mi">640</span>  <span class="c1"># Divide x-coordinates by image width</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">x2</span> <span class="o">=</span> <span class="n">x2</span> <span class="o">/</span> <span class="mi">640</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">y1</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">/</span> <span class="mi">640</span>  <span class="c1"># Divide y-coordinates by image height</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">y2</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">/</span> <span class="mi">640</span>
-</code></pre></div>
-<ul>
-<li>File Name: To obtain the file name of the image you're predicting on, access the image file path directly from the result object within your prediction loop.</li>
-</ul>
-<h4 id="filtering-objects-in-yolov8-predictions">Filtering Objects in YOLOv8 Predictions</h4>
-<p><strong>Issue</strong>: Facing issues with how to filter and display only specific objects in the prediction results when running YOLOv8 using the Ultralytics library.</p>
-<p><strong>Solution</strong>: To detect specific classes use the classes argument to specify the classes you want to include in the output. For instance, to detect only cars (assuming 'cars' have class index 2):</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span>segment<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'path/to/car.mp4'</span><span class="w"> </span><span class="nv">show</span><span class="o">=</span>True<span class="w"> </span><span class="nv">classes</span><span class="o">=</span><span class="m">2</span>
-</code></pre></div>
-<h4 id="understanding-precision-metrics-in-yolov8">Understanding Precision Metrics in YOLOv8</h4>
-<p><strong>Issue</strong>: Confusion regarding the difference between box precision, mask precision, and confusion matrix precision in YOLOv8.</p>
-<p><strong>Solution</strong>: Box precision measures the accuracy of predicted bounding boxes compared to the actual ground truth boxes using IoU (Intersection over Union) as the metric. Mask precision assesses the agreement between predicted segmentation masks and ground truth masks in pixel-wise object classification. Confusion matrix precision, on the other hand, focuses on overall classification accuracy across all classes and does not consider the geometric accuracy of predictions. It's important to note that a bounding box can be geometrically accurate (true positive) even if the class prediction is wrong, leading to differences between box precision and confusion matrix precision. These metrics evaluate distinct aspects of a model's performance, reflecting the need for different evaluation metrics in various tasks.</p>
-<h4 id="extracting-object-dimensions-in-yolov8">Extracting Object Dimensions in YOLOv8</h4>
-<p><strong>Issue</strong>: Difficulty in retrieving the length and height of detected objects in YOLOv8, especially when multiple objects are detected in an image.</p>
-<p><strong>Solution</strong>: To retrieve the bounding box dimensions, first use the Ultralytics YOLOv8 model to predict objects in an image. Then, extract the width and height information of bounding boxes from the prediction results.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1"># Load a pre-trained YOLOv8 model</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="c1"># Specify the source image</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="c1"># Make predictions</span>
-<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>
-<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="c1"># Extract bounding box dimensions</span>
-<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xywh</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
-<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">boxes</span><span class="p">:</span>
-<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">box</span>
-<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Width of Box: </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">, Height of Box: </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="deployment-challenges">Deployment Challenges</h3>
-<h4 id="gpu-deployment-issues">GPU Deployment Issues</h4>
-<p><strong>Issue:</strong> Deploying models in a multi-GPU environment can sometimes lead to unexpected behaviors like unexpected memory usage, inconsistent results across GPUs, etc.</p>
-<p><strong>Solution:</strong> Check for default GPU initialization. Some frameworks, like PyTorch, might initialize CUDA operations on a default GPU before transitioning to the designated GPUs. To bypass unexpected default initializations, specify the GPU directly during deployment and prediction. Then, use tools to monitor GPU utilization and memory usage to identify any anomalies in real-time. Also, ensure you're using the latest version of the framework or library.</p>
-<h4 id="model-conversionexporting-issues">Model Conversion/Exporting Issues</h4>
-<p><strong>Issue:</strong> During the process of converting or exporting machine learning models to different formats or platforms, users might encounter errors or unexpected behaviors.</p>
-<p><strong>Solution:</strong></p>
-<ul>
-<li>
-<p>Compatibility Check: Ensure that you are using versions of libraries and frameworks that are compatible with each other. Mismatched versions can lead to unexpected errors during conversion.</p>
-</li>
-<li>
-<p>Environment Reset: If you're using an interactive environment like Jupyter or Colab, consider restarting your environment after making significant changes or installations. A fresh start can sometimes resolve underlying issues.</p>
-</li>
-<li>
-<p>Official Documentation: Always refer to the official documentation of the tool or library you are using for conversion. It often contains specific guidelines and best practices for model exporting.</p>
-</li>
-<li>
-<p>Community Support: Check the library or framework's official repository for similar issues reported by other users. The maintainers or community might have provided solutions or workarounds in discussion threads.</p>
-</li>
-<li>
-<p>Update Regularly: Ensure that you are using the latest version of the tool or library. Developers frequently release updates that fix known bugs or improve functionality.</p>
-</li>
-<li>
-<p>Test Incrementally: Before performing a full conversion, test the process with a smaller model or dataset to identify potential issues early on.</p>
-</li>
-</ul>
-<h2 id="community-and-support">Community and Support</h2>
-<p>Engaging with a community of like-minded individuals can significantly enhance your experience and success in working with YOLOv8. Below are some channels and resources you may find helpful.</p>
-<h3 id="forums-and-channels-for-getting-help">Forums and Channels for Getting Help</h3>
-<p><strong>GitHub Issues:</strong> The YOLOv8 repository on GitHub has an <a href="https://github.com/ultralytics/ultralytics/issues">Issues tab</a> where you can ask questions, report bugs, and suggest new features. The community and maintainers are active here, and it’s a great place to get help with specific problems.</p>
-<p><strong>Ultralytics Discord Server:</strong> Ultralytics has a <a href="https://ultralytics.com/discord/">Discord server</a> where you can interact with other users and the developers.</p>
-<h3 id="official-documentation-and-resources">Official Documentation and Resources</h3>
-<p><strong>Ultralytics YOLOv8 Docs</strong>: The <a href="../../">official documentation</a> provides a comprehensive overview of YOLOv8, along with guides on installation, usage, and troubleshooting.</p>
-<p>These resources should provide a solid foundation for troubleshooting and improving your YOLOv8 projects, as well as connecting with others in the YOLOv8 community.</p>
+<h3 id="multi-device-execution">Multi-Device Execution:</h3>
+<p>OpenVINO's multi-device mode simplifies scaling throughput by automatically balancing inference requests across devices without requiring application-level device management.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Troubleshooting is an integral part of any development process, and being equipped with the right knowledge can significantly reduce the time and effort spent in resolving issues. This guide aimed to address the most common challenges faced by users of the YOLOv8 model within the Ultralytics ecosystem. By understanding and addressing these common issues, you can ensure smoother project progress and achieve better results with your computer vision tasks.</p>
-<p>Remember, the Ultralytics community is a valuable resource. Engaging with fellow developers and experts can provide additional insights and solutions that might not be covered in standard documentation. Always keep learning, experimenting, and sharing your experiences to contribute to the collective knowledge of the community.</p>
-<p>Happy troubleshooting!</p>
+<p>Optimizing Ultralytics YOLO models for latency and throughput with OpenVINO can significantly enhance your application's performance. By carefully applying the strategies outlined in this guide, developers can ensure their models run efficiently, meeting the demands of various deployment scenarios. Remember, the choice between optimizing for latency or throughput depends on your specific application needs and the characteristics of the deployment environment.</p>
+<p>For more detailed technical information and the latest updates, refer to the <a href="https://docs.openvino.ai/latest/index.html">OpenVINO documentation</a> and <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLO repository</a>. These resources provide in-depth guides, tutorials, and community support to help you get the most out of your deep learning models.</p>
+<hr/>
+<p>Ensuring your models achieve optimal performance is not just about tweaking configurations; it's about understanding your application's needs and making informed decisions. Whether you're optimizing for real-time responses or maximizing throughput for large-scale processing, the combination of Ultralytics YOLO models and OpenVINO offers a powerful toolkit for developers to deploy high-performance AI solutions.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1286,7 +874,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-16<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-03-17, Updated 2024-03-17<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1297,10 +885,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/yolo-common-issues', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/optimizing-openvino-latency-vs-throughput-modes', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/yolo-common-issues', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/optimizing-openvino-latency-vs-throughput-modes', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -1349,7 +937,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Comprehensive Tutorials to Ultralytics YOLO" class="md-footer__link md-footer__link--prev" href="../">
+<a aria-label="Previous: Viewing Inference Images in a Terminal" class="md-footer__link md-footer__link--prev" href="../view-results-in-terminal/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1358,17 +946,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                Comprehensive Tutorials to Ultralytics YOLO
+                Viewing Inference Images in a Terminal
               </div>
 </div>
 </a>
-<a aria-label="Next: YOLO Performance Metrics" class="md-footer__link md-footer__link--next" href="../yolo-performance-metrics/">
+<a aria-label="Next: Object Counting" class="md-footer__link md-footer__link--next" href="../object-counting/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                YOLO Performance Metrics
+                Object Counting
               </div>
 </div>
 <div class="md-footer__button md-icon">
