@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="This guide explains how to export Ultralytics YOLOv8 models to the PaddlePaddle format for wide device support and harnessing the power of Baidu's ML framework." name="description"/>
+<meta content="A guide that walks you step-by-step through how to export Ultralytics YOLOv8 models to TF GraphDef format for smooth deployment and efficient model performance." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/integrations/paddlepaddle/" rel="canonical"/>
-<link href="../edge-tpu/" rel="prev"/>
-<link href="../ncnn/" rel="next"/>
+<link href="https://docs.ultralytics.com/integrations/tf-graphdef/" rel="canonical"/>
+<link href="../coreml/" rel="prev"/>
+<link href="../tflite/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.14" name="generator"/>
-<title>PaddlePaddle - Ultralytics YOLOv8 Docs</title>
+<title>TF GraphDef - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.10ba22f1.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="PaddlePaddle" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, PaddlePaddle Export, Model Deployment, Flexible Deployment,  Industrial-Grade Deep Learning, Baidu, Cross-Platform Compatibility" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/paddlepaddle" property="og:url"/><meta content="PaddlePaddle" property="og:title"/><meta content="This guide explains how to export Ultralytics YOLOv8 models to the PaddlePaddle format for wide device support and harnessing the power of Baidu's ML framework." property="og:description"/><meta content="https://github.com/PaddlePaddle/Paddle/blob/develop/doc/imgs/logo.png?raw=true" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/paddlepaddle" property="twitter:url"/><meta content="PaddlePaddle" property="twitter:title"/><meta content="This guide explains how to export Ultralytics YOLOv8 models to the PaddlePaddle format for wide device support and harnessing the power of Baidu's ML framework." property="twitter:description"/><meta content="https://github.com/PaddlePaddle/Paddle/blob/develop/doc/imgs/logo.png?raw=true" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "PaddlePaddle", "image": ["https://github.com/PaddlePaddle/Paddle/blob/develop/doc/imgs/logo.png?raw=true"], "datePublished": "2024-03-11 23:32:37 +0530", "dateModified": "2024-03-20 10:42:41 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="TF GraphDef" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, TF GraphDef Export, Model Deployment, TensorFlow Ecosystem, Cross-Platform Compatibility, Performance Optimization" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/tf-graphdef" property="og:url"/><meta content="TF GraphDef" property="og:title"/><meta content="A guide that walks you step-by-step through how to export Ultralytics YOLOv8 models to TF GraphDef format for smooth deployment and efficient model performance." property="og:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/tf-graphdef" property="twitter:url"/><meta content="TF GraphDef" property="twitter:title"/><meta content="A guide that walks you step-by-step through how to export Ultralytics YOLOv8 models to TF GraphDef format for smooth deployment and efficient model performance." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TF GraphDef", "image": ["https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png"], "datePublished": "2024-03-22 22:44:02 +0530", "dateModified": "2024-03-22 22:44:02 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#how-to-export-to-paddlepaddle-format-from-yolov8-models">
+<a class="md-skip" href="#how-to-export-to-tf-graphdef-from-yolov8-for-deployment">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              PaddlePaddle
+              TF GraphDef
             
           </span>
 </div>
@@ -396,38 +396,17 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../tf-graphdef/">
-<span class="md-ellipsis">
-    TF GraphDef
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../tflite/">
-<span class="md-ellipsis">
-    TFLite
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../edge-tpu/">
-<span class="md-ellipsis">
-    TFLite Edge TPU
-  </span>
-</a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    PaddlePaddle
+    TF GraphDef
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    PaddlePaddle
+    TF GraphDef
   </span>
 </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
@@ -437,33 +416,33 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-you-export-to-paddlepaddle">
+<a class="md-nav__link" href="#why-should-you-export-to-tf-graphdef">
 <span class="md-ellipsis">
-      Why should you export to PaddlePaddle?
+      Why Should You Export to TF GraphDef?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-paddlepaddle-models">
+<a class="md-nav__link" href="#key-features-of-tf-graphdef-models">
 <span class="md-ellipsis">
-      Key Features of PaddlePaddle Models
+      Key Features of TF GraphDef Models
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deployment-options-in-paddlepaddle">
+<a class="md-nav__link" href="#deployment-options-with-tf-graphdef">
 <span class="md-ellipsis">
-      Deployment Options in PaddlePaddle
+      Deployment Options with TF GraphDef
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#export-to-paddlepaddle-converting-your-yolov8-model">
+<a class="md-nav__link" href="#exporting-yolov8-models-to-tf-graphdef">
 <span class="md-ellipsis">
-      Export to PaddlePaddle: Converting Your YOLOv8 Model
+      Exporting YOLOv8 Models to TF GraphDef
     </span>
 </a>
-<nav aria-label="Export to PaddlePaddle: Converting Your YOLOv8 Model" class="md-nav">
+<nav aria-label="Exporting YOLOv8 Models to TF GraphDef" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation">
@@ -483,9 +462,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-exported-yolov8-paddlepaddle-models">
+<a class="md-nav__link" href="#deploying-exported-yolov8-tf-graphdef-models">
 <span class="md-ellipsis">
-      Deploying Exported YOLOv8 PaddlePaddle Models
+      Deploying Exported YOLOv8 TF GraphDef Models
     </span>
 </a>
 </li>
@@ -498,6 +477,27 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tflite/">
+<span class="md-ellipsis">
+    TFLite
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../edge-tpu/">
+<span class="md-ellipsis">
+    TFLite Edge TPU
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../paddlepaddle/">
+<span class="md-ellipsis">
+    PaddlePaddle
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../ncnn/">
@@ -625,33 +625,33 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-you-export-to-paddlepaddle">
+<a class="md-nav__link" href="#why-should-you-export-to-tf-graphdef">
 <span class="md-ellipsis">
-      Why should you export to PaddlePaddle?
+      Why Should You Export to TF GraphDef?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-paddlepaddle-models">
+<a class="md-nav__link" href="#key-features-of-tf-graphdef-models">
 <span class="md-ellipsis">
-      Key Features of PaddlePaddle Models
+      Key Features of TF GraphDef Models
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deployment-options-in-paddlepaddle">
+<a class="md-nav__link" href="#deployment-options-with-tf-graphdef">
 <span class="md-ellipsis">
-      Deployment Options in PaddlePaddle
+      Deployment Options with TF GraphDef
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#export-to-paddlepaddle-converting-your-yolov8-model">
+<a class="md-nav__link" href="#exporting-yolov8-models-to-tf-graphdef">
 <span class="md-ellipsis">
-      Export to PaddlePaddle: Converting Your YOLOv8 Model
+      Exporting YOLOv8 Models to TF GraphDef
     </span>
 </a>
-<nav aria-label="Export to PaddlePaddle: Converting Your YOLOv8 Model" class="md-nav">
+<nav aria-label="Exporting YOLOv8 Models to TF GraphDef" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation">
@@ -671,9 +671,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-exported-yolov8-paddlepaddle-models">
+<a class="md-nav__link" href="#deploying-exported-yolov8-tf-graphdef-models">
 <span class="md-ellipsis">
-      Deploying Exported YOLOv8 PaddlePaddle Models
+      Deploying Exported YOLOv8 TF GraphDef Models
     </span>
 </a>
 </li>
@@ -691,51 +691,52 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/paddlepaddle.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/tf-graphdef.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="how-to-export-to-paddlepaddle-format-from-yolov8-models">How to Export to PaddlePaddle Format from YOLOv8 Models</h1>
-<p>Bridging the gap between developing and deploying computer vision models in real-world scenarios with varying conditions can be difficult. PaddlePaddle makes this process easier with its focus on flexibility, performance, and its capability for parallel processing in distributed environments. This means you can use your YOLOv8 computer vision models on a wide variety of devices and platforms, from smartphones to cloud-based servers.</p>
-<p>The ability to export to PaddlePaddle model format allows you to optimize your <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLOv8</a> models for use within the PaddlePaddle framework. PaddlePaddle is known for facilitating industrial deployments and is a good choice for deploying computer vision applications in real-world settings across various domains.</p>
-<h2 id="why-should-you-export-to-paddlepaddle">Why should you export to PaddlePaddle?</h2>
-<p align="center">
-<img alt="PaddlePaddle Logo" src="https://github.com/PaddlePaddle/Paddle/blob/develop/doc/imgs/logo.png?raw=true" width="75%"/>
-</p>
-<p>Developed by Baidu, <a href="https://www.paddlepaddle.org.cn/en">PaddlePaddle</a> (<strong>PA</strong>rallel <strong>D</strong>istributed <strong>D</strong>eep <strong>LE</strong>arning) is China's first open-source deep learning platform. Unlike some frameworks built mainly for research, PaddlePaddle prioritizes ease of use and smooth integration across industries.  </p>
-<p>It offers tools and resources similar to popular frameworks like TensorFlow and PyTorch, making it accessible for developers of all experience levels. From farming and factories to service businesses, PaddlePaddle's large developer community of over 4.77 million is helping create and deploy AI applications.</p>
-<p>By exporting your Ultralytics YOLOv8 models to PaddlePaddle format, you can tap into PaddlePaddle’s strengths in performance optimization. PaddlePaddle prioritizes efficient model execution and reduced memory usage. As a result, your YOLOv8 models can potentially achieve even better performance, delivering top-notch results in practical scenarios.</p>
-<h2 id="key-features-of-paddlepaddle-models">Key Features of PaddlePaddle Models</h2>
-<p>PaddlePaddle models offer a range of key features that contribute to their flexibility, performance, and scalability across diverse deployment scenarios:</p>
+<h1 id="how-to-export-to-tf-graphdef-from-yolov8-for-deployment">How to Export to TF GraphDef from YOLOv8 for Deployment</h1>
+<p>When you are deploying cutting-edge computer vision models, like YOLOv8, in different environments, you might run into compatibility issues. Google's TensorFlow GraphDef, or TF GraphDef, offers a solution by providing a serialized, platform-independent representation of your model. Using the TF GraphDef model format, you can deploy your YOLOv8 model in environments where the complete TensorFlow ecosystem may not be available, such as mobile devices or specialized hardware.</p>
+<p>In this guide, we'll walk you step by step through how to export your <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLOv8</a> models to the TF GraphDef model format. By converting your model, you can streamline deployment and use YOLOv8's computer vision capabilities in a broader range of applications and platforms.</p>
+<h2 id="why-should-you-export-to-tf-graphdef">Why Should You Export to TF GraphDef?</h2>
+<p>TF GraphDef is a powerful component of the TensorFlow ecosystem that was developed by Google. It can be used to optimize and deploy models like YOLOv8. Exporting to TF GraphDef lets us move models from research to real-world applications. It allows models to run in environments without the full TensorFlow framework.</p>
+<p>The GraphDef format represents the model as a serialized computation graph. This enables various optimization techniques like constant folding, quantization, and graph transformations. These optimizations ensure efficient execution, reduced memory usage, and faster inference speeds.</p>
+<p>GraphDef models can use hardware accelerators such as GPUs, TPUs, and AI chips, unlocking significant performance gains for the YOLOv8 inference pipeline. The TF GraphDef format creates a self-contained package with the model and its dependencies, simplifying deployment and integration into diverse systems.</p>
+<h2 id="key-features-of-tf-graphdef-models">Key Features of TF GraphDef Models</h2>
+<p>TF GraphDef offers distinct features for streamlining model deployment and optimization.  </p>
+<p>Here's a look at its key characteristics:</p>
 <ul>
 <li>
-<p><strong>Dynamic-to-Static Graph</strong>: PaddlePaddle supports <a href="https://www.paddlepaddle.org.cn/documentation/docs/en/guides/jit/index_en.html">dynamic-to-static compilation</a>, where models can be translated into a static computational graph. This enables optimizations that reduce runtime overhead and boost inference performance.</p>
+<p><strong>Model Serialization</strong>: TF GraphDef provides a way to serialize and store TensorFlow models in a platform-independent format. This serialized representation allows you to load and execute your models without the original Python codebase, making deployment easier.</p>
 </li>
 <li>
-<p><strong>Operator Fusion</strong>: PaddlePaddle, like TensorRT, uses <a href="https://developer.nvidia.com/gtc/2020/video/s21436-vid">operator fusion</a> to streamline computation and reduce overhead. The framework minimizes memory transfers and computational steps by merging compatible operations, resulting in faster inference.</p>
+<p><strong>Graph Optimization</strong>: TF GraphDef enables the optimization of computational graphs.  These optimizations can boost performance by streamlining execution flow, reducing redundancies, and tailoring operations to suit specific hardware.</p>
 </li>
 <li>
-<p><strong>Quantization</strong>: PaddlePaddle supports <a href="https://www.paddlepaddle.org.cn/documentation/docs/en/api/paddle/quantization/PTQ_en.html">quantization techniques</a>, including post-training quantization and quantization-aware training. These techniques allow for the use of lower-precision data representations, effectively boosting performance and reducing model size.</p>
+<p><strong>Deployment Flexibility</strong>: Models exported to the GraphDef format can be used in various environments, including resource-constrained devices, web browsers, and systems with specialized hardware. This opens up possibilities for wider deployment of your TensorFlow models.</p>
+</li>
+<li>
+<p><strong>Production Focus</strong>: GraphDef is designed for production deployment. It supports efficient execution, serialization features, and optimizations that align with real-world use cases.</p>
 </li>
 </ul>
-<h2 id="deployment-options-in-paddlepaddle">Deployment Options in PaddlePaddle</h2>
-<p>Before diving into the code for exporting YOLOv8 models to PaddlePaddle, let's take a look at the different deployment scenarios in which PaddlePaddle models excel.</p>
-<p>PaddlePaddle provides a range of options, each offering a distinct balance of ease of use, flexibility, and performance:</p>
+<h2 id="deployment-options-with-tf-graphdef">Deployment Options with TF GraphDef</h2>
+<p>Before we dive into the process of exporting YOLOv8 models to TF GraphDef, let's take a look at some typical deployment situations where this format is used.</p>
+<p>Here's how you can deploy with TF GraphDef efficiently across various platforms.</p>
 <ul>
 <li>
-<p><strong>Paddle Serving</strong>: This framework simplifies the deployment of PaddlePaddle models as high-performance RESTful APIs. Paddle Serving is ideal for production environments, providing features like model versioning, online A/B testing, and scalability for handling large volumes of requests.</p>
+<p><strong>TensorFlow Serving:</strong> This framework is designed to deploy TensorFlow models in production environments. TensorFlow Serving offers model management, versioning, and the infrastructure for efficient model serving at scale. It's a seamless way to integrate your GraphDef-based models into production web services or APIs.</p>
 </li>
 <li>
-<p><strong>Paddle Inference API</strong>: The Paddle Inference API gives you low-level control over model execution. This option is well-suited for scenarios where you need to integrate the model tightly within a custom application or optimize performance for specific hardware.</p>
+<p><strong>Mobile and Embedded Devices:</strong> With tools like TensorFlow Lite, you can convert TF GraphDef models into formats optimized for smartphones, tablets, and various embedded devices. Your models can then be used for on-device inference, where execution is done locally, often providing performance gains and offline capabilities.</p>
 </li>
 <li>
-<p><strong>Paddle Lite</strong>: Paddle Lite is designed for deployment on mobile and embedded devices where resources are limited. It optimizes models for smaller sizes and faster inference on ARM CPUs, GPUs, and other specialized hardware.</p>
+<p><strong>Web Browsers:</strong> TensorFlow.js enables the deployment of TF GraphDef models directly within web browsers. It paves the way for real-time object detection applications running on the client side, using the capabilities of YOLOv8 through JavaScript.</p>
 </li>
 <li>
-<p><strong>Paddle.js</strong>:  Paddle.js enables you to deploy PaddlePaddle models directly within web browsers. Paddle.js can either load a pre-trained model or transform a model from <a href="https://github.com/PaddlePaddle/PaddleHub">paddle-hub</a> with model transforming tools provided by Paddle.js. It can run in browsers that support WebGL/WebGPU/WebAssembly.</p>
+<p><strong>Specialized Hardware:</strong> TF GraphDef's platform-agnostic nature allows it to target custom hardware, such as accelerators and TPUs (Tensor Processing Units).  These devices can provide performance advantages for computationally intensive models.</p>
 </li>
 </ul>
-<h2 id="export-to-paddlepaddle-converting-your-yolov8-model">Export to PaddlePaddle: Converting Your YOLOv8 Model</h2>
-<p>Converting YOLOv8 models to the PaddlePaddle format can improve execution flexibility and optimize performance for various deployment scenarios.</p>
+<h2 id="exporting-yolov8-models-to-tf-graphdef">Exporting YOLOv8 Models to TF GraphDef</h2>
+<p>You can convert your YOLOv8 object detection model to the TF GraphDef format, which is compatible with various systems, to improve its performance across platforms.</p>
 <h3 id="installation">Installation</h3>
 <p>To install the required package, run:</p>
 <div class="admonition tip">
@@ -763,46 +764,46 @@
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load the YOLOv8 model</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Export the model to PaddlePaddle format</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'paddle'</span><span class="p">)</span>  <span class="c1"># creates '/yolov8n_paddle_model'</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Export the model to TF GraphDef format</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'pb'</span><span class="p">)</span>  <span class="c1"># creates 'yolov8n.pb'</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Load the exported PaddlePaddle model</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">paddle_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'./yolov8n_paddle_model'</span><span class="p">)</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Load the exported TF GraphDef model</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">tf_graphdef_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pb'</span><span class="p">)</span>
 <a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
 <a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># Run inference</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">paddle_model</span><span class="p">(</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">tf_graphdef_model</span><span class="p">(</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Export a YOLOv8n PyTorch model to PaddlePaddle format</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>paddle<span class="w">  </span><span class="c1"># creates '/yolov8n_paddle_model'</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Export a YOLOv8n PyTorch model to TF GraphDef format</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>pb<span class="w">  </span><span class="c1"># creates 'yolov8n.pb'</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Run inference with the exported model</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s1">'./yolov8n_paddle_model'</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s1">'yolov8n.pb'</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
 </code></pre></div>
 </div>
 </div>
 </input></input></div>
 </div>
 <p>For more details about supported export options, visit the <a href="../../guides/model-deployment-options/">Ultralytics documentation page on deployment options</a>.</p>
-<h2 id="deploying-exported-yolov8-paddlepaddle-models">Deploying Exported YOLOv8 PaddlePaddle Models</h2>
-<p>After successfully exporting your Ultralytics YOLOv8 models to PaddlePaddle format, you can now deploy them. The primary and recommended first step for running a PaddlePaddle model is to use the YOLO("./model_paddle_model") method, as outlined in the previous usage code snippet. </p>
-<p>However, for in-depth instructions on deploying your PaddlePaddle models in various other settings, take a look at the following resources:</p>
+<h2 id="deploying-exported-yolov8-tf-graphdef-models">Deploying Exported YOLOv8 TF GraphDef Models</h2>
+<p>Once you’ve exported your YOLOv8 model to the TF GraphDef format, the next step is deployment. The primary and recommended first step for running a TF GraphDef model is to use the YOLO("model.pb") method, as previously shown in the usage code snippet.</p>
+<p>However, for more information on deploying your TF GraphDef models, take a look at the following resources:</p>
 <ul>
 <li>
-<p><strong><a href="https://github.com/PaddlePaddle/Serving/blob/v0.9.0/README_CN.md">Paddle Serving</a></strong>: Learn how to deploy your PaddlePaddle models as performant services using Paddle Serving.</p>
+<p><strong><a href="https://www.tensorflow.org/tfx/guide/serving">TensorFlow Serving</a></strong>: A guide on TensorFlow Serving that teaches how to deploy and serve machine learning models efficiently in production environments.</p>
 </li>
 <li>
-<p><strong><a href="https://github.com/PaddlePaddle/Paddle-Lite/blob/develop/README_en.md">Paddle Lite</a></strong>: Explore how to optimize and deploy models on mobile and embedded devices using Paddle Lite.</p>
+<p><strong><a href="https://www.tensorflow.org/api_docs/python/tf/lite/TFLiteConverter">TensorFlow Lite</a></strong>: This page describes how to convert machine learning models into a format optimized for on-device inference with TensorFlow Lite.</p>
 </li>
 <li>
-<p><strong><a href="https://github.com/PaddlePaddle/Paddle.js">Paddle.js</a></strong>: Discover how to run PaddlePaddle models in web browsers for client-side AI using Paddle.js.</p>
+<p><strong><a href="https://www.tensorflow.org/js/guide/conversion">TensorFlow.js</a></strong>: A guide on model conversion that teaches how to convert TensorFlow or Keras models into TensorFlow.js format for use in web applications.</p>
 </li>
 </ul>
 <h2 id="summary">Summary</h2>
-<p>In this guide, we explored the process of exporting Ultralytics YOLOv8 models to the PaddlePaddle format. By following these steps, you can leverage PaddlePaddle's strengths in diverse deployment scenarios, optimizing your models for different hardware and software environments.</p>
-<p>For further details on usage, visit the <a href="https://www.paddlepaddle.org.cn/documentation/docs/en/guides/index_en.html">PaddlePaddle official documentation</a></p>
-<p>Want to explore more ways to integrate your Ultralytics YOLOv8 models? Our <a href="../">integration guide page</a> explores various options, equipping you with valuable resources and insights. </p>
+<p>In this guide, we explored how to export Ultralytics YOLOv8 models to the TF GraphDef format. By doing this, you can flexibly deploy your optimized YOLOv8 models in different environments.</p>
+<p>For further details on usage, visit the <a href="https://www.tensorflow.org/api_docs/python/tf/Graph">TF GraphDef official documentation</a>.</p>
+<p>For more information on integrating Ultralytics YOLOv8 with other platforms and frameworks, don't forget to check out our <a href="../">integration guide page</a>. It has great resources and insights to help you make the most of YOLOv8 in your projects.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -811,7 +812,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-03-11, Updated 2024-03-20<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-03-22, Updated 2024-03-22<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -822,10 +823,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/paddlepaddle', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/tf-graphdef', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/paddlepaddle', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/tf-graphdef', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -874,7 +875,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: TFLite Edge TPU" class="md-footer__link md-footer__link--prev" href="../edge-tpu/">
+<a aria-label="Previous: CoreML" class="md-footer__link md-footer__link--prev" href="../coreml/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -883,17 +884,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                TFLite Edge TPU
+                CoreML
               </div>
 </div>
 </a>
-<a aria-label="Next: NCNN" class="md-footer__link md-footer__link--next" href="../ncnn/">
+<a aria-label="Next: TFLite" class="md-footer__link md-footer__link--next" href="../tflite/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                NCNN
+                TFLite
               </div>
 </div>
 <div class="md-footer__button md-icon">
