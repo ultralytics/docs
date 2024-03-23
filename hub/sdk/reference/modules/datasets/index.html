@@ -1037,18 +1037,7 @@ The 'data' attribute is used to store dataset data fetched from the API.</p>
 <span class="normal"><a href="#__codelineno-0-117">117</a></span>
 <span class="normal"><a href="#__codelineno-0-118">118</a></span>
 <span class="normal"><a href="#__codelineno-0-119">119</a></span>
-<span class="normal"><a href="#__codelineno-0-120">120</a></span>
-<span class="normal"><a href="#__codelineno-0-121">121</a></span>
-<span class="normal"><a href="#__codelineno-0-122">122</a></span>
-<span class="normal"><a href="#__codelineno-0-123">123</a></span>
-<span class="normal"><a href="#__codelineno-0-124">124</a></span>
-<span class="normal"><a href="#__codelineno-0-125">125</a></span>
-<span class="normal"><a href="#__codelineno-0-126">126</a></span>
-<span class="normal"><a href="#__codelineno-0-127">127</a></span>
-<span class="normal"><a href="#__codelineno-0-128">128</a></span>
-<span class="normal"><a href="#__codelineno-0-129">129</a></span>
-<span class="normal"><a href="#__codelineno-0-130">130</a></span>
-<span class="normal"><a href="#__codelineno-0-131">131</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">class</span> <span class="nc">Datasets</span><span class="p">(</span><span class="n">CRUDClient</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-120">120</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">class</span> <span class="nc">Datasets</span><span class="p">(</span><span class="n">CRUDClient</span><span class="p">):</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    A class representing a client for interacting with Datasets through CRUD operations. This class extends the</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    CRUDClient class and provides specific methods for working with Datasets.</span>
@@ -1150,25 +1139,14 @@ The 'data' attribute is used to store dataset data fetched from the API.</p>
 <a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">        """</span>
 <a id="__codelineno-0-111" name="__codelineno-0-111"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">upload_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="k">def</span> <span class="nf">get_download_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="k">def</span> <span class="nf">get_download_link</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="w">        </span><span class="sd">"""</span>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="sd">        Get dataset download link.</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a>
-<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="sd">            type (str):</span>
-<a id="__codelineno-0-119" name="__codelineno-0-119"></a>
-<a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="sd">            (Optional[str]): Return download link or None if the link is not available.</span>
-<a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="sd">        """</span>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a>            <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"collection"</span><span class="p">:</span> <span class="s2">"datasets"</span><span class="p">,</span> <span class="s2">"docId"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">"object"</span><span class="p">:</span> <span class="nb">type</span><span class="p">}</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_FUNCTIONS_ROOT</span><span class="si">}</span><span class="s2">/v1/storage"</span>
-<a id="__codelineno-0-126" name="__codelineno-0-126"></a>            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-<a id="__codelineno-0-127" name="__codelineno-0-127"></a>            <span class="n">json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a>            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"url"</span><span class="p">)</span>
-<a id="__codelineno-0-129" name="__codelineno-0-129"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Failed to download file file for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: %s"</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a>            <span class="k">raise</span> <span class="n">e</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="sd">            (Optional[str]): Return download link or None if the link is not available.</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="sd">        """</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"url"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1502,36 +1480,10 @@ If no dataset ID has been set, it logs an error message.</p>
 </div>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="hub_sdk.modules.datasets.Datasets.get_download_link">
-<code class="highlight language-python"><span class="n">get_download_link</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">get_download_link</span><span class="p">()</span></code>
 </h3>
 <div class="doc doc-contents">
 <p>Get dataset download link.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>type</code></td>
-<td>
-<code>str</code>
-</td>
-<td>
-<div class="doc-md-description">
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
 <p><strong>Returns:</strong></p>
 <table>
 <thead>
@@ -1562,36 +1514,14 @@ If no dataset ID has been set, it logs an error message.</p>
 <span class="normal"><a href="#__codelineno-0-117">117</a></span>
 <span class="normal"><a href="#__codelineno-0-118">118</a></span>
 <span class="normal"><a href="#__codelineno-0-119">119</a></span>
-<span class="normal"><a href="#__codelineno-0-120">120</a></span>
-<span class="normal"><a href="#__codelineno-0-121">121</a></span>
-<span class="normal"><a href="#__codelineno-0-122">122</a></span>
-<span class="normal"><a href="#__codelineno-0-123">123</a></span>
-<span class="normal"><a href="#__codelineno-0-124">124</a></span>
-<span class="normal"><a href="#__codelineno-0-125">125</a></span>
-<span class="normal"><a href="#__codelineno-0-126">126</a></span>
-<span class="normal"><a href="#__codelineno-0-127">127</a></span>
-<span class="normal"><a href="#__codelineno-0-128">128</a></span>
-<span class="normal"><a href="#__codelineno-0-129">129</a></span>
-<span class="normal"><a href="#__codelineno-0-130">130</a></span>
-<span class="normal"><a href="#__codelineno-0-131">131</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="k">def</span> <span class="nf">get_download_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="normal"><a href="#__codelineno-0-120">120</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="k">def</span> <span class="nf">get_download_link</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="sd">    Get dataset download link.</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a>
-<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="sd">        type (str):</span>
-<a id="__codelineno-0-119" name="__codelineno-0-119"></a>
-<a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="sd">        (Optional[str]): Return download link or None if the link is not available.</span>
-<a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="sd">    """</span>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a>        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"collection"</span><span class="p">:</span> <span class="s2">"datasets"</span><span class="p">,</span> <span class="s2">"docId"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">"object"</span><span class="p">:</span> <span class="nb">type</span><span class="p">}</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_FUNCTIONS_ROOT</span><span class="si">}</span><span class="s2">/v1/storage"</span>
-<a id="__codelineno-0-126" name="__codelineno-0-126"></a>        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-<a id="__codelineno-0-127" name="__codelineno-0-127"></a>        <span class="n">json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"url"</span><span class="p">)</span>
-<a id="__codelineno-0-129" name="__codelineno-0-129"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Failed to download file file for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: %s"</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a>        <span class="k">raise</span> <span class="n">e</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="sd">        (Optional[str]): Return download link or None if the link is not available.</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="sd">    """</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"url"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1770,33 +1700,29 @@ If no dataset ID has been set, it logs an error message.</p>
             Bases: <code><a class="autorefs autorefs-internal" href="../../base/paginated_list/#hub_sdk.base.paginated_list.PaginatedList" title="hub_sdk.base.paginated_list.PaginatedList">PaginatedList</a></code></p>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/datasets.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-134">134</a></span>
-<span class="normal"><a href="#__codelineno-0-135">135</a></span>
-<span class="normal"><a href="#__codelineno-0-136">136</a></span>
-<span class="normal"><a href="#__codelineno-0-137">137</a></span>
-<span class="normal"><a href="#__codelineno-0-138">138</a></span>
-<span class="normal"><a href="#__codelineno-0-139">139</a></span>
-<span class="normal"><a href="#__codelineno-0-140">140</a></span>
-<span class="normal"><a href="#__codelineno-0-141">141</a></span>
-<span class="normal"><a href="#__codelineno-0-142">142</a></span>
-<span class="normal"><a href="#__codelineno-0-143">143</a></span>
-<span class="normal"><a href="#__codelineno-0-144">144</a></span>
-<span class="normal"><a href="#__codelineno-0-145">145</a></span>
-<span class="normal"><a href="#__codelineno-0-146">146</a></span>
-<span class="normal"><a href="#__codelineno-0-147">147</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-134" name="__codelineno-0-134"></a><span class="k">class</span> <span class="nc">DatasetList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
-<a id="__codelineno-0-135" name="__codelineno-0-135"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-137" name="__codelineno-0-137"></a><span class="sd">        Initialize a Dataset instance.</span>
-<a id="__codelineno-0-138" name="__codelineno-0-138"></a>
-<a id="__codelineno-0-139" name="__codelineno-0-139"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-140" name="__codelineno-0-140"></a><span class="sd">            page_size (int, optional): The number of items to request per page.</span>
-<a id="__codelineno-0-141" name="__codelineno-0-141"></a><span class="sd">            public (bool, optional): Whether the items should be publicly accessible.</span>
-<a id="__codelineno-0-142" name="__codelineno-0-142"></a><span class="sd">            headers (dict, optional): Headers to be included in API requests.</span>
-<a id="__codelineno-0-143" name="__codelineno-0-143"></a><span class="sd">        """</span>
-<a id="__codelineno-0-144" name="__codelineno-0-144"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
-<a id="__codelineno-0-145" name="__codelineno-0-145"></a>        <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
-<a id="__codelineno-0-146" name="__codelineno-0-146"></a>            <span class="n">base_endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"public/</span><span class="si">{</span><span class="n">base_endpoint</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-147" name="__codelineno-0-147"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"dataset"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-123">123</a></span>
+<span class="normal"><a href="#__codelineno-0-124">124</a></span>
+<span class="normal"><a href="#__codelineno-0-125">125</a></span>
+<span class="normal"><a href="#__codelineno-0-126">126</a></span>
+<span class="normal"><a href="#__codelineno-0-127">127</a></span>
+<span class="normal"><a href="#__codelineno-0-128">128</a></span>
+<span class="normal"><a href="#__codelineno-0-129">129</a></span>
+<span class="normal"><a href="#__codelineno-0-130">130</a></span>
+<span class="normal"><a href="#__codelineno-0-131">131</a></span>
+<span class="normal"><a href="#__codelineno-0-132">132</a></span>
+<span class="normal"><a href="#__codelineno-0-133">133</a></span>
+<span class="normal"><a href="#__codelineno-0-134">134</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-123" name="__codelineno-0-123"></a><span class="k">class</span> <span class="nc">DatasetList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="sd">        Initialize a Dataset instance.</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">            page_size (int, optional): The number of items to request per page.</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">            public (bool, optional): Whether the items should be publicly accessible.</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">            headers (dict, optional): Headers to be included in API requests.</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">        """</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"dataset"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1863,31 +1789,27 @@ If no dataset ID has been set, it logs an error message.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/datasets.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-135">135</a></span>
-<span class="normal"><a href="#__codelineno-0-136">136</a></span>
-<span class="normal"><a href="#__codelineno-0-137">137</a></span>
-<span class="normal"><a href="#__codelineno-0-138">138</a></span>
-<span class="normal"><a href="#__codelineno-0-139">139</a></span>
-<span class="normal"><a href="#__codelineno-0-140">140</a></span>
-<span class="normal"><a href="#__codelineno-0-141">141</a></span>
-<span class="normal"><a href="#__codelineno-0-142">142</a></span>
-<span class="normal"><a href="#__codelineno-0-143">143</a></span>
-<span class="normal"><a href="#__codelineno-0-144">144</a></span>
-<span class="normal"><a href="#__codelineno-0-145">145</a></span>
-<span class="normal"><a href="#__codelineno-0-146">146</a></span>
-<span class="normal"><a href="#__codelineno-0-147">147</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-137" name="__codelineno-0-137"></a><span class="sd">    Initialize a Dataset instance.</span>
-<a id="__codelineno-0-138" name="__codelineno-0-138"></a>
-<a id="__codelineno-0-139" name="__codelineno-0-139"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-140" name="__codelineno-0-140"></a><span class="sd">        page_size (int, optional): The number of items to request per page.</span>
-<a id="__codelineno-0-141" name="__codelineno-0-141"></a><span class="sd">        public (bool, optional): Whether the items should be publicly accessible.</span>
-<a id="__codelineno-0-142" name="__codelineno-0-142"></a><span class="sd">        headers (dict, optional): Headers to be included in API requests.</span>
-<a id="__codelineno-0-143" name="__codelineno-0-143"></a><span class="sd">    """</span>
-<a id="__codelineno-0-144" name="__codelineno-0-144"></a>    <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
-<a id="__codelineno-0-145" name="__codelineno-0-145"></a>    <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
-<a id="__codelineno-0-146" name="__codelineno-0-146"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"public/</span><span class="si">{</span><span class="n">base_endpoint</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-147" name="__codelineno-0-147"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"dataset"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-124">124</a></span>
+<span class="normal"><a href="#__codelineno-0-125">125</a></span>
+<span class="normal"><a href="#__codelineno-0-126">126</a></span>
+<span class="normal"><a href="#__codelineno-0-127">127</a></span>
+<span class="normal"><a href="#__codelineno-0-128">128</a></span>
+<span class="normal"><a href="#__codelineno-0-129">129</a></span>
+<span class="normal"><a href="#__codelineno-0-130">130</a></span>
+<span class="normal"><a href="#__codelineno-0-131">131</a></span>
+<span class="normal"><a href="#__codelineno-0-132">132</a></span>
+<span class="normal"><a href="#__codelineno-0-133">133</a></span>
+<span class="normal"><a href="#__codelineno-0-134">134</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="sd">    Initialize a Dataset instance.</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">        page_size (int, optional): The number of items to request per page.</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">        public (bool, optional): Whether the items should be publicly accessible.</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">        headers (dict, optional): Headers to be included in API requests.</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">    """</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a>    <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"dataset"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

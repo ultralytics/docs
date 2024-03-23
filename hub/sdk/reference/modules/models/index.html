@@ -669,13 +669,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#hub_sdk.modules.models.Models.get_download_link">
-<span class="md-ellipsis">
-      get_download_link
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#hub_sdk.modules.models.Models.get_metrics">
 <span class="md-ellipsis">
       get_metrics
@@ -925,13 +918,6 @@
 <a class="md-nav__link" href="#hub_sdk.modules.models.Models.get_dataset_url">
 <span class="md-ellipsis">
       get_dataset_url
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hub_sdk.modules.models.Models.get_download_link">
-<span class="md-ellipsis">
-      get_download_link
     </span>
 </a>
 </li>
@@ -1498,27 +1484,7 @@ The 'data' attribute is used to store model data fetched from the API.</p>
 <span class="normal"><a href="#__codelineno-0-362">362</a></span>
 <span class="normal"><a href="#__codelineno-0-363">363</a></span>
 <span class="normal"><a href="#__codelineno-0-364">364</a></span>
-<span class="normal"><a href="#__codelineno-0-365">365</a></span>
-<span class="normal"><a href="#__codelineno-0-366">366</a></span>
-<span class="normal"><a href="#__codelineno-0-367">367</a></span>
-<span class="normal"><a href="#__codelineno-0-368">368</a></span>
-<span class="normal"><a href="#__codelineno-0-369">369</a></span>
-<span class="normal"><a href="#__codelineno-0-370">370</a></span>
-<span class="normal"><a href="#__codelineno-0-371">371</a></span>
-<span class="normal"><a href="#__codelineno-0-372">372</a></span>
-<span class="normal"><a href="#__codelineno-0-373">373</a></span>
-<span class="normal"><a href="#__codelineno-0-374">374</a></span>
-<span class="normal"><a href="#__codelineno-0-375">375</a></span>
-<span class="normal"><a href="#__codelineno-0-376">376</a></span>
-<span class="normal"><a href="#__codelineno-0-377">377</a></span>
-<span class="normal"><a href="#__codelineno-0-378">378</a></span>
-<span class="normal"><a href="#__codelineno-0-379">379</a></span>
-<span class="normal"><a href="#__codelineno-0-380">380</a></span>
-<span class="normal"><a href="#__codelineno-0-381">381</a></span>
-<span class="normal"><a href="#__codelineno-0-382">382</a></span>
-<span class="normal"><a href="#__codelineno-0-383">383</a></span>
-<span class="normal"><a href="#__codelineno-0-384">384</a></span>
-<span class="normal"><a href="#__codelineno-0-385">385</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">class</span> <span class="nc">Models</span><span class="p">(</span><span class="n">CRUDClient</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-365">365</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">class</span> <span class="nc">Models</span><span class="p">(</span><span class="n">CRUDClient</span><span class="p">):</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    A class representing a client for interacting with Models through CRUD operations. This class extends the CRUDClient</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    class and provides specific methods for working with Models.</span>
@@ -1812,86 +1778,66 @@ The 'data' attribute is used to store model data fetched from the API.</p>
 <a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="sd">        """</span>
 <a id="__codelineno-0-304" name="__codelineno-0-304"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">metrics</span><span class="p">)</span>  <span class="c1"># response</span>
 <a id="__codelineno-0-305" name="__codelineno-0-305"></a>
-<a id="__codelineno-0-306" name="__codelineno-0-306"></a>    <span class="k">def</span> <span class="nf">get_download_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<a id="__codelineno-0-306" name="__codelineno-0-306"></a>    <span class="k">def</span> <span class="nf">start_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span><span class="p">):</span>
 <a id="__codelineno-0-307" name="__codelineno-0-307"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-308" name="__codelineno-0-308"></a><span class="sd">        Get model download link.</span>
+<a id="__codelineno-0-308" name="__codelineno-0-308"></a><span class="sd">        Starts sending heartbeat signals to a remote hub server.</span>
 <a id="__codelineno-0-309" name="__codelineno-0-309"></a>
-<a id="__codelineno-0-310" name="__codelineno-0-310"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="sd">            type (Optional[str]):</span>
+<a id="__codelineno-0-310" name="__codelineno-0-310"></a><span class="sd">        This method initiates the sending of heartbeat signals to a hub server</span>
+<a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="sd">        in order to indicate the continued availability and health of the client.</span>
 <a id="__codelineno-0-312" name="__codelineno-0-312"></a>
-<a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="sd">            (Optional[str]): Return download link or None if the link is not available.</span>
-<a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="sd">        """</span>
-<a id="__codelineno-0-316" name="__codelineno-0-316"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-317" name="__codelineno-0-317"></a>            <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"collection"</span><span class="p">:</span> <span class="s2">"models"</span><span class="p">,</span> <span class="s2">"docId"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">"object"</span><span class="p">:</span> <span class="nb">type</span><span class="p">}</span>
-<a id="__codelineno-0-318" name="__codelineno-0-318"></a>            <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_FUNCTIONS_ROOT</span><span class="si">}</span><span class="s2">/v1/storage"</span>
-<a id="__codelineno-0-319" name="__codelineno-0-319"></a>            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-<a id="__codelineno-0-320" name="__codelineno-0-320"></a>            <span class="n">json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<a id="__codelineno-0-321" name="__codelineno-0-321"></a>            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"url"</span><span class="p">)</span>
-<a id="__codelineno-0-322" name="__codelineno-0-322"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-323" name="__codelineno-0-323"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Failed to download link for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: %s"</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-<a id="__codelineno-0-324" name="__codelineno-0-324"></a>            <span class="k">raise</span> <span class="n">e</span>
+<a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="sd">            interval (int): The time interval, in seconds, between consecutive heartbeats.</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a>
+<a id="__codelineno-0-316" name="__codelineno-0-316"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-317" name="__codelineno-0-317"></a><span class="sd">            (None): The method does not return a value.</span>
+<a id="__codelineno-0-318" name="__codelineno-0-318"></a>
+<a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="sd">        Note:</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a><span class="sd">            Heartbeats are essential for maintaining a connection with the hub server</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">            and ensuring that the client remains active and responsive.</span>
+<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="sd">        """</span>
+<a id="__codelineno-0-323" name="__codelineno-0-323"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_register_signal_handlers</span><span class="p">()</span>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_start_heartbeats</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>
 <a id="__codelineno-0-325" name="__codelineno-0-325"></a>
-<a id="__codelineno-0-326" name="__codelineno-0-326"></a>    <span class="k">def</span> <span class="nf">start_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-326" name="__codelineno-0-326"></a>    <span class="k">def</span> <span class="nf">stop_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-327" name="__codelineno-0-327"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-328" name="__codelineno-0-328"></a><span class="sd">        Starts sending heartbeat signals to a remote hub server.</span>
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a><span class="sd">        Stops sending heartbeat signals to a remote hub server.</span>
 <a id="__codelineno-0-329" name="__codelineno-0-329"></a>
-<a id="__codelineno-0-330" name="__codelineno-0-330"></a><span class="sd">        This method initiates the sending of heartbeat signals to a hub server</span>
-<a id="__codelineno-0-331" name="__codelineno-0-331"></a><span class="sd">        in order to indicate the continued availability and health of the client.</span>
+<a id="__codelineno-0-330" name="__codelineno-0-330"></a><span class="sd">        This method terminates the sending of heartbeat signals to the hub server,</span>
+<a id="__codelineno-0-331" name="__codelineno-0-331"></a><span class="sd">        effectively signaling that the client is no longer available or active.</span>
 <a id="__codelineno-0-332" name="__codelineno-0-332"></a>
-<a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">            interval (int): The time interval, in seconds, between consecutive heartbeats.</span>
+<a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">            (None): The method does not return a value.</span>
 <a id="__codelineno-0-335" name="__codelineno-0-335"></a>
-<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-337" name="__codelineno-0-337"></a><span class="sd">            (None): The method does not return a value.</span>
-<a id="__codelineno-0-338" name="__codelineno-0-338"></a>
-<a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="sd">        Note:</span>
-<a id="__codelineno-0-340" name="__codelineno-0-340"></a><span class="sd">            Heartbeats are essential for maintaining a connection with the hub server</span>
-<a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="sd">            and ensuring that the client remains active and responsive.</span>
-<a id="__codelineno-0-342" name="__codelineno-0-342"></a><span class="sd">        """</span>
-<a id="__codelineno-0-343" name="__codelineno-0-343"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_register_signal_handlers</span><span class="p">()</span>
-<a id="__codelineno-0-344" name="__codelineno-0-344"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_start_heartbeats</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>
+<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">        Note:</span>
+<a id="__codelineno-0-337" name="__codelineno-0-337"></a><span class="sd">            Stopping heartbeats should be done carefully, as it may result in the hub server</span>
+<a id="__codelineno-0-338" name="__codelineno-0-338"></a><span class="sd">            considering the client as disconnected or unavailable.</span>
+<a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="sd">        """</span>
+<a id="__codelineno-0-340" name="__codelineno-0-340"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_stop_heartbeats</span><span class="p">()</span>
+<a id="__codelineno-0-341" name="__codelineno-0-341"></a>
+<a id="__codelineno-0-342" name="__codelineno-0-342"></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
+<a id="__codelineno-0-343" name="__codelineno-0-343"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-344" name="__codelineno-0-344"></a><span class="sd">        Export to Ultralytics HUB.</span>
 <a id="__codelineno-0-345" name="__codelineno-0-345"></a>
-<a id="__codelineno-0-346" name="__codelineno-0-346"></a>    <span class="k">def</span> <span class="nf">stop_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-347" name="__codelineno-0-347"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-348" name="__codelineno-0-348"></a><span class="sd">        Stops sending heartbeat signals to a remote hub server.</span>
-<a id="__codelineno-0-349" name="__codelineno-0-349"></a>
-<a id="__codelineno-0-350" name="__codelineno-0-350"></a><span class="sd">        This method terminates the sending of heartbeat signals to the hub server,</span>
-<a id="__codelineno-0-351" name="__codelineno-0-351"></a><span class="sd">        effectively signaling that the client is no longer available or active.</span>
-<a id="__codelineno-0-352" name="__codelineno-0-352"></a>
-<a id="__codelineno-0-353" name="__codelineno-0-353"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="sd">            (None): The method does not return a value.</span>
-<a id="__codelineno-0-355" name="__codelineno-0-355"></a>
-<a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="sd">        Note:</span>
-<a id="__codelineno-0-357" name="__codelineno-0-357"></a><span class="sd">            Stopping heartbeats should be done carefully, as it may result in the hub server</span>
-<a id="__codelineno-0-358" name="__codelineno-0-358"></a><span class="sd">            considering the client as disconnected or unavailable.</span>
-<a id="__codelineno-0-359" name="__codelineno-0-359"></a><span class="sd">        """</span>
-<a id="__codelineno-0-360" name="__codelineno-0-360"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_stop_heartbeats</span><span class="p">()</span>
+<a id="__codelineno-0-346" name="__codelineno-0-346"></a><span class="sd">        Args: format (str): Export format here. Here are supported export [formats](</span>
+<a id="__codelineno-0-347" name="__codelineno-0-347"></a><span class="sd">        https://docs.ultralytics.com/modes/export/#export-formats)</span>
+<a id="__codelineno-0-348" name="__codelineno-0-348"></a>
+<a id="__codelineno-0-349" name="__codelineno-0-349"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-350" name="__codelineno-0-350"></a><span class="sd">            (Optional[Response]): Response object from the export request, or None if export fails.</span>
+<a id="__codelineno-0-351" name="__codelineno-0-351"></a><span class="sd">        """</span>
+<a id="__codelineno-0-352" name="__codelineno-0-352"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>  <span class="c1"># response</span>
+<a id="__codelineno-0-353" name="__codelineno-0-353"></a>
+<a id="__codelineno-0-354" name="__codelineno-0-354"></a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
+<a id="__codelineno-0-355" name="__codelineno-0-355"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="sd">        Predict to Ultralytics HUB.</span>
+<a id="__codelineno-0-357" name="__codelineno-0-357"></a>
+<a id="__codelineno-0-358" name="__codelineno-0-358"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-359" name="__codelineno-0-359"></a><span class="sd">            image (str): The path to the image file.</span>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a><span class="sd">            config (dict): A configuration for the prediction (JSON).</span>
 <a id="__codelineno-0-361" name="__codelineno-0-361"></a>
-<a id="__codelineno-0-362" name="__codelineno-0-362"></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
-<a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-364" name="__codelineno-0-364"></a><span class="sd">        Export to Ultralytics HUB.</span>
-<a id="__codelineno-0-365" name="__codelineno-0-365"></a>
-<a id="__codelineno-0-366" name="__codelineno-0-366"></a><span class="sd">        Args: format (str): Export format here. Here are supported export [formats](</span>
-<a id="__codelineno-0-367" name="__codelineno-0-367"></a><span class="sd">        https://docs.ultralytics.com/modes/export/#export-formats)</span>
-<a id="__codelineno-0-368" name="__codelineno-0-368"></a>
-<a id="__codelineno-0-369" name="__codelineno-0-369"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="sd">            (Optional[Response]): Response object from the export request, or None if export fails.</span>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="sd">        """</span>
-<a id="__codelineno-0-372" name="__codelineno-0-372"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>  <span class="c1"># response</span>
-<a id="__codelineno-0-373" name="__codelineno-0-373"></a>
-<a id="__codelineno-0-374" name="__codelineno-0-374"></a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
-<a id="__codelineno-0-375" name="__codelineno-0-375"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a><span class="sd">        Predict to Ultralytics HUB.</span>
-<a id="__codelineno-0-377" name="__codelineno-0-377"></a>
-<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="sd">            image (str): The path to the image file.</span>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="sd">            config (dict): A configuration for the prediction (JSON).</span>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a>
-<a id="__codelineno-0-382" name="__codelineno-0-382"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-383" name="__codelineno-0-383"></a><span class="sd">            (Optional[Response]): Response object from the predict request, or None if upload fails.</span>
-<a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="sd">        """</span>
-<a id="__codelineno-0-385" name="__codelineno-0-385"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>  <span class="c1"># response</span>
+<a id="__codelineno-0-362" name="__codelineno-0-362"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="sd">            (Optional[Response]): Response object from the predict request, or None if upload fails.</span>
+<a id="__codelineno-0-364" name="__codelineno-0-364"></a><span class="sd">        """</span>
+<a id="__codelineno-0-365" name="__codelineno-0-365"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>  <span class="c1"># response</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2241,27 +2187,27 @@ In a hard delete, the model is permanently removed from the system.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/models.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-362">362</a></span>
-<span class="normal"><a href="#__codelineno-0-363">363</a></span>
-<span class="normal"><a href="#__codelineno-0-364">364</a></span>
-<span class="normal"><a href="#__codelineno-0-365">365</a></span>
-<span class="normal"><a href="#__codelineno-0-366">366</a></span>
-<span class="normal"><a href="#__codelineno-0-367">367</a></span>
-<span class="normal"><a href="#__codelineno-0-368">368</a></span>
-<span class="normal"><a href="#__codelineno-0-369">369</a></span>
-<span class="normal"><a href="#__codelineno-0-370">370</a></span>
-<span class="normal"><a href="#__codelineno-0-371">371</a></span>
-<span class="normal"><a href="#__codelineno-0-372">372</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-362" name="__codelineno-0-362"></a><span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
-<a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-364" name="__codelineno-0-364"></a><span class="sd">    Export to Ultralytics HUB.</span>
-<a id="__codelineno-0-365" name="__codelineno-0-365"></a>
-<a id="__codelineno-0-366" name="__codelineno-0-366"></a><span class="sd">    Args: format (str): Export format here. Here are supported export [formats](</span>
-<a id="__codelineno-0-367" name="__codelineno-0-367"></a><span class="sd">    https://docs.ultralytics.com/modes/export/#export-formats)</span>
-<a id="__codelineno-0-368" name="__codelineno-0-368"></a>
-<a id="__codelineno-0-369" name="__codelineno-0-369"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="sd">        (Optional[Response]): Response object from the export request, or None if export fails.</span>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="sd">    """</span>
-<a id="__codelineno-0-372" name="__codelineno-0-372"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>  <span class="c1"># response</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-342">342</a></span>
+<span class="normal"><a href="#__codelineno-0-343">343</a></span>
+<span class="normal"><a href="#__codelineno-0-344">344</a></span>
+<span class="normal"><a href="#__codelineno-0-345">345</a></span>
+<span class="normal"><a href="#__codelineno-0-346">346</a></span>
+<span class="normal"><a href="#__codelineno-0-347">347</a></span>
+<span class="normal"><a href="#__codelineno-0-348">348</a></span>
+<span class="normal"><a href="#__codelineno-0-349">349</a></span>
+<span class="normal"><a href="#__codelineno-0-350">350</a></span>
+<span class="normal"><a href="#__codelineno-0-351">351</a></span>
+<span class="normal"><a href="#__codelineno-0-352">352</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-342" name="__codelineno-0-342"></a><span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
+<a id="__codelineno-0-343" name="__codelineno-0-343"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-344" name="__codelineno-0-344"></a><span class="sd">    Export to Ultralytics HUB.</span>
+<a id="__codelineno-0-345" name="__codelineno-0-345"></a>
+<a id="__codelineno-0-346" name="__codelineno-0-346"></a><span class="sd">    Args: format (str): Export format here. Here are supported export [formats](</span>
+<a id="__codelineno-0-347" name="__codelineno-0-347"></a><span class="sd">    https://docs.ultralytics.com/modes/export/#export-formats)</span>
+<a id="__codelineno-0-348" name="__codelineno-0-348"></a>
+<a id="__codelineno-0-349" name="__codelineno-0-349"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-350" name="__codelineno-0-350"></a><span class="sd">        (Optional[Response]): Response object from the export request, or None if export fails.</span>
+<a id="__codelineno-0-351" name="__codelineno-0-351"></a><span class="sd">    """</span>
+<a id="__codelineno-0-352" name="__codelineno-0-352"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>  <span class="c1"># response</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2466,102 +2412,6 @@ If no model ID has been set, it logs an error message.</p>
 <a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="sd">        (Optional[str]): The URL of the dataset or None if not available.</span>
 <a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="sd">    """</span>
 <a id="__codelineno-0-207" name="__codelineno-0-207"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="hub_sdk.modules.models.Models.get_download_link">
-<code class="highlight language-python"><span class="n">get_download_link</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span></code>
-</h3>
-<div class="doc doc-contents">
-<p>Get model download link.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>type</code></td>
-<td>
-<code><span title="typing.Optional">Optional</span>[str]</code>
-</td>
-<td>
-<div class="doc-md-description">
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code><span title="typing.Optional">Optional</span>[str]</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Return download link or None if the link is not available.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>hub_sdk/modules/models.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-306">306</a></span>
-<span class="normal"><a href="#__codelineno-0-307">307</a></span>
-<span class="normal"><a href="#__codelineno-0-308">308</a></span>
-<span class="normal"><a href="#__codelineno-0-309">309</a></span>
-<span class="normal"><a href="#__codelineno-0-310">310</a></span>
-<span class="normal"><a href="#__codelineno-0-311">311</a></span>
-<span class="normal"><a href="#__codelineno-0-312">312</a></span>
-<span class="normal"><a href="#__codelineno-0-313">313</a></span>
-<span class="normal"><a href="#__codelineno-0-314">314</a></span>
-<span class="normal"><a href="#__codelineno-0-315">315</a></span>
-<span class="normal"><a href="#__codelineno-0-316">316</a></span>
-<span class="normal"><a href="#__codelineno-0-317">317</a></span>
-<span class="normal"><a href="#__codelineno-0-318">318</a></span>
-<span class="normal"><a href="#__codelineno-0-319">319</a></span>
-<span class="normal"><a href="#__codelineno-0-320">320</a></span>
-<span class="normal"><a href="#__codelineno-0-321">321</a></span>
-<span class="normal"><a href="#__codelineno-0-322">322</a></span>
-<span class="normal"><a href="#__codelineno-0-323">323</a></span>
-<span class="normal"><a href="#__codelineno-0-324">324</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-306" name="__codelineno-0-306"></a><span class="k">def</span> <span class="nf">get_download_link</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<a id="__codelineno-0-307" name="__codelineno-0-307"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-308" name="__codelineno-0-308"></a><span class="sd">    Get model download link.</span>
-<a id="__codelineno-0-309" name="__codelineno-0-309"></a>
-<a id="__codelineno-0-310" name="__codelineno-0-310"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="sd">        type (Optional[str]):</span>
-<a id="__codelineno-0-312" name="__codelineno-0-312"></a>
-<a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="sd">        (Optional[str]): Return download link or None if the link is not available.</span>
-<a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="sd">    """</span>
-<a id="__codelineno-0-316" name="__codelineno-0-316"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-317" name="__codelineno-0-317"></a>        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"collection"</span><span class="p">:</span> <span class="s2">"models"</span><span class="p">,</span> <span class="s2">"docId"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">"object"</span><span class="p">:</span> <span class="nb">type</span><span class="p">}</span>
-<a id="__codelineno-0-318" name="__codelineno-0-318"></a>        <span class="n">endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_FUNCTIONS_ROOT</span><span class="si">}</span><span class="s2">/v1/storage"</span>
-<a id="__codelineno-0-319" name="__codelineno-0-319"></a>        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-<a id="__codelineno-0-320" name="__codelineno-0-320"></a>        <span class="n">json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<a id="__codelineno-0-321" name="__codelineno-0-321"></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"url"</span><span class="p">)</span>
-<a id="__codelineno-0-322" name="__codelineno-0-322"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-323" name="__codelineno-0-323"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Failed to download link for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: %s"</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-<a id="__codelineno-0-324" name="__codelineno-0-324"></a>        <span class="k">raise</span> <span class="n">e</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3029,29 +2879,29 @@ If no model ID has been set, it logs an error message.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/models.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-374">374</a></span>
-<span class="normal"><a href="#__codelineno-0-375">375</a></span>
-<span class="normal"><a href="#__codelineno-0-376">376</a></span>
-<span class="normal"><a href="#__codelineno-0-377">377</a></span>
-<span class="normal"><a href="#__codelineno-0-378">378</a></span>
-<span class="normal"><a href="#__codelineno-0-379">379</a></span>
-<span class="normal"><a href="#__codelineno-0-380">380</a></span>
-<span class="normal"><a href="#__codelineno-0-381">381</a></span>
-<span class="normal"><a href="#__codelineno-0-382">382</a></span>
-<span class="normal"><a href="#__codelineno-0-383">383</a></span>
-<span class="normal"><a href="#__codelineno-0-384">384</a></span>
-<span class="normal"><a href="#__codelineno-0-385">385</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-374" name="__codelineno-0-374"></a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
-<a id="__codelineno-0-375" name="__codelineno-0-375"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a><span class="sd">    Predict to Ultralytics HUB.</span>
-<a id="__codelineno-0-377" name="__codelineno-0-377"></a>
-<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="sd">        image (str): The path to the image file.</span>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="sd">        config (dict): A configuration for the prediction (JSON).</span>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a>
-<a id="__codelineno-0-382" name="__codelineno-0-382"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-383" name="__codelineno-0-383"></a><span class="sd">        (Optional[Response]): Response object from the predict request, or None if upload fails.</span>
-<a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="sd">    """</span>
-<a id="__codelineno-0-385" name="__codelineno-0-385"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>  <span class="c1"># response</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-354">354</a></span>
+<span class="normal"><a href="#__codelineno-0-355">355</a></span>
+<span class="normal"><a href="#__codelineno-0-356">356</a></span>
+<span class="normal"><a href="#__codelineno-0-357">357</a></span>
+<span class="normal"><a href="#__codelineno-0-358">358</a></span>
+<span class="normal"><a href="#__codelineno-0-359">359</a></span>
+<span class="normal"><a href="#__codelineno-0-360">360</a></span>
+<span class="normal"><a href="#__codelineno-0-361">361</a></span>
+<span class="normal"><a href="#__codelineno-0-362">362</a></span>
+<span class="normal"><a href="#__codelineno-0-363">363</a></span>
+<span class="normal"><a href="#__codelineno-0-364">364</a></span>
+<span class="normal"><a href="#__codelineno-0-365">365</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Response</span><span class="p">]:</span>
+<a id="__codelineno-0-355" name="__codelineno-0-355"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="sd">    Predict to Ultralytics HUB.</span>
+<a id="__codelineno-0-357" name="__codelineno-0-357"></a>
+<a id="__codelineno-0-358" name="__codelineno-0-358"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-359" name="__codelineno-0-359"></a><span class="sd">        image (str): The path to the image file.</span>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a><span class="sd">        config (dict): A configuration for the prediction (JSON).</span>
+<a id="__codelineno-0-361" name="__codelineno-0-361"></a>
+<a id="__codelineno-0-362" name="__codelineno-0-362"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="sd">        (Optional[Response]): Response object from the predict request, or None if upload fails.</span>
+<a id="__codelineno-0-364" name="__codelineno-0-364"></a><span class="sd">    """</span>
+<a id="__codelineno-0-365" name="__codelineno-0-365"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>  <span class="c1"># response</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3119,43 +2969,43 @@ and ensuring that the client remains active and responsive.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/models.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-326">326</a></span>
-<span class="normal"><a href="#__codelineno-0-327">327</a></span>
-<span class="normal"><a href="#__codelineno-0-328">328</a></span>
-<span class="normal"><a href="#__codelineno-0-329">329</a></span>
-<span class="normal"><a href="#__codelineno-0-330">330</a></span>
-<span class="normal"><a href="#__codelineno-0-331">331</a></span>
-<span class="normal"><a href="#__codelineno-0-332">332</a></span>
-<span class="normal"><a href="#__codelineno-0-333">333</a></span>
-<span class="normal"><a href="#__codelineno-0-334">334</a></span>
-<span class="normal"><a href="#__codelineno-0-335">335</a></span>
-<span class="normal"><a href="#__codelineno-0-336">336</a></span>
-<span class="normal"><a href="#__codelineno-0-337">337</a></span>
-<span class="normal"><a href="#__codelineno-0-338">338</a></span>
-<span class="normal"><a href="#__codelineno-0-339">339</a></span>
-<span class="normal"><a href="#__codelineno-0-340">340</a></span>
-<span class="normal"><a href="#__codelineno-0-341">341</a></span>
-<span class="normal"><a href="#__codelineno-0-342">342</a></span>
-<span class="normal"><a href="#__codelineno-0-343">343</a></span>
-<span class="normal"><a href="#__codelineno-0-344">344</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-326" name="__codelineno-0-326"></a><span class="k">def</span> <span class="nf">start_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-327" name="__codelineno-0-327"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-328" name="__codelineno-0-328"></a><span class="sd">    Starts sending heartbeat signals to a remote hub server.</span>
-<a id="__codelineno-0-329" name="__codelineno-0-329"></a>
-<a id="__codelineno-0-330" name="__codelineno-0-330"></a><span class="sd">    This method initiates the sending of heartbeat signals to a hub server</span>
-<a id="__codelineno-0-331" name="__codelineno-0-331"></a><span class="sd">    in order to indicate the continued availability and health of the client.</span>
-<a id="__codelineno-0-332" name="__codelineno-0-332"></a>
-<a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">        interval (int): The time interval, in seconds, between consecutive heartbeats.</span>
-<a id="__codelineno-0-335" name="__codelineno-0-335"></a>
-<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-337" name="__codelineno-0-337"></a><span class="sd">        (None): The method does not return a value.</span>
-<a id="__codelineno-0-338" name="__codelineno-0-338"></a>
-<a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="sd">    Note:</span>
-<a id="__codelineno-0-340" name="__codelineno-0-340"></a><span class="sd">        Heartbeats are essential for maintaining a connection with the hub server</span>
-<a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="sd">        and ensuring that the client remains active and responsive.</span>
-<a id="__codelineno-0-342" name="__codelineno-0-342"></a><span class="sd">    """</span>
-<a id="__codelineno-0-343" name="__codelineno-0-343"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_register_signal_handlers</span><span class="p">()</span>
-<a id="__codelineno-0-344" name="__codelineno-0-344"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_start_heartbeats</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-306">306</a></span>
+<span class="normal"><a href="#__codelineno-0-307">307</a></span>
+<span class="normal"><a href="#__codelineno-0-308">308</a></span>
+<span class="normal"><a href="#__codelineno-0-309">309</a></span>
+<span class="normal"><a href="#__codelineno-0-310">310</a></span>
+<span class="normal"><a href="#__codelineno-0-311">311</a></span>
+<span class="normal"><a href="#__codelineno-0-312">312</a></span>
+<span class="normal"><a href="#__codelineno-0-313">313</a></span>
+<span class="normal"><a href="#__codelineno-0-314">314</a></span>
+<span class="normal"><a href="#__codelineno-0-315">315</a></span>
+<span class="normal"><a href="#__codelineno-0-316">316</a></span>
+<span class="normal"><a href="#__codelineno-0-317">317</a></span>
+<span class="normal"><a href="#__codelineno-0-318">318</a></span>
+<span class="normal"><a href="#__codelineno-0-319">319</a></span>
+<span class="normal"><a href="#__codelineno-0-320">320</a></span>
+<span class="normal"><a href="#__codelineno-0-321">321</a></span>
+<span class="normal"><a href="#__codelineno-0-322">322</a></span>
+<span class="normal"><a href="#__codelineno-0-323">323</a></span>
+<span class="normal"><a href="#__codelineno-0-324">324</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-306" name="__codelineno-0-306"></a><span class="k">def</span> <span class="nf">start_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span><span class="p">):</span>
+<a id="__codelineno-0-307" name="__codelineno-0-307"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-308" name="__codelineno-0-308"></a><span class="sd">    Starts sending heartbeat signals to a remote hub server.</span>
+<a id="__codelineno-0-309" name="__codelineno-0-309"></a>
+<a id="__codelineno-0-310" name="__codelineno-0-310"></a><span class="sd">    This method initiates the sending of heartbeat signals to a hub server</span>
+<a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="sd">    in order to indicate the continued availability and health of the client.</span>
+<a id="__codelineno-0-312" name="__codelineno-0-312"></a>
+<a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="sd">        interval (int): The time interval, in seconds, between consecutive heartbeats.</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a>
+<a id="__codelineno-0-316" name="__codelineno-0-316"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-317" name="__codelineno-0-317"></a><span class="sd">        (None): The method does not return a value.</span>
+<a id="__codelineno-0-318" name="__codelineno-0-318"></a>
+<a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="sd">    Note:</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a><span class="sd">        Heartbeats are essential for maintaining a connection with the hub server</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">        and ensuring that the client remains active and responsive.</span>
+<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="sd">    """</span>
+<a id="__codelineno-0-323" name="__codelineno-0-323"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_register_signal_handlers</span><span class="p">()</span>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_start_heartbeats</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">interval</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3196,35 +3046,35 @@ considering the client as disconnected or unavailable.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/models.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-346">346</a></span>
-<span class="normal"><a href="#__codelineno-0-347">347</a></span>
-<span class="normal"><a href="#__codelineno-0-348">348</a></span>
-<span class="normal"><a href="#__codelineno-0-349">349</a></span>
-<span class="normal"><a href="#__codelineno-0-350">350</a></span>
-<span class="normal"><a href="#__codelineno-0-351">351</a></span>
-<span class="normal"><a href="#__codelineno-0-352">352</a></span>
-<span class="normal"><a href="#__codelineno-0-353">353</a></span>
-<span class="normal"><a href="#__codelineno-0-354">354</a></span>
-<span class="normal"><a href="#__codelineno-0-355">355</a></span>
-<span class="normal"><a href="#__codelineno-0-356">356</a></span>
-<span class="normal"><a href="#__codelineno-0-357">357</a></span>
-<span class="normal"><a href="#__codelineno-0-358">358</a></span>
-<span class="normal"><a href="#__codelineno-0-359">359</a></span>
-<span class="normal"><a href="#__codelineno-0-360">360</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-346" name="__codelineno-0-346"></a><span class="k">def</span> <span class="nf">stop_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-347" name="__codelineno-0-347"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-348" name="__codelineno-0-348"></a><span class="sd">    Stops sending heartbeat signals to a remote hub server.</span>
-<a id="__codelineno-0-349" name="__codelineno-0-349"></a>
-<a id="__codelineno-0-350" name="__codelineno-0-350"></a><span class="sd">    This method terminates the sending of heartbeat signals to the hub server,</span>
-<a id="__codelineno-0-351" name="__codelineno-0-351"></a><span class="sd">    effectively signaling that the client is no longer available or active.</span>
-<a id="__codelineno-0-352" name="__codelineno-0-352"></a>
-<a id="__codelineno-0-353" name="__codelineno-0-353"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="sd">        (None): The method does not return a value.</span>
-<a id="__codelineno-0-355" name="__codelineno-0-355"></a>
-<a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="sd">    Note:</span>
-<a id="__codelineno-0-357" name="__codelineno-0-357"></a><span class="sd">        Stopping heartbeats should be done carefully, as it may result in the hub server</span>
-<a id="__codelineno-0-358" name="__codelineno-0-358"></a><span class="sd">        considering the client as disconnected or unavailable.</span>
-<a id="__codelineno-0-359" name="__codelineno-0-359"></a><span class="sd">    """</span>
-<a id="__codelineno-0-360" name="__codelineno-0-360"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_stop_heartbeats</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-326">326</a></span>
+<span class="normal"><a href="#__codelineno-0-327">327</a></span>
+<span class="normal"><a href="#__codelineno-0-328">328</a></span>
+<span class="normal"><a href="#__codelineno-0-329">329</a></span>
+<span class="normal"><a href="#__codelineno-0-330">330</a></span>
+<span class="normal"><a href="#__codelineno-0-331">331</a></span>
+<span class="normal"><a href="#__codelineno-0-332">332</a></span>
+<span class="normal"><a href="#__codelineno-0-333">333</a></span>
+<span class="normal"><a href="#__codelineno-0-334">334</a></span>
+<span class="normal"><a href="#__codelineno-0-335">335</a></span>
+<span class="normal"><a href="#__codelineno-0-336">336</a></span>
+<span class="normal"><a href="#__codelineno-0-337">337</a></span>
+<span class="normal"><a href="#__codelineno-0-338">338</a></span>
+<span class="normal"><a href="#__codelineno-0-339">339</a></span>
+<span class="normal"><a href="#__codelineno-0-340">340</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-326" name="__codelineno-0-326"></a><span class="k">def</span> <span class="nf">stop_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-327" name="__codelineno-0-327"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a><span class="sd">    Stops sending heartbeat signals to a remote hub server.</span>
+<a id="__codelineno-0-329" name="__codelineno-0-329"></a>
+<a id="__codelineno-0-330" name="__codelineno-0-330"></a><span class="sd">    This method terminates the sending of heartbeat signals to the hub server,</span>
+<a id="__codelineno-0-331" name="__codelineno-0-331"></a><span class="sd">    effectively signaling that the client is no longer available or active.</span>
+<a id="__codelineno-0-332" name="__codelineno-0-332"></a>
+<a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">        (None): The method does not return a value.</span>
+<a id="__codelineno-0-335" name="__codelineno-0-335"></a>
+<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">    Note:</span>
+<a id="__codelineno-0-337" name="__codelineno-0-337"></a><span class="sd">        Stopping heartbeats should be done carefully, as it may result in the hub server</span>
+<a id="__codelineno-0-338" name="__codelineno-0-338"></a><span class="sd">        considering the client as disconnected or unavailable.</span>
+<a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="sd">    """</span>
+<a id="__codelineno-0-340" name="__codelineno-0-340"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">hub_client</span><span class="o">.</span><span class="n">_stop_heartbeats</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3561,33 +3411,29 @@ considering the client as disconnected or unavailable.</p>
             Bases: <code><a class="autorefs autorefs-internal" href="../../base/paginated_list/#hub_sdk.base.paginated_list.PaginatedList" title="hub_sdk.base.paginated_list.PaginatedList">PaginatedList</a></code></p>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/models.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-388">388</a></span>
-<span class="normal"><a href="#__codelineno-0-389">389</a></span>
-<span class="normal"><a href="#__codelineno-0-390">390</a></span>
-<span class="normal"><a href="#__codelineno-0-391">391</a></span>
-<span class="normal"><a href="#__codelineno-0-392">392</a></span>
-<span class="normal"><a href="#__codelineno-0-393">393</a></span>
-<span class="normal"><a href="#__codelineno-0-394">394</a></span>
-<span class="normal"><a href="#__codelineno-0-395">395</a></span>
-<span class="normal"><a href="#__codelineno-0-396">396</a></span>
-<span class="normal"><a href="#__codelineno-0-397">397</a></span>
-<span class="normal"><a href="#__codelineno-0-398">398</a></span>
-<span class="normal"><a href="#__codelineno-0-399">399</a></span>
-<span class="normal"><a href="#__codelineno-0-400">400</a></span>
-<span class="normal"><a href="#__codelineno-0-401">401</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="k">class</span> <span class="nc">ModelList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
-<a id="__codelineno-0-389" name="__codelineno-0-389"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-391" name="__codelineno-0-391"></a><span class="sd">        Initialize a ModelList instance.</span>
-<a id="__codelineno-0-392" name="__codelineno-0-392"></a>
-<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="sd">            page_size (int, optional): The number of items to request per page.</span>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a><span class="sd">            public (bool, optional): Whether the items should be publicly accessible.</span>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="sd">            headers (dict, optional): Headers to be included in API requests.</span>
-<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="sd">        """</span>
-<a id="__codelineno-0-398" name="__codelineno-0-398"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"models"</span>
-<a id="__codelineno-0-399" name="__codelineno-0-399"></a>        <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
-<a id="__codelineno-0-400" name="__codelineno-0-400"></a>            <span class="n">base_endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"public/</span><span class="si">{</span><span class="n">base_endpoint</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-401" name="__codelineno-0-401"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-368">368</a></span>
+<span class="normal"><a href="#__codelineno-0-369">369</a></span>
+<span class="normal"><a href="#__codelineno-0-370">370</a></span>
+<span class="normal"><a href="#__codelineno-0-371">371</a></span>
+<span class="normal"><a href="#__codelineno-0-372">372</a></span>
+<span class="normal"><a href="#__codelineno-0-373">373</a></span>
+<span class="normal"><a href="#__codelineno-0-374">374</a></span>
+<span class="normal"><a href="#__codelineno-0-375">375</a></span>
+<span class="normal"><a href="#__codelineno-0-376">376</a></span>
+<span class="normal"><a href="#__codelineno-0-377">377</a></span>
+<span class="normal"><a href="#__codelineno-0-378">378</a></span>
+<span class="normal"><a href="#__codelineno-0-379">379</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-368" name="__codelineno-0-368"></a><span class="k">class</span> <span class="nc">ModelList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
+<a id="__codelineno-0-369" name="__codelineno-0-369"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="sd">        Initialize a ModelList instance.</span>
+<a id="__codelineno-0-372" name="__codelineno-0-372"></a>
+<a id="__codelineno-0-373" name="__codelineno-0-373"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a><span class="sd">            page_size (int, optional): The number of items to request per page.</span>
+<a id="__codelineno-0-375" name="__codelineno-0-375"></a><span class="sd">            public (bool, optional): Whether the items should be publicly accessible.</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a><span class="sd">            headers (dict, optional): Headers to be included in API requests.</span>
+<a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="sd">        """</span>
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"models"</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -3654,31 +3500,27 @@ considering the client as disconnected or unavailable.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/models.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-389">389</a></span>
-<span class="normal"><a href="#__codelineno-0-390">390</a></span>
-<span class="normal"><a href="#__codelineno-0-391">391</a></span>
-<span class="normal"><a href="#__codelineno-0-392">392</a></span>
-<span class="normal"><a href="#__codelineno-0-393">393</a></span>
-<span class="normal"><a href="#__codelineno-0-394">394</a></span>
-<span class="normal"><a href="#__codelineno-0-395">395</a></span>
-<span class="normal"><a href="#__codelineno-0-396">396</a></span>
-<span class="normal"><a href="#__codelineno-0-397">397</a></span>
-<span class="normal"><a href="#__codelineno-0-398">398</a></span>
-<span class="normal"><a href="#__codelineno-0-399">399</a></span>
-<span class="normal"><a href="#__codelineno-0-400">400</a></span>
-<span class="normal"><a href="#__codelineno-0-401">401</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-391" name="__codelineno-0-391"></a><span class="sd">    Initialize a ModelList instance.</span>
-<a id="__codelineno-0-392" name="__codelineno-0-392"></a>
-<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="sd">        page_size (int, optional): The number of items to request per page.</span>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a><span class="sd">        public (bool, optional): Whether the items should be publicly accessible.</span>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="sd">        headers (dict, optional): Headers to be included in API requests.</span>
-<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="sd">    """</span>
-<a id="__codelineno-0-398" name="__codelineno-0-398"></a>    <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"models"</span>
-<a id="__codelineno-0-399" name="__codelineno-0-399"></a>    <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
-<a id="__codelineno-0-400" name="__codelineno-0-400"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"public/</span><span class="si">{</span><span class="n">base_endpoint</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-401" name="__codelineno-0-401"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-369">369</a></span>
+<span class="normal"><a href="#__codelineno-0-370">370</a></span>
+<span class="normal"><a href="#__codelineno-0-371">371</a></span>
+<span class="normal"><a href="#__codelineno-0-372">372</a></span>
+<span class="normal"><a href="#__codelineno-0-373">373</a></span>
+<span class="normal"><a href="#__codelineno-0-374">374</a></span>
+<span class="normal"><a href="#__codelineno-0-375">375</a></span>
+<span class="normal"><a href="#__codelineno-0-376">376</a></span>
+<span class="normal"><a href="#__codelineno-0-377">377</a></span>
+<span class="normal"><a href="#__codelineno-0-378">378</a></span>
+<span class="normal"><a href="#__codelineno-0-379">379</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-369" name="__codelineno-0-369"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="sd">    Initialize a ModelList instance.</span>
+<a id="__codelineno-0-372" name="__codelineno-0-372"></a>
+<a id="__codelineno-0-373" name="__codelineno-0-373"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a><span class="sd">        page_size (int, optional): The number of items to request per page.</span>
+<a id="__codelineno-0-375" name="__codelineno-0-375"></a><span class="sd">        public (bool, optional): Whether the items should be publicly accessible.</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a><span class="sd">        headers (dict, optional): Headers to be included in API requests.</span>
+<a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="sd">    """</span>
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a>    <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"models"</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

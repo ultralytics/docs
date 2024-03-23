@@ -1631,9 +1631,7 @@ If no project ID has been set, it logs an error message.</p>
 <span class="normal"><a href="#__codelineno-0-121">121</a></span>
 <span class="normal"><a href="#__codelineno-0-122">122</a></span>
 <span class="normal"><a href="#__codelineno-0-123">123</a></span>
-<span class="normal"><a href="#__codelineno-0-124">124</a></span>
-<span class="normal"><a href="#__codelineno-0-125">125</a></span>
-<span class="normal"><a href="#__codelineno-0-126">126</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="k">class</span> <span class="nc">ProjectList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-124">124</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="k">class</span> <span class="nc">ProjectList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
 <a id="__codelineno-0-114" name="__codelineno-0-114"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="w">        </span><span class="sd">"""</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="sd">        Initialize a ProjectList instance.</span>
@@ -1644,9 +1642,7 @@ If no project ID has been set, it logs an error message.</p>
 <a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="sd">            headers (dict, optional): Headers to be included in API requests.</span>
 <a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="sd">        """</span>
 <a id="__codelineno-0-123" name="__codelineno-0-123"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"projects"</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a>        <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>            <span class="n">base_endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"public/</span><span class="si">{</span><span class="n">base_endpoint</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-126" name="__codelineno-0-126"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"project"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"project"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1723,9 +1719,7 @@ If no project ID has been set, it logs an error message.</p>
 <span class="normal"><a href="#__codelineno-0-121">121</a></span>
 <span class="normal"><a href="#__codelineno-0-122">122</a></span>
 <span class="normal"><a href="#__codelineno-0-123">123</a></span>
-<span class="normal"><a href="#__codelineno-0-124">124</a></span>
-<span class="normal"><a href="#__codelineno-0-125">125</a></span>
-<span class="normal"><a href="#__codelineno-0-126">126</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-124">124</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="sd">    Initialize a ProjectList instance.</span>
 <a id="__codelineno-0-117" name="__codelineno-0-117"></a>
@@ -1735,9 +1729,7 @@ If no project ID has been set, it logs an error message.</p>
 <a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="sd">        headers (dict, optional): Headers to be included in API requests.</span>
 <a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="sd">    """</span>
 <a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"projects"</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"public/</span><span class="si">{</span><span class="n">base_endpoint</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-126" name="__codelineno-0-126"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"project"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"project"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
