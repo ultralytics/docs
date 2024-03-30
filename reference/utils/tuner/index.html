@@ -1336,7 +1336,7 @@
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="n">train_args</span> <span class="o">=</span> <span class="p">{}</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"pip install ray[tune]&lt;=2.9.3"</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># do not add single quotes here</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"pip install ray[tune]"</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># do not add single quotes here</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="kn">import</span> <span class="nn">ray</span>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="kn">from</span> <span class="nn">ray</span> <span class="kn">import</span> <span class="n">tune</span>
@@ -1344,7 +1344,7 @@
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="kn">from</span> <span class="nn">ray.air.integrations.wandb</span> <span class="kn">import</span> <span class="n">WandbLoggerCallback</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="kn">from</span> <span class="nn">ray.tune.schedulers</span> <span class="kn">import</span> <span class="n">ASHAScheduler</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span><span class="s1">'Ray Tune required but not found. To install run: pip install "ray[tune]&lt;=2.9.3"'</span><span class="p">)</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span><span class="s1">'Ray Tune required but not found. To install run: pip install "ray[tune]"'</span><span class="p">)</span>
 <a id="__codelineno-0-52" name="__codelineno-0-52"></a>
 <a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">try</span><span class="p">:</span>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="kn">import</span> <span class="nn">wandb</span>
