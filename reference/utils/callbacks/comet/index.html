@@ -1601,7 +1601,7 @@
 <span class="normal"><a href="#__codelineno-0-91">91</a></span>
 <span class="normal"><a href="#__codelineno-0-92">92</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="k">def</span> <span class="nf">_create_experiment</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">    </span><span class="sd">"""Ensures that the experiment object is only created in a single process during distributed training."""</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
 <a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="k">return</span>
 <a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="k">try</span><span class="p">:</span>
 <a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="n">comet_mode</span> <span class="o">=</span> <span class="n">_get_comet_mode</span><span class="p">()</span>
