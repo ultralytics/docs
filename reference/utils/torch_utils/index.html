@@ -1701,7 +1701,8 @@ To disable EMA set the <code>enabled</code> attribute to <code>False</code>.</p>
 <span class="normal"><a href="#__codelineno-0-620">620</a></span>
 <span class="normal"><a href="#__codelineno-0-621">621</a></span>
 <span class="normal"><a href="#__codelineno-0-622">622</a></span>
-<span class="normal"><a href="#__codelineno-0-623">623</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-581" name="__codelineno-0-581"></a><span class="k">class</span> <span class="nc">EarlyStopping</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-623">623</a></span>
+<span class="normal"><a href="#__codelineno-0-624">624</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-581" name="__codelineno-0-581"></a><span class="k">class</span> <span class="nc">EarlyStopping</span><span class="p">:</span>
 <a id="__codelineno-0-582" name="__codelineno-0-582"></a><span class="w">    </span><span class="sd">"""Early stopping class that stops training when a specified number of epochs have passed without improvement."""</span>
 <a id="__codelineno-0-583" name="__codelineno-0-583"></a>
 <a id="__codelineno-0-584" name="__codelineno-0-584"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
@@ -1737,13 +1738,14 @@ To disable EMA set the <code>enabled</code> attribute to <code>False</code>.</p>
 <a id="__codelineno-0-614" name="__codelineno-0-614"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">possible_stop</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># possible stop may occur next epoch</span>
 <a id="__codelineno-0-615" name="__codelineno-0-615"></a>        <span class="n">stop</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patience</span>  <span class="c1"># stop training if patience exceeded</span>
 <a id="__codelineno-0-616" name="__codelineno-0-616"></a>        <span class="k">if</span> <span class="n">stop</span><span class="p">:</span>
-<a id="__codelineno-0-617" name="__codelineno-0-617"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-<a id="__codelineno-0-618" name="__codelineno-0-618"></a>                <span class="sa">f</span><span class="s2">"Stopping training early as no improvement observed in last </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2"> epochs. "</span>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a>                <span class="sa">f</span><span class="s2">"Best results observed at epoch </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span><span class="si">}</span><span class="s2">, best model saved as best.pt.</span><span class="se">\n</span><span class="s2">"</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a>                <span class="sa">f</span><span class="s2">"To update EarlyStopping(patience=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2">) pass a new patience value, "</span>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a>                <span class="sa">f</span><span class="s2">"i.e. `patience=300` or use `patience=0` to disable EarlyStopping."</span>
-<a id="__codelineno-0-622" name="__codelineno-0-622"></a>            <span class="p">)</span>
-<a id="__codelineno-0-623" name="__codelineno-0-623"></a>        <span class="k">return</span> <span class="n">stop</span>
+<a id="__codelineno-0-617" name="__codelineno-0-617"></a>            <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s2">"EarlyStopping: "</span><span class="p">)</span>
+<a id="__codelineno-0-618" name="__codelineno-0-618"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+<a id="__codelineno-0-619" name="__codelineno-0-619"></a>                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Training stopped early as no improvement observed in last </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2"> epochs. "</span>
+<a id="__codelineno-0-620" name="__codelineno-0-620"></a>                <span class="sa">f</span><span class="s2">"Best results observed at epoch </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span><span class="si">}</span><span class="s2">, best model saved as best.pt.</span><span class="se">\n</span><span class="s2">"</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a>                <span class="sa">f</span><span class="s2">"To update EarlyStopping(patience=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2">) pass a new patience value, "</span>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a>                <span class="sa">f</span><span class="s2">"i.e. `patience=300` or use `patience=0` to disable EarlyStopping."</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a>            <span class="p">)</span>
+<a id="__codelineno-0-624" name="__codelineno-0-624"></a>        <span class="k">return</span> <span class="n">stop</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1844,7 +1846,8 @@ To disable EMA set the <code>enabled</code> attribute to <code>False</code>.</p>
 <span class="normal"><a href="#__codelineno-0-620">620</a></span>
 <span class="normal"><a href="#__codelineno-0-621">621</a></span>
 <span class="normal"><a href="#__codelineno-0-622">622</a></span>
-<span class="normal"><a href="#__codelineno-0-623">623</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-596" name="__codelineno-0-596"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">fitness</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-623">623</a></span>
+<span class="normal"><a href="#__codelineno-0-624">624</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-596" name="__codelineno-0-596"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">fitness</span><span class="p">):</span>
 <a id="__codelineno-0-597" name="__codelineno-0-597"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-598" name="__codelineno-0-598"></a><span class="sd">    Check whether to stop training.</span>
 <a id="__codelineno-0-599" name="__codelineno-0-599"></a>
@@ -1865,13 +1868,14 @@ To disable EMA set the <code>enabled</code> attribute to <code>False</code>.</p>
 <a id="__codelineno-0-614" name="__codelineno-0-614"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">possible_stop</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># possible stop may occur next epoch</span>
 <a id="__codelineno-0-615" name="__codelineno-0-615"></a>    <span class="n">stop</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patience</span>  <span class="c1"># stop training if patience exceeded</span>
 <a id="__codelineno-0-616" name="__codelineno-0-616"></a>    <span class="k">if</span> <span class="n">stop</span><span class="p">:</span>
-<a id="__codelineno-0-617" name="__codelineno-0-617"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-<a id="__codelineno-0-618" name="__codelineno-0-618"></a>            <span class="sa">f</span><span class="s2">"Stopping training early as no improvement observed in last </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2"> epochs. "</span>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a>            <span class="sa">f</span><span class="s2">"Best results observed at epoch </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span><span class="si">}</span><span class="s2">, best model saved as best.pt.</span><span class="se">\n</span><span class="s2">"</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a>            <span class="sa">f</span><span class="s2">"To update EarlyStopping(patience=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2">) pass a new patience value, "</span>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a>            <span class="sa">f</span><span class="s2">"i.e. `patience=300` or use `patience=0` to disable EarlyStopping."</span>
-<a id="__codelineno-0-622" name="__codelineno-0-622"></a>        <span class="p">)</span>
-<a id="__codelineno-0-623" name="__codelineno-0-623"></a>    <span class="k">return</span> <span class="n">stop</span>
+<a id="__codelineno-0-617" name="__codelineno-0-617"></a>        <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s2">"EarlyStopping: "</span><span class="p">)</span>
+<a id="__codelineno-0-618" name="__codelineno-0-618"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+<a id="__codelineno-0-619" name="__codelineno-0-619"></a>            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Training stopped early as no improvement observed in last </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2"> epochs. "</span>
+<a id="__codelineno-0-620" name="__codelineno-0-620"></a>            <span class="sa">f</span><span class="s2">"Best results observed at epoch </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span><span class="si">}</span><span class="s2">, best model saved as best.pt.</span><span class="se">\n</span><span class="s2">"</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a>            <span class="sa">f</span><span class="s2">"To update EarlyStopping(patience=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2">) pass a new patience value, "</span>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a>            <span class="sa">f</span><span class="s2">"i.e. `patience=300` or use `patience=0` to disable EarlyStopping."</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a>        <span class="p">)</span>
+<a id="__codelineno-0-624" name="__codelineno-0-624"></a>    <span class="k">return</span> <span class="n">stop</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
