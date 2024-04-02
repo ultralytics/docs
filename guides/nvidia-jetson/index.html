@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="NVIDIA Jetson" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, NVIDIA, Jetson, TensorRT, quick start guide, hardware setup, machine learning, AI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/nvidia-jetson" property="og:url"/><meta content="NVIDIA Jetson" property="og:title"/><meta content="Quick start guide to setting up YOLOv8 on a NVIDIA Jetson device with comprehensive benchmarks." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/nvidia-jetson" property="twitter:url"/><meta content="NVIDIA Jetson" property="twitter:title"/><meta content="Quick start guide to setting up YOLOv8 on a NVIDIA Jetson device with comprehensive benchmarks." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "NVIDIA Jetson", "image": ["https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07"], "datePublished": "2024-04-02 01:31:15 -0700", "dateModified": "2024-04-02 01:31:15 -0700", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="NVIDIA Jetson" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, NVIDIA, Jetson, TensorRT, quick start guide, hardware setup, machine learning, AI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/nvidia-jetson" property="og:url"/><meta content="NVIDIA Jetson" property="og:title"/><meta content="Quick start guide to setting up YOLOv8 on a NVIDIA Jetson device with comprehensive benchmarks." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/nvidia-jetson" property="twitter:url"/><meta content="NVIDIA Jetson" property="twitter:title"/><meta content="Quick start guide to setting up YOLOv8 on a NVIDIA Jetson device with comprehensive benchmarks." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "NVIDIA Jetson", "image": ["https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07"], "datePublished": "2024-04-02 01:31:15 -0700", "dateModified": "2024-04-02 06:24:29 -0400", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -917,7 +917,7 @@
 <p>This guide has been tested with <a href="https://www.seeedstudio.com/reComputer-J4012-p-5586.html">Seeed Studio reComputer J4012</a> which is based on NVIDIA Jetson Orin NX 16GB running the latest stable JetPack release of <a href="https://developer.nvidia.com/embedded/jetpack-sdk-513">JP5.1.3</a>. Using this guide for older Jetson devices such as the Jetson Nano (this only supports until JP4.6.4) may not be guaranteed to work. However this is expected to work on all Jetson Orin, Xavier NX, AGX Xavier devices running JP5.1.3.</p>
 </div>
 <h2 id="what-is-nvidia-jetson">What is NVIDIA Jetson?</h2>
-<p>NVIDIA Jetson is a series of embedded computing boards designed to bring accelerated AI (artificial intelligence) computing to edge devices. These compact and powerful devices are built around NVIDIA's GPU architecture and are capable of running complex AI algorithms and deep learning models directly on the device, without needing to rely on cloud computing resources. Jetson boards are often used in robotics, autonomous vehicles, industrial automation, and other applications where AI inference needs to be performed locally with low latency and high efficiency. Additionally these boards are based on the ARM64 architecture and runs on lower power compared to traditional GPU computing devices.</p>
+<p>NVIDIA Jetson is a series of embedded computing boards designed to bring accelerated AI (artificial intelligence) computing to edge devices. These compact and powerful devices are built around NVIDIA's GPU architecture and are capable of running complex AI algorithms and deep learning models directly on the device, without needing to rely on cloud computing resources. Jetson boards are often used in robotics, autonomous vehicles, industrial automation, and other applications where AI inference needs to be performed locally with low latency and high efficiency. Additionally, these boards are based on the ARM64 architecture and runs on lower power compared to traditional GPU computing devices.</p>
 <h2 id="nvidia-jetson-series-comparison">NVIDIA Jetson Series Comparison</h2>
 <p><a href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/">Jetson Orin</a> is the latest iteration of the NVIDIA Jetson family based on NVIDIA Ampere architecture which brings drastically improved AI performance when compared to the previous generations. Below table compared few of the Jetson devices in the ecosystem.</p>
 <table>
@@ -1013,49 +1013,45 @@
 <h3 id="install-ultralytics-package">Install Ultralytics Package</h3>
 <p>Here we will install ultralyics package on the Jetson with optional dependencies so that we can export the PyTorch models to other different formats. We will mainly focus on <a href="https://docs.ultralytics.com/integrations/tensorrt">NVIDIA TensorRT exports</a> because TensoRT will make sure we can get the maximum performance out of the Jetson devices.</p>
 <ol>
-<li>
-<p>Update packages list, install pip and upgrade to latest
+<li>Update packages list, install pip and upgrade to latest</li>
+</ol>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip<span class="w"> </span>-y
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
-</code></pre></div></p>
-</li>
-<li>
-<p>Install <code>ultralytics</code> pip package with optional dependencies
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="o">[</span>export<span class="o">]</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>Reboot the device
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo<span class="w"> </span>reboot
-</code></pre></div></p>
-</li>
-</ol>
-<h3 id="install-pytorch-and-torchvision">Install PyTorch and Torchvision</h3>
-<p>The above ultralytics installation will install Torch and Torchvision. However, these 2 packages installed via pip are not compatible to run on Jetson platform which is based on ARM64 architecture. Therefore we need to manually install pre-built PyTorch pip wheel and compile/ install Torchvision from source.</p>
+</code></pre></div>
 <ol>
-<li>
-<p>Uninstall currently installed PyTorch and Torchvision
+<li>Install <code>ultralytics</code> pip package with optional dependencies</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="o">[</span>export<span class="o">]</span>
+</code></pre></div>
+<ol>
+<li>Reboot the device</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo<span class="w"> </span>reboot
+</code></pre></div>
+<h3 id="install-pytorch-and-torchvision">Install PyTorch and Torchvision</h3>
+<p>The above ultralytics installation will install Torch and Torchvision. However, these 2 packages installed via pip are not compatible to run on Jetson platform which is based on ARM64 architecture. Therefore, we need to manually install pre-built PyTorch pip wheel and compile/ install Torchvision from source.</p>
+<ol>
+<li>Uninstall currently installed PyTorch and Torchvision</li>
+</ol>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>pip<span class="w"> </span>uninstall<span class="w"> </span>torch<span class="w"> </span>torchvision
-</code></pre></div></p>
-</li>
-<li>
-<p>Install PyTorch 2.1.0 according to JP5.1.3
+</code></pre></div>
+<ol>
+<li>Install PyTorch 2.1.0 according to JP5.1.3</li>
+</ol>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libopenblas-base<span class="w"> </span>libopenmpi-dev
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>wget<span class="w"> </span>https://developer.download.nvidia.com/compute/redist/jp/v512/pytorch/torch-2.1.0a0+41361538.nv23.06-cp38-cp38-linux_aarch64.whl<span class="w"> </span>-O<span class="w"> </span>torch-2.1.0a0+41361538.nv23.06-cp38-cp38-linux_aarch64.whl
 <a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>pip<span class="w"> </span>install<span class="w"> </span>torch-2.1.0a0+41361538.nv23.06-cp38-cp38-linux_aarch64.whl
-</code></pre></div></p>
-</li>
-<li>
-<p>Install Torchvision v0.16.2 according to PyTorch v2.1.0
+</code></pre></div>
+<ol>
+<li>Install Torchvision v0.16.2 according to PyTorch v2.1.0</li>
+</ol>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libjpeg-dev<span class="w"> </span>zlib1g-dev
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/pytorch/vision<span class="w"> </span>torchvision
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="nb">cd</span><span class="w"> </span>torchvision
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>git<span class="w"> </span>checkout<span class="w"> </span>v0.16.2
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>python3<span class="w"> </span>setup.py<span class="w"> </span>install<span class="w"> </span>--user
-</code></pre></div></p>
-</li>
-</ol>
+</code></pre></div>
 <p>Visit <a href="https://forums.developer.nvidia.com/t/pytorch-for-jetson/72048">this page</a> to access all different versions of PyTorch for different JetPack versions. For a more detailed list on the PyTorch, Torchvision compatibility, please check <a href="https://github.com/pytorch/vision">here</a>.</p>
 <h2 id="use-tensorrt-on-nvidia-jetson">Use TensorRT on NVIDIA Jetson</h2>
 <p>Out of all the model export formats supported by Ultralytics, TensorRT delivers the best inference performance when working with NVIDIA Jetson devices and our recommendation is to use TensorRT with Jetson. We also have a detailed document on TensorRT <a href="https://docs.ultralytics.com/integrations/tensorrt">here</a>.</p>
@@ -1306,7 +1302,7 @@
 </li>
 <li>
 <p>Install Jetson Stats Application</p>
-<p>We can use jetson stats application to monitor the temperatures of the system   components and check other system details such as view CPU, GPU, RAM  utilizations, change power modes, set to max clocks, check JetPack information
+<p>We can use jetson stats application to monitor the temperatures of the system components and check other system details such as view CPU, GPU, RAM utilization, change power modes, set to max clocks, check JetPack information
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
 <a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>jetson-stats
 <a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>sudo<span class="w"> </span>reboot
@@ -1316,7 +1312,7 @@
 </ol>
 <p><img alt="Jetson Stats" src="https://github.com/ultralytics/ultralytics/assets/20147381/f7017975-6eaa-4d02-8007-ab52314cebfd" width="1024"/></p>
 <h2 id="next-steps">Next Steps</h2>
-<p>Congratulations on successfully setting up YOLOv8 on your NVIDIA Jetson! For further learning and support, visit more guide at <a href="../">Ultralytics YOLOv8 Docs</a>!</p>
+<p>Congratulations on successfully setting up YOLOv8 on your NVIDIA Jetson! For further learning and support, visit more guide at <a href="../../">Ultralytics YOLOv8 Docs</a>!</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1325,7 +1321,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-04-02, Updated 2024-04-02<br/>Authors: <a href="https://github.com/lakshanthad">lakshanthad</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-04-02, Updated 2024-04-02<br/>Authors: <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/lakshanthad">lakshanthad</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
