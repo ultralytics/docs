@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn to blur objects using Ultralytics YOLOv8 for privacy in images and videos." name="description"/>
+<meta content="Queue Management Using Ultralytics YOLOv8" name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/guides/object-blurring/" rel="canonical"/>
-<link href="../object-cropping/" rel="prev"/>
-<link href="../workouts-monitoring/" rel="next"/>
+<link href="https://docs.ultralytics.com/guides/queue-management/" rel="canonical"/>
+<link href="../distance-calculation/" rel="prev"/>
+<link href="../../yolov5/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.17" name="generator"/>
-<title>Object Blurring - Ultralytics YOLOv8 Docs</title>
+<title>Queue Management - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.bcfcd587.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Object Blurring" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Object Blurring, Privacy Protection, Image Processing, Video Analysis, AI, Machine Learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/object-blurring" property="og:url"/><meta content="Object Blurring" property="og:title"/><meta content="Learn to blur objects using Ultralytics YOLOv8 for privacy in images and videos." property="og:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/object-blurring" property="twitter:url"/><meta content="Object Blurring" property="twitter:title"/><meta content="Learn to blur objects using Ultralytics YOLOv8 for privacy in images and videos." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Object Blurring", "image": ["https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png"], "datePublished": "2024-01-09 23:17:51 +0500", "dateModified": "2024-01-15 23:37:37 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Queue Management" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Queue Management, Object Counting, Object Tracking, Object Detection, Notebook, IPython Kernel, CLI, Python SDK" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/queue-management" property="og:url"/><meta content="Queue Management" property="og:title"/><meta content="Queue Management Using Ultralytics YOLOv8" property="og:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/10487e76-bf60-4a9c-a0f3-5a75a05fa7a3" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/queue-management" property="twitter:url"/><meta content="Queue Management" property="twitter:title"/><meta content="Queue Management Using Ultralytics YOLOv8" property="twitter:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/10487e76-bf60-4a9c-a0f3-5a75a05fa7a3" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Queue Management", "image": ["https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/10487e76-bf60-4a9c-a0f3-5a75a05fa7a3"], "datePublished": "2024-04-02 13:43:07 +0500", "dateModified": "2024-04-02 13:43:07 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#object-blurring-using-ultralytics-yolov8">
+<a class="md-skip" href="#queue-management-using-ultralytics-yolov8">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Object Blurring
+              Queue Management
             
           </span>
 </div>
@@ -500,52 +500,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Object Blurring
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../object-blurring/">
 <span class="md-ellipsis">
     Object Blurring
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-object-blurring">
-<span class="md-ellipsis">
-      What is Object Blurring?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#advantages-of-object-blurring">
-<span class="md-ellipsis">
-      Advantages of Object Blurring?
-    </span>
-</a>
-<nav aria-label="Advantages of Object Blurring?" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#arguments-modelpredict">
-<span class="md-ellipsis">
-      Arguments model.predict
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../workouts-monitoring/">
@@ -603,12 +563,66 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../queue-management/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Queue Management
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Queue Management
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-queue-management">
+<span class="md-ellipsis">
+      What is Queue Management?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advantages-of-queue-management">
+<span class="md-ellipsis">
+      Advantages of Queue Management?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#real-world-applications">
+<span class="md-ellipsis">
+      Real World Applications
+    </span>
+</a>
+<nav aria-label="Real World Applications" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#optional-arguments-set_args">
+<span class="md-ellipsis">
+      Optional Arguments set_args
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arguments-modeltrack">
+<span class="md-ellipsis">
+      Arguments model.track
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -707,24 +721,38 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-object-blurring">
+<a class="md-nav__link" href="#what-is-queue-management">
 <span class="md-ellipsis">
-      What is Object Blurring?
+      What is Queue Management?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#advantages-of-object-blurring">
+<a class="md-nav__link" href="#advantages-of-queue-management">
 <span class="md-ellipsis">
-      Advantages of Object Blurring?
+      Advantages of Queue Management?
     </span>
 </a>
-<nav aria-label="Advantages of Object Blurring?" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#real-world-applications">
+<span class="md-ellipsis">
+      Real World Applications
+    </span>
+</a>
+<nav aria-label="Real World Applications" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#arguments-modelpredict">
+<a class="md-nav__link" href="#optional-arguments-set_args">
 <span class="md-ellipsis">
-      Arguments model.predict
+      Optional Arguments set_args
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arguments-modeltrack">
+<span class="md-ellipsis">
+      Arguments model.track
     </span>
 </a>
 </li>
@@ -738,76 +766,223 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/object-blurring.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/queue-management.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="object-blurring-using-ultralytics-yolov8">Object Blurring using Ultralytics YOLOv8 🚀</h1>
-<h2 id="what-is-object-blurring">What is Object Blurring?</h2>
-<p>Object blurring with <a href="https://github.com/ultralytics/ultralytics/">Ultralytics YOLOv8</a> involves applying a blurring effect to specific detected objects in an image or video. This can be achieved using the YOLOv8 model capabilities to identify and manipulate objects within a given scene.</p>
-<h2 id="advantages-of-object-blurring">Advantages of Object Blurring?</h2>
+<h1 id="queue-management-using-ultralytics-yolov8">Queue Management using Ultralytics YOLOv8 🚀</h1>
+<h2 id="what-is-queue-management">What is Queue Management?</h2>
+<p>Queue management using <a href="https://github.com/ultralytics/ultralytics/">Ultralytics YOLOv8</a> involves organizing and controlling lines of people or vehicles to reduce wait times and enhance efficiency. It's about optimizing queues to improve customer satisfaction and system performance in various settings like retail, banks, airports, and healthcare facilities.</p>
+<h2 id="advantages-of-queue-management">Advantages of Queue Management?</h2>
 <ul>
-<li><strong>Privacy Protection</strong>: Object blurring is an effective tool for safeguarding privacy by concealing sensitive or personally identifiable information in images or videos.</li>
-<li><strong>Selective Focus</strong>: YOLOv8 allows for selective blurring, enabling users to target specific objects, ensuring a balance between privacy and retaining relevant visual information.</li>
-<li><strong>Real-time Processing</strong>: YOLOv8's efficiency enables object blurring in real-time, making it suitable for applications requiring on-the-fly privacy enhancements in dynamic environments.</li>
+<li><strong>Reduced Waiting Times:</strong> Queue management systems efficiently organize queues, minimizing wait times for customers. This leads to improved satisfaction levels as customers spend less time waiting and more time engaging with products or services.</li>
+<li><strong>Increased Efficiency:</strong> Implementing queue management allows businesses to allocate resources more effectively. By analyzing queue data and optimizing staff deployment, businesses can streamline operations, reduce costs, and improve overall productivity.</li>
 </ul>
+<h2 id="real-world-applications">Real World Applications</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Logistics</th>
+<th style="text-align: center;">Retail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Queue management at airport ticket counter using Ultralytics YOLOv8" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/10487e76-bf60-4a9c-a0f3-5a75a05fa7a3"/></td>
+<td style="text-align: center;"><img alt="Queue monitoring in crowd using Ultralytics YOLOv8" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/dcc6d2ca-5576-434d-83c6-e57fe07bc693"/></td>
+</tr>
+<tr>
+<td style="text-align: center;">Queue management at airport ticket counter Using Ultralytics YOLOv8</td>
+<td style="text-align: center;">Queue monitoring in crowd Ultralytics YOLOv8</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition example">
-<p class="admonition-title">Object Blurring using YOLOv8 Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Object Blurring</label></div>
+<p class="admonition-title">Queue Management using YOLOv8 Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Queue Manager</label><label for="__tabbed_1_2">Queue Manager Specific Classes</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.plotting</span> <span class="kn">import</span> <span class="n">Annotator</span><span class="p">,</span> <span class="n">colors</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">ultralytics.solutions</span> <span class="kn">import</span> <span class="n">queue_management</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">names</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">names</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video/file.mp4"</span><span class="p">)</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video/file.mp4"</span><span class="p">)</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># Blur ratio</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">blur_ratio</span> <span class="o">=</span> <span class="mi">50</span>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="c1"># Video writer</span>
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"object_blurring_output.avi"</span><span class="p">,</span>
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>                               <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s1">'mp4v'</span><span class="p">),</span>
-<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>                               <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>                                       <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>                                       <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"queue_management.avi"</span><span class="p">,</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>                               <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s1">'mp4v'</span><span class="p">),</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>                               <span class="n">fps</span><span class="p">,</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>                               <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="n">queue_region</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">404</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">360</span><span class="p">)]</span>
 <a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>
-<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Video frame is empty or video processing has been successfully completed."</span><span class="p">)</span>
-<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="k">break</span>
-<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">clss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">Annotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
-<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="k">if</span> <span class="n">boxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">clss</span><span class="p">):</span>
-<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a>            <span class="n">annotator</span><span class="o">.</span><span class="n">box_label</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="n">names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">)])</span>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="n">queue</span> <span class="o">=</span> <span class="n">queue_management</span><span class="o">.</span><span class="n">QueueManager</span><span class="p">()</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="n">queue</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">classes_names</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>               <span class="n">reg_pts</span><span class="o">=</span><span class="n">queue_region</span><span class="p">,</span>
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>               <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>               <span class="n">fontsize</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>               <span class="n">region_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>
+<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="n">tracks</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a>                             <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="n">out</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">process_queue</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="p">)</span>
 <a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>
-<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a>            <span class="n">obj</span> <span class="o">=</span> <span class="n">im0</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span><span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span><span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">])]</span>
-<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>            <span class="n">blur_obj</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">blur</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">(</span><span class="n">blur_ratio</span><span class="p">,</span> <span class="n">blur_ratio</span><span class="p">))</span>
-<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a>
-<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="n">im0</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span><span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span><span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">])]</span> <span class="o">=</span> <span class="n">blur_obj</span>
+<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">'q'</span><span class="p">):</span>
+<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="k">break</span>
+<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="k">continue</span>
 <a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a>
-<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">,</span> <span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">'q'</span><span class="p">):</span>
-<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="k">break</span>
-<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Video frame is empty or video processing has been successfully completed."</span><span class="p">)</span>
+<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="k">break</span>
+<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">ultralytics.solutions</span> <span class="kn">import</span> <span class="n">queue_management</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video/file.mp4"</span><span class="p">)</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>                                       <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>                                       <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"queue_management.avi"</span><span class="p">,</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>                               <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s1">'mp4v'</span><span class="p">),</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>                               <span class="n">fps</span><span class="p">,</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>                               <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="n">queue_region</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">404</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">360</span><span class="p">)]</span>
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="n">queue</span> <span class="o">=</span> <span class="n">queue_management</span><span class="o">.</span><span class="n">QueueManager</span><span class="p">()</span>
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="n">queue</span><span class="o">.</span><span class="n">set_args</span><span class="p">(</span><span class="n">classes_names</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>               <span class="n">reg_pts</span><span class="o">=</span><span class="n">queue_region</span><span class="p">,</span>
+<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>               <span class="n">line_thickness</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>               <span class="n">fontsize</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>               <span class="n">region_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span>
+<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>
+<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>
+<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>        <span class="n">tracks</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>                             <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Only person class</span>
+<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>        <span class="n">out</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">process_queue</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">tracks</span><span class="p">)</span>
+<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a>
+<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>        <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">'q'</span><span class="p">):</span>
+<a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a>            <span class="k">break</span>
+<a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a>        <span class="k">continue</span>
+<a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a>
+<a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Video frame is empty or video processing has been successfully completed."</span><span class="p">)</span>
+<a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a>    <span class="k">break</span>
+<a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a>
+<a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</input></input></div>
 </div>
-<h3 id="arguments-modelpredict">Arguments <code>model.predict</code></h3>
+<h3 id="optional-arguments-set_args">Optional Arguments <code>set_args</code></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>view_img</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Display frames with counts</td>
+</tr>
+<tr>
+<td><code>view_queue_counts</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Display Queue counts only on video frame</td>
+</tr>
+<tr>
+<td><code>line_thickness</code></td>
+<td><code>int</code></td>
+<td><code>2</code></td>
+<td>Increase bounding boxes thickness</td>
+</tr>
+<tr>
+<td><code>reg_pts</code></td>
+<td><code>list</code></td>
+<td><code>[(20, 400), (1260, 400)]</code></td>
+<td>Points defining the Region Area</td>
+</tr>
+<tr>
+<td><code>classes_names</code></td>
+<td><code>dict</code></td>
+<td><code>model.model.names</code></td>
+<td>Dictionary of Class Names</td>
+</tr>
+<tr>
+<td><code>region_color</code></td>
+<td><code>RGB Color</code></td>
+<td><code>(255, 0, 255)</code></td>
+<td>Color of the Object counting Region or Line</td>
+</tr>
+<tr>
+<td><code>track_thickness</code></td>
+<td><code>int</code></td>
+<td><code>2</code></td>
+<td>Thickness of Tracking Lines</td>
+</tr>
+<tr>
+<td><code>draw_tracks</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Enable drawing Track lines</td>
+</tr>
+<tr>
+<td><code>track_color</code></td>
+<td><code>RGB Color</code></td>
+<td><code>(0, 255, 0)</code></td>
+<td>Color for each track line</td>
+</tr>
+<tr>
+<td><code>count_txt_color</code></td>
+<td><code>RGB Color</code></td>
+<td><code>(255, 255, 255)</code></td>
+<td>Foreground color for Object counts text</td>
+</tr>
+<tr>
+<td><code>region_thickness</code></td>
+<td><code>int</code></td>
+<td><code>5</code></td>
+<td>Thickness for object counter region or line</td>
+</tr>
+<tr>
+<td><code>fontsize</code></td>
+<td><code>float</code></td>
+<td><code>0.6</code></td>
+<td>Font size of counting text</td>
+</tr>
+</tbody>
+</table>
+<h3 id="arguments-modeltrack">Arguments <code>model.track</code></h3>
 <table>
 <thead>
 <tr>
@@ -820,93 +995,45 @@
 <tbody>
 <tr>
 <td><code>source</code></td>
-<td><code>str</code></td>
-<td><code>'ultralytics/assets'</code></td>
+<td><code>im0</code></td>
+<td><code>None</code></td>
 <td>source directory for images or videos</td>
+</tr>
+<tr>
+<td><code>persist</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>persisting tracks between frames</td>
+</tr>
+<tr>
+<td><code>tracker</code></td>
+<td><code>str</code></td>
+<td><code>botsort.yaml</code></td>
+<td>Tracking method 'bytetrack' or 'botsort'</td>
 </tr>
 <tr>
 <td><code>conf</code></td>
 <td><code>float</code></td>
-<td><code>0.25</code></td>
-<td>object confidence threshold for detection</td>
+<td><code>0.3</code></td>
+<td>Confidence Threshold</td>
 </tr>
 <tr>
 <td><code>iou</code></td>
 <td><code>float</code></td>
-<td><code>0.7</code></td>
-<td>intersection over union (IoU) threshold for NMS</td>
-</tr>
-<tr>
-<td><code>imgsz</code></td>
-<td><code>int or tuple</code></td>
-<td><code>640</code></td>
-<td>image size as scalar or (h, w) list, i.e. (640, 480)</td>
-</tr>
-<tr>
-<td><code>half</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>use half precision (FP16)</td>
-</tr>
-<tr>
-<td><code>device</code></td>
-<td><code>None or str</code></td>
-<td><code>None</code></td>
-<td>device to run on, i.e. cuda device=0/1/2/3 or device=cpu</td>
-</tr>
-<tr>
-<td><code>max_det</code></td>
-<td><code>int</code></td>
-<td><code>300</code></td>
-<td>maximum number of detections per image</td>
-</tr>
-<tr>
-<td><code>vid_stride</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>video frame-rate stride</td>
-</tr>
-<tr>
-<td><code>stream_buffer</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>buffer all streaming frames (True) or return the most recent frame (False)</td>
-</tr>
-<tr>
-<td><code>visualize</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>visualize model features</td>
-</tr>
-<tr>
-<td><code>augment</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>apply image augmentation to prediction sources</td>
-</tr>
-<tr>
-<td><code>agnostic_nms</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>class-agnostic NMS</td>
+<td><code>0.5</code></td>
+<td>IOU Threshold</td>
 </tr>
 <tr>
 <td><code>classes</code></td>
-<td><code>list[int]</code></td>
+<td><code>list</code></td>
 <td><code>None</code></td>
 <td>filter results by class, i.e. classes=0, or classes=[0,2,3]</td>
 </tr>
 <tr>
-<td><code>retina_masks</code></td>
+<td><code>verbose</code></td>
 <td><code>bool</code></td>
-<td><code>False</code></td>
-<td>use high-resolution segmentation masks</td>
-</tr>
-<tr>
-<td><code>embed</code></td>
-<td><code>list[int]</code></td>
-<td><code>None</code></td>
-<td>return feature vectors/embeddings from given layers</td>
+<td><code>True</code></td>
+<td>Display the object tracking results</td>
 </tr>
 </tbody>
 </table>
@@ -918,7 +1045,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-09, Updated 2024-01-15<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2), <a href="https://github.com/AyushExel">AyushExel</a> (1), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-04-02, Updated 2024-04-02<br/>Authors: <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -929,10 +1056,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/object-blurring', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/queue-management', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/object-blurring', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/queue-management', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -981,7 +1108,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Object Cropping" class="md-footer__link md-footer__link--prev" href="../object-cropping/">
+<a aria-label="Previous: Distance Calculation" class="md-footer__link md-footer__link--prev" href="../distance-calculation/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -990,17 +1117,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                Object Cropping
+                Distance Calculation
               </div>
 </div>
 </a>
-<a aria-label="Next: Workouts Monitoring" class="md-footer__link md-footer__link--next" href="../workouts-monitoring/">
+<a aria-label="Next: Comprehensive Guide to Ultralytics YOLOv5" class="md-footer__link md-footer__link--next" href="../../yolov5/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Workouts Monitoring
+                Comprehensive Guide to Ultralytics YOLOv5
               </div>
 </div>
 <div class="md-footer__button md-icon">
