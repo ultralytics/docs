@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn to export your Ultralytics YOLOv8 models to TorchScript format for deployment through platforms like embedded systems, web browsers, and C++ applications." name="description"/>
+<meta content="A guide that showcases how to export from an Ultralytics YOLOv8 model to TF.js model format for streamlined browser deployments and optimized model performance." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/integrations/torchscript/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="../onnx/" rel="next"/>
+<link href="https://docs.ultralytics.com/integrations/tfjs/" rel="canonical"/>
+<link href="../edge-tpu/" rel="prev"/>
+<link href="../paddlepaddle/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.5.17" name="generator"/>
-<title>TorchScript - Ultralytics YOLOv8 Docs</title>
+<title>TF.js - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.bcfcd587.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="TorchScript" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Export to Torchscript, Model Optimization, Deployment, PyTorch, C++, Faster Inference" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/torchscript" property="og:url"/><meta content="TorchScript" property="og:title"/><meta content="Learn to export your Ultralytics YOLOv8 models to TorchScript format for deployment through platforms like embedded systems, web browsers, and C++ applications." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6873349d-c2f6-4620-b3cc-7b26b0698d0b" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/torchscript" property="twitter:url"/><meta content="TorchScript" property="twitter:title"/><meta content="Learn to export your Ultralytics YOLOv8 models to TorchScript format for deployment through platforms like embedded systems, web browsers, and C++ applications." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/26833433/6873349d-c2f6-4620-b3cc-7b26b0698d0b" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TorchScript", "image": ["https://github.com/ultralytics/ultralytics/assets/26833433/6873349d-c2f6-4620-b3cc-7b26b0698d0b"], "datePublished": "2024-03-01 04:55:31 +0530", "dateModified": "2024-03-03 01:59:43 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="TF.js" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics YOLOv8, TensorFlow.js, TF.js, Model Deployment, Node.js, Model Format, Export Format, Model Conversion" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/tfjs" property="og:url"/><meta content="TF.js" property="og:title"/><meta content="A guide that showcases how to export from an Ultralytics YOLOv8 model to TF.js model format for streamlined browser deployments and optimized model performance." property="og:description"/><meta content="https://res.cloudinary.com/practicaldev/image/fetch/s--oepXBlvm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/m7r4grt0zkrgyx62xxx3.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/tfjs" property="twitter:url"/><meta content="TF.js" property="twitter:title"/><meta content="A guide that showcases how to export from an Ultralytics YOLOv8 model to TF.js model format for streamlined browser deployments and optimized model performance." property="twitter:description"/><meta content="https://res.cloudinary.com/practicaldev/image/fetch/s--oepXBlvm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/m7r4grt0zkrgyx62xxx3.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TF.js", "image": ["https://res.cloudinary.com/practicaldev/image/fetch/s--oepXBlvm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/m7r4grt0zkrgyx62xxx3.png"], "datePublished": "2024-04-03 17:46:04 +0530", "dateModified": "2024-04-03 17:46:04 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#yolov8-model-export-to-torchscript-for-quick-deployment">
+<a class="md-skip" href="#export-to-tfjs-model-format-from-a-yolov8-model-format">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              TorchScript
+              TF.js
             
           </span>
 </div>
@@ -361,87 +361,12 @@
             Integrations
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    TorchScript
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../torchscript/">
 <span class="md-ellipsis">
     TorchScript
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-you-export-to-torchscript">
-<span class="md-ellipsis">
-      Why should you export to TorchScript?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-torchscript-models">
-<span class="md-ellipsis">
-      Key Features of TorchScript Models
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deployment-options-in-torchscript">
-<span class="md-ellipsis">
-      Deployment Options in TorchScript
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#export-to-torchscript-converting-your-yolov8-model">
-<span class="md-ellipsis">
-      Export to TorchScript: Converting Your YOLOv8 Model
-    </span>
-</a>
-<nav aria-label="Export to TorchScript: Converting Your YOLOv8 Model" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installation">
-<span class="md-ellipsis">
-      Installation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
-<span class="md-ellipsis">
-      Usage
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-exported-yolov8-torchscript-models">
-<span class="md-ellipsis">
-      Deploying Exported YOLOv8 TorchScript Models
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
-<span class="md-ellipsis">
-      Summary
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../onnx/">
@@ -499,12 +424,87 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../tfjs/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    TF.js
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     TF.js
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-you-export-to-tfjs">
+<span class="md-ellipsis">
+      Why Should You Export to TF.js?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-tfjs">
+<span class="md-ellipsis">
+      Key Features of TF.js
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deployment-options-with-tensorflowjs">
+<span class="md-ellipsis">
+      Deployment Options with TensorFlow.js
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exporting-yolov8-models-to-tensorflowjs">
+<span class="md-ellipsis">
+      Exporting YOLOv8 Models to TensorFlow.js
+    </span>
+</a>
+<nav aria-label="Exporting YOLOv8 Models to TensorFlow.js" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+<span class="md-ellipsis">
+      Installation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage">
+<span class="md-ellipsis">
+      Usage
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deploying-exported-yolov8-tensorflowjs-models">
+<span class="md-ellipsis">
+      Deploying Exported YOLOv8 TensorFlow.js Models
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../paddlepaddle/">
@@ -639,33 +639,33 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-you-export-to-torchscript">
+<a class="md-nav__link" href="#why-should-you-export-to-tfjs">
 <span class="md-ellipsis">
-      Why should you export to TorchScript?
+      Why Should You Export to TF.js?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-torchscript-models">
+<a class="md-nav__link" href="#key-features-of-tfjs">
 <span class="md-ellipsis">
-      Key Features of TorchScript Models
+      Key Features of TF.js
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deployment-options-in-torchscript">
+<a class="md-nav__link" href="#deployment-options-with-tensorflowjs">
 <span class="md-ellipsis">
-      Deployment Options in TorchScript
+      Deployment Options with TensorFlow.js
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#export-to-torchscript-converting-your-yolov8-model">
+<a class="md-nav__link" href="#exporting-yolov8-models-to-tensorflowjs">
 <span class="md-ellipsis">
-      Export to TorchScript: Converting Your YOLOv8 Model
+      Exporting YOLOv8 Models to TensorFlow.js
     </span>
 </a>
-<nav aria-label="Export to TorchScript: Converting Your YOLOv8 Model" class="md-nav">
+<nav aria-label="Exporting YOLOv8 Models to TensorFlow.js" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation">
@@ -685,9 +685,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-exported-yolov8-torchscript-models">
+<a class="md-nav__link" href="#deploying-exported-yolov8-tensorflowjs-models">
 <span class="md-ellipsis">
-      Deploying Exported YOLOv8 TorchScript Models
+      Deploying Exported YOLOv8 TensorFlow.js Models
     </span>
 </a>
 </li>
@@ -705,55 +705,47 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/torchscript.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/tfjs.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="yolov8-model-export-to-torchscript-for-quick-deployment">YOLOv8 Model Export to TorchScript for Quick Deployment</h1>
-<p>Deploying computer vision models across different environments, including embedded systems, web browsers, or platforms with limited Python support, requires a flexible and portable solution. TorchScript focuses on portability and the ability to run models in environments where the entire Python framework is unavailable. This makes it ideal for scenarios where you need to deploy your computer vision capabilities across various devices or platforms.</p>
-<p>Export to Torchscript to serialize your <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLOv8</a> models for cross-platform compatibility and streamlined deployment. In this guide, we'll show you how to export your YOLOv8 models to the TorchScript format, making it easier for you to use them across a wider range of applications.</p>
-<h2 id="why-should-you-export-to-torchscript">Why should you export to TorchScript?</h2>
-<p><img alt="Torchscript Overview" src="https://github.com/ultralytics/ultralytics/assets/26833433/6873349d-c2f6-4620-b3cc-7b26b0698d0b"/></p>
-<p>Developed by the creators of PyTorch, TorchScript is a powerful tool for optimizing and deploying PyTorch models across a variety of platforms. Exporting YOLOv8 models to <a href="https://pytorch.org/docs/stable/jit.html">TorchScript</a> is crucial for moving from research to real-world applications. TorchScript, part of the PyTorch framework, helps make this transition smoother by allowing PyTorch models to be used in environments that don't support Python.</p>
-<p>The process involves two techniques: tracing and scripting. Tracing records operations during model execution, while scripting allows for the definition of models using a subset of Python. These techniques ensure that models like YOLOv8 can still work their magic even outside their usual Python environment.</p>
-<p><img alt="TorchScript Script and Trace" src="https://github.com/ultralytics/ultralytics/assets/26833433/ea9ea24f-a3a9-44bb-aca7-9c358d7490d7"/></p>
-<p>TorchScript models can also be optimized through techniques such as operator fusion and refinements in memory usage, ensuring efficient execution. Another advantage of exporting to TorchScript is its potential to accelerate model execution across various hardware platforms. It creates a standalone, production-ready representation of your PyTorch model that can be integrated into C++ environments, embedded systems, or deployed in web or mobile applications.</p>
-<h2 id="key-features-of-torchscript-models">Key Features of TorchScript Models</h2>
-<p>TorchScript, a key part of the PyTorch ecosystem, provides powerful features for optimizing and deploying deep learning models.</p>
-<p><img alt="TorchScript Features" src="https://github.com/ultralytics/ultralytics/assets/26833433/44c7c5e3-1146-42db-952a-9060f070fead"/></p>
-<p>Here are the key features that make TorchScript a valuable tool for developers:</p>
+<h1 id="export-to-tfjs-model-format-from-a-yolov8-model-format">Export to TF.js Model Format From a YOLOv8 Model Format</h1>
+<p>Deploying machine learning models directly in the browser or on Node.js can be tricky. You’ll need to make sure your model format is optimized for faster performance so that the model can be used to run interactive applications locally on the user’s device. The TensorFlow.js, or TF.js, model format is designed to use minimal power while delivering fast performance.</p>
+<p>The ‘export to TF.js model format’ feature allows you to optimize your <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLOv8</a> models for high-speed and locally-run object detection inference. In this guide, we'll walk you through converting your models to the TF.js format, making it easier for your models to perform well on various local browsers and Node.js applications.</p>
+<h2 id="why-should-you-export-to-tfjs">Why Should You Export to TF.js?</h2>
+<p>Exporting your machine learning models to TensorFlow.js, developed by the TensorFlow team as part of the broader TensorFlow ecosystem, offers numerous advantages for deploying machine learning applications. It helps enhance user privacy and security by keeping sensitive data on the device. The image below shows the TensorFlow.js architecture, and how machine learning models are converted and deployed on both web browsers and Node.js.</p>
+<p align="center">
+<img alt="TF.js Architecture" src="https://res.cloudinary.com/practicaldev/image/fetch/s--oepXBlvm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/m7r4grt0zkrgyx62xxx3.png" width="100%"/>
+</p>
+<p>Running models locally also reduces latency and provides a more responsive user experience. TensorFlow.js also comes with offline capabilities, allowing users to use your application even without an internet connection. TF.js is designed for efficient execution of complex models on devices with limited resources as it is engineered for scalability, with GPU acceleration support.</p>
+<h2 id="key-features-of-tfjs">Key Features of TF.js</h2>
+<p>Here are the key features that make TF.js a powerful tool for developers:</p>
 <ul>
 <li>
-<p><strong>Static Graph Execution</strong>: TorchScript uses a static graph representation of the model’s computation, which is different from PyTorch’s dynamic graph execution. In static graph execution, the computational graph is defined and compiled once before the actual execution, resulting in improved performance during inference.</p>
+<p><strong>Cross-Platform Support:</strong> TensorFlow.js can be used in both browser and Node.js environments, providing flexibility in deployment across different platforms. It lets developers build and deploy applications more easily.</p>
 </li>
 <li>
-<p><strong>Model Serialization</strong>: TorchScript allows you to serialize PyTorch models into a platform-independent format. Serialized models can be loaded without requiring the original Python code, enabling deployment in different runtime environments.</p>
+<p><strong>Support for Multiple Backends:</strong> TensorFlow.js supports various backends for computation including CPU, WebGL for GPU acceleration, WebAssembly (WASM) for near-native execution speed, and WebGPU for advanced browser-based machine learning capabilities.</p>
 </li>
 <li>
-<p><strong>JIT Compilation</strong>: TorchScript uses Just-In-Time (JIT) compilation to convert PyTorch models into an optimized intermediate representation. JIT compiles the model’s computational graph, enabling efficient execution on target devices.</p>
-</li>
-<li>
-<p><strong>Cross-Language Integration</strong>: With TorchScript, you can export PyTorch models to other languages such as C++, Java, and JavaScript. This makes it easier to integrate PyTorch models into existing software systems written in different languages.</p>
-</li>
-<li>
-<p><strong>Gradual Conversion</strong>: TorchScript provides a gradual conversion approach, allowing you to incrementally convert parts of your PyTorch model into TorchScript. This flexibility is particularly useful when dealing with complex models or when you want to optimize specific portions of the code.</p>
+<p><strong>Offline Capabilities:</strong> With TensorFlow.js, models can run in the browser without the need for an internet connection, making it possible to develop applications that are functional offline.</p>
 </li>
 </ul>
-<h2 id="deployment-options-in-torchscript">Deployment Options in TorchScript</h2>
-<p>Before we look at the code for exporting YOLOv8 models to the TorchScript format, let’s understand where TorchScript models are normally used.</p>
-<p>TorchScript offers various deployment options for machine learning models, such as:</p>
+<h2 id="deployment-options-with-tensorflowjs">Deployment Options with TensorFlow.js</h2>
+<p>Before we dive into the process of exporting YOLOv8 models to the TF.js format, let's explore some typical deployment scenarios where this format is used. </p>
+<p>TF.js provides a range of options to deploy your machine learning models:</p>
 <ul>
 <li>
-<p><strong>C++ API</strong>: The most common use case for TorchScript is its C++ API, which allows you to load and execute optimized TorchScript models directly within C++ applications. This is ideal for production environments where Python may not be suitable or available. The C++ API offers low-overhead and efficient execution of TorchScript models, maximizing performance potential.</p>
+<p><strong>In-Browser ML Applications:</strong> You can build web applications that run machine learning models directly in the browser. The need for server-side computation is eliminated and the server load is reduced.</p>
 </li>
 <li>
-<p><strong>Mobile Deployment</strong>: TorchScript offers tools for converting models into formats readily deployable on mobile devices. PyTorch Mobile provides a runtime for executing these models within iOS and Android apps. This enables low-latency, offline inference capabilities, enhancing user experience and data privacy.</p>
+<p><strong>Node.js Applications::</strong> TensorFlow.js also supports deployment in Node.js environments, enabling the development of server-side machine learning applications. It is particularly useful for applications that require the processing power of a server or access to server-side data​</p>
 </li>
 <li>
-<p><strong>Cloud Deployment</strong>: TorchScript models can be deployed to cloud-based servers using solutions like TorchServe. It provides features like model versioning, batching, and metrics monitoring for scalable deployment in production environments. Cloud deployment with TorchScript can make your models accessible via APIs or other web services.</p>
+<p><strong>Chrome Extensions:</strong> An interesting deployment scenario is the creation of Chrome extensions with TensorFlow.js. For instance, you can develop an extension that allows users to right-click on an image within any webpage to classify it using a pre-trained ML model. TensorFlow.js can be integrated into everyday web browsing experiences to provide immediate insights or augmentations based on machine learning​.</p>
 </li>
 </ul>
-<h2 id="export-to-torchscript-converting-your-yolov8-model">Export to TorchScript: Converting Your YOLOv8 Model</h2>
-<p>Exporting YOLOv8 models to TorchScript makes it easier to use them in different places and helps them run faster and more efficiently. This is great for anyone looking to use deep learning models more effectively in real-world applications.</p>
+<h2 id="exporting-yolov8-models-to-tensorflowjs">Exporting YOLOv8 Models to TensorFlow.js</h2>
+<p>You can expand model compatibility and deployment flexibility by converting YOLOv8 models to TF.js.</p>
 <h3 id="installation">Installation</h3>
 <p>To install the required package, run:</p>
 <div class="admonition tip">
@@ -781,45 +773,46 @@
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load the YOLOv8 model</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Export the model to TorchScript format</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'torchscript'</span><span class="p">)</span>  <span class="c1"># creates 'yolov8n.torchscript'</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Export the model to TF.js format</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'tfjs'</span><span class="p">)</span>  <span class="c1"># creates '/yolov8n_web_model'</span>
 <a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Load the exported TorchScript model</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">torchscript_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.torchscript'</span><span class="p">)</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Load the exported TF.js model</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">tfjs_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'./yolov8n_web_model'</span><span class="p">)</span>
 <a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
 <a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># Run inference</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">torchscript_model</span><span class="p">(</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">tfjs_model</span><span class="p">(</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Export a YOLOv8n PyTorch model to TorchScript format</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>torchscript<span class="w">  </span><span class="c1"># creates 'yolov8n.torchscript'</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Export a YOLOv8n PyTorch model to TF.js format</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>tfjs<span class="w">  </span><span class="c1"># creates '/yolov8n_web_model'</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Run inference with the exported model</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.torchscript<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s1">'./yolov8n_web_model'</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
 </code></pre></div>
 </div>
 </div>
 </input></input></div>
 </div>
-<p>For more details about the export process, visit the <a href="../../modes/export/">Ultralytics documentation page on exporting</a>.</p>
-<h2 id="deploying-exported-yolov8-torchscript-models">Deploying Exported YOLOv8 TorchScript Models</h2>
-<p>After successfully exporting your Ultralytics YOLOv8 models to TorchScript format, you can now deploy them. The primary and recommended first step for running a TorchScript model is to utilize the YOLO("model.torchscript") method, as outlined in the previous usage code snippet. However, for in-depth instructions on deploying your TorchScript models in various other settings, take a look at the following resources:</p>
+<p>For more details about supported export options, visit the <a href="../../guides/model-deployment-options/">Ultralytics documentation page on deployment options</a>.</p>
+<h2 id="deploying-exported-yolov8-tensorflowjs-models">Deploying Exported YOLOv8 TensorFlow.js Models</h2>
+<p>Now that you have exported your YOLOv8 model to the TF.js format, the next step is to deploy it. The primary and recommended first step for running a TF.js is to use the YOLO("./yolov8n_web_model") method, as previously shown in the usage code snippet.</p>
+<p>However, for in-depth instructions on deploying your TF.js models, take a look at the following resources:</p>
 <ul>
 <li>
-<p><strong><a href="https://pytorch.org/mobile/home/">Explore Mobile Deployment</a></strong>: The PyTorch Mobile Documentation provides comprehensive guidelines for deploying models on mobile devices, ensuring your applications are efficient and responsive.</p>
+<p><strong><a href="https://www.tensorflow.org/js/tutorials/deployment/web_ml_in_chrome">Chrome Extension</a></strong>: Here’s the developer documentation for how to deploy your TF.js models to a Chrome extension.</p>
 </li>
 <li>
-<p><strong><a href="https://pytorch.org/serve/getting_started.html">Master Server-Side Deployment</a></strong>: Learn how to deploy models server-side with TorchServe, offering a step-by-step tutorial for scalable, efficient model serving.</p>
+<p><strong><a href="https://www.tensorflow.org/js/guide/nodejs">Run TensorFlow.js in Node.js</a></strong>: A TensorFlow blog post on running TensorFlow.js in Node.js directly.</p>
 </li>
 <li>
-<p><strong><a href="https://pytorch.org/tutorials/advanced/cpp_export.html">Implement C++ Deployment</a></strong>: Dive into the Tutorial on Loading a TorchScript Model in C++, facilitating the integration of your TorchScript models into C++ applications for enhanced performance and versatility.</p>
+<p><strong><a href="https://www.tensorflow.org/js/guide/node_in_cloud">Deploying TensorFlow.js - Node Project on Cloud Platform</a></strong>: A TensorFlow blog post on deploying a TensorFlow.js model on a Cloud Platform.</p>
 </li>
 </ul>
 <h2 id="summary">Summary</h2>
-<p>In this guide, we explored the process of exporting Ultralytics YOLOv8 models to the TorchScript format. By following the provided instructions, you can optimize YOLOv8 models for performance and gain the flexibility to deploy them across various platforms and environments.</p>
-<p>For further details on usage, visit <a href="https://pytorch.org/docs/stable/jit.html">TorchScript’s official documentation</a>.</p>
-<p>Also, if you’d like to know more about other Ultralytics YOLOv8 integrations, visit our <a href="../">integration guide page</a>. You'll find plenty of useful resources and insights there.</p>
+<p>In this guide, we learned how to export Ultralytics YOLOv8 models to the TensorFlow.js format. By exporting to TF.js, you gain the flexibility to optimize, deploy, and scale your YOLOv8 models on a wide range of platforms.</p>
+<p>For further details on usage, visit the <a href="https://www.tensorflow.org/js/guide">TensorFlow.js official documentation</a>.</p>
+<p>For more information on integrating Ultralytics YOLOv8 with other platforms and frameworks, don't forget to check out our <a href="../">integration guide page</a>. It's packed with great resources to help you make the most of YOLOv8 in your projects.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -828,7 +821,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-03-01, Updated 2024-03-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/abirami-vina">abirami-vina</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-04-03, Updated 2024-04-03<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -839,10 +832,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/torchscript', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/tfjs', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/torchscript', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/tfjs', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -891,7 +884,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Ultralytics Integrations" class="md-footer__link md-footer__link--prev" href="../">
+<a aria-label="Previous: TFLite Edge TPU" class="md-footer__link md-footer__link--prev" href="../edge-tpu/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -900,17 +893,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                Ultralytics Integrations
+                TFLite Edge TPU
               </div>
 </div>
 </a>
-<a aria-label="Next: ONNX" class="md-footer__link md-footer__link--next" href="../onnx/">
+<a aria-label="Next: PaddlePaddle" class="md-footer__link md-footer__link--next" href="../paddlepaddle/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                ONNX
+                PaddlePaddle
               </div>
 </div>
 <div class="md-footer__button md-icon">
