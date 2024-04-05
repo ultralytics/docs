@@ -1551,7 +1551,8 @@
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
 <span class="normal"><a href="#__codelineno-0-19">19</a></span>
 <span class="normal"><a href="#__codelineno-0-20">20</a></span>
 <span class="normal"><a href="#__codelineno-0-21">21</a></span>
@@ -1595,53 +1596,52 @@
 <span class="normal"><a href="#__codelineno-0-59">59</a></span>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
 <span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="n">contextlib</span><span class="o">.</span><span class="n">ContextDecorator</span><span class="p">):</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    YOLOv8 Profile class. Use as a decorator with @Profile() or as a context manager with 'with Profile():'.</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    Example:</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        ```python</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        from ultralytics.utils.ops import Profile</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        with Profile(device=device) as dt:</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">            pass  # slow operation here</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        print(dt)  # prints "Elapsed time is 9.5367431640625e-07 s"</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        ```</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    """</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        Initialize the Profile class.</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">            t (float): Initial time. Defaults to 0.0.</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">            device (torch.device): Devices used for model inference. Defaults to None (cpu).</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        """</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">device</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"cuda"</span><span class="p">))</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">        </span><span class="sd">"""Start timing."""</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="k">return</span> <span class="bp">self</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">        </span><span class="sd">"""Stop timing."""</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>  <span class="c1"># delta-time</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>  <span class="c1"># accumulate dt</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">        </span><span class="sd">"""Returns a human-readable string representing the accumulated elapsed time in the profiler."""</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Elapsed time is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="si">}</span><span class="s2"> s"</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">        </span><span class="sd">"""Get current time."""</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">:</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>            <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="n">contextlib</span><span class="o">.</span><span class="n">ContextDecorator</span><span class="p">):</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    YOLOv8 Profile class. Use as a decorator with @Profile() or as a context manager with 'with Profile():'.</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        from ultralytics.utils.ops import Profile</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        with Profile(device=device) as dt:</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">            pass  # slow operation here</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">        print(dt)  # prints "Elapsed time is 9.5367431640625e-07 s"</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    """</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        Initialize the Profile class.</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">            t (float): Initial time. Defaults to 0.0.</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">            device (torch.device): Devices used for model inference. Defaults to None (cpu).</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        """</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">device</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"cuda"</span><span class="p">))</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">        </span><span class="sd">"""Start timing."""</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="k">return</span> <span class="bp">self</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">        </span><span class="sd">"""Stop timing."""</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>  <span class="c1"># delta-time</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>  <span class="c1"># accumulate dt</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">        </span><span class="sd">"""Returns a human-readable string representing the accumulated elapsed time in the profiler."""</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Elapsed time is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="si">}</span><span class="s2"> s"</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">        </span><span class="sd">"""Get current time."""</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">:</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>            <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1653,13 +1653,13 @@
 <p>Start timing.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span>
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">    </span><span class="sd">"""Start timing."""</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="k">return</span> <span class="bp">self</span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">    </span><span class="sd">"""Start timing."""</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1672,13 +1672,13 @@
 <p>Stop timing.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">    </span><span class="sd">"""Stop timing."""</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>  <span class="c1"># delta-time</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>  <span class="c1"># accumulate dt</span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">    </span><span class="sd">"""Stop timing."""</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>  <span class="c1"># delta-time</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>  <span class="c1"># accumulate dt</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1732,7 +1732,8 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
@@ -1741,18 +1742,17 @@
 <span class="normal"><a href="#__codelineno-0-39">39</a></span>
 <span class="normal"><a href="#__codelineno-0-40">40</a></span>
 <span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    Initialize the Profile class.</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        t (float): Initial time. Defaults to 0.0.</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        device (torch.device): Devices used for model inference. Defaults to None (cpu).</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    """</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">device</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"cuda"</span><span class="p">))</span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Initialize the Profile class.</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        t (float): Initial time. Defaults to 0.0.</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        device (torch.device): Devices used for model inference. Defaults to None (cpu).</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    """</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">device</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"cuda"</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1765,11 +1765,11 @@
 <p>Returns a human-readable string representing the accumulated elapsed time in the profiler.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">    </span><span class="sd">"""Returns a human-readable string representing the accumulated elapsed time in the profiler."""</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"Elapsed time is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="si">}</span><span class="s2"> s"</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">    </span><span class="sd">"""Returns a human-readable string representing the accumulated elapsed time in the profiler."""</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"Elapsed time is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="si">}</span><span class="s2"> s"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1782,15 +1782,15 @@
 <p>Get current time.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
 <span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">    </span><span class="sd">"""Get current time."""</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">:</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">    </span><span class="sd">"""Get current time."""</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">:</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1882,7 +1882,8 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
 <span class="normal"><a href="#__codelineno-0-67">67</a></span>
 <span class="normal"><a href="#__codelineno-0-68">68</a></span>
 <span class="normal"><a href="#__codelineno-0-69">69</a></span>
@@ -1901,28 +1902,27 @@
 <span class="normal"><a href="#__codelineno-0-82">82</a></span>
 <span class="normal"><a href="#__codelineno-0-83">83</a></span>
 <span class="normal"><a href="#__codelineno-0-84">84</a></span>
-<span class="normal"><a href="#__codelineno-0-85">85</a></span>
-<span class="normal"><a href="#__codelineno-0-86">86</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="k">def</span> <span class="nf">segment2box</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">640</span><span class="p">):</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">    Convert 1 segment label to 1 box label, applying inside-image constraint, i.e. (xy1, xy2, ...) to (xyxy).</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        segment (torch.Tensor): the segment label</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        width (int): the width of the image. Defaults to 640</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        height (int): The height of the image. Defaults to 640</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        (np.ndarray): the minimum and maximum x and y values of the segment.</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">    """</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">segment</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># segment xy</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="n">inside</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">width</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">height</span><span class="p">)</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">inside</span><span class="p">]</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">inside</span><span class="p">]</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="k">return</span> <span class="p">(</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">segment</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">segment</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="p">)</span>  <span class="c1"># xyxy</span>
+<span class="normal"><a href="#__codelineno-0-85">85</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="k">def</span> <span class="nf">segment2box</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">640</span><span class="p">):</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Convert 1 segment label to 1 box label, applying inside-image constraint, i.e. (xy1, xy2, ...) to (xyxy).</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        segment (torch.Tensor): the segment label</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        width (int): the width of the image. Defaults to 640</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        height (int): The height of the image. Defaults to 640</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">        (np.ndarray): the minimum and maximum x and y values of the segment.</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    """</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">segment</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># segment xy</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="n">inside</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">width</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">height</span><span class="p">)</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">inside</span><span class="p">]</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">inside</span><span class="p">]</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="k">return</span> <span class="p">(</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">segment</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>        <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">segment</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="p">)</span>  <span class="c1"># xyxy</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2056,7 +2056,8 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-89"> 89</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-0-89"> 89</a></span>
 <span class="normal"><a href="#__codelineno-0-90"> 90</a></span>
 <span class="normal"><a href="#__codelineno-0-91"> 91</a></span>
 <span class="normal"><a href="#__codelineno-0-92"> 92</a></span>
@@ -2090,43 +2091,42 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-120">120</a></span>
 <span class="normal"><a href="#__codelineno-0-121">121</a></span>
 <span class="normal"><a href="#__codelineno-0-122">122</a></span>
-<span class="normal"><a href="#__codelineno-0-123">123</a></span>
-<span class="normal"><a href="#__codelineno-0-124">124</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="k">def</span> <span class="nf">scale_boxes</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">    Rescales bounding boxes (in the format of xyxy by default) from the shape of the image they were originally</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="sd">    specified in (img1_shape) to the shape of a different image (img0_shape).</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="sd">        img1_shape (tuple): The shape of the image that the bounding boxes are for, in the format of (height, width).</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">        boxes (torch.Tensor): the bounding boxes of the objects in the image, in the format of (x1, y1, x2, y2)</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="sd">        img0_shape (tuple): the shape of the target image, in the format of (height, width).</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="sd">        ratio_pad (tuple): a tuple of (ratio, pad) for scaling the boxes. If not provided, the ratio and pad will be</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="sd">            calculated based on the size difference between the two images.</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="sd">        padding (bool): If True, assuming the boxes is based on image augmented by yolo style. If False then do regular</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="sd">            rescaling.</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="sd">        xywh (bool): The box format is xywh or not, default=False.</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">        boxes (torch.Tensor): The scaled bounding boxes, in the format of (x1, y1, x2, y2)</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="sd">    """</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>    <span class="k">if</span> <span class="n">ratio_pad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># calculate from img0_shape</span>
-<a id="__codelineno-0-108" name="__codelineno-0-108"></a>        <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># gain  = old / new</span>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a>        <span class="n">pad</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a>            <span class="nb">round</span><span class="p">((</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a>            <span class="nb">round</span><span class="p">((</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
-<a id="__codelineno-0-112" name="__codelineno-0-112"></a>        <span class="p">)</span>  <span class="c1"># wh padding</span>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-114" name="__codelineno-0-114"></a>        <span class="n">gain</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-115" name="__codelineno-0-115"></a>        <span class="n">pad</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-116" name="__codelineno-0-116"></a>
-<a id="__codelineno-0-117" name="__codelineno-0-117"></a>    <span class="k">if</span> <span class="n">padding</span><span class="p">:</span>
-<a id="__codelineno-0-118" name="__codelineno-0-118"></a>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># x padding</span>
-<a id="__codelineno-0-119" name="__codelineno-0-119"></a>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># y padding</span>
-<a id="__codelineno-0-120" name="__codelineno-0-120"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">xywh</span><span class="p">:</span>
-<a id="__codelineno-0-121" name="__codelineno-0-121"></a>            <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># x padding</span>
-<a id="__codelineno-0-122" name="__codelineno-0-122"></a>            <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># y padding</span>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">/=</span> <span class="n">gain</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="k">return</span> <span class="n">clip_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-123">123</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="k">def</span> <span class="nf">scale_boxes</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="sd">    Rescales bounding boxes (in the format of xyxy by default) from the shape of the image they were originally</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">    specified in (img1_shape) to the shape of a different image (img0_shape).</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">        img1_shape (tuple): The shape of the image that the bounding boxes are for, in the format of (height, width).</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="sd">        boxes (torch.Tensor): the bounding boxes of the objects in the image, in the format of (x1, y1, x2, y2)</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">        img0_shape (tuple): the shape of the target image, in the format of (height, width).</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="sd">        ratio_pad (tuple): a tuple of (ratio, pad) for scaling the boxes. If not provided, the ratio and pad will be</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="sd">            calculated based on the size difference between the two images.</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="sd">        padding (bool): If True, assuming the boxes is based on image augmented by yolo style. If False then do regular</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="sd">            rescaling.</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="sd">        xywh (bool): The box format is xywh or not, default=False.</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">        boxes (torch.Tensor): The scaled bounding boxes, in the format of (x1, y1, x2, y2)</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">    """</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="k">if</span> <span class="n">ratio_pad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># calculate from img0_shape</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>        <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># gain  = old / new</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a>        <span class="n">pad</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>            <span class="nb">round</span><span class="p">((</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>            <span class="nb">round</span><span class="p">((</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a>        <span class="p">)</span>  <span class="c1"># wh padding</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a>        <span class="n">gain</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a>        <span class="n">pad</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115"></a>
+<a id="__codelineno-0-116" name="__codelineno-0-116"></a>    <span class="k">if</span> <span class="n">padding</span><span class="p">:</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117"></a>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># x padding</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># y padding</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">xywh</span><span class="p">:</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a>            <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># x padding</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a>            <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># y padding</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122"></a>    <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">/=</span> <span class="n">gain</span>
+<a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="k">return</span> <span class="n">clip_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2201,7 +2201,8 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-127">127</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-126">126</a></span>
+<span class="normal"><a href="#__codelineno-0-127">127</a></span>
 <span class="normal"><a href="#__codelineno-0-128">128</a></span>
 <span class="normal"><a href="#__codelineno-0-129">129</a></span>
 <span class="normal"><a href="#__codelineno-0-130">130</a></span>
@@ -2213,21 +2214,20 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-136">136</a></span>
 <span class="normal"><a href="#__codelineno-0-137">137</a></span>
 <span class="normal"><a href="#__codelineno-0-138">138</a></span>
-<span class="normal"><a href="#__codelineno-0-139">139</a></span>
-<span class="normal"><a href="#__codelineno-0-140">140</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="k">def</span> <span class="nf">make_divisible</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">    Returns the nearest number that is divisible by the given divisor.</span>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">        x (int): The number to make divisible.</span>
-<a id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="sd">        divisor (int | torch.Tensor): The divisor.</span>
-<a id="__codelineno-0-134" name="__codelineno-0-134"></a>
-<a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="sd">        (int): The nearest number divisible by the divisor.</span>
-<a id="__codelineno-0-137" name="__codelineno-0-137"></a><span class="sd">    """</span>
-<a id="__codelineno-0-138" name="__codelineno-0-138"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">divisor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-<a id="__codelineno-0-139" name="__codelineno-0-139"></a>        <span class="n">divisor</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">divisor</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>  <span class="c1"># to int</span>
-<a id="__codelineno-0-140" name="__codelineno-0-140"></a>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">divisor</span><span class="p">)</span> <span class="o">*</span> <span class="n">divisor</span>
+<span class="normal"><a href="#__codelineno-0-139">139</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="k">def</span> <span class="nf">make_divisible</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">    Returns the nearest number that is divisible by the given divisor.</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129"></a>
+<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">        x (int): The number to make divisible.</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">        divisor (int | torch.Tensor): The divisor.</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="sd">        (int): The nearest number divisible by the divisor.</span>
+<a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="sd">    """</span>
+<a id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">divisor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<a id="__codelineno-0-138" name="__codelineno-0-138"></a>        <span class="n">divisor</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">divisor</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>  <span class="c1"># to int</span>
+<a id="__codelineno-0-139" name="__codelineno-0-139"></a>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">divisor</span><span class="p">)</span> <span class="o">*</span> <span class="n">divisor</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2296,7 +2296,8 @@ rescaling.</p>
 <p>Returns:</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-143">143</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-142">142</a></span>
+<span class="normal"><a href="#__codelineno-0-143">143</a></span>
 <span class="normal"><a href="#__codelineno-0-144">144</a></span>
 <span class="normal"><a href="#__codelineno-0-145">145</a></span>
 <span class="normal"><a href="#__codelineno-0-146">146</a></span>
@@ -2312,25 +2313,24 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-156">156</a></span>
 <span class="normal"><a href="#__codelineno-0-157">157</a></span>
 <span class="normal"><a href="#__codelineno-0-158">158</a></span>
-<span class="normal"><a href="#__codelineno-0-159">159</a></span>
-<span class="normal"><a href="#__codelineno-0-160">160</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-143" name="__codelineno-0-143"></a><span class="k">def</span> <span class="nf">nms_rotated</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.45</span><span class="p">):</span>
-<a id="__codelineno-0-144" name="__codelineno-0-144"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-145" name="__codelineno-0-145"></a><span class="sd">    NMS for obbs, powered by probiou and fast-nms.</span>
-<a id="__codelineno-0-146" name="__codelineno-0-146"></a>
-<a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="sd">        boxes (torch.Tensor): (N, 5), xywhr.</span>
-<a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="sd">        scores (torch.Tensor): (N, ).</span>
-<a id="__codelineno-0-150" name="__codelineno-0-150"></a><span class="sd">        threshold (float): IoU threshold.</span>
-<a id="__codelineno-0-151" name="__codelineno-0-151"></a>
-<a id="__codelineno-0-152" name="__codelineno-0-152"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-153" name="__codelineno-0-153"></a><span class="sd">    """</span>
-<a id="__codelineno-0-154" name="__codelineno-0-154"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">boxes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-155" name="__codelineno-0-155"></a>        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
-<a id="__codelineno-0-156" name="__codelineno-0-156"></a>    <span class="n">sorted_idx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-157" name="__codelineno-0-157"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="n">sorted_idx</span><span class="p">]</span>
-<a id="__codelineno-0-158" name="__codelineno-0-158"></a>    <span class="n">ious</span> <span class="o">=</span> <span class="n">batch_probiou</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">boxes</span><span class="p">)</span><span class="o">.</span><span class="n">triu_</span><span class="p">(</span><span class="n">diagonal</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-159" name="__codelineno-0-159"></a>    <span class="n">pick</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">ious</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze_</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-160" name="__codelineno-0-160"></a>    <span class="k">return</span> <span class="n">sorted_idx</span><span class="p">[</span><span class="n">pick</span><span class="p">]</span>
+<span class="normal"><a href="#__codelineno-0-159">159</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-142" name="__codelineno-0-142"></a><span class="k">def</span> <span class="nf">nms_rotated</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.45</span><span class="p">):</span>
+<a id="__codelineno-0-143" name="__codelineno-0-143"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-144" name="__codelineno-0-144"></a><span class="sd">    NMS for obbs, powered by probiou and fast-nms.</span>
+<a id="__codelineno-0-145" name="__codelineno-0-145"></a>
+<a id="__codelineno-0-146" name="__codelineno-0-146"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="sd">        boxes (torch.Tensor): (N, 5), xywhr.</span>
+<a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="sd">        scores (torch.Tensor): (N, ).</span>
+<a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="sd">        threshold (float): IoU threshold.</span>
+<a id="__codelineno-0-150" name="__codelineno-0-150"></a>
+<a id="__codelineno-0-151" name="__codelineno-0-151"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-152" name="__codelineno-0-152"></a><span class="sd">    """</span>
+<a id="__codelineno-0-153" name="__codelineno-0-153"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">boxes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-154" name="__codelineno-0-154"></a>        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<a id="__codelineno-0-155" name="__codelineno-0-155"></a>    <span class="n">sorted_idx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-156" name="__codelineno-0-156"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="n">sorted_idx</span><span class="p">]</span>
+<a id="__codelineno-0-157" name="__codelineno-0-157"></a>    <span class="n">ious</span> <span class="o">=</span> <span class="n">batch_probiou</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">boxes</span><span class="p">)</span><span class="o">.</span><span class="n">triu_</span><span class="p">(</span><span class="n">diagonal</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-158" name="__codelineno-0-158"></a>    <span class="n">pick</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">ious</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze_</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-159" name="__codelineno-0-159"></a>    <span class="k">return</span> <span class="n">sorted_idx</span><span class="p">[</span><span class="n">pick</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2568,7 +2568,8 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-163">163</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-162">162</a></span>
+<span class="normal"><a href="#__codelineno-0-163">163</a></span>
 <span class="normal"><a href="#__codelineno-0-164">164</a></span>
 <span class="normal"><a href="#__codelineno-0-165">165</a></span>
 <span class="normal"><a href="#__codelineno-0-166">166</a></span>
@@ -2707,52 +2708,53 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <span class="normal"><a href="#__codelineno-0-299">299</a></span>
 <span class="normal"><a href="#__codelineno-0-300">300</a></span>
 <span class="normal"><a href="#__codelineno-0-301">301</a></span>
-<span class="normal"><a href="#__codelineno-0-302">302</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-163" name="__codelineno-0-163"></a><span class="k">def</span> <span class="nf">non_max_suppression</span><span class="p">(</span>
-<a id="__codelineno-0-164" name="__codelineno-0-164"></a>    <span class="n">prediction</span><span class="p">,</span>
-<a id="__codelineno-0-165" name="__codelineno-0-165"></a>    <span class="n">conf_thres</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
-<a id="__codelineno-0-166" name="__codelineno-0-166"></a>    <span class="n">iou_thres</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span>
-<a id="__codelineno-0-167" name="__codelineno-0-167"></a>    <span class="n">classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-168" name="__codelineno-0-168"></a>    <span class="n">agnostic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-169" name="__codelineno-0-169"></a>    <span class="n">multi_label</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-170" name="__codelineno-0-170"></a>    <span class="n">labels</span><span class="o">=</span><span class="p">(),</span>
-<a id="__codelineno-0-171" name="__codelineno-0-171"></a>    <span class="n">max_det</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-<a id="__codelineno-0-172" name="__codelineno-0-172"></a>    <span class="n">nc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># number of classes (optional)</span>
-<a id="__codelineno-0-173" name="__codelineno-0-173"></a>    <span class="n">max_time_img</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
-<a id="__codelineno-0-174" name="__codelineno-0-174"></a>    <span class="n">max_nms</span><span class="o">=</span><span class="mi">30000</span><span class="p">,</span>
-<a id="__codelineno-0-175" name="__codelineno-0-175"></a>    <span class="n">max_wh</span><span class="o">=</span><span class="mi">7680</span><span class="p">,</span>
-<a id="__codelineno-0-176" name="__codelineno-0-176"></a>    <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-177" name="__codelineno-0-177"></a>    <span class="n">rotated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="p">):</span>
-<a id="__codelineno-0-179" name="__codelineno-0-179"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">    Perform non-maximum suppression (NMS) on a set of boxes, with support for masks and multiple labels per box.</span>
-<a id="__codelineno-0-181" name="__codelineno-0-181"></a>
-<a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="sd">        prediction (torch.Tensor): A tensor of shape (batch_size, num_classes + 4 + num_masks, num_boxes)</span>
-<a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">            containing the predicted boxes, classes, and masks. The tensor should be in the format</span>
-<a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="sd">            output by a model, such as YOLO.</span>
-<a id="__codelineno-0-186" name="__codelineno-0-186"></a><span class="sd">        conf_thres (float): The confidence threshold below which boxes will be filtered out.</span>
-<a id="__codelineno-0-187" name="__codelineno-0-187"></a><span class="sd">            Valid values are between 0.0 and 1.0.</span>
-<a id="__codelineno-0-188" name="__codelineno-0-188"></a><span class="sd">        iou_thres (float): The IoU threshold below which boxes will be filtered out during NMS.</span>
-<a id="__codelineno-0-189" name="__codelineno-0-189"></a><span class="sd">            Valid values are between 0.0 and 1.0.</span>
-<a id="__codelineno-0-190" name="__codelineno-0-190"></a><span class="sd">        classes (List[int]): A list of class indices to consider. If None, all classes will be considered.</span>
-<a id="__codelineno-0-191" name="__codelineno-0-191"></a><span class="sd">        agnostic (bool): If True, the model is agnostic to the number of classes, and all</span>
-<a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="sd">            classes will be considered as one.</span>
-<a id="__codelineno-0-193" name="__codelineno-0-193"></a><span class="sd">        multi_label (bool): If True, each box may have multiple labels.</span>
-<a id="__codelineno-0-194" name="__codelineno-0-194"></a><span class="sd">        labels (List[List[Union[int, float, torch.Tensor]]]): A list of lists, where each inner</span>
-<a id="__codelineno-0-195" name="__codelineno-0-195"></a><span class="sd">            list contains the apriori labels for a given image. The list should be in the format</span>
-<a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="sd">            output by a dataloader, with each label being a tuple of (class_index, x1, y1, x2, y2).</span>
-<a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="sd">        max_det (int): The maximum number of boxes to keep after NMS.</span>
-<a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="sd">        nc (int, optional): The number of classes output by the model. Any indices after this will be considered masks.</span>
-<a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">        max_time_img (float): The maximum time (seconds) for processing one image.</span>
-<a id="__codelineno-0-200" name="__codelineno-0-200"></a><span class="sd">        max_nms (int): The maximum number of boxes into torchvision.ops.nms().</span>
-<a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="sd">        max_wh (int): The maximum box width and height in pixels.</span>
-<a id="__codelineno-0-202" name="__codelineno-0-202"></a><span class="sd">        in_place (bool): If True, the input prediction tensor will be modified in place.</span>
-<a id="__codelineno-0-203" name="__codelineno-0-203"></a>
-<a id="__codelineno-0-204" name="__codelineno-0-204"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="sd">        (List[torch.Tensor]): A list of length batch_size, where each element is a tensor of</span>
-<a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="sd">            shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns</span>
-<a id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="sd">            (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</span>
-<a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="sd">    """</span>
+<span class="normal"><a href="#__codelineno-0-302">302</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="k">def</span> <span class="nf">non_max_suppression</span><span class="p">(</span>
+<a id="__codelineno-0-163" name="__codelineno-0-163"></a>    <span class="n">prediction</span><span class="p">,</span>
+<a id="__codelineno-0-164" name="__codelineno-0-164"></a>    <span class="n">conf_thres</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+<a id="__codelineno-0-165" name="__codelineno-0-165"></a>    <span class="n">iou_thres</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span>
+<a id="__codelineno-0-166" name="__codelineno-0-166"></a>    <span class="n">classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-167" name="__codelineno-0-167"></a>    <span class="n">agnostic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-168" name="__codelineno-0-168"></a>    <span class="n">multi_label</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-169" name="__codelineno-0-169"></a>    <span class="n">labels</span><span class="o">=</span><span class="p">(),</span>
+<a id="__codelineno-0-170" name="__codelineno-0-170"></a>    <span class="n">max_det</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+<a id="__codelineno-0-171" name="__codelineno-0-171"></a>    <span class="n">nc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># number of classes (optional)</span>
+<a id="__codelineno-0-172" name="__codelineno-0-172"></a>    <span class="n">max_time_img</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+<a id="__codelineno-0-173" name="__codelineno-0-173"></a>    <span class="n">max_nms</span><span class="o">=</span><span class="mi">30000</span><span class="p">,</span>
+<a id="__codelineno-0-174" name="__codelineno-0-174"></a>    <span class="n">max_wh</span><span class="o">=</span><span class="mi">7680</span><span class="p">,</span>
+<a id="__codelineno-0-175" name="__codelineno-0-175"></a>    <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-176" name="__codelineno-0-176"></a>    <span class="n">rotated</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="p">):</span>
+<a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-179" name="__codelineno-0-179"></a><span class="sd">    Perform non-maximum suppression (NMS) on a set of boxes, with support for masks and multiple labels per box.</span>
+<a id="__codelineno-0-180" name="__codelineno-0-180"></a>
+<a id="__codelineno-0-181" name="__codelineno-0-181"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">        prediction (torch.Tensor): A tensor of shape (batch_size, num_classes + 4 + num_masks, num_boxes)</span>
+<a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="sd">            containing the predicted boxes, classes, and masks. The tensor should be in the format</span>
+<a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">            output by a model, such as YOLO.</span>
+<a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="sd">        conf_thres (float): The confidence threshold below which boxes will be filtered out.</span>
+<a id="__codelineno-0-186" name="__codelineno-0-186"></a><span class="sd">            Valid values are between 0.0 and 1.0.</span>
+<a id="__codelineno-0-187" name="__codelineno-0-187"></a><span class="sd">        iou_thres (float): The IoU threshold below which boxes will be filtered out during NMS.</span>
+<a id="__codelineno-0-188" name="__codelineno-0-188"></a><span class="sd">            Valid values are between 0.0 and 1.0.</span>
+<a id="__codelineno-0-189" name="__codelineno-0-189"></a><span class="sd">        classes (List[int]): A list of class indices to consider. If None, all classes will be considered.</span>
+<a id="__codelineno-0-190" name="__codelineno-0-190"></a><span class="sd">        agnostic (bool): If True, the model is agnostic to the number of classes, and all</span>
+<a id="__codelineno-0-191" name="__codelineno-0-191"></a><span class="sd">            classes will be considered as one.</span>
+<a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="sd">        multi_label (bool): If True, each box may have multiple labels.</span>
+<a id="__codelineno-0-193" name="__codelineno-0-193"></a><span class="sd">        labels (List[List[Union[int, float, torch.Tensor]]]): A list of lists, where each inner</span>
+<a id="__codelineno-0-194" name="__codelineno-0-194"></a><span class="sd">            list contains the apriori labels for a given image. The list should be in the format</span>
+<a id="__codelineno-0-195" name="__codelineno-0-195"></a><span class="sd">            output by a dataloader, with each label being a tuple of (class_index, x1, y1, x2, y2).</span>
+<a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="sd">        max_det (int): The maximum number of boxes to keep after NMS.</span>
+<a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="sd">        nc (int, optional): The number of classes output by the model. Any indices after this will be considered masks.</span>
+<a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="sd">        max_time_img (float): The maximum time (seconds) for processing one image.</span>
+<a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">        max_nms (int): The maximum number of boxes into torchvision.ops.nms().</span>
+<a id="__codelineno-0-200" name="__codelineno-0-200"></a><span class="sd">        max_wh (int): The maximum box width and height in pixels.</span>
+<a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="sd">        in_place (bool): If True, the input prediction tensor will be modified in place.</span>
+<a id="__codelineno-0-202" name="__codelineno-0-202"></a>
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-204" name="__codelineno-0-204"></a><span class="sd">        (List[torch.Tensor]): A list of length batch_size, where each element is a tensor of</span>
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="sd">            shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns</span>
+<a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="sd">            (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</span>
+<a id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="sd">    """</span>
+<a id="__codelineno-0-208" name="__codelineno-0-208"></a>    <span class="kn">import</span> <span class="nn">torchvision</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
 <a id="__codelineno-0-209" name="__codelineno-0-209"></a>
 <a id="__codelineno-0-210" name="__codelineno-0-210"></a>    <span class="c1"># Checks</span>
 <a id="__codelineno-0-211" name="__codelineno-0-211"></a>    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">conf_thres</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Invalid Confidence threshold </span><span class="si">{</span><span class="n">conf_thres</span><span class="si">}</span><span class="s2">, valid values are between 0.0 and 1.0"</span>
