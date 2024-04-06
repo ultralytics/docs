@@ -1334,7 +1334,7 @@
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>                <span class="c1"># Attempt to authenticate with the provided API key</span>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a>                <span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">authenticate</span><span class="p">()</span>
 <a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="c1"># If the API key is not provided and the environment is a Google Colab notebook</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="k">elif</span> <span class="n">is_colab</span><span class="p">():</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="k">elif</span> <span class="n">IS_COLAB</span><span class="p">:</span>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>            <span class="c1"># Attempt to authenticate using browser cookies</span>
 <a id="__codelineno-0-55" name="__codelineno-0-55"></a>            <span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth_with_cookies</span><span class="p">()</span>
 <a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="k">else</span><span class="p">:</span>
@@ -1393,7 +1393,7 @@
 <a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">        Returns:</span>
 <a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">            (bool): True if authentication is successful, False otherwise.</span>
 <a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">        """</span>
-<a id="__codelineno-0-112" name="__codelineno-0-112"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_colab</span><span class="p">():</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">IS_COLAB</span><span class="p">:</span>
 <a id="__codelineno-0-113" name="__codelineno-0-113"></a>            <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># Currently only works with Colab</span>
 <a id="__codelineno-0-114" name="__codelineno-0-114"></a>        <span class="k">try</span><span class="p">:</span>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a>            <span class="n">authn</span> <span class="o">=</span> <span class="n">request_with_credentials</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_API_ROOT</span><span class="si">}</span><span class="s2">/v1/auth/auto"</span><span class="p">)</span>
@@ -1519,7 +1519,7 @@
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>            <span class="c1"># Attempt to authenticate with the provided API key</span>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a>            <span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">authenticate</span><span class="p">()</span>
 <a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="c1"># If the API key is not provided and the environment is a Google Colab notebook</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">elif</span> <span class="n">is_colab</span><span class="p">():</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">elif</span> <span class="n">IS_COLAB</span><span class="p">:</span>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="c1"># Attempt to authenticate using browser cookies</span>
 <a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth_with_cookies</span><span class="p">()</span>
 <a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">else</span><span class="p">:</span>
@@ -1595,7 +1595,7 @@ supported browser.</p>
 <a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">        (bool): True if authentication is successful, False otherwise.</span>
 <a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">    """</span>
-<a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_colab</span><span class="p">():</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">IS_COLAB</span><span class="p">:</span>
 <a id="__codelineno-0-113" name="__codelineno-0-113"></a>        <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># Currently only works with Colab</span>
 <a id="__codelineno-0-114" name="__codelineno-0-114"></a>    <span class="k">try</span><span class="p">:</span>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a>        <span class="n">authn</span> <span class="o">=</span> <span class="n">request_with_credentials</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_API_ROOT</span><span class="si">}</span><span class="s2">/v1/auth/auto"</span><span class="p">)</span>

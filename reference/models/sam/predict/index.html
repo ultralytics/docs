@@ -1921,10 +1921,10 @@ points, and low-resolution masks.</p>
 <a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="sd">        Args:</span>
 <a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">            im (torch.Tensor): The preprocessed input image in tensor format, with shape (N, C, H, W).</span>
 <a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">            bboxes (np.ndarray | List, optional): Bounding boxes with shape (N, 4), in XYXY format.</span>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">            points (np.ndarray | List, optional): Points indicating object locations with shape (N, 2), in pixel coordinates.</span>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">            labels (np.ndarray | List, optional): Labels for point prompts, shape (N, ). 1 for foreground and 0 for background.</span>
-<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">            masks (np.ndarray, optional): Low-resolution masks from previous predictions. Shape should be (N, H, W). For SAM, H=W=256.</span>
-<a id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="sd">            multimask_output (bool, optional): Flag to return multiple masks. Helpful for ambiguous prompts. Defaults to False.</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">            points (np.ndarray | List, optional): Points indicating object locations with shape (N, 2), in pixels.</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">            labels (np.ndarray | List, optional): Labels for point prompts, shape (N, ). 1 = foreground, 0 = background.</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">            masks (np.ndarray, optional): Low-resolution masks from previous predictions shape (N,H,W). For SAM H=W=256.</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="sd">            multimask_output (bool, optional): Flag to return multiple masks. Helpful for ambiguous prompts.</span>
 <a id="__codelineno-0-134" name="__codelineno-0-134"></a>
 <a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="sd">        Returns:</span>
 <a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="sd">            (tuple): Contains the following three elements.</span>
@@ -1950,10 +1950,10 @@ points, and low-resolution masks.</p>
 <a id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="sd">        Args:</span>
 <a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="sd">            im (torch.Tensor): The preprocessed input image in tensor format, with shape (N, C, H, W).</span>
 <a id="__codelineno-0-158" name="__codelineno-0-158"></a><span class="sd">            bboxes (np.ndarray | List, optional): Bounding boxes with shape (N, 4), in XYXY format.</span>
-<a id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="sd">            points (np.ndarray | List, optional): Points indicating object locations with shape (N, 2), in pixel coordinates.</span>
-<a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">            labels (np.ndarray | List, optional): Labels for point prompts, shape (N, ). 1 for foreground and 0 for background.</span>
-<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">            masks (np.ndarray, optional): Low-resolution masks from previous predictions. Shape should be (N, H, W). For SAM, H=W=256.</span>
-<a id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="sd">            multimask_output (bool, optional): Flag to return multiple masks. Helpful for ambiguous prompts. Defaults to False.</span>
+<a id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="sd">            points (np.ndarray | List, optional): Points indicating object locations with shape (N, 2), in pixels.</span>
+<a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">            labels (np.ndarray | List, optional): Labels for point prompts, shape (N, ). 1 = foreground, 0 = background.</span>
+<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">            masks (np.ndarray, optional): Low-resolution masks from previous predictions shape (N,H,W). For SAM H=W=256.</span>
+<a id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="sd">            multimask_output (bool, optional): Flag to return multiple masks. Helpful for ambiguous prompts.</span>
 <a id="__codelineno-0-163" name="__codelineno-0-163"></a>
 <a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="sd">        Returns:</span>
 <a id="__codelineno-0-165" name="__codelineno-0-165"></a><span class="sd">            (tuple): Contains the following three elements.</span>
@@ -2024,7 +2024,7 @@ points, and low-resolution masks.</p>
 <a id="__codelineno-0-230" name="__codelineno-0-230"></a><span class="sd">            im (torch.Tensor): Input tensor representing the preprocessed image with dimensions (N, C, H, W).</span>
 <a id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="sd">            crop_n_layers (int): Specifies the number of layers for additional mask predictions on image crops.</span>
 <a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="sd">                                 Each layer produces 2**i_layer number of image crops.</span>
-<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">            crop_overlap_ratio (float): Determines the extent of overlap between crops. Scaled down in subsequent layers.</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">            crop_overlap_ratio (float): Determines the overlap between crops. Scaled down in subsequent layers.</span>
 <a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">            crop_downscale_factor (int): Scaling factor for the number of sampled points-per-side in each layer.</span>
 <a id="__codelineno-0-235" name="__codelineno-0-235"></a><span class="sd">            point_grids (list[np.ndarray], optional): Custom grids for point sampling normalized to [0,1].</span>
 <a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">                                                      Used in the nth crop layer.</span>
@@ -2034,7 +2034,7 @@ points, and low-resolution masks.</p>
 <a id="__codelineno-0-240" name="__codelineno-0-240"></a><span class="sd">            conf_thres (float): Confidence threshold [0,1] for filtering based on the model's mask quality prediction.</span>
 <a id="__codelineno-0-241" name="__codelineno-0-241"></a><span class="sd">            stability_score_thresh (float): Stability threshold [0,1] for mask filtering based on mask stability.</span>
 <a id="__codelineno-0-242" name="__codelineno-0-242"></a><span class="sd">            stability_score_offset (float): Offset value for calculating stability score.</span>
-<a id="__codelineno-0-243" name="__codelineno-0-243"></a><span class="sd">            crop_nms_thresh (float): IoU cutoff for Non-Maximum Suppression (NMS) to remove duplicate masks between crops.</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a><span class="sd">            crop_nms_thresh (float): IoU cutoff for NMS to remove duplicate masks between crops.</span>
 <a id="__codelineno-0-244" name="__codelineno-0-244"></a>
 <a id="__codelineno-0-245" name="__codelineno-0-245"></a><span class="sd">        Returns:</span>
 <a id="__codelineno-0-246" name="__codelineno-0-246"></a><span class="sd">            (tuple): A tuple containing segmented masks, confidence scores, and bounding boxes.</span>
@@ -2145,8 +2145,8 @@ points, and low-resolution masks.</p>
 <a id="__codelineno-0-351" name="__codelineno-0-351"></a><span class="w">        </span><span class="sd">"""</span>
 <a id="__codelineno-0-352" name="__codelineno-0-352"></a><span class="sd">        Post-processes SAM's inference outputs to generate object detection masks and bounding boxes.</span>
 <a id="__codelineno-0-353" name="__codelineno-0-353"></a>
-<a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="sd">        The method scales masks and boxes to the original image size and applies a threshold to the mask predictions. The</span>
-<a id="__codelineno-0-355" name="__codelineno-0-355"></a><span class="sd">        SAM model uses advanced architecture and promptable segmentation tasks to achieve real-time performance.</span>
+<a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="sd">        The method scales masks and boxes to the original image size and applies a threshold to the mask predictions.</span>
+<a id="__codelineno-0-355" name="__codelineno-0-355"></a><span class="sd">        The SAM model uses advanced architecture and promptable segmentation tasks to achieve real-time performance.</span>
 <a id="__codelineno-0-356" name="__codelineno-0-356"></a>
 <a id="__codelineno-0-357" name="__codelineno-0-357"></a><span class="sd">        Args:</span>
 <a id="__codelineno-0-358" name="__codelineno-0-358"></a><span class="sd">            preds (tuple): The output from SAM model inference, containing masks, scores, and optional bounding boxes.</span>
@@ -2437,7 +2437,7 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 <td>
 <div class="doc-md-description">
-<p>Determines the extent of overlap between crops. Scaled down in subsequent layers.</p>
+<p>Determines the overlap between crops. Scaled down in subsequent layers.</p>
 </div>
 </td>
 <td>
@@ -2551,7 +2551,7 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 <td>
 <div class="doc-md-description">
-<p>IoU cutoff for Non-Maximum Suppression (NMS) to remove duplicate masks between crops.</p>
+<p>IoU cutoff for NMS to remove duplicate masks between crops.</p>
 </div>
 </td>
 <td>
@@ -2713,7 +2713,7 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <a id="__codelineno-0-230" name="__codelineno-0-230"></a><span class="sd">        im (torch.Tensor): Input tensor representing the preprocessed image with dimensions (N, C, H, W).</span>
 <a id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="sd">        crop_n_layers (int): Specifies the number of layers for additional mask predictions on image crops.</span>
 <a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="sd">                             Each layer produces 2**i_layer number of image crops.</span>
-<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">        crop_overlap_ratio (float): Determines the extent of overlap between crops. Scaled down in subsequent layers.</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">        crop_overlap_ratio (float): Determines the overlap between crops. Scaled down in subsequent layers.</span>
 <a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">        crop_downscale_factor (int): Scaling factor for the number of sampled points-per-side in each layer.</span>
 <a id="__codelineno-0-235" name="__codelineno-0-235"></a><span class="sd">        point_grids (list[np.ndarray], optional): Custom grids for point sampling normalized to [0,1].</span>
 <a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">                                                  Used in the nth crop layer.</span>
@@ -2723,7 +2723,7 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <a id="__codelineno-0-240" name="__codelineno-0-240"></a><span class="sd">        conf_thres (float): Confidence threshold [0,1] for filtering based on the model's mask quality prediction.</span>
 <a id="__codelineno-0-241" name="__codelineno-0-241"></a><span class="sd">        stability_score_thresh (float): Stability threshold [0,1] for mask filtering based on mask stability.</span>
 <a id="__codelineno-0-242" name="__codelineno-0-242"></a><span class="sd">        stability_score_offset (float): Offset value for calculating stability score.</span>
-<a id="__codelineno-0-243" name="__codelineno-0-243"></a><span class="sd">        crop_nms_thresh (float): IoU cutoff for Non-Maximum Suppression (NMS) to remove duplicate masks between crops.</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a><span class="sd">        crop_nms_thresh (float): IoU cutoff for NMS to remove duplicate masks between crops.</span>
 <a id="__codelineno-0-244" name="__codelineno-0-244"></a>
 <a id="__codelineno-0-245" name="__codelineno-0-245"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-246" name="__codelineno-0-246"></a><span class="sd">        (tuple): A tuple containing segmented masks, confidence scores, and bounding boxes.</span>
@@ -2854,7 +2854,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Points indicating object locations with shape (N, 2), in pixel coordinates.</p>
+<p>Points indicating object locations with shape (N, 2), in pixels.</p>
 </div>
 </td>
 <td>
@@ -2868,7 +2868,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Labels for point prompts, shape (N, ). 1 for foreground and 0 for background.</p>
+<p>Labels for point prompts, shape (N, ). 1 = foreground, 0 = background.</p>
 </div>
 </td>
 <td>
@@ -2882,7 +2882,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Low-resolution masks from previous predictions. Shape should be (N, H, W). For SAM, H=W=256.</p>
+<p>Low-resolution masks from previous predictions shape (N,H,W). For SAM H=W=256.</p>
 </div>
 </td>
 <td>
@@ -2896,7 +2896,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Flag to return multiple masks. Helpful for ambiguous prompts. Defaults to False.</p>
+<p>Flag to return multiple masks. Helpful for ambiguous prompts.</p>
 </div>
 </td>
 <td>
@@ -2968,10 +2968,10 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 <a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">        im (torch.Tensor): The preprocessed input image in tensor format, with shape (N, C, H, W).</span>
 <a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">        bboxes (np.ndarray | List, optional): Bounding boxes with shape (N, 4), in XYXY format.</span>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">        points (np.ndarray | List, optional): Points indicating object locations with shape (N, 2), in pixel coordinates.</span>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">        labels (np.ndarray | List, optional): Labels for point prompts, shape (N, ). 1 for foreground and 0 for background.</span>
-<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">        masks (np.ndarray, optional): Low-resolution masks from previous predictions. Shape should be (N, H, W). For SAM, H=W=256.</span>
-<a id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="sd">        multimask_output (bool, optional): Flag to return multiple masks. Helpful for ambiguous prompts. Defaults to False.</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">        points (np.ndarray | List, optional): Points indicating object locations with shape (N, 2), in pixels.</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">        labels (np.ndarray | List, optional): Labels for point prompts, shape (N, ). 1 = foreground, 0 = background.</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">        masks (np.ndarray, optional): Low-resolution masks from previous predictions shape (N,H,W). For SAM H=W=256.</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="sd">        multimask_output (bool, optional): Flag to return multiple masks. Helpful for ambiguous prompts.</span>
 <a id="__codelineno-0-134" name="__codelineno-0-134"></a>
 <a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="sd">        (tuple): Contains the following three elements.</span>
@@ -2998,8 +2998,8 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 </h3>
 <div class="doc doc-contents">
 <p>Post-processes SAM's inference outputs to generate object detection masks and bounding boxes.</p>
-<p>The method scales masks and boxes to the original image size and applies a threshold to the mask predictions. The
-SAM model uses advanced architecture and promptable segmentation tasks to achieve real-time performance.</p>
+<p>The method scales masks and boxes to the original image size and applies a threshold to the mask predictions.
+The SAM model uses advanced architecture and promptable segmentation tasks to achieve real-time performance.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -3119,8 +3119,8 @@ SAM model uses advanced architecture and promptable segmentation tasks to achiev
 <a id="__codelineno-0-351" name="__codelineno-0-351"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-352" name="__codelineno-0-352"></a><span class="sd">    Post-processes SAM's inference outputs to generate object detection masks and bounding boxes.</span>
 <a id="__codelineno-0-353" name="__codelineno-0-353"></a>
-<a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="sd">    The method scales masks and boxes to the original image size and applies a threshold to the mask predictions. The</span>
-<a id="__codelineno-0-355" name="__codelineno-0-355"></a><span class="sd">    SAM model uses advanced architecture and promptable segmentation tasks to achieve real-time performance.</span>
+<a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="sd">    The method scales masks and boxes to the original image size and applies a threshold to the mask predictions.</span>
+<a id="__codelineno-0-355" name="__codelineno-0-355"></a><span class="sd">    The SAM model uses advanced architecture and promptable segmentation tasks to achieve real-time performance.</span>
 <a id="__codelineno-0-356" name="__codelineno-0-356"></a>
 <a id="__codelineno-0-357" name="__codelineno-0-357"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-358" name="__codelineno-0-358"></a><span class="sd">        preds (tuple): The output from SAM model inference, containing masks, scores, and optional bounding boxes.</span>
@@ -3418,7 +3418,7 @@ Leverages SAM's specialized architecture for prompt-based, real-time segmentatio
 </td>
 <td>
 <div class="doc-md-description">
-<p>Points indicating object locations with shape (N, 2), in pixel coordinates.</p>
+<p>Points indicating object locations with shape (N, 2), in pixels.</p>
 </div>
 </td>
 <td>
@@ -3432,7 +3432,7 @@ Leverages SAM's specialized architecture for prompt-based, real-time segmentatio
 </td>
 <td>
 <div class="doc-md-description">
-<p>Labels for point prompts, shape (N, ). 1 for foreground and 0 for background.</p>
+<p>Labels for point prompts, shape (N, ). 1 = foreground, 0 = background.</p>
 </div>
 </td>
 <td>
@@ -3446,7 +3446,7 @@ Leverages SAM's specialized architecture for prompt-based, real-time segmentatio
 </td>
 <td>
 <div class="doc-md-description">
-<p>Low-resolution masks from previous predictions. Shape should be (N, H, W). For SAM, H=W=256.</p>
+<p>Low-resolution masks from previous predictions shape (N,H,W). For SAM H=W=256.</p>
 </div>
 </td>
 <td>
@@ -3460,7 +3460,7 @@ Leverages SAM's specialized architecture for prompt-based, real-time segmentatio
 </td>
 <td>
 <div class="doc-md-description">
-<p>Flag to return multiple masks. Helpful for ambiguous prompts. Defaults to False.</p>
+<p>Flag to return multiple masks. Helpful for ambiguous prompts.</p>
 </div>
 </td>
 <td>
@@ -3559,10 +3559,10 @@ Leverages SAM's specialized architecture for prompt-based, real-time segmentatio
 <a id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="sd">        im (torch.Tensor): The preprocessed input image in tensor format, with shape (N, C, H, W).</span>
 <a id="__codelineno-0-158" name="__codelineno-0-158"></a><span class="sd">        bboxes (np.ndarray | List, optional): Bounding boxes with shape (N, 4), in XYXY format.</span>
-<a id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="sd">        points (np.ndarray | List, optional): Points indicating object locations with shape (N, 2), in pixel coordinates.</span>
-<a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">        labels (np.ndarray | List, optional): Labels for point prompts, shape (N, ). 1 for foreground and 0 for background.</span>
-<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">        masks (np.ndarray, optional): Low-resolution masks from previous predictions. Shape should be (N, H, W). For SAM, H=W=256.</span>
-<a id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="sd">        multimask_output (bool, optional): Flag to return multiple masks. Helpful for ambiguous prompts. Defaults to False.</span>
+<a id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="sd">        points (np.ndarray | List, optional): Points indicating object locations with shape (N, 2), in pixels.</span>
+<a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">        labels (np.ndarray | List, optional): Labels for point prompts, shape (N, ). 1 = foreground, 0 = background.</span>
+<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">        masks (np.ndarray, optional): Low-resolution masks from previous predictions shape (N,H,W). For SAM H=W=256.</span>
+<a id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="sd">        multimask_output (bool, optional): Flag to return multiple masks. Helpful for ambiguous prompts.</span>
 <a id="__codelineno-0-163" name="__codelineno-0-163"></a>
 <a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-165" name="__codelineno-0-165"></a><span class="sd">        (tuple): Contains the following three elements.</span>
