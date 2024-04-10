@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Image Classification Datasets Overview" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, image classification, dataset, machine learning, CIFAR-10, ImageNet, MNIST, torchvision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/classify" property="og:url"/><meta content="Image Classification Datasets Overview" property="og:title"/><meta content="Explore image classification datasets supported by Ultralytics, learn the standard dataset format, and set up your own dataset for training models." property="og:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/classify" property="twitter:url"/><meta content="Image Classification Datasets Overview" property="twitter:title"/><meta content="Explore image classification datasets supported by Ultralytics, learn the standard dataset format, and set up your own dataset for training models." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Image Classification Datasets Overview", "image": ["https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-01-07 17:13:42 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Image Classification Datasets Overview" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, image classification, dataset, machine learning, CIFAR-10, ImageNet, MNIST, torchvision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/classify" property="og:url"/><meta content="Image Classification Datasets Overview" property="og:title"/><meta content="Explore image classification datasets supported by Ultralytics, learn the standard dataset format, and set up your own dataset for training models." property="og:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/classify" property="twitter:url"/><meta content="Image Classification Datasets Overview" property="twitter:title"/><meta content="Explore image classification datasets supported by Ultralytics, learn the standard dataset format, and set up your own dataset for training models." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Image Classification Datasets Overview", "image": ["https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-04-10 18:19:43 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -806,9 +806,9 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-format">
+<a class="md-nav__link" href="#dataset-structure-for-yolo-classification-tasks">
 <span class="md-ellipsis">
-      Dataset format
+      Dataset Structure for YOLO Classification Tasks
     </span>
 </a>
 </li>
@@ -848,86 +848,86 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
 <h1 id="image-classification-datasets-overview">Image Classification Datasets Overview</h1>
-<h2 id="dataset-format">Dataset format</h2>
-<p>The folder structure for classification datasets in torchvision typically follows a standard format:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>root/
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>|-- class1/
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>|   |-- img1.jpg
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>|   |-- img2.jpg
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>|   |-- ...
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>|
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>|-- class2/
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>|   |-- img1.jpg
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>|   |-- img2.jpg
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>|   |-- ...
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>|
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>|-- class3/
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>|   |-- img1.jpg
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>|   |-- img2.jpg
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>|   |-- ...
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>|
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>|-- ...
+<h3 id="dataset-structure-for-yolo-classification-tasks">Dataset Structure for YOLO Classification Tasks</h3>
+<p>For <a href="https://ultralytics.com">Ultralytics</a> YOLO classification tasks, the dataset must be organized in a specific split-direcotry structure under the <code>root</code> directory to facilitate proper training, testing, and optional validation processes. This structure includes separate directories for training (<code>train</code>) and testing (<code>test</code>) phases, with an optional directory for validation (<code>val</code>).</p>
+<p>Each of these directories should contain one subdirectory for each class in the dataset. The subdirectories are named after the corresponding class and contain all the images for that class. Ensure that each image file is named uniquely and stored in a common format such as JPEG or PNG.</p>
+<p><strong>Folder Structure Example</strong></p>
+<p>Consider the CIFAR-10 dataset as an example. The folder structure should look like this:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>cifar-10-/
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>|
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>|-- train/
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>|   |-- airplane/
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>|   |   |-- 10008_airplane.png
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>|   |   |-- 10009_airplane.png
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>|   |   |-- ...
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>|   |
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>|   |-- automobile/
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>|   |   |-- 1000_automobile.png
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>|   |   |-- 1001_automobile.png
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>|   |   |-- ...
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>|   |
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>|   |-- bird/
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>|   |   |-- 10014_bird.png
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>|   |   |-- 10015_bird.png
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>|   |   |-- ...
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>|   |
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>|   |-- ...
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>|
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>|-- test/
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>|   |-- airplane/
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>|   |   |-- 10_airplane.png
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>|   |   |-- 11_airplane.png
+<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>|   |   |-- ...
+<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>|   |
+<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>|   |-- automobile/
+<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>|   |   |-- 100_automobile.png
+<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>|   |   |-- 101_automobile.png
+<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>|   |   |-- ...
+<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a>|   |
+<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a>|   |-- bird/
+<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a>|   |   |-- 1000_bird.png
+<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>|   |   |-- 1001_bird.png
+<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a>|   |   |-- ...
+<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>|   |
+<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a>|   |-- ...
+<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a>|
+<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a>|-- val/ (optional)
+<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>|   |-- airplane/
+<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a>|   |   |-- 105_airplane.png
+<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a>|   |   |-- 106_airplane.png
+<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a>|   |   |-- ...
+<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a>|   |
+<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a>|   |-- automobile/
+<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a>|   |   |-- 102_automobile.png
+<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a>|   |   |-- 103_automobile.png
+<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a>|   |   |-- ...
+<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a>|   |
+<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a>|   |-- bird/
+<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a>|   |   |-- 1045_bird.png
+<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a>|   |   |-- 1046_bird.png
+<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a>|   |   |-- ...
+<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a>|   |
+<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a>|   |-- ...
 </code></pre></div>
-<p>In this folder structure, the <code>root</code> directory contains one subdirectory for each class in the dataset. Each subdirectory is named after the corresponding class and contains all the images for that class. Each image file is named uniquely and is typically in a common image file format such as JPEG or PNG.</p>
-<p>** Example **</p>
-<p>For example, in the CIFAR10 dataset, the folder structure would look like this:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>cifar-10-/
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>|
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>|-- train/
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>|   |-- airplane/
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>|   |   |-- 10008_airplane.png
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>|   |   |-- 10009_airplane.png
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>|   |   |-- ...
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>|   |
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>|   |-- automobile/
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>|   |   |-- 1000_automobile.png
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>|   |   |-- 1001_automobile.png
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>|   |   |-- ...
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>|   |
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>|   |-- bird/
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>|   |   |-- 10014_bird.png
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>|   |   |-- 10015_bird.png
-<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>|   |   |-- ...
-<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>|   |
-<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>|   |-- ...
-<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>|
-<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>|-- test/
-<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>|   |-- airplane/
-<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>|   |   |-- 10_airplane.png
-<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>|   |   |-- 11_airplane.png
-<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>|   |   |-- ...
-<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>|   |
-<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>|   |-- automobile/
-<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>|   |   |-- 100_automobile.png
-<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>|   |   |-- 101_automobile.png
-<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>|   |   |-- ...
-<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>|   |
-<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>|   |-- bird/
-<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>|   |   |-- 1000_bird.png
-<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a>|   |   |-- 1001_bird.png
-<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>|   |   |-- ...
-<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a>|   |
-<a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a>|   |-- ...
-</code></pre></div>
-<p>In this example, the <code>train</code> directory contains subdirectories for each class in the dataset, and each class subdirectory contains all the images for that class. The <code>test</code> directory has a similar structure. The <code>root</code> directory also contains other files that are part of the CIFAR10 dataset.</p>
+<p>This structured approach ensures that the model can effectively learn from well-organized classes during the training phase and accurately evaluate performance during testing and validation phases.</p>
 <h2 id="usage">Usage</h2>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-cls.pt'</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'path/to/dataset'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a model</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-cls.pt'</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Train the model</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'path/to/dataset'</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>path/to/data<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-cls.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>path/to/data<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-cls.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -957,7 +957,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-01-07<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/GreatV">GreatV</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-04-10<br/>Authors: <a href="https://github.com/stormsson">stormsson</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/GreatV">GreatV</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
