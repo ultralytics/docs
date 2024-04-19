@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="TensorBoard" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="TensorBoard, YOLOv8, Visualization, TensorFlow, Training Analysis, Metric Tracking, Model Graphs, Experimentation, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/tensorboard" property="og:url"/><meta content="TensorBoard" property="og:title"/><meta content="Walk through the integration of YOLOv8 with TensorBoard to be able to use TensorFlow's visualization toolkit for enhanced model training analysis, offering capabilities like metric tracking, model graph visualization, and more." property="og:description"/><meta content="https://www.tensorflow.org/static/tensorboard/images/tensorboard.gif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/tensorboard" property="twitter:url"/><meta content="TensorBoard" property="twitter:title"/><meta content="Walk through the integration of YOLOv8 with TensorBoard to be able to use TensorFlow's visualization toolkit for enhanced model training analysis, offering capabilities like metric tracking, model graph visualization, and more." property="twitter:description"/><meta content="https://www.tensorflow.org/static/tensorboard/images/tensorboard.gif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TensorBoard", "image": ["https://www.tensorflow.org/static/tensorboard/images/tensorboard.gif"], "datePublished": "2024-01-01 19:53:46 +0530", "dateModified": "2024-03-03 01:59:43 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="TensorBoard" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="TensorBoard, YOLOv8, Visualization, TensorFlow, Training Analysis, Metric Tracking, Model Graphs, Experimentation, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/tensorboard" property="og:url"/><meta content="TensorBoard" property="og:title"/><meta content="Walk through the integration of YOLOv8 with TensorBoard to be able to use TensorFlow's visualization toolkit for enhanced model training analysis, offering capabilities like metric tracking, model graph visualization, and more." property="og:description"/><meta content="https://www.tensorflow.org/static/tensorboard/images/tensorboard.gif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/tensorboard" property="twitter:url"/><meta content="TensorBoard" property="twitter:title"/><meta content="Walk through the integration of YOLOv8 with TensorBoard to be able to use TensorFlow's visualization toolkit for enhanced model training analysis, offering capabilities like metric tracking, model graph visualization, and more." property="twitter:description"/><meta content="https://www.tensorflow.org/static/tensorboard/images/tensorboard.gif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TensorBoard", "image": ["https://www.tensorflow.org/static/tensorboard/images/tensorboard.gif"], "datePublished": "2024-01-01 19:53:46 +0530", "dateModified": "2024-04-18 20:47:21 -0700", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -38,8 +38,8 @@
 <div class="md-banner__inner md-grid md-typeset">
 <div style="text-align: center;">
 <a href="https://hub.ultralytics.com/signup?utm_source=docs&amp;utm_medium=banner&amp;utm_campaign=cloud_training_release" style="color: #FFFFFF;" target="_blank">
-          Introducing Ultralytics HUB Cloud Training! ☁️ Scalable. Simple. Smart.   ➜
-      </a>
+        Introducing Ultralytics HUB Cloud Training! ☁️ Scalable. Simple. Smart.   ➜
+    </a>
 </div>
 </div>
 </aside>
@@ -877,7 +877,7 @@
 <p># Load a pre-trained model
    model = YOLO('yolov8n.pt')</p>
 <p># Train the model
-   results = model.train(data='coco128.yaml', epochs=100, imgsz=640)
+   results = model.train(data='coco8.yaml', epochs=100, imgsz=640)
    ```</p>
 </div>
 <p>Upon running the usage code snippet above, you can expect the following output:</p>
@@ -959,7 +959,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-01, Updated 2024-03-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-01, Updated 2024-04-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
