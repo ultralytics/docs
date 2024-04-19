@@ -1909,7 +1909,7 @@
 <p class="doc doc-class-bases">
             Bases: <code><span title="tqdm.tqdm">tqdm</span></code></p>
 <p>Custom Ultralytics tqdm class with different default arguments.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -1920,7 +1920,7 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>*args</code></td>
 <td>
 <code>list</code>
@@ -1934,7 +1934,7 @@
 <code>()</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>**kwargs</code></td>
 <td>
 <code>any</code>
@@ -2328,7 +2328,7 @@ enables usage with dict() and for loops.</p>
 <p>A decorator class for ensuring thread-safe execution of a function or method. This class can be used as a decorator
 to make sure that if the decorated function is called from multiple threads, only one thread at a time will be able
 to execute the function.</p>
-<p><strong>Attributes:</strong></p>
+<p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
 <tr>
@@ -2338,7 +2338,7 @@ to execute the function.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.ThreadingLocked.lock">lock</span></code></td>
 <td>
 <code><span title="threading.Lock">Lock</span></code>
@@ -2496,7 +2496,7 @@ to execute the function.</p>
 <p class="doc doc-class-bases">
             Bases: <code><span title="contextlib.ContextDecorator">ContextDecorator</span></code></p>
 <p>Ultralytics TryExcept class. Use as @TryExcept() decorator or 'with TryExcept():' context manager.</p>
-<p><strong>Examples:</strong></p>
+<p><span class="doc-section-title">Examples:</span></p>
 <p>As a decorator:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="nd">@TryExcept</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">"Error occurred in func"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
@@ -2644,7 +2644,7 @@ to execute the function.</p>
 <p>Retry class for function execution with exponential backoff.</p>
 <p>Can be used as a decorator or a context manager to retry a function or block of code on exceptions, up to a
 specified number of times with an exponentially increasing delay between retries.</p>
-<p><strong>Examples:</strong></p>
+<p><span class="doc-section-title">Examples:</span></p>
 <p>Example usage as a decorator:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="nd">@Retry</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">test_func</span><span class="p">():</span>
@@ -2897,7 +2897,7 @@ specified number of times with an exponentially increasing delay between retries
 <p class="doc doc-class-bases">
             Bases: <code>dict</code></p>
 <p>Manages Ultralytics settings stored in a YAML file.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -2908,7 +2908,7 @@ specified number of times with an exponentially increasing delay between retries
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>file</code></td>
 <td>
 <code>str | <span title="pathlib.Path">Path</span></code>
@@ -2922,7 +2922,7 @@ specified number of times with an exponentially increasing delay between retries
 <code><span title="ultralytics.utils.SETTINGS_YAML">SETTINGS_YAML</span></code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>version</code></td>
 <td>
 <code>str</code>
@@ -3350,7 +3350,7 @@ file.</p>
 <p>decorator: @plt_settings({"font.size": 12})
 context manager: with plt_settings({"font.size": 12}):</p>
 </details>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -3361,7 +3361,7 @@ context manager: with plt_settings({"font.size": 12}):</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>rcparams</code></td>
 <td>
 <code>dict</code>
@@ -3375,7 +3375,7 @@ context manager: with plt_settings({"font.size": 12}):</p>
 <code>None</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>backend</code></td>
 <td>
 <code>str</code>
@@ -3391,7 +3391,7 @@ context manager: with plt_settings({"font.size": 12}):</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -3400,7 +3400,7 @@ context manager: with plt_settings({"font.size": 12}):</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>Callable</code>
 </td>
@@ -3617,7 +3617,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Save YAML data to a file.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -3628,7 +3628,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>file</code></td>
 <td>
 <code>str</code>
@@ -3642,7 +3642,7 @@ environments.</p>
 <code>'data.yaml'</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>data</code></td>
 <td>
 <code>dict</code>
@@ -3656,7 +3656,7 @@ environments.</p>
 <code>None</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>header</code></td>
 <td>
 <code>str</code>
@@ -3672,7 +3672,7 @@ environments.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -3681,7 +3681,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>None</code>
 </td>
@@ -3764,7 +3764,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Load YAML data from a file.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -3775,7 +3775,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>file</code></td>
 <td>
 <code>str</code>
@@ -3789,7 +3789,7 @@ environments.</p>
 <code>'data.yaml'</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>append_filename</code></td>
 <td>
 <code>bool</code>
@@ -3805,7 +3805,7 @@ environments.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -3814,7 +3814,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>dict</code>
 </td>
@@ -3885,7 +3885,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Pretty prints a YAML file or a YAML-formatted dictionary.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -3896,7 +3896,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>yaml_file</code></td>
 <td>
 <code><span title="typing.Union">Union</span>[str, <span title="pathlib.Path">Path</span>, dict]</code>
@@ -3912,7 +3912,7 @@ environments.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -3921,7 +3921,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>None</code>
 </td>
@@ -3970,7 +3970,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Check if the OS is Ubuntu.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -3979,7 +3979,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>bool</code>
 </td>
@@ -4024,7 +4024,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Check if the current script is running inside a Google Colab notebook.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4033,7 +4033,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>bool</code>
 </td>
@@ -4072,7 +4072,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Check if the current script is running inside a Kaggle kernel.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4081,7 +4081,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>bool</code>
 </td>
@@ -4120,7 +4120,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Check if the current script is running inside a Jupyter Notebook. Verified on Colab, Jupyterlab, Kaggle, Paperspace.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4129,7 +4129,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>bool</code>
 </td>
@@ -4176,7 +4176,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Determine if the script is running inside a Docker container.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4185,7 +4185,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>bool</code>
 </td>
@@ -4230,7 +4230,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Check internet connectivity by attempting to connect to a known online host.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4239,7 +4239,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>bool</code>
 </td>
@@ -4292,7 +4292,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Determines if the file at the given filepath is part of a pip package.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -4303,7 +4303,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>filepath</code></td>
 <td>
 <code>str</code>
@@ -4319,7 +4319,7 @@ environments.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4328,7 +4328,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>bool</code>
 </td>
@@ -4385,7 +4385,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Check if a directory is writeable.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -4396,7 +4396,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>dir_path</code></td>
 <td>
 <code>str | <span title="pathlib.Path">Path</span></code>
@@ -4412,7 +4412,7 @@ environments.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4421,7 +4421,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>bool</code>
 </td>
@@ -4466,7 +4466,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Determines whether pytest is currently running or not.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4475,7 +4475,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>bool</code>
 </td>
@@ -4514,7 +4514,7 @@ environments.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Determine if the current environment is a GitHub Actions runner.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4523,7 +4523,7 @@ environments.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>bool</code>
 </td>
@@ -4563,7 +4563,7 @@ environments.</p>
 <div class="doc doc-contents first">
 <p>Determines whether the current file is part of a git repository. If the current file is not part of a git
 repository, returns None.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4572,7 +4572,7 @@ repository, returns None.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>bool</code>
 </td>
@@ -4614,7 +4614,7 @@ repository, returns None.</p>
 <div class="doc doc-contents first">
 <p>Determines whether the current file is part of a git repository and if so, returns the repository root directory. If
 the current file is not part of a git repository, returns None.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4623,7 +4623,7 @@ the current file is not part of a git repository, returns None.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code><span title="pathlib.Path">Path</span> | None</code>
 </td>
@@ -4668,7 +4668,7 @@ the current file is not part of a git repository, returns None.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Retrieves the origin URL of a git repository.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4677,7 +4677,7 @@ the current file is not part of a git repository, returns None.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>str | None</code>
 </td>
@@ -4722,7 +4722,7 @@ the current file is not part of a git repository, returns None.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Returns the current git branch name. If not in a git repository, returns None.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4731,7 +4731,7 @@ the current file is not part of a git repository, returns None.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>str | None</code>
 </td>
@@ -4776,7 +4776,7 @@ the current file is not part of a git repository, returns None.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Returns a dictionary of default arguments for a function.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -4787,7 +4787,7 @@ the current file is not part of a git repository, returns None.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>func</code></td>
 <td>
 <code>callable</code>
@@ -4803,7 +4803,7 @@ the current file is not part of a git repository, returns None.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4812,7 +4812,7 @@ the current file is not part of a git repository, returns None.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>dict</code>
 </td>
@@ -4859,7 +4859,7 @@ the current file is not part of a git repository, returns None.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Retrieve the Ubuntu version if the OS is Ubuntu.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4868,7 +4868,7 @@ the current file is not part of a git repository, returns None.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>str</code>
 </td>
@@ -4913,7 +4913,7 @@ the current file is not part of a git repository, returns None.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Return the appropriate config directory based on the environment operating system.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -4924,7 +4924,7 @@ the current file is not part of a git repository, returns None.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>sub_dir</code></td>
 <td>
 <code>str</code>
@@ -4940,7 +4940,7 @@ the current file is not part of a git repository, returns None.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4949,7 +4949,7 @@ the current file is not part of a git repository, returns None.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code><span title="pathlib.Path">Path</span></code>
 </td>
@@ -5042,7 +5042,7 @@ See https://en.wikipedia.org/wiki/ANSI_escape_code for more details.</p>
 <li>colorstr('your string')</li>
 </ul>
 </details> <p>In the second form, 'blue' and 'bold' will be applied by default.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -5053,7 +5053,7 @@ See https://en.wikipedia.org/wiki/ANSI_escape_code for more details.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>*input</code></td>
 <td>
 <code>str</code>
@@ -5077,7 +5077,7 @@ Bright Colors: 'bright_black', 'bright_red', 'bright_green', 'bright_yellow',
                'bright_blue', 'bright_magenta', 'bright_cyan', 'bright_white'
 Misc: 'end', 'bold', 'underline'</p>
 </details>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -5086,7 +5086,7 @@ Misc: 'end', 'bold', 'underline'</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>str</code>
 </td>
@@ -5098,7 +5098,7 @@ Misc: 'end', 'bold', 'underline'</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Examples:</strong></p>
+<p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"bold"</span><span class="p">,</span> <span class="s2">"hello world"</span><span class="p">)</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="s2">"[34m[1mhello world[0m"</span>
 </code></pre></div>
@@ -5215,7 +5215,7 @@ Misc: 'end', 'bold', 'underline'</p>
 </h2>
 <div class="doc doc-contents first">
 <p>Removes ANSI escape codes from a string, effectively un-coloring it.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -5226,7 +5226,7 @@ Misc: 'end', 'bold', 'underline'</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>input_string</code></td>
 <td>
 <code>str</code>
@@ -5242,7 +5242,7 @@ Misc: 'end', 'bold', 'underline'</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -5251,7 +5251,7 @@ Misc: 'end', 'bold', 'underline'</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>str</code>
 </td>
@@ -5263,7 +5263,7 @@ Misc: 'end', 'bold', 'underline'</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Examples:</strong></p>
+<p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">remove_colorstr</span><span class="p">(</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'bold'</span><span class="p">,</span> <span class="s1">'hello world'</span><span class="p">))</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="s1">'hello world'</span>
 </code></pre></div>

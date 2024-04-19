@@ -1498,13 +1498,13 @@
 </h2>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-            Bases: <code><span title="torch.Module">Module</span></code></p>
+            Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>An image encoder using Vision Transformer (ViT) architecture for encoding an image into a compact latent space. The
 encoder takes an image, splits it into patches, and processes these patches through a series of transformer blocks.
 The encoded patches are then processed through a neck to generate the final encoded representation.</p>
 <p>This class and its supporting functions below lightly adapted from the ViTDet backbone available at
 https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/backbone/vit.py.</p>
-<p><strong>Attributes:</strong></p>
+<p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
 <tr>
@@ -1514,7 +1514,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.ImageEncoderViT.img_size">img_size</span></code></td>
 <td>
 <code>int</code>
@@ -1525,7 +1525,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.ImageEncoderViT.patch_embed">patch_embed</span></code></td>
 <td>
 <code><a class="autorefs autorefs-internal" title="ultralytics.models.sam.modules.encoders.PatchEmbed" href="#ultralytics.models.sam.modules.encoders.PatchEmbed">PatchEmbed</a></code>
@@ -1536,10 +1536,10 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.ImageEncoderViT.pos_embed">pos_embed</span></code></td>
 <td>
-<code><span title="torch.Parameter">Parameter</span></code>
+<code><span title="torch.nn.Parameter">Parameter</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1547,10 +1547,10 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.ImageEncoderViT.blocks">blocks</span></code></td>
 <td>
-<code><span title="torch.ModuleList">ModuleList</span></code>
+<code><span title="torch.nn.ModuleList">ModuleList</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1558,10 +1558,10 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.ImageEncoderViT.neck">neck</span></code></td>
 <td>
-<code><span title="torch.Sequential">Sequential</span></code>
+<code><span title="torch.nn.Sequential">Sequential</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1806,7 +1806,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">img_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">patch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">in_chans</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">embed_dim</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">num_heads</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">mlp_ratio</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">out_chans</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">qkv_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">norm_layer</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">,</span> <span class="n">act_layer</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span> <span class="n">use_abs_pos</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_rel_pos</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rel_pos_zero_init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">global_attn_indexes</span><span class="o">=</span><span class="p">())</span></code>
 </h3>
 <div class="doc doc-contents">
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -1817,7 +1817,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>img_size</code></td>
 <td>
 <code>int</code>
@@ -1831,7 +1831,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>1024</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>patch_size</code></td>
 <td>
 <code>int</code>
@@ -1845,7 +1845,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>16</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>in_chans</code></td>
 <td>
 <code>int</code>
@@ -1859,7 +1859,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>3</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>embed_dim</code></td>
 <td>
 <code>int</code>
@@ -1873,7 +1873,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>768</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>depth</code></td>
 <td>
 <code>int</code>
@@ -1887,7 +1887,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>12</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>num_heads</code></td>
 <td>
 <code>int</code>
@@ -1901,7 +1901,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>12</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>mlp_ratio</code></td>
 <td>
 <code>float</code>
@@ -1915,7 +1915,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>4.0</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>qkv_bias</code></td>
 <td>
 <code>bool</code>
@@ -1929,10 +1929,10 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>True</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>norm_layer</code></td>
 <td>
-<code><span title="torch.Module">Module</span></code>
+<code><span title="torch.nn.Module">Module</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1940,13 +1940,13 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 </div>
 </td>
 <td>
-<code><span title="torch.LayerNorm">LayerNorm</span></code>
+<code><span title="torch.nn.LayerNorm">LayerNorm</span></code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>act_layer</code></td>
 <td>
-<code><span title="torch.Module">Module</span></code>
+<code><span title="torch.nn.Module">Module</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1954,10 +1954,10 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 </div>
 </td>
 <td>
-<code><span title="torch.GELU">GELU</span></code>
+<code><span title="torch.nn.GELU">GELU</span></code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>use_abs_pos</code></td>
 <td>
 <code>bool</code>
@@ -1971,7 +1971,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>True</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>use_rel_pos</code></td>
 <td>
 <code>bool</code>
@@ -1985,7 +1985,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>False</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>rel_pos_zero_init</code></td>
 <td>
 <code>bool</code>
@@ -1999,7 +1999,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>True</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>window_size</code></td>
 <td>
 <code>int</code>
@@ -2013,7 +2013,7 @@ https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/bac
 <code>0</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>global_attn_indexes</code></td>
 <td>
 <code>list</code>
@@ -2245,10 +2245,10 @@ and neck.</p>
 </h2>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-            Bases: <code><span title="torch.Module">Module</span></code></p>
+            Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Encodes different types of prompts, including points, boxes, and masks, for input to SAM's mask decoder. The encoder
 produces both sparse and dense embeddings for the input prompts.</p>
-<p><strong>Attributes:</strong></p>
+<p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
 <tr>
@@ -2258,7 +2258,7 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.embed_dim">embed_dim</span></code></td>
 <td>
 <code>int</code>
@@ -2269,7 +2269,7 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.input_image_size">input_image_size</span></code></td>
 <td>
 <code><span title="typing.Tuple">Tuple</span>[int, int]</code>
@@ -2280,7 +2280,7 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.image_embedding_size">image_embedding_size</span></code></td>
 <td>
 <code><span title="typing.Tuple">Tuple</span>[int, int]</code>
@@ -2291,7 +2291,7 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.pe_layer">pe_layer</span></code></td>
 <td>
 <code><a class="autorefs autorefs-internal" title="ultralytics.models.sam.modules.encoders.PositionEmbeddingRandom" href="#ultralytics.models.sam.modules.encoders.PositionEmbeddingRandom">PositionEmbeddingRandom</a></code>
@@ -2302,7 +2302,7 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.num_point_embeddings">num_point_embeddings</span></code></td>
 <td>
 <code>int</code>
@@ -2313,10 +2313,10 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.point_embeddings">point_embeddings</span></code></td>
 <td>
-<code><span title="torch.ModuleList">ModuleList</span></code>
+<code><span title="torch.nn.ModuleList">ModuleList</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2324,10 +2324,10 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.not_a_point_embed">not_a_point_embed</span></code></td>
 <td>
-<code><span title="torch.Embedding">Embedding</span></code>
+<code><span title="torch.nn.Embedding">Embedding</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2335,7 +2335,7 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.mask_input_size">mask_input_size</span></code></td>
 <td>
 <code><span title="typing.Tuple">Tuple</span>[int, int]</code>
@@ -2346,10 +2346,10 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.mask_downscaling">mask_downscaling</span></code></td>
 <td>
-<code><span title="torch.Sequential">Sequential</span></code>
+<code><span title="torch.nn.Sequential">Sequential</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2357,10 +2357,10 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.no_mask_embed">no_mask_embed</span></code></td>
 <td>
-<code><span title="torch.Embedding">Embedding</span></code>
+<code><span title="torch.nn.Embedding">Embedding</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2696,7 +2696,7 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </h3>
 <div class="doc doc-contents">
 <p>Encodes prompts for input to SAM's mask decoder.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -2707,7 +2707,7 @@ produces both sparse and dense embeddings for the input prompts.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>embed_dim</code></td>
 <td>
 <code>int</code>
@@ -2721,7 +2721,7 @@ produces both sparse and dense embeddings for the input prompts.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>image_embedding_size</code></td>
 <td>
 <code>tuple(int, int</code>
@@ -2736,7 +2736,7 @@ image embedding, as (H, W).</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>input_image_size</code></td>
 <td>
 <code>int</code>
@@ -2751,7 +2751,7 @@ to the image encoder, as (H, W).</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>mask_in_chans</code></td>
 <td>
 <code>int</code>
@@ -2766,10 +2766,10 @@ encoding input masks.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>activation</code></td>
 <td>
-<code><span title="torch.Module">Module</span></code>
+<code><span title="torch.nn.Module">Module</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2778,7 +2778,7 @@ input masks.</p>
 </div>
 </td>
 <td>
-<code><span title="torch.GELU">GELU</span></code>
+<code><span title="torch.nn.GELU">GELU</span></code>
 </td>
 </tr>
 </tbody>
@@ -2882,7 +2882,7 @@ input masks.</p>
 </h3>
 <div class="doc doc-contents">
 <p>Embeds different types of prompts, returning both sparse and dense embeddings.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -2893,7 +2893,7 @@ input masks.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>points</code></td>
 <td>
 <code>(tuple(<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>), None)</code>
@@ -2907,7 +2907,7 @@ input masks.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>boxes</code></td>
 <td>
 <code>(<span title="torch.Tensor">Tensor</span>, None)</code>
@@ -2921,7 +2921,7 @@ input masks.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>masks</code></td>
 <td>
 <code>(<span title="torch.Tensor">Tensor</span>, None)</code>
@@ -2937,7 +2937,7 @@ input masks.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -2946,7 +2946,7 @@ input masks.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code><span title="torch.Tensor">Tensor</span></code>
 </td>
@@ -2957,7 +2957,7 @@ by the number of input points and boxes.</p>
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code><span title="torch.Tensor">Tensor</span></code>
 </td>
@@ -3055,7 +3055,7 @@ by the number of input points and boxes.</p>
 <div class="doc doc-contents">
 <p>Returns the positional encoding used to encode point prompts, applied to a dense set of points the shape of the
 image encoding.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -3064,7 +3064,7 @@ image encoding.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code><span title="torch.Tensor">Tensor</span></code>
 </td>
@@ -3108,7 +3108,7 @@ image encoding.</p>
 </h2>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-            Bases: <code><span title="torch.Module">Module</span></code></p>
+            Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Positional encoding using random spatial frequencies.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
@@ -3296,7 +3296,7 @@ image encoding.</p>
 </h2>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-            Bases: <code><span title="torch.Module">Module</span></code></p>
+            Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Transformer blocks with support of window attention and residual propagation blocks.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
@@ -3433,7 +3433,7 @@ image encoding.</p>
 <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">,</span> <span class="n">mlp_ratio</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">qkv_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">norm_layer</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">,</span> <span class="n">act_layer</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span> <span class="n">use_rel_pos</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rel_pos_zero_init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">input_size</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -3444,7 +3444,7 @@ image encoding.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>dim</code></td>
 <td>
 <code>int</code>
@@ -3458,7 +3458,7 @@ image encoding.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>num_heads</code></td>
 <td>
 <code>int</code>
@@ -3472,7 +3472,7 @@ image encoding.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>mlp_ratio</code></td>
 <td>
 <code>float</code>
@@ -3486,7 +3486,7 @@ image encoding.</p>
 <code>4.0</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>qkv_bias</code></td>
 <td>
 <code>bool</code>
@@ -3500,10 +3500,10 @@ image encoding.</p>
 <code>True</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>norm_layer</code></td>
 <td>
-<code><span title="torch.Module">Module</span></code>
+<code><span title="torch.nn.Module">Module</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3511,13 +3511,13 @@ image encoding.</p>
 </div>
 </td>
 <td>
-<code><span title="torch.LayerNorm">LayerNorm</span></code>
+<code><span title="torch.nn.LayerNorm">LayerNorm</span></code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>act_layer</code></td>
 <td>
-<code><span title="torch.Module">Module</span></code>
+<code><span title="torch.nn.Module">Module</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3525,10 +3525,10 @@ image encoding.</p>
 </div>
 </td>
 <td>
-<code><span title="torch.GELU">GELU</span></code>
+<code><span title="torch.nn.GELU">GELU</span></code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>use_rel_pos</code></td>
 <td>
 <code>bool</code>
@@ -3542,7 +3542,7 @@ image encoding.</p>
 <code>False</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>rel_pos_zero_init</code></td>
 <td>
 <code>bool</code>
@@ -3556,7 +3556,7 @@ image encoding.</p>
 <code>True</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>window_size</code></td>
 <td>
 <code>int</code>
@@ -3571,7 +3571,7 @@ use global attention.</p>
 <code>0</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>input_size</code></td>
 <td>
 <code>(tuple(int, int), None)</code>
@@ -3731,7 +3731,7 @@ positional parameter size.</p>
 </h2>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-            Bases: <code><span title="torch.Module">Module</span></code></p>
+            Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Multi-head Attention block with relative position embeddings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
@@ -3851,7 +3851,7 @@ positional parameter size.</p>
 </h3>
 <div class="doc doc-contents">
 <p>Initialize Attention module.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -3862,7 +3862,7 @@ positional parameter size.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>dim</code></td>
 <td>
 <code>int</code>
@@ -3876,7 +3876,7 @@ positional parameter size.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>num_heads</code></td>
 <td>
 <code>int</code>
@@ -3890,7 +3890,7 @@ positional parameter size.</p>
 <code>8</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>qkv_bias</code></td>
 <td>
 <code>bool</code>
@@ -3904,7 +3904,7 @@ positional parameter size.</p>
 <code>True</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>rel_pos_zero_init</code></td>
 <td>
 <code>bool</code>
@@ -3918,7 +3918,7 @@ positional parameter size.</p>
 <code>True</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>input_size</code></td>
 <td>
 <code>(tuple(int, int), None)</code>
@@ -4060,7 +4060,7 @@ positional parameter size.</p>
 </h2>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-            Bases: <code><span title="torch.Module">Module</span></code></p>
+            Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Image to Patch Embedding.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
@@ -4128,7 +4128,7 @@ positional parameter size.</p>
 </h3>
 <div class="doc doc-contents">
 <p>Initialize PatchEmbed module.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -4139,7 +4139,7 @@ positional parameter size.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>kernel_size</code></td>
 <td>
 <code><span title="typing.Tuple">Tuple</span></code>
@@ -4153,7 +4153,7 @@ positional parameter size.</p>
 <code>(16, 16)</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>stride</code></td>
 <td>
 <code><span title="typing.Tuple">Tuple</span></code>
@@ -4167,7 +4167,7 @@ positional parameter size.</p>
 <code>(16, 16)</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>padding</code></td>
 <td>
 <code><span title="typing.Tuple">Tuple</span></code>
@@ -4181,7 +4181,7 @@ positional parameter size.</p>
 <code>(0, 0)</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>in_chans</code></td>
 <td>
 <code>int</code>
@@ -4195,7 +4195,7 @@ positional parameter size.</p>
 <code>3</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>embed_dim</code></td>
 <td>
 <code>int</code>
@@ -4287,7 +4287,7 @@ positional parameter size.</p>
 Args:
     x (tensor): input tokens with [B, H, W, C].
     window_size (int): window size.</p>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4296,7 +4296,7 @@ Args:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>windows</code></td> <td>
 <code><span title="torch.Tensor">Tensor</span></code>
 </td>
@@ -4306,7 +4306,7 @@ Args:
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td></td> <td>
 <code>(Hp, Wp)</code>
 </td>
@@ -4373,7 +4373,7 @@ Args:
 </h2>
 <div class="doc doc-contents first">
 <p>Window unpartition into original sequences and removing padding.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -4384,7 +4384,7 @@ Args:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>windows</code></td>
 <td>
 <code>tensor</code>
@@ -4398,7 +4398,7 @@ Args:
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>window_size</code></td>
 <td>
 <code>int</code>
@@ -4412,7 +4412,7 @@ Args:
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>pad_hw</code></td>
 <td>
 <code><span title="typing.Tuple">Tuple</span></code>
@@ -4426,7 +4426,7 @@ Args:
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>hw</code></td>
 <td>
 <code><span title="typing.Tuple">Tuple</span></code>
@@ -4442,7 +4442,7 @@ Args:
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4451,7 +4451,7 @@ Args:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>x</code></td> <td>
 <code><span title="torch.Tensor">Tensor</span></code>
 </td>
@@ -4522,7 +4522,7 @@ Args:
 </h2>
 <div class="doc doc-contents first">
 <p>Get relative positional embeddings according to the relative positions of query and key sizes.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -4533,7 +4533,7 @@ Args:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>q_size</code></td>
 <td>
 <code>int</code>
@@ -4547,7 +4547,7 @@ Args:
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>k_size</code></td>
 <td>
 <code>int</code>
@@ -4561,7 +4561,7 @@ Args:
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>rel_pos</code></td>
 <td>
 <code>Tensor</code>
@@ -4577,7 +4577,7 @@ Args:
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4586,7 +4586,7 @@ Args:
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code><span title="torch.Tensor">Tensor</span></code>
 </td>
@@ -4672,7 +4672,7 @@ Args:
 <div class="doc doc-contents first">
 <p>Calculate decomposed Relative Positional Embeddings from mvitv2 paper at
 https://github.com/facebookresearch/mvit/blob/main/mvit/models/attention.py.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -4683,7 +4683,7 @@ https://github.com/facebookresearch/mvit/blob/main/mvit/models/attention.py.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>attn</code></td>
 <td>
 <code>Tensor</code>
@@ -4697,7 +4697,7 @@ https://github.com/facebookresearch/mvit/blob/main/mvit/models/attention.py.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>q</code></td>
 <td>
 <code>Tensor</code>
@@ -4711,7 +4711,7 @@ https://github.com/facebookresearch/mvit/blob/main/mvit/models/attention.py.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>rel_pos_h</code></td>
 <td>
 <code>Tensor</code>
@@ -4725,7 +4725,7 @@ https://github.com/facebookresearch/mvit/blob/main/mvit/models/attention.py.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>rel_pos_w</code></td>
 <td>
 <code>Tensor</code>
@@ -4739,7 +4739,7 @@ https://github.com/facebookresearch/mvit/blob/main/mvit/models/attention.py.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>q_size</code></td>
 <td>
 <code><span title="typing.Tuple">Tuple</span></code>
@@ -4753,7 +4753,7 @@ https://github.com/facebookresearch/mvit/blob/main/mvit/models/attention.py.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>k_size</code></td>
 <td>
 <code><span title="typing.Tuple">Tuple</span></code>
@@ -4769,7 +4769,7 @@ https://github.com/facebookresearch/mvit/blob/main/mvit/models/attention.py.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -4778,7 +4778,7 @@ https://github.com/facebookresearch/mvit/blob/main/mvit/models/attention.py.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>attn</code></td> <td>
 <code>Tensor</code>
 </td>

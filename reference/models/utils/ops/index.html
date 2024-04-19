@@ -1112,12 +1112,12 @@
 </h2>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-            Bases: <code><span title="torch.Module">Module</span></code></p>
+            Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>A module implementing the HungarianMatcher, which is a differentiable module to solve the assignment problem in an
 end-to-end fashion.</p>
 <p>HungarianMatcher performs optimal assignment over the predicted and ground truth bounding boxes using a cost
 function that considers classification scores, bounding box coordinates, and optionally, mask predictions.</p>
-<p><strong>Attributes:</strong></p>
+<p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
 <tr>
@@ -1127,7 +1127,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.utils.ops.HungarianMatcher.cost_gain">cost_gain</span></code></td>
 <td>
 <code>dict</code>
@@ -1138,7 +1138,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.utils.ops.HungarianMatcher.use_fl">use_fl</span></code></td>
 <td>
 <code>bool</code>
@@ -1149,7 +1149,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.utils.ops.HungarianMatcher.with_mask">with_mask</span></code></td>
 <td>
 <code>bool</code>
@@ -1160,7 +1160,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.utils.ops.HungarianMatcher.num_sample_points">num_sample_points</span></code></td>
 <td>
 <code>int</code>
@@ -1171,7 +1171,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.utils.ops.HungarianMatcher.alpha">alpha</span></code></td>
 <td>
 <code>float</code>
@@ -1182,7 +1182,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.utils.ops.HungarianMatcher.gamma">gamma</span></code></td>
 <td>
 <code>float</code>
@@ -1195,7 +1195,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </tr>
 </tbody>
 </table>
-<p><strong>Methods:</strong></p>
+<p><span class="doc-section-title">Methods:</span></p>
 <table>
 <thead>
 <tr>
@@ -1204,7 +1204,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code><a class="autorefs autorefs-internal" title="ultralytics.models.utils.ops.HungarianMatcher.forward" href="#ultralytics.models.utils.ops.HungarianMatcher.forward">forward</a></code></td>
 <td>
 <div class="doc-md-description">
@@ -1213,7 +1213,7 @@ assignment between predictions and ground truths for a batch.</p>
 </div>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.utils.ops.HungarianMatcher._cost_mask">_cost_mask</span></code></td>
 <td>
 <div class="doc-md-description">
@@ -1491,7 +1491,7 @@ gamma factors.</p>
 <p>Forward pass for HungarianMatcher. This function computes costs based on prediction and ground truth
 (classification cost, L1 cost between boxes and GIoU cost between boxes) and finds the optimal matching between
 predictions and ground truth based on these costs.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -1502,7 +1502,7 @@ predictions and ground truth based on these costs.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>pred_bboxes</code></td>
 <td>
 <code>Tensor</code>
@@ -1516,7 +1516,7 @@ predictions and ground truth based on these costs.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>pred_scores</code></td>
 <td>
 <code>Tensor</code>
@@ -1530,7 +1530,7 @@ predictions and ground truth based on these costs.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>gt_cls</code></td>
 <td>
 <code><span title="torch.Tensor">Tensor</span></code>
@@ -1544,7 +1544,7 @@ predictions and ground truth based on these costs.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>gt_bboxes</code></td>
 <td>
 <code><span title="torch.Tensor">Tensor</span></code>
@@ -1558,7 +1558,7 @@ predictions and ground truth based on these costs.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>gt_groups</code></td>
 <td>
 <code>List[int]</code>
@@ -1573,7 +1573,7 @@ each image.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>masks</code></td>
 <td>
 <code>Tensor</code>
@@ -1588,7 +1588,7 @@ Defaults to None.</p>
 <code>None</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>gt_mask</code></td>
 <td>
 <code>List[Tensor]</code>
@@ -1605,7 +1605,7 @@ Defaults to None.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -1614,7 +1614,7 @@ Defaults to None.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>List[Tuple[Tensor, Tensor]]</code>
 </td>
@@ -1792,7 +1792,7 @@ For each batch element, it holds:
 <p>Get contrastive denoising training group. This function creates a contrastive denoising training group with positive
 and negative samples from the ground truths (gt). It applies noise to the class labels and bounding box coordinates,
 and returns the modified labels, bounding boxes, attention mask and meta information.</p>
-<p><strong>Parameters:</strong></p>
+<p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
 <tr>
@@ -1803,7 +1803,7 @@ and returns the modified labels, bounding boxes, attention mask and meta informa
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td><code>batch</code></td>
 <td>
 <code>dict</code>
@@ -1819,7 +1819,7 @@ indicating the number of gts of each image.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>num_classes</code></td>
 <td>
 <code>int</code>
@@ -1833,7 +1833,7 @@ indicating the number of gts of each image.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>num_queries</code></td>
 <td>
 <code>int</code>
@@ -1847,7 +1847,7 @@ indicating the number of gts of each image.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>class_embed</code></td>
 <td>
 <code><span title="torch.Tensor">Tensor</span></code>
@@ -1861,7 +1861,7 @@ indicating the number of gts of each image.</p>
 <em>required</em>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>num_dn</code></td>
 <td>
 <code>int</code>
@@ -1875,7 +1875,7 @@ indicating the number of gts of each image.</p>
 <code>100</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>cls_noise_ratio</code></td>
 <td>
 <code>float</code>
@@ -1889,7 +1889,7 @@ indicating the number of gts of each image.</p>
 <code>0.5</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>box_noise_scale</code></td>
 <td>
 <code>float</code>
@@ -1903,7 +1903,7 @@ indicating the number of gts of each image.</p>
 <code>1.0</code>
 </td>
 </tr>
-<tr>
+<tr class="doc-section-item">
 <td><code>training</code></td>
 <td>
 <code>bool</code>
@@ -1919,7 +1919,7 @@ indicating the number of gts of each image.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong></p>
+<p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
 <tr>
@@ -1928,7 +1928,7 @@ indicating the number of gts of each image.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="doc-section-item">
 <td>
 <code>Tuple[Optional[Tensor], Optional[Tensor], Optional[Tensor], Optional[Dict]]</code>
 </td>
