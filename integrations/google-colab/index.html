@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Discover how to uplift your Ultralytics YOLOv8 model's overall performance with the TFLite Edge TPU export format, which is perfect for mobile and embedded devices." name="description"/>
+<meta content="A guide on how to train Ultralytics YOLOv8 models quickly, perform data processing directly in your web browser, and collaborate with others using Google Colab." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/integrations/edge-tpu/" rel="canonical"/>
-<link href="../tflite/" rel="prev"/>
-<link href="../tfjs/" rel="next"/>
+<link href="https://docs.ultralytics.com/integrations/google-colab/" rel="canonical"/>
+<link href="../paperspace/" rel="prev"/>
+<link href="../../hub/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.19" name="generator"/>
-<title>TFLite Edge TPU - Ultralytics YOLOv8 Docs</title>
+<title>Google Colab - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.66ac8b77.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="TFLite Edge TPU" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, TFLite edge TPU format, Export YOLOv8, Model Deployment, Flexible Deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/edge-tpu" property="og:url"/><meta content="TFLite Edge TPU" property="og:title"/><meta content="Discover how to uplift your Ultralytics YOLOv8 model's overall performance with the TFLite Edge TPU export format, which is perfect for mobile and embedded devices." property="og:description"/><meta content="https://coral.ai/static/docs/images/edgetpu/compile-workflow.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/edge-tpu" property="twitter:url"/><meta content="TFLite Edge TPU" property="twitter:title"/><meta content="Discover how to uplift your Ultralytics YOLOv8 model's overall performance with the TFLite Edge TPU export format, which is perfect for mobile and embedded devices." property="twitter:description"/><meta content="https://coral.ai/static/docs/images/edgetpu/compile-workflow.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TFLite Edge TPU", "image": ["https://coral.ai/static/docs/images/edgetpu/compile-workflow.png"], "datePublished": "2024-03-13 18:56:42 +0530", "dateModified": "2024-04-02 06:24:29 -0400", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Google Colab" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics YOLOv8, Google Colab, CPU, GPU, TPU, Browser-based, Hardware Acceleration, Machine Learning, Google Colaboratory" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/google-colab" property="og:url"/><meta content="Google Colab" property="og:title"/><meta content="A guide on how to train Ultralytics YOLOv8 models quickly, perform data processing directly in your web browser, and collaborate with others using Google Colab." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/25847604/71779530-619e-4518-aced-5d56e1e8eab3" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/google-colab" property="twitter:url"/><meta content="Google Colab" property="twitter:title"/><meta content="A guide on how to train Ultralytics YOLOv8 models quickly, perform data processing directly in your web browser, and collaborate with others using Google Colab." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/25847604/71779530-619e-4518-aced-5d56e1e8eab3" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Google Colab", "image": ["https://github.com/ultralytics/ultralytics/assets/25847604/71779530-619e-4518-aced-5d56e1e8eab3"], "datePublished": "2024-04-27 02:20:08 +0530", "dateModified": "2024-04-27 02:20:08 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#learn-to-export-to-tflite-edge-tpu-format-from-yolov8-model">
+<a class="md-skip" href="#accelerating-yolov8-projects-with-google-colab">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              TFLite Edge TPU
+              Google Colab
             
           </span>
 </div>
@@ -417,87 +417,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    TFLite Edge TPU
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../edge-tpu/">
 <span class="md-ellipsis">
     TFLite Edge TPU
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-you-export-to-tflite-edge-tpu">
-<span class="md-ellipsis">
-      Why Should You Export to TFLite Edge TPU?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-tflite-edge-tpu">
-<span class="md-ellipsis">
-      Key Features of TFLite Edge TPU
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deployment-options-with-tflite-edge-tpu">
-<span class="md-ellipsis">
-      Deployment Options with TFLite Edge TPU
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#exporting-yolov8-models-to-tflite-edge-tpu">
-<span class="md-ellipsis">
-      Exporting YOLOv8 Models to TFLite Edge TPU
-    </span>
-</a>
-<nav aria-label="Exporting YOLOv8 Models to TFLite Edge TPU" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installation">
-<span class="md-ellipsis">
-      Installation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
-<span class="md-ellipsis">
-      Usage
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-exported-yolov8-tflite-edge-tpu-models">
-<span class="md-ellipsis">
-      Deploying Exported YOLOv8 TFLite Edge TPU Models
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
-<span class="md-ellipsis">
-      Summary
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../tfjs/">
@@ -604,12 +529,80 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../google-colab/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Google Colab
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Google Colab
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#google-colaboratory">
+<span class="md-ellipsis">
+      Google Colaboratory
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#training-yolov8-using-google-colaboratory">
+<span class="md-ellipsis">
+      Training YOLOv8 Using Google Colaboratory
+    </span>
+</a>
+<nav aria-label="Training YOLOv8 Using Google Colaboratory" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-questions-while-working-with-google-colab">
+<span class="md-ellipsis">
+      Common Questions While Working with Google Colab
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-google-colab">
+<span class="md-ellipsis">
+      Key Features of Google Colab
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-you-use-google-colab-for-your-yolov8-projects">
+<span class="md-ellipsis">
+      Why Should You Use Google Colab for Your YOLOv8 Projects?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#keep-learning-about-google-colab">
+<span class="md-ellipsis">
+      Keep Learning about Google Colab
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -653,45 +646,24 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-you-export-to-tflite-edge-tpu">
+<a class="md-nav__link" href="#google-colaboratory">
 <span class="md-ellipsis">
-      Why Should You Export to TFLite Edge TPU?
+      Google Colaboratory
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-tflite-edge-tpu">
+<a class="md-nav__link" href="#training-yolov8-using-google-colaboratory">
 <span class="md-ellipsis">
-      Key Features of TFLite Edge TPU
+      Training YOLOv8 Using Google Colaboratory
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deployment-options-with-tflite-edge-tpu">
-<span class="md-ellipsis">
-      Deployment Options with TFLite Edge TPU
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#exporting-yolov8-models-to-tflite-edge-tpu">
-<span class="md-ellipsis">
-      Exporting YOLOv8 Models to TFLite Edge TPU
-    </span>
-</a>
-<nav aria-label="Exporting YOLOv8 Models to TFLite Edge TPU" class="md-nav">
+<nav aria-label="Training YOLOv8 Using Google Colaboratory" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#installation">
+<a class="md-nav__link" href="#common-questions-while-working-with-google-colab">
 <span class="md-ellipsis">
-      Installation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
-<span class="md-ellipsis">
-      Usage
+      Common Questions While Working with Google Colab
     </span>
 </a>
 </li>
@@ -699,9 +671,23 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-exported-yolov8-tflite-edge-tpu-models">
+<a class="md-nav__link" href="#key-features-of-google-colab">
 <span class="md-ellipsis">
-      Deploying Exported YOLOv8 TFLite Edge TPU Models
+      Key Features of Google Colab
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-you-use-google-colab-for-your-yolov8-projects">
+<span class="md-ellipsis">
+      Why Should You Use Google Colab for Your YOLOv8 Projects?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#keep-learning-about-google-colab">
+<span class="md-ellipsis">
+      Keep Learning about Google Colab
     </span>
 </a>
 </li>
@@ -719,114 +705,102 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/edge-tpu.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/google-colab.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="learn-to-export-to-tflite-edge-tpu-format-from-yolov8-model">Learn to Export to TFLite Edge TPU Format From YOLOv8 Model</h1>
-<p>Deploying computer vision models on devices with limited computational power, such as mobile or embedded systems, can be tricky. Using a model format that is optimized for faster performance simplifies the process. The <a href="https://www.tensorflow.org/lite">TensorFlow Lite</a> <a href="https://coral.ai/docs/edgetpu/models-intro/">Edge TPU</a> or TFLite Edge TPU model format is designed to use minimal power while delivering fast performance for neural networks.</p>
-<p>The export to TFLite Edge TPU format feature allows you to optimize your <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLOv8</a> models for high-speed and low-power inferencing. In this guide, we'll walk you through converting your models to the TFLite Edge TPU format, making it easier for your models to perform well on various mobile and embedded devices.</p>
-<h2 id="why-should-you-export-to-tflite-edge-tpu">Why Should You Export to TFLite Edge TPU?</h2>
-<p>Exporting models to TensorFlow Edge TPU makes machine learning tasks fast and efficient. This technology suits applications with limited power, computing resources, and connectivity. The Edge TPU is a hardware accelerator by Google. It speeds up TensorFlow Lite models on edge devices. The image below shows an example of the process involved.</p>
+<h1 id="accelerating-yolov8-projects-with-google-colab">Accelerating YOLOv8 Projects with Google Colab</h1>
+<p>Many developers lack the powerful computing resources needed to build deep learning models. Acquiring high-end hardware or renting a decent GPU can be expensive. Google Colab is a great solution to this. It’s a browser-based platform that allows you to work with large datasets, develop complex models, and share your work with others without a huge cost.</p>
+<p>You can use Google Colab to work on projects related to <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLOv8</a> models. Google Colab’s user-friendly environment is well suited for efficient model development and experimentation. Let’s learn more about Google Colab, its key features, and how you can use it to train YOLOv8 models.</p>
+<h2 id="google-colaboratory">Google Colaboratory</h2>
+<p>Google Colaboratory, commonly known as Google Colab, was developed by Google Research in 2017. It is a free online cloud-based Jupyter Notebook environment that allows you to train your machine learning and deep learning models on CPUs, GPUs, and TPUs. The motivation behind developing Google Colab was Google's broader goals to advance AI technology and educational tools, and encourage the use of cloud services.</p>
+<p>You can use Google Colab regardless of the specifications and configurations of your local computer. All you need is a Google account and a web browser, and you’re good to go. </p>
+<h2 id="training-yolov8-using-google-colaboratory">Training YOLOv8 Using Google Colaboratory</h2>
+<p>Training YOLOv8 models on Google Colab is pretty straightforward. Thanks to the integration, you can access the [Google Colab YOLOv8 Notebook]](https://colab.research.google.com/github/ultralytics/ultralytics/blob/main/examples/tutorial.ipynb) and start training your model immediately. For a detailed understanding of the model training process and best practices, refer to our <a href="../../modes/train/">YOLOv8 Model Training guide</a>.</p>
+<p>Sign in to your Google account and run the notebook's cells to train your model.</p>
+<p><img alt="Training YOLOv8 Using Google Colab" src="https://github.com/ultralytics/ultralytics/assets/25847604/71779530-619e-4518-aced-5d56e1e8eab3"/></p>
+<p>Learn how to train a YOLOv8 model with custom data on YouTube with Nicolai. Check out the guide below.</p>
 <p align="center">
-<img alt="TFLite Edge TPU" src="https://coral.ai/static/docs/images/edgetpu/compile-workflow.png" width="100%"/>
+<br/>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" loading="lazy" src="https://www.youtube.com/embed/LNwODJXcvt4?si=lB9UAc4hatSSEr2a" title="YouTube video player" width="720">
+</iframe>
+<br/>
+<strong>Watch:</strong> How to Train Ultralytics YOLOv8 models on Your Custom Dataset in Google Colab | Episode 3
 </p>
-<p>The Edge TPU works with quantized models. Quantization makes models smaller and faster without losing much accuracy. It is ideal for the limited resources of edge computing, allowing applications to respond quickly by reducing latency and allowing for quick data processing locally, without cloud dependency. Local processing also keeps user data private and secure since it's not sent to a remote server​​​​.</p>
-<h2 id="key-features-of-tflite-edge-tpu">Key Features of TFLite Edge TPU</h2>
-<p>Here are the key features that make TFLite Edge TPU a great model format choice for developers:</p>
+<h3 id="common-questions-while-working-with-google-colab">Common Questions While Working with Google Colab</h3>
+<p>When working with Google Colab, you might have a few common questions. Let’s answer them. </p>
+<p><strong>Q: Why does my Google Colab session timeout?</strong><br>
+A: Google Colab sessions can timeout due to inactivity, especially for free users who have a limited session duration.</br></p>
+<p><strong>Q: Can I increase the session duration in Google Colab?</strong><br>
+A: Free users face limits, but Google Colab Pro offers extended session durations.</br></p>
+<p><strong>Q: What should I do if my session closes unexpectedly?</strong><br/>
+A: Regularly save your work to Google Drive or GitHub to avoid losing unsaved progress.</p>
+<p><strong>Q: How can I check my session status and resource usage?</strong><br/>
+A: Colab provides 'RAM Usage' and 'Disk Usage' metrics in the interface to monitor your resources.</p>
+<p><strong>Q: Can I run multiple Colab sessions simultaneously?</strong><br/>
+A: Yes, but be cautious about resource usage to avoid performance issues.</p>
+<p><strong>Q: Does Google Colab have GPU access limitations?</strong><br/>
+A: Yes, free GPU access has limitations, but Google Colab Pro provides more substantial usage options.</p>
+<h2 id="key-features-of-google-colab">Key Features of Google Colab</h2>
+<p>Now, let's look at some of the standout features that make Google Colab a go-to platform for machine learning projects:</p>
 <ul>
 <li>
-<p><strong>Optimized Performance on Edge Devices</strong>: The TFLite Edge TPU achieves high-speed neural networking performance through quantization, model optimization, hardware acceleration, and compiler optimization. Its minimalistic architecture contributes to its smaller size and cost-efficiency.</p>
+<p><strong>Library Support:</strong> Google Colab includes pre-installed libraries for data analysis and machine learning and allows additional libraries to be installed as needed. It also supports various libraries for creating interactive charts and visualizations.</p>
 </li>
 <li>
-<p><strong>High Computational Throughput</strong>: TFLite Edge TPU combines specialized hardware acceleration and efficient runtime execution to achieve high computational throughput. It is well-suited for deploying machine learning models with stringent performance requirements on edge devices.</p>
-</li>
-<li>
-<p><strong>Efficient Matrix Computations</strong>: The TensorFlow Edge TPU is optimized for matrix operations, which are crucial for neural network computations. This efficiency is key in machine learning models, particularly those requiring numerous and complex matrix multiplications and transformations.</p>
+<p><strong>Hardware Resources:</strong> Users also switch between different hardware options by modifying the runtime settings as shown below. Google Colab provides access to advanced hardware like Tesla K80 GPUs and TPUs, which are specialized circuits designed specifically for machine learning tasks.</p>
 </li>
 </ul>
-<h2 id="deployment-options-with-tflite-edge-tpu">Deployment Options with TFLite Edge TPU</h2>
-<p>Before we jump into how to export YOLOv8 models to the TFLite Edge TPU format, let’s understand where TFLite Edge TPU models are usually used.</p>
-<p>TFLite Edge TPU offers various deployment options for machine learning models, including:</p>
+<p><img alt="Runtime Settings" src="https://github.com/ultralytics/ultralytics/assets/25847604/89a71a81-2784-4182-ad53-f024807d1dcc"/></p>
 <ul>
 <li>
-<p><strong>On-Device Deployment</strong>: TensorFlow Edge TPU models can be directly deployed on mobile and embedded devices. On-device deployment allows the models to execute directly on the hardware, eliminating the need for cloud connectivity.</p>
+<p><strong>Colaboration:</strong> Google Colab makes collaborating and working with other developers easy. You can easily share your notebooks with others and perform edits in real-time.</p>
 </li>
 <li>
-<p><strong>Edge Computing with Cloud TensorFlow TPUs</strong>: In scenarios where edge devices have limited processing capabilities, TensorFlow Edge TPUs can offload inference tasks to cloud servers equipped with TPUs.</p>
+<p><strong>Custom Environment:</strong> Users can install dependencies, configure the system, and use shell commands directly in the notebook.</p>
 </li>
 <li>
-<p><strong>Hybrid Deployment</strong>: A hybrid approach combines on-device and cloud deployment and offers a versatile and scalable solution for deploying machine learning models. Advantages include on-device processing for quick responses and cloud computing for more complex computations.</p>
+<p><strong>Educational Resources:</strong> Google Colab offers a range of tutorials and example notebooks to help users learn and explore various functionalities.</p>
 </li>
 </ul>
-<h2 id="exporting-yolov8-models-to-tflite-edge-tpu">Exporting YOLOv8 Models to TFLite Edge TPU</h2>
-<p>You can expand model compatibility and deployment flexibility by converting YOLOv8 models to TensorFlow Edge TPU.</p>
-<h3 id="installation">Installation</h3>
-<p>To install the required package, run:</p>
-<div class="admonition tip">
-<p class="admonition-title">Installation</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the required package for YOLOv8</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<p>For detailed instructions and best practices related to the installation process, check our <a href="../../quickstart/">Ultralytics Installation guide</a>. While installing the required packages for YOLOv8, if you encounter any difficulties, consult our <a href="../../guides/yolo-common-issues/">Common Issues guide</a> for solutions and tips.</p>
-<h3 id="usage">Usage</h3>
-<p>Before diving into the usage instructions, it's important to note that while all <a href="../../models/">Ultralytics YOLOv8 models</a> are available for exporting, you can ensure that the model you select supports export functionality <a href="../../modes/export/">here</a>.</p>
-<div class="admonition example">
-<p class="admonition-title">Usage</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load the YOLOv8 model</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Export the model to TFLite Edge TPU format</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'edgetpu'</span><span class="p">)</span>  <span class="c1"># creates 'yolov8n_full_integer_quant_edgetpu.tflite’</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Load the exported TFLite Edge TPU model</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">edgetpu_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n_full_integer_quant_edgetpu.tflite'</span><span class="p">)</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># Run inference</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">edgetpu_model</span><span class="p">(</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Export a YOLOv8n PyTorch model to TFLite Edge TPU format</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>edgetpu<span class="w">  </span><span class="c1"># creates 'yolov8n_full_integer_quant_edgetpu.tflite'</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Run inference with the exported model</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n_full_integer_quant_edgetpu.tflite<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-</div>
-<p>For more details about supported export options, visit the <a href="../../guides/model-deployment-options/">Ultralytics documentation page on deployment options</a>.</p>
-<h2 id="deploying-exported-yolov8-tflite-edge-tpu-models">Deploying Exported YOLOv8 TFLite Edge TPU Models</h2>
-<p>After successfully exporting your Ultralytics YOLOv8 models to TFLite Edge TPU format, you can now deploy them. The primary and recommended first step for running a TFLite Edge TPU model is to use the YOLO("model_edgetpu.tflite") method, as outlined in the previous usage code snippet.</p>
-<p>However, for in-depth instructions on deploying your TFLite Edge TPU models, take a look at the following resources:</p>
+<h2 id="why-should-you-use-google-colab-for-your-yolov8-projects">Why Should You Use Google Colab for Your YOLOv8 Projects?</h2>
+<p>There are many options for training and evaluating YOLOv8 models, so what makes the integration with Google Colab unique? Let's explore the advantages of this integration:</p>
 <ul>
 <li>
-<p><strong><a href="../../guides/coral-edge-tpu-on-raspberry-pi/">Coral Edge TPU on a Raspberry Pi with Ultralytics YOLOv8</a></strong>: Discover how to integrate Coral Edge TPUs with Raspberry Pi for enhanced machine learning capabilities.</p>
+<p><strong>Zero Setup:</strong> Since Colab runs in the cloud, users can start training models immediately without the need for complex environment setups. Just create an account and start coding.</p>
 </li>
 <li>
-<p><strong><a href="https://coral.ai/docs/edgetpu/compiler/">Code Examples</a></strong>: Access practical TensorFlow Edge TPU deployment examples to kickstart your projects.</p>
+<p><strong>Form Support:</strong> It allows users to create forms for parameter input, making it easier to experiment with different values.</p>
 </li>
 <li>
-<p><strong><a href="https://coral.ai/docs/edgetpu/tflite-python/#overview">Run Inference on the Edge TPU with Python</a></strong>: Explore how to use the TensorFlow Lite Python API for Edge TPU applications, including setup and usage guidelines.</p>
+<p><strong>Integration with Google Drive:</strong> Colab seamlessly integrates with Google Drive to make data storage, access, and management simple. Datasets and models can be stored and retrieved directly from Google Drive.</p>
+</li>
+<li>
+<p><strong>Markdown Support:</strong> You can use markdown format for enhanced documentation within notebooks.</p>
+</li>
+<li>
+<p><strong>Scheduled Execution:</strong> Developers can set notebooks to run automatically at specified times.</p>
+</li>
+<li>
+<p><strong>Extensions and Widgets:</strong> Google Colab allows for adding functionality through third-party extensions and interactive widgets.</p>
+</li>
+</ul>
+<h2 id="keep-learning-about-google-colab">Keep Learning about Google Colab</h2>
+<p>If you’d like to dive deeper into Google Colab, here are a few resources to guide you.</p>
+<ul>
+<li>
+<p><strong><a href="https://www.ultralytics.com/blog/training-custom-datasets-with-ultralytics-yolov8-in-google-Colab">Training Custom Datasets with Ultralytics YOLOv8 in Google Colab</a></strong>: Learn how to train custom datasets with Ultralytics YOLOv8 on Google Colab. This comprehensive blog post will take you through the entire process, from initial setup to the training and evaluation stages.</p>
+</li>
+<li>
+<p><strong><a href="https://colab.google/notebooks/">Curated Notebooks</a></strong>: Here you can explore a series of organized and educational notebooks, each grouped by specific topic areas.</p>
+</li>
+<li>
+<p><strong><a href="https://medium.com/google-colab">Google Colab’s Medium Page</a></strong>: You can find tutorials, updates, and community contributions here that can help you better understand and utilize this tool.</p>
 </li>
 </ul>
 <h2 id="summary">Summary</h2>
-<p>In this guide, we’ve learned how to export Ultralytics YOLOv8 models to TFLite Edge TPU format. By following the steps mentioned above, you can increase the speed and power of your computer vision applications.</p>
-<p>For further details on usage, visit the <a href="https://cloud.google.com/edge-tpu">Edge TPU official website</a>.</p>
-<p>Also, for more information on other Ultralytics YOLOv8 integrations, please visit our <a href="../">integration guide page</a>. There, you'll discover valuable resources and insights.</p>
+<p>We’ve dicsussed how you can easily experiment with Ultralytics YOLOv8 models on Google Colab. You can use Google Colab to train and evaluate your models on GPUs and TPUs with a few clicks.</p>
+<p>For more details, visit <a href="https://research.google.com/colaboratory/intl/en-GB/faq.html">Google Colab’s FAQ page</a>.</p>
+<p>Interested in more YOLOv8 integrations? Visit the <a href="../">Ultralytics integration guide page</a> to explore additional tools and capabilities that can improve your machine-learning projects.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -835,7 +809,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-03-13, Updated 2024-04-02<br/>Authors: <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-04-27, Updated 2024-04-27<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -846,10 +820,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/edge-tpu', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/google-colab', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/edge-tpu', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/google-colab', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -898,7 +872,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: TFLite" class="md-footer__link md-footer__link--prev" href="../tflite/">
+<a aria-label="Previous: Paperspace Gradient" class="md-footer__link md-footer__link--prev" href="../paperspace/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -907,17 +881,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                TFLite
+                Paperspace Gradient
               </div>
 </div>
 </a>
-<a aria-label="Next: TF.js" class="md-footer__link md-footer__link--next" href="../tfjs/">
+<a aria-label="Next: Ultralytics HUB" class="md-footer__link md-footer__link--next" href="../../hub/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                TF.js
+                Ultralytics HUB
               </div>
 </div>
 <div class="md-footer__button md-icon">
