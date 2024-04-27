@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="OBB" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="yolov8, oriented object detection, Ultralytics, DOTA dataset, rotated object detection, object detection, model training, model validation, image prediction, model export" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/tasks/obb" property="og:url"/><meta content="OBB" property="og:title"/><meta content="Learn how to use oriented object detection models with Ultralytics YOLO. Instructions on training, validation, image prediction, and model export." property="og:description"/><meta content="https://github.com/RizwanMunawar/ultralytics/assets/62513924/5051d324-416f-4b58-ab62-f1bf9d7134b0" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/tasks/obb" property="twitter:url"/><meta content="OBB" property="twitter:title"/><meta content="Learn how to use oriented object detection models with Ultralytics YOLO. Instructions on training, validation, image prediction, and model export." property="twitter:description"/><meta content="https://github.com/RizwanMunawar/ultralytics/assets/62513924/5051d324-416f-4b58-ab62-f1bf9d7134b0" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "OBB", "image": ["https://github.com/RizwanMunawar/ultralytics/assets/62513924/5051d324-416f-4b58-ab62-f1bf9d7134b0"], "datePublished": "2024-01-05 03:00:26 +0100", "dateModified": "2024-04-27 13:43:30 -0400", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="OBB" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="yolov8, oriented object detection, Ultralytics, DOTA dataset, rotated object detection, object detection, model training, model validation, image prediction, model export" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/tasks/obb" property="og:url"/><meta content="OBB" property="og:title"/><meta content="Learn how to use oriented object detection models with Ultralytics YOLO. Instructions on training, validation, image prediction, and model export." property="og:description"/><meta content="https://github.com/RizwanMunawar/ultralytics/assets/62513924/5051d324-416f-4b58-ab62-f1bf9d7134b0" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/tasks/obb" property="twitter:url"/><meta content="OBB" property="twitter:title"/><meta content="Learn how to use oriented object detection models with Ultralytics YOLO. Instructions on training, validation, image prediction, and model export." property="twitter:description"/><meta content="https://github.com/RizwanMunawar/ultralytics/assets/62513924/5051d324-416f-4b58-ab62-f1bf9d7134b0" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "OBB", "image": ["https://github.com/RizwanMunawar/ultralytics/assets/62513924/5051d324-416f-4b58-ab62-f1bf9d7134b0"], "datePublished": "2024-01-05 03:00:26 +0100", "dateModified": "2024-04-27 21:33:23 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -790,7 +790,7 @@ retains its training <code>data</code> and arguments as model attributes.</p>
 </div>
 </input></input></div>
 </div>
-<p>Available YOLOv8-obb export formats are in the table below. You can predict or validate directly on exported models, i.e. <code>yolo predict model=yolov8n-obb.onnx</code>. Usage examples are shown for your model after export completes.</p>
+<p>Available YOLOv8-obb export formats are in the table below. You can export to any format using the <code>format</code> argument, i.e. <code>format='onnx'</code> or <code>format='engine'</code>. You can predict or validate directly on exported models, i.e. <code>yolo predict model=yolov8n-obb.onnx</code>. Usage examples are shown for your model after export completes.</p>
 <table>
 <thead>
 <tr>
@@ -810,14 +810,14 @@ retains its training <code>data</code> and arguments as model attributes.</p>
 <td>-</td>
 </tr>
 <tr>
-<td><a href="https://pytorch.org/docs/stable/jit.html">TorchScript</a></td>
+<td><a href="../../integrations/torchscript/">TorchScript</a></td>
 <td><code>torchscript</code></td>
 <td><code>yolov8n-obb.torchscript</code></td>
 <td>✅</td>
 <td><code>imgsz</code>, <code>optimize</code>, <code>batch</code></td>
 </tr>
 <tr>
-<td><a href="https://onnx.ai/">ONNX</a></td>
+<td><a href="../../integrations/onnx/">ONNX</a></td>
 <td><code>onnx</code></td>
 <td><code>yolov8n-obb.onnx</code></td>
 <td>✅</td>
@@ -831,63 +831,63 @@ retains its training <code>data</code> and arguments as model attributes.</p>
 <td><code>imgsz</code>, <code>half</code>, <code>int8</code>, <code>batch</code></td>
 </tr>
 <tr>
-<td><a href="https://developer.nvidia.com/tensorrt">TensorRT</a></td>
+<td><a href="../../integrations/tensorrt/">TensorRT</a></td>
 <td><code>engine</code></td>
 <td><code>yolov8n-obb.engine</code></td>
 <td>✅</td>
 <td><code>imgsz</code>, <code>half</code>, <code>dynamic</code>, <code>simplify</code>, <code>workspace</code>, <code>batch</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/apple/coremltools">CoreML</a></td>
+<td><a href="../../integrations/coreml/">CoreML</a></td>
 <td><code>coreml</code></td>
 <td><code>yolov8n-obb.mlpackage</code></td>
 <td>✅</td>
 <td><code>imgsz</code>, <code>half</code>, <code>int8</code>, <code>nms</code>, <code>batch</code></td>
 </tr>
 <tr>
-<td><a href="https://www.tensorflow.org/guide/saved_model">TF SavedModel</a></td>
+<td><a href="../../integrations/tf-savedmodel/">TF SavedModel</a></td>
 <td><code>saved_model</code></td>
 <td><code>yolov8n-obb_saved_model/</code></td>
 <td>✅</td>
 <td><code>imgsz</code>, <code>keras</code>, <code>int8</code>, <code>batch</code></td>
 </tr>
 <tr>
-<td><a href="https://www.tensorflow.org/api_docs/python/tf/Graph">TF GraphDef</a></td>
+<td><a href="../../integrations/tf-graphdef/">TF GraphDef</a></td>
 <td><code>pb</code></td>
 <td><code>yolov8n-obb.pb</code></td>
 <td>❌</td>
 <td><code>imgsz</code>, <code>batch</code></td>
 </tr>
 <tr>
-<td><a href="https://www.tensorflow.org/lite">TF Lite</a></td>
+<td><a href="../../integrations/tflite/">TF Lite</a></td>
 <td><code>tflite</code></td>
 <td><code>yolov8n-obb.tflite</code></td>
 <td>✅</td>
 <td><code>imgsz</code>, <code>half</code>, <code>int8</code>, <code>batch</code></td>
 </tr>
 <tr>
-<td><a href="https://coral.ai/docs/edgetpu/models-intro/">TF Edge TPU</a></td>
+<td><a href="../../integrations/edge-tpu/">TF Edge TPU</a></td>
 <td><code>edgetpu</code></td>
 <td><code>yolov8n-obb_edgetpu.tflite</code></td>
 <td>✅</td>
 <td><code>imgsz</code>, <code>batch</code></td>
 </tr>
 <tr>
-<td><a href="https://www.tensorflow.org/js">TF.js</a></td>
+<td><a href="../../integrations/tfjs/">TF.js</a></td>
 <td><code>tfjs</code></td>
 <td><code>yolov8n-obb_web_model/</code></td>
 <td>✅</td>
 <td><code>imgsz</code>, <code>half</code>, <code>int8</code>, <code>batch</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/PaddlePaddle">PaddlePaddle</a></td>
+<td><a href="../../integrations/paddlepaddle/">PaddlePaddle</a></td>
 <td><code>paddle</code></td>
 <td><code>yolov8n-obb_paddle_model/</code></td>
 <td>✅</td>
 <td><code>imgsz</code>, <code>batch</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/Tencent/ncnn">NCNN</a></td>
+<td><a href="../../integrations/ncnn/">NCNN</a></td>
 <td><code>ncnn</code></td>
 <td><code>yolov8n-obb_ncnn_model/</code></td>
 <td>✅</td>
@@ -895,7 +895,7 @@ retains its training <code>data</code> and arguments as model attributes.</p>
 </tr>
 </tbody>
 </table>
-<p>See full <code>export</code> details in the <a href="https://docs.ultralytics.com/modes/export/">Export</a> page.</p>
+<p>See full <code>export</code> details in the <a href="../../modes/export/">Export</a> page.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -904,7 +904,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-05, Updated 2024-04-27<br/>Authors: <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (15), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-05, Updated 2024-04-27<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (16), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (3), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
