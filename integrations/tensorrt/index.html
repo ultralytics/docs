@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="TensorRT" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, TensorRT Export, Model Deployment, GPU Acceleration, NVIDIA Support, CUDA Deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/tensorrt" property="og:url"/><meta content="TensorRT" property="og:title"/><meta content="Discover the power and flexibility of exporting Ultralytics YOLOv8 models to TensorRT format for enhanced performance and efficiency on NVIDIA GPUs." property="og:description"/><meta content="https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/tensorrt" property="twitter:url"/><meta content="TensorRT" property="twitter:title"/><meta content="Discover the power and flexibility of exporting Ultralytics YOLOv8 models to TensorRT format for enhanced performance and efficiency on NVIDIA GPUs." property="twitter:description"/><meta content="https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TensorRT", "image": ["https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png"], "datePublished": "2024-01-28 04:48:47 +0300", "dateModified": "2024-03-03 01:59:43 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="TensorRT" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, TensorRT Export, Model Deployment, GPU Acceleration, NVIDIA Support, CUDA Deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/tensorrt" property="og:url"/><meta content="TensorRT" property="og:title"/><meta content="Discover the power and flexibility of exporting Ultralytics YOLOv8 models to TensorRT format for enhanced performance and efficiency on NVIDIA GPUs." property="og:description"/><meta content="https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/tensorrt" property="twitter:url"/><meta content="TensorRT" property="twitter:title"/><meta content="Discover the power and flexibility of exporting Ultralytics YOLOv8 models to TensorRT format for enhanced performance and efficiency on NVIDIA GPUs." property="twitter:description"/><meta content="https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TensorRT", "image": ["https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png"], "datePublished": "2024-01-28 04:48:47 +0300", "dateModified": "2024-05-08 10:05:57 -0400", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -444,6 +444,81 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exporting-tensorrt-with-int8-quantization">
+<span class="md-ellipsis">
+      Exporting TensorRT with INT8 Quantization
+    </span>
+</a>
+<nav aria-label="Exporting TensorRT with INT8 Quantization" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuring-int8-export">
+<span class="md-ellipsis">
+      Configuring INT8 Export
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advantages-of-using-yolo-with-tensorrt-int8">
+<span class="md-ellipsis">
+      Advantages of using YOLO with TensorRT INT8
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drawbacks-of-using-yolo-with-tensorrt-int8">
+<span class="md-ellipsis">
+      Drawbacks of using YOLO with TensorRT INT8
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics-yolo-tensorrt-export-performance">
+<span class="md-ellipsis">
+      Ultralytics YOLO TensorRT Export Performance
+    </span>
+</a>
+<nav aria-label="Ultralytics YOLO TensorRT Export Performance" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nvidia-a100">
+<span class="md-ellipsis">
+      NVIDIA A100
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#consumer-gpus">
+<span class="md-ellipsis">
+      Consumer GPUs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#embedded-devices">
+<span class="md-ellipsis">
+      Embedded Devices
+    </span>
+</a>
+<nav aria-label="Embedded Devices" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#evaluation-methods">
+<span class="md-ellipsis">
+      Evaluation methods
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -695,6 +770,81 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exporting-tensorrt-with-int8-quantization">
+<span class="md-ellipsis">
+      Exporting TensorRT with INT8 Quantization
+    </span>
+</a>
+<nav aria-label="Exporting TensorRT with INT8 Quantization" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuring-int8-export">
+<span class="md-ellipsis">
+      Configuring INT8 Export
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advantages-of-using-yolo-with-tensorrt-int8">
+<span class="md-ellipsis">
+      Advantages of using YOLO with TensorRT INT8
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drawbacks-of-using-yolo-with-tensorrt-int8">
+<span class="md-ellipsis">
+      Drawbacks of using YOLO with TensorRT INT8
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics-yolo-tensorrt-export-performance">
+<span class="md-ellipsis">
+      Ultralytics YOLO TensorRT Export Performance
+    </span>
+</a>
+<nav aria-label="Ultralytics YOLO TensorRT Export Performance" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nvidia-a100">
+<span class="md-ellipsis">
+      NVIDIA A100
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#consumer-gpus">
+<span class="md-ellipsis">
+      Consumer GPUs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#embedded-devices">
+<span class="md-ellipsis">
+      Embedded Devices
+    </span>
+</a>
+<nav aria-label="Embedded Devices" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#evaluation-methods">
+<span class="md-ellipsis">
+      Evaluation methods
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -821,9 +971,986 @@
 </input></input></div>
 </div>
 <p>For more details about the export process, visit the <a href="../../modes/export/">Ultralytics documentation page on exporting</a>.</p>
+<h3 id="exporting-tensorrt-with-int8-quantization">Exporting TensorRT with INT8 Quantization</h3>
+<p>Exporting Ultralytics YOLO models using TensorRT with INT8 precision executes post-training quantization (PTQ). TensorRT uses calibration for PTQ, which measures the distribution of activations within each activation tensor as the YOLO model processes inference on representative input data, and then uses that distribution to estimate scale values for each tensor. Each activation tensor that is a candidate for quantization has an associated scale that is deduced by a calibration process. </p>
+<p>When processing implicitly quantized networks TensorRT uses INT8 opportunistically to optimize layer execution time. If a layer runs faster in INT8 and has assigned quantization scales on its data inputs and outputs, then a kernel with INT8 precision is assigned to that layer, otherwise TensorRT selects a precision of either FP32 or FP16 for the kernel based on whichever results in faster execution time for that layer.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is <strong>critical</strong> to ensure that the same device that will use the TensorRT model weights for deployment is used for exporting with INT8 precision, as the calibration results can vary across devices.</p>
+</div>
+<h4 id="configuring-int8-export">Configuring INT8 Export</h4>
+<p>The arguments provided when using <a href="../../modes/export/">export</a> for an Ultralytics YOLO model will <strong>greatly</strong> influence the performance of the exported model. They will also need to be selected based on the device resources available, however the default arguments <em>should</em> work for most <a href="https://developer.nvidia.com/blog/nvidia-ampere-architecture-in-depth/">Ampere (or newer) NVIDIA discrete GPUs</a>. The calibration algorithm used is <code>"ENTROPY_CALIBRATION_2"</code> and you can read more details about the options available <a href="https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#enable_int8_c">in the TensorRT Developer Guide</a>. Ultralytics tests found that <code>"ENTROPY_CALIBRATION_2"</code> was the best choice and exports are fixed to using this algorithm.</p>
+<ul>
+<li>
+<p><code>workspace</code> : Controls the size (in GiB) of the device memory allocation while converting the model weights.</p>
+<ul>
+<li>
+<p>Aim to use the <u>minimum</u> <code>workspace</code> value required as this prevents testing algorithms that require more <code>workspace</code> from being considered by the TensorRT builder. Setting a higher value for <code>workspace</code> may take <strong>considerably longer</strong> to calibrate and export.</p>
+</li>
+<li>
+<p>Default is <code>workspace=4</code> (GiB), this value may need to be increased if calibration crashes (exits without warning).</p>
+</li>
+<li>
+<p>TensorRT will report <code>UNSUPPORTED_STATE</code> during export if the value for <code>workspace</code> is larger than the memory available to the device, which means the value for <code>workspace</code> should be lowered.</p>
+</li>
+<li>
+<p>If <code>workspace</code> is set to max value and calibration fails/crashes, consider reducing the values for <code>imgsz</code> and <code>batch</code> to reduce memory requirements.</p>
+</li>
+<li>
+<p><u><b>Remember</b> calibration for INT8 is specific to each device</u>, borrowing a "high-end" GPU for calibration, might result in poor performance when inference is run on another device.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>batch</code> : The maximum batch-size that will be used for inference. During inference smaller batches can be used, but inference will not accept batches any larger than what is specified.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>During calibration, twice the <code>batch</code> size provided will be used. Using small batches can lead to inaccurate scaling during calibration. This is because the process adjusts based on the data it sees. Small batches might not capture the full range of values, leading to issues with the final calibration, so the <code>batch</code> size is doubled automatically. If no batch size is specified <code>batch=1</code>, calibration will be run at <code>batch=1 * 2</code> to reduce calibration scaling errors.</p>
+</div>
+</li>
+</ul>
+<p>Experimentation by NVIDIA led them to recommend using at least 500 calibration images that are representative of the data for your model, with INT8 quantization calibration. This is a guideline and not a <em>hard</em> requirement, and <u><strong>you will need to experiment with what is required to perform well for your dataset</strong>.</u> Since the calibration data is required for INT8 calibration with TensorRT, make certain to use the <code>data</code> argument when <code>int8=True</code> for TensorRT and use <code>data="my_dataset.yaml"</code>, which will use the images from <a href="../../modes/val/">validation</a> to calibrate with. When no value is passed for <code>data</code> with export to TensorRT with INT8 quantization, the default will be to use one of the <a href="../../datasets/">"small" example datasets based on the model task</a> instead of throwing an error.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"engine"</span><span class="p">,</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1">#(1)!</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="n">batch</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="c1">#(2)!</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>    <span class="n">workspace</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="c1">#(3)!</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>    <span class="n">int8</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">,</span> <span class="c1">#(4)!</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="p">)</span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.engine"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span> <span class="c1"># load the model</span>
+</code></pre></div>
+<ol>
+<li>Exports with dynamic axes, this will be enabled by default when exporting with <code>int8=True</code> even when not explicitly set. See <a href="../../modes/export/#arguments">export arguments</a> for additional information.</li>
+<li>Sets max batch size of 8 for exported model, which calibrates with <code>batch = 2 *×* 8</code> to avoid scaling errors during calibration.</li>
+<li>Allocates 4 GiB of memory instead of allocating the entire device for conversion process.</li>
+<li>Uses <a href="../../datasets/detect/coco/">COCO dataset</a> for calibration, specifically the images used for <a href="../../modes/val/">validation</a> (5,000 total).</li>
+</ol>
+</div>
+<details class="warning" open="open">
+<summary>Calibration Cache</summary>
+<p>TensorRT will generate a calibration <code>.cache</code> which can be re-used to speed up export of future model weights using the same data, but this may result in poor calibration when the data is vastly different or if the <code>batch</code> value is changed drastically. In these circumstances, the existing <code>.cache</code> should be renamed and moved to a different directory or deleted entirely.</p>
+</details>
+<h4 id="advantages-of-using-yolo-with-tensorrt-int8">Advantages of using YOLO with TensorRT INT8</h4>
+<ul>
+<li>
+<p><strong>Reduced model size:</strong> Quantization from FP32 to INT8 can reduce the model size by 4x (on disk or in memory), leading to faster download times. lower storage requirements, and reduced memory footprint when deploying a model.</p>
+</li>
+<li>
+<p><strong>Lower power consumption:</strong> Reduced precision operations for INT8 exported YOLO models can consume less power compared to FP32 models, especially for battery-powered devices.</p>
+</li>
+<li>
+<p><strong>Improved inference speeds:</strong> TensorRT optimizes the model for the target hardware, potentially leading to faster inference speeds on GPUs, embedded devices, and accelerators.</p>
+</li>
+</ul>
+<details class="note">
+<summary>Note on Inference Speeds</summary>
+<p>The first few inference calls with a model exported to TensorRT INT8 can be expected to have longer than usual preprocessing, inference, and/or postprocessing times. This may also occur when changing <code>imgsz</code> during inference, especially when <code>imgsz</code> is not the same as what was specified during export (export <code>imgsz</code> is set as TensorRT "optimal" profile).</p>
+</details>
+<h4 id="drawbacks-of-using-yolo-with-tensorrt-int8">Drawbacks of using YOLO with TensorRT INT8</h4>
+<ul>
+<li>
+<p><strong>Decreases in evaluation metrics:</strong> Using a lower precision will mean that <code>mAP</code>, <code>Precision</code>, <code>Recall</code> or any <a href="../../guides/yolo-performance-metrics/">other metric used to evaluate model performance</a> is likely to be somewhat worse. See the <a href="#ultralytics-yolo-tensorrt-export-performance">Performance results section</a> to compare the differences in <code>mAP50</code> and <code>mAP50-95</code> when exporting with INT8 on small sample of various devices.</p>
+</li>
+<li>
+<p><strong>Increased development times:</strong> Finding the "optimal" settings for INT8 calibration for dataset and device can take a significant amount of testing.</p>
+</li>
+<li>
+<p><strong>Hardware dependency:</strong> Calibration and performance gains could be highly hardware dependent and model weights are less transferrable.</p>
+</li>
+</ul>
+<h2 id="ultralytics-yolo-tensorrt-export-performance">Ultralytics YOLO TensorRT Export Performance</h2>
+<h3 id="nvidia-a100">NVIDIA A100</h3>
+<div class="admonition tip">
+<p class="admonition-title">Performance</p>
+<p>Tested with Ubuntu 22.04.3 LTS, <code>python 3.10.12</code>, <code>ultralytics==8.2.4</code>, <code>tensorrt==8.6.1.post1</code></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><input id="__tabbed_3_5" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Detection (COCO)</label><label for="__tabbed_3_2">Segmentation (COCO)</label><label for="__tabbed_3_3">Classification (ImageNet)</label><label for="__tabbed_3_4">Pose (COCO)</label><label for="__tabbed_3_5">OBB (DOTAv1)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>See <a href="../../tasks/detect/">Detection Docs</a> for usage examples with these models trained on <a href="../../datasets/detect/coco/">COCO</a>, which include 80 pre-trained classes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inference times shown for <code>mean</code>, <code>min</code> (fastest), and <code>max</code> (slowest) for each test using pre-trained weights <code>yolov8n.engine</code></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Precision</th>
+<th>Eval test</th>
+<th>mean<br/>(ms)</th>
+<th>min | max<br/>(ms)</th>
+<th>mAP<sup>val<br/>50(B)</sup></th>
+<th>mAP<sup>val<br/>50-95(B)</sup></th>
+<th><code>batch</code></th>
+<th>size<br/><sup>(pixels)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP32</td>
+<td>Predict</td>
+<td>0.52</td>
+<td>0.51 | 0.56</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP32</td>
+<td>COCO<sup>val</sup></td>
+<td>0.52</td>
+<td></td>
+<td>0.52</td>
+<td>0.37</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>Predict</td>
+<td>0.34</td>
+<td>0.34 | 0.41</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>COCO<sup>val</sup></td>
+<td>0.33</td>
+<td></td>
+<td>0.52</td>
+<td>0.37</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>Predict</td>
+<td>0.28</td>
+<td>0.27 | 0.31</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>COCO<sup>val</sup></td>
+<td>0.29</td>
+<td></td>
+<td>0.47</td>
+<td>0.33</td>
+<td>1</td>
+<td>640</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>See <a href="../../tasks/segment/">Segmentation Docs</a> for usage examples with these models trained on <a href="../../datasets/segment/coco/">COCO</a>, which include 80 pre-trained classes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inference times shown for <code>mean</code>, <code>min</code> (fastest), and <code>max</code> (slowest) for each test using pre-trained weights <code>yolov8n-seg.engine</code></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Precision</th>
+<th>Eval test</th>
+<th>mean<br/>(ms)</th>
+<th>min | max<br/>(ms)</th>
+<th>mAP<sup>val<br/>50(B)</sup></th>
+<th>mAP<sup>val<br/>50-95(B)</sup></th>
+<th>mAP<sup>val<br/>50(M)</sup></th>
+<th>mAP<sup>val<br/>50-95(M)</sup></th>
+<th><code>batch</code></th>
+<th>size<br/><sup>(pixels)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP32</td>
+<td>Predict</td>
+<td>0.62</td>
+<td>0.61 | 0.68</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP32</td>
+<td>COCO<sup>val</sup></td>
+<td>0.63</td>
+<td></td>
+<td>0.52</td>
+<td>0.36</td>
+<td>0.49</td>
+<td>0.31</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>Predict</td>
+<td>0.40</td>
+<td>0.39 | 0.44</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>COCO<sup>val</sup></td>
+<td>0.43</td>
+<td></td>
+<td>0.52</td>
+<td>0.36</td>
+<td>0.49</td>
+<td>0.30</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>Predict</td>
+<td>0.34</td>
+<td>0.33 | 0.37</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>COCO<sup>val</sup></td>
+<td>0.36</td>
+<td></td>
+<td>0.46</td>
+<td>0.32</td>
+<td>0.43</td>
+<td>0.27</td>
+<td>1</td>
+<td>640</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>See <a href="../../tasks/classify/">Classification Docs</a> for usage examples with these models trained on <a href="../../datasets/classify/imagenet/">ImageNet</a>, which include 1000 pre-trained classes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inference times shown for <code>mean</code>, <code>min</code> (fastest), and <code>max</code> (slowest) for each test using pre-trained weights <code>yolov8n-cls.engine</code></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Precision</th>
+<th>Eval test</th>
+<th>mean<br/>(ms)</th>
+<th>min | max<br/>(ms)</th>
+<th>top-1</th>
+<th>top-5</th>
+<th><code>batch</code></th>
+<th>size<br/><sup>(pixels)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP32</td>
+<td>Predict</td>
+<td>0.26</td>
+<td>0.25 | 0.28</td>
+<td>0.35</td>
+<td>0.61</td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP32</td>
+<td>ImageNet<sup>val</sup></td>
+<td>0.26</td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>Predict</td>
+<td>0.18</td>
+<td>0.17 | 0.19</td>
+<td>0.35</td>
+<td>0.61</td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>ImageNet<sup>val</sup></td>
+<td>0.18</td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>Predict</td>
+<td>0.16</td>
+<td>0.15 | 0.57</td>
+<td>0.32</td>
+<td>0.59</td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>ImageNet<sup>val</sup></td>
+<td>0.15</td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>640</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>See <a href="../../tasks/pose/">Pose Estimation Docs</a> for usage examples with these models trained on <a href="../../datasets/pose/coco/">COCO</a>, which include 1 pre-trained class, "person".</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inference times shown for <code>mean</code>, <code>min</code> (fastest), and <code>max</code> (slowest) for each test using pre-trained weights <code>yolov8n-pose.engine</code></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Precision</th>
+<th>Eval test</th>
+<th>mean<br/>(ms)</th>
+<th>min | max<br/>(ms)</th>
+<th>mAP<sup>val<br/>50(B)</sup></th>
+<th>mAP<sup>val<br/>50-95(B)</sup></th>
+<th>mAP<sup>val<br/>50(P)</sup></th>
+<th>mAP<sup>val<br/>50-95(P)</sup></th>
+<th><code>batch</code></th>
+<th>size<br/><sup>(pixels)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP32</td>
+<td>Predict</td>
+<td>0.54</td>
+<td>0.53 | 0.58</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP32</td>
+<td>COCO<sup>val</sup></td>
+<td>0.55</td>
+<td></td>
+<td>0.91</td>
+<td>0.69</td>
+<td>0.80</td>
+<td>0.51</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>Predict</td>
+<td>0.37</td>
+<td>0.35 | 0.41</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>COCO<sup>val</sup></td>
+<td>0.36</td>
+<td></td>
+<td>0.91</td>
+<td>0.69</td>
+<td>0.80</td>
+<td>0.51</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>Predict</td>
+<td>0.29</td>
+<td>0.28 | 0.33</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>COCO<sup>val</sup></td>
+<td>0.30</td>
+<td></td>
+<td>0.90</td>
+<td>0.68</td>
+<td>0.78</td>
+<td>0.47</td>
+<td>1</td>
+<td>640</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>See <a href="../../tasks/obb/">Oriented Detection Docs</a> for usage examples with these models trained on <a href="../../datasets/obb/dota-v2/#dota-v10">DOTAv1</a>, which include 15 pre-trained classes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inference times shown for <code>mean</code>, <code>min</code> (fastest), and <code>max</code> (slowest) for each test using pre-trained weights <code>yolov8n-obb.engine</code></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Precision</th>
+<th>Eval test</th>
+<th>mean<br/>(ms)</th>
+<th>min | max<br/>(ms)</th>
+<th>mAP<sup>val<br/>50(B)</sup></th>
+<th>mAP<sup>val<br/>50-95(B)</sup></th>
+<th><code>batch</code></th>
+<th>size<br/><sup>(pixels)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP32</td>
+<td>Predict</td>
+<td>0.52</td>
+<td>0.51 | 0.59</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP32</td>
+<td>DOTAv1<sup>val</sup></td>
+<td>0.76</td>
+<td></td>
+<td>0.50</td>
+<td>0.36</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>Predict</td>
+<td>0.34</td>
+<td>0.33 | 0.42</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>DOTAv1<sup>val</sup></td>
+<td>0.59</td>
+<td></td>
+<td>0.50</td>
+<td>0.36</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>Predict</td>
+<td>0.29</td>
+<td>0.28 | 0.33</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>DOTAv1<sup>val</sup></td>
+<td>0.32</td>
+<td></td>
+<td>0.45</td>
+<td>0.32</td>
+<td>1</td>
+<td>640</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</input></input></input></input></input></div>
+</div>
+<h3 id="consumer-gpus">Consumer GPUs</h3>
+<div class="admonition tip">
+<p class="admonition-title">Detection Performance (COCO)</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><input id="__tabbed_4_3" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">RTX 3080 12 GB</label><label for="__tabbed_4_2">RTX 3060 12 GB</label><label for="__tabbed_4_3">RTX 2060 6 GB</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Tested with Windows 10.0.19045, <code>python 3.10.9</code>, <code>ultralytics==8.2.4</code>, <code>tensorrt==10.0.0b6</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inference times shown for <code>mean</code>, <code>min</code> (fastest), and <code>max</code> (slowest) for each test using pre-trained weights <code>yolov8n.engine</code></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Precision</th>
+<th>Eval test</th>
+<th>mean<br/>(ms)</th>
+<th>min | max<br/>(ms)</th>
+<th>mAP<sup>val<br/>50(B)</sup></th>
+<th>mAP<sup>val<br/>50-95(B)</sup></th>
+<th><code>batch</code></th>
+<th>size<br/><sup>(pixels)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP32</td>
+<td>Predict</td>
+<td>1.06</td>
+<td>0.75 | 1.88</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP32</td>
+<td>COCO<sup>val</sup></td>
+<td>1.37</td>
+<td></td>
+<td>0.52</td>
+<td>0.37</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>Predict</td>
+<td>0.62</td>
+<td>0.75 | 1.13</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>COCO<sup>val</sup></td>
+<td>0.85</td>
+<td></td>
+<td>0.52</td>
+<td>0.37</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>Predict</td>
+<td>0.52</td>
+<td>0.38 | 1.00</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>COCO<sup>val</sup></td>
+<td>0.74</td>
+<td></td>
+<td>0.47</td>
+<td>0.33</td>
+<td>1</td>
+<td>640</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>Tested with Windows 10.0.22631, <code>python 3.11.9</code>, <code>ultralytics==8.2.4</code>, <code>tensorrt==10.0.1</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inference times shown for <code>mean</code>, <code>min</code> (fastest), and <code>max</code> (slowest) for each test using pre-trained weights <code>yolov8n.engine</code></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Precision</th>
+<th>Eval test</th>
+<th>mean<br/>(ms)</th>
+<th>min | max<br/>(ms)</th>
+<th>mAP<sup>val<br/>50(B)</sup></th>
+<th>mAP<sup>val<br/>50-95(B)</sup></th>
+<th><code>batch</code></th>
+<th>size<br/><sup>(pixels)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP32</td>
+<td>Predict</td>
+<td>1.76</td>
+<td>1.69 | 1.87</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP32</td>
+<td>COCO<sup>val</sup></td>
+<td>1.94</td>
+<td></td>
+<td>0.52</td>
+<td>0.37</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>Predict</td>
+<td>0.86</td>
+<td>0.75 | 1.00</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>COCO<sup>val</sup></td>
+<td>1.43</td>
+<td></td>
+<td>0.52</td>
+<td>0.37</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>Predict</td>
+<td>0.80</td>
+<td>0.75 | 1.00</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>COCO<sup>val</sup></td>
+<td>1.35</td>
+<td></td>
+<td>0.47</td>
+<td>0.33</td>
+<td>1</td>
+<td>640</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>Tested with Pop!_OS 22.04 LTS, <code>python 3.10.12</code>, <code>ultralytics==8.2.4</code>, <code>tensorrt==8.6.1.post1</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inference times shown for <code>mean</code>, <code>min</code> (fastest), and <code>max</code> (slowest) for each test using pre-trained weights <code>yolov8n.engine</code></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Precision</th>
+<th>Eval test</th>
+<th>mean<br/>(ms)</th>
+<th>min | max<br/>(ms)</th>
+<th>mAP<sup>val<br/>50(B)</sup></th>
+<th>mAP<sup>val<br/>50-95(B)</sup></th>
+<th><code>batch</code></th>
+<th>size<br/><sup>(pixels)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP32</td>
+<td>Predict</td>
+<td>2.84</td>
+<td>2.84 | 2.85</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP32</td>
+<td>COCO<sup>val</sup></td>
+<td>2.94</td>
+<td></td>
+<td>0.52</td>
+<td>0.37</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>Predict</td>
+<td>1.09</td>
+<td>1.09 | 1.10</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>COCO<sup>val</sup></td>
+<td>1.20</td>
+<td></td>
+<td>0.52</td>
+<td>0.37</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>Predict</td>
+<td>0.75</td>
+<td>0.74 | 0.75</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>COCO<sup>val</sup></td>
+<td>0.76</td>
+<td></td>
+<td>0.47</td>
+<td>0.33</td>
+<td>1</td>
+<td>640</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<h3 id="embedded-devices">Embedded Devices</h3>
+<div class="admonition tip">
+<p class="admonition-title">Detection Performance (COCO)</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Jetson Orin NX 16GB</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Tested with JetPack 5.1.3 (L4T 35.5.0) Ubuntu 20.04.6, <code>python 3.8.10</code>, <code>ultralytics==8.2.4</code>, <code>tensorrt==8.5.2.2</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inference times shown for <code>mean</code>, <code>min</code> (fastest), and <code>max</code> (slowest) for each test using pre-trained weights <code>yolov8n.engine</code></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Precision</th>
+<th>Eval test</th>
+<th>mean<br/>(ms)</th>
+<th>min | max<br/>(ms)</th>
+<th>mAP<sup>val<br/>50(B)</sup></th>
+<th>mAP<sup>val<br/>50-95(B)</sup></th>
+<th><code>batch</code></th>
+<th>size<br/><sup>(pixels)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FP32</td>
+<td>Predict</td>
+<td>6.90</td>
+<td>6.89 | 6.93</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP32</td>
+<td>COCO<sup>val</sup></td>
+<td>6.97</td>
+<td></td>
+<td>0.52</td>
+<td>0.37</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>Predict</td>
+<td>3.36</td>
+<td>3.35 | 3.39</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>FP16</td>
+<td>COCO<sup>val</sup></td>
+<td>3.39</td>
+<td></td>
+<td>0.52</td>
+<td>0.37</td>
+<td>1</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>Predict</td>
+<td>2.32</td>
+<td>2.32 | 2.34</td>
+<td></td>
+<td></td>
+<td>8</td>
+<td>640</td>
+</tr>
+<tr>
+<td>INT8</td>
+<td>COCO<sup>val</sup></td>
+<td>2.33</td>
+<td></td>
+<td>0.47</td>
+<td>0.33</td>
+<td>1</td>
+<td>640</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>See our <a href="../../guides/nvidia-jetson/">quickstart guide on NVIDIA Jetson with Ultralytics YOLO</a> to learn more about setup and configuration.</p>
+</div>
+<h4 id="evaluation-methods">Evaluation methods</h4>
+<p>Expand sections below for information on how these models were exported and tested.</p>
+<details class="example">
+<summary>Export configurations</summary>
+<p>See <a href="../../modes/export/">export mode</a> for details regarding export configuration arguments.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1"># TensorRT FP32</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"engine"</span><span class="p">,</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="n">imgsz</span><span class="p">:</span><span class="mi">640</span><span class="p">,</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="n">dynamic</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="n">verbose</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>    <span class="n">batch</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="n">workspace</span><span class="p">:</span><span class="mi">2</span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="p">)</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="c1"># TensorRT FP16</span>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"engine"</span><span class="p">,</span>
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a>    <span class="n">imgsz</span><span class="p">:</span><span class="mi">640</span><span class="p">,</span>
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a>    <span class="n">dynamic</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a>    <span class="n">verbose</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a>    <span class="n">batch</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span>
+<a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a>    <span class="n">workspace</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+<a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a>    <span class="n">half</span><span class="o">=</span><span class="kc">True</span>
+<a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="p">)</span>
+<a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a>
+<a href="#__codelineno-4-26" id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="c1"># TensorRT INT8</span>
+<a href="#__codelineno-4-27" id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span>
+<a href="#__codelineno-4-28" id="__codelineno-4-28" name="__codelineno-4-28"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"engine"</span><span class="p">,</span>
+<a href="#__codelineno-4-29" id="__codelineno-4-29" name="__codelineno-4-29"></a>    <span class="n">imgsz</span><span class="p">:</span><span class="mi">640</span><span class="p">,</span>
+<a href="#__codelineno-4-30" id="__codelineno-4-30" name="__codelineno-4-30"></a>    <span class="n">dynamic</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-4-31" id="__codelineno-4-31" name="__codelineno-4-31"></a>    <span class="n">verbose</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-4-32" id="__codelineno-4-32" name="__codelineno-4-32"></a>    <span class="n">batch</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span>
+<a href="#__codelineno-4-33" id="__codelineno-4-33" name="__codelineno-4-33"></a>    <span class="n">workspace</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+<a href="#__codelineno-4-34" id="__codelineno-4-34" name="__codelineno-4-34"></a>    <span class="n">int8</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-4-35" id="__codelineno-4-35" name="__codelineno-4-35"></a>    <span class="n">data</span><span class="p">:</span><span class="s2">"data.yaml"</span>  <span class="c1"># COCO, ImageNet, or DOTAv1 for appropriate model task</span>
+<a href="#__codelineno-4-36" id="__codelineno-4-36" name="__codelineno-4-36"></a><span class="p">)</span>
+</code></pre></div>
+</details>
+<details class="example">
+<summary>Predict loop</summary>
+<p>See <a href="../../modes/predict/">predict mode</a> for additional information.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.engine"</span><span class="p">)</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>        <span class="p">[</span><span class="n">img</span><span class="p">]</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span>  <span class="c1"># batch=8 of the same image</span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>        <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>        <span class="n">device</span><span class="o">=</span><span class="s2">"cuda"</span>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="p">)</span>
+</code></pre></div>
+</details>
+<details class="example">
+<summary>Validation configuration</summary>
+<p>See <a href="../../modes/val/"><code>val</code> mode</a> to learn more about validation configuration arguments.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.engine"</span><span class="p">)</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span class="n">data</span><span class="o">=</span><span class="s2">"data.yaml"</span><span class="p">,</span>  <span class="c1"># COCO, ImageNet, or DOTAv1 for appropriate model task</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>    <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>    <span class="n">device</span><span class="o">=</span><span class="s2">"cuda"</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="p">)</span>
+</code></pre></div>
+</details>
 <h2 id="deploying-exported-yolov8-tensorrt-models">Deploying Exported YOLOv8 TensorRT Models</h2>
 <p>Having successfully exported your Ultralytics YOLOv8 models to TensorRT format, you're now ready to deploy them. For in-depth instructions on deploying your TensorRT models in various settings, take a look at the following resources:</p>
 <ul>
+<li>
+<p><strong><a href="../../guides/triton-inference-server/">Deploy Ultralytics with a Triton Server</a></strong>: Our guide on how to use NVIDIA's Triton Inference (formerly TensorRT Inference) Server specifically for use with Ultralytics YOLO models.</p>
+</li>
 <li>
 <p><strong><a href="https://developer.nvidia.com/blog/deploying-deep-learning-nvidia-tensorrt/">Deploying Deep Neural Networks with NVIDIA TensorRT</a></strong>: This article explains how to use NVIDIA TensorRT to deploy deep neural networks on GPU-based deployment platforms efficiently.</p>
 </li>
@@ -846,7 +1973,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-28, Updated 2024-03-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-28, Updated 2024-05-08<br/>Authors: <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
