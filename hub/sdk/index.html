@@ -673,21 +673,43 @@
 <p>Integration with Ultralytics services starts with the initialization of an <code>HUBClient</code> object. This pivotal step creates a bridge between your code and our APIs, and it requires appropriate credentials for authentication. You can opt for the standard API key method or use your email and password. Let's set it up together! 🚀</p>
 <h3 id="option-1-using-an-api-key">Option 1: Using an API Key</h3>
 <p>To utilize the simplicity of an API key, prepare a dictionary with your key like so:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1"># Replace &lt;YOUR-API-KEY&gt; with the actual key provided to you by Ultralytics.</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">hub_sdk</span> <span class="kn">import</span> <span class="n">HUBClient</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Replace &lt;YOUR-API-KEY&gt; with the actual key provided to you by Ultralytics.</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
 </code></pre></div>
 <p>By using an API key, you're choosing a common authentication method suitable for programmatic access. It's perfect for scenarios where integrating a key directly into your framework is desired for swift and secure service interaction.</p>
 <h3 id="option-2-using-email-and-password">Option 2: Using Email and Password</h3>
 <p>Prefer to harness your account credentials? Configure the <code>HUBClient</code> with your email and password in the credentials dictionary:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"email"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-EMAIL&gt;"</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-PASSWORD&gt;"</span><span class="p">}</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># Replace &lt;YOUR-EMAIL&gt; with your email address and &lt;YOUR-PASSWORD&gt; with your password.</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">hub_sdk</span> <span class="kn">import</span> <span class="n">HUBClient</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Replace &lt;YOUR-EMAIL&gt; with your email address and &lt;YOUR-PASSWORD&gt; with your password.</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"email"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-EMAIL&gt;"</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-PASSWORD&gt;"</span><span class="p">}</span>
 </code></pre></div>
 <p>Employing your email and password is a convenient choice if you're looking for a traditional login experience or aiming to utilize personalized features tied to your Ultralytics account.</p>
 <h3 id="bringing-it-all-together">Bringing it All Together</h3>
 <p>Now that your credentials are prepared, initiate your <code>HUBClient</code>:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="c1"># The HUBClient is now initialized with your chosen authentication method.</span>
+<div class="admonition example">
+<p class="admonition-title">HUB SDK Authentication</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Authentication with API Key</label><label for="__tabbed_1_2">Authentication with Email and Password</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">hub_sdk</span> <span class="kn">import</span> <span class="n">HUBClient</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span> <span class="c1"># api key</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">hub_sdk</span> <span class="kn">import</span> <span class="n">HUBClient</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"email"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-EMAIL&gt;"</span><span class="p">,</span> <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-PASSWORD&gt;"</span><span class="p">}</span>  <span class="c1"># email and password</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
 <p>This crucial line of code crafts a new instance of the HUBClient, connecting you to the vast landscape of services offered by the Ultralytics platform. With your authentication details securely in place, you're all set to explore the functionalities at your fingertips!</p>
 <hr/>
 <p>Congratulations on setting up the Ultralytics HUB-SDK! You are now well-equipped to embark on your journey towards integrating cutting-edge machine learning services into your applications. Explore our further documentation for guidance on using specific APIs, and consult our community forums if you encounter any hurdles. Happy coding, and may your projects thrive with the power of Ultralytics! 🌟</p>
