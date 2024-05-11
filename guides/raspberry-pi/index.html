@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Quick start guide to setting up YOLO on a Raspberry Pi with a Pi Camera using the libcamera stack. Detailed comparison between Raspberry Pi 3, 4 and 5 models." name="description"/>
+<meta content="Quick start guide to setting up YOLOv8 on a Raspberry Pi with comprehensive benchmarks." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/guides/raspberry-pi/" rel="canonical"/>
 <link href="../docker-quickstart/" rel="prev"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Raspberry Pi" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, Raspberry Pi, Pi Camera, libcamera, quick start guide, Raspberry Pi 4 vs Raspberry Pi 5, YOLO on Raspberry Pi, hardware setup, machine learning, AI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/raspberry-pi" property="og:url"/><meta content="Raspberry Pi" property="og:title"/><meta content="Quick start guide to setting up YOLO on a Raspberry Pi with a Pi Camera using the libcamera stack. Detailed comparison between Raspberry Pi 3, 4 and 5 models." property="og:description"/><meta content="https://img.youtube.com/vi/yul4gq_LrOI/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/raspberry-pi" property="twitter:url"/><meta content="Raspberry Pi" property="twitter:title"/><meta content="Quick start guide to setting up YOLO on a Raspberry Pi with a Pi Camera using the libcamera stack. Detailed comparison between Raspberry Pi 3, 4 and 5 models." property="twitter:description"/><meta content="https://img.youtube.com/vi/yul4gq_LrOI/maxresdefault.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Raspberry Pi", "image": ["https://img.youtube.com/vi/yul4gq_LrOI/maxresdefault.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-02-03 23:24:20 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Raspberry Pi" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, Raspberry Pi, Pi Camera, rpicam, quick start guide, Raspberry Pi 4 vs Raspberry Pi 5, YOLO on Raspberry Pi, hardware setup, machine learning, AI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/raspberry-pi" property="og:url"/><meta content="Raspberry Pi" property="og:title"/><meta content="Quick start guide to setting up YOLOv8 on a Raspberry Pi with comprehensive benchmarks." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/20147381/43421a4e-0ac0-42ca-995b-5e71d9748af5" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/raspberry-pi" property="twitter:url"/><meta content="Raspberry Pi" property="twitter:title"/><meta content="Quick start guide to setting up YOLOv8 on a Raspberry Pi with comprehensive benchmarks." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/20147381/43421a4e-0ac0-42ca-995b-5e71d9748af5" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Raspberry Pi", "image": ["https://github.com/ultralytics/ultralytics/assets/20147381/43421a4e-0ac0-42ca-995b-5e71d9748af5"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-05-11 07:39:32 -0700", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#quick-start-guide-raspberry-pi-and-pi-camera-with-yolov5-and-yolov8">
+<a class="md-skip" href="#quick-start-guide-raspberry-pi-with-ultralytics-yolov8">
           Skip to content
         </a>
 </div>
@@ -443,59 +443,102 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
+<a class="md-nav__link" href="#what-is-raspberry-pi">
 <span class="md-ellipsis">
-      Prerequisites
+      What is Raspberry Pi?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#choose-your-yolo-version-yolov5-or-yolov8">
+<a class="md-nav__link" href="#raspberry-pi-series-comparison">
 <span class="md-ellipsis">
-      Choose Your YOLO Version: YOLOv5 or YOLOv8
+      Raspberry Pi Series Comparison
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#hardware-specifics-at-a-glance">
+<a class="md-nav__link" href="#what-is-raspberry-pi-os">
 <span class="md-ellipsis">
-      Hardware Specifics: At a Glance
+      What is Raspberry Pi OS?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#quick-start-with-yolov5">
+<a class="md-nav__link" href="#flash-raspberry-pi-os-to-raspberry-pi">
 <span class="md-ellipsis">
-      Quick Start with YOLOv5
+      Flash Raspberry Pi OS to Raspberry Pi
     </span>
 </a>
-<nav aria-label="Quick Start with YOLOv5" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#set-up-ultralytics">
+<span class="md-ellipsis">
+      Set Up Ultralytics
+    </span>
+</a>
+<nav aria-label="Set Up Ultralytics" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#install-necessary-packages">
+<a class="md-nav__link" href="#start-with-docker">
 <span class="md-ellipsis">
-      Install Necessary Packages
+      Start with Docker
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#modify-detectpy">
+<a class="md-nav__link" href="#start-without-docker">
 <span class="md-ellipsis">
-      Modify detect.py
+      Start without Docker
+    </span>
+</a>
+<nav aria-label="Start without Docker" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-ultralytics-package">
+<span class="md-ellipsis">
+      Install Ultralytics Package
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#use-ncnn-on-raspberry-pi">
+<span class="md-ellipsis">
+      Use NCNN on Raspberry Pi
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#initiate-tcp-stream-with-libcamera">
+<a class="md-nav__link" href="#convert-model-to-ncnn-and-run-inference">
 <span class="md-ellipsis">
-      Initiate TCP Stream with Libcamera
+      Convert Model to NCNN and Run Inference
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#perform-yolov5-inference">
+<a class="md-nav__link" href="#raspberry-pi-5-vs-raspberry-pi-4-yolov8-benchmarks">
 <span class="md-ellipsis">
-      Perform YOLOv5 Inference
+      Raspberry Pi 5 vs Raspberry Pi 4 YOLOv8 Benchmarks
+    </span>
+</a>
+<nav aria-label="Raspberry Pi 5 vs Raspberry Pi 4 YOLOv8 Benchmarks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comparison-chart">
+<span class="md-ellipsis">
+      Comparison Chart
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detailed-comparison-table">
+<span class="md-ellipsis">
+      Detailed Comparison Table
     </span>
 </a>
 </li>
@@ -503,24 +546,31 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#quick-start-with-yolov8">
+<a class="md-nav__link" href="#reproduce-our-results">
 <span class="md-ellipsis">
-      Quick Start with YOLOv8
-    </span>
-</a>
-<nav aria-label="Quick Start with YOLOv8" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#install-necessary-packages_1">
-<span class="md-ellipsis">
-      Install Necessary Packages
+      Reproduce Our Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#initiate-tcp-stream-with-libcamera_1">
+<a class="md-nav__link" href="#use-raspberry-pi-camera">
 <span class="md-ellipsis">
-      Initiate TCP Stream with Libcamera
+      Use Raspberry Pi Camera
+    </span>
+</a>
+<nav aria-label="Use Raspberry Pi Camera" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#test-the-camera">
+<span class="md-ellipsis">
+      Test the Camera
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#initiate-tcp-stream-with-rpicam-vid">
+<span class="md-ellipsis">
+      Initiate TCP Stream with rpicam-vid
     </span>
 </a>
 </li>
@@ -533,6 +583,13 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#best-practices-when-using-raspberry-pi">
+<span class="md-ellipsis">
+      Best Practices when using Raspberry Pi
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#next-steps">
@@ -795,59 +852,102 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
+<a class="md-nav__link" href="#what-is-raspberry-pi">
 <span class="md-ellipsis">
-      Prerequisites
+      What is Raspberry Pi?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#choose-your-yolo-version-yolov5-or-yolov8">
+<a class="md-nav__link" href="#raspberry-pi-series-comparison">
 <span class="md-ellipsis">
-      Choose Your YOLO Version: YOLOv5 or YOLOv8
+      Raspberry Pi Series Comparison
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#hardware-specifics-at-a-glance">
+<a class="md-nav__link" href="#what-is-raspberry-pi-os">
 <span class="md-ellipsis">
-      Hardware Specifics: At a Glance
+      What is Raspberry Pi OS?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#quick-start-with-yolov5">
+<a class="md-nav__link" href="#flash-raspberry-pi-os-to-raspberry-pi">
 <span class="md-ellipsis">
-      Quick Start with YOLOv5
+      Flash Raspberry Pi OS to Raspberry Pi
     </span>
 </a>
-<nav aria-label="Quick Start with YOLOv5" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#set-up-ultralytics">
+<span class="md-ellipsis">
+      Set Up Ultralytics
+    </span>
+</a>
+<nav aria-label="Set Up Ultralytics" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#install-necessary-packages">
+<a class="md-nav__link" href="#start-with-docker">
 <span class="md-ellipsis">
-      Install Necessary Packages
+      Start with Docker
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#modify-detectpy">
+<a class="md-nav__link" href="#start-without-docker">
 <span class="md-ellipsis">
-      Modify detect.py
+      Start without Docker
+    </span>
+</a>
+<nav aria-label="Start without Docker" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#install-ultralytics-package">
+<span class="md-ellipsis">
+      Install Ultralytics Package
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#use-ncnn-on-raspberry-pi">
+<span class="md-ellipsis">
+      Use NCNN on Raspberry Pi
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#initiate-tcp-stream-with-libcamera">
+<a class="md-nav__link" href="#convert-model-to-ncnn-and-run-inference">
 <span class="md-ellipsis">
-      Initiate TCP Stream with Libcamera
+      Convert Model to NCNN and Run Inference
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#perform-yolov5-inference">
+<a class="md-nav__link" href="#raspberry-pi-5-vs-raspberry-pi-4-yolov8-benchmarks">
 <span class="md-ellipsis">
-      Perform YOLOv5 Inference
+      Raspberry Pi 5 vs Raspberry Pi 4 YOLOv8 Benchmarks
+    </span>
+</a>
+<nav aria-label="Raspberry Pi 5 vs Raspberry Pi 4 YOLOv8 Benchmarks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comparison-chart">
+<span class="md-ellipsis">
+      Comparison Chart
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detailed-comparison-table">
+<span class="md-ellipsis">
+      Detailed Comparison Table
     </span>
 </a>
 </li>
@@ -855,24 +955,31 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#quick-start-with-yolov8">
+<a class="md-nav__link" href="#reproduce-our-results">
 <span class="md-ellipsis">
-      Quick Start with YOLOv8
-    </span>
-</a>
-<nav aria-label="Quick Start with YOLOv8" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#install-necessary-packages_1">
-<span class="md-ellipsis">
-      Install Necessary Packages
+      Reproduce Our Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#initiate-tcp-stream-with-libcamera_1">
+<a class="md-nav__link" href="#use-raspberry-pi-camera">
 <span class="md-ellipsis">
-      Initiate TCP Stream with Libcamera
+      Use Raspberry Pi Camera
+    </span>
+</a>
+<nav aria-label="Use Raspberry Pi Camera" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#test-the-camera">
+<span class="md-ellipsis">
+      Test the Camera
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#initiate-tcp-stream-with-rpicam-vid">
+<span class="md-ellipsis">
+      Initiate TCP Stream with rpicam-vid
     </span>
 </a>
 </li>
@@ -885,6 +992,13 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#best-practices-when-using-raspberry-pi">
+<span class="md-ellipsis">
+      Best Practices when using Raspberry Pi
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#next-steps">
@@ -910,8 +1024,8 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/raspberry-pi.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="quick-start-guide-raspberry-pi-and-pi-camera-with-yolov5-and-yolov8">Quick Start Guide: Raspberry Pi and Pi Camera with YOLOv5 and YOLOv8</h1>
-<p>This comprehensive guide aims to expedite your journey with YOLO object detection models on a <a href="https://www.raspberrypi.com/">Raspberry Pi</a> using a <a href="https://www.raspberrypi.com/products/camera-module-v2/">Pi Camera</a>. Whether you're a student, hobbyist, or a professional, this guide is designed to get you up and running in less than 30 minutes. The instructions here are rigorously tested to minimize setup issues, allowing you to focus on utilizing YOLO for your specific projects.</p>
+<h1 id="quick-start-guide-raspberry-pi-with-ultralytics-yolov8">Quick Start Guide: Raspberry Pi with Ultralytics YOLOv8</h1>
+<p>This comprehensive guide provides a detailed walkthrough for deploying Ultralytics YOLOv8 on <a href="https://www.raspberrypi.com">Raspberry Pi</a> devices. Additionally, it showcases performance benchmarks to demonstrate the capabilities of YOLOv8 on these small and powerful devices.</p>
 <p align="center">
 <br/>
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" loading="lazy" src="https://www.youtube.com/embed/yul4gq_LrOI" title="Introducing Raspberry Pi 5" width="720">
@@ -919,24 +1033,17 @@
 <br/>
 <strong>Watch:</strong> Raspberry Pi 5 updates and improvements.
 </p>
-<h2 id="prerequisites">Prerequisites</h2>
-<ul>
-<li>Raspberry Pi 3, 4 or 5</li>
-<li>Pi Camera</li>
-<li>64-bit Raspberry Pi Operating System</li>
-</ul>
-<p>Connect the Pi Camera to your Raspberry Pi via a CSI cable and install the 64-bit Raspberry Pi Operating System. Verify your camera with the following command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>libcamera-hello
-</code></pre></div>
-<p>You should see a video feed from your camera.</p>
-<h2 id="choose-your-yolo-version-yolov5-or-yolov8">Choose Your YOLO Version: YOLOv5 or YOLOv8</h2>
-<p>This guide offers you the flexibility to start with either <a href="https://github.com/ultralytics/yolov5">YOLOv5</a> or <a href="https://github.com/ultralytics/ultralytics">YOLOv8</a>. Both versions have their unique advantages and use-cases. The choice is yours, but remember, the guide's aim is not just quick setup but also a robust foundation for your future work in object detection.</p>
-<h2 id="hardware-specifics-at-a-glance">Hardware Specifics: At a Glance</h2>
-<p>To assist you in making an informed hardware decision, we've summarized the key hardware specifics of Raspberry Pi 3, 4, and 5 in the table below:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guide has been tested with Raspberry Pi 4 and Raspberry Pi 5 running the latest <a href="https://www.raspberrypi.com/software/operating-systems/">Raspberry Pi OS Bookworm (Debian 12)</a>. Using this guide for older Raspberry Pi devices such as the Raspberry Pi 3 is expected to work as long as the same Raspberry Pi OS Bookworm is installed.</p>
+</div>
+<h2 id="what-is-raspberry-pi">What is Raspberry Pi?</h2>
+<p>Raspberry Pi is a small, affordable, single-board computer. It has become popular for a wide range of projects and applications, from hobbyist home automation to industrial uses. Raspberry Pi boards are capable of running a variety of operating systems, and they offer GPIO (General Purpose Input/Output) pins that allow for easy integration with sensors, actuators, and other hardware components. They come in different models with varying specifications, but they all share the same basic design philosophy of being low-cost, compact, and versatile.</p>
+<h2 id="raspberry-pi-series-comparison">Raspberry Pi Series Comparison</h2>
 <table>
 <thead>
 <tr>
-<th>Feature</th>
+<th></th>
 <th>Raspberry Pi 3</th>
 <th>Raspberry Pi 4</th>
 <th>Raspberry Pi 5</th>
@@ -944,166 +1051,563 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>CPU</strong></td>
-<td>1.2GHz Quad-Core ARM Cortex-A53</td>
-<td>1.5GHz Quad-core 64-bit ARM Cortex-A72</td>
-<td>2.4GHz Quad-core 64-bit Arm Cortex-A76</td>
+<td>CPU</td>
+<td>Broadcom BCM2837, Cortex-A53 64Bit SoC</td>
+<td>Broadcom BCM2711,  Cortex-A72 64Bit SoC</td>
+<td>Broadcom BCM2712,  Cortex-A76 64Bit SoC</td>
 </tr>
 <tr>
-<td><strong>RAM</strong></td>
-<td>1GB LPDDR2</td>
-<td>2GB, 4GB or 8GB LPDDR4</td>
-<td><em>Details not yet available</em></td>
+<td>CPU Max Frequency</td>
+<td>1.4GHz</td>
+<td>1.8GHz</td>
+<td>2.4GHz</td>
 </tr>
 <tr>
-<td><strong>USB Ports</strong></td>
-<td>4 x USB 2.0</td>
-<td>2 x USB 2.0, 2 x USB 3.0</td>
-<td>2 x USB 3.0, 2 x USB 2.0</td>
+<td>GPU</td>
+<td>Videocore IV</td>
+<td>Videocore VI</td>
+<td>VideoCore VII</td>
 </tr>
 <tr>
-<td><strong>Network</strong></td>
-<td>Ethernet &amp; Wi-Fi 802.11n</td>
-<td>Gigabit Ethernet &amp; Wi-Fi 802.11ac</td>
-<td>Gigabit Ethernet with PoE+ support, Dual-band 802.11ac Wi-Fi®</td>
+<td>GPU Max Frequency</td>
+<td>400Mhz</td>
+<td>500Mhz</td>
+<td>800Mhz</td>
 </tr>
 <tr>
-<td><strong>Performance</strong></td>
-<td>Slower, may require lighter YOLO models</td>
-<td>Faster, can run complex YOLO models</td>
-<td><em>Details not yet available</em></td>
+<td>Memory</td>
+<td>1GB LPDDR2 SDRAM</td>
+<td>1GB, 2GB, 4GB, 8GB LPDDR4-3200 SDRAM</td>
+<td>4GB, 8GB LPDDR4X-4267 SDRAM</td>
 </tr>
 <tr>
-<td><strong>Power Requirement</strong></td>
-<td>2.5A power supply</td>
-<td>3.0A USB-C power supply</td>
-<td><em>Details not yet available</em></td>
+<td>PCIe</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>1xPCIe 2.0 Interface</td>
 </tr>
 <tr>
-<td><strong>Official Documentation</strong></td>
-<td><a href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/bcm2837/README.md">Link</a></td>
-<td><a href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/bcm2711/README.md">Link</a></td>
-<td><a href="https://www.raspberrypi.com/news/introducing-raspberry-pi-5/">Link</a></td>
+<td>Max Power Draw</td>
+<td>2.5A@5V</td>
+<td>3A@5V</td>
+<td>5A@5V (PD enabled)</td>
 </tr>
 </tbody>
 </table>
-<p>Please make sure to follow the instructions specific to your Raspberry Pi model to ensure a smooth setup process.</p>
-<h2 id="quick-start-with-yolov5">Quick Start with YOLOv5</h2>
-<p>This section outlines how to set up YOLOv5 on a Raspberry Pi with a Pi Camera. These steps are designed to be compatible with the libcamera camera stack introduced in Raspberry Pi OS Bullseye.</p>
-<h3 id="install-necessary-packages">Install Necessary Packages</h3>
+<h2 id="what-is-raspberry-pi-os">What is Raspberry Pi OS?</h2>
+<p><a href="https://www.raspberrypi.com/software">Raspberry Pi OS</a> (formerly known as Raspbian) is a Unix-like operating system based on the Debian GNU/Linux distribution for the Raspberry Pi family of compact single-board computers distributed by the Raspberry Pi Foundation. Raspberry Pi OS is highly optimized for the Raspberry Pi with ARM CPUs and uses a modified LXDE desktop environment with the Openbox stacking window manager. Raspberry Pi OS is under active development, with an emphasis on improving the stability and performance of as many Debian packages as possible on Raspberry Pi.</p>
+<h2 id="flash-raspberry-pi-os-to-raspberry-pi">Flash Raspberry Pi OS to Raspberry Pi</h2>
+<p>The first thing to do after getting your hands on a Raspberry Pi is to flash a micro-SD card with Raspberry Pi OS, insert into the device and boot into the OS. Follow along with detailed <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html">Getting Started Documentation by Raspberry Pi</a> to prepare your device for first use.</p>
+<h2 id="set-up-ultralytics">Set Up Ultralytics</h2>
+<p>There are two ways of setting up Ultralytics package on Raspberry Pi to build your next Computer Vision project. You can use either of them.</p>
+<ul>
+<li><a href="#start-with-docker">Start with Docker</a></li>
+<li><a href="#start-without-docker">Start without Docker</a></li>
+</ul>
+<h3 id="start-with-docker">Start with Docker</h3>
+<p>The fastest way to get started with Ultralytics YOLOv8 on Raspberry Pi is to run with pre-built docker image for Raspberry Pi.</p>
+<p>Execute the below command to pull the Docker container and run on Raspberry Pi. This is based on <a href="https://hub.docker.com/r/arm64v8/debian">arm64v8/debian</a> docker image which contains Debian 12 (Bookworm) in a Python3 environment.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest-arm64<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
+</code></pre></div>
+<p>After this is done, skip to <a href="#use-ncnn-on-raspberry-pi">Use NCNN on Raspberry Pi section</a>.</p>
+<h3 id="start-without-docker">Start without Docker</h3>
+<h4 id="install-ultralytics-package">Install Ultralytics Package</h4>
+<p>Here we will install Ultralyics package on the Raspberry Pi with optional dependencies so that we can export the PyTorch models to other different formats.</p>
 <ol>
 <li>
-<p>Update the Raspberry Pi:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade<span class="w"> </span>-y
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>autoremove<span class="w"> </span>-y
+<p>Update packages list, install pip and upgrade to latest</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip<span class="w"> </span>-y
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
 </code></pre></div>
 </li>
 <li>
-<p>Clone the YOLOv5 repository:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>~
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Ultralytics/yolov5.git
+<p>Install <code>ultralytics</code> pip package with optional dependencies</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="o">[</span>export<span class="o">]</span>
 </code></pre></div>
 </li>
 <li>
-<p>Install the required dependencies:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>~/yolov5
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</code></pre></div>
-</li>
-<li>
-<p>For Raspberry Pi 3, install compatible versions of PyTorch and Torchvision (skip for Raspberry Pi 4):</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>pip3<span class="w"> </span>uninstall<span class="w"> </span>torch<span class="w"> </span>torchvision
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>pip3<span class="w"> </span>install<span class="w"> </span><span class="nv">torch</span><span class="o">==</span><span class="m">1</span>.11.0<span class="w"> </span><span class="nv">torchvision</span><span class="o">==</span><span class="m">0</span>.12.0
+<p>Reboot the device</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo<span class="w"> </span>reboot
 </code></pre></div>
 </li>
 </ol>
-<h3 id="modify-detectpy">Modify <code>detect.py</code></h3>
-<p>To enable TCP streams via SSH or the CLI, minor modifications are needed in <code>detect.py</code>.</p>
-<ol>
-<li>
-<p>Open <code>detect.py</code>:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>~/yolov5/detect.py
+<h2 id="use-ncnn-on-raspberry-pi">Use NCNN on Raspberry Pi</h2>
+<p>Out of all the model export formats supported by Ultralytics, <a href="https://docs.ultralytics.com/integrations/ncnn">NCNN</a> delivers the best inference performance when working with Raspberry Pi devices because NCNN is highly optimized for mobile/ embedded platforms (such as ARM architecture). Therefore our recommendation is to use NCNN with Raspberry Pi.</p>
+<h2 id="convert-model-to-ncnn-and-run-inference">Convert Model to NCNN and Run Inference</h2>
+<p>The YOLOv8n model in PyTorch format is converted to NCNN to run inference with the exported model.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Load a YOLOv8n PyTorch model</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Export the model to NCNN format</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'ncnn'</span><span class="p">)</span>  <span class="c1"># creates 'yolov8n_ncnn_model'</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="c1"># Load the exported NCNN model</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">ncnn_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n_ncnn_model'</span><span class="p">)</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="c1"># Run inference</span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">ncnn_model</span><span class="p">(</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span><span class="p">)</span>
 </code></pre></div>
-</li>
-<li>
-<p>Find and modify the <code>is_url</code> line to accept TCP streams:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">is_url</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s1">'rtsp://'</span><span class="p">,</span> <span class="s1">'rtmp://'</span><span class="p">,</span> <span class="s1">'http://'</span><span class="p">,</span> <span class="s1">'https://'</span><span class="p">,</span> <span class="s1">'tcp://'</span><span class="p">))</span>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Export a YOLOv8n PyTorch model to NCNN format</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>ncnn<span class="w">  </span><span class="c1"># creates 'yolov8n_ncnn_model'</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># Run inference with the exported model</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s1">'yolov8n_ncnn_model'</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
 </code></pre></div>
-</li>
-<li>
-<p>Comment out the <code>view_img</code> line:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># view_img = check_imshow(warn=True)</span>
+</div>
+</div>
+</input></input></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For more details about supported export options, visit the <a href="https://docs.ultralytics.com/guides/model-deployment-options">Ultralytics documentation page on deployment options</a>.</p>
+</div>
+<h2 id="raspberry-pi-5-vs-raspberry-pi-4-yolov8-benchmarks">Raspberry Pi 5 vs Raspberry Pi 4 YOLOv8 Benchmarks</h2>
+<p>YOLOv8 benchmarks were run by the Ultralytics team on nine different model formats measuring speed and accuracy: PyTorch, TorchScript, ONNX, OpenVINO, TF SavedModel, TF Graphdef, TF Lite, PaddlePaddle, NCNN. Benchmarks were run on both Raspberry Pi 5 and Raspberry Pi 4 at FP32 precision with default input image size of 640.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We have only included benchmarks for YOLOv8n and YOLOv8s models because other models sizes are too big to run on the Raspberry Pis and does not offer decent performance.</p>
+</div>
+<h3 id="comparison-chart">Comparison Chart</h3>
+<div class="admonition tip">
+<p class="admonition-title">Performance</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">YOLOv8n</label><label for="__tabbed_2_2">YOLOv8s</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><div style="text-align: center;">
+<img alt="NVIDIA Jetson Ecosystem" src="https://github.com/ultralytics/ultralytics/assets/20147381/43421a4e-0ac0-42ca-995b-5e71d9748af5" width="800"/>
+</div></p>
+</div>
+<div class="tabbed-block">
+<p><div style="text-align: center;">
+<img alt="NVIDIA Jetson Ecosystem" src="https://github.com/ultralytics/ultralytics/assets/20147381/e85e18a2-abfc-431d-8b23-812820ee390e" width="800"/>
+</div></p>
+</div>
+</div>
+</input></input></div>
+</div>
+<h3 id="detailed-comparison-table">Detailed Comparison Table</h3>
+<p>The below table represents the benchmark results for two different models (YOLOv8n, YOLOv8s) across nine different formats (PyTorch, TorchScript, ONNX, OpenVINO, TF SavedModel, TF Graphdef, TF Lite, PaddlePaddle, NCNN), running on both Raspberry Pi 4 and Raspberry Pi 5, giving us the status, size, mAP50-95(B) metric, and inference time for each combination.</p>
+<div class="admonition tip">
+<p class="admonition-title">Performance</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">YOLOv8n on RPi5</label><label for="__tabbed_3_2">YOLOv8s on RPi5</label><label for="__tabbed_3_3">YOLOv8n on RPi4</label><label for="__tabbed_3_4">YOLOv8s on RPi4</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Status</th>
+<th>Size on disk (MB)</th>
+<th>mAP50-95(B)</th>
+<th>Inference time (ms/im)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PyTorch</td>
+<td>✅</td>
+<td>6.2</td>
+<td>0.6381</td>
+<td>508.61</td>
+</tr>
+<tr>
+<td>TorchScript</td>
+<td>✅</td>
+<td>12.4</td>
+<td>0.6092</td>
+<td>558.38</td>
+</tr>
+<tr>
+<td>ONNX</td>
+<td>✅</td>
+<td>12.2</td>
+<td>0.6092</td>
+<td>198.69</td>
+</tr>
+<tr>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>12.3</td>
+<td>0.6092</td>
+<td>704.70</td>
+</tr>
+<tr>
+<td>TF SavedModel</td>
+<td>✅</td>
+<td>30.6</td>
+<td>0.6092</td>
+<td>367.64</td>
+</tr>
+<tr>
+<td>TF GraphDef</td>
+<td>✅</td>
+<td>12.3</td>
+<td>0.6092</td>
+<td>473.22</td>
+</tr>
+<tr>
+<td>TF Lite</td>
+<td>✅</td>
+<td>12.3</td>
+<td>0.6092</td>
+<td>380.67</td>
+</tr>
+<tr>
+<td>PaddlePaddle</td>
+<td>✅</td>
+<td>24.4</td>
+<td>0.6092</td>
+<td>703.51</td>
+</tr>
+<tr>
+<td>NCNN</td>
+<td>✅</td>
+<td>12.2</td>
+<td>0.6034</td>
+<td>94.28</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Status</th>
+<th>Size on disk (MB)</th>
+<th>mAP50-95(B)</th>
+<th>Inference time (ms/im)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PyTorch</td>
+<td>✅</td>
+<td>21.5</td>
+<td>0.6967</td>
+<td>969.49</td>
+</tr>
+<tr>
+<td>TorchScript</td>
+<td>✅</td>
+<td>43.0</td>
+<td>0.7136</td>
+<td>1110.04</td>
+</tr>
+<tr>
+<td>ONNX</td>
+<td>✅</td>
+<td>42.8</td>
+<td>0.7136</td>
+<td>451.37</td>
+</tr>
+<tr>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>42.9</td>
+<td>0.7136</td>
+<td>873.51</td>
+</tr>
+<tr>
+<td>TF SavedModel</td>
+<td>✅</td>
+<td>107.0</td>
+<td>0.7136</td>
+<td>658.15</td>
+</tr>
+<tr>
+<td>TF GraphDef</td>
+<td>✅</td>
+<td>42.8</td>
+<td>0.7136</td>
+<td>946.01</td>
+</tr>
+<tr>
+<td>TF Lite</td>
+<td>✅</td>
+<td>42.8</td>
+<td>0.7136</td>
+<td>1013.27</td>
+</tr>
+<tr>
+<td>PaddlePaddle</td>
+<td>✅</td>
+<td>85.5</td>
+<td>0.7136</td>
+<td>1560.23</td>
+</tr>
+<tr>
+<td>NCNN</td>
+<td>✅</td>
+<td>42.7</td>
+<td>0.7204</td>
+<td>211.26</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Status</th>
+<th>Size on disk (MB)</th>
+<th>mAP50-95(B)</th>
+<th>Inference time (ms/im)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PyTorch</td>
+<td>✅</td>
+<td>6.2</td>
+<td>0.6381</td>
+<td>1068.42</td>
+</tr>
+<tr>
+<td>TorchScript</td>
+<td>✅</td>
+<td>12.4</td>
+<td>0.6092</td>
+<td>1248.01</td>
+</tr>
+<tr>
+<td>ONNX</td>
+<td>✅</td>
+<td>12.2</td>
+<td>0.6092</td>
+<td>560.04</td>
+</tr>
+<tr>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>12.3</td>
+<td>0.6092</td>
+<td>534.93</td>
+</tr>
+<tr>
+<td>TF SavedModel</td>
+<td>✅</td>
+<td>30.6</td>
+<td>0.6092</td>
+<td>816.50</td>
+</tr>
+<tr>
+<td>TF GraphDef</td>
+<td>✅</td>
+<td>12.3</td>
+<td>0.6092</td>
+<td>1007.57</td>
+</tr>
+<tr>
+<td>TF Lite</td>
+<td>✅</td>
+<td>12.3</td>
+<td>0.6092</td>
+<td>950.29</td>
+</tr>
+<tr>
+<td>PaddlePaddle</td>
+<td>✅</td>
+<td>24.4</td>
+<td>0.6092</td>
+<td>1507.75</td>
+</tr>
+<tr>
+<td>NCNN</td>
+<td>✅</td>
+<td>12.2</td>
+<td>0.6092</td>
+<td>414.73</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Status</th>
+<th>Size on disk (MB)</th>
+<th>mAP50-95(B)</th>
+<th>Inference time (ms/im)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PyTorch</td>
+<td>✅</td>
+<td>21.5</td>
+<td>0.6967</td>
+<td>2589.58</td>
+</tr>
+<tr>
+<td>TorchScript</td>
+<td>✅</td>
+<td>43.0</td>
+<td>0.7136</td>
+<td>2901.33</td>
+</tr>
+<tr>
+<td>ONNX</td>
+<td>✅</td>
+<td>42.8</td>
+<td>0.7136</td>
+<td>1436.33</td>
+</tr>
+<tr>
+<td>OpenVINO</td>
+<td>✅</td>
+<td>42.9</td>
+<td>0.7136</td>
+<td>1225.19</td>
+</tr>
+<tr>
+<td>TF SavedModel</td>
+<td>✅</td>
+<td>107.0</td>
+<td>0.7136</td>
+<td>1770.95</td>
+</tr>
+<tr>
+<td>TF GraphDef</td>
+<td>✅</td>
+<td>42.8</td>
+<td>0.7136</td>
+<td>2146.66</td>
+</tr>
+<tr>
+<td>TF Lite</td>
+<td>✅</td>
+<td>42.8</td>
+<td>0.7136</td>
+<td>2945.03</td>
+</tr>
+<tr>
+<td>PaddlePaddle</td>
+<td>✅</td>
+<td>85.5</td>
+<td>0.7136</td>
+<td>3962.62</td>
+</tr>
+<tr>
+<td>NCNN</td>
+<td>✅</td>
+<td>42.7</td>
+<td>0.7136</td>
+<td>1042.39</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</input></input></input></input></div>
+</div>
+<h2 id="reproduce-our-results">Reproduce Our Results</h2>
+<p>To reproduce the above Ultralytics benchmarks on all <a href="../../modes/export/">export formats</a>, run this code:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Load a YOLOv8n PyTorch model</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># Benchmark YOLOv8n speed and accuracy on the COCO8 dataset for all all export formats</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">benchmarks</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
-</li>
-<li>
-<p>Save and exit:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>CTRL<span class="w"> </span>+<span class="w"> </span>O<span class="w"> </span>-&gt;<span class="w"> </span>ENTER<span class="w"> </span>-&gt;<span class="w"> </span>CTRL<span class="w"> </span>+<span class="w"> </span>X
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Benchmark YOLOv8n speed and accuracy on the COCO8 dataset for all all export formats</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>yolo<span class="w"> </span>benchmark<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
-</li>
-</ol>
-<h3 id="initiate-tcp-stream-with-libcamera">Initiate TCP Stream with Libcamera</h3>
-<ol>
-<li>
-<p>Start the TCP stream:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>libcamera-vid<span class="w"> </span>-n<span class="w"> </span>-t<span class="w"> </span><span class="m">0</span><span class="w"> </span>--width<span class="w"> </span><span class="m">1280</span><span class="w"> </span>--height<span class="w"> </span><span class="m">960</span><span class="w"> </span>--framerate<span class="w"> </span><span class="m">1</span><span class="w"> </span>--inline<span class="w"> </span>--listen<span class="w"> </span>-o<span class="w"> </span>tcp://127.0.0.1:8888
+</div>
+</div>
+</input></input></div>
+<p>Note that benchmarking results might vary based on the exact hardware and software configuration of a system, as well as the current workload of the system at the time the benchmarks are run. For the most reliable results use a dataset with a large number of images, i.e. <code>data='coco8.yaml' (4 val images), or</code>data='coco.yaml'` (5000 val images).</p>
+</div>
+<h2 id="use-raspberry-pi-camera">Use Raspberry Pi Camera</h2>
+<p>When using Raspberry Pi for Computer Vision projects, it can be essentially to grab real-time video feeds to perform inference. The onboard MIPI CSI connector on the Raspberry Pi allows you to connect official Raspberry PI camera modules. In this guide, we have used a <a href="https://www.raspberrypi.com/products/camera-module-3">Raspberry Pi Camera Module 3</a> to grab the video feeds and perform inference using YOLOv8 models.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Learn more about the <a href="https://www.raspberrypi.com/documentation/accessories/camera.html">different camera modules offered by Raspberry Pi</a> and also <a href="https://www.raspberrypi.com/documentation/computers/camera_software.html#introducing-the-raspberry-pi-cameras">how to get started with the Raspberry Pi camera modules</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Raspberry Pi 5 uses smaller CSI connectors than the Raspberry Pi 4 (15-pin vs 22-pin), so you will need a <a href="https://www.raspberrypi.com/products/camera-cable">15-pin to 22pin adapter cable</a> to connect to a Raspberry Pi Camera.</p>
+</div>
+<h3 id="test-the-camera">Test the Camera</h3>
+<p>Execute the following command after connecting the camera to the Raspberry Pi. You should see a live video feed from the camera for about 5 seconds.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>rpicam-hello
 </code></pre></div>
-</li>
-</ol>
-<p>Keep this terminal session running for the next steps.</p>
-<h3 id="perform-yolov5-inference">Perform YOLOv5 Inference</h3>
-<ol>
-<li>
-<p>Run the YOLOv5 detection:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>~/yolov5
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>python3<span class="w"> </span>detect.py<span class="w"> </span>--source<span class="o">=</span>tcp://127.0.0.1:8888
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Learn more about <a href="https://www.raspberrypi.com/documentation/computers/camera_software.html#rpicam-hello"><code>rpicam-hello</code> usage on official Raspberry Pi documentation</a> </p>
+</div>
+<h3 id="initiate-tcp-stream-with-rpicam-vid">Initiate TCP Stream with <code>rpicam-vid</code></h3>
+<p>We need to iniate a TCP stream from the connected camera so that we can use this stream URL as an input when we are inferencing later. Execute the following command to start the TCP stream.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>rpicam-vid<span class="w"> </span>-n<span class="w"> </span>-t<span class="w"> </span><span class="m">0</span><span class="w"> </span>--inline<span class="w"> </span>--listen<span class="w"> </span>-o<span class="w"> </span>tcp://127.0.0.1:8888
 </code></pre></div>
-</li>
-</ol>
-<h2 id="quick-start-with-yolov8">Quick Start with YOLOv8</h2>
-<p>Follow this section if you are interested in setting up YOLOv8 instead. The steps are quite similar but are tailored for YOLOv8's specific needs.</p>
-<h3 id="install-necessary-packages_1">Install Necessary Packages</h3>
-<ol>
-<li>
-<p>Update the Raspberry Pi:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade<span class="w"> </span>-y
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>autoremove<span class="w"> </span>-y
-</code></pre></div>
-</li>
-<li>
-<p>Install the <code>ultralytics</code> Python package:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>ultralytics
-</code></pre></div>
-</li>
-<li>
-<p>Reboot:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>sudo<span class="w"> </span>reboot
-</code></pre></div>
-</li>
-</ol>
-<h3 id="initiate-tcp-stream-with-libcamera_1">Initiate TCP Stream with Libcamera</h3>
-<ol>
-<li>
-<p>Start the TCP stream:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>libcamera-vid<span class="w"> </span>-n<span class="w"> </span>-t<span class="w"> </span><span class="m">0</span><span class="w"> </span>--width<span class="w"> </span><span class="m">1280</span><span class="w"> </span>--height<span class="w"> </span><span class="m">960</span><span class="w"> </span>--framerate<span class="w"> </span><span class="m">1</span><span class="w"> </span>--inline<span class="w"> </span>--listen<span class="w"> </span>-o<span class="w"> </span>tcp://127.0.0.1:8888
-</code></pre></div>
-</li>
-</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Learn more about <a href="https://www.raspberrypi.com/documentation/computers/camera_software.html#rpicam-vid"><code>rpicam-vid</code> usage on official Raspberry Pi documentation</a> </p>
+</div>
 <h3 id="perform-yolov8-inference">Perform YOLOv8 Inference</h3>
-<p>To perform inference with YOLOv8, you can use the following Python code snippet:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
-<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
-<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'tcp://127.0.0.1:8888'</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>
-<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span>
-<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a>        <span class="n">probs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span>
+<p>With the TCP stream initiated, you can perform YOLOv8 inference.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="c1"># Load a YOLOv8n PyTorch model</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># Run inference</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'tcp://127.0.0.1:8888'</span><span class="p">)</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'tcp://127.0.0.1:8888'</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check our document on <a href="https://docs.ultralytics.com/modes/predict/#inference-sources">Inference Sources</a> if you want to change the image/ video input type</p>
+</div>
+<h2 id="best-practices-when-using-raspberry-pi">Best Practices when using Raspberry Pi</h2>
+<p>There are a couple of best practices to follow in order to enable maximum performance on Raspberry Pis running YOLOv8.</p>
+<ol>
+<li>
+<p>Use an SSD</p>
+<p>When using Raspberry Pi for 24x7 continued usage, it is recommend to use an SSD for the system because an SD card will not be able to withstand continuous writes and might get broken. With the onboard PCIe connector on the Raspberry Pi 5, now you can connect SSDs using an adapter such as the <a href="https://shop.pimoroni.com/products/nvme-base">NVMe Base for Raspberry Pi 5</a>.</p>
+</li>
+<li>
+<p>Flash without GUI</p>
+<p>When flashing Raspberry Pi OS, you can choose to not install the Desktop environment (Raspberry Pi OS Lite) and this can save a little bit of RAM on the device, leaving more space for computer vision processing.</p>
+</li>
+</ol>
 <h2 id="next-steps">Next Steps</h2>
-<p>Congratulations on successfully setting up YOLO on your Raspberry Pi! For further learning and support, visit <a href="https://ultralytics.com/">Ultralytics</a> and <a href="https://www.kashmirworldfoundation.org/">Kashmir World Foundation</a>.</p>
+<p>Congratulations on successfully setting up YOLO on your Raspberry Pi! For further learning and support, visit <a href="../../">Ultralytics YOLOv8 Docs</a> and <a href="https://www.kashmirworldfoundation.org/">Kashmir World Foundation</a>.</p>
 <h2 id="acknowledgements-and-citations">Acknowledgements and Citations</h2>
 <p>This guide was initially created by Daan Eeltink for Kashmir World Foundation, an organization dedicated to the use of YOLO for the conservation of endangered species. We acknowledge their pioneering work and educational focus in the realm of object detection technologies.</p>
 <p>For more information about Kashmir World Foundation's activities, you can visit their <a href="https://www.kashmirworldfoundation.org/">website</a>.</p>
@@ -1115,7 +1619,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-02-03<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-05-11<br/>Authors: <a href="https://github.com/lakshanthad">lakshanthad</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
