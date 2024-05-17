@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Docker Quickstart" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, Docker, GPU, containerization, object detection, package installation, deep learning, machine learning, guide" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/docker-quickstart" property="og:url"/><meta content="Docker Quickstart" property="og:title"/><meta content="Complete guide to setting up and using Ultralytics YOLO models with Docker. Learn how to install Docker, manage GPU support, and run YOLO models in isolated containers." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/270173601-fc7011bd-e67c-452f-a31a-aa047dcd2771.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/docker-quickstart" property="twitter:url"/><meta content="Docker Quickstart" property="twitter:title"/><meta content="Complete guide to setting up and using Ultralytics YOLO models with Docker. Learn how to install Docker, manage GPU support, and run YOLO models in isolated containers." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/270173601-fc7011bd-e67c-452f-a31a-aa047dcd2771.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Docker Quickstart", "image": ["https://user-images.githubusercontent.com/26833433/270173601-fc7011bd-e67c-452f-a31a-aa047dcd2771.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2023-11-16 21:51:45 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Docker Quickstart" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, Docker, GPU, containerization, object detection, package installation, deep learning, machine learning, guide" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/docker-quickstart" property="og:url"/><meta content="Docker Quickstart" property="og:title"/><meta content="Complete guide to setting up and using Ultralytics YOLO models with Docker. Learn how to install Docker, manage GPU support, and run YOLO models in isolated containers." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/270173601-fc7011bd-e67c-452f-a31a-aa047dcd2771.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/docker-quickstart" property="twitter:url"/><meta content="Docker Quickstart" property="twitter:title"/><meta content="Complete guide to setting up and using Ultralytics YOLO models with Docker. Learn how to install Docker, manage GPU support, and run YOLO models in isolated containers." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/270173601-fc7011bd-e67c-452f-a31a-aa047dcd2771.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Docker Quickstart", "image": ["https://user-images.githubusercontent.com/26833433/270173601-fc7011bd-e67c-452f-a31a-aa047dcd2771.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-05-17 13:18:45 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -490,9 +490,80 @@
 <nav aria-label="Running Ultralytics in Docker Container" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#using-only-the-cpu">
+<span class="md-ellipsis">
+      Using only the CPU
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-gpus">
+<span class="md-ellipsis">
+      Using GPUs
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-ultralytics-in-docker-container_1">
+<span class="md-ellipsis">
+      Running Ultralytics in Docker Container
+    </span>
+</a>
+<nav aria-label="Running Ultralytics in Docker Container" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-only-the-cpu_1">
+<span class="md-ellipsis">
+      Using only the CPU
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-gpus_1">
+<span class="md-ellipsis">
+      Using GPUs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#note-on-file-accessibility">
 <span class="md-ellipsis">
       Note on File Accessibility
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-graphical-user-interface-gui-applications-in-a-docker-container">
+<span class="md-ellipsis">
+      Run graphical user interface (GUI) applications in a Docker Container
+    </span>
+</a>
+<nav aria-label="Run graphical user interface (GUI) applications in a Docker Container" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-a-docker-container-with-a-gui">
+<span class="md-ellipsis">
+      Running a Docker Container with a GUI
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-docker-with-a-gui">
+<span class="md-ellipsis">
+      Using Docker with a GUI
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#when-finished-with-docker-gui">
+<span class="md-ellipsis">
+      When finished with Docker GUI
     </span>
 </a>
 </li>
@@ -807,9 +878,80 @@
 <nav aria-label="Running Ultralytics in Docker Container" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#using-only-the-cpu">
+<span class="md-ellipsis">
+      Using only the CPU
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-gpus">
+<span class="md-ellipsis">
+      Using GPUs
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-ultralytics-in-docker-container_1">
+<span class="md-ellipsis">
+      Running Ultralytics in Docker Container
+    </span>
+</a>
+<nav aria-label="Running Ultralytics in Docker Container" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-only-the-cpu_1">
+<span class="md-ellipsis">
+      Using only the CPU
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-gpus_1">
+<span class="md-ellipsis">
+      Using GPUs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#note-on-file-accessibility">
 <span class="md-ellipsis">
       Note on File Accessibility
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-graphical-user-interface-gui-applications-in-a-docker-container">
+<span class="md-ellipsis">
+      Run graphical user interface (GUI) applications in a Docker Container
+    </span>
+</a>
+<nav aria-label="Run graphical user interface (GUI) applications in a Docker Container" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-a-docker-container-with-a-gui">
+<span class="md-ellipsis">
+      Running a Docker Container with a GUI
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-docker-with-a-gui">
+<span class="md-ellipsis">
+      Using Docker with a GUI
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#when-finished-with-docker-gui">
+<span class="md-ellipsis">
+      When finished with Docker GUI
     </span>
 </a>
 </li>
@@ -836,7 +978,8 @@
 <ul>
 <li>Setting up Docker with NVIDIA support</li>
 <li>Installing Ultralytics Docker images</li>
-<li>Running Ultralytics in a Docker container</li>
+<li>Running Ultralytics in a Docker container with CPU or GPU support</li>
+<li>Using a Display Server with Docker to Show Ultralytics Detection Results</li>
 <li>Mounting local directories into the container</li>
 </ul>
 <hr/>
@@ -889,19 +1032,96 @@
 <hr/>
 <h2 id="running-ultralytics-in-docker-container">Running Ultralytics in Docker Container</h2>
 <p>Here's how to execute the Ultralytics Docker container:</p>
+<h3 id="using-only-the-cpu">Using only the CPU</h3>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Run with all GPUs</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># Run specifying which GPUs to use</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
+</code></pre></div>
+<h3 id="using-gpus">Using GPUs</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Run with all GPUs</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># Run specifying which GPUs to use</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span>
+</code></pre></div>
+<p>The <code>-it</code> flag assigns a pseudo-TTY and keeps stdin open, allowing you to interact with the container. The <code>--ipc=host</code> flag enables sharing of host's IPC namespace, essential for sharing memory between processes. The <code>--gpus</code> flag allows the container to access the host's GPUs.</p>
+<h2 id="running-ultralytics-in-docker-container_1">Running Ultralytics in Docker Container</h2>
+<p>Here's how to execute the Ultralytics Docker container:</p>
+<h3 id="using-only-the-cpu_1">Using only the CPU</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Run with all GPUs</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
+</code></pre></div>
+<h3 id="using-gpus_1">Using GPUs</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Run with all GPUs</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1"># Run specifying which GPUs to use</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>The <code>-it</code> flag assigns a pseudo-TTY and keeps stdin open, allowing you to interact with the container. The <code>--ipc=host</code> flag enables sharing of host's IPC namespace, essential for sharing memory between processes. The <code>--gpus</code> flag allows the container to access the host's GPUs.</p>
 <h3 id="note-on-file-accessibility">Note on File Accessibility</h3>
 <p>To work with files on your local machine within the container, you can use Docker volumes:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Mount a local directory into the container</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># Mount a local directory into the container</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>Replace <code>/path/on/host</code> with the directory path on your local machine and <code>/path/in/container</code> with the desired path inside the Docker container.</p>
+<h2 id="run-graphical-user-interface-gui-applications-in-a-docker-container">Run graphical user interface (GUI) applications in a Docker Container</h2>
+<div class="admonition danger">
+<p class="admonition-title">Highly Experimental - User Assumes All Risk</p>
+<p>The following instructions are experimental. Sharing a X11 socket with a Docker container poses potential security risks. Therefore, it's recommended to test this solution only in a controlled environment. For more information, refer to these resources on how to use <code>xhost</code><sup><a href="http://users.stat.umn.edu/~geyer/secure.html">(1)</a><a href="https://linux.die.net/man/1/xhost">(2)</a></sup>.</p>
+</div>
+<p>Docker is primarily used to containerize background applications and CLI programs, but it can also run graphical programs. In the Linux world, two main graphic servers handle graphical display: <a href="https://www.x.org/wiki/">X11</a> (also known as the X Window System) and <a href="https://wayland.freedesktop.org/">Wayland</a>. Before starting it's essential to determine which graphics server you're currently using. Just run this command to find out:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span>-i<span class="w"> </span><span class="s1">'x11|xorg|wayland'</span>
+</code></pre></div>
+<p>Setup and configuration of an X11 or Wayland display server is outside the scope of this guide. If the above command returns nothing, then you'll need to start by getting either working for your system before continuing.</p>
+<h3 id="running-a-docker-container-with-a-gui">Running a Docker Container with a GUI</h3>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<details class="info">
+<summary>Use GPUs</summary>
+<div class="highlight"><pre><span></span><code>If you're using [GPUs](#using-gpus), you can add the `--gpus all` flag to the command.
+</code></pre></div>
+</details>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">X11</label><label for="__tabbed_1_2">Wayland</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>If you're using X11, you can run the following command to allow the Docker container to access the X11 socket:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>xhost<span class="w"> </span>+local:docker<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>-v<span class="w"> </span>~/.Xauthority:/root/.Xauthority<span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
+</code></pre></div>
+<p>This command sets the <code>DISPLAY</code> environment variable to the host's display, mounts the X11 socket, and maps the <code>.Xauthority</code> file to the container. The <code>xhost +local:docker</code> command allows the Docker container to access the X11 server.</p>
+</div>
+<div class="tabbed-block">
+<p>For Wayland, use the following command:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>xhost<span class="w"> </span>+local:docker<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>-v<span class="w"> </span><span class="nv">$XDG_RUNTIME_DIR</span>/<span class="nv">$WAYLAND_DISPLAY</span>:/tmp/<span class="nv">$WAYLAND_DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>--net<span class="o">=</span>host<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
+</code></pre></div>
+<p>This command sets the <code>DISPLAY</code> environment variable to the host's display, mounts the Wayland socket, and allows the Docker container to access the Wayland server.</p>
+</div>
+</div>
+</input></input></div>
+</div>
+<h3 id="using-docker-with-a-gui">Using Docker with a GUI</h3>
+<p>Now you can display graphical applications inside your Docker container. For example, you can run the following <a href="../../usage/cli/">CLI command</a> to visualize the <a href="../../modes/predict/">predictions</a> from a <a href="../../models/yolov8/">YOLOv8 model</a>:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+</code></pre></div>
+<details class="info">
+<summary>Testing</summary>
+<p>A simple way to validate that the Docker group has access to the X11 server is to run a container with a GUI program like <a href="https://www.x.org/archive/X11R6.8.1/doc/xclock.1.html"><code>xclock</code></a> or <a href="https://www.x.org/releases/X11R7.5/doc/man/man1/xeyes.1.html"><code>xeyes</code></a>. Alternatively, you can also install these programs in the Ultralytics Docker container to test the access to the X11 server of your GNU-Linux display server. If you run into any problems, consider setting the environment variable <code>-e QT_DEBUG_PLUGINS=1</code>. Setting this environment variable enables the output of debugging information, aiding in the troubleshooting process.</p>
+</details>
+<h3 id="when-finished-with-docker-gui">When finished with Docker GUI</h3>
+<div class="admonition warning">
+<p class="admonition-title">Revoke access</p>
+<p>In both cases, don't forget to revoke access from the Docker group when you're done.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>xhost<span class="w"> </span>-local:docker
+</code></pre></div>
+</div>
+<details class="question">
+<summary>Want to view image results directly in the Terminal?</summary>
+<p>Refer to the following guide on <a href="../view-results-in-terminal/">viewing the image results using a terminal</a></p>
+</details>
 <hr/>
 <p>Congratulations! You're now set up to use Ultralytics with Docker and ready to take advantage of its powerful capabilities. For alternate installation methods, feel free to explore the <a href="../../quickstart/">Ultralytics quickstart documentation</a>.</p>
 <!-- taken from
@@ -912,7 +1132,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2023-11-16<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-05-17<br/>Authors: <a href="https://github.com/ultralytics/ultralytics">jpedrofonseca_94@hotmail.com</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
