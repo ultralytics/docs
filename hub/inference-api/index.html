@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Access object detection capabilities of YOLOv8 via our RESTful API. Learn how to use the YOLO Inference API with Python or cURL for swift object detection." name="description"/>
+<meta content="Effortlessly run AI model inferences with Ultralytics HUB Inference API. Perfect for developers!." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/hub/inference-api/" rel="canonical"/>
-<link href="../integrations/" rel="prev"/>
-<link href="../on-premise/" rel="next"/>
+<link href="../cloud-training/" rel="prev"/>
+<link href="../teams/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.23" name="generator"/>
 <title>Inference API - Ultralytics YOLOv8 Docs</title>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Inference API" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Inference API, object detection, RESTful API, Python, cURL, Quickstart" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/inference-api" property="og:url"/><meta content="Inference API" property="og:title"/><meta content="Access object detection capabilities of YOLOv8 via our RESTful API. Learn how to use the YOLO Inference API with Python or cURL for swift object detection." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/19519529/a8c00e55-1590-403b-bdee-ed456c60af4d" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/inference-api" property="twitter:url"/><meta content="Inference API" property="twitter:title"/><meta content="Access object detection capabilities of YOLOv8 via our RESTful API. Learn how to use the YOLO Inference API with Python or cURL for swift object detection." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/19519529/a8c00e55-1590-403b-bdee-ed456c60af4d" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Inference API", "image": ["https://github.com/ultralytics/ultralytics/assets/19519529/a8c00e55-1590-403b-bdee-ed456c60af4d"], "datePublished": "2024-01-23 18:58:55 +0100", "dateModified": "2024-03-06 19:42:11 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Inference API" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics HUB, Inference API, YOLO, REST API, machine learning, AI model inference, remote inference" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/inference-api" property="og:url"/><meta content="Inference API" property="og:title"/><meta content="Effortlessly run AI model inferences with Ultralytics HUB Inference API. Perfect for developers!." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/inference-api/hub_inference_api_1.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/inference-api" property="twitter:url"/><meta content="Inference API" property="twitter:title"/><meta content="Effortlessly run AI model inferences with Ultralytics HUB Inference API. Perfect for developers!." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/inference-api/hub_inference_api_1.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Inference API", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/inference-api/hub_inference_api_1.jpg"], "datePublished": "2024-01-23 18:58:55 +0100", "dateModified": "2024-05-18 22:57:34 +0300", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#yolo-inference-api">
+<a class="md-skip" href="#ultralytics-hub-inference-api">
           Skip to content
         </a>
 </div>
@@ -370,7 +370,7 @@
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../">
 <span class="md-ellipsis">
-    Cloud
+    Web
   </span>
 </a>
 <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="">
@@ -380,7 +380,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_10_1_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_10_1">
 <span class="md-nav__icon md-icon"></span>
-            Cloud
+            Web
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -412,16 +412,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../cloud-training/">
+<a class="md-nav__link" href="../pro/">
 <span class="md-ellipsis">
-    Cloud Training
+    Pro
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../integrations/">
+<a class="md-nav__link" href="../cloud-training/">
 <span class="md-ellipsis">
-    Integrations
+    Cloud Training
   </span>
 </a>
 </li>
@@ -445,59 +445,66 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#api-url">
+<a class="md-nav__link" href="#python">
 <span class="md-ellipsis">
-      API URL
+      Python
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-usage-in-python">
+<a class="md-nav__link" href="#curl">
 <span class="md-ellipsis">
-      Example Usage in Python
+      cURL
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-usage-with-curl">
+<a class="md-nav__link" href="#arguments">
 <span class="md-ellipsis">
-      Example Usage with cURL
+      Arguments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#passing-arguments">
+<a class="md-nav__link" href="#response">
 <span class="md-ellipsis">
-      Passing Arguments
+      Response
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#return-json-format">
-<span class="md-ellipsis">
-      Return JSON format
-    </span>
-</a>
-<nav aria-label="Return JSON format" class="md-nav">
+<nav aria-label="Response" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#detect-model-format">
+<a class="md-nav__link" href="#classification">
 <span class="md-ellipsis">
-      Detect Model Format
+      Classification
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#segment-model-format">
+<a class="md-nav__link" href="#detection">
 <span class="md-ellipsis">
-      Segment Model Format
+      Detection
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pose-model-format">
+<a class="md-nav__link" href="#obb">
 <span class="md-ellipsis">
-      Pose Model Format
+      OBB
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#segmentation">
+<span class="md-ellipsis">
+      Segmentation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pose">
+<span class="md-ellipsis">
+      Pose
     </span>
 </a>
 </li>
@@ -506,6 +513,20 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../teams/">
+<span class="md-ellipsis">
+    Teams
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../integrations/">
+<span class="md-ellipsis">
+    Integrations
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -513,35 +534,17 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../on-premise/">
-<span class="md-ellipsis">
-    On-Premise
-  </span>
-</a>
-</div>
-<nav aria-expanded="false" aria-labelledby="__nav_10_2_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_10_2">
-<span class="md-nav__icon md-icon"></span>
-            On-Premise
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_10_3" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../app/">
 <span class="md-ellipsis">
     App
   </span>
 </a>
-<label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="">
+<label class="md-nav__link" for="__nav_10_2" id="__nav_10_2_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_10_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_10_3">
+<nav aria-expanded="false" aria-labelledby="__nav_10_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_2">
 <span class="md-nav__icon md-icon"></span>
             App
           </label>
@@ -564,19 +567,19 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_10_4" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_10_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../sdk/">
 <span class="md-ellipsis">
     Python SDK
   </span>
 </a>
-<label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="">
+<label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_10_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_10_4">
+<nav aria-expanded="false" aria-labelledby="__nav_10_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_3">
 <span class="md-nav__icon md-icon"></span>
             Python SDK
           </label>
@@ -621,7 +624,7 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_10_5" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_10_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../api/">
 <span class="md-ellipsis">
@@ -629,8 +632,8 @@
   </span>
 </a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_10_5_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_10_5">
+<nav aria-expanded="false" aria-labelledby="__nav_10_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_4">
 <span class="md-nav__icon md-icon"></span>
             REST API
           </label>
@@ -672,59 +675,66 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#api-url">
+<a class="md-nav__link" href="#python">
 <span class="md-ellipsis">
-      API URL
+      Python
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-usage-in-python">
+<a class="md-nav__link" href="#curl">
 <span class="md-ellipsis">
-      Example Usage in Python
+      cURL
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-usage-with-curl">
+<a class="md-nav__link" href="#arguments">
 <span class="md-ellipsis">
-      Example Usage with cURL
+      Arguments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#passing-arguments">
+<a class="md-nav__link" href="#response">
 <span class="md-ellipsis">
-      Passing Arguments
+      Response
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#return-json-format">
-<span class="md-ellipsis">
-      Return JSON format
-    </span>
-</a>
-<nav aria-label="Return JSON format" class="md-nav">
+<nav aria-label="Response" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#detect-model-format">
+<a class="md-nav__link" href="#classification">
 <span class="md-ellipsis">
-      Detect Model Format
+      Classification
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#segment-model-format">
+<a class="md-nav__link" href="#detection">
 <span class="md-ellipsis">
-      Segment Model Format
+      Detection
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pose-model-format">
+<a class="md-nav__link" href="#obb">
 <span class="md-ellipsis">
-      Pose Model Format
+      OBB
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#segmentation">
+<span class="md-ellipsis">
+      Segmentation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pose">
+<span class="md-ellipsis">
+      Pose
     </span>
 </a>
 </li>
@@ -741,469 +751,440 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/hub/inference-api.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="yolo-inference-api">YOLO Inference API</h1>
-<p>The YOLO Inference API allows you to access the YOLOv8 object detection capabilities via a RESTful API. This enables you to run object detection on images without the need to install and set up the YOLOv8 environment locally.</p>
-<p><img alt="Inference API Screenshot" src="https://github.com/ultralytics/ultralytics/assets/19519529/a8c00e55-1590-403b-bdee-ed456c60af4d"> Screenshot of the Inference API section in the trained model Preview tab.</img></p>
+<h1 id="ultralytics-hub-inference-api">Ultralytics HUB Inference API</h1>
+<p>The <a href="https://bit.ly/ultralytics_hub">Ultralytics HUB</a> Inference API allows you to run inference through our REST API without the need to install and set up the Ultralytics YOLO environment locally.</p>
+<p><img alt="Ultralytics HUB screenshot of the Deploy tab inside the Model page with an arrow pointing to the Ultralytics Inference API card" src="https://raw.githubusercontent.com/ultralytics/assets/main/docs/hub/inference-api/hub_inference_api_1.jpg"/></p>
 <p align="center">
-<br/>
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" loading="lazy" src="https://www.youtube.com/embed/OpWpBI35A5Y" title="YouTube video player" width="720">
 </iframe>
 <br/>
 <strong>Watch:</strong> Ultralytics HUB Inference API Walkthrough
 </p>
-<h2 id="api-url">API URL</h2>
-<p>The API URL is the address used to access the YOLO Inference API. In this case, the base URL is:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>https://api.ultralytics.com/v1/predict
+<h2 id="python">Python</h2>
+<p>To access the <a href="https://bit.ly/ultralytics_hub">Ultralytics HUB</a> Inference API using Python, use the following code:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># API URL, use actual MODEL_ID</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Headers, use actual API_KEY</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"API_KEY"</span><span class="p">}</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Inference arguments (optional)</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">"confidence"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">"iou"</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># Load image and send request</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">image_file</span><span class="p">}</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
-<h2 id="example-usage-in-python">Example Usage in Python</h2>
-<p>To access the YOLO Inference API with the specified model and API key using Python, you can use the following code:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">requests</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># API URL, use actual MODEL_ID</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Headers, use actual API_KEY</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"API_KEY"</span><span class="p">}</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Inference arguments (optional)</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">"confidence"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">"iou"</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># Load image and send request</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">image_file</span><span class="p">}</span>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>
-<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replace <code>MODEL_ID</code> with the desired model ID, <code>API_KEY</code> with your actual API key, and <code>path/to/image.jpg</code> with the path to the image you want to run inference on.</p>
+</div>
+<h2 id="curl">cURL</h2>
+<p>To access the <a href="https://bit.ly/ultralytics_hub">Ultralytics HUB</a> Inference API using cURL, use the following code:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"x-api-key: API_KEY"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"image=@/path/to/image.jpg"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"size=640"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"confidence=0.25"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"iou=0.45"</span>
 </code></pre></div>
-<p>In this example, replace <code>API_KEY</code> with your actual API key, <code>MODEL_ID</code> with the desired model ID, and <code>path/to/image.jpg</code> with the path to the image you want to analyze.</p>
-<h2 id="example-usage-with-curl">Example Usage with cURL</h2>
-<p>You can use the YOLO Inference API with client URL (cURL) by utilizing the <code>curl</code> command. Replace <code>API_KEY</code> with your actual API key, <code>MODEL_ID</code> with the desired model ID, and <code>image.jpg</code> with the path to the image you want to analyze:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"x-api-key: API_KEY"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"image=@/path/to/image.jpg"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"size=640"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"confidence=0.25"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"iou=0.45"</span>
-</code></pre></div>
-<h2 id="passing-arguments">Passing Arguments</h2>
-<p>This command sends a POST request to the YOLO Inference API with the specified <code>MODEL_ID</code> in the URL and the <code>API_KEY</code> in the request <code>headers</code>, along with the image file specified by <code>@path/to/image.jpg</code>.</p>
-<p>Here's an example of passing the <code>size</code>, <code>confidence</code>, and <code>iou</code> arguments via the API URL using the <code>requests</code> library in Python:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">requests</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># API URL, use actual MODEL_ID</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># Headers, use actual API_KEY</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"API_KEY"</span><span class="p">}</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1"># Inference arguments (optional)</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">"confidence"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">"iou"</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="c1"># Load image and send request</span>
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
-<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">image_file</span><span class="p">}</span>
-<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>
-<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-</code></pre></div>
-<p>In this example, the <code>data</code> dictionary contains the query arguments <code>size</code>, <code>confidence</code>, and <code>iou</code>, which tells the API to run inference at image size 640 with confidence and IoU thresholds of 0.25 and 0.45.</p>
-<p>This will send the query parameters along with the file in the POST request. See the table below for a full list of available inference arguments.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replace <code>MODEL_ID</code> with the desired model ID, <code>API_KEY</code> with your actual API key, and <code>path/to/image.jpg</code> with the path to the image you want to run inference on.</p>
+</div>
+<h2 id="arguments">Arguments</h2>
+<p>See the table below for a full list of available inference arguments.</p>
 <table>
 <thead>
 <tr>
-<th>Inference Argument</th>
+<th>Argument</th>
 <th>Default</th>
 <th>Type</th>
-<th>Notes</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td><code>image</code></td>
+<td></td>
+<td><code>image</code></td>
+<td>image file</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td></td>
+<td><code>str</code></td>
+<td>URL of the image if not passing a file</td>
+</tr>
+<tr>
 <td><code>size</code></td>
 <td><code>640</code></td>
 <td><code>int</code></td>
-<td>valid range is <code>32</code> - <code>1280</code> pixels</td>
+<td>valid range <code>32</code> - <code>1280</code> pixels</td>
 </tr>
 <tr>
 <td><code>confidence</code></td>
 <td><code>0.25</code></td>
 <td><code>float</code></td>
-<td>valid range is <code>0.01</code> - <code>1.0</code></td>
+<td>valid range <code>0.01</code> - <code>1.0</code></td>
 </tr>
 <tr>
 <td><code>iou</code></td>
 <td><code>0.45</code></td>
 <td><code>float</code></td>
-<td>valid range is <code>0.0</code> - <code>0.95</code></td>
-</tr>
-<tr>
-<td><code>url</code></td>
-<td><code>''</code></td>
-<td><code>str</code></td>
-<td>optional image URL if not image file is passed</td>
-</tr>
-<tr>
-<td><code>normalize</code></td>
-<td><code>False</code></td>
-<td><code>bool</code></td>
-<td></td>
+<td>valid range <code>0.0</code> - <code>0.95</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="return-json-format">Return JSON format</h2>
-<p>The YOLO Inference API returns a JSON list with the detection results. The format of the JSON list will be the same as the one produced locally by the <code>results[0].tojson()</code> command.</p>
-<p>The JSON list contains information about the detected objects, their coordinates, classes, and confidence scores.</p>
-<h3 id="detect-model-format">Detect Model Format</h3>
-<p>YOLO detection models, such as <code>yolov8n.pt</code>, can return JSON responses from local inference, cURL inference, and Python inference. All of these methods produce the same JSON response format.</p>
+<h2 id="response">Response</h2>
+<p>The <a href="https://bit.ly/ultralytics_hub">Ultralytics HUB</a> Inference API returns a JSON response.</p>
+<h3 id="classification">Classification</h3>
 <div class="admonition example">
-<p class="admonition-title">Detect Model JSON Response</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><code>ultralytics</code></label><label for="__tabbed_1_2">cURL</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">JSON Response</label></div>
+<p class="admonition-title">Classification Model</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><code>ultralytics</code></label><label for="__tabbed_1_2">cURL</label><label for="__tabbed_1_3">Python</label><label for="__tabbed_1_4">Response</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Load model</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-cls.pt'</span><span class="p">)</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Run inference</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1"># Print image.jpg results in JSON format</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tojson</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"x-api-key: API_KEY"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"image=@/path/to/image.jpg"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"size=640"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"confidence=0.25"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"iou=0.45"</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">requests</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Load model</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># API URL, use actual MODEL_ID</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Run inference</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Headers, use actual API_KEY</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"API_KEY"</span><span class="p">}</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="c1"># Print image.jpg results in JSON format</span>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tojson</span><span class="p">())</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="c1"># Inference arguments (optional)</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">"confidence"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">"iou"</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="c1"># Load image and send request</span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">image_file</span><span class="p">}</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"x-api-key: API_KEY"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"image=@/path/to/image.jpg"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"size=640"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"confidence=0.25"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"iou=0.45"</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">{</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span><span class="err">success</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="err">message</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inference complete."</span><span class="p">,</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">  </span><span class="err">da</span><span class="kc">ta</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">      </span><span class="err">class</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">      </span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">      </span><span class="err">co</span><span class="kc">nf</span><span class="err">ide</span><span class="kc">n</span><span class="err">ce</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">  </span><span class="p">]</span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="p">}</span>
 </code></pre></div>
 </div>
+</div>
+</input></input></input></input></div>
+</div>
+<h3 id="detection">Detection</h3>
+<div class="admonition example">
+<p class="admonition-title">Detection Model</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1"><code>ultralytics</code></label><label for="__tabbed_2_2">cURL</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">Response</label></div>
+<div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># API URL, use actual MODEL_ID</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Load model</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># Headers, use actual API_KEY</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"API_KEY"</span><span class="p">}</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># Run inference</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">)</span>
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>
-<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="c1"># Inference arguments (optional)</span>
-<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">"confidence"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">"iou"</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
-<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>
-<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="c1"># Load image and send request</span>
-<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
-<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">image_file</span><span class="p">}</span>
-<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a>
-<a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="c1"># Print image.jpg results in JSON format</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tojson</span><span class="p">())</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="p">{</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="err">True</span><span class="p">,</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inference complete."</span><span class="p">,</span>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="p">{</span>
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">      </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8359682559967041</span><span class="p">,</span>
-<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">      </span><span class="nt">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">        </span><span class="nt">"x1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.08974208831787109</span><span class="p">,</span>
-<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">        </span><span class="nt">"y1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.27418340047200523</span><span class="p">,</span>
-<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">        </span><span class="nt">"x2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8706787109375</span><span class="p">,</span>
-<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">        </span><span class="nt">"y2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9887352837456598</span>
-<a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">      </span><span class="p">}</span>
-<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="p">},</span>
-<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">    </span><span class="p">{</span>
-<a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span>
-<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">      </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8189555406570435</span><span class="p">,</span>
-<a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="w">      </span><span class="nt">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">        </span><span class="nt">"x1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5847355842590332</span><span class="p">,</span>
-<a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="w">        </span><span class="nt">"y1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05813225640190972</span><span class="p">,</span>
-<a href="#__codelineno-7-23" id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="w">        </span><span class="nt">"x2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8930277824401855</span><span class="p">,</span>
-<a href="#__codelineno-7-24" id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="w">        </span><span class="nt">"y2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9903111775716146</span>
-<a href="#__codelineno-7-25" id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="w">      </span><span class="p">}</span>
-<a href="#__codelineno-7-26" id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="w">    </span><span class="p">},</span>
-<a href="#__codelineno-7-27" id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="w">    </span><span class="p">{</span>
-<a href="#__codelineno-7-28" id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tie"</span><span class="p">,</span>
-<a href="#__codelineno-7-29" id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="w">      </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span>
-<a href="#__codelineno-7-30" id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2909725308418274</span><span class="p">,</span>
-<a href="#__codelineno-7-31" id="__codelineno-7-31" name="__codelineno-7-31"></a><span class="w">      </span><span class="nt">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-7-32" id="__codelineno-7-32" name="__codelineno-7-32"></a><span class="w">        </span><span class="nt">"x1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3433395862579346</span><span class="p">,</span>
-<a href="#__codelineno-7-33" id="__codelineno-7-33" name="__codelineno-7-33"></a><span class="w">        </span><span class="nt">"y1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6070465511745877</span><span class="p">,</span>
-<a href="#__codelineno-7-34" id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="w">        </span><span class="nt">"x2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.40964522361755373</span><span class="p">,</span>
-<a href="#__codelineno-7-35" id="__codelineno-7-35" name="__codelineno-7-35"></a><span class="w">        </span><span class="nt">"y2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9849439832899306</span>
-<a href="#__codelineno-7-36" id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="w">      </span><span class="p">}</span>
-<a href="#__codelineno-7-37" id="__codelineno-7-37" name="__codelineno-7-37"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-7-38" id="__codelineno-7-38" name="__codelineno-7-38"></a><span class="w">  </span><span class="p">]</span>
-<a href="#__codelineno-7-39" id="__codelineno-7-39" name="__codelineno-7-39"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"x-api-key: API_KEY"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"image=@/path/to/image.jpg"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"size=640"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"confidence=0.25"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"iou=0.45"</span>
 </code></pre></div>
 </div>
-</div>
-</input></input></input></input></div>
-</div>
-<h3 id="segment-model-format">Segment Model Format</h3>
-<p>YOLO segmentation models, such as <code>yolov8n-seg.pt</code>, can return JSON responses from local inference, cURL inference, and Python inference. All of these methods produce the same JSON response format.</p>
-<div class="admonition example">
-<p class="admonition-title">Segment Model JSON Response</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1"><code>ultralytics</code></label><label for="__tabbed_2_2">cURL</label><label for="__tabbed_2_3">Python</label><label for="__tabbed_2_4">JSON Response</label></div>
-<div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">import</span> <span class="nn">requests</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="c1"># Load model</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-seg.pt'</span><span class="p">)</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="c1"># API URL, use actual MODEL_ID</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span>
 <a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="c1"># Run inference</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="c1"># Headers, use actual API_KEY</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"API_KEY"</span><span class="p">}</span>
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>
-<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="c1"># Print image.jpg results in JSON format</span>
-<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tojson</span><span class="p">())</span>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="c1"># Inference arguments (optional)</span>
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">"confidence"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">"iou"</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
+<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>
+<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="c1"># Load image and send request</span>
+<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
+<a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">image_file</span><span class="p">}</span>
+<a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a>
+<a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"x-api-key: API_KEY"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"image=@/path/to/image.jpg"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"size=640"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"confidence=0.25"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"iou=0.45"</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="p">{</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">  </span><span class="err">success</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">  </span><span class="err">message</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inference complete."</span><span class="p">,</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">  </span><span class="err">da</span><span class="kc">ta</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">      </span><span class="err">class</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">      </span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">      </span><span class="err">co</span><span class="kc">nf</span><span class="err">ide</span><span class="kc">n</span><span class="err">ce</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span><span class="p">,</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">      </span><span class="err">wid</span><span class="kc">t</span><span class="err">h</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4893378019332886</span><span class="p">,</span>
+<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">      </span><span class="err">heigh</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7437513470649719</span><span class="p">,</span>
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">      </span><span class="err">xce</span><span class="kc">nter</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4434437155723572</span><span class="p">,</span>
+<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">      </span><span class="err">yce</span><span class="kc">nter</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5198975801467896</span>
+<a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">  </span><span class="p">]</span>
+<a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="p">}</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">requests</span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="c1"># API URL, use actual MODEL_ID</span>
-<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span>
-<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
-<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># Headers, use actual API_KEY</span>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"API_KEY"</span><span class="p">}</span>
-<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>
-<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c1"># Inference arguments (optional)</span>
-<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">"confidence"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">"iou"</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
-<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a>
-<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="c1"># Load image and send request</span>
-<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
-<a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">image_file</span><span class="p">}</span>
-<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a>
-<a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>Note <code>segments</code> <code>x</code> and <code>y</code> lengths may vary from one object to another. Larger or more complex objects may have more segment points.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="p">{</span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="err">True</span><span class="p">,</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inference complete."</span><span class="p">,</span>
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="p">{</span>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span>
-<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">      </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.856913149356842</span><span class="p">,</span>
-<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">      </span><span class="nt">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">        </span><span class="nt">"x1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1064866065979004</span><span class="p">,</span>
-<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">        </span><span class="nt">"y1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2798851860894097</span><span class="p">,</span>
-<a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">        </span><span class="nt">"x2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8738358497619629</span><span class="p">,</span>
-<a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">        </span><span class="nt">"y2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9894873725043403</span>
-<a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">      </span><span class="p">},</span>
-<a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">      </span><span class="nt">"segments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">        </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">          </span><span class="mf">0.421875</span><span class="p">,</span>
-<a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">          </span><span class="mf">0.4203124940395355</span><span class="p">,</span>
-<a href="#__codelineno-11-19" id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="w">          </span><span class="mf">0.41718751192092896</span>
-<a href="#__codelineno-11-20" id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-11-21" id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="w">        </span><span class="p">],</span>
-<a href="#__codelineno-11-22" id="__codelineno-11-22" name="__codelineno-11-22"></a><span class="w">        </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-11-23" id="__codelineno-11-23" name="__codelineno-11-23"></a><span class="w">          </span><span class="mf">0.2888889014720917</span><span class="p">,</span>
-<a href="#__codelineno-11-24" id="__codelineno-11-24" name="__codelineno-11-24"></a><span class="w">          </span><span class="mf">0.2916666567325592</span><span class="p">,</span>
-<a href="#__codelineno-11-25" id="__codelineno-11-25" name="__codelineno-11-25"></a><span class="w">          </span><span class="mf">0.2916666567325592</span>
-<a href="#__codelineno-11-26" id="__codelineno-11-26" name="__codelineno-11-26"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-11-27" id="__codelineno-11-27" name="__codelineno-11-27"></a><span class="w">        </span><span class="p">]</span>
-<a href="#__codelineno-11-28" id="__codelineno-11-28" name="__codelineno-11-28"></a><span class="w">      </span><span class="p">}</span>
-<a href="#__codelineno-11-29" id="__codelineno-11-29" name="__codelineno-11-29"></a><span class="w">    </span><span class="p">},</span>
-<a href="#__codelineno-11-30" id="__codelineno-11-30" name="__codelineno-11-30"></a><span class="w">    </span><span class="p">{</span>
-<a href="#__codelineno-11-31" id="__codelineno-11-31" name="__codelineno-11-31"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span>
-<a href="#__codelineno-11-32" id="__codelineno-11-32" name="__codelineno-11-32"></a><span class="w">      </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a href="#__codelineno-11-33" id="__codelineno-11-33" name="__codelineno-11-33"></a><span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8512625694274902</span><span class="p">,</span>
-<a href="#__codelineno-11-34" id="__codelineno-11-34" name="__codelineno-11-34"></a><span class="w">      </span><span class="nt">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-35" id="__codelineno-11-35" name="__codelineno-11-35"></a><span class="w">        </span><span class="nt">"x1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5757311820983887</span><span class="p">,</span>
-<a href="#__codelineno-11-36" id="__codelineno-11-36" name="__codelineno-11-36"></a><span class="w">        </span><span class="nt">"y1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.053943040635850696</span><span class="p">,</span>
-<a href="#__codelineno-11-37" id="__codelineno-11-37" name="__codelineno-11-37"></a><span class="w">        </span><span class="nt">"x2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8960096359252929</span><span class="p">,</span>
-<a href="#__codelineno-11-38" id="__codelineno-11-38" name="__codelineno-11-38"></a><span class="w">        </span><span class="nt">"y2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.985154045952691</span>
-<a href="#__codelineno-11-39" id="__codelineno-11-39" name="__codelineno-11-39"></a><span class="w">      </span><span class="p">},</span>
-<a href="#__codelineno-11-40" id="__codelineno-11-40" name="__codelineno-11-40"></a><span class="w">      </span><span class="nt">"segments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-41" id="__codelineno-11-41" name="__codelineno-11-41"></a><span class="w">        </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-11-42" id="__codelineno-11-42" name="__codelineno-11-42"></a><span class="w">          </span><span class="mf">0.7515624761581421</span><span class="p">,</span>
-<a href="#__codelineno-11-43" id="__codelineno-11-43" name="__codelineno-11-43"></a><span class="w">          </span><span class="mf">0.75</span><span class="p">,</span>
-<a href="#__codelineno-11-44" id="__codelineno-11-44" name="__codelineno-11-44"></a><span class="w">          </span><span class="mf">0.7437499761581421</span>
-<a href="#__codelineno-11-45" id="__codelineno-11-45" name="__codelineno-11-45"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-11-46" id="__codelineno-11-46" name="__codelineno-11-46"></a><span class="w">        </span><span class="p">],</span>
-<a href="#__codelineno-11-47" id="__codelineno-11-47" name="__codelineno-11-47"></a><span class="w">        </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-11-48" id="__codelineno-11-48" name="__codelineno-11-48"></a><span class="w">          </span><span class="mf">0.0555555559694767</span><span class="p">,</span>
-<a href="#__codelineno-11-49" id="__codelineno-11-49" name="__codelineno-11-49"></a><span class="w">          </span><span class="mf">0.05833333358168602</span><span class="p">,</span>
-<a href="#__codelineno-11-50" id="__codelineno-11-50" name="__codelineno-11-50"></a><span class="w">          </span><span class="mf">0.05833333358168602</span>
-<a href="#__codelineno-11-51" id="__codelineno-11-51" name="__codelineno-11-51"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-11-52" id="__codelineno-11-52" name="__codelineno-11-52"></a><span class="w">        </span><span class="p">]</span>
-<a href="#__codelineno-11-53" id="__codelineno-11-53" name="__codelineno-11-53"></a><span class="w">      </span><span class="p">}</span>
-<a href="#__codelineno-11-54" id="__codelineno-11-54" name="__codelineno-11-54"></a><span class="w">    </span><span class="p">},</span>
-<a href="#__codelineno-11-55" id="__codelineno-11-55" name="__codelineno-11-55"></a><span class="w">    </span><span class="p">{</span>
-<a href="#__codelineno-11-56" id="__codelineno-11-56" name="__codelineno-11-56"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tie"</span><span class="p">,</span>
-<a href="#__codelineno-11-57" id="__codelineno-11-57" name="__codelineno-11-57"></a><span class="w">      </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span>
-<a href="#__codelineno-11-58" id="__codelineno-11-58" name="__codelineno-11-58"></a><span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6485961675643921</span><span class="p">,</span>
-<a href="#__codelineno-11-59" id="__codelineno-11-59" name="__codelineno-11-59"></a><span class="w">      </span><span class="nt">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-60" id="__codelineno-11-60" name="__codelineno-11-60"></a><span class="w">        </span><span class="nt">"x1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.33911995887756347</span><span class="p">,</span>
-<a href="#__codelineno-11-61" id="__codelineno-11-61" name="__codelineno-11-61"></a><span class="w">        </span><span class="nt">"y1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6057066175672743</span><span class="p">,</span>
-<a href="#__codelineno-11-62" id="__codelineno-11-62" name="__codelineno-11-62"></a><span class="w">        </span><span class="nt">"x2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4081430912017822</span><span class="p">,</span>
-<a href="#__codelineno-11-63" id="__codelineno-11-63" name="__codelineno-11-63"></a><span class="w">        </span><span class="nt">"y2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9916408962673611</span>
-<a href="#__codelineno-11-64" id="__codelineno-11-64" name="__codelineno-11-64"></a><span class="w">      </span><span class="p">},</span>
-<a href="#__codelineno-11-65" id="__codelineno-11-65" name="__codelineno-11-65"></a><span class="w">      </span><span class="nt">"segments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-11-66" id="__codelineno-11-66" name="__codelineno-11-66"></a><span class="w">        </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-11-67" id="__codelineno-11-67" name="__codelineno-11-67"></a><span class="w">          </span><span class="mf">0.37187498807907104</span><span class="p">,</span>
-<a href="#__codelineno-11-68" id="__codelineno-11-68" name="__codelineno-11-68"></a><span class="w">          </span><span class="mf">0.37031251192092896</span><span class="p">,</span>
-<a href="#__codelineno-11-69" id="__codelineno-11-69" name="__codelineno-11-69"></a><span class="w">          </span><span class="mf">0.3687500059604645</span>
-<a href="#__codelineno-11-70" id="__codelineno-11-70" name="__codelineno-11-70"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-11-71" id="__codelineno-11-71" name="__codelineno-11-71"></a><span class="w">        </span><span class="p">],</span>
-<a href="#__codelineno-11-72" id="__codelineno-11-72" name="__codelineno-11-72"></a><span class="w">        </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-11-73" id="__codelineno-11-73" name="__codelineno-11-73"></a><span class="w">          </span><span class="mf">0.6111111044883728</span><span class="p">,</span>
-<a href="#__codelineno-11-74" id="__codelineno-11-74" name="__codelineno-11-74"></a><span class="w">          </span><span class="mf">0.6138888597488403</span><span class="p">,</span>
-<a href="#__codelineno-11-75" id="__codelineno-11-75" name="__codelineno-11-75"></a><span class="w">          </span><span class="mf">0.6138888597488403</span>
-<a href="#__codelineno-11-76" id="__codelineno-11-76" name="__codelineno-11-76"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-11-77" id="__codelineno-11-77" name="__codelineno-11-77"></a><span class="w">        </span><span class="p">]</span>
-<a href="#__codelineno-11-78" id="__codelineno-11-78" name="__codelineno-11-78"></a><span class="w">      </span><span class="p">}</span>
-<a href="#__codelineno-11-79" id="__codelineno-11-79" name="__codelineno-11-79"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-11-80" id="__codelineno-11-80" name="__codelineno-11-80"></a><span class="w">  </span><span class="p">]</span>
-<a href="#__codelineno-11-81" id="__codelineno-11-81" name="__codelineno-11-81"></a><span class="p">}</span>
-</code></pre></div></p>
 </div>
 </div>
 </input></input></input></input></div>
 </div>
-<h3 id="pose-model-format">Pose Model Format</h3>
-<p>YOLO pose models, such as <code>yolov8n-pose.pt</code>, can return JSON responses from local inference, cURL inference, and Python inference. All of these methods produce the same JSON response format.</p>
+<h3 id="obb">OBB</h3>
 <div class="admonition example">
-<p class="admonition-title">Pose Model JSON Response</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1"><code>ultralytics</code></label><label for="__tabbed_3_2">cURL</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">JSON Response</label></div>
+<p class="admonition-title">OBB Model</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><input id="__tabbed_3_4" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1"><code>ultralytics</code></label><label for="__tabbed_3_2">cURL</label><label for="__tabbed_3_3">Python</label><label for="__tabbed_3_4">Response</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="c1"># Load model</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-obb.pt'</span><span class="p">)</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># Run inference</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c1"># Print image.jpg results in JSON format</span>
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tojson</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"x-api-key: API_KEY"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"image=@/path/to/image.jpg"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"size=640"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"confidence=0.25"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"iou=0.45"</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">import</span> <span class="nn">requests</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="c1"># Load model</span>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-seg.pt'</span><span class="p">)</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="c1"># API URL, use actual MODEL_ID</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="c1"># Run inference</span>
-<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="c1"># Headers, use actual API_KEY</span>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"API_KEY"</span><span class="p">}</span>
 <a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>
-<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="c1"># Print image.jpg results in JSON format</span>
-<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tojson</span><span class="p">())</span>
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="c1"># Inference arguments (optional)</span>
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">"confidence"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">"iou"</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
+<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a>
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="c1"># Load image and send request</span>
+<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
+<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">image_file</span><span class="p">}</span>
+<a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a>
+<a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"x-api-key: API_KEY"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"image=@/path/to/image.jpg"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"size=640"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"confidence=0.25"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"iou=0.45"</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="p">{</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">  </span><span class="err">success</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">  </span><span class="err">message</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inference complete."</span><span class="p">,</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">  </span><span class="err">da</span><span class="kc">ta</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">      </span><span class="err">class</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">      </span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">      </span><span class="err">co</span><span class="kc">nf</span><span class="err">ide</span><span class="kc">n</span><span class="err">ce</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span><span class="p">,</span>
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">      </span><span class="err">obb</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="w">        </span><span class="mf">0.669310450553894</span><span class="p">,</span>
+<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">        </span><span class="mf">0.6247171759605408</span><span class="p">,</span>
+<a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">        </span><span class="mf">0.9847468137741089</span><span class="p">,</span>
+<a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="w">        </span><span class="err">...</span>
+<a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="w">      </span><span class="p">]</span>
+<a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="w">  </span><span class="p">]</span>
+<a href="#__codelineno-13-17" id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="p">}</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">requests</span>
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
-<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="c1"># API URL, use actual MODEL_ID</span>
-<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span>
-<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>
-<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="c1"># Headers, use actual API_KEY</span>
-<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"API_KEY"</span><span class="p">}</span>
-<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a>
-<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="c1"># Inference arguments (optional)</span>
-<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">"confidence"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">"iou"</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
-<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a>
-<a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="c1"># Load image and send request</span>
-<a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
-<a href="#__codelineno-14-14" id="__codelineno-14-14" name="__codelineno-14-14"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">image_file</span><span class="p">}</span>
-<a href="#__codelineno-14-15" id="__codelineno-14-15" name="__codelineno-14-15"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<a href="#__codelineno-14-16" id="__codelineno-14-16" name="__codelineno-14-16"></a>
-<a href="#__codelineno-14-17" id="__codelineno-14-17" name="__codelineno-14-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>Note COCO-keypoints pretrained models will have 17 human keypoints. The <code>visible</code> part of the keypoints indicates whether a keypoint is visible or obscured. Obscured keypoints may be outside the image or may not be visible, i.e. a person's eyes facing away from the camera.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="p">{</span>
-<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">  </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="err">True</span><span class="p">,</span>
-<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inference complete."</span><span class="p">,</span>
-<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">    </span><span class="p">{</span>
-<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span>
-<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">      </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8439509868621826</span><span class="p">,</span>
-<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="w">      </span><span class="nt">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="w">        </span><span class="nt">"x1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1125</span><span class="p">,</span>
-<a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="w">        </span><span class="nt">"y1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.28194444444444444</span><span class="p">,</span>
-<a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="w">        </span><span class="nt">"x2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7953125</span><span class="p">,</span>
-<a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="w">        </span><span class="nt">"y2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9902777777777778</span>
-<a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="w">      </span><span class="p">},</span>
-<a href="#__codelineno-15-15" id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="w">      </span><span class="nt">"keypoints"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-15-16" id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="w">        </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-15-17" id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="w">          </span><span class="mf">0.5058594942092896</span><span class="p">,</span>
-<a href="#__codelineno-15-18" id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="w">          </span><span class="mf">0.5103894472122192</span><span class="p">,</span>
-<a href="#__codelineno-15-19" id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="w">          </span><span class="mf">0.4920862317085266</span>
-<a href="#__codelineno-15-20" id="__codelineno-15-20" name="__codelineno-15-20"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-15-21" id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="w">        </span><span class="p">],</span>
-<a href="#__codelineno-15-22" id="__codelineno-15-22" name="__codelineno-15-22"></a><span class="w">        </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-15-23" id="__codelineno-15-23" name="__codelineno-15-23"></a><span class="w">          </span><span class="mf">0.48964157700538635</span><span class="p">,</span>
-<a href="#__codelineno-15-24" id="__codelineno-15-24" name="__codelineno-15-24"></a><span class="w">          </span><span class="mf">0.4643048942089081</span><span class="p">,</span>
-<a href="#__codelineno-15-25" id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="w">          </span><span class="mf">0.4465252459049225</span>
-<a href="#__codelineno-15-26" id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-15-27" id="__codelineno-15-27" name="__codelineno-15-27"></a><span class="w">        </span><span class="p">],</span>
-<a href="#__codelineno-15-28" id="__codelineno-15-28" name="__codelineno-15-28"></a><span class="w">        </span><span class="nt">"visible"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-15-29" id="__codelineno-15-29" name="__codelineno-15-29"></a><span class="w">          </span><span class="mf">0.8726999163627625</span><span class="p">,</span>
-<a href="#__codelineno-15-30" id="__codelineno-15-30" name="__codelineno-15-30"></a><span class="w">          </span><span class="mf">0.653947651386261</span><span class="p">,</span>
-<a href="#__codelineno-15-31" id="__codelineno-15-31" name="__codelineno-15-31"></a><span class="w">          </span><span class="mf">0.9130823612213135</span>
-<a href="#__codelineno-15-32" id="__codelineno-15-32" name="__codelineno-15-32"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-15-33" id="__codelineno-15-33" name="__codelineno-15-33"></a><span class="w">        </span><span class="p">]</span>
-<a href="#__codelineno-15-34" id="__codelineno-15-34" name="__codelineno-15-34"></a><span class="w">      </span><span class="p">}</span>
-<a href="#__codelineno-15-35" id="__codelineno-15-35" name="__codelineno-15-35"></a><span class="w">    </span><span class="p">},</span>
-<a href="#__codelineno-15-36" id="__codelineno-15-36" name="__codelineno-15-36"></a><span class="w">    </span><span class="p">{</span>
-<a href="#__codelineno-15-37" id="__codelineno-15-37" name="__codelineno-15-37"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span>
-<a href="#__codelineno-15-38" id="__codelineno-15-38" name="__codelineno-15-38"></a><span class="w">      </span><span class="nt">"class"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a href="#__codelineno-15-39" id="__codelineno-15-39" name="__codelineno-15-39"></a><span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7474289536476135</span><span class="p">,</span>
-<a href="#__codelineno-15-40" id="__codelineno-15-40" name="__codelineno-15-40"></a><span class="w">      </span><span class="nt">"box"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-15-41" id="__codelineno-15-41" name="__codelineno-15-41"></a><span class="w">        </span><span class="nt">"x1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.58125</span><span class="p">,</span>
-<a href="#__codelineno-15-42" id="__codelineno-15-42" name="__codelineno-15-42"></a><span class="w">        </span><span class="nt">"y1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0625</span><span class="p">,</span>
-<a href="#__codelineno-15-43" id="__codelineno-15-43" name="__codelineno-15-43"></a><span class="w">        </span><span class="nt">"x2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8859375</span><span class="p">,</span>
-<a href="#__codelineno-15-44" id="__codelineno-15-44" name="__codelineno-15-44"></a><span class="w">        </span><span class="nt">"y2"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9888888888888889</span>
-<a href="#__codelineno-15-45" id="__codelineno-15-45" name="__codelineno-15-45"></a><span class="w">      </span><span class="p">},</span>
-<a href="#__codelineno-15-46" id="__codelineno-15-46" name="__codelineno-15-46"></a><span class="w">      </span><span class="nt">"keypoints"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-15-47" id="__codelineno-15-47" name="__codelineno-15-47"></a><span class="w">        </span><span class="nt">"x"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-15-48" id="__codelineno-15-48" name="__codelineno-15-48"></a><span class="w">          </span><span class="mf">0.778544008731842</span><span class="p">,</span>
-<a href="#__codelineno-15-49" id="__codelineno-15-49" name="__codelineno-15-49"></a><span class="w">          </span><span class="mf">0.7976160049438477</span><span class="p">,</span>
-<a href="#__codelineno-15-50" id="__codelineno-15-50" name="__codelineno-15-50"></a><span class="w">          </span><span class="mf">0.7530890107154846</span>
-<a href="#__codelineno-15-51" id="__codelineno-15-51" name="__codelineno-15-51"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-15-52" id="__codelineno-15-52" name="__codelineno-15-52"></a><span class="w">        </span><span class="p">],</span>
-<a href="#__codelineno-15-53" id="__codelineno-15-53" name="__codelineno-15-53"></a><span class="w">        </span><span class="nt">"y"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-15-54" id="__codelineno-15-54" name="__codelineno-15-54"></a><span class="w">          </span><span class="mf">0.27595141530036926</span><span class="p">,</span>
-<a href="#__codelineno-15-55" id="__codelineno-15-55" name="__codelineno-15-55"></a><span class="w">          </span><span class="mf">0.2378823608160019</span><span class="p">,</span>
-<a href="#__codelineno-15-56" id="__codelineno-15-56" name="__codelineno-15-56"></a><span class="w">          </span><span class="mf">0.23644638061523438</span>
-<a href="#__codelineno-15-57" id="__codelineno-15-57" name="__codelineno-15-57"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-15-58" id="__codelineno-15-58" name="__codelineno-15-58"></a><span class="w">        </span><span class="p">],</span>
-<a href="#__codelineno-15-59" id="__codelineno-15-59" name="__codelineno-15-59"></a><span class="w">        </span><span class="nt">"visible"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a href="#__codelineno-15-60" id="__codelineno-15-60" name="__codelineno-15-60"></a><span class="w">          </span><span class="mf">0.8900790810585022</span><span class="p">,</span>
-<a href="#__codelineno-15-61" id="__codelineno-15-61" name="__codelineno-15-61"></a><span class="w">          </span><span class="mf">0.789978563785553</span><span class="p">,</span>
-<a href="#__codelineno-15-62" id="__codelineno-15-62" name="__codelineno-15-62"></a><span class="w">          </span><span class="mf">0.8974530100822449</span>
-<a href="#__codelineno-15-63" id="__codelineno-15-63" name="__codelineno-15-63"></a><span class="w">          </span><span class="err">...</span>
-<a href="#__codelineno-15-64" id="__codelineno-15-64" name="__codelineno-15-64"></a><span class="w">        </span><span class="p">]</span>
-<a href="#__codelineno-15-65" id="__codelineno-15-65" name="__codelineno-15-65"></a><span class="w">      </span><span class="p">}</span>
-<a href="#__codelineno-15-66" id="__codelineno-15-66" name="__codelineno-15-66"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-15-67" id="__codelineno-15-67" name="__codelineno-15-67"></a><span class="w">  </span><span class="p">]</span>
-<a href="#__codelineno-15-68" id="__codelineno-15-68" name="__codelineno-15-68"></a><span class="p">}</span>
-</code></pre></div></p>
 </div>
 </div>
 </input></input></input></input></div>
+</div>
+<h3 id="segmentation">Segmentation</h3>
+<div class="admonition example">
+<p class="admonition-title">Segmentation Model</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><input id="__tabbed_4_3" name="__tabbed_4" type="radio"/><input id="__tabbed_4_4" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1"><code>ultralytics</code></label><label for="__tabbed_4_2">cURL</label><label for="__tabbed_4_3">Python</label><label for="__tabbed_4_4">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="c1"># Load model</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-seg.pt'</span><span class="p">)</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="c1"># Run inference</span>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a>
+<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="c1"># Print image.jpg results in JSON format</span>
+<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tojson</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"x-api-key: API_KEY"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"image=@/path/to/image.jpg"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"size=640"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"confidence=0.25"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"iou=0.45"</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="c1"># API URL, use actual MODEL_ID</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="c1"># Headers, use actual API_KEY</span>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"API_KEY"</span><span class="p">}</span>
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a>
+<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="c1"># Inference arguments (optional)</span>
+<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">"confidence"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">"iou"</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
+<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a>
+<a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="c1"># Load image and send request</span>
+<a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
+<a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">image_file</span><span class="p">}</span>
+<a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a>
+<a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="p">{</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">  </span><span class="err">success</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">  </span><span class="err">message</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inference complete."</span><span class="p">,</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">  </span><span class="err">da</span><span class="kc">ta</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">      </span><span class="err">class</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="w">      </span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span>
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="w">      </span><span class="err">co</span><span class="kc">nf</span><span class="err">ide</span><span class="kc">n</span><span class="err">ce</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span><span class="p">,</span>
+<a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="w">      </span><span class="err">segme</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.44140625</span><span class="p">,</span><span class="w"> </span><span class="mf">0.15625</span><span class="p">,</span><span class="w"> </span><span class="mf">0.439453125</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">]</span>
+<a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="w">  </span><span class="p">]</span>
+<a href="#__codelineno-17-12" id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<h3 id="pose">Pose</h3>
+<div class="admonition example">
+<p class="admonition-title">Pose Model</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><input id="__tabbed_5_3" name="__tabbed_5" type="radio"/><input id="__tabbed_5_4" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1"><code>ultralytics</code></label><label for="__tabbed_5_2">cURL</label><label for="__tabbed_5_3">Python</label><label for="__tabbed_5_4">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1"># Load model</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n-pose.pt'</span><span class="p">)</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>
+<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="c1"># Run inference</span>
+<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">)</span>
+<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a>
+<a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="c1"># Print image.jpg results in JSON format</span>
+<a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tojson</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"x-api-key: API_KEY"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"image=@/path/to/image.jpg"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"size=640"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"confidence=0.25"</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="w">    </span>-F<span class="w"> </span><span class="s2">"iou=0.45"</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="c1"># API URL, use actual MODEL_ID</span>
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://api.ultralytics.com/v1/predict/MODEL_ID"</span>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>
+<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="c1"># Headers, use actual API_KEY</span>
+<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="s2">"API_KEY"</span><span class="p">}</span>
+<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a>
+<a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="c1"># Inference arguments (optional)</span>
+<a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">"confidence"</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">"iou"</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
+<a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a>
+<a href="#__codelineno-20-12" id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="c1"># Load image and send request</span>
+<a href="#__codelineno-20-13" id="__codelineno-20-13" name="__codelineno-20-13"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
+<a href="#__codelineno-20-14" id="__codelineno-20-14" name="__codelineno-20-14"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">image_file</span><span class="p">}</span>
+<a href="#__codelineno-20-15" id="__codelineno-20-15" name="__codelineno-20-15"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-20-16" id="__codelineno-20-16" name="__codelineno-20-16"></a>
+<a href="#__codelineno-20-17" id="__codelineno-20-17" name="__codelineno-20-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="p">{</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">  </span><span class="err">success</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">  </span><span class="err">message</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inference complete."</span><span class="p">,</span>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">  </span><span class="err">da</span><span class="kc">ta</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">      </span><span class="err">class</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">      </span><span class="kc">na</span><span class="err">me</span><span class="p">:</span><span class="w"> </span><span class="s2">"person"</span><span class="p">,</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="w">      </span><span class="err">co</span><span class="kc">nf</span><span class="err">ide</span><span class="kc">n</span><span class="err">ce</span><span class="p">:</span><span class="w"> </span><span class="mf">0.92</span><span class="p">,</span>
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="w">      </span><span class="err">keypoi</span><span class="kc">nts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="w">        </span><span class="mf">0.5290805697441101</span><span class="p">,</span>
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="w">        </span><span class="mf">0.20698919892311096</span><span class="p">,</span>
+<a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="w">        </span><span class="mf">1.0</span><span class="p">,</span>
+<a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="w">        </span><span class="mf">0.5263055562973022</span><span class="p">,</span>
+<a href="#__codelineno-21-14" id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="w">        </span><span class="mf">0.19584226608276367</span><span class="p">,</span>
+<a href="#__codelineno-21-15" id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="w">        </span><span class="mf">1.0</span><span class="p">,</span>
+<a href="#__codelineno-21-16" id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="w">        </span><span class="mf">0.5094948410987854</span><span class="p">,</span>
+<a href="#__codelineno-21-17" id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="w">        </span><span class="mf">0.19120082259178162</span><span class="p">,</span>
+<a href="#__codelineno-21-18" id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="w">        </span><span class="mf">1.0</span><span class="p">,</span>
+<a href="#__codelineno-21-19" id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="w">        </span><span class="err">...</span>
+<a href="#__codelineno-21-20" id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="w">      </span><span class="p">]</span>
+<a href="#__codelineno-21-21" id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-21-22" id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="w">  </span><span class="p">]</span>
+<a href="#__codelineno-21-23" id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 </div>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
@@ -1213,7 +1194,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-23, Updated 2024-03-06<br/>Authors: <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/priytosh-tripathi">priytosh-tripathi</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-23, Updated 2024-05-18<br/>Authors: <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/priytosh-tripathi">priytosh-tripathi</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1276,7 +1257,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Integrations" class="md-footer__link md-footer__link--prev" href="../integrations/">
+<a aria-label="Previous: Cloud Training" class="md-footer__link md-footer__link--prev" href="../cloud-training/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1285,17 +1266,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                Integrations
+                Cloud Training
               </div>
 </div>
 </a>
-<a aria-label="Next: Under Construction 🏗️🌟" class="md-footer__link md-footer__link--next" href="../on-premise/">
+<a aria-label="Next: Teams" class="md-footer__link md-footer__link--next" href="../teams/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Under Construction 🏗️🌟
+                Teams
               </div>
 </div>
 <div class="md-footer__button md-icon">
