@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Object Detection Datasets Overview" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, datasets, object detection, dataset formats, label formats, data conversion" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/detect" property="og:url"/><meta content="Object Detection Datasets Overview" property="og:title"/><meta content="Navigate through supported dataset formats, methods to utilize them and how to add your own datasets. Get insights on porting or converting label formats." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/91506361-c7965000-e886-11ea-8291-c72b98c25eec.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/detect" property="twitter:url"/><meta content="Object Detection Datasets Overview" property="twitter:title"/><meta content="Navigate through supported dataset formats, methods to utilize them and how to add your own datasets. Get insights on porting or converting label formats." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/91506361-c7965000-e886-11ea-8291-c72b98c25eec.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Object Detection Datasets Overview", "image": ["https://user-images.githubusercontent.com/26833433/91506361-c7965000-e886-11ea-8291-c72b98c25eec.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-05-18 18:58:06 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Object Detection Datasets Overview" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, datasets, object detection, dataset formats, label formats, data conversion" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/detect" property="og:url"/><meta content="Object Detection Datasets Overview" property="og:title"/><meta content="Navigate through supported dataset formats, methods to utilize them and how to add your own datasets. Get insights on porting or converting label formats." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/91506361-c7965000-e886-11ea-8291-c72b98c25eec.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/detect" property="twitter:url"/><meta content="Object Detection Datasets Overview" property="twitter:title"/><meta content="Navigate through supported dataset formats, methods to utilize them and how to add your own datasets. Get insights on porting or converting label formats." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/91506361-c7965000-e886-11ea-8291-c72b98c25eec.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Object Detection Datasets Overview", "image": ["https://user-images.githubusercontent.com/26833433/91506361-c7965000-e886-11ea-8291-c72b98c25eec.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-05-22 15:02:19 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -495,6 +495,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="signature/">
+<span class="md-ellipsis">
+    Signature
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -930,19 +937,21 @@
 <h2 id="supported-datasets">Supported Datasets</h2>
 <p>Here is a list of the supported datasets and a brief description for each:</p>
 <ul>
-<li><a href="argoverse/"><strong>Argoverse</strong></a>: A collection of sensor data collected from autonomous vehicles. It contains 3D tracking annotations for car objects.</li>
-<li><a href="coco/"><strong>COCO</strong></a>: Common Objects in Context (COCO) is a large-scale object detection, segmentation, and captioning dataset with 80 object categories.</li>
-<li><a href="lvis/"><strong>LVIS</strong></a>: LVIS is a large-scale object detection, segmentation, and captioning dataset with 1203 object categories.</li>
-<li><a href="coco8/"><strong>COCO8</strong></a>: A smaller subset of the COCO dataset, COCO8 is more lightweight and faster to train.</li>
-<li><a href="globalwheat2020/"><strong>GlobalWheat2020</strong></a>: A dataset containing images of wheat heads for the Global Wheat Challenge 2020.</li>
-<li><a href="objects365/"><strong>Objects365</strong></a>: A large-scale object detection dataset with 365 object categories and 600k images, aimed at advancing object detection research.</li>
-<li><a href="open-images-v7/"><strong>OpenImagesV7</strong></a>: A comprehensive dataset by Google with 1.7M train images and 42k validation images.</li>
-<li><a href="sku-110k/"><strong>SKU-110K</strong></a>: A dataset containing images of densely packed retail products, intended for retail environment object detection.</li>
-<li><a href="visdrone/"><strong>VisDrone</strong></a>: A dataset focusing on drone-based images, containing various object categories like cars, pedestrians, and cyclists.</li>
-<li><a href="voc/"><strong>VOC</strong></a>: PASCAL VOC is a popular object detection dataset with 20 object categories including vehicles, animals, and furniture.</li>
-<li><a href="xview/"><strong>xView</strong></a>: A dataset containing high-resolution satellite imagery, designed for the detection of various object classes in overhead views.</li>
-<li><a href="brain-tumor/"><strong>Brain-tumor</strong></a>: This dataset comprises MRI or CT scan images containing information about brain tumor presence, location, and characteristics. It plays a crucial role in training computer vision models to automate tumor identification, facilitating early diagnosis and treatment planning.</li>
-<li><a href="african-wildlife/"><strong>African-wildlife</strong></a>: Featuring images of African wildlife such as buffalo, elephant, rhino, and zebra, this dataset is instrumental in training computer vision models. It is indispensable for identifying animals across different habitats and contributes significantly to wildlife research endeavors.</li>
+<li><a href="argoverse/">Argoverse</a>: A dataset containing 3D tracking and motion forecasting data from urban environments with rich annotations.</li>
+<li><a href="coco/">COCO</a>: Common Objects in Context (COCO) is a large-scale object detection, segmentation, and captioning dataset with 80 object categories.</li>
+<li><a href="lvis/">LVIS</a>: A large-scale object detection, segmentation, and captioning dataset with 1203 object categories.</li>
+<li><a href="coco8/">COCO8</a>: A smaller subset of the first 4 images from COCO train and COCO val, suitable for quick tests.</li>
+<li><a href="globalwheat2020/">Global Wheat 2020</a>: A dataset containing images of wheat heads for the Global Wheat Challenge 2020.</li>
+<li><a href="objects365/">Objects365</a>: A high-quality, large-scale dataset for object detection with 365 object categories and over 600K annotated images.</li>
+<li><a href="open-images-v7/">OpenImagesV7</a>: A comprehensive dataset by Google with 1.7M train images and 42k validation images.</li>
+<li><a href="sku-110k/">SKU-110K</a>: A dataset featuring dense object detection in retail environments with over 11K images and 1.7 million bounding boxes.</li>
+<li><a href="visdrone/">VisDrone</a>: A dataset containing object detection and multi-object tracking data from drone-captured imagery with over 10K images and video sequences.</li>
+<li><a href="voc/">VOC</a>: The Pascal Visual Object Classes (VOC) dataset for object detection and segmentation with 20 object classes and over 11K images.</li>
+<li><a href="xview/">xView</a>: A dataset for object detection in overhead imagery with 60 object categories and over 1 million annotated objects.</li>
+<li><a href="roboflow-100/">Roboflow 100</a>: A diverse object detection benchmark with 100 datasets spanning seven imagery domains for comprehensive model evaluation.</li>
+<li><a href="brain-tumor/">Brain-tumor</a>: A dataset for detecting brain tumors includes MRI or CT scan images with details on tumor presence, location, and characteristics.</li>
+<li><a href="african-wildlife/">African-wildlife</a>: A dataset featuring images of African wildlife, including buffalo, elephant, rhino, and zebras.</li>
+<li><a href="signature/">Signature</a>: A dataset featuring images of various documents with annotated signatures, supporting document verification and fraud detection research.</li>
 </ul>
 <h3 id="adding-your-own-dataset">Adding your own dataset</h3>
 <p>If you have your own dataset and would like to use it for training detection models with Ultralytics YOLO format, ensure that it follows the format specified above under "Ultralytics YOLO format". Convert your annotations to the required format and specify the paths, number of classes, and class names in the YAML configuration file.</p>
@@ -972,7 +981,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-05-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/IvorZhu331">IvorZhu331</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-05-22<br/>Authors: <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (2), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/IvorZhu331">IvorZhu331</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
