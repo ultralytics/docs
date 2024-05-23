@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to isolate and extract specific objects from images and videos using YOLOv8 object cropping." name="description"/>
+<meta content="Comprehensive Guide to Understanding and Creating Line Graphs, Bar Plots, and Pie Charts" name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/guides/object-cropping/" rel="canonical"/>
-<link href="../object-counting/" rel="prev"/>
-<link href="../object-blurring/" rel="next"/>
+<link href="https://docs.ultralytics.com/guides/analytics/" rel="canonical"/>
+<link href="../optimizing-openvino-latency-vs-throughput-modes/" rel="prev"/>
+<link href="../object-counting/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.24" name="generator"/>
-<title>Object Cropping - Ultralytics YOLOv8 Docs</title>
+<title>New 🚀 Analytics - Ultralytics YOLOv8 Docs</title>
 <link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Object Cropping" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Object Cropping, Image Analysis, Video Processing, Data Extraction, Python" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/object-cropping" property="og:url"/><meta content="Object Cropping" property="og:title"/><meta content="Learn how to isolate and extract specific objects from images and videos using YOLOv8 object cropping." property="og:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/648f46be-f233-4307-a8e5-046eea38d2e4" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/object-cropping" property="twitter:url"/><meta content="Object Cropping" property="twitter:title"/><meta content="Learn how to isolate and extract specific objects from images and videos using YOLOv8 object cropping." property="twitter:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/648f46be-f233-4307-a8e5-046eea38d2e4" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Object Cropping", "image": ["https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/648f46be-f233-4307-a8e5-046eea38d2e4"], "datePublished": "2024-01-09 23:17:51 +0500", "dateModified": "2024-05-18 18:58:06 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="New 🚀 Analytics" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Analytics, Data Visualization, Line Graphs, Bar Plots, Pie Charts, Quickstart Guide, Data Analysis, Python, Visualization Tools" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/analytics" property="og:url"/><meta content="New 🚀 Analytics" property="og:title"/><meta content="Comprehensive Guide to Understanding and Creating Line Graphs, Bar Plots, and Pie Charts" property="og:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/eeabd90c-04fd-4e5b-aac9-c7777f892200" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/analytics" property="twitter:url"/><meta content="New 🚀 Analytics" property="twitter:title"/><meta content="Comprehensive Guide to Understanding and Creating Line Graphs, Bar Plots, and Pie Charts" property="twitter:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/eeabd90c-04fd-4e5b-aac9-c7777f892200" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "New \ud83d\ude80 Analytics", "image": ["https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/eeabd90c-04fd-4e5b-aac9-c7777f892200"], "datePublished": "2024-05-23 19:54:53 +0500", "dateModified": "2024-05-23 19:54:53 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#object-cropping-using-ultralytics-yolov8">
+<a class="md-skip" href="#analytics-using-ultralytics-yolov8">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Object Cropping
+              New 🚀 Analytics
             
           </span>
 </div>
@@ -486,31 +486,17 @@
             Real-World Projects
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../analytics/">
-<span class="md-ellipsis">
-    New 🚀 Analytics
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../object-counting/">
-<span class="md-ellipsis">
-    Object Counting
-  </span>
-</a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    Object Cropping
+    New 🚀 Analytics
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    Object Cropping
+    New 🚀 Analytics
   </span>
 </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
@@ -520,39 +506,67 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-object-cropping">
+<a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      What is Object Cropping?
+      Introduction
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#advantages-of-object-cropping">
-<span class="md-ellipsis">
-      Advantages of Object Cropping?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#visuals">
-<span class="md-ellipsis">
-      Visuals
-    </span>
-</a>
-<nav aria-label="Visuals" class="md-nav">
+<nav aria-label="Introduction" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#arguments-modelpredict">
+<a class="md-nav__link" href="#visual-samples">
 <span class="md-ellipsis">
-      Arguments model.predict
+      Visual Samples
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-graphs-are-important">
+<span class="md-ellipsis">
+      Why Graphs are Important
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#argument-analytics">
+<span class="md-ellipsis">
+      Argument Analytics
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arguments-modeltrack">
+<span class="md-ellipsis">
+      Arguments model.track
     </span>
 </a>
 </li>
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../object-counting/">
+<span class="md-ellipsis">
+    Object Counting
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../object-cropping/">
+<span class="md-ellipsis">
+    Object Cropping
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../object-blurring/">
@@ -728,36 +742,50 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-object-cropping">
+<a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      What is Object Cropping?
+      Introduction
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#advantages-of-object-cropping">
-<span class="md-ellipsis">
-      Advantages of Object Cropping?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#visuals">
-<span class="md-ellipsis">
-      Visuals
-    </span>
-</a>
-<nav aria-label="Visuals" class="md-nav">
+<nav aria-label="Introduction" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#arguments-modelpredict">
+<a class="md-nav__link" href="#visual-samples">
 <span class="md-ellipsis">
-      Arguments model.predict
+      Visual Samples
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-graphs-are-important">
+<span class="md-ellipsis">
+      Why Graphs are Important
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#argument-analytics">
+<span class="md-ellipsis">
+      Argument Analytics
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arguments-modeltrack">
+<span class="md-ellipsis">
+      Arguments model.track
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -766,99 +794,279 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/object-cropping.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/analytics.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="object-cropping-using-ultralytics-yolov8">Object Cropping using Ultralytics YOLOv8 🚀</h1>
-<h2 id="what-is-object-cropping">What is Object Cropping?</h2>
-<p>Object cropping with <a href="https://github.com/ultralytics/ultralytics/">Ultralytics YOLOv8</a> involves isolating and extracting specific detected objects from an image or video. The YOLOv8 model capabilities are utilized to accurately identify and delineate objects, enabling precise cropping for further analysis or manipulation.</p>
-<h2 id="advantages-of-object-cropping">Advantages of Object Cropping?</h2>
-<ul>
-<li><strong>Focused Analysis</strong>: YOLOv8 facilitates targeted object cropping, allowing for in-depth examination or processing of individual items within a scene.</li>
-<li><strong>Reduced Data Volume</strong>: By extracting only relevant objects, object cropping helps in minimizing data size, making it efficient for storage, transmission, or subsequent computational tasks.</li>
-<li><strong>Enhanced Precision</strong>: YOLOv8's object detection accuracy ensures that the cropped objects maintain their spatial relationships, preserving the integrity of the visual information for detailed analysis.</li>
-</ul>
-<h2 id="visuals">Visuals</h2>
+<h1 id="analytics-using-ultralytics-yolov8">Analytics using Ultralytics YOLOv8 📊</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This guide provides a comprehensive overview of three fundamental types of data visualizations: line graphs, bar plots, and pie charts. Each section includes step-by-step instructions and code snippets on how to create these visualizations using Python.</p>
+<h3 id="visual-samples">Visual Samples</h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">Airport Luggage</th>
+<th style="text-align: center;">Line Graph</th>
+<th style="text-align: center;">Bar Plot</th>
+<th style="text-align: center;">Pie Chart</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><img alt="Conveyor Belt at Airport Suitcases Cropping using Ultralytics YOLOv8" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/648f46be-f233-4307-a8e5-046eea38d2e4"/></td>
-</tr>
-<tr>
-<td style="text-align: center;">Suitcases Cropping at airport conveyor belt using Ultralytics YOLOv8</td>
+<td style="text-align: center;"><img alt="Line Graph" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/eeabd90c-04fd-4e5b-aac9-c7777f892200"/></td>
+<td style="text-align: center;"><img alt="Bar Plot" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/c1da2d6a-99ff-43a8-b5dc-ca93127917f8"/></td>
+<td style="text-align: center;"><img alt="Pie Chart" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/9d8acce6-d9e4-4685-949d-cd4851483187"/></td>
 </tr>
 </tbody>
 </table>
-<div class="admonition example">
-<p class="admonition-title">Object Cropping using YOLOv8 Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Object Cropping</label></div>
+<h3 id="why-graphs-are-important">Why Graphs are Important</h3>
+<ul>
+<li>Line graphs are ideal for tracking changes over short and long periods and for comparing changes for multiple groups over the same period. </li>
+<li>Bar plots, on the other hand, are suitable for comparing quantities across different categories and showing relationships between a category and its numerical value. </li>
+<li>Lastly, pie charts are effective for illustrating proportions among categories and showing parts of a whole.</li>
+</ul>
+<div class="admonition analytics">
+<p class="admonition-title">Analytics Examples</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Line Graph</label><label for="__tabbed_1_2">Pie Chart</label><label for="__tabbed_1_3">Bar Plot</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">os</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">cv2</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.plotting</span> <span class="kn">import</span> <span class="n">Annotator</span><span class="p">,</span> <span class="n">colors</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">names</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">names</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span><span class="p">,</span> <span class="n">solutions</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s.pt"</span><span class="p">)</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"Path/to/video/file.mp4"</span><span class="p">)</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
 <a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video/file.mp4"</span><span class="p">)</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="n">crop_dir_name</span> <span class="o">=</span> <span class="s2">"ultralytics_crop"</span>
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">crop_dir_name</span><span class="p">):</span>
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">crop_dir_name</span><span class="p">)</span>
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="c1"># Video writer</span>
-<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"object_cropping_output.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"line_plot.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="nb">type</span><span class="o">=</span><span class="s2">"line"</span><span class="p">,</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="n">writer</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="n">im0_shape</span><span class="o">=</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="p">)</span>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="n">total_counts</span> <span class="o">=</span> <span class="mi">0</span>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
 <a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
-<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Video frame is empty or video processing has been successfully completed."</span><span class="p">)</span>
-<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="k">break</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>
-<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="n">clss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">Annotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>            <span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>            <span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">boxes</span><span class="p">:</span>
+<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a>                <span class="n">total_counts</span> <span class="o">+=</span> <span class="mi">1</span>
 <a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="k">if</span> <span class="n">boxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">clss</span><span class="p">):</span>
-<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a>            <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
-<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>            <span class="n">annotator</span><span class="o">.</span><span class="n">box_label</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="n">names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">)])</span>
-<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a>
-<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="n">crop_obj</span> <span class="o">=</span> <span class="n">im0</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">])]</span>
-<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a>
-<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">crop_dir_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="o">+</span> <span class="s2">".png"</span><span class="p">),</span> <span class="n">crop_obj</span><span class="p">)</span>
-<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">,</span> <span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
-<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="k">break</span>
-<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a>
-<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="n">analytics</span><span class="o">.</span><span class="n">update_line</span><span class="p">(</span><span class="n">frame_count</span><span class="p">,</span> <span class="n">total_counts</span><span class="p">)</span>
+<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>
+<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">total_counts</span> <span class="o">=</span> <span class="mi">0</span>
+<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
+<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="k">break</span>
+<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a>    <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="k">break</span>
+<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>
+<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span><span class="p">,</span> <span class="n">solutions</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s.pt"</span><span class="p">)</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"Path/to/video/file.mp4"</span><span class="p">)</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"pie_chart.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>    <span class="nb">type</span><span class="o">=</span><span class="s2">"pie"</span><span class="p">,</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="n">writer</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>    <span class="n">im0_shape</span><span class="o">=</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>    <span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="p">)</span>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="n">clswise_count</span> <span class="o">=</span> <span class="p">{}</span>
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>        <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>            <span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>            <span class="n">clss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>            <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">clss</span><span class="p">):</span>
+<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>                <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">)]</span> <span class="ow">in</span> <span class="n">clswise_count</span><span class="p">:</span>
+<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>                    <span class="n">clswise_count</span><span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">)]]</span> <span class="o">+=</span> <span class="mi">1</span>
+<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>                <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>                    <span class="n">clswise_count</span><span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">)]]</span> <span class="o">=</span> <span class="mi">1</span>
+<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>
+<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a>            <span class="n">analytics</span><span class="o">.</span><span class="n">update_pie</span><span class="p">(</span><span class="n">clswise_count</span><span class="p">)</span>
+<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>            <span class="n">clswise_count</span> <span class="o">=</span> <span class="p">{}</span>
+<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a>
+<a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
+<a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a>            <span class="k">break</span>
+<a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a>    <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a>        <span class="k">break</span>
+<a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a>
+<a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span><span class="p">,</span> <span class="n">solutions</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s.pt"</span><span class="p">)</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"Path/to/video/file.mp4"</span><span class="p">)</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"bar_plot.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>    <span class="nb">type</span><span class="o">=</span><span class="s2">"bar"</span><span class="p">,</span>
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>    <span class="n">writer</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
+<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>    <span class="n">im0_shape</span><span class="o">=</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span>
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>    <span class="n">view_img</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="p">)</span>
+<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>
+<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="n">clswise_count</span> <span class="o">=</span> <span class="p">{}</span>
+<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>
+<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a>        <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a>            <span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<a href="#__codelineno-2-27" id="__codelineno-2-27" name="__codelineno-2-27"></a>            <span class="n">clss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<a href="#__codelineno-2-28" id="__codelineno-2-28" name="__codelineno-2-28"></a>            <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">clss</span><span class="p">):</span>
+<a href="#__codelineno-2-29" id="__codelineno-2-29" name="__codelineno-2-29"></a>                <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">)]</span> <span class="ow">in</span> <span class="n">clswise_count</span><span class="p">:</span>
+<a href="#__codelineno-2-30" id="__codelineno-2-30" name="__codelineno-2-30"></a>                    <span class="n">clswise_count</span><span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">)]]</span> <span class="o">+=</span> <span class="mi">1</span>
+<a href="#__codelineno-2-31" id="__codelineno-2-31" name="__codelineno-2-31"></a>                <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-2-32" id="__codelineno-2-32" name="__codelineno-2-32"></a>                    <span class="n">clswise_count</span><span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">)]]</span> <span class="o">=</span> <span class="mi">1</span>
+<a href="#__codelineno-2-33" id="__codelineno-2-33" name="__codelineno-2-33"></a>
+<a href="#__codelineno-2-34" id="__codelineno-2-34" name="__codelineno-2-34"></a>            <span class="n">analytics</span><span class="o">.</span><span class="n">update_bar</span><span class="p">(</span><span class="n">clswise_count</span><span class="p">)</span>
+<a href="#__codelineno-2-35" id="__codelineno-2-35" name="__codelineno-2-35"></a>            <span class="n">clswise_count</span> <span class="o">=</span> <span class="p">{}</span>
+<a href="#__codelineno-2-36" id="__codelineno-2-36" name="__codelineno-2-36"></a>
+<a href="#__codelineno-2-37" id="__codelineno-2-37" name="__codelineno-2-37"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
+<a href="#__codelineno-2-38" id="__codelineno-2-38" name="__codelineno-2-38"></a>            <span class="k">break</span>
+<a href="#__codelineno-2-39" id="__codelineno-2-39" name="__codelineno-2-39"></a>    <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-2-40" id="__codelineno-2-40" name="__codelineno-2-40"></a>        <span class="k">break</span>
+<a href="#__codelineno-2-41" id="__codelineno-2-41" name="__codelineno-2-41"></a>
+<a href="#__codelineno-2-42" id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-2-43" id="__codelineno-2-43" name="__codelineno-2-43"></a><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a href="#__codelineno-2-44" id="__codelineno-2-44" name="__codelineno-2-44"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</input></input></input></div>
 </div>
-<h3 id="arguments-modelpredict">Arguments <code>model.predict</code></h3>
+<h3 id="argument-analytics">Argument <code>Analytics</code></h3>
+<p>Here's a table with the <code>Analytics</code> arguments:</p>
 <table>
 <thead>
 <tr>
-<th>Argument</th>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td><code>str</code></td>
+<td><code>None</code></td>
+<td>Type of data or object.</td>
+</tr>
+<tr>
+<td><code>im0_shape</code></td>
+<td><code>tuple</code></td>
+<td><code>None</code></td>
+<td>Shape of the initial image.</td>
+</tr>
+<tr>
+<td><code>writer</code></td>
+<td><code>cv2.VideoWriter</code></td>
+<td><code>None</code></td>
+<td>Object for writing video files.</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>str</code></td>
+<td><code>ultralytics</code></td>
+<td>Title for the visualization.</td>
+</tr>
+<tr>
+<td><code>x_label</code></td>
+<td><code>str</code></td>
+<td><code>x</code></td>
+<td>Label for the x-axis.</td>
+</tr>
+<tr>
+<td><code>y_label</code></td>
+<td><code>str</code></td>
+<td><code>y</code></td>
+<td>Label for the y-axis.</td>
+</tr>
+<tr>
+<td><code>bg_color</code></td>
+<td><code>str</code></td>
+<td><code>white</code></td>
+<td>Background color.</td>
+</tr>
+<tr>
+<td><code>fg_color</code></td>
+<td><code>str</code></td>
+<td><code>black</code></td>
+<td>Foreground color.</td>
+</tr>
+<tr>
+<td><code>line_color</code></td>
+<td><code>str</code></td>
+<td><code>yellow</code></td>
+<td>Color of the lines.</td>
+</tr>
+<tr>
+<td><code>line_width</code></td>
+<td><code>int</code></td>
+<td><code>2</code></td>
+<td>Width of the lines.</td>
+</tr>
+<tr>
+<td><code>fontsize</code></td>
+<td><code>int</code></td>
+<td><code>13</code></td>
+<td>Font size for text.</td>
+</tr>
+<tr>
+<td><code>view_img</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Flag to display the image or video.</td>
+</tr>
+<tr>
+<td><code>save_img</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Flag to save the image or video.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="arguments-modeltrack">Arguments <code>model.track</code></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
 <th>Type</th>
 <th>Default</th>
 <th>Description</th>
@@ -867,96 +1075,50 @@
 <tbody>
 <tr>
 <td><code>source</code></td>
+<td><code>im0</code></td>
+<td><code>None</code></td>
+<td>source directory for images or videos</td>
+</tr>
+<tr>
+<td><code>persist</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>persisting tracks between frames</td>
+</tr>
+<tr>
+<td><code>tracker</code></td>
 <td><code>str</code></td>
-<td><code>'ultralytics/assets'</code></td>
-<td>Specifies the data source for inference. Can be an image path, video file, directory, URL, or device ID for live feeds. Supports a wide range of formats and sources, enabling flexible application across different types of input.</td>
+<td><code>botsort.yaml</code></td>
+<td>Tracking method 'bytetrack' or 'botsort'</td>
 </tr>
 <tr>
 <td><code>conf</code></td>
 <td><code>float</code></td>
-<td><code>0.25</code></td>
-<td>Sets the minimum confidence threshold for detections. Objects detected with confidence below this threshold will be disregarded. Adjusting this value can help reduce false positives.</td>
+<td><code>0.3</code></td>
+<td>Confidence Threshold</td>
 </tr>
 <tr>
 <td><code>iou</code></td>
 <td><code>float</code></td>
-<td><code>0.7</code></td>
-<td>Intersection Over Union (IoU) threshold for Non-Maximum Suppression (NMS). Lower values result in fewer detections by eliminating overlapping boxes, useful for reducing duplicates.</td>
-</tr>
-<tr>
-<td><code>imgsz</code></td>
-<td><code>int or tuple</code></td>
-<td><code>640</code></td>
-<td>Defines the image size for inference. Can be a single integer <code>640</code> for square resizing or a (height, width) tuple. Proper sizing can improve detection accuracy and processing speed.</td>
-</tr>
-<tr>
-<td><code>half</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>Enables half-precision (FP16) inference, which can speed up model inference on supported GPUs with minimal impact on accuracy.</td>
-</tr>
-<tr>
-<td><code>device</code></td>
-<td><code>str</code></td>
-<td><code>None</code></td>
-<td>Specifies the device for inference (e.g., <code>cpu</code>, <code>cuda:0</code> or <code>0</code>). Allows users to select between CPU, a specific GPU, or other compute devices for model execution.</td>
-</tr>
-<tr>
-<td><code>max_det</code></td>
-<td><code>int</code></td>
-<td><code>300</code></td>
-<td>Maximum number of detections allowed per image. Limits the total number of objects the model can detect in a single inference, preventing excessive outputs in dense scenes.</td>
-</tr>
-<tr>
-<td><code>vid_stride</code></td>
-<td><code>int</code></td>
-<td><code>1</code></td>
-<td>Frame stride for video inputs. Allows skipping frames in videos to speed up processing at the cost of temporal resolution. A value of 1 processes every frame, higher values skip frames.</td>
-</tr>
-<tr>
-<td><code>stream_buffer</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>Determines if all frames should be buffered when processing video streams (<code>True</code>), or if the model should return the most recent frame (<code>False</code>). Useful for real-time applications.</td>
-</tr>
-<tr>
-<td><code>visualize</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>Activates visualization of model features during inference, providing insights into what the model is "seeing". Useful for debugging and model interpretation.</td>
-</tr>
-<tr>
-<td><code>augment</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>Enables test-time augmentation (TTA) for predictions, potentially improving detection robustness at the cost of inference speed.</td>
-</tr>
-<tr>
-<td><code>agnostic_nms</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>Enables class-agnostic Non-Maximum Suppression (NMS), which merges overlapping boxes of different classes. Useful in multi-class detection scenarios where class overlap is common.</td>
+<td><code>0.5</code></td>
+<td>IOU Threshold</td>
 </tr>
 <tr>
 <td><code>classes</code></td>
-<td><code>list[int]</code></td>
+<td><code>list</code></td>
 <td><code>None</code></td>
-<td>Filters predictions to a set of class IDs. Only detections belonging to the specified classes will be returned. Useful for focusing on relevant objects in multi-class detection tasks.</td>
+<td>filter results by class, i.e. classes=0, or classes=[0,2,3]</td>
 </tr>
 <tr>
-<td><code>retina_masks</code></td>
+<td><code>verbose</code></td>
 <td><code>bool</code></td>
-<td><code>False</code></td>
-<td>Uses high-resolution segmentation masks if available in the model. This can enhance mask quality for segmentation tasks, providing finer detail.</td>
-</tr>
-<tr>
-<td><code>embed</code></td>
-<td><code>list[int]</code></td>
-<td><code>None</code></td>
-<td>Specifies the layers from which to extract feature vectors or embeddings. Useful for downstream tasks like clustering or similarity search.</td>
+<td><code>True</code></td>
+<td>Display the object tracking results</td>
 </tr>
 </tbody>
 </table>
+<h2 id="conclusion">Conclusion</h2>
+<p>Understanding when and how to use different types of visualizations is crucial for effective data analysis. Line graphs, bar plots, and pie charts are fundamental tools that can help you convey your data's story more clearly and effectively.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -965,7 +1127,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-09, Updated 2024-05-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (2), <a href="https://github.com/AyushExel">AyushExel</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-05-23, Updated 2024-05-23<br/>Authors: <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -976,10 +1138,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/object-cropping', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/analytics', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/object-cropping', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/analytics', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -1028,7 +1190,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Object Counting" class="md-footer__link md-footer__link--prev" href="../object-counting/">
+<a aria-label="Previous: OpenVINO Latency vs Throughput modes" class="md-footer__link md-footer__link--prev" href="../optimizing-openvino-latency-vs-throughput-modes/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1037,17 +1199,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                Object Counting
+                OpenVINO Latency vs Throughput modes
               </div>
 </div>
 </a>
-<a aria-label="Next: Object Blurring" class="md-footer__link md-footer__link--next" href="../object-blurring/">
+<a aria-label="Next: Object Counting" class="md-footer__link md-footer__link--next" href="../object-counting/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Object Blurring
+                Object Counting
               </div>
 </div>
 <div class="md-footer__button md-icon">
