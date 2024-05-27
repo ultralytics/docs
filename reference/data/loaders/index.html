@@ -11,8 +11,8 @@
 <link href="../explorer/utils/" rel="prev"/>
 <link href="../split_dota/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.24" name="generator"/>
-<title>loaders - Ultralytics YOLOv8 Docs</title>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.25" name="generator"/>
+<title>loaders - Ultralytics YOLO Docs</title>
 <link href="../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -46,7 +46,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLO Docs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLO Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -56,7 +56,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Ultralytics YOLOv8 Docs
+            Ultralytics YOLO Docs
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -263,10 +263,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLO Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLO Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
-    Ultralytics YOLOv8 Docs
+    Ultralytics YOLO Docs
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ultralytics/ultralytics" title="Go to repository">
@@ -3097,7 +3097,7 @@ various formats, including single image files, video files, and lists of image a
 <a id="__codelineno-0-325" name="__codelineno-0-325"></a>        <span class="n">paths</span><span class="p">,</span> <span class="n">imgs</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
 <a id="__codelineno-0-326" name="__codelineno-0-326"></a>        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span><span class="p">:</span>
 <a id="__codelineno-0-327" name="__codelineno-0-327"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">:</span>  <span class="c1"># end of file list</span>
-<a id="__codelineno-0-328" name="__codelineno-0-328"></a>                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a>                <span class="k">if</span> <span class="n">imgs</span><span class="p">:</span>
 <a id="__codelineno-0-329" name="__codelineno-0-329"></a>                    <span class="k">return</span> <span class="n">paths</span><span class="p">,</span> <span class="n">imgs</span><span class="p">,</span> <span class="n">info</span>  <span class="c1"># return last partial batch</span>
 <a id="__codelineno-0-330" name="__codelineno-0-330"></a>                <span class="k">else</span><span class="p">:</span>
 <a id="__codelineno-0-331" name="__codelineno-0-331"></a>                    <span class="k">raise</span> <span class="ne">StopIteration</span>
@@ -3355,7 +3355,7 @@ various formats, including single image files, video files, and lists of image a
 <a id="__codelineno-0-325" name="__codelineno-0-325"></a>    <span class="n">paths</span><span class="p">,</span> <span class="n">imgs</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
 <a id="__codelineno-0-326" name="__codelineno-0-326"></a>    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span><span class="p">:</span>
 <a id="__codelineno-0-327" name="__codelineno-0-327"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nf</span><span class="p">:</span>  <span class="c1"># end of file list</span>
-<a id="__codelineno-0-328" name="__codelineno-0-328"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a>            <span class="k">if</span> <span class="n">imgs</span><span class="p">:</span>
 <a id="__codelineno-0-329" name="__codelineno-0-329"></a>                <span class="k">return</span> <span class="n">paths</span><span class="p">,</span> <span class="n">imgs</span><span class="p">,</span> <span class="n">info</span>  <span class="c1"># return last partial batch</span>
 <a id="__codelineno-0-330" name="__codelineno-0-330"></a>            <span class="k">else</span><span class="p">:</span>
 <a id="__codelineno-0-331" name="__codelineno-0-331"></a>                <span class="k">raise</span> <span class="ne">StopIteration</span>
@@ -4040,12 +4040,16 @@ downstream processing.</p>
 </div><p><br/><br/></p>
 <div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="ultralytics.data.loaders.get_best_youtube_url">
-<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">loaders</span><span class="o">.</span><span class="n">get_best_youtube_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">use_pafy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">loaders</span><span class="o">.</span><span class="n">get_best_youtube_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'pytube'</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
 <p>Retrieves the URL of the best quality MP4 video stream from a given YouTube video.</p>
-<p>This function uses the pafy or yt_dlp library to extract the video info from YouTube. It then finds the highest
-quality MP4 format that has video codec but no audio codec, and returns the URL of this video stream.</p>
+<p>This function uses the specified method to extract the video info from YouTube. It supports the following methods:
+- "pytube": Uses the pytube library to fetch the video streams.
+- "pafy": Uses the pafy library to fetch the video streams.
+- "yt-dlp": Uses the yt-dlp library to fetch the video streams.</p>
+<p>The function then finds the highest quality MP4 format that has a video codec but no audio codec, and returns the
+URL of this video stream.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -4072,17 +4076,18 @@ quality MP4 format that has video codec but no audio codec, and returns the URL 
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>use_pafy</code></td>
+<td><code>method</code></td>
 <td>
-<code>bool</code>
+<code>str</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Use the pafy package, default=True, otherwise use yt_dlp package.</p>
+<p>The method to use for extracting video info. Default is "pytube". Other options are "pafy" and
+"yt-dlp".</p>
 </div>
 </td>
 <td>
-<code>True</code>
+<code>'pytube'</code>
 </td>
 </tr>
 </tbody>
@@ -4139,36 +4144,70 @@ quality MP4 format that has video codec but no audio codec, and returns the URL 
 <span class="normal"><a href="#__codelineno-0-551">551</a></span>
 <span class="normal"><a href="#__codelineno-0-552">552</a></span>
 <span class="normal"><a href="#__codelineno-0-553">553</a></span>
-<span class="normal"><a href="#__codelineno-0-554">554</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-525" name="__codelineno-0-525"></a><span class="k">def</span> <span class="nf">get_best_youtube_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">use_pafy</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-554">554</a></span>
+<span class="normal"><a href="#__codelineno-0-555">555</a></span>
+<span class="normal"><a href="#__codelineno-0-556">556</a></span>
+<span class="normal"><a href="#__codelineno-0-557">557</a></span>
+<span class="normal"><a href="#__codelineno-0-558">558</a></span>
+<span class="normal"><a href="#__codelineno-0-559">559</a></span>
+<span class="normal"><a href="#__codelineno-0-560">560</a></span>
+<span class="normal"><a href="#__codelineno-0-561">561</a></span>
+<span class="normal"><a href="#__codelineno-0-562">562</a></span>
+<span class="normal"><a href="#__codelineno-0-563">563</a></span>
+<span class="normal"><a href="#__codelineno-0-564">564</a></span>
+<span class="normal"><a href="#__codelineno-0-565">565</a></span>
+<span class="normal"><a href="#__codelineno-0-566">566</a></span>
+<span class="normal"><a href="#__codelineno-0-567">567</a></span>
+<span class="normal"><a href="#__codelineno-0-568">568</a></span>
+<span class="normal"><a href="#__codelineno-0-569">569</a></span>
+<span class="normal"><a href="#__codelineno-0-570">570</a></span>
+<span class="normal"><a href="#__codelineno-0-571">571</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-525" name="__codelineno-0-525"></a><span class="k">def</span> <span class="nf">get_best_youtube_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"pytube"</span><span class="p">):</span>
 <a id="__codelineno-0-526" name="__codelineno-0-526"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-527" name="__codelineno-0-527"></a><span class="sd">    Retrieves the URL of the best quality MP4 video stream from a given YouTube video.</span>
 <a id="__codelineno-0-528" name="__codelineno-0-528"></a>
-<a id="__codelineno-0-529" name="__codelineno-0-529"></a><span class="sd">    This function uses the pafy or yt_dlp library to extract the video info from YouTube. It then finds the highest</span>
-<a id="__codelineno-0-530" name="__codelineno-0-530"></a><span class="sd">    quality MP4 format that has video codec but no audio codec, and returns the URL of this video stream.</span>
-<a id="__codelineno-0-531" name="__codelineno-0-531"></a>
-<a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="sd">        url (str): The URL of the YouTube video.</span>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">        use_pafy (bool): Use the pafy package, default=True, otherwise use yt_dlp package.</span>
-<a id="__codelineno-0-535" name="__codelineno-0-535"></a>
-<a id="__codelineno-0-536" name="__codelineno-0-536"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-537" name="__codelineno-0-537"></a><span class="sd">        (str): The URL of the best quality MP4 video stream, or None if no suitable stream is found.</span>
-<a id="__codelineno-0-538" name="__codelineno-0-538"></a><span class="sd">    """</span>
-<a id="__codelineno-0-539" name="__codelineno-0-539"></a>    <span class="k">if</span> <span class="n">use_pafy</span><span class="p">:</span>
-<a id="__codelineno-0-540" name="__codelineno-0-540"></a>        <span class="n">check_requirements</span><span class="p">((</span><span class="s2">"pafy"</span><span class="p">,</span> <span class="s2">"youtube_dl==2020.12.2"</span><span class="p">))</span>
-<a id="__codelineno-0-541" name="__codelineno-0-541"></a>        <span class="kn">import</span> <span class="nn">pafy</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-542" name="__codelineno-0-542"></a>
-<a id="__codelineno-0-543" name="__codelineno-0-543"></a>        <span class="k">return</span> <span class="n">pafy</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">getbestvideo</span><span class="p">(</span><span class="n">preftype</span><span class="o">=</span><span class="s2">"mp4"</span><span class="p">)</span><span class="o">.</span><span class="n">url</span>
-<a id="__codelineno-0-544" name="__codelineno-0-544"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-545" name="__codelineno-0-545"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"yt-dlp"</span><span class="p">)</span>
-<a id="__codelineno-0-546" name="__codelineno-0-546"></a>        <span class="kn">import</span> <span class="nn">yt_dlp</span>
-<a id="__codelineno-0-547" name="__codelineno-0-547"></a>
-<a id="__codelineno-0-548" name="__codelineno-0-548"></a>        <span class="k">with</span> <span class="n">yt_dlp</span><span class="o">.</span><span class="n">YoutubeDL</span><span class="p">({</span><span class="s2">"quiet"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span> <span class="k">as</span> <span class="n">ydl</span><span class="p">:</span>
-<a id="__codelineno-0-549" name="__codelineno-0-549"></a>            <span class="n">info_dict</span> <span class="o">=</span> <span class="n">ydl</span><span class="o">.</span><span class="n">extract_info</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># extract info</span>
-<a id="__codelineno-0-550" name="__codelineno-0-550"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">info_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"formats"</span><span class="p">,</span> <span class="p">[])):</span>  <span class="c1"># reversed because best is usually last</span>
-<a id="__codelineno-0-551" name="__codelineno-0-551"></a>            <span class="c1"># Find a format with video codec, no audio, *.mp4 extension at least 1920x1080 size</span>
-<a id="__codelineno-0-552" name="__codelineno-0-552"></a>            <span class="n">good_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"width"</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1920</span> <span class="ow">or</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"height"</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1080</span>
-<a id="__codelineno-0-553" name="__codelineno-0-553"></a>            <span class="k">if</span> <span class="n">good_size</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"vcodec"</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"none"</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"acodec"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"none"</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"ext"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"mp4"</span><span class="p">:</span>
-<a id="__codelineno-0-554" name="__codelineno-0-554"></a>                <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"url"</span><span class="p">)</span>
+<a id="__codelineno-0-529" name="__codelineno-0-529"></a><span class="sd">    This function uses the specified method to extract the video info from YouTube. It supports the following methods:</span>
+<a id="__codelineno-0-530" name="__codelineno-0-530"></a><span class="sd">    - "pytube": Uses the pytube library to fetch the video streams.</span>
+<a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="sd">    - "pafy": Uses the pafy library to fetch the video streams.</span>
+<a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="sd">    - "yt-dlp": Uses the yt-dlp library to fetch the video streams.</span>
+<a id="__codelineno-0-533" name="__codelineno-0-533"></a>
+<a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">    The function then finds the highest quality MP4 format that has a video codec but no audio codec, and returns the</span>
+<a id="__codelineno-0-535" name="__codelineno-0-535"></a><span class="sd">    URL of this video stream.</span>
+<a id="__codelineno-0-536" name="__codelineno-0-536"></a>
+<a id="__codelineno-0-537" name="__codelineno-0-537"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-538" name="__codelineno-0-538"></a><span class="sd">        url (str): The URL of the YouTube video.</span>
+<a id="__codelineno-0-539" name="__codelineno-0-539"></a><span class="sd">        method (str): The method to use for extracting video info. Default is "pytube". Other options are "pafy" and</span>
+<a id="__codelineno-0-540" name="__codelineno-0-540"></a><span class="sd">            "yt-dlp".</span>
+<a id="__codelineno-0-541" name="__codelineno-0-541"></a>
+<a id="__codelineno-0-542" name="__codelineno-0-542"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-543" name="__codelineno-0-543"></a><span class="sd">        (str): The URL of the best quality MP4 video stream, or None if no suitable stream is found.</span>
+<a id="__codelineno-0-544" name="__codelineno-0-544"></a><span class="sd">    """</span>
+<a id="__codelineno-0-545" name="__codelineno-0-545"></a>    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"pytube"</span><span class="p">:</span>
+<a id="__codelineno-0-546" name="__codelineno-0-546"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"pytube"</span><span class="p">)</span>
+<a id="__codelineno-0-547" name="__codelineno-0-547"></a>        <span class="kn">from</span> <span class="nn">pytube</span> <span class="kn">import</span> <span class="n">YouTube</span>
+<a id="__codelineno-0-548" name="__codelineno-0-548"></a>
+<a id="__codelineno-0-549" name="__codelineno-0-549"></a>        <span class="n">streams</span> <span class="o">=</span> <span class="n">YouTube</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">streams</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">file_extension</span><span class="o">=</span><span class="s2">"mp4"</span><span class="p">,</span> <span class="n">only_video</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-550" name="__codelineno-0-550"></a>        <span class="n">streams</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">streams</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">resolution</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># sort streams by resolution</span>
+<a id="__codelineno-0-551" name="__codelineno-0-551"></a>        <span class="k">for</span> <span class="n">stream</span> <span class="ow">in</span> <span class="n">streams</span><span class="p">:</span>
+<a id="__codelineno-0-552" name="__codelineno-0-552"></a>            <span class="k">if</span> <span class="n">stream</span><span class="o">.</span><span class="n">resolution</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">stream</span><span class="o">.</span><span class="n">resolution</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">1080</span><span class="p">:</span>  <span class="c1"># check if resolution is at least 1080p</span>
+<a id="__codelineno-0-553" name="__codelineno-0-553"></a>                <span class="k">return</span> <span class="n">stream</span><span class="o">.</span><span class="n">url</span>
+<a id="__codelineno-0-554" name="__codelineno-0-554"></a>
+<a id="__codelineno-0-555" name="__codelineno-0-555"></a>    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"pafy"</span><span class="p">:</span>
+<a id="__codelineno-0-556" name="__codelineno-0-556"></a>        <span class="n">check_requirements</span><span class="p">((</span><span class="s2">"pafy"</span><span class="p">,</span> <span class="s2">"youtube_dl==2020.12.2"</span><span class="p">))</span>
+<a id="__codelineno-0-557" name="__codelineno-0-557"></a>        <span class="kn">import</span> <span class="nn">pafy</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-558" name="__codelineno-0-558"></a>
+<a id="__codelineno-0-559" name="__codelineno-0-559"></a>        <span class="k">return</span> <span class="n">pafy</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">getbestvideo</span><span class="p">(</span><span class="n">preftype</span><span class="o">=</span><span class="s2">"mp4"</span><span class="p">)</span><span class="o">.</span><span class="n">url</span>
+<a id="__codelineno-0-560" name="__codelineno-0-560"></a>
+<a id="__codelineno-0-561" name="__codelineno-0-561"></a>    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"yt-dlp"</span><span class="p">:</span>
+<a id="__codelineno-0-562" name="__codelineno-0-562"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"yt-dlp"</span><span class="p">)</span>
+<a id="__codelineno-0-563" name="__codelineno-0-563"></a>        <span class="kn">import</span> <span class="nn">yt_dlp</span>
+<a id="__codelineno-0-564" name="__codelineno-0-564"></a>
+<a id="__codelineno-0-565" name="__codelineno-0-565"></a>        <span class="k">with</span> <span class="n">yt_dlp</span><span class="o">.</span><span class="n">YoutubeDL</span><span class="p">({</span><span class="s2">"quiet"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span> <span class="k">as</span> <span class="n">ydl</span><span class="p">:</span>
+<a id="__codelineno-0-566" name="__codelineno-0-566"></a>            <span class="n">info_dict</span> <span class="o">=</span> <span class="n">ydl</span><span class="o">.</span><span class="n">extract_info</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># extract info</span>
+<a id="__codelineno-0-567" name="__codelineno-0-567"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">info_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"formats"</span><span class="p">,</span> <span class="p">[])):</span>  <span class="c1"># reversed because best is usually last</span>
+<a id="__codelineno-0-568" name="__codelineno-0-568"></a>            <span class="c1"># Find a format with video codec, no audio, *.mp4 extension at least 1920x1080 size</span>
+<a id="__codelineno-0-569" name="__codelineno-0-569"></a>            <span class="n">good_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"width"</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1920</span> <span class="ow">or</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"height"</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1080</span>
+<a id="__codelineno-0-570" name="__codelineno-0-570"></a>            <span class="k">if</span> <span class="n">good_size</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"vcodec"</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"none"</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"acodec"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"none"</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"ext"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"mp4"</span><span class="p">:</span>
+<a id="__codelineno-0-571" name="__codelineno-0-571"></a>                <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"url"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

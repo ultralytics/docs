@@ -11,8 +11,8 @@
 <link href="../openvino/" rel="prev"/>
 <link href="../coreml/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.24" name="generator"/>
-<title>TensorRT - Ultralytics YOLOv8 Docs</title>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.25" name="generator"/>
+<title>TensorRT - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="TensorRT" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, TensorRT Export, Model Deployment, GPU Acceleration, NVIDIA Support, CUDA Deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/tensorrt" property="og:url"/><meta content="TensorRT" property="og:title"/><meta content="Discover the power and flexibility of exporting Ultralytics YOLOv8 models to TensorRT format for enhanced performance and efficiency on NVIDIA GPUs." property="og:description"/><meta content="https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/tensorrt" property="twitter:url"/><meta content="TensorRT" property="twitter:title"/><meta content="Discover the power and flexibility of exporting Ultralytics YOLOv8 models to TensorRT format for enhanced performance and efficiency on NVIDIA GPUs." property="twitter:description"/><meta content="https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TensorRT", "image": ["https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png"], "datePublished": "2024-01-28 04:48:47 +0300", "dateModified": "2024-05-19 19:13:04 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="TensorRT" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, TensorRT Export, Model Deployment, GPU Acceleration, NVIDIA Support, CUDA Deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/tensorrt" property="og:url"/><meta content="TensorRT" property="og:title"/><meta content="Discover the power and flexibility of exporting Ultralytics YOLOv8 models to TensorRT format for enhanced performance and efficiency on NVIDIA GPUs." property="og:description"/><meta content="https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/tensorrt" property="twitter:url"/><meta content="TensorRT" property="twitter:title"/><meta content="Discover the power and flexibility of exporting Ultralytics YOLOv8 models to TensorRT format for enhanced performance and efficiency on NVIDIA GPUs." property="twitter:description"/><meta content="https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TensorRT", "image": ["https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-developer-guide/graphics/whatistrt2.png"], "datePublished": "2024-01-28 04:48:47 +0300", "dateModified": "2024-05-27 22:35:45 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -46,7 +46,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLO Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -56,7 +56,7 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Ultralytics YOLOv8 Docs
+            Ultralytics YOLO Docs
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
@@ -263,10 +263,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLOv8 Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLOv8 Docs">
+<a aria-label="Ultralytics YOLO Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
-    Ultralytics YOLOv8 Docs
+    Ultralytics YOLO Docs
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ultralytics/ultralytics" title="Go to repository">
@@ -985,7 +985,7 @@
 <p><code>workspace</code> : Controls the size (in GiB) of the device memory allocation while converting the model weights.</p>
 <ul>
 <li>
-<p>Aim to use the <u>minimum</u> <code>workspace</code> value required as this prevents testing algorithms that require more <code>workspace</code> from being considered by the TensorRT builder. Setting a higher value for <code>workspace</code> may take <strong>considerably longer</strong> to calibrate and export.</p>
+<p>Adjust the <code>workspace</code> value according to your calibration needs and resource availability. While a larger <code>workspace</code> may increase calibration time, it allows TensorRT to explore a wider range of optimization tactics, potentially enhancing model performance and accuracy. Conversely, a smaller <code>workspace</code> can reduce calibration time but may limit the optimization strategies, affecting the quality of the quantized model.</p>
 </li>
 <li>
 <p>Default is <code>workspace=4</code> (GiB), this value may need to be increased if calibration crashes (exits without warning).</p>
@@ -1969,7 +1969,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-28, Updated 2024-05-19<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (2), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-28, Updated 2024-05-27<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (2), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
