@@ -1857,10 +1857,7 @@
 <span class="normal"><a href="#__codelineno-0-466">466</a></span>
 <span class="normal"><a href="#__codelineno-0-467">467</a></span>
 <span class="normal"><a href="#__codelineno-0-468">468</a></span>
-<span class="normal"><a href="#__codelineno-0-469">469</a></span>
-<span class="normal"><a href="#__codelineno-0-470">470</a></span>
-<span class="normal"><a href="#__codelineno-0-471">471</a></span>
-<span class="normal"><a href="#__codelineno-0-472">472</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="k">class</span> <span class="nc">Explorer</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-469">469</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="k">class</span> <span class="nc">Explorer</span><span class="p">:</span>
 <a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
 <a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"coco128.yaml"</span><span class="p">,</span>
@@ -1872,7 +1869,7 @@
 <a id="__codelineno-0-64" name="__codelineno-0-64"></a>        <span class="kn">import</span> <span class="nn">lancedb</span>
 <a id="__codelineno-0-65" name="__codelineno-0-65"></a>
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="n">lancedb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">table_name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"_"</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">table_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">sim_idx_base_name</span> <span class="o">=</span> <span class="p">(</span>
 <a id="__codelineno-0-69" name="__codelineno-0-69"></a>            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">table_name</span><span class="si">}</span><span class="s2">_sim_idx"</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <a id="__codelineno-0-70" name="__codelineno-0-70"></a>        <span class="p">)</span>  <span class="c1"># Use this name and append thres and top_k to reuse the table</span>
@@ -2076,208 +2073,205 @@
 <a id="__codelineno-0-268" name="__codelineno-0-268"></a><span class="sd">            similar = exp.get_similar(img='https://ultralytics.com/images/zidane.jpg')</span>
 <a id="__codelineno-0-269" name="__codelineno-0-269"></a><span class="sd">            ```</span>
 <a id="__codelineno-0-270" name="__codelineno-0-270"></a><span class="sd">        """</span>
-<a id="__codelineno-0-271" name="__codelineno-0-271"></a>        <span class="k">assert</span> <span class="n">return_type</span> <span class="ow">in</span> <span class="p">{</span>
-<a id="__codelineno-0-272" name="__codelineno-0-272"></a>            <span class="s2">"pandas"</span><span class="p">,</span>
-<a id="__codelineno-0-273" name="__codelineno-0-273"></a>            <span class="s2">"arrow"</span><span class="p">,</span>
-<a id="__codelineno-0-274" name="__codelineno-0-274"></a>        <span class="p">},</span> <span class="sa">f</span><span class="s2">"Return type should be either `pandas` or `arrow`, but got </span><span class="si">{</span><span class="n">return_type</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-275" name="__codelineno-0-275"></a>        <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_imgs_or_idxs</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
-<a id="__codelineno-0-276" name="__codelineno-0-276"></a>        <span class="n">similar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
-<a id="__codelineno-0-277" name="__codelineno-0-277"></a>
-<a id="__codelineno-0-278" name="__codelineno-0-278"></a>        <span class="k">if</span> <span class="n">return_type</span> <span class="o">==</span> <span class="s2">"arrow"</span><span class="p">:</span>
-<a id="__codelineno-0-279" name="__codelineno-0-279"></a>            <span class="k">return</span> <span class="n">similar</span>
-<a id="__codelineno-0-280" name="__codelineno-0-280"></a>        <span class="k">elif</span> <span class="n">return_type</span> <span class="o">==</span> <span class="s2">"pandas"</span><span class="p">:</span>
-<a id="__codelineno-0-281" name="__codelineno-0-281"></a>            <span class="k">return</span> <span class="n">similar</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-<a id="__codelineno-0-282" name="__codelineno-0-282"></a>
-<a id="__codelineno-0-283" name="__codelineno-0-283"></a>    <span class="k">def</span> <span class="nf">plot_similar</span><span class="p">(</span>
-<a id="__codelineno-0-284" name="__codelineno-0-284"></a>        <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-285" name="__codelineno-0-285"></a>        <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-286" name="__codelineno-0-286"></a>        <span class="n">idx</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-287" name="__codelineno-0-287"></a>        <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span>
-<a id="__codelineno-0-288" name="__codelineno-0-288"></a>        <span class="n">labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-289" name="__codelineno-0-289"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">:</span>
-<a id="__codelineno-0-290" name="__codelineno-0-290"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-291" name="__codelineno-0-291"></a><span class="sd">        Plot the similar images. Accepts images or indexes.</span>
-<a id="__codelineno-0-292" name="__codelineno-0-292"></a>
-<a id="__codelineno-0-293" name="__codelineno-0-293"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-294" name="__codelineno-0-294"></a><span class="sd">            img (str or list): Path to the image or a list of paths to the images.</span>
-<a id="__codelineno-0-295" name="__codelineno-0-295"></a><span class="sd">            idx (int or list): Index of the image in the table or a list of indexes.</span>
-<a id="__codelineno-0-296" name="__codelineno-0-296"></a><span class="sd">            labels (bool): Whether to plot the labels or not.</span>
-<a id="__codelineno-0-297" name="__codelineno-0-297"></a><span class="sd">            limit (int): Number of results to return. Defaults to 25.</span>
+<a id="__codelineno-0-271" name="__codelineno-0-271"></a>        <span class="k">assert</span> <span class="n">return_type</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"pandas"</span><span class="p">,</span> <span class="s2">"arrow"</span><span class="p">},</span> <span class="sa">f</span><span class="s2">"Return type should be `pandas` or `arrow`, but got </span><span class="si">{</span><span class="n">return_type</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-272" name="__codelineno-0-272"></a>        <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_imgs_or_idxs</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+<a id="__codelineno-0-273" name="__codelineno-0-273"></a>        <span class="n">similar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+<a id="__codelineno-0-274" name="__codelineno-0-274"></a>
+<a id="__codelineno-0-275" name="__codelineno-0-275"></a>        <span class="k">if</span> <span class="n">return_type</span> <span class="o">==</span> <span class="s2">"arrow"</span><span class="p">:</span>
+<a id="__codelineno-0-276" name="__codelineno-0-276"></a>            <span class="k">return</span> <span class="n">similar</span>
+<a id="__codelineno-0-277" name="__codelineno-0-277"></a>        <span class="k">elif</span> <span class="n">return_type</span> <span class="o">==</span> <span class="s2">"pandas"</span><span class="p">:</span>
+<a id="__codelineno-0-278" name="__codelineno-0-278"></a>            <span class="k">return</span> <span class="n">similar</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<a id="__codelineno-0-279" name="__codelineno-0-279"></a>
+<a id="__codelineno-0-280" name="__codelineno-0-280"></a>    <span class="k">def</span> <span class="nf">plot_similar</span><span class="p">(</span>
+<a id="__codelineno-0-281" name="__codelineno-0-281"></a>        <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-282" name="__codelineno-0-282"></a>        <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-283" name="__codelineno-0-283"></a>        <span class="n">idx</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a>        <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span>
+<a id="__codelineno-0-285" name="__codelineno-0-285"></a>        <span class="n">labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-286" name="__codelineno-0-286"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">:</span>
+<a id="__codelineno-0-287" name="__codelineno-0-287"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-288" name="__codelineno-0-288"></a><span class="sd">        Plot the similar images. Accepts images or indexes.</span>
+<a id="__codelineno-0-289" name="__codelineno-0-289"></a>
+<a id="__codelineno-0-290" name="__codelineno-0-290"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-291" name="__codelineno-0-291"></a><span class="sd">            img (str or list): Path to the image or a list of paths to the images.</span>
+<a id="__codelineno-0-292" name="__codelineno-0-292"></a><span class="sd">            idx (int or list): Index of the image in the table or a list of indexes.</span>
+<a id="__codelineno-0-293" name="__codelineno-0-293"></a><span class="sd">            labels (bool): Whether to plot the labels or not.</span>
+<a id="__codelineno-0-294" name="__codelineno-0-294"></a><span class="sd">            limit (int): Number of results to return. Defaults to 25.</span>
+<a id="__codelineno-0-295" name="__codelineno-0-295"></a>
+<a id="__codelineno-0-296" name="__codelineno-0-296"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-297" name="__codelineno-0-297"></a><span class="sd">            (PIL.Image): Image containing the plot.</span>
 <a id="__codelineno-0-298" name="__codelineno-0-298"></a>
-<a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-300" name="__codelineno-0-300"></a><span class="sd">            (PIL.Image): Image containing the plot.</span>
-<a id="__codelineno-0-301" name="__codelineno-0-301"></a>
-<a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">        Example:</span>
-<a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="sd">            ```python</span>
-<a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="sd">            exp = Explorer()</span>
-<a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="sd">            exp.create_embeddings_table()</span>
-<a id="__codelineno-0-306" name="__codelineno-0-306"></a><span class="sd">            similar = exp.plot_similar(img='https://ultralytics.com/images/zidane.jpg')</span>
-<a id="__codelineno-0-307" name="__codelineno-0-307"></a><span class="sd">            ```</span>
-<a id="__codelineno-0-308" name="__codelineno-0-308"></a><span class="sd">        """</span>
-<a id="__codelineno-0-309" name="__codelineno-0-309"></a>        <span class="n">similar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s2">"arrow"</span><span class="p">)</span>
-<a id="__codelineno-0-310" name="__codelineno-0-310"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">similar</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-311" name="__codelineno-0-311"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"No results found."</span><span class="p">)</span>
-<a id="__codelineno-0-312" name="__codelineno-0-312"></a>            <span class="k">return</span> <span class="kc">None</span>
-<a id="__codelineno-0-313" name="__codelineno-0-313"></a>        <span class="n">img</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">similar</span><span class="p">,</span> <span class="n">plot_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
-<a id="__codelineno-0-314" name="__codelineno-0-314"></a>        <span class="k">return</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-<a id="__codelineno-0-315" name="__codelineno-0-315"></a>
-<a id="__codelineno-0-316" name="__codelineno-0-316"></a>    <span class="k">def</span> <span class="nf">similarity_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>  <span class="c1"># pd.DataFrame</span>
-<a id="__codelineno-0-317" name="__codelineno-0-317"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-318" name="__codelineno-0-318"></a><span class="sd">        Calculate the similarity index of all the images in the table. Here, the index will contain the data points that</span>
-<a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="sd">        are max_dist or closer to the image in the embedding space at a given index.</span>
-<a id="__codelineno-0-320" name="__codelineno-0-320"></a>
-<a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="sd">            max_dist (float): maximum L2 distance between the embeddings to consider. Defaults to 0.2.</span>
-<a id="__codelineno-0-323" name="__codelineno-0-323"></a><span class="sd">            top_k (float): Percentage of the closest data points to consider when counting. Used to apply limit.</span>
-<a id="__codelineno-0-324" name="__codelineno-0-324"></a><span class="sd">                           vector search. Defaults: None.</span>
-<a id="__codelineno-0-325" name="__codelineno-0-325"></a><span class="sd">            force (bool): Whether to overwrite the existing similarity index or not. Defaults to True.</span>
-<a id="__codelineno-0-326" name="__codelineno-0-326"></a>
-<a id="__codelineno-0-327" name="__codelineno-0-327"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-328" name="__codelineno-0-328"></a><span class="sd">            (pandas.DataFrame): A dataframe containing the similarity index. Each row corresponds to an image,</span>
-<a id="__codelineno-0-329" name="__codelineno-0-329"></a><span class="sd">                and columns include indices of similar images and their respective distances.</span>
-<a id="__codelineno-0-330" name="__codelineno-0-330"></a>
-<a id="__codelineno-0-331" name="__codelineno-0-331"></a><span class="sd">        Example:</span>
-<a id="__codelineno-0-332" name="__codelineno-0-332"></a><span class="sd">            ```python</span>
-<a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="sd">            exp = Explorer()</span>
-<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">            exp.create_embeddings_table()</span>
-<a id="__codelineno-0-335" name="__codelineno-0-335"></a><span class="sd">            sim_idx = exp.similarity_index()</span>
-<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">            ```</span>
-<a id="__codelineno-0-337" name="__codelineno-0-337"></a><span class="sd">        """</span>
-<a id="__codelineno-0-338" name="__codelineno-0-338"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-339" name="__codelineno-0-339"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Table is not created. Please create the table first."</span><span class="p">)</span>
-<a id="__codelineno-0-340" name="__codelineno-0-340"></a>        <span class="n">sim_idx_table_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sim_idx_base_name</span><span class="si">}</span><span class="s2">_thres_</span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">_top_</span><span class="si">{</span><span class="n">top_k</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-0-341" name="__codelineno-0-341"></a>        <span class="k">if</span> <span class="n">sim_idx_table_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">table_names</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
-<a id="__codelineno-0-342" name="__codelineno-0-342"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Similarity matrix already exists. Reusing it. Pass force=True to overwrite it."</span><span class="p">)</span>
-<a id="__codelineno-0-343" name="__codelineno-0-343"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">open_table</span><span class="p">(</span><span class="n">sim_idx_table_name</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-<a id="__codelineno-0-344" name="__codelineno-0-344"></a>
-<a id="__codelineno-0-345" name="__codelineno-0-345"></a>        <span class="k">if</span> <span class="n">top_k</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">&gt;=</span> <span class="n">top_k</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">):</span>
-<a id="__codelineno-0-346" name="__codelineno-0-346"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"top_k must be between 0.0 and 1.0. Got </span><span class="si">{</span><span class="n">top_k</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-347" name="__codelineno-0-347"></a>        <span class="k">if</span> <span class="n">max_dist</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
-<a id="__codelineno-0-348" name="__codelineno-0-348"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"max_dist must be greater than 0. Got </span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-349" name="__codelineno-0-349"></a>
-<a id="__codelineno-0-350" name="__codelineno-0-350"></a>        <span class="n">top_k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">top_k</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">))</span> <span class="k">if</span> <span class="n">top_k</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
-<a id="__codelineno-0-351" name="__codelineno-0-351"></a>        <span class="n">top_k</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">top_k</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-352" name="__codelineno-0-352"></a>        <span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">to_lance</span><span class="p">()</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"vector"</span><span class="p">,</span> <span class="s2">"im_file"</span><span class="p">])</span><span class="o">.</span><span class="n">to_pydict</span><span class="p">()</span>
-<a id="__codelineno-0-353" name="__codelineno-0-353"></a>        <span class="n">im_files</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">]</span>
-<a id="__codelineno-0-354" name="__codelineno-0-354"></a>        <span class="n">embeddings</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s2">"vector"</span><span class="p">]</span>
-<a id="__codelineno-0-355" name="__codelineno-0-355"></a>
-<a id="__codelineno-0-356" name="__codelineno-0-356"></a>        <span class="n">sim_table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="n">sim_idx_table_name</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">get_sim_index_schema</span><span class="p">(),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"overwrite"</span><span class="p">)</span>
-<a id="__codelineno-0-357" name="__codelineno-0-357"></a>
-<a id="__codelineno-0-358" name="__codelineno-0-358"></a>        <span class="k">def</span> <span class="nf">_yield_sim_idx</span><span class="p">():</span>
-<a id="__codelineno-0-359" name="__codelineno-0-359"></a><span class="w">            </span><span class="sd">"""Generates a dataframe with similarity indices and distances for images."""</span>
-<a id="__codelineno-0-360" name="__codelineno-0-360"></a>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">embeddings</span><span class="p">))):</span>
-<a id="__codelineno-0-361" name="__codelineno-0-361"></a>                <span class="n">sim_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">embeddings</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">top_k</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">"_distance &lt;= </span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-362" name="__codelineno-0-362"></a>                <span class="k">yield</span> <span class="p">[</span>
-<a id="__codelineno-0-363" name="__codelineno-0-363"></a>                    <span class="p">{</span>
-<a id="__codelineno-0-364" name="__codelineno-0-364"></a>                        <span class="s2">"idx"</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
-<a id="__codelineno-0-365" name="__codelineno-0-365"></a>                        <span class="s2">"im_file"</span><span class="p">:</span> <span class="n">im_files</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
-<a id="__codelineno-0-366" name="__codelineno-0-366"></a>                        <span class="s2">"count"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">),</span>
-<a id="__codelineno-0-367" name="__codelineno-0-367"></a>                        <span class="s2">"sim_im_files"</span><span class="p">:</span> <span class="n">sim_idx</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<a id="__codelineno-0-368" name="__codelineno-0-368"></a>                    <span class="p">}</span>
-<a id="__codelineno-0-369" name="__codelineno-0-369"></a>                <span class="p">]</span>
-<a id="__codelineno-0-370" name="__codelineno-0-370"></a>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a>        <span class="n">sim_table</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">_yield_sim_idx</span><span class="p">())</span>
-<a id="__codelineno-0-372" name="__codelineno-0-372"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">sim_index</span> <span class="o">=</span> <span class="n">sim_table</span>
-<a id="__codelineno-0-373" name="__codelineno-0-373"></a>        <span class="k">return</span> <span class="n">sim_table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-<a id="__codelineno-0-374" name="__codelineno-0-374"></a>
-<a id="__codelineno-0-375" name="__codelineno-0-375"></a>    <span class="k">def</span> <span class="nf">plot_similarity_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="p">:</span>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="sd">        Plot the similarity index of all the images in the table. Here, the index will contain the data points that are</span>
-<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="sd">        max_dist or closer to the image in the embedding space at a given index.</span>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="sd">            max_dist (float): maximum L2 distance between the embeddings to consider. Defaults to 0.2.</span>
-<a id="__codelineno-0-382" name="__codelineno-0-382"></a><span class="sd">            top_k (float): Percentage of closest data points to consider when counting. Used to apply limit when</span>
-<a id="__codelineno-0-383" name="__codelineno-0-383"></a><span class="sd">                running vector search. Defaults to 0.01.</span>
-<a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="sd">            force (bool): Whether to overwrite the existing similarity index or not. Defaults to True.</span>
+<a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">        Example:</span>
+<a id="__codelineno-0-300" name="__codelineno-0-300"></a><span class="sd">            ```python</span>
+<a id="__codelineno-0-301" name="__codelineno-0-301"></a><span class="sd">            exp = Explorer()</span>
+<a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">            exp.create_embeddings_table()</span>
+<a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="sd">            similar = exp.plot_similar(img='https://ultralytics.com/images/zidane.jpg')</span>
+<a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="sd">            ```</span>
+<a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="sd">        """</span>
+<a id="__codelineno-0-306" name="__codelineno-0-306"></a>        <span class="n">similar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s2">"arrow"</span><span class="p">)</span>
+<a id="__codelineno-0-307" name="__codelineno-0-307"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">similar</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-308" name="__codelineno-0-308"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"No results found."</span><span class="p">)</span>
+<a id="__codelineno-0-309" name="__codelineno-0-309"></a>            <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-0-310" name="__codelineno-0-310"></a>        <span class="n">img</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">similar</span><span class="p">,</span> <span class="n">plot_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<a id="__codelineno-0-311" name="__codelineno-0-311"></a>        <span class="k">return</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<a id="__codelineno-0-312" name="__codelineno-0-312"></a>
+<a id="__codelineno-0-313" name="__codelineno-0-313"></a>    <span class="k">def</span> <span class="nf">similarity_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>  <span class="c1"># pd.DataFrame</span>
+<a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="sd">        Calculate the similarity index of all the images in the table. Here, the index will contain the data points that</span>
+<a id="__codelineno-0-316" name="__codelineno-0-316"></a><span class="sd">        are max_dist or closer to the image in the embedding space at a given index.</span>
+<a id="__codelineno-0-317" name="__codelineno-0-317"></a>
+<a id="__codelineno-0-318" name="__codelineno-0-318"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="sd">            max_dist (float): maximum L2 distance between the embeddings to consider. Defaults to 0.2.</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a><span class="sd">            top_k (float): Percentage of the closest data points to consider when counting. Used to apply limit.</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">                           vector search. Defaults: None.</span>
+<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="sd">            force (bool): Whether to overwrite the existing similarity index or not. Defaults to True.</span>
+<a id="__codelineno-0-323" name="__codelineno-0-323"></a>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-325" name="__codelineno-0-325"></a><span class="sd">            (pandas.DataFrame): A dataframe containing the similarity index. Each row corresponds to an image,</span>
+<a id="__codelineno-0-326" name="__codelineno-0-326"></a><span class="sd">                and columns include indices of similar images and their respective distances.</span>
+<a id="__codelineno-0-327" name="__codelineno-0-327"></a>
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a><span class="sd">        Example:</span>
+<a id="__codelineno-0-329" name="__codelineno-0-329"></a><span class="sd">            ```python</span>
+<a id="__codelineno-0-330" name="__codelineno-0-330"></a><span class="sd">            exp = Explorer()</span>
+<a id="__codelineno-0-331" name="__codelineno-0-331"></a><span class="sd">            exp.create_embeddings_table()</span>
+<a id="__codelineno-0-332" name="__codelineno-0-332"></a><span class="sd">            sim_idx = exp.similarity_index()</span>
+<a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="sd">            ```</span>
+<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">        """</span>
+<a id="__codelineno-0-335" name="__codelineno-0-335"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-336" name="__codelineno-0-336"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Table is not created. Please create the table first."</span><span class="p">)</span>
+<a id="__codelineno-0-337" name="__codelineno-0-337"></a>        <span class="n">sim_idx_table_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sim_idx_base_name</span><span class="si">}</span><span class="s2">_thres_</span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">_top_</span><span class="si">{</span><span class="n">top_k</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-0-338" name="__codelineno-0-338"></a>        <span class="k">if</span> <span class="n">sim_idx_table_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">table_names</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
+<a id="__codelineno-0-339" name="__codelineno-0-339"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Similarity matrix already exists. Reusing it. Pass force=True to overwrite it."</span><span class="p">)</span>
+<a id="__codelineno-0-340" name="__codelineno-0-340"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">open_table</span><span class="p">(</span><span class="n">sim_idx_table_name</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<a id="__codelineno-0-341" name="__codelineno-0-341"></a>
+<a id="__codelineno-0-342" name="__codelineno-0-342"></a>        <span class="k">if</span> <span class="n">top_k</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">&gt;=</span> <span class="n">top_k</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">):</span>
+<a id="__codelineno-0-343" name="__codelineno-0-343"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"top_k must be between 0.0 and 1.0. Got </span><span class="si">{</span><span class="n">top_k</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-344" name="__codelineno-0-344"></a>        <span class="k">if</span> <span class="n">max_dist</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+<a id="__codelineno-0-345" name="__codelineno-0-345"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"max_dist must be greater than 0. Got </span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-346" name="__codelineno-0-346"></a>
+<a id="__codelineno-0-347" name="__codelineno-0-347"></a>        <span class="n">top_k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">top_k</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">))</span> <span class="k">if</span> <span class="n">top_k</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
+<a id="__codelineno-0-348" name="__codelineno-0-348"></a>        <span class="n">top_k</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">top_k</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-349" name="__codelineno-0-349"></a>        <span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">to_lance</span><span class="p">()</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"vector"</span><span class="p">,</span> <span class="s2">"im_file"</span><span class="p">])</span><span class="o">.</span><span class="n">to_pydict</span><span class="p">()</span>
+<a id="__codelineno-0-350" name="__codelineno-0-350"></a>        <span class="n">im_files</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">]</span>
+<a id="__codelineno-0-351" name="__codelineno-0-351"></a>        <span class="n">embeddings</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s2">"vector"</span><span class="p">]</span>
+<a id="__codelineno-0-352" name="__codelineno-0-352"></a>
+<a id="__codelineno-0-353" name="__codelineno-0-353"></a>        <span class="n">sim_table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="n">sim_idx_table_name</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">get_sim_index_schema</span><span class="p">(),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"overwrite"</span><span class="p">)</span>
+<a id="__codelineno-0-354" name="__codelineno-0-354"></a>
+<a id="__codelineno-0-355" name="__codelineno-0-355"></a>        <span class="k">def</span> <span class="nf">_yield_sim_idx</span><span class="p">():</span>
+<a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="w">            </span><span class="sd">"""Generates a dataframe with similarity indices and distances for images."""</span>
+<a id="__codelineno-0-357" name="__codelineno-0-357"></a>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">embeddings</span><span class="p">))):</span>
+<a id="__codelineno-0-358" name="__codelineno-0-358"></a>                <span class="n">sim_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">embeddings</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">top_k</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">"_distance &lt;= </span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-359" name="__codelineno-0-359"></a>                <span class="k">yield</span> <span class="p">[</span>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a>                    <span class="p">{</span>
+<a id="__codelineno-0-361" name="__codelineno-0-361"></a>                        <span class="s2">"idx"</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
+<a id="__codelineno-0-362" name="__codelineno-0-362"></a>                        <span class="s2">"im_file"</span><span class="p">:</span> <span class="n">im_files</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+<a id="__codelineno-0-363" name="__codelineno-0-363"></a>                        <span class="s2">"count"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">),</span>
+<a id="__codelineno-0-364" name="__codelineno-0-364"></a>                        <span class="s2">"sim_im_files"</span><span class="p">:</span> <span class="n">sim_idx</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<a id="__codelineno-0-365" name="__codelineno-0-365"></a>                    <span class="p">}</span>
+<a id="__codelineno-0-366" name="__codelineno-0-366"></a>                <span class="p">]</span>
+<a id="__codelineno-0-367" name="__codelineno-0-367"></a>
+<a id="__codelineno-0-368" name="__codelineno-0-368"></a>        <span class="n">sim_table</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">_yield_sim_idx</span><span class="p">())</span>
+<a id="__codelineno-0-369" name="__codelineno-0-369"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">sim_index</span> <span class="o">=</span> <span class="n">sim_table</span>
+<a id="__codelineno-0-370" name="__codelineno-0-370"></a>        <span class="k">return</span> <span class="n">sim_table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a>
+<a id="__codelineno-0-372" name="__codelineno-0-372"></a>    <span class="k">def</span> <span class="nf">plot_similarity_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="p">:</span>
+<a id="__codelineno-0-373" name="__codelineno-0-373"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a><span class="sd">        Plot the similarity index of all the images in the table. Here, the index will contain the data points that are</span>
+<a id="__codelineno-0-375" name="__codelineno-0-375"></a><span class="sd">        max_dist or closer to the image in the embedding space at a given index.</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a>
+<a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="sd">            max_dist (float): maximum L2 distance between the embeddings to consider. Defaults to 0.2.</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="sd">            top_k (float): Percentage of closest data points to consider when counting. Used to apply limit when</span>
+<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="sd">                running vector search. Defaults to 0.01.</span>
+<a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="sd">            force (bool): Whether to overwrite the existing similarity index or not. Defaults to True.</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a>
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="sd">            (PIL.Image): Image containing the plot.</span>
 <a id="__codelineno-0-385" name="__codelineno-0-385"></a>
-<a id="__codelineno-0-386" name="__codelineno-0-386"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="sd">            (PIL.Image): Image containing the plot.</span>
-<a id="__codelineno-0-388" name="__codelineno-0-388"></a>
-<a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="sd">        Example:</span>
-<a id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="sd">            ```python</span>
-<a id="__codelineno-0-391" name="__codelineno-0-391"></a><span class="sd">            exp = Explorer()</span>
-<a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="sd">            exp.create_embeddings_table()</span>
-<a id="__codelineno-0-393" name="__codelineno-0-393"></a>
-<a id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="sd">            similarity_idx_plot = exp.plot_similarity_index()</span>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a><span class="sd">            similarity_idx_plot.show() # view image preview</span>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="sd">            similarity_idx_plot.save('path/to/save/similarity_index_plot.png') # save contents to file</span>
-<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="sd">            ```</span>
-<a id="__codelineno-0-398" name="__codelineno-0-398"></a><span class="sd">        """</span>
-<a id="__codelineno-0-399" name="__codelineno-0-399"></a>        <span class="n">sim_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="n">max_dist</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="n">top_k</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">force</span><span class="p">)</span>
-<a id="__codelineno-0-400" name="__codelineno-0-400"></a>        <span class="n">sim_count</span> <span class="o">=</span> <span class="n">sim_idx</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a id="__codelineno-0-401" name="__codelineno-0-401"></a>        <span class="n">sim_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_count</span><span class="p">)</span>
-<a id="__codelineno-0-402" name="__codelineno-0-402"></a>
-<a id="__codelineno-0-403" name="__codelineno-0-403"></a>        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sim_count</span><span class="p">))</span>
+<a id="__codelineno-0-386" name="__codelineno-0-386"></a><span class="sd">        Example:</span>
+<a id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="sd">            ```python</span>
+<a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="sd">            exp = Explorer()</span>
+<a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="sd">            exp.create_embeddings_table()</span>
+<a id="__codelineno-0-390" name="__codelineno-0-390"></a>
+<a id="__codelineno-0-391" name="__codelineno-0-391"></a><span class="sd">            similarity_idx_plot = exp.plot_similarity_index()</span>
+<a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="sd">            similarity_idx_plot.show() # view image preview</span>
+<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="sd">            similarity_idx_plot.save('path/to/save/similarity_index_plot.png') # save contents to file</span>
+<a id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="sd">            ```</span>
+<a id="__codelineno-0-395" name="__codelineno-0-395"></a><span class="sd">        """</span>
+<a id="__codelineno-0-396" name="__codelineno-0-396"></a>        <span class="n">sim_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="n">max_dist</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="n">top_k</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">force</span><span class="p">)</span>
+<a id="__codelineno-0-397" name="__codelineno-0-397"></a>        <span class="n">sim_count</span> <span class="o">=</span> <span class="n">sim_idx</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<a id="__codelineno-0-398" name="__codelineno-0-398"></a>        <span class="n">sim_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_count</span><span class="p">)</span>
+<a id="__codelineno-0-399" name="__codelineno-0-399"></a>
+<a id="__codelineno-0-400" name="__codelineno-0-400"></a>        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sim_count</span><span class="p">))</span>
+<a id="__codelineno-0-401" name="__codelineno-0-401"></a>
+<a id="__codelineno-0-402" name="__codelineno-0-402"></a>        <span class="c1"># Create the bar plot</span>
+<a id="__codelineno-0-403" name="__codelineno-0-403"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">sim_count</span><span class="p">)</span>
 <a id="__codelineno-0-404" name="__codelineno-0-404"></a>
-<a id="__codelineno-0-405" name="__codelineno-0-405"></a>        <span class="c1"># Create the bar plot</span>
-<a id="__codelineno-0-406" name="__codelineno-0-406"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">sim_count</span><span class="p">)</span>
-<a id="__codelineno-0-407" name="__codelineno-0-407"></a>
-<a id="__codelineno-0-408" name="__codelineno-0-408"></a>        <span class="c1"># Customize the plot (optional)</span>
-<a id="__codelineno-0-409" name="__codelineno-0-409"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"data idx"</span><span class="p">)</span>
-<a id="__codelineno-0-410" name="__codelineno-0-410"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Count"</span><span class="p">)</span>
-<a id="__codelineno-0-411" name="__codelineno-0-411"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Similarity Count"</span><span class="p">)</span>
-<a id="__codelineno-0-412" name="__codelineno-0-412"></a>        <span class="n">buffer</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
-<a id="__codelineno-0-413" name="__codelineno-0-413"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"png"</span><span class="p">)</span>
-<a id="__codelineno-0-414" name="__codelineno-0-414"></a>        <span class="n">buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-405" name="__codelineno-0-405"></a>        <span class="c1"># Customize the plot (optional)</span>
+<a id="__codelineno-0-406" name="__codelineno-0-406"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"data idx"</span><span class="p">)</span>
+<a id="__codelineno-0-407" name="__codelineno-0-407"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Count"</span><span class="p">)</span>
+<a id="__codelineno-0-408" name="__codelineno-0-408"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Similarity Count"</span><span class="p">)</span>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a>        <span class="n">buffer</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
+<a id="__codelineno-0-410" name="__codelineno-0-410"></a>        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"png"</span><span class="p">)</span>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>        <span class="n">buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-412" name="__codelineno-0-412"></a>
+<a id="__codelineno-0-413" name="__codelineno-0-413"></a>        <span class="c1"># Use Pillow to open the image from the buffer</span>
+<a id="__codelineno-0-414" name="__codelineno-0-414"></a>        <span class="k">return</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">buffer</span><span class="p">)))</span>
 <a id="__codelineno-0-415" name="__codelineno-0-415"></a>
-<a id="__codelineno-0-416" name="__codelineno-0-416"></a>        <span class="c1"># Use Pillow to open the image from the buffer</span>
-<a id="__codelineno-0-417" name="__codelineno-0-417"></a>        <span class="k">return</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">buffer</span><span class="p">)))</span>
-<a id="__codelineno-0-418" name="__codelineno-0-418"></a>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a>    <span class="k">def</span> <span class="nf">_check_imgs_or_idxs</span><span class="p">(</span>
-<a id="__codelineno-0-420" name="__codelineno-0-420"></a>        <span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span> <span class="n">idx</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
-<a id="__codelineno-0-421" name="__codelineno-0-421"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<a id="__codelineno-0-422" name="__codelineno-0-422"></a>        <span class="k">if</span> <span class="n">img</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-423" name="__codelineno-0-423"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Either img or idx must be provided."</span><span class="p">)</span>
-<a id="__codelineno-0-424" name="__codelineno-0-424"></a>        <span class="k">if</span> <span class="n">img</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-425" name="__codelineno-0-425"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Only one of img or idx must be provided."</span><span class="p">)</span>
-<a id="__codelineno-0-426" name="__codelineno-0-426"></a>        <span class="k">if</span> <span class="n">idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-427" name="__codelineno-0-427"></a>            <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-<a id="__codelineno-0-428" name="__codelineno-0-428"></a>            <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">to_lance</span><span class="p">()</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">])</span><span class="o">.</span><span class="n">to_pydict</span><span class="p">()[</span><span class="s2">"im_file"</span><span class="p">]</span>
-<a id="__codelineno-0-429" name="__codelineno-0-429"></a>
-<a id="__codelineno-0-430" name="__codelineno-0-430"></a>        <span class="k">return</span> <span class="n">img</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">img</span><span class="p">]</span>
-<a id="__codelineno-0-431" name="__codelineno-0-431"></a>
-<a id="__codelineno-0-432" name="__codelineno-0-432"></a>    <span class="k">def</span> <span class="nf">ask_ai</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
-<a id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-434" name="__codelineno-0-434"></a><span class="sd">        Ask AI a question.</span>
+<a id="__codelineno-0-416" name="__codelineno-0-416"></a>    <span class="k">def</span> <span class="nf">_check_imgs_or_idxs</span><span class="p">(</span>
+<a id="__codelineno-0-417" name="__codelineno-0-417"></a>        <span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span> <span class="n">idx</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
+<a id="__codelineno-0-418" name="__codelineno-0-418"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>        <span class="k">if</span> <span class="n">img</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-420" name="__codelineno-0-420"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Either img or idx must be provided."</span><span class="p">)</span>
+<a id="__codelineno-0-421" name="__codelineno-0-421"></a>        <span class="k">if</span> <span class="n">img</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Only one of img or idx must be provided."</span><span class="p">)</span>
+<a id="__codelineno-0-423" name="__codelineno-0-423"></a>        <span class="k">if</span> <span class="n">idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-424" name="__codelineno-0-424"></a>            <span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+<a id="__codelineno-0-425" name="__codelineno-0-425"></a>            <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">to_lance</span><span class="p">()</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">])</span><span class="o">.</span><span class="n">to_pydict</span><span class="p">()[</span><span class="s2">"im_file"</span><span class="p">]</span>
+<a id="__codelineno-0-426" name="__codelineno-0-426"></a>
+<a id="__codelineno-0-427" name="__codelineno-0-427"></a>        <span class="k">return</span> <span class="n">img</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">img</span><span class="p">]</span>
+<a id="__codelineno-0-428" name="__codelineno-0-428"></a>
+<a id="__codelineno-0-429" name="__codelineno-0-429"></a>    <span class="k">def</span> <span class="nf">ask_ai</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+<a id="__codelineno-0-430" name="__codelineno-0-430"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-431" name="__codelineno-0-431"></a><span class="sd">        Ask AI a question.</span>
+<a id="__codelineno-0-432" name="__codelineno-0-432"></a>
+<a id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-434" name="__codelineno-0-434"></a><span class="sd">            query (str): Question to ask.</span>
 <a id="__codelineno-0-435" name="__codelineno-0-435"></a>
-<a id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-437" name="__codelineno-0-437"></a><span class="sd">            query (str): Question to ask.</span>
+<a id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-437" name="__codelineno-0-437"></a><span class="sd">            (pandas.DataFrame): A dataframe containing filtered results to the SQL query.</span>
 <a id="__codelineno-0-438" name="__codelineno-0-438"></a>
-<a id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-440" name="__codelineno-0-440"></a><span class="sd">            (pandas.DataFrame): A dataframe containing filtered results to the SQL query.</span>
-<a id="__codelineno-0-441" name="__codelineno-0-441"></a>
-<a id="__codelineno-0-442" name="__codelineno-0-442"></a><span class="sd">        Example:</span>
-<a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="sd">            ```python</span>
-<a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="sd">            exp = Explorer()</span>
-<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="sd">            exp.create_embeddings_table()</span>
-<a id="__codelineno-0-446" name="__codelineno-0-446"></a><span class="sd">            answer = exp.ask_ai('Show images with 1 person and 2 dogs')</span>
-<a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="sd">            ```</span>
-<a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="sd">        """</span>
-<a id="__codelineno-0-449" name="__codelineno-0-449"></a>        <span class="n">result</span> <span class="o">=</span> <span class="n">prompt_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<a id="__codelineno-0-450" name="__codelineno-0-450"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-451" name="__codelineno-0-451"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sql_query</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<a id="__codelineno-0-452" name="__codelineno-0-452"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-453" name="__codelineno-0-453"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"AI generated query is not valid. Please try again with a different prompt"</span><span class="p">)</span>
-<a id="__codelineno-0-454" name="__codelineno-0-454"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<a id="__codelineno-0-455" name="__codelineno-0-455"></a>            <span class="k">return</span> <span class="kc">None</span>
-<a id="__codelineno-0-456" name="__codelineno-0-456"></a>
-<a id="__codelineno-0-457" name="__codelineno-0-457"></a>    <span class="k">def</span> <span class="nf">visualize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
-<a id="__codelineno-0-458" name="__codelineno-0-458"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="sd">        Visualize the results of a query. TODO.</span>
-<a id="__codelineno-0-460" name="__codelineno-0-460"></a>
-<a id="__codelineno-0-461" name="__codelineno-0-461"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-462" name="__codelineno-0-462"></a><span class="sd">            result (pyarrow.Table): Table containing the results of a query.</span>
-<a id="__codelineno-0-463" name="__codelineno-0-463"></a><span class="sd">        """</span>
-<a id="__codelineno-0-464" name="__codelineno-0-464"></a>        <span class="k">pass</span>
-<a id="__codelineno-0-465" name="__codelineno-0-465"></a>
-<a id="__codelineno-0-466" name="__codelineno-0-466"></a>    <span class="k">def</span> <span class="nf">generate_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
-<a id="__codelineno-0-467" name="__codelineno-0-467"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-468" name="__codelineno-0-468"></a><span class="sd">        Generate a report of the dataset.</span>
-<a id="__codelineno-0-469" name="__codelineno-0-469"></a>
-<a id="__codelineno-0-470" name="__codelineno-0-470"></a><span class="sd">        TODO</span>
-<a id="__codelineno-0-471" name="__codelineno-0-471"></a><span class="sd">        """</span>
-<a id="__codelineno-0-472" name="__codelineno-0-472"></a>        <span class="k">pass</span>
+<a id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="sd">        Example:</span>
+<a id="__codelineno-0-440" name="__codelineno-0-440"></a><span class="sd">            ```python</span>
+<a id="__codelineno-0-441" name="__codelineno-0-441"></a><span class="sd">            exp = Explorer()</span>
+<a id="__codelineno-0-442" name="__codelineno-0-442"></a><span class="sd">            exp.create_embeddings_table()</span>
+<a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="sd">            answer = exp.ask_ai('Show images with 1 person and 2 dogs')</span>
+<a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="sd">            ```</span>
+<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="sd">        """</span>
+<a id="__codelineno-0-446" name="__codelineno-0-446"></a>        <span class="n">result</span> <span class="o">=</span> <span class="n">prompt_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<a id="__codelineno-0-447" name="__codelineno-0-447"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-448" name="__codelineno-0-448"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sql_query</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<a id="__codelineno-0-449" name="__codelineno-0-449"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-0-450" name="__codelineno-0-450"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"AI generated query is not valid. Please try again with a different prompt"</span><span class="p">)</span>
+<a id="__codelineno-0-451" name="__codelineno-0-451"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<a id="__codelineno-0-452" name="__codelineno-0-452"></a>            <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-0-453" name="__codelineno-0-453"></a>
+<a id="__codelineno-0-454" name="__codelineno-0-454"></a>    <span class="k">def</span> <span class="nf">visualize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+<a id="__codelineno-0-455" name="__codelineno-0-455"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-456" name="__codelineno-0-456"></a><span class="sd">        Visualize the results of a query. TODO.</span>
+<a id="__codelineno-0-457" name="__codelineno-0-457"></a>
+<a id="__codelineno-0-458" name="__codelineno-0-458"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="sd">            result (pyarrow.Table): Table containing the results of a query.</span>
+<a id="__codelineno-0-460" name="__codelineno-0-460"></a><span class="sd">        """</span>
+<a id="__codelineno-0-461" name="__codelineno-0-461"></a>        <span class="k">pass</span>
+<a id="__codelineno-0-462" name="__codelineno-0-462"></a>
+<a id="__codelineno-0-463" name="__codelineno-0-463"></a>    <span class="k">def</span> <span class="nf">generate_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+<a id="__codelineno-0-464" name="__codelineno-0-464"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-465" name="__codelineno-0-465"></a><span class="sd">        Generate a report of the dataset.</span>
+<a id="__codelineno-0-466" name="__codelineno-0-466"></a>
+<a id="__codelineno-0-467" name="__codelineno-0-467"></a><span class="sd">        TODO</span>
+<a id="__codelineno-0-468" name="__codelineno-0-468"></a><span class="sd">        """</span>
+<a id="__codelineno-0-469" name="__codelineno-0-469"></a>        <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2344,7 +2338,10 @@
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/explorer/explorer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-432">432</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-429">429</a></span>
+<span class="normal"><a href="#__codelineno-0-430">430</a></span>
+<span class="normal"><a href="#__codelineno-0-431">431</a></span>
+<span class="normal"><a href="#__codelineno-0-432">432</a></span>
 <span class="normal"><a href="#__codelineno-0-433">433</a></span>
 <span class="normal"><a href="#__codelineno-0-434">434</a></span>
 <span class="normal"><a href="#__codelineno-0-435">435</a></span>
@@ -2364,33 +2361,30 @@
 <span class="normal"><a href="#__codelineno-0-449">449</a></span>
 <span class="normal"><a href="#__codelineno-0-450">450</a></span>
 <span class="normal"><a href="#__codelineno-0-451">451</a></span>
-<span class="normal"><a href="#__codelineno-0-452">452</a></span>
-<span class="normal"><a href="#__codelineno-0-453">453</a></span>
-<span class="normal"><a href="#__codelineno-0-454">454</a></span>
-<span class="normal"><a href="#__codelineno-0-455">455</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-432" name="__codelineno-0-432"></a><span class="k">def</span> <span class="nf">ask_ai</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
-<a id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-434" name="__codelineno-0-434"></a><span class="sd">    Ask AI a question.</span>
+<span class="normal"><a href="#__codelineno-0-452">452</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-429" name="__codelineno-0-429"></a><span class="k">def</span> <span class="nf">ask_ai</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+<a id="__codelineno-0-430" name="__codelineno-0-430"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-431" name="__codelineno-0-431"></a><span class="sd">    Ask AI a question.</span>
+<a id="__codelineno-0-432" name="__codelineno-0-432"></a>
+<a id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-434" name="__codelineno-0-434"></a><span class="sd">        query (str): Question to ask.</span>
 <a id="__codelineno-0-435" name="__codelineno-0-435"></a>
-<a id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-437" name="__codelineno-0-437"></a><span class="sd">        query (str): Question to ask.</span>
+<a id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-437" name="__codelineno-0-437"></a><span class="sd">        (pandas.DataFrame): A dataframe containing filtered results to the SQL query.</span>
 <a id="__codelineno-0-438" name="__codelineno-0-438"></a>
-<a id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-440" name="__codelineno-0-440"></a><span class="sd">        (pandas.DataFrame): A dataframe containing filtered results to the SQL query.</span>
-<a id="__codelineno-0-441" name="__codelineno-0-441"></a>
-<a id="__codelineno-0-442" name="__codelineno-0-442"></a><span class="sd">    Example:</span>
-<a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="sd">        ```python</span>
-<a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="sd">        exp = Explorer()</span>
-<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="sd">        exp.create_embeddings_table()</span>
-<a id="__codelineno-0-446" name="__codelineno-0-446"></a><span class="sd">        answer = exp.ask_ai('Show images with 1 person and 2 dogs')</span>
-<a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="sd">        ```</span>
-<a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="sd">    """</span>
-<a id="__codelineno-0-449" name="__codelineno-0-449"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">prompt_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<a id="__codelineno-0-450" name="__codelineno-0-450"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-451" name="__codelineno-0-451"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sql_query</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<a id="__codelineno-0-452" name="__codelineno-0-452"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-453" name="__codelineno-0-453"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"AI generated query is not valid. Please try again with a different prompt"</span><span class="p">)</span>
-<a id="__codelineno-0-454" name="__codelineno-0-454"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<a id="__codelineno-0-455" name="__codelineno-0-455"></a>        <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-440" name="__codelineno-0-440"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-441" name="__codelineno-0-441"></a><span class="sd">        exp = Explorer()</span>
+<a id="__codelineno-0-442" name="__codelineno-0-442"></a><span class="sd">        exp.create_embeddings_table()</span>
+<a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="sd">        answer = exp.ask_ai('Show images with 1 person and 2 dogs')</span>
+<a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="sd">    """</span>
+<a id="__codelineno-0-446" name="__codelineno-0-446"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">prompt_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<a id="__codelineno-0-447" name="__codelineno-0-447"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-448" name="__codelineno-0-448"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sql_query</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<a id="__codelineno-0-449" name="__codelineno-0-449"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-0-450" name="__codelineno-0-450"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"AI generated query is not valid. Please try again with a different prompt"</span><span class="p">)</span>
+<a id="__codelineno-0-451" name="__codelineno-0-451"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<a id="__codelineno-0-452" name="__codelineno-0-452"></a>        <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2565,19 +2559,19 @@ already exists. Pass force=True to overwrite the existing table.</p>
 <p>TODO</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/explorer/explorer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-466">466</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-463">463</a></span>
+<span class="normal"><a href="#__codelineno-0-464">464</a></span>
+<span class="normal"><a href="#__codelineno-0-465">465</a></span>
+<span class="normal"><a href="#__codelineno-0-466">466</a></span>
 <span class="normal"><a href="#__codelineno-0-467">467</a></span>
 <span class="normal"><a href="#__codelineno-0-468">468</a></span>
-<span class="normal"><a href="#__codelineno-0-469">469</a></span>
-<span class="normal"><a href="#__codelineno-0-470">470</a></span>
-<span class="normal"><a href="#__codelineno-0-471">471</a></span>
-<span class="normal"><a href="#__codelineno-0-472">472</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-466" name="__codelineno-0-466"></a><span class="k">def</span> <span class="nf">generate_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
-<a id="__codelineno-0-467" name="__codelineno-0-467"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-468" name="__codelineno-0-468"></a><span class="sd">    Generate a report of the dataset.</span>
-<a id="__codelineno-0-469" name="__codelineno-0-469"></a>
-<a id="__codelineno-0-470" name="__codelineno-0-470"></a><span class="sd">    TODO</span>
-<a id="__codelineno-0-471" name="__codelineno-0-471"></a><span class="sd">    """</span>
-<a id="__codelineno-0-472" name="__codelineno-0-472"></a>    <span class="k">pass</span>
+<span class="normal"><a href="#__codelineno-0-469">469</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-463" name="__codelineno-0-463"></a><span class="k">def</span> <span class="nf">generate_report</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+<a id="__codelineno-0-464" name="__codelineno-0-464"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-465" name="__codelineno-0-465"></a><span class="sd">    Generate a report of the dataset.</span>
+<a id="__codelineno-0-466" name="__codelineno-0-466"></a>
+<a id="__codelineno-0-467" name="__codelineno-0-467"></a><span class="sd">    TODO</span>
+<a id="__codelineno-0-468" name="__codelineno-0-468"></a><span class="sd">    """</span>
+<a id="__codelineno-0-469" name="__codelineno-0-469"></a>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2720,10 +2714,7 @@ already exists. Pass force=True to overwrite the existing table.</p>
 <span class="normal"><a href="#__codelineno-0-275">275</a></span>
 <span class="normal"><a href="#__codelineno-0-276">276</a></span>
 <span class="normal"><a href="#__codelineno-0-277">277</a></span>
-<span class="normal"><a href="#__codelineno-0-278">278</a></span>
-<span class="normal"><a href="#__codelineno-0-279">279</a></span>
-<span class="normal"><a href="#__codelineno-0-280">280</a></span>
-<span class="normal"><a href="#__codelineno-0-281">281</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-245" name="__codelineno-0-245"></a><span class="k">def</span> <span class="nf">get_similar</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-278">278</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-245" name="__codelineno-0-245"></a><span class="k">def</span> <span class="nf">get_similar</span><span class="p">(</span>
 <a id="__codelineno-0-246" name="__codelineno-0-246"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-247" name="__codelineno-0-247"></a>    <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-248" name="__codelineno-0-248"></a>    <span class="n">idx</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2749,17 +2740,14 @@ already exists. Pass force=True to overwrite the existing table.</p>
 <a id="__codelineno-0-268" name="__codelineno-0-268"></a><span class="sd">        similar = exp.get_similar(img='https://ultralytics.com/images/zidane.jpg')</span>
 <a id="__codelineno-0-269" name="__codelineno-0-269"></a><span class="sd">        ```</span>
 <a id="__codelineno-0-270" name="__codelineno-0-270"></a><span class="sd">    """</span>
-<a id="__codelineno-0-271" name="__codelineno-0-271"></a>    <span class="k">assert</span> <span class="n">return_type</span> <span class="ow">in</span> <span class="p">{</span>
-<a id="__codelineno-0-272" name="__codelineno-0-272"></a>        <span class="s2">"pandas"</span><span class="p">,</span>
-<a id="__codelineno-0-273" name="__codelineno-0-273"></a>        <span class="s2">"arrow"</span><span class="p">,</span>
-<a id="__codelineno-0-274" name="__codelineno-0-274"></a>    <span class="p">},</span> <span class="sa">f</span><span class="s2">"Return type should be either `pandas` or `arrow`, but got </span><span class="si">{</span><span class="n">return_type</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-275" name="__codelineno-0-275"></a>    <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_imgs_or_idxs</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
-<a id="__codelineno-0-276" name="__codelineno-0-276"></a>    <span class="n">similar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
-<a id="__codelineno-0-277" name="__codelineno-0-277"></a>
-<a id="__codelineno-0-278" name="__codelineno-0-278"></a>    <span class="k">if</span> <span class="n">return_type</span> <span class="o">==</span> <span class="s2">"arrow"</span><span class="p">:</span>
-<a id="__codelineno-0-279" name="__codelineno-0-279"></a>        <span class="k">return</span> <span class="n">similar</span>
-<a id="__codelineno-0-280" name="__codelineno-0-280"></a>    <span class="k">elif</span> <span class="n">return_type</span> <span class="o">==</span> <span class="s2">"pandas"</span><span class="p">:</span>
-<a id="__codelineno-0-281" name="__codelineno-0-281"></a>        <span class="k">return</span> <span class="n">similar</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<a id="__codelineno-0-271" name="__codelineno-0-271"></a>    <span class="k">assert</span> <span class="n">return_type</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"pandas"</span><span class="p">,</span> <span class="s2">"arrow"</span><span class="p">},</span> <span class="sa">f</span><span class="s2">"Return type should be `pandas` or `arrow`, but got </span><span class="si">{</span><span class="n">return_type</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-272" name="__codelineno-0-272"></a>    <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_imgs_or_idxs</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span>
+<a id="__codelineno-0-273" name="__codelineno-0-273"></a>    <span class="n">similar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+<a id="__codelineno-0-274" name="__codelineno-0-274"></a>
+<a id="__codelineno-0-275" name="__codelineno-0-275"></a>    <span class="k">if</span> <span class="n">return_type</span> <span class="o">==</span> <span class="s2">"arrow"</span><span class="p">:</span>
+<a id="__codelineno-0-276" name="__codelineno-0-276"></a>        <span class="k">return</span> <span class="n">similar</span>
+<a id="__codelineno-0-277" name="__codelineno-0-277"></a>    <span class="k">elif</span> <span class="n">return_type</span> <span class="o">==</span> <span class="s2">"pandas"</span><span class="p">:</span>
+<a id="__codelineno-0-278" name="__codelineno-0-278"></a>        <span class="k">return</span> <span class="n">similar</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2869,7 +2857,10 @@ already exists. Pass force=True to overwrite the existing table.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/explorer/explorer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-283">283</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-280">280</a></span>
+<span class="normal"><a href="#__codelineno-0-281">281</a></span>
+<span class="normal"><a href="#__codelineno-0-282">282</a></span>
+<span class="normal"><a href="#__codelineno-0-283">283</a></span>
 <span class="normal"><a href="#__codelineno-0-284">284</a></span>
 <span class="normal"><a href="#__codelineno-0-285">285</a></span>
 <span class="normal"><a href="#__codelineno-0-286">286</a></span>
@@ -2897,41 +2888,38 @@ already exists. Pass force=True to overwrite the existing table.</p>
 <span class="normal"><a href="#__codelineno-0-308">308</a></span>
 <span class="normal"><a href="#__codelineno-0-309">309</a></span>
 <span class="normal"><a href="#__codelineno-0-310">310</a></span>
-<span class="normal"><a href="#__codelineno-0-311">311</a></span>
-<span class="normal"><a href="#__codelineno-0-312">312</a></span>
-<span class="normal"><a href="#__codelineno-0-313">313</a></span>
-<span class="normal"><a href="#__codelineno-0-314">314</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-283" name="__codelineno-0-283"></a><span class="k">def</span> <span class="nf">plot_similar</span><span class="p">(</span>
-<a id="__codelineno-0-284" name="__codelineno-0-284"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-285" name="__codelineno-0-285"></a>    <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-286" name="__codelineno-0-286"></a>    <span class="n">idx</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-287" name="__codelineno-0-287"></a>    <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span>
-<a id="__codelineno-0-288" name="__codelineno-0-288"></a>    <span class="n">labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-289" name="__codelineno-0-289"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">:</span>
-<a id="__codelineno-0-290" name="__codelineno-0-290"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-291" name="__codelineno-0-291"></a><span class="sd">    Plot the similar images. Accepts images or indexes.</span>
-<a id="__codelineno-0-292" name="__codelineno-0-292"></a>
-<a id="__codelineno-0-293" name="__codelineno-0-293"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-294" name="__codelineno-0-294"></a><span class="sd">        img (str or list): Path to the image or a list of paths to the images.</span>
-<a id="__codelineno-0-295" name="__codelineno-0-295"></a><span class="sd">        idx (int or list): Index of the image in the table or a list of indexes.</span>
-<a id="__codelineno-0-296" name="__codelineno-0-296"></a><span class="sd">        labels (bool): Whether to plot the labels or not.</span>
-<a id="__codelineno-0-297" name="__codelineno-0-297"></a><span class="sd">        limit (int): Number of results to return. Defaults to 25.</span>
+<span class="normal"><a href="#__codelineno-0-311">311</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-280" name="__codelineno-0-280"></a><span class="k">def</span> <span class="nf">plot_similar</span><span class="p">(</span>
+<a id="__codelineno-0-281" name="__codelineno-0-281"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-282" name="__codelineno-0-282"></a>    <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-283" name="__codelineno-0-283"></a>    <span class="n">idx</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a>    <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span>
+<a id="__codelineno-0-285" name="__codelineno-0-285"></a>    <span class="n">labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-286" name="__codelineno-0-286"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">:</span>
+<a id="__codelineno-0-287" name="__codelineno-0-287"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-288" name="__codelineno-0-288"></a><span class="sd">    Plot the similar images. Accepts images or indexes.</span>
+<a id="__codelineno-0-289" name="__codelineno-0-289"></a>
+<a id="__codelineno-0-290" name="__codelineno-0-290"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-291" name="__codelineno-0-291"></a><span class="sd">        img (str or list): Path to the image or a list of paths to the images.</span>
+<a id="__codelineno-0-292" name="__codelineno-0-292"></a><span class="sd">        idx (int or list): Index of the image in the table or a list of indexes.</span>
+<a id="__codelineno-0-293" name="__codelineno-0-293"></a><span class="sd">        labels (bool): Whether to plot the labels or not.</span>
+<a id="__codelineno-0-294" name="__codelineno-0-294"></a><span class="sd">        limit (int): Number of results to return. Defaults to 25.</span>
+<a id="__codelineno-0-295" name="__codelineno-0-295"></a>
+<a id="__codelineno-0-296" name="__codelineno-0-296"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-297" name="__codelineno-0-297"></a><span class="sd">        (PIL.Image): Image containing the plot.</span>
 <a id="__codelineno-0-298" name="__codelineno-0-298"></a>
-<a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-300" name="__codelineno-0-300"></a><span class="sd">        (PIL.Image): Image containing the plot.</span>
-<a id="__codelineno-0-301" name="__codelineno-0-301"></a>
-<a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">    Example:</span>
-<a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="sd">        ```python</span>
-<a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="sd">        exp = Explorer()</span>
-<a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="sd">        exp.create_embeddings_table()</span>
-<a id="__codelineno-0-306" name="__codelineno-0-306"></a><span class="sd">        similar = exp.plot_similar(img='https://ultralytics.com/images/zidane.jpg')</span>
-<a id="__codelineno-0-307" name="__codelineno-0-307"></a><span class="sd">        ```</span>
-<a id="__codelineno-0-308" name="__codelineno-0-308"></a><span class="sd">    """</span>
-<a id="__codelineno-0-309" name="__codelineno-0-309"></a>    <span class="n">similar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s2">"arrow"</span><span class="p">)</span>
-<a id="__codelineno-0-310" name="__codelineno-0-310"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">similar</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-311" name="__codelineno-0-311"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"No results found."</span><span class="p">)</span>
-<a id="__codelineno-0-312" name="__codelineno-0-312"></a>        <span class="k">return</span> <span class="kc">None</span>
-<a id="__codelineno-0-313" name="__codelineno-0-313"></a>    <span class="n">img</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">similar</span><span class="p">,</span> <span class="n">plot_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
-<a id="__codelineno-0-314" name="__codelineno-0-314"></a>    <span class="k">return</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-300" name="__codelineno-0-300"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-301" name="__codelineno-0-301"></a><span class="sd">        exp = Explorer()</span>
+<a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">        exp.create_embeddings_table()</span>
+<a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="sd">        similar = exp.plot_similar(img='https://ultralytics.com/images/zidane.jpg')</span>
+<a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="sd">    """</span>
+<a id="__codelineno-0-306" name="__codelineno-0-306"></a>    <span class="n">similar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s2">"arrow"</span><span class="p">)</span>
+<a id="__codelineno-0-307" name="__codelineno-0-307"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">similar</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-308" name="__codelineno-0-308"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"No results found."</span><span class="p">)</span>
+<a id="__codelineno-0-309" name="__codelineno-0-309"></a>        <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-0-310" name="__codelineno-0-310"></a>    <span class="n">img</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">similar</span><span class="p">,</span> <span class="n">plot_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<a id="__codelineno-0-311" name="__codelineno-0-311"></a>    <span class="k">return</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3032,7 +3020,10 @@ running vector search. Defaults to 0.01.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/explorer/explorer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-375">375</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-372">372</a></span>
+<span class="normal"><a href="#__codelineno-0-373">373</a></span>
+<span class="normal"><a href="#__codelineno-0-374">374</a></span>
+<span class="normal"><a href="#__codelineno-0-375">375</a></span>
 <span class="normal"><a href="#__codelineno-0-376">376</a></span>
 <span class="normal"><a href="#__codelineno-0-377">377</a></span>
 <span class="normal"><a href="#__codelineno-0-378">378</a></span>
@@ -3071,52 +3062,49 @@ running vector search. Defaults to 0.01.</p>
 <span class="normal"><a href="#__codelineno-0-411">411</a></span>
 <span class="normal"><a href="#__codelineno-0-412">412</a></span>
 <span class="normal"><a href="#__codelineno-0-413">413</a></span>
-<span class="normal"><a href="#__codelineno-0-414">414</a></span>
-<span class="normal"><a href="#__codelineno-0-415">415</a></span>
-<span class="normal"><a href="#__codelineno-0-416">416</a></span>
-<span class="normal"><a href="#__codelineno-0-417">417</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-375" name="__codelineno-0-375"></a><span class="k">def</span> <span class="nf">plot_similarity_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="p">:</span>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="sd">    Plot the similarity index of all the images in the table. Here, the index will contain the data points that are</span>
-<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="sd">    max_dist or closer to the image in the embedding space at a given index.</span>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="sd">        max_dist (float): maximum L2 distance between the embeddings to consider. Defaults to 0.2.</span>
-<a id="__codelineno-0-382" name="__codelineno-0-382"></a><span class="sd">        top_k (float): Percentage of closest data points to consider when counting. Used to apply limit when</span>
-<a id="__codelineno-0-383" name="__codelineno-0-383"></a><span class="sd">            running vector search. Defaults to 0.01.</span>
-<a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="sd">        force (bool): Whether to overwrite the existing similarity index or not. Defaults to True.</span>
+<span class="normal"><a href="#__codelineno-0-414">414</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-372" name="__codelineno-0-372"></a><span class="k">def</span> <span class="nf">plot_similarity_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Image</span><span class="p">:</span>
+<a id="__codelineno-0-373" name="__codelineno-0-373"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a><span class="sd">    Plot the similarity index of all the images in the table. Here, the index will contain the data points that are</span>
+<a id="__codelineno-0-375" name="__codelineno-0-375"></a><span class="sd">    max_dist or closer to the image in the embedding space at a given index.</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a>
+<a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="sd">        max_dist (float): maximum L2 distance between the embeddings to consider. Defaults to 0.2.</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="sd">        top_k (float): Percentage of closest data points to consider when counting. Used to apply limit when</span>
+<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="sd">            running vector search. Defaults to 0.01.</span>
+<a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="sd">        force (bool): Whether to overwrite the existing similarity index or not. Defaults to True.</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a>
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="sd">        (PIL.Image): Image containing the plot.</span>
 <a id="__codelineno-0-385" name="__codelineno-0-385"></a>
-<a id="__codelineno-0-386" name="__codelineno-0-386"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="sd">        (PIL.Image): Image containing the plot.</span>
-<a id="__codelineno-0-388" name="__codelineno-0-388"></a>
-<a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="sd">    Example:</span>
-<a id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="sd">        ```python</span>
-<a id="__codelineno-0-391" name="__codelineno-0-391"></a><span class="sd">        exp = Explorer()</span>
-<a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="sd">        exp.create_embeddings_table()</span>
-<a id="__codelineno-0-393" name="__codelineno-0-393"></a>
-<a id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="sd">        similarity_idx_plot = exp.plot_similarity_index()</span>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a><span class="sd">        similarity_idx_plot.show() # view image preview</span>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="sd">        similarity_idx_plot.save('path/to/save/similarity_index_plot.png') # save contents to file</span>
-<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="sd">        ```</span>
-<a id="__codelineno-0-398" name="__codelineno-0-398"></a><span class="sd">    """</span>
-<a id="__codelineno-0-399" name="__codelineno-0-399"></a>    <span class="n">sim_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="n">max_dist</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="n">top_k</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">force</span><span class="p">)</span>
-<a id="__codelineno-0-400" name="__codelineno-0-400"></a>    <span class="n">sim_count</span> <span class="o">=</span> <span class="n">sim_idx</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a id="__codelineno-0-401" name="__codelineno-0-401"></a>    <span class="n">sim_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_count</span><span class="p">)</span>
-<a id="__codelineno-0-402" name="__codelineno-0-402"></a>
-<a id="__codelineno-0-403" name="__codelineno-0-403"></a>    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sim_count</span><span class="p">))</span>
+<a id="__codelineno-0-386" name="__codelineno-0-386"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="sd">        exp = Explorer()</span>
+<a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="sd">        exp.create_embeddings_table()</span>
+<a id="__codelineno-0-390" name="__codelineno-0-390"></a>
+<a id="__codelineno-0-391" name="__codelineno-0-391"></a><span class="sd">        similarity_idx_plot = exp.plot_similarity_index()</span>
+<a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="sd">        similarity_idx_plot.show() # view image preview</span>
+<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="sd">        similarity_idx_plot.save('path/to/save/similarity_index_plot.png') # save contents to file</span>
+<a id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-395" name="__codelineno-0-395"></a><span class="sd">    """</span>
+<a id="__codelineno-0-396" name="__codelineno-0-396"></a>    <span class="n">sim_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="n">max_dist</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="n">top_k</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="n">force</span><span class="p">)</span>
+<a id="__codelineno-0-397" name="__codelineno-0-397"></a>    <span class="n">sim_count</span> <span class="o">=</span> <span class="n">sim_idx</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<a id="__codelineno-0-398" name="__codelineno-0-398"></a>    <span class="n">sim_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_count</span><span class="p">)</span>
+<a id="__codelineno-0-399" name="__codelineno-0-399"></a>
+<a id="__codelineno-0-400" name="__codelineno-0-400"></a>    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sim_count</span><span class="p">))</span>
+<a id="__codelineno-0-401" name="__codelineno-0-401"></a>
+<a id="__codelineno-0-402" name="__codelineno-0-402"></a>    <span class="c1"># Create the bar plot</span>
+<a id="__codelineno-0-403" name="__codelineno-0-403"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">sim_count</span><span class="p">)</span>
 <a id="__codelineno-0-404" name="__codelineno-0-404"></a>
-<a id="__codelineno-0-405" name="__codelineno-0-405"></a>    <span class="c1"># Create the bar plot</span>
-<a id="__codelineno-0-406" name="__codelineno-0-406"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">sim_count</span><span class="p">)</span>
-<a id="__codelineno-0-407" name="__codelineno-0-407"></a>
-<a id="__codelineno-0-408" name="__codelineno-0-408"></a>    <span class="c1"># Customize the plot (optional)</span>
-<a id="__codelineno-0-409" name="__codelineno-0-409"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"data idx"</span><span class="p">)</span>
-<a id="__codelineno-0-410" name="__codelineno-0-410"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Count"</span><span class="p">)</span>
-<a id="__codelineno-0-411" name="__codelineno-0-411"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Similarity Count"</span><span class="p">)</span>
-<a id="__codelineno-0-412" name="__codelineno-0-412"></a>    <span class="n">buffer</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
-<a id="__codelineno-0-413" name="__codelineno-0-413"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"png"</span><span class="p">)</span>
-<a id="__codelineno-0-414" name="__codelineno-0-414"></a>    <span class="n">buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-415" name="__codelineno-0-415"></a>
-<a id="__codelineno-0-416" name="__codelineno-0-416"></a>    <span class="c1"># Use Pillow to open the image from the buffer</span>
-<a id="__codelineno-0-417" name="__codelineno-0-417"></a>    <span class="k">return</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">buffer</span><span class="p">)))</span>
+<a id="__codelineno-0-405" name="__codelineno-0-405"></a>    <span class="c1"># Customize the plot (optional)</span>
+<a id="__codelineno-0-406" name="__codelineno-0-406"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"data idx"</span><span class="p">)</span>
+<a id="__codelineno-0-407" name="__codelineno-0-407"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Count"</span><span class="p">)</span>
+<a id="__codelineno-0-408" name="__codelineno-0-408"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Similarity Count"</span><span class="p">)</span>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a>    <span class="n">buffer</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
+<a id="__codelineno-0-410" name="__codelineno-0-410"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"png"</span><span class="p">)</span>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>    <span class="n">buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-412" name="__codelineno-0-412"></a>
+<a id="__codelineno-0-413" name="__codelineno-0-413"></a>    <span class="c1"># Use Pillow to open the image from the buffer</span>
+<a id="__codelineno-0-414" name="__codelineno-0-414"></a>    <span class="k">return</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">buffer</span><span class="p">)))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3450,7 +3438,10 @@ and columns include indices of similar images and their respective distances.</p
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/explorer/explorer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-316">316</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-313">313</a></span>
+<span class="normal"><a href="#__codelineno-0-314">314</a></span>
+<span class="normal"><a href="#__codelineno-0-315">315</a></span>
+<span class="normal"><a href="#__codelineno-0-316">316</a></span>
 <span class="normal"><a href="#__codelineno-0-317">317</a></span>
 <span class="normal"><a href="#__codelineno-0-318">318</a></span>
 <span class="normal"><a href="#__codelineno-0-319">319</a></span>
@@ -3504,67 +3495,64 @@ and columns include indices of similar images and their respective distances.</p
 <span class="normal"><a href="#__codelineno-0-367">367</a></span>
 <span class="normal"><a href="#__codelineno-0-368">368</a></span>
 <span class="normal"><a href="#__codelineno-0-369">369</a></span>
-<span class="normal"><a href="#__codelineno-0-370">370</a></span>
-<span class="normal"><a href="#__codelineno-0-371">371</a></span>
-<span class="normal"><a href="#__codelineno-0-372">372</a></span>
-<span class="normal"><a href="#__codelineno-0-373">373</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-316" name="__codelineno-0-316"></a><span class="k">def</span> <span class="nf">similarity_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>  <span class="c1"># pd.DataFrame</span>
-<a id="__codelineno-0-317" name="__codelineno-0-317"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-318" name="__codelineno-0-318"></a><span class="sd">    Calculate the similarity index of all the images in the table. Here, the index will contain the data points that</span>
-<a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="sd">    are max_dist or closer to the image in the embedding space at a given index.</span>
-<a id="__codelineno-0-320" name="__codelineno-0-320"></a>
-<a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="sd">        max_dist (float): maximum L2 distance between the embeddings to consider. Defaults to 0.2.</span>
-<a id="__codelineno-0-323" name="__codelineno-0-323"></a><span class="sd">        top_k (float): Percentage of the closest data points to consider when counting. Used to apply limit.</span>
-<a id="__codelineno-0-324" name="__codelineno-0-324"></a><span class="sd">                       vector search. Defaults: None.</span>
-<a id="__codelineno-0-325" name="__codelineno-0-325"></a><span class="sd">        force (bool): Whether to overwrite the existing similarity index or not. Defaults to True.</span>
-<a id="__codelineno-0-326" name="__codelineno-0-326"></a>
-<a id="__codelineno-0-327" name="__codelineno-0-327"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-328" name="__codelineno-0-328"></a><span class="sd">        (pandas.DataFrame): A dataframe containing the similarity index. Each row corresponds to an image,</span>
-<a id="__codelineno-0-329" name="__codelineno-0-329"></a><span class="sd">            and columns include indices of similar images and their respective distances.</span>
-<a id="__codelineno-0-330" name="__codelineno-0-330"></a>
-<a id="__codelineno-0-331" name="__codelineno-0-331"></a><span class="sd">    Example:</span>
-<a id="__codelineno-0-332" name="__codelineno-0-332"></a><span class="sd">        ```python</span>
-<a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="sd">        exp = Explorer()</span>
-<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">        exp.create_embeddings_table()</span>
-<a id="__codelineno-0-335" name="__codelineno-0-335"></a><span class="sd">        sim_idx = exp.similarity_index()</span>
-<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">        ```</span>
-<a id="__codelineno-0-337" name="__codelineno-0-337"></a><span class="sd">    """</span>
-<a id="__codelineno-0-338" name="__codelineno-0-338"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-339" name="__codelineno-0-339"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Table is not created. Please create the table first."</span><span class="p">)</span>
-<a id="__codelineno-0-340" name="__codelineno-0-340"></a>    <span class="n">sim_idx_table_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sim_idx_base_name</span><span class="si">}</span><span class="s2">_thres_</span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">_top_</span><span class="si">{</span><span class="n">top_k</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-0-341" name="__codelineno-0-341"></a>    <span class="k">if</span> <span class="n">sim_idx_table_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">table_names</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
-<a id="__codelineno-0-342" name="__codelineno-0-342"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Similarity matrix already exists. Reusing it. Pass force=True to overwrite it."</span><span class="p">)</span>
-<a id="__codelineno-0-343" name="__codelineno-0-343"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">open_table</span><span class="p">(</span><span class="n">sim_idx_table_name</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-<a id="__codelineno-0-344" name="__codelineno-0-344"></a>
-<a id="__codelineno-0-345" name="__codelineno-0-345"></a>    <span class="k">if</span> <span class="n">top_k</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">&gt;=</span> <span class="n">top_k</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">):</span>
-<a id="__codelineno-0-346" name="__codelineno-0-346"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"top_k must be between 0.0 and 1.0. Got </span><span class="si">{</span><span class="n">top_k</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-347" name="__codelineno-0-347"></a>    <span class="k">if</span> <span class="n">max_dist</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
-<a id="__codelineno-0-348" name="__codelineno-0-348"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"max_dist must be greater than 0. Got </span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-349" name="__codelineno-0-349"></a>
-<a id="__codelineno-0-350" name="__codelineno-0-350"></a>    <span class="n">top_k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">top_k</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">))</span> <span class="k">if</span> <span class="n">top_k</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
-<a id="__codelineno-0-351" name="__codelineno-0-351"></a>    <span class="n">top_k</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">top_k</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-352" name="__codelineno-0-352"></a>    <span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">to_lance</span><span class="p">()</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"vector"</span><span class="p">,</span> <span class="s2">"im_file"</span><span class="p">])</span><span class="o">.</span><span class="n">to_pydict</span><span class="p">()</span>
-<a id="__codelineno-0-353" name="__codelineno-0-353"></a>    <span class="n">im_files</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">]</span>
-<a id="__codelineno-0-354" name="__codelineno-0-354"></a>    <span class="n">embeddings</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s2">"vector"</span><span class="p">]</span>
-<a id="__codelineno-0-355" name="__codelineno-0-355"></a>
-<a id="__codelineno-0-356" name="__codelineno-0-356"></a>    <span class="n">sim_table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="n">sim_idx_table_name</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">get_sim_index_schema</span><span class="p">(),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"overwrite"</span><span class="p">)</span>
-<a id="__codelineno-0-357" name="__codelineno-0-357"></a>
-<a id="__codelineno-0-358" name="__codelineno-0-358"></a>    <span class="k">def</span> <span class="nf">_yield_sim_idx</span><span class="p">():</span>
-<a id="__codelineno-0-359" name="__codelineno-0-359"></a><span class="w">        </span><span class="sd">"""Generates a dataframe with similarity indices and distances for images."""</span>
-<a id="__codelineno-0-360" name="__codelineno-0-360"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">embeddings</span><span class="p">))):</span>
-<a id="__codelineno-0-361" name="__codelineno-0-361"></a>            <span class="n">sim_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">embeddings</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">top_k</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">"_distance &lt;= </span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-362" name="__codelineno-0-362"></a>            <span class="k">yield</span> <span class="p">[</span>
-<a id="__codelineno-0-363" name="__codelineno-0-363"></a>                <span class="p">{</span>
-<a id="__codelineno-0-364" name="__codelineno-0-364"></a>                    <span class="s2">"idx"</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
-<a id="__codelineno-0-365" name="__codelineno-0-365"></a>                    <span class="s2">"im_file"</span><span class="p">:</span> <span class="n">im_files</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
-<a id="__codelineno-0-366" name="__codelineno-0-366"></a>                    <span class="s2">"count"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">),</span>
-<a id="__codelineno-0-367" name="__codelineno-0-367"></a>                    <span class="s2">"sim_im_files"</span><span class="p">:</span> <span class="n">sim_idx</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<a id="__codelineno-0-368" name="__codelineno-0-368"></a>                <span class="p">}</span>
-<a id="__codelineno-0-369" name="__codelineno-0-369"></a>            <span class="p">]</span>
-<a id="__codelineno-0-370" name="__codelineno-0-370"></a>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a>    <span class="n">sim_table</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">_yield_sim_idx</span><span class="p">())</span>
-<a id="__codelineno-0-372" name="__codelineno-0-372"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sim_index</span> <span class="o">=</span> <span class="n">sim_table</span>
-<a id="__codelineno-0-373" name="__codelineno-0-373"></a>    <span class="k">return</span> <span class="n">sim_table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-370">370</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="k">def</span> <span class="nf">similarity_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_dist</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>  <span class="c1"># pd.DataFrame</span>
+<a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="sd">    Calculate the similarity index of all the images in the table. Here, the index will contain the data points that</span>
+<a id="__codelineno-0-316" name="__codelineno-0-316"></a><span class="sd">    are max_dist or closer to the image in the embedding space at a given index.</span>
+<a id="__codelineno-0-317" name="__codelineno-0-317"></a>
+<a id="__codelineno-0-318" name="__codelineno-0-318"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="sd">        max_dist (float): maximum L2 distance between the embeddings to consider. Defaults to 0.2.</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a><span class="sd">        top_k (float): Percentage of the closest data points to consider when counting. Used to apply limit.</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">                       vector search. Defaults: None.</span>
+<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="sd">        force (bool): Whether to overwrite the existing similarity index or not. Defaults to True.</span>
+<a id="__codelineno-0-323" name="__codelineno-0-323"></a>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-325" name="__codelineno-0-325"></a><span class="sd">        (pandas.DataFrame): A dataframe containing the similarity index. Each row corresponds to an image,</span>
+<a id="__codelineno-0-326" name="__codelineno-0-326"></a><span class="sd">            and columns include indices of similar images and their respective distances.</span>
+<a id="__codelineno-0-327" name="__codelineno-0-327"></a>
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-329" name="__codelineno-0-329"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-330" name="__codelineno-0-330"></a><span class="sd">        exp = Explorer()</span>
+<a id="__codelineno-0-331" name="__codelineno-0-331"></a><span class="sd">        exp.create_embeddings_table()</span>
+<a id="__codelineno-0-332" name="__codelineno-0-332"></a><span class="sd">        sim_idx = exp.similarity_index()</span>
+<a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">    """</span>
+<a id="__codelineno-0-335" name="__codelineno-0-335"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-336" name="__codelineno-0-336"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Table is not created. Please create the table first."</span><span class="p">)</span>
+<a id="__codelineno-0-337" name="__codelineno-0-337"></a>    <span class="n">sim_idx_table_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sim_idx_base_name</span><span class="si">}</span><span class="s2">_thres_</span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">_top_</span><span class="si">{</span><span class="n">top_k</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-0-338" name="__codelineno-0-338"></a>    <span class="k">if</span> <span class="n">sim_idx_table_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">table_names</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
+<a id="__codelineno-0-339" name="__codelineno-0-339"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Similarity matrix already exists. Reusing it. Pass force=True to overwrite it."</span><span class="p">)</span>
+<a id="__codelineno-0-340" name="__codelineno-0-340"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">open_table</span><span class="p">(</span><span class="n">sim_idx_table_name</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<a id="__codelineno-0-341" name="__codelineno-0-341"></a>
+<a id="__codelineno-0-342" name="__codelineno-0-342"></a>    <span class="k">if</span> <span class="n">top_k</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">&gt;=</span> <span class="n">top_k</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">):</span>
+<a id="__codelineno-0-343" name="__codelineno-0-343"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"top_k must be between 0.0 and 1.0. Got </span><span class="si">{</span><span class="n">top_k</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-344" name="__codelineno-0-344"></a>    <span class="k">if</span> <span class="n">max_dist</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+<a id="__codelineno-0-345" name="__codelineno-0-345"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"max_dist must be greater than 0. Got </span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-346" name="__codelineno-0-346"></a>
+<a id="__codelineno-0-347" name="__codelineno-0-347"></a>    <span class="n">top_k</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">top_k</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">))</span> <span class="k">if</span> <span class="n">top_k</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">)</span>
+<a id="__codelineno-0-348" name="__codelineno-0-348"></a>    <span class="n">top_k</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">top_k</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-349" name="__codelineno-0-349"></a>    <span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">to_lance</span><span class="p">()</span><span class="o">.</span><span class="n">to_table</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"vector"</span><span class="p">,</span> <span class="s2">"im_file"</span><span class="p">])</span><span class="o">.</span><span class="n">to_pydict</span><span class="p">()</span>
+<a id="__codelineno-0-350" name="__codelineno-0-350"></a>    <span class="n">im_files</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">]</span>
+<a id="__codelineno-0-351" name="__codelineno-0-351"></a>    <span class="n">embeddings</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s2">"vector"</span><span class="p">]</span>
+<a id="__codelineno-0-352" name="__codelineno-0-352"></a>
+<a id="__codelineno-0-353" name="__codelineno-0-353"></a>    <span class="n">sim_table</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="n">sim_idx_table_name</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">get_sim_index_schema</span><span class="p">(),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"overwrite"</span><span class="p">)</span>
+<a id="__codelineno-0-354" name="__codelineno-0-354"></a>
+<a id="__codelineno-0-355" name="__codelineno-0-355"></a>    <span class="k">def</span> <span class="nf">_yield_sim_idx</span><span class="p">():</span>
+<a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="w">        </span><span class="sd">"""Generates a dataframe with similarity indices and distances for images."""</span>
+<a id="__codelineno-0-357" name="__codelineno-0-357"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">embeddings</span><span class="p">))):</span>
+<a id="__codelineno-0-358" name="__codelineno-0-358"></a>            <span class="n">sim_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">embeddings</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">top_k</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">"_distance &lt;= </span><span class="si">{</span><span class="n">max_dist</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-359" name="__codelineno-0-359"></a>            <span class="k">yield</span> <span class="p">[</span>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a>                <span class="p">{</span>
+<a id="__codelineno-0-361" name="__codelineno-0-361"></a>                    <span class="s2">"idx"</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
+<a id="__codelineno-0-362" name="__codelineno-0-362"></a>                    <span class="s2">"im_file"</span><span class="p">:</span> <span class="n">im_files</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+<a id="__codelineno-0-363" name="__codelineno-0-363"></a>                    <span class="s2">"count"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">),</span>
+<a id="__codelineno-0-364" name="__codelineno-0-364"></a>                    <span class="s2">"sim_im_files"</span><span class="p">:</span> <span class="n">sim_idx</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+<a id="__codelineno-0-365" name="__codelineno-0-365"></a>                <span class="p">}</span>
+<a id="__codelineno-0-366" name="__codelineno-0-366"></a>            <span class="p">]</span>
+<a id="__codelineno-0-367" name="__codelineno-0-367"></a>
+<a id="__codelineno-0-368" name="__codelineno-0-368"></a>    <span class="n">sim_table</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">_yield_sim_idx</span><span class="p">())</span>
+<a id="__codelineno-0-369" name="__codelineno-0-369"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sim_index</span> <span class="o">=</span> <span class="n">sim_table</span>
+<a id="__codelineno-0-370" name="__codelineno-0-370"></a>    <span class="k">return</span> <span class="n">sim_table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3777,21 +3765,21 @@ and columns include indices of similar images and their respective distances.</p
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/explorer/explorer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-457">457</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-454">454</a></span>
+<span class="normal"><a href="#__codelineno-0-455">455</a></span>
+<span class="normal"><a href="#__codelineno-0-456">456</a></span>
+<span class="normal"><a href="#__codelineno-0-457">457</a></span>
 <span class="normal"><a href="#__codelineno-0-458">458</a></span>
 <span class="normal"><a href="#__codelineno-0-459">459</a></span>
 <span class="normal"><a href="#__codelineno-0-460">460</a></span>
-<span class="normal"><a href="#__codelineno-0-461">461</a></span>
-<span class="normal"><a href="#__codelineno-0-462">462</a></span>
-<span class="normal"><a href="#__codelineno-0-463">463</a></span>
-<span class="normal"><a href="#__codelineno-0-464">464</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-457" name="__codelineno-0-457"></a><span class="k">def</span> <span class="nf">visualize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
-<a id="__codelineno-0-458" name="__codelineno-0-458"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="sd">    Visualize the results of a query. TODO.</span>
-<a id="__codelineno-0-460" name="__codelineno-0-460"></a>
-<a id="__codelineno-0-461" name="__codelineno-0-461"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-462" name="__codelineno-0-462"></a><span class="sd">        result (pyarrow.Table): Table containing the results of a query.</span>
-<a id="__codelineno-0-463" name="__codelineno-0-463"></a><span class="sd">    """</span>
-<a id="__codelineno-0-464" name="__codelineno-0-464"></a>    <span class="k">pass</span>
+<span class="normal"><a href="#__codelineno-0-461">461</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-454" name="__codelineno-0-454"></a><span class="k">def</span> <span class="nf">visualize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+<a id="__codelineno-0-455" name="__codelineno-0-455"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-456" name="__codelineno-0-456"></a><span class="sd">    Visualize the results of a query. TODO.</span>
+<a id="__codelineno-0-457" name="__codelineno-0-457"></a>
+<a id="__codelineno-0-458" name="__codelineno-0-458"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="sd">        result (pyarrow.Table): Table containing the results of a query.</span>
+<a id="__codelineno-0-460" name="__codelineno-0-460"></a><span class="sd">    """</span>
+<a id="__codelineno-0-461" name="__codelineno-0-461"></a>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
