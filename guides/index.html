@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Comprehensive Tutorials to Ultralytics YOLO" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, Deep Learning, Object detection, PyTorch, Tutorial, Multi-GPU training, Custom data training, SAHI, Tiled Inference" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides" property="og:url"/><meta content="Comprehensive Tutorials to Ultralytics YOLO" property="og:title"/><meta content="In-depth exploration of Ultralytics' YOLO. Learn about the YOLO object detection model, how to train it on custom data, multi-GPU training, exporting, predicting, deploying, and more." property="og:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/44c8b148-7a9d-43e4-b7bf-272a7ac4e636" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides" property="twitter:url"/><meta content="Comprehensive Tutorials to Ultralytics YOLO" property="twitter:title"/><meta content="In-depth exploration of Ultralytics' YOLO. Learn about the YOLO object detection model, how to train it on custom data, multi-GPU training, exporting, predicting, deploying, and more." property="twitter:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/44c8b148-7a9d-43e4-b7bf-272a7ac4e636" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Comprehensive Tutorials to Ultralytics YOLO", "image": ["https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/44c8b148-7a9d-43e4-b7bf-272a7ac4e636"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-05-23 19:54:53 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Comprehensive Tutorials to Ultralytics YOLO" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, Deep Learning, Object detection, PyTorch, Tutorial, Multi-GPU training, Custom data training, SAHI, Tiled Inference" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides" property="og:url"/><meta content="Comprehensive Tutorials to Ultralytics YOLO" property="og:title"/><meta content="In-depth exploration of Ultralytics' YOLO. Learn about the YOLO object detection model, how to train it on custom data, multi-GPU training, exporting, predicting, deploying, and more." property="og:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/44c8b148-7a9d-43e4-b7bf-272a7ac4e636" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides" property="twitter:url"/><meta content="Comprehensive Tutorials to Ultralytics YOLO" property="twitter:title"/><meta content="In-depth exploration of Ultralytics' YOLO. Learn about the YOLO object detection model, how to train it on custom data, multi-GPU training, exporting, predicting, deploying, and more." property="twitter:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/44c8b148-7a9d-43e4-b7bf-272a7ac4e636" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Comprehensive Tutorials to Ultralytics YOLO", "image": ["https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/44c8b148-7a9d-43e4-b7bf-272a7ac4e636"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-05-29 15:10:14 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -472,16 +472,30 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="steps-of-a-cv-project/">
+<span class="md-ellipsis">
+    Steps of a Computer Vision Project
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="defining-project-goals/">
+<span class="md-ellipsis">
+    Defining A Computer Vision Project's Goals
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8_19" type="checkbox"/>
-<label class="md-nav__link" for="__nav_8_19" id="__nav_8_19_label" tabindex="">
+<input class="md-nav__toggle md-toggle" id="__nav_8_21" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_21" id="__nav_8_21_label" tabindex="">
 <span class="md-ellipsis">
     Real-World Projects
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_8_19_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_8_19">
+<nav aria-expanded="false" aria-labelledby="__nav_8_21_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_21">
 <span class="md-nav__icon md-icon"></span>
             Real-World Projects
           </label>
@@ -588,19 +602,19 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8_20" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_8_22" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
 </a>
-<label class="md-nav__link" for="__nav_8_20" id="__nav_8_20_label" tabindex="">
+<label class="md-nav__link" for="__nav_8_22" id="__nav_8_22_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_20_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_8_20">
+<nav aria-expanded="false" aria-labelledby="__nav_8_22_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_22">
 <span class="md-nav__icon md-icon"></span>
             YOLOv5
           </label>
@@ -741,6 +755,8 @@
 <li><a href="coral-edge-tpu-on-raspberry-pi/">Edge TPU on Raspberry Pi</a>: <a href="https://coral.ai/products/accelerator">Google Edge TPU</a> accelerates YOLO inference on <a href="https://www.raspberrypi.com/">Raspberry Pi</a>.</li>
 <li><a href="view-results-in-terminal/">View Inference Images in a Terminal</a>: Use VSCode's integrated terminal to view inference results when using Remote Tunnel or SSH sessions.</li>
 <li><a href="optimizing-openvino-latency-vs-throughput-modes/">OpenVINO Latency vs Throughput Modes</a> - Learn latency and throughput optimization techniques for peak YOLO inference performance.</li>
+<li><a href="steps-of-a-cv-project/">Steps of a Computer Vision Project </a> 🚀 NEW: Learn about the key steps involved in a computer vision project, including defining goals, selecting models, preparing data, and evaluating results.</li>
+<li><a href="defining-project-goals/">Defining A Computer Vision Project's Goals</a> 🚀 NEW: Walk through how to effectively define clear and measurable goals for your computer vision project. Learn the importance of a well-defined problem statement and how it creates a roadmap for your project.</li>
 </ul>
 <h2 id="real-world-projects">Real-World Projects</h2>
 <p><img alt="Ultralytics Solutions Thumbnail" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/44c8b148-7a9d-43e4-b7bf-272a7ac4e636"/></p>
@@ -772,7 +788,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-05-23<br/>Authors: <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (7), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (3), <a href="https://github.com/lakshanthad">lakshanthad</a> (1), <a href="https://github.com/ouphi">ouphi</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-05-29<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (7), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (3), <a href="https://github.com/lakshanthad">lakshanthad</a> (1), <a href="https://github.com/ouphi">ouphi</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

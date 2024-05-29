@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Parking Management System Using Ultralytics YOLOv8" name="description"/>
+<meta content="A detailed guide on defining the problem and setting objectives in a computer vision project, highlighting the importance of clear problem statements and measurable objectives." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/guides/parking-management/" rel="canonical"/>
-<link href="../queue-management/" rel="prev"/>
-<link href="../../yolov5/" rel="next"/>
+<link href="https://docs.ultralytics.com/guides/defining-project-goals/" rel="canonical"/>
+<link href="../steps-of-a-cv-project/" rel="prev"/>
+<link href="../analytics/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.25" name="generator"/>
-<title>Parking Management - Ultralytics YOLO Docs</title>
+<title>Defining A Computer Vision Project's Goals - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Parking Management" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Object Counting, Parking lots, Object Tracking, Notebook, IPython Kernel, CLI, Python SDK" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/parking-management" property="og:url"/><meta content="Parking Management" property="og:title"/><meta content="Parking Management System Using Ultralytics YOLOv8" property="og:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/e3d4bc3e-cf4a-4da9-b42e-0da55cc74ad6" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/parking-management" property="twitter:url"/><meta content="Parking Management" property="twitter:title"/><meta content="Parking Management System Using Ultralytics YOLOv8" property="twitter:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/e3d4bc3e-cf4a-4da9-b42e-0da55cc74ad6" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Parking Management", "image": ["https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/e3d4bc3e-cf4a-4da9-b42e-0da55cc74ad6"], "datePublished": "2024-04-29 13:58:12 +0500", "dateModified": "2024-05-25 21:25:51 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Defining A Computer Vision Project's Goals" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Computer Vision Project, Defining Problems, Setting Objectives, SMART Objectives, Project Scope, How Does Computer Vision Work, Computer Vision Techniques, Computer Vision Basics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/defining-project-goals" property="og:url"/><meta content="Defining A Computer Vision Project's Goals" property="og:title"/><meta content="A detailed guide on defining the problem and setting objectives in a computer vision project, highlighting the importance of clear problem statements and measurable objectives." property="og:description"/><meta content="https://assets-global.website-files.com/6479eab6eb2ed5e597810e9e/664efc6e1c4bef6407824558_Abi%20Speed%20fig1.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/defining-project-goals" property="twitter:url"/><meta content="Defining A Computer Vision Project's Goals" property="twitter:title"/><meta content="A detailed guide on defining the problem and setting objectives in a computer vision project, highlighting the importance of clear problem statements and measurable objectives." property="twitter:description"/><meta content="https://assets-global.website-files.com/6479eab6eb2ed5e597810e9e/664efc6e1c4bef6407824558_Abi%20Speed%20fig1.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Defining A Computer Vision Project's Goals", "image": ["https://assets-global.website-files.com/6479eab6eb2ed5e597810e9e/664efc6e1c4bef6407824558_Abi%20Speed%20fig1.png"], "datePublished": "2024-05-29 15:10:14 +0530", "dateModified": "2024-05-29 15:10:14 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#parking-management-using-ultralytics-yolov8">
+<a class="md-skip" href="#a-practical-guide-for-defining-your-computer-vision-project">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Parking Management
+              Defining A Computer Vision Project's Goals
             
           </span>
 </div>
@@ -479,22 +479,154 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../defining-project-goals/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Defining A Computer Vision Project's Goals
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Defining A Computer Vision Project's Goals
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_8_21" type="checkbox"/>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#defining-a-clear-problem-statement">
+<span class="md-ellipsis">
+      Defining A Clear Problem Statement
+    </span>
+</a>
+<nav aria-label="Defining A Clear Problem Statement" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-of-a-business-problem-statement">
+<span class="md-ellipsis">
+      Example of a Business Problem Statement
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-measurable-objectives">
+<span class="md-ellipsis">
+      Setting Measurable Objectives
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-connection-between-the-problem-statement-and-the-computer-vision-tasks">
+<span class="md-ellipsis">
+      The Connection Between The Problem Statement and The Computer Vision Tasks
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#which-comes-first-model-selection-dataset-preparation-or-model-training-approach">
+<span class="md-ellipsis">
+      Which Comes First: Model Selection, Dataset Preparation, or Model Training Approach?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-discussion-points-in-the-community">
+<span class="md-ellipsis">
+      Common Discussion Points in the Community
+    </span>
+</a>
+<nav aria-label="Common Discussion Points in the Community" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-different-computer-vision-tasks">
+<span class="md-ellipsis">
+      What Are the Different Computer Vision Tasks?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#can-a-pre-trained-model-remember-classes-it-knew-before-custom-training">
+<span class="md-ellipsis">
+      Can a Pre-trained Model Remember Classes It Knew Before Custom Training?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-deployment-options-affect-my-computer-vision-project">
+<span class="md-ellipsis">
+      How Do Deployment Options Affect My Computer Vision Project?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faqs">
+<span class="md-ellipsis">
+      FAQs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connecting-with-the-community">
+<span class="md-ellipsis">
+      Connecting with the Community
+    </span>
+</a>
+<nav aria-label="Connecting with the Community" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#community-support-channels">
+<span class="md-ellipsis">
+      Community Support Channels
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprehensive-guides-and-documentation">
+<span class="md-ellipsis">
+      Comprehensive Guides and Documentation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_21" type="checkbox"/>
 <label class="md-nav__link" for="__nav_8_21" id="__nav_8_21_label" tabindex="">
 <span class="md-ellipsis">
     Real-World Projects
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_8_21_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_8_21_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_21">
 <span class="md-nav__icon md-icon"></span>
             Real-World Projects
@@ -591,87 +723,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Parking Management
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../parking-management/">
 <span class="md-ellipsis">
     Parking Management
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-parking-management-system">
-<span class="md-ellipsis">
-      What is Parking Management System?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#advantages-of-parking-management-system">
-<span class="md-ellipsis">
-      Advantages of Parking Management System?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#real-world-applications">
-<span class="md-ellipsis">
-      Real World Applications
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#parking-management-system-code-workflow">
-<span class="md-ellipsis">
-      Parking Management System Code Workflow
-    </span>
-</a>
-<nav aria-label="Parking Management System Code Workflow" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#selection-of-points">
-<span class="md-ellipsis">
-      Selection of Points
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#python-code-for-parking-management">
-<span class="md-ellipsis">
-      Python Code for Parking Management
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#optional-arguments-parkingmanagement">
-<span class="md-ellipsis">
-      Optional Arguments ParkingManagement
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#arguments-modeltrack">
-<span class="md-ellipsis">
-      Arguments model.track
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -770,64 +827,121 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-parking-management-system">
+<a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      What is Parking Management System?
+      Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#advantages-of-parking-management-system">
+<a class="md-nav__link" href="#defining-a-clear-problem-statement">
 <span class="md-ellipsis">
-      Advantages of Parking Management System?
+      Defining A Clear Problem Statement
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#real-world-applications">
-<span class="md-ellipsis">
-      Real World Applications
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#parking-management-system-code-workflow">
-<span class="md-ellipsis">
-      Parking Management System Code Workflow
-    </span>
-</a>
-<nav aria-label="Parking Management System Code Workflow" class="md-nav">
+<nav aria-label="Defining A Clear Problem Statement" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#selection-of-points">
+<a class="md-nav__link" href="#example-of-a-business-problem-statement">
 <span class="md-ellipsis">
-      Selection of Points
+      Example of a Business Problem Statement
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#python-code-for-parking-management">
+<a class="md-nav__link" href="#setting-measurable-objectives">
 <span class="md-ellipsis">
-      Python Code for Parking Management
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#optional-arguments-parkingmanagement">
-<span class="md-ellipsis">
-      Optional Arguments ParkingManagement
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#arguments-modeltrack">
-<span class="md-ellipsis">
-      Arguments model.track
+      Setting Measurable Objectives
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-connection-between-the-problem-statement-and-the-computer-vision-tasks">
+<span class="md-ellipsis">
+      The Connection Between The Problem Statement and The Computer Vision Tasks
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#which-comes-first-model-selection-dataset-preparation-or-model-training-approach">
+<span class="md-ellipsis">
+      Which Comes First: Model Selection, Dataset Preparation, or Model Training Approach?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-discussion-points-in-the-community">
+<span class="md-ellipsis">
+      Common Discussion Points in the Community
+    </span>
+</a>
+<nav aria-label="Common Discussion Points in the Community" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-different-computer-vision-tasks">
+<span class="md-ellipsis">
+      What Are the Different Computer Vision Tasks?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#can-a-pre-trained-model-remember-classes-it-knew-before-custom-training">
+<span class="md-ellipsis">
+      Can a Pre-trained Model Remember Classes It Knew Before Custom Training?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-deployment-options-affect-my-computer-vision-project">
+<span class="md-ellipsis">
+      How Do Deployment Options Affect My Computer Vision Project?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faqs">
+<span class="md-ellipsis">
+      FAQs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connecting-with-the-community">
+<span class="md-ellipsis">
+      Connecting with the Community
+    </span>
+</a>
+<nav aria-label="Connecting with the Community" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#community-support-channels">
+<span class="md-ellipsis">
+      Community Support Channels
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprehensive-guides-and-documentation">
+<span class="md-ellipsis">
+      Comprehensive Guides and Documentation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -836,219 +950,127 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/parking-management.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/defining-project-goals.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="parking-management-using-ultralytics-yolov8">Parking Management using Ultralytics YOLOv8 🚀</h1>
-<h2 id="what-is-parking-management-system">What is Parking Management System?</h2>
-<p>Parking management with <a href="https://github.com/ultralytics/ultralytics/">Ultralytics YOLOv8</a> ensures efficient and safe parking by organizing spaces and monitoring availability. YOLOv8 can improve parking lot management through real-time vehicle detection, and insights into parking occupancy.</p>
-<h2 id="advantages-of-parking-management-system">Advantages of Parking Management System?</h2>
+<h1 id="a-practical-guide-for-defining-your-computer-vision-project">A Practical Guide for Defining Your Computer Vision Project</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The first step in any computer vision project is defining what you want to achieve. It's crucial to have a clear roadmap from the start, which includes everything from data collection to deploying your model.</p>
+<p>If you need a quick refresher on the basics of a computer vision project, take a moment to read our guide on <a href="../steps-of-a-cv-project/">the key steps in a computer vision project</a>. It’ll give you a solid overview of the whole process. Once you’re caught up, come back here so we can dive into how exactly you can define and refine the goals for your project.</p>
+<p>Now, let’s get to the heart of defining a clear problem statement for your project and exploring the key decisions you’ll need to make along the way.</p>
+<h2 id="defining-a-clear-problem-statement">Defining A Clear Problem Statement</h2>
+<p>Setting clear goals and objectives for your project is the first big step toward finding the most effective solutions. Let’s understand how you can clearly define your project’s problem statement:</p>
 <ul>
-<li><strong>Efficiency</strong>: Parking lot management optimizes the use of parking spaces and reduces congestion.</li>
-<li><strong>Safety and Security</strong>: Parking management using YOLOv8 improves the safety of both people and vehicles through surveillance and security measures.</li>
-<li><strong>Reduced Emissions</strong>: Parking management using YOLOv8 manages traffic flow to minimize idle time and emissions in parking lots.</li>
+<li><strong>Identify the Core Issue:</strong> Pinpoint the specific challenge your computer vision project aims to solve.</li>
+<li><strong>Determine the Scope:</strong> Define the boundaries of your problem.</li>
+<li><strong>Consider End Users and Stakeholders:</strong> Identify who will be affected by the solution.</li>
+<li><strong>Analyze Project Requirements and Constraints:</strong> Assess available resources (time, budget, personnel) and identify any technical or regulatory constraints.</li>
 </ul>
-<h2 id="real-world-applications">Real World Applications</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Parking Management System</th>
-<th style="text-align: center;">Parking Management System</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;"><img alt="Parking lots Analytics Using Ultralytics YOLOv8" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/e3d4bc3e-cf4a-4da9-b42e-0da55cc74ad6"/></td>
-<td style="text-align: center;"><img alt="Parking management top view using Ultralytics YOLOv8" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/fe186719-1aca-43c9-b388-1ded91280eb5"/></td>
-</tr>
-<tr>
-<td style="text-align: center;">Parking management Aeriel View using Ultralytics YOLOv8</td>
-<td style="text-align: center;">Parking management Top View using Ultralytics YOLOv8</td>
-</tr>
-</tbody>
-</table>
-<h2 id="parking-management-system-code-workflow">Parking Management System Code Workflow</h2>
-<h3 id="selection-of-points">Selection of Points</h3>
-<div class="admonition tip">
-<p class="admonition-title">Point Selection is now Easy</p>
-<p>Choosing parking points is a critical and complex task in parking management systems. Ultralytics streamlines this process by providing a tool that lets you define parking lot areas, which can be utilized later for additional processing.</p>
-</div>
+<h3 id="example-of-a-business-problem-statement">Example of a Business Problem Statement</h3>
+<p>Let’s walk through an example.</p>
+<p>Consider a computer vision project where you want to <a href="../speed-estimation/">estimate the speed of vehicles</a> on a highway. The core issue is that current speed monitoring methods are inefficient and error-prone due to outdated radar systems and manual processes. The project aims to develop a real-time computer vision system that can replace legacy <a href="https://www.ultralytics.com/blog/ultralytics-yolov8-for-speed-estimation-in-computer-vision-projects">speed estimation</a> systems.</p>
+<p align="center">
+<img alt="Speed Estimation Using YOLOv8" src="https://assets-global.website-files.com/6479eab6eb2ed5e597810e9e/664efc6e1c4bef6407824558_Abi%20Speed%20fig1.png" width="100%"/>
+</p>
+<p>Primary users include traffic management authorities and law enforcement, while secondary stakeholders are highway planners and the public benefiting from safer roads. Key requirements involve evaluating budget, time, and personnel, as well as addressing technical needs like high-resolution cameras and real-time data processing. Additionally, regulatory constraints on privacy and data security must be considered.</p>
+<h3 id="setting-measurable-objectives">Setting Measurable Objectives</h3>
+<p>Setting measurable objectives is key to the success of a computer vision project. These goals should be clear, achievable, and time-bound. </p>
+<p>For example, if you are developing a system to estimate vehicle speeds on a highway. You could consider the following measurable objectives:</p>
 <ul>
-<li>Capture a frame from the video or camera stream where you want to manage the parking lot.</li>
-<li>Use the provided code to launch a graphical interface, where you can select an image and start outlining parking regions by mouse click to create polygons.</li>
+<li>To achieve at least 95% accuracy in speed detection within six months, using a dataset of 10,000 vehicle images.</li>
+<li>The system should be able to process real-time video feeds at 30 frames per second with minimal delay. </li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Image Size</p>
-<p>Max Image Size of 1920 * 1080 supported</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Parking slots Annotator Ultralytics YOLOv8</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Parking Annotator</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">solutions</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">solutions</span><span class="o">.</span><span class="n">ParkingPtsSelection</span><span class="p">()</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
+<p>By setting specific and quantifiable goals, you can effectively track progress, identify areas for improvement, and ensure the project stays on course.</p>
+<h2 id="the-connection-between-the-problem-statement-and-the-computer-vision-tasks">The Connection Between The Problem Statement and The Computer Vision Tasks</h2>
+<p>Your problem statement helps you conceptualize which computer vision task can solve your issue.</p>
+<p>For example, if your problem is monitoring vehicle speeds on a highway, the relevant computer vision task is object tracking. <a href="../../modes/track/">Object tracking</a> is suitable because it allows the system to continuously follow each vehicle in the video feed, which is crucial for accurately calculating their speeds. </p>
+<p align="center">
+<img alt="Example of Object Tracking" src="https://assets-global.website-files.com/6479eab6eb2ed5e597810e9e/664f03ba300cf6e61689862f_FIG%20444.gif" width="100%"/>
+</p>
+<p>Other tasks, like <a href="../../tasks/detect/">object detection</a>, are not suitable as they don't provide continuous location or movement information. Once you’ve identified the appropriate computer vision task, it guides several critical aspects of your project, like model selection, dataset preparation, and model training approaches.</p>
+<h2 id="which-comes-first-model-selection-dataset-preparation-or-model-training-approach">Which Comes First: Model Selection, Dataset Preparation, or Model Training Approach?</h2>
+<p>The order of model selection, dataset preparation, and training approach depends on the specifics of your project. Here are a few tips to help you decide:</p>
 <ul>
-<li>After defining the parking areas with polygons, click <code>save</code> to store a JSON file with the data in your working directory.</li>
+<li>
+<p><strong>Clear Understanding of the Problem</strong>: If your problem and objectives are well-defined, start with model selection. Then, prepare your dataset and decide on the training approach based on the model's requirements.</p>
+<ul>
+<li><strong>Example</strong>: Start by selecting a model for a traffic monitoring system that estimates vehicle speeds. Choose an object tracking model, gather and annotate highway videos, and then train the model with techniques for real-time video processing.</li>
 </ul>
-<p><img alt="Ultralytics YOLOv8 Points Selection Demo" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/72737b8a-0f0f-4efb-98ad-b917a0039535"/></p>
-<h3 id="python-code-for-parking-management">Python Code for Parking Management</h3>
-<div class="admonition example">
-<p class="admonition-title">Parking management using YOLOv8 Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Parking Management</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">solutions</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Path to json file, that created with above point selection app</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">polygon_json_path</span> <span class="o">=</span> <span class="s2">"bounding_boxes.json"</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Video capture</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"Path/to/video/file.mp4"</span><span class="p">)</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># Video writer</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"parking management.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="c1"># Initialize parking management object</span>
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="n">management</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">ParkingManagement</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>
-<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>    <span class="n">ret</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">ret</span><span class="p">:</span>
-<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>        <span class="k">break</span>
-<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>
-<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>    <span class="n">json_data</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">parking_regions_extraction</span><span class="p">(</span><span class="n">polygon_json_path</span><span class="p">)</span>
-<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>
-<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>    <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>        <span class="n">clss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>        <span class="n">management</span><span class="o">.</span><span class="n">process_data</span><span class="p">(</span><span class="n">json_data</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">clss</span><span class="p">)</span>
-<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>
-<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>    <span class="n">management</span><span class="o">.</span><span class="n">display_frames</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>
-<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<h3 id="optional-arguments-parkingmanagement">Optional Arguments <code>ParkingManagement</code></h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>model_path</code></td>
-<td><code>str</code></td>
-<td><code>None</code></td>
-<td>Path to the YOLOv8 model.</td>
-</tr>
-<tr>
-<td><code>txt_color</code></td>
-<td><code>tuple</code></td>
-<td><code>(0, 0, 0)</code></td>
-<td>RGB color tuple for text.</td>
-</tr>
-<tr>
-<td><code>bg_color</code></td>
-<td><code>tuple</code></td>
-<td><code>(255, 255, 255)</code></td>
-<td>RGB color tuple for background.</td>
-</tr>
-<tr>
-<td><code>occupied_region_color</code></td>
-<td><code>tuple</code></td>
-<td><code>(0, 255, 0)</code></td>
-<td>RGB color tuple for occupied regions.</td>
-</tr>
-<tr>
-<td><code>available_region_color</code></td>
-<td><code>tuple</code></td>
-<td><code>(0, 0, 255)</code></td>
-<td>RGB color tuple for available regions.</td>
-</tr>
-<tr>
-<td><code>margin</code></td>
-<td><code>int</code></td>
-<td><code>10</code></td>
-<td>Margin for text display.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="arguments-modeltrack">Arguments <code>model.track</code></h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>source</code></td>
-<td><code>im0</code></td>
-<td><code>None</code></td>
-<td>source directory for images or videos</td>
-</tr>
-<tr>
-<td><code>persist</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>persisting tracks between frames</td>
-</tr>
-<tr>
-<td><code>tracker</code></td>
-<td><code>str</code></td>
-<td><code>botsort.yaml</code></td>
-<td>Tracking method 'bytetrack' or 'botsort'</td>
-</tr>
-<tr>
-<td><code>conf</code></td>
-<td><code>float</code></td>
-<td><code>0.3</code></td>
-<td>Confidence Threshold</td>
-</tr>
-<tr>
-<td><code>iou</code></td>
-<td><code>float</code></td>
-<td><code>0.5</code></td>
-<td>IOU Threshold</td>
-</tr>
-<tr>
-<td><code>classes</code></td>
-<td><code>list</code></td>
-<td><code>None</code></td>
-<td>filter results by class, i.e. classes=0, or classes=[0,2,3]</td>
-</tr>
-<tr>
-<td><code>verbose</code></td>
-<td><code>bool</code></td>
-<td><code>True</code></td>
-<td>Display the object tracking results</td>
-</tr>
-</tbody>
-</table>
+</li>
+<li>
+<p><strong>Unique or Limited Data</strong>: If your project is constrained by unique or limited data, begin with dataset preparation. For instance, if you have a rare dataset of medical images, annotate and prepare the data first. Then, select a model that performs well on such data, followed by choosing a suitable training approach.</p>
+<ul>
+<li><strong>Example</strong>: Prepare the data first for a facial recognition system with a small dataset. Annotate it, then select a model that works well with limited data, such as a pre-trained model for transfer learning. Finally, decide on a training approach, including data augmentation, to expand the dataset.</li>
+</ul>
+</li>
+<li>
+<p><strong>Need for Experimentation</strong>: In projects where experimentation is crucial, start with the training approach. This is common in research projects where you might initially test different training techniques. Refine your model selection after identifying a promising method and prepare the dataset based on your findings.</p>
+<ul>
+<li><strong>Example</strong>: In a project exploring new methods for detecting manufacturing defects, start with experimenting on a small data subset. Once you find a promising technique, select a model tailored to those findings and prepare a comprehensive dataset.</li>
+</ul>
+</li>
+</ul>
+<h2 id="common-discussion-points-in-the-community">Common Discussion Points in the Community</h2>
+<p>Next, let's look at a few common discussion points in the community regarding computer vision tasks and project planning.</p>
+<h3 id="what-are-the-different-computer-vision-tasks">What Are the Different Computer Vision Tasks?</h3>
+<p>The most popular computer vision tasks include image classification, object detection, and image segmentation.</p>
+<p align="center">
+<img alt="Overview of Computer Vision Tasks" src="https://assets-global.website-files.com/614c82ed388d53640613982e/64aeb16e742bde3dc050e048_image%20classification%20vs%20object%20detection%20vs%20image%20segmentation.webp" width="100%"/>
+</p>
+<p>For a detailed explanation of various tasks, please take a look at the Ultralytics Docs page on <a href="../../tasks/">YOLOv8 Tasks</a>.</p>
+<h3 id="can-a-pre-trained-model-remember-classes-it-knew-before-custom-training">Can a Pre-trained Model Remember Classes It Knew Before Custom Training?</h3>
+<p>No, pre-trained models don't "remember" classes in the traditional sense. They learn patterns from massive datasets, and during custom training (fine-tuning), these patterns are adjusted for your specific task. The model's capacity is limited, and focusing on new information can overwrite some previous learnings.</p>
+<p align="center">
+<img alt="Overview of Transfer Learning" src="https://media.licdn.com/dms/image/D4D12AQHIJdbNXjBXEQ/article-cover_image-shrink_720_1280/0/1692158503859?e=2147483647&amp;v=beta&amp;t=pib5jFzINB9RzKIATGHMsE0jK1_4_m5LRqx7GkYiFqA" width="100%"/>
+</p>
+<p>If you want to use the classes the model was pre-trained on, a practical approach is to use two models: one retains the original performance, and the other is fine-tuned for your specific task. This way, you can combine the outputs of both models. There are also other options like freezing layers, using the pre-trained model as a feature extractor, and task-specific branching, but these are more complex solutions and require more expertise.</p>
+<h3 id="how-do-deployment-options-affect-my-computer-vision-project">How Do Deployment Options Affect My Computer Vision Project?</h3>
+<p><a href="../model-deployment-options/">Model deployment options</a> critically impact the performance of your computer vision project. For instance, the deployment environment must handle the computational load of your model. Here are some practical examples:</p>
+<ul>
+<li><strong>Edge Devices</strong>: Deploying on edge devices like smartphones or IoT devices requires lightweight models due to their limited computational resources. Example technologies include <a href="../../integrations/tflite/">TensorFlow Lite</a> and <a href="../../integrations/onnx/">ONNX Runtime</a>, which are optimized for such environments.</li>
+<li><strong>Cloud Servers</strong>: Cloud deployments can handle more complex models with larger computational demands. Cloud platforms like <a href="../../integrations/amazon-sagemaker/">AWS</a>, Google Cloud, and Azure offer robust hardware options that can scale based on the project’s needs.</li>
+<li><strong>On-Premise Servers</strong>: For scenarios requiring high data privacy and security, deploying on-premise might be necessary. This involves significant upfront hardware investment but allows full control over the data and infrastructure.</li>
+<li><strong>Hybrid Solutions</strong>: Some projects might benefit from a hybrid approach, where some processing is done on the edge, while more complex analyses are offloaded to the cloud. This can balance performance needs with cost and latency considerations.</li>
+</ul>
+<p>Each deployment option offers different benefits and challenges, and the choice depends on specific project requirements like performance, cost, and security.</p>
+<h2 id="faqs">FAQs</h2>
+<p>Here are some questions that might encounter while defining your computer vision project:</p>
+<ul>
+<li><strong>Q1:</strong> How do I set effective and measurable objectives for my computer vision project?<ul>
+<li><strong>A1:</strong> To set effective and measurable objectives, follow the SMART criteria: Specific, Measurable, Achievable, Relevant, and Time-bound. Define what success looks like, how it will be measured, ensure the goals are attainable with available resources, align them with broader project aims, and set a deadline.</li>
+</ul>
+</li>
+</ul>
+<p align="center">
+<img alt="Overview of SMART criteria" src="https://ugc.futurelearn.com/uploads/assets/58/fa/58fa21ca-e284-4086-a1ce-58689ea49982.png" width="100%"/>
+</p>
+<ul>
+<li>
+<p><strong>Q2:</strong> Can the scope of a computer vision project change after the problem statement is defined?</p>
+<ul>
+<li><strong>A2:</strong> Yes, the scope of a computer vision project can change as new information becomes available or as project requirements evolve. It's important to regularly review and adjust the problem statement and objectives to reflect any new insights or changes in project direction.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q3:</strong> What are some common challenges in defining the problem for a computer vision project?</p>
+<ul>
+<li><strong>A3:</strong> Common challenges include vague or overly broad problem statements, unrealistic objectives, lack of stakeholder alignment, insufficient understanding of technical constraints, and underestimating data requirements. Addressing these challenges requires thorough initial research, clear communication with stakeholders, and iterative refinement of the problem statement and objectives.</li>
+</ul>
+</li>
+</ul>
+<h2 id="connecting-with-the-community">Connecting with the Community</h2>
+<p>Connecting with other computer vision enthusiasts can be incredibly helpful for your projects by providing support, solutions, and new ideas. Here are some great ways to learn, troubleshoot, and network:</p>
+<h3 id="community-support-channels">Community Support Channels</h3>
+<ul>
+<li><strong>GitHub Issues:</strong> Head over to the YOLOv8 GitHub repository. You can use the <a href="https://github.com/ultralytics/ultralytics/issues">Issues tab</a> to raise questions, report bugs, and suggest features. The community and maintainers can assist with specific problems you encounter.</li>
+<li><strong>Ultralytics Discord Server:</strong> Become part of the  <a href="https://ultralytics.com/discord/">Ultralytics Discord server</a>. Connect with fellow users and developers, seek support, exchange knowledge, and discuss ideas.</li>
+</ul>
+<h3 id="comprehensive-guides-and-documentation">Comprehensive Guides and Documentation</h3>
+<ul>
+<li><strong>Ultralytics YOLOv8 Documentation:</strong> Explore the <a href="../">official YOLOv8 documentation</a> for in-depth guides and valuable tips on various computer vision tasks and projects. </li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Defining a clear problem and setting measurable goals is key to a successful computer vision project. We’ve highlighted the importance of being clear and focused from the start. Having specific goals helps avoid oversight. Also, staying connected with others in the community through platforms like GitHub or Discord is important for learning and staying current. In short, good planning and engaging with the community is a huge part of successful computer vision projects.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1057,7 +1079,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-04-29, Updated 2024-05-25<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-05-29, Updated 2024-05-29<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1068,10 +1090,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/parking-management', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/defining-project-goals', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/parking-management', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/defining-project-goals', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -1120,7 +1142,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Queue Management" class="md-footer__link md-footer__link--prev" href="../queue-management/">
+<a aria-label="Previous: Steps of a Computer Vision Project" class="md-footer__link md-footer__link--prev" href="../steps-of-a-cv-project/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1129,17 +1151,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                Queue Management
+                Steps of a Computer Vision Project
               </div>
 </div>
 </a>
-<a aria-label="Next: Comprehensive Guide to Ultralytics YOLOv5" class="md-footer__link md-footer__link--next" href="../../yolov5/">
+<a aria-label="Next: New 🚀 Analytics" class="md-footer__link md-footer__link--next" href="../analytics/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Comprehensive Guide to Ultralytics YOLOv5
+                New 🚀 Analytics
               </div>
 </div>
 <div class="md-footer__button md-icon">
