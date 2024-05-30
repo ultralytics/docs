@@ -5,31 +5,31 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Parking Management System Using Ultralytics YOLOv8" name="description"/>
+<meta content="Discover real-world applications and solutions using Ultralytics' YOLO models. Learn how to implement object counting, cropping, blurring, workout monitoring, security systems, and more with YOLOv8." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/guides/parking-management/" rel="canonical"/>
-<link href="../queue-management/" rel="prev"/>
-<link href="../" rel="next"/>
-<link href="../../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.ultralytics.com/solutions/" rel="canonical"/>
+<link href="../datasets/track/" rel="prev"/>
+<link href="../guides/analytics/" rel="next"/>
+<link href="../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.25" name="generator"/>
-<title>Parking Management - Ultralytics YOLO Docs</title>
-<link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<title>Ultralytics Solutions: Harness YOLOv8 to Solve Real-World Problems - Ultralytics YOLO Docs</title>
+<link href="../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../../stylesheets/style.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../stylesheets/style.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Parking Management" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, Object Detection, Object Counting, Parking lots, Object Tracking, Notebook, IPython Kernel, CLI, Python SDK" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/parking-management" property="og:url"/><meta content="Parking Management" property="og:title"/><meta content="Parking Management System Using Ultralytics YOLOv8" property="og:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/e3d4bc3e-cf4a-4da9-b42e-0da55cc74ad6" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/parking-management" property="twitter:url"/><meta content="Parking Management" property="twitter:title"/><meta content="Parking Management System Using Ultralytics YOLOv8" property="twitter:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/e3d4bc3e-cf4a-4da9-b42e-0da55cc74ad6" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Parking Management", "image": ["https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/e3d4bc3e-cf4a-4da9-b42e-0da55cc74ad6"], "datePublished": "2024-04-29 13:58:12 +0500", "dateModified": "2024-05-25 21:25:51 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Ultralytics Solutions: Harness YOLOv8 to Solve Real-World Problems" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, Object Detection, Real-World Projects, Object Counting, Object Cropping, Object Blurring, Workout Monitoring, Security Systems, Heatmaps, Instance Segmentation, Object Tracking, VisionEye, Speed Estimation, Distance Calculation, Queue Management, Parking Management, Analytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/solutions" property="og:url"/><meta content="Ultralytics Solutions: Harness YOLOv8 to Solve Real-World Problems" property="og:title"/><meta content="Discover real-world applications and solutions using Ultralytics' YOLO models. Learn how to implement object counting, cropping, blurring, workout monitoring, security systems, and more with YOLOv8." property="og:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/44c8b148-7a9d-43e4-b7bf-272a7ac4e636" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/solutions" property="twitter:url"/><meta content="Ultralytics Solutions: Harness YOLOv8 to Solve Real-World Problems" property="twitter:title"/><meta content="Discover real-world applications and solutions using Ultralytics' YOLO models. Learn how to implement object counting, cropping, blurring, workout monitoring, security systems, and more with YOLOv8." property="twitter:description"/><meta content="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/44c8b148-7a9d-43e4-b7bf-272a7ac4e636" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Ultralytics Solutions: Harness YOLOv8 to Solve Real-World Problems", "image": ["https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/44c8b148-7a9d-43e4-b7bf-272a7ac4e636"], "datePublished": "2024-05-30 22:07:03 +0200", "dateModified": "2024-05-30 22:07:03 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#parking-management-using-ultralytics-yolov8">
+<a class="md-skip" href="#ultralytics-solutions-harness-yolov8-to-solve-real-world-problems">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLO Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
+<a aria-label="Ultralytics YOLO Docs" class="md-header__button md-logo" data-md-component="logo" href=".." title="Ultralytics YOLO Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Parking Management
+              Ultralytics Solutions: Harness YOLOv8 to Solve Real-World Problems
             
           </span>
 </div>
@@ -132,7 +132,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+<a class="md-tabs__link" href="..">
           
   
     
@@ -142,7 +142,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../quickstart/">
+<a class="md-tabs__link" href="../quickstart/">
           
   
     
@@ -152,7 +152,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../modes/">
+<a class="md-tabs__link" href="../modes/">
           
   
     
@@ -162,7 +162,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../tasks/">
+<a class="md-tabs__link" href="../tasks/">
           
   
     
@@ -172,7 +172,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../models/">
+<a class="md-tabs__link" href="../models/">
           
   
     
@@ -182,7 +182,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../datasets/">
+<a class="md-tabs__link" href="../datasets/">
           
   
     
@@ -192,7 +192,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../solutions/">
+<a class="md-tabs__link" href="./">
           
   
     
@@ -202,7 +202,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../">
+<a class="md-tabs__link" href="../guides/">
           
   
     
@@ -212,7 +212,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../integrations/">
+<a class="md-tabs__link" href="../integrations/">
           
   
     
@@ -222,7 +222,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../hub/">
+<a class="md-tabs__link" href="../hub/">
           
   
     
@@ -232,7 +232,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../reference/cfg/__init__/">
+<a class="md-tabs__link" href="../reference/cfg/__init__/">
           
   
     
@@ -242,7 +242,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../help/">
+<a class="md-tabs__link" href="../help/">
           
   
     
@@ -263,7 +263,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLO Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
+<a aria-label="Ultralytics YOLO Docs" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Ultralytics YOLO Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLO Docs
@@ -280,7 +280,7 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../..">
+<a class="md-nav__link" href="..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -288,7 +288,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../quickstart/">
+<a class="md-nav__link" href="../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -296,7 +296,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../modes/">
+<a class="md-nav__link" href="../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -304,7 +304,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../tasks/">
+<a class="md-nav__link" href="../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -312,7 +312,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../models/">
+<a class="md-nav__link" href="../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -320,7 +320,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../datasets/">
+<a class="md-nav__link" href="../datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -330,12 +330,12 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../solutions/">
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     NEW 🚀 Solutions
   </span>
 </a>
-<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+<label class="md-nav__link md-nav__link--active" for="__nav_7" id="__nav_7_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
@@ -346,183 +346,108 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../analytics/">
+<a class="md-nav__link" href="../guides/analytics/">
 <span class="md-ellipsis">
     NEW 🚀 Analytics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../object-counting/">
+<a class="md-nav__link" href="../guides/object-counting/">
 <span class="md-ellipsis">
     Object Counting
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../object-cropping/">
+<a class="md-nav__link" href="../guides/object-cropping/">
 <span class="md-ellipsis">
     Object Cropping
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../object-blurring/">
+<a class="md-nav__link" href="../guides/object-blurring/">
 <span class="md-ellipsis">
     Object Blurring
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../workouts-monitoring/">
+<a class="md-nav__link" href="../guides/workouts-monitoring/">
 <span class="md-ellipsis">
     Workouts Monitoring
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../region-counting/">
+<a class="md-nav__link" href="../guides/region-counting/">
 <span class="md-ellipsis">
     Objects Counting in Regions
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../security-alarm-system/">
+<a class="md-nav__link" href="../guides/security-alarm-system/">
 <span class="md-ellipsis">
     Security Alarm System
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../heatmaps/">
+<a class="md-nav__link" href="../guides/heatmaps/">
 <span class="md-ellipsis">
     Heatmaps
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../instance-segmentation-and-tracking/">
+<a class="md-nav__link" href="../guides/instance-segmentation-and-tracking/">
 <span class="md-ellipsis">
     Instance Segmentation with Object Tracking
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../vision-eye/">
+<a class="md-nav__link" href="../guides/vision-eye/">
 <span class="md-ellipsis">
     VisionEye Mapping
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../speed-estimation/">
+<a class="md-nav__link" href="../guides/speed-estimation/">
 <span class="md-ellipsis">
     Speed Estimation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../distance-calculation/">
+<a class="md-nav__link" href="../guides/distance-calculation/">
 <span class="md-ellipsis">
     Distance Calculation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../queue-management/">
+<a class="md-nav__link" href="../guides/queue-management/">
 <span class="md-ellipsis">
     Queue Management
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Parking Management
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../guides/parking-management/">
 <span class="md-ellipsis">
     Parking Management
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-parking-management-system">
-<span class="md-ellipsis">
-      What is Parking Management System?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#advantages-of-parking-management-system">
-<span class="md-ellipsis">
-      Advantages of Parking Management System?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#real-world-applications">
-<span class="md-ellipsis">
-      Real World Applications
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#parking-management-system-code-workflow">
-<span class="md-ellipsis">
-      Parking Management System Code Workflow
-    </span>
-</a>
-<nav aria-label="Parking Management System Code Workflow" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#selection-of-points">
-<span class="md-ellipsis">
-      Selection of Points
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#python-code-for-parking-management">
-<span class="md-ellipsis">
-      Python Code for Parking Management
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#optional-arguments-parkingmanagement">
-<span class="md-ellipsis">
-      Optional Arguments ParkingManagement
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#arguments-modeltrack">
-<span class="md-ellipsis">
-      Arguments model.track
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../guides/">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -530,7 +455,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../integrations/">
+<a class="md-nav__link" href="../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -538,7 +463,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../hub/">
+<a class="md-nav__link" href="../hub/">
 <span class="md-ellipsis">
     HUB
   </span>
@@ -546,7 +471,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/cfg/__init__/">
+<a class="md-nav__link" href="../reference/cfg/__init__/">
 <span class="md-ellipsis">
     Reference
   </span>
@@ -554,7 +479,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../help/">
+<a class="md-nav__link" href="../help/">
 <span class="md-ellipsis">
     Help
   </span>
@@ -576,64 +501,18 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-parking-management-system">
+<a class="md-nav__link" href="#solutions">
 <span class="md-ellipsis">
-      What is Parking Management System?
+      Solutions
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#advantages-of-parking-management-system">
+<a class="md-nav__link" href="#contribute-to-our-solutions">
 <span class="md-ellipsis">
-      Advantages of Parking Management System?
+      Contribute to Our Solutions
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#real-world-applications">
-<span class="md-ellipsis">
-      Real World Applications
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#parking-management-system-code-workflow">
-<span class="md-ellipsis">
-      Parking Management System Code Workflow
-    </span>
-</a>
-<nav aria-label="Parking Management System Code Workflow" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#selection-of-points">
-<span class="md-ellipsis">
-      Selection of Points
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#python-code-for-parking-management">
-<span class="md-ellipsis">
-      Python Code for Parking Management
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#optional-arguments-parkingmanagement">
-<span class="md-ellipsis">
-      Optional Arguments ParkingManagement
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#arguments-modeltrack">
-<span class="md-ellipsis">
-      Arguments model.track
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -642,219 +521,34 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/parking-management.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/solutions/index.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="parking-management-using-ultralytics-yolov8">Parking Management using Ultralytics YOLOv8 🚀</h1>
-<h2 id="what-is-parking-management-system">What is Parking Management System?</h2>
-<p>Parking management with <a href="https://github.com/ultralytics/ultralytics/">Ultralytics YOLOv8</a> ensures efficient and safe parking by organizing spaces and monitoring availability. YOLOv8 can improve parking lot management through real-time vehicle detection, and insights into parking occupancy.</p>
-<h2 id="advantages-of-parking-management-system">Advantages of Parking Management System?</h2>
+<h1 id="ultralytics-solutions-harness-yolov8-to-solve-real-world-problems">Ultralytics Solutions: Harness YOLOv8 to Solve Real-World Problems</h1>
+<p>Ultralytics Solutions provide cutting-edge applications of YOLO models, offering real-world solutions like object counting, blurring, and security systems, enhancing efficiency and accuracy in diverse industries. Discover the power of YOLOv8 for practical, impactful implementations.</p>
+<p><img alt="Ultralytics Solutions Thumbnail" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/44c8b148-7a9d-43e4-b7bf-272a7ac4e636"/></p>
+<h2 id="solutions">Solutions</h2>
+<p>Here's our curated list of Ultralytics solutions that can be used to create awesome computer vision projects.</p>
 <ul>
-<li><strong>Efficiency</strong>: Parking lot management optimizes the use of parking spaces and reduces congestion.</li>
-<li><strong>Safety and Security</strong>: Parking management using YOLOv8 improves the safety of both people and vehicles through surveillance and security measures.</li>
-<li><strong>Reduced Emissions</strong>: Parking management using YOLOv8 manages traffic flow to minimize idle time and emissions in parking lots.</li>
+<li><a href="../guides/object-counting/">Object Counting</a> 🚀 NEW: Learn to perform real-time object counting with YOLOv8. Gain the expertise to accurately count objects in live video streams.</li>
+<li><a href="../guides/object-cropping/">Object Cropping</a> 🚀 NEW: Master object cropping with YOLOv8 for precise extraction of objects from images and videos.</li>
+<li><a href="../guides/object-blurring/">Object Blurring</a> 🚀 NEW: Apply object blurring using YOLOv8 to protect privacy in image and video processing.</li>
+<li><a href="../guides/workouts-monitoring/">Workouts Monitoring</a> 🚀 NEW: Discover how to monitor workouts using YOLOv8. Learn to track and analyze various fitness routines in real time.</li>
+<li><a href="../guides/region-counting/">Objects Counting in Regions</a> 🚀 NEW: Count objects in specific regions using YOLOv8 for accurate detection in varied areas.</li>
+<li><a href="../guides/security-alarm-system/">Security Alarm System</a> 🚀 NEW: Create a security alarm system with YOLOv8 that triggers alerts upon detecting new objects. Customize the system to fit your specific needs.</li>
+<li><a href="../guides/heatmaps/">Heatmaps</a> 🚀 NEW: Utilize detection heatmaps to visualize data intensity across a matrix, providing clear insights in computer vision tasks.</li>
+<li><a href="../guides/instance-segmentation-and-tracking/">Instance Segmentation with Object Tracking</a> 🚀 NEW: Implement instance segmentation and object tracking with YOLOv8 to achieve precise object boundaries and continuous monitoring.</li>
+<li><a href="../guides/vision-eye/">VisionEye View Objects Mapping</a> 🚀 NEW: Develop systems that mimic human eye focus on specific objects, enhancing the computer's ability to discern and prioritize details.</li>
+<li><a href="../guides/speed-estimation/">Speed Estimation</a> 🚀 NEW: Estimate object speed using YOLOv8 and object tracking techniques, crucial for applications like autonomous vehicles and traffic monitoring.</li>
+<li><a href="../guides/distance-calculation/">Distance Calculation</a> 🚀 NEW: Calculate distances between objects using bounding box centroids in YOLOv8, essential for spatial analysis.</li>
+<li><a href="../guides/queue-management/">Queue Management</a> 🚀 NEW: Implement efficient queue management systems to minimize wait times and improve productivity using YOLOv8.</li>
+<li><a href="../guides/parking-management/">Parking Management</a> 🚀 NEW: Organize and direct vehicle flow in parking areas with YOLOv8, optimizing space utilization and user experience.</li>
+<li><a href="../guides/analytics/">Analytics</a> 📊 NEW: Conduct comprehensive data analysis to discover patterns and make informed decisions, leveraging YOLOv8 for descriptive, predictive, and prescriptive analytics.</li>
 </ul>
-<h2 id="real-world-applications">Real World Applications</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Parking Management System</th>
-<th style="text-align: center;">Parking Management System</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;"><img alt="Parking lots Analytics Using Ultralytics YOLOv8" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/e3d4bc3e-cf4a-4da9-b42e-0da55cc74ad6"/></td>
-<td style="text-align: center;"><img alt="Parking management top view using Ultralytics YOLOv8" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/fe186719-1aca-43c9-b388-1ded91280eb5"/></td>
-</tr>
-<tr>
-<td style="text-align: center;">Parking management Aeriel View using Ultralytics YOLOv8</td>
-<td style="text-align: center;">Parking management Top View using Ultralytics YOLOv8</td>
-</tr>
-</tbody>
-</table>
-<h2 id="parking-management-system-code-workflow">Parking Management System Code Workflow</h2>
-<h3 id="selection-of-points">Selection of Points</h3>
-<div class="admonition tip">
-<p class="admonition-title">Point Selection is now Easy</p>
-<p>Choosing parking points is a critical and complex task in parking management systems. Ultralytics streamlines this process by providing a tool that lets you define parking lot areas, which can be utilized later for additional processing.</p>
-</div>
-<ul>
-<li>Capture a frame from the video or camera stream where you want to manage the parking lot.</li>
-<li>Use the provided code to launch a graphical interface, where you can select an image and start outlining parking regions by mouse click to create polygons.</li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Image Size</p>
-<p>Max Image Size of 1920 * 1080 supported</p>
-</div>
-<div class="admonition example">
-<p class="admonition-title">Parking slots Annotator Ultralytics YOLOv8</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Parking Annotator</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">solutions</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">solutions</span><span class="o">.</span><span class="n">ParkingPtsSelection</span><span class="p">()</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<ul>
-<li>After defining the parking areas with polygons, click <code>save</code> to store a JSON file with the data in your working directory.</li>
-</ul>
-<p><img alt="Ultralytics YOLOv8 Points Selection Demo" src="https://github.com/RizwanMunawar/RizwanMunawar/assets/62513924/72737b8a-0f0f-4efb-98ad-b917a0039535"/></p>
-<h3 id="python-code-for-parking-management">Python Code for Parking Management</h3>
-<div class="admonition example">
-<p class="admonition-title">Parking management using YOLOv8 Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Parking Management</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">solutions</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Path to json file, that created with above point selection app</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">polygon_json_path</span> <span class="o">=</span> <span class="s2">"bounding_boxes.json"</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Video capture</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"Path/to/video/file.mp4"</span><span class="p">)</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># Video writer</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"parking management.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="c1"># Initialize parking management object</span>
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="n">management</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">ParkingManagement</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>
-<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>    <span class="n">ret</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">ret</span><span class="p">:</span>
-<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>        <span class="k">break</span>
-<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>
-<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>    <span class="n">json_data</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">parking_regions_extraction</span><span class="p">(</span><span class="n">polygon_json_path</span><span class="p">)</span>
-<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">management</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>
-<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>    <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>        <span class="n">clss</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>        <span class="n">management</span><span class="o">.</span><span class="n">process_data</span><span class="p">(</span><span class="n">json_data</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">clss</span><span class="p">)</span>
-<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>
-<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>    <span class="n">management</span><span class="o">.</span><span class="n">display_frames</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>
-<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<h3 id="optional-arguments-parkingmanagement">Optional Arguments <code>ParkingManagement</code></h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>model_path</code></td>
-<td><code>str</code></td>
-<td><code>None</code></td>
-<td>Path to the YOLOv8 model.</td>
-</tr>
-<tr>
-<td><code>txt_color</code></td>
-<td><code>tuple</code></td>
-<td><code>(0, 0, 0)</code></td>
-<td>RGB color tuple for text.</td>
-</tr>
-<tr>
-<td><code>bg_color</code></td>
-<td><code>tuple</code></td>
-<td><code>(255, 255, 255)</code></td>
-<td>RGB color tuple for background.</td>
-</tr>
-<tr>
-<td><code>occupied_region_color</code></td>
-<td><code>tuple</code></td>
-<td><code>(0, 255, 0)</code></td>
-<td>RGB color tuple for occupied regions.</td>
-</tr>
-<tr>
-<td><code>available_region_color</code></td>
-<td><code>tuple</code></td>
-<td><code>(0, 0, 255)</code></td>
-<td>RGB color tuple for available regions.</td>
-</tr>
-<tr>
-<td><code>margin</code></td>
-<td><code>int</code></td>
-<td><code>10</code></td>
-<td>Margin for text display.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="arguments-modeltrack">Arguments <code>model.track</code></h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>source</code></td>
-<td><code>im0</code></td>
-<td><code>None</code></td>
-<td>source directory for images or videos</td>
-</tr>
-<tr>
-<td><code>persist</code></td>
-<td><code>bool</code></td>
-<td><code>False</code></td>
-<td>persisting tracks between frames</td>
-</tr>
-<tr>
-<td><code>tracker</code></td>
-<td><code>str</code></td>
-<td><code>botsort.yaml</code></td>
-<td>Tracking method 'bytetrack' or 'botsort'</td>
-</tr>
-<tr>
-<td><code>conf</code></td>
-<td><code>float</code></td>
-<td><code>0.3</code></td>
-<td>Confidence Threshold</td>
-</tr>
-<tr>
-<td><code>iou</code></td>
-<td><code>float</code></td>
-<td><code>0.5</code></td>
-<td>IOU Threshold</td>
-</tr>
-<tr>
-<td><code>classes</code></td>
-<td><code>list</code></td>
-<td><code>None</code></td>
-<td>filter results by class, i.e. classes=0, or classes=[0,2,3]</td>
-</tr>
-<tr>
-<td><code>verbose</code></td>
-<td><code>bool</code></td>
-<td><code>True</code></td>
-<td>Display the object tracking results</td>
-</tr>
-</tbody>
-</table>
+<h2 id="contribute-to-our-solutions">Contribute to Our Solutions</h2>
+<p>We welcome contributions from the community! If you've mastered a particular aspect of Ultralytics YOLO that's not yet covered in our solutions, we encourage you to share your expertise. Writing a guide is a great way to give back to the community and help us make our documentation more comprehensive and user-friendly.</p>
+<p>To get started, please read our <a href="../help/contributing/">Contributing Guide</a> for guidelines on how to open up a Pull Request (PR) 🛠️. We look forward to your contributions!</p>
+<p>Let's work together to make the Ultralytics YOLO ecosystem more robust and versatile 🙏!</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -863,7 +557,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-04-29, Updated 2024-05-25<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (3), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-05-30, Updated 2024-05-30<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -874,10 +568,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/parking-management', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/solutions', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/parking-management', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/solutions', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -926,7 +620,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Queue Management" class="md-footer__link md-footer__link--prev" href="../queue-management/">
+<a aria-label="Previous: Multi-object Tracking Datasets Overview" class="md-footer__link md-footer__link--prev" href="../datasets/track/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -935,17 +629,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                Queue Management
+                Multi-object Tracking Datasets Overview
               </div>
 </div>
 </a>
-<a aria-label="Next: Comprehensive Tutorials to Ultralytics YOLO" class="md-footer__link md-footer__link--next" href="../">
+<a aria-label="Next: NEW 🚀 Analytics" class="md-footer__link md-footer__link--next" href="../guides/analytics/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Comprehensive Tutorials to Ultralytics YOLO
+                NEW 🚀 Analytics
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -997,8 +691,8 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../assets/javascripts/bundle.081f42fc.min.js"></script>
-<script src="../../javascript/extra.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+<script src="../javascript/extra.js"></script>
 </body>
 </html>
