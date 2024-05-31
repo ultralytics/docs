@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="A guide that walks through the key steps involved in a computer vision project, including steps like defining the problem, data collection, model training, and deployment." name="description"/>
+<meta content="Data collection and annotation are vital steps in any computer vision project. Explore the tools, techniques, and best practices for collecting and annotating data." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/guides/steps-of-a-cv-project/" rel="canonical"/>
-<link href="../optimizing-openvino-latency-vs-throughput-modes/" rel="prev"/>
-<link href="../defining-project-goals/" rel="next"/>
+<link href="https://docs.ultralytics.com/guides/data-collection-and-annotation/" rel="canonical"/>
+<link href="../defining-project-goals/" rel="prev"/>
+<link href="../preprocessing_annotated_data/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.25" name="generator"/>
-<title>Steps of a Computer Vision Project - Ultralytics YOLO Docs</title>
+<title>Data Collection and Annotation - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Steps of a Computer Vision Project" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Computer Vision Steps, How Does Computer Vision Work, Computer Vision Techniques, Computer Vision Basics, Model Deployment, Data Annotation, Model Evaluation" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/steps-of-a-cv-project" property="og:url"/><meta content="Steps of a Computer Vision Project" property="og:title"/><meta content="A guide that walks through the key steps involved in a computer vision project, including steps like defining the problem, data collection, model training, and deployment." property="og:description"/><meta content="https://media.licdn.com/dms/image/D4D12AQGf61lmNOm3xA/article-cover_image-shrink_720_1280/0/1656513646049?e=1722470400&amp;v=beta&amp;t=23Rqohhxfie38U5syPeL2XepV2QZe6_HSSC-4rAAvt4" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/steps-of-a-cv-project" property="twitter:url"/><meta content="Steps of a Computer Vision Project" property="twitter:title"/><meta content="A guide that walks through the key steps involved in a computer vision project, including steps like defining the problem, data collection, model training, and deployment." property="twitter:description"/><meta content="https://media.licdn.com/dms/image/D4D12AQGf61lmNOm3xA/article-cover_image-shrink_720_1280/0/1656513646049?e=1722470400&amp;v=beta&amp;t=23Rqohhxfie38U5syPeL2XepV2QZe6_HSSC-4rAAvt4" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Steps of a Computer Vision Project", "image": ["https://media.licdn.com/dms/image/D4D12AQGf61lmNOm3xA/article-cover_image-shrink_720_1280/0/1656513646049?e=1722470400&v=beta&t=23Rqohhxfie38U5syPeL2XepV2QZe6_HSSC-4rAAvt4"], "datePublished": "2024-05-29 15:10:14 +0530", "dateModified": "2024-05-31 12:55:47 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Data Collection and Annotation" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="What is Data Annotation, Data Annotation Tools, Annotating Data, Avoiding Bias in Data Collection, Ethical Data Collection, Annotation Strategies" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/data-collection-and-annotation" property="og:url"/><meta content="Data Collection and Annotation" property="og:title"/><meta content="Data collection and annotation are vital steps in any computer vision project. Explore the tools, techniques, and best practices for collecting and annotating data." property="og:description"/><meta content="https://labelyourdata.com/img/article-illustrations/types_of_da_light.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/data-collection-and-annotation" property="twitter:url"/><meta content="Data Collection and Annotation" property="twitter:title"/><meta content="Data collection and annotation are vital steps in any computer vision project. Explore the tools, techniques, and best practices for collecting and annotating data." property="twitter:description"/><meta content="https://labelyourdata.com/img/article-illustrations/types_of_da_light.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Data Collection and Annotation", "image": ["https://labelyourdata.com/img/article-illustrations/types_of_da_light.jpg"], "datePublished": "2024-05-31 12:55:47 +0530", "dateModified": "2024-05-31 12:55:47 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#understanding-the-key-steps-in-a-computer-vision-project">
+<a class="md-skip" href="#data-collection-and-annotation-strategies-for-computer-vision">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Steps of a Computer Vision Project
+              Data Collection and Annotation
             
           </span>
 </div>
@@ -472,17 +472,31 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../steps-of-a-cv-project/">
+<span class="md-ellipsis">
+    Steps of a Computer Vision Project
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../defining-project-goals/">
+<span class="md-ellipsis">
+    Defining A Computer Vision Project's Goals
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    Steps of a Computer Vision Project
+    Data Collection and Annotation
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    Steps of a Computer Vision Project
+    Data Collection and Annotation
   </span>
 </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
@@ -499,24 +513,31 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#an-overview-of-a-computer-vision-project">
+<a class="md-nav__link" href="#setting-up-classes-and-collecting-data">
 <span class="md-ellipsis">
-      An Overview of a Computer Vision Project
+      Setting Up Classes and Collecting Data
+    </span>
+</a>
+<nav aria-label="Setting Up Classes and Collecting Data" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#choosing-the-right-classes-for-your-project">
+<span class="md-ellipsis">
+      Choosing the Right Classes for Your Project
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-defining-your-projects-goals">
+<a class="md-nav__link" href="#sources-of-data">
 <span class="md-ellipsis">
-      Step 1: Defining Your Project’s Goals
+      Sources of Data
     </span>
 </a>
-<nav aria-label="Step 1: Defining Your Project’s Goals" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-15-selecting-the-right-model-and-training-approach">
+<a class="md-nav__link" href="#avoiding-bias-in-data-collection">
 <span class="md-ellipsis">
-      Step 1.5: Selecting the Right Model and Training Approach
+      Avoiding Bias in Data Collection
     </span>
 </a>
 </li>
@@ -524,53 +545,75 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-data-collection-and-data-annotation">
+<a class="md-nav__link" href="#what-is-data-annotation">
 <span class="md-ellipsis">
-      Step 2: Data Collection and Data Annotation
+      What is Data Annotation?
+    </span>
+</a>
+<nav aria-label="What is Data Annotation?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#types-of-data-annotation">
+<span class="md-ellipsis">
+      Types of Data Annotation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-data-augmentation-and-splitting-your-dataset">
+<a class="md-nav__link" href="#common-annotation-formats">
 <span class="md-ellipsis">
-      Step 3: Data Augmentation and Splitting Your Dataset
+      Common Annotation Formats
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-model-training">
+<a class="md-nav__link" href="#techniques-of-annotation">
 <span class="md-ellipsis">
-      Step 4: Model Training
+      Techniques of Annotation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-model-evaluation-and-model-finetuning">
+<a class="md-nav__link" href="#popular-annotation-tools">
 <span class="md-ellipsis">
-      Step 5: Model Evaluation and Model Finetuning
+      Popular Annotation Tools
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-6-model-testing">
+<a class="md-nav__link" href="#some-more-things-to-consider-before-annotating-data">
 <span class="md-ellipsis">
-      Step 6: Model Testing
+      Some More Things to Consider Before Annotating Data
+    </span>
+</a>
+<nav aria-label="Some More Things to Consider Before Annotating Data" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-accuracy-and-precision">
+<span class="md-ellipsis">
+      Understanding Accuracy and Precision
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-7-model-deployment">
+<a class="md-nav__link" href="#identifying-outliers">
 <span class="md-ellipsis">
-      Step 7: Model Deployment
+      Identifying Outliers
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-8-monitoring-maintenance-and-documentation">
+<a class="md-nav__link" href="#quality-control-of-annotated-data">
 <span class="md-ellipsis">
-      Step 8: Monitoring, Maintenance, and Documentation
+      Quality Control of Annotated Data
     </span>
 </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faqs">
@@ -580,17 +623,17 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#engaging-with-the-community">
+<a class="md-nav__link" href="#share-your-thoughts-with-the-community">
 <span class="md-ellipsis">
-      Engaging with the Community
+      Share Your Thoughts with the Community
     </span>
 </a>
-<nav aria-label="Engaging with the Community" class="md-nav">
+<nav aria-label="Share Your Thoughts with the Community" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#community-resources">
+<a class="md-nav__link" href="#where-to-find-help-and-support">
 <span class="md-ellipsis">
-      Community Resources
+      Where to Find Help and Support
     </span>
 </a>
 </li>
@@ -605,28 +648,14 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#kickstart-your-computer-vision-project-today">
+<a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
-      Kickstart Your Computer Vision Project Today!
+      Conclusion
     </span>
 </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../defining-project-goals/">
-<span class="md-ellipsis">
-    Defining A Computer Vision Project's Goals
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../data-collection-and-annotation/">
-<span class="md-ellipsis">
-    Data Collection and Annotation
-  </span>
-</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../preprocessing_annotated_data/">
@@ -778,24 +807,31 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#an-overview-of-a-computer-vision-project">
+<a class="md-nav__link" href="#setting-up-classes-and-collecting-data">
 <span class="md-ellipsis">
-      An Overview of a Computer Vision Project
+      Setting Up Classes and Collecting Data
+    </span>
+</a>
+<nav aria-label="Setting Up Classes and Collecting Data" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#choosing-the-right-classes-for-your-project">
+<span class="md-ellipsis">
+      Choosing the Right Classes for Your Project
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-defining-your-projects-goals">
+<a class="md-nav__link" href="#sources-of-data">
 <span class="md-ellipsis">
-      Step 1: Defining Your Project’s Goals
+      Sources of Data
     </span>
 </a>
-<nav aria-label="Step 1: Defining Your Project’s Goals" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-15-selecting-the-right-model-and-training-approach">
+<a class="md-nav__link" href="#avoiding-bias-in-data-collection">
 <span class="md-ellipsis">
-      Step 1.5: Selecting the Right Model and Training Approach
+      Avoiding Bias in Data Collection
     </span>
 </a>
 </li>
@@ -803,53 +839,75 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-data-collection-and-data-annotation">
+<a class="md-nav__link" href="#what-is-data-annotation">
 <span class="md-ellipsis">
-      Step 2: Data Collection and Data Annotation
+      What is Data Annotation?
+    </span>
+</a>
+<nav aria-label="What is Data Annotation?" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#types-of-data-annotation">
+<span class="md-ellipsis">
+      Types of Data Annotation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-data-augmentation-and-splitting-your-dataset">
+<a class="md-nav__link" href="#common-annotation-formats">
 <span class="md-ellipsis">
-      Step 3: Data Augmentation and Splitting Your Dataset
+      Common Annotation Formats
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-model-training">
+<a class="md-nav__link" href="#techniques-of-annotation">
 <span class="md-ellipsis">
-      Step 4: Model Training
+      Techniques of Annotation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-model-evaluation-and-model-finetuning">
+<a class="md-nav__link" href="#popular-annotation-tools">
 <span class="md-ellipsis">
-      Step 5: Model Evaluation and Model Finetuning
+      Popular Annotation Tools
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-6-model-testing">
+<a class="md-nav__link" href="#some-more-things-to-consider-before-annotating-data">
 <span class="md-ellipsis">
-      Step 6: Model Testing
+      Some More Things to Consider Before Annotating Data
+    </span>
+</a>
+<nav aria-label="Some More Things to Consider Before Annotating Data" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-accuracy-and-precision">
+<span class="md-ellipsis">
+      Understanding Accuracy and Precision
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-7-model-deployment">
+<a class="md-nav__link" href="#identifying-outliers">
 <span class="md-ellipsis">
-      Step 7: Model Deployment
+      Identifying Outliers
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-8-monitoring-maintenance-and-documentation">
+<a class="md-nav__link" href="#quality-control-of-annotated-data">
 <span class="md-ellipsis">
-      Step 8: Monitoring, Maintenance, and Documentation
+      Quality Control of Annotated Data
     </span>
 </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faqs">
@@ -859,17 +917,17 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#engaging-with-the-community">
+<a class="md-nav__link" href="#share-your-thoughts-with-the-community">
 <span class="md-ellipsis">
-      Engaging with the Community
+      Share Your Thoughts with the Community
     </span>
 </a>
-<nav aria-label="Engaging with the Community" class="md-nav">
+<nav aria-label="Share Your Thoughts with the Community" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#community-resources">
+<a class="md-nav__link" href="#where-to-find-help-and-support">
 <span class="md-ellipsis">
-      Community Resources
+      Where to Find Help and Support
     </span>
 </a>
 </li>
@@ -884,9 +942,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#kickstart-your-computer-vision-project-today">
+<a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
-      Kickstart Your Computer Vision Project Today!
+      Conclusion
     </span>
 </a>
 </li>
@@ -897,186 +955,135 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/steps-of-a-cv-project.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/data-collection-and-annotation.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="understanding-the-key-steps-in-a-computer-vision-project">Understanding the Key Steps in a Computer Vision Project</h1>
+<h1 id="data-collection-and-annotation-strategies-for-computer-vision">Data Collection and Annotation Strategies for Computer Vision</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Computer vision is a subfield of artificial intelligence (AI) that helps computers see and understand the world like humans do. It processes and analyzes images or videos to extract information, recognize patterns, and make decisions based on that data.</p>
-<p>Computer vision techniques like <a href="../../tasks/detect/">object detection</a>, <a href="../../tasks/classify/">image classification</a>, and <a href="../../tasks/segment/">instance segmentation</a> can be applied across various industries, from <a href="https://www.ultralytics.com/solutions/ai-in-self-driving">autonomous driving</a> to <a href="https://www.ultralytics.com/solutions/ai-in-healthcare">medical imaging</a>, to gain valuable insights.</p>
-<p align="center">
-<img alt="Overview of computer vision techniques" src="https://media.licdn.com/dms/image/D4D12AQGf61lmNOm3xA/article-cover_image-shrink_720_1280/0/1656513646049?e=1722470400&amp;v=beta&amp;t=23Rqohhxfie38U5syPeL2XepV2QZe6_HSSC-4rAAvt4" width="100%"/>
-</p>
-<p>Working on your own computer vision projects is a great way to understand and learn more about computer vision. However, a computer vision project can consist of many steps, and it might seem confusing at first. By the end of this guide, you’ll be familiar with the steps involved in a computer vision project. We’ll walk through everything from the beginning to the end of a project, explaining why each part is important. Let’s get started and make your computer vision project a success!</p>
-<h2 id="an-overview-of-a-computer-vision-project">An Overview of a Computer Vision Project</h2>
-<p>Before discussing the details of each step involved in a computer vision project, let's look at the overall process. If you started a computer vision project today, you’d take the following steps:</p>
+<p>The key to success in any <a href="../steps-of-a-cv-project/">computer vision project</a> starts with effective data collection and annotation strategies. The quality of the data directly impacts model performance, so it’s important to understand the best practices related to data collection and data annotation.</p>
+<p>Every consideration regarding the data should closely align with <a href="../defining-project-goals/">your project's goals</a>. Changes in your annotation strategies could shift the project's focus or effectiveness and vice versa. With this in mind, let's take a closer look at the best ways to approach data collection and annotation.</p>
+<h2 id="setting-up-classes-and-collecting-data">Setting Up Classes and Collecting Data</h2>
+<p>Collecting images and video for a computer vision project involves defining the number of classes, sourcing data, and considering ethical implications. Before you start gathering your data, you need to be clear about: </p>
+<h3 id="choosing-the-right-classes-for-your-project">Choosing the Right Classes for Your Project</h3>
+<p>One of the first questions when starting a computer vision project is how many classes to include. You need to determine the class membership, which is involves the different categories or labels that you want your model to recognize and differentiate. The number of classes should be determined by the specific goals of your project.</p>
+<p>For example, if you want to monitor traffic, your classes might include "car," "truck," "bus," "motorcycle," and "bicycle." On the other hand, for tracking items in a store, your classes could be "fruits," "vegetables," "beverages," and "snacks." Defining classes based on your project goals helps keep your dataset relevant and focused.</p>
+<p>When you define your classes, another important distinction to make is whether to choose coarse or fine class counts. ‘Count' refers to the number of distinct classes you are interested in. This decision influences the granularity of your data and the complexity of your model. Here are the considerations for each approach:</p>
 <ul>
-<li>Your first priority would be to understand your project’s requirements.</li>
-<li>Then, you’d collect and accurately label the images that will help train your model.</li>
-<li>Next, you’d clean your data and apply augmentation techniques to prepare it for model training.</li>
-<li>After model training, you’d thoroughly test and evaluate your model to make sure it performs consistently under different conditions.</li>
-<li>Finally, you’d deploy your model into the real world and update it based on new insights and feedback.</li>
+<li><strong>Coarse Class-Count</strong>: These are broader, more inclusive categories, such as "vehicle" and "non-vehicle." They simplify annotation and require fewer computational resources but provide less detailed information, potentially limiting the model's effectiveness in complex scenarios.</li>
+<li><strong>Fine Class-Count</strong>: More categories with finer distinctions, such as "sedan," "SUV," "pickup truck," and "motorcycle." They capture more detailed information, improving model accuracy and performance. However, they are more time-consuming and labor-intensive to annotate and require more computational resources.</li>
+</ul>
+<p>Something to note is that starting with more specific classes can be very helpful, especially in complex projects where details are important. More specific classes lets you collect more detailed data, and gain deeper insights and clearer distinctions between categories. Not only does it improve the accuracy of the model, but it also makes it easier to adjust the model later if needed, saving both time and resources.</p>
+<h3 id="sources-of-data">Sources of Data</h3>
+<p>You can use public datasets or gather your own custom data. Public datasets like those on <a href="https://www.kaggle.com/datasets">Kaggle</a> and <a href="https://datasetsearch.research.google.com/">Google Dataset Search Engine</a> offer well-annotated, standardized data, making them great starting points for training and validating models. </p>
+<p>Custom data collection, on the other hand, allows you to customize your dataset to your specific needs. You might capture images and videos with cameras or drones, scrape the web for images, or use existing internal data from your organization. Custom data gives you more control over its quality and relevance. Combining both public and custom data sources helps create a diverse and comprehensive dataset.</p>
+<h3 id="avoiding-bias-in-data-collection">Avoiding Bias in Data Collection</h3>
+<p>Bias occurs when certain groups or scenarios are underrepresented or overrepresented in your dataset. It leads to a model that performs well on some data but poorly on others. It's crucial to avoid bias so that your computer vision model can perform well in a variety of scenarios. </p>
+<p>Here is how you can avoid bias while collecting data:</p>
+<ul>
+<li><strong>Diverse Sources</strong>: Collect data from many sources to capture different perspectives and scenarios.</li>
+<li><strong>Balanced Representation</strong>: Include balanced representation from all relevant groups. For example, consider different ages, genders, and ethnicities.</li>
+<li><strong>Continuous Monitoring</strong>: Regularly review and update your dataset to identify and address any emerging biases.</li>
+<li><strong>Bias Mitigation Techniques</strong>: Use methods like oversampling underrepresented classes, data augmentation, and fairness-aware algorithms.</li>
+</ul>
+<p>Following these practices helps create a more robust and fair model that can generalize well in real-world applications.</p>
+<h2 id="what-is-data-annotation">What is Data Annotation?</h2>
+<p>Data annotation is the process of labeling data to make it usable for training machine learning models. In computer vision, this means labeling images or videos with the information that a model needs to learn from. Without properly annotated data, models cannot accurately learn the relationships between inputs and outputs.</p>
+<h3 id="types-of-data-annotation">Types of Data Annotation</h3>
+<p>Depending on the specific requirements of a <a href="../../tasks/">computer vision task</a>, there are different types of data annotation. Here are some examples:</p>
+<ul>
+<li><strong>Bounding Boxes</strong>: Rectangular boxes drawn around objects in an image, used primarily for object detection tasks. These boxes are defined by their top-left and bottom-right coordinates.</li>
+<li><strong>Polygons</strong>: Detailed outlines for objects, allowing for more precise annotation than bounding boxes. Polygons are used in tasks like instance segmentation, where the shape of the object is important.</li>
+<li><strong>Masks</strong>: Binary masks where each pixel is either part of an object or the background. Masks are used in semantic segmentation tasks to provide pixel-level detail.</li>
+<li><strong>Keypoints</strong>: Specific points marked within an image to identify locations of interest. Keypoints are used in tasks like pose estimation and facial landmark detection.</li>
 </ul>
 <p align="center">
-<img alt="Computer Vision Project Steps Overview" src="https://assets-global.website-files.com/6108e07db6795265f203a636/626bf3577837448d9ed716ff_The%20five%20stages%20of%20ML%20development%20lifecycle%20(1).jpeg" width="100%"/>
+<img alt="Types of Data Annotation" src="https://labelyourdata.com/img/article-illustrations/types_of_da_light.jpg" width="100%"/>
 </p>
-<p>Now that we know what to expect, let's dive right into the steps and get your project moving forward.</p>
-<h2 id="step-1-defining-your-projects-goals">Step 1: Defining Your Project’s Goals</h2>
-<p>The first step in any computer vision project is clearly defining the problem you’re trying to solve. Knowing the end goal helps you start to build a solution. This is especially true when it comes to computer vision because your project’s objective will directly affect which computer vision task you need to focus on.</p>
-<p>Here are some examples of project objectives and the computer vision tasks that can be used to reach these objectives:</p>
+<h3 id="common-annotation-formats">Common Annotation Formats</h3>
+<p>After selecting a type of annotation, it’s important to choose the appropriate format for storing and sharing annotations. </p>
+<p>Commonly used formats include <a href="../../datasets/detect/coco/">COCO</a>, which supports various annotation types like object detection, keypoint detection, stuff segmentation, panoptic segmentation, and image captioning, stored in JSON. <a href="../../datasets/detect/voc/">Pascal VOC</a>) uses XML files and is popular for object detection tasks. YOLO, on the other hand, creates a .txt file for each image, containing annotations like object class, coordinates, height, and width, making it suitable for object detection.</p>
+<h3 id="techniques-of-annotation">Techniques of Annotation</h3>
+<p>Now, assuming you've chosen a type of annotation and format, it's time to establish clear and objective labeling rules. These rules are like a roadmap for consistency and accuracy throughout the annotation process. Key aspects of these rules include:</p>
 <ul>
-<li>
-<p><strong>Objective:</strong> To develop a system that can monitor and manage the flow of different vehicle types on highways, improving traffic management and safety.</p>
-<ul>
-<li><strong>Computer Vision Task:</strong> Object detection is ideal for traffic monitoring because it efficiently locates and identifies multiple vehicles. It is less computationally demanding than image segmentation, which provides unnecessary detail for this task, ensuring faster, real-time analysis.</li>
+<li><strong>Clarity and Detail</strong>: Make sure your instructions are clear. Use examples and illustrations to understand what's expected.</li>
+<li><strong>Consistency</strong>: Keep your annotations uniform. Set standard criteria for annotating different types of data, so all annotations follow the same rules.</li>
+<li><strong>Reducing Bias</strong>: Stay neutral. Train yourself to be objective and minimize personal biases to ensure fair annotations.</li>
+<li><strong>Efficiency</strong>: Work smarter, not harder. Use tools and workflows that automate repetitive tasks, making the annotation process faster and more efficient..</li>
 </ul>
-</li>
-<li>
-<p><strong>Objective:</strong> To develop a tool that assists radiologists by providing precise, pixel-level outlines of tumors in medical imaging scans.</p>
+<p>Regularly reviewing and updating your labeling rules will help keep your annotations accurate, consistent, and aligned with your project goals.</p>
+<h3 id="popular-annotation-tools">Popular Annotation Tools</h3>
+<p>Let's say you are ready to annotate now. There are several open-source tools available to help streamline the data annotation process. Here are some useful open annotation tools: </p>
 <ul>
-<li><strong>Computer Vision Task:</strong> Image segmentation is suitable for medical imaging because it provides accurate and detailed boundaries of tumors that are crucial for assessing size, shape, and treatment planning.</li>
-</ul>
-</li>
-<li>
-<p><strong>Objective:</strong> To create a digital system that categorizes various documents (e.g., invoices, receipts, legal paperwork) to improve organizational efficiency and document retrieval.</p>
-<ul>
-<li><strong>Computer Vision Task:</strong> Image classification is ideal here as it handles one document at a time, without needing to consider the document's position in the image. This approach simplifies and accelerates the sorting process.</li>
-</ul>
-</li>
-</ul>
-<h3 id="step-15-selecting-the-right-model-and-training-approach">Step 1.5: Selecting the Right Model and Training Approach</h3>
-<p>After understanding the project objective and suitable computer vision tasks, an essential part of defining the project goal is <a href="../../models/">selecting the right model</a> and training approach.</p>
-<p>Depending on the objective, you might choose to select the model first or after seeing what data you are able to collect in Step 2. For example, suppose your project is highly dependent on the availability of specific types of data. In that case, it may be more practical to gather and analyze the data first before selecting a model. On the other hand, if you have a clear understanding of the model requirements, you can choose the model first and then collect data that fits those specifications.</p>
-<p>Choosing between training from scratch or using transfer learning affects how you prepare your data. Training from scratch requires a diverse dataset to build the model’s understanding from the ground up. Transfer learning, on the other hand, allows you to use a pre-trained model and adapt it with a smaller, more specific dataset. Also, choosing a specific model to train will determine how you need to prepare your data, such as resizing images or adding annotations, according to the model’s specific requirements.</p>
-<p align="center">
-<img alt="Training From Scratch Vs. Using Transfer Learning" src="https://miro.medium.com/v2/resize:fit:1330/format:webp/1*zCnoXfPVcdXizTmhL68Rlw.jpeg" width="100%"/>
-</p>
-<p>Note: When choosing a model, consider its <a href="../model-deployment-options/">deployment</a> to ensure compatibility and performance. For example, lightweight models are ideal for edge computing due to their efficiency on resource-constrained devices. To learn more about the key points related to defining your project, read <a href="../defining-project-goals/">our guide</a> on defining your project’s goals and selecting the right model.</p>
-<p>Before getting into the hands-on work of a computer vision project, it's important to have a clear understanding of these details. Double-check that you've considered the following before moving on to Step 2:</p>
-<ul>
-<li>Clearly define the problem you’re trying to solve.</li>
-<li>Determine the end goal of your project.</li>
-<li>Identify the specific computer vision task needed (e.g., object detection, image classification, image segmentation).</li>
-<li>Decide whether to train a model from scratch or use transfer learning.</li>
-<li>Select the appropriate model for your task and deployment needs.</li>
-</ul>
-<h2 id="step-2-data-collection-and-data-annotation">Step 2: Data Collection and Data Annotation</h2>
-<p>The quality of your computer vision models depend on the quality of your dataset. You can either collect images from the internet, take your own pictures, or use pre-existing datasets. Here are some great resources for downloading high-quality datasets: <a href="https://datasetsearch.research.google.com/">Google Dataset Search Engine</a>, <a href="https://archive.ics.uci.edu/">UC Irvine Machine Learning Repository</a>, and <a href="https://www.kaggle.com/datasets">Kaggle Datasets</a>.</p>
-<p>Some libraries, like Ultralytics, provide <a href="../../datasets/">built-in support for various datasets</a>, making it easier to get started with high-quality data. These libraries often include utilities for using popular datasets seamlessly, which can save you a lot of time and effort in the initial stages of your project.</p>
-<p>However, if you choose to collect images or take your own pictures, you’ll need to annotate your data. Data annotation is the process of labeling your data to impart knowledge to your model. The type of data annotation you’ll work with depends on your specific computer vision technique. Here are some examples:</p>
-<ul>
-<li><strong>Image Classification:</strong> You’ll label the entire image as a single class.</li>
-<li><strong>Object Detection:</strong> You’ll draw bounding boxes around each object in the image and label each box.</li>
-<li><strong>Image Segmentation:</strong> You’ll label each pixel in the image according to the object it belongs to, creating detailed object boundaries.</li>
+<li><strong><a href="https://github.com/HumanSignal/label-studio">LabeI Studio</a></strong>: A flexible tool that supports a wide range of annotation tasks and includes features for managing projects and quality control.</li>
+<li><strong><a href="https://github.com/cvat-ai/cvat">CVAT</a></strong>: A powerful tool that supports various annotation formats and customizable workflows, making it suitable for complex projects.</li>
+<li><strong><a href="https://github.com/labelmeai/labelme">Labelme</a></strong>: A simple and easy-to-use tool that allows for quick annotation of images with polygons, making it ideal for straightforward tasks.</li>
 </ul>
 <p align="center">
-<img alt="Different Types of Image Annotation" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*VhpVAAJnvq5ZE_pv" width="100%"/>
+<img alt="LabelMe Overview" src="https://github.com/labelmeai/labelme/raw/main/examples/instance_segmentation/.readme/annotation.jpg" width="100%"/>
 </p>
-<p><a href="../data-collection-and-annotation/">Data collection and annotation</a> can be a time-consuming manual effort. Annotation tools can help make this process easier. Here are some useful open annotation tools: <a href="https://github.com/HumanSignal/label-studio">LabeI Studio</a>, <a href="https://github.com/cvat-ai/cvat">CVAT</a>, and <a href="https://github.com/labelmeai/labelme">Labelme</a>.</p>
-<h2 id="step-3-data-augmentation-and-splitting-your-dataset">Step 3: Data Augmentation and Splitting Your Dataset</h2>
-<p>After collecting and annotating your image data, it's important to first split your dataset into training, validation, and test sets before performing data augmentation. Splitting your dataset before augmentation is crucial to test and validate your model on original, unaltered data. It helps accurately assess how well the model generalizes to new, unseen data.</p>
-<p>Here's how to split your data:</p>
-<ul>
-<li><strong>Training Set:</strong> It is the largest portion of your data, typically 70-80% of the total, used to train your model.</li>
-<li><strong>Validation Set:</strong> Usually around 10-15% of your data; this set is used to tune hyperparameters and validate the model during training, helping to prevent overfitting.</li>
-<li><strong>Test Set:</strong> The remaining 10-15% of your data is set aside as the test set. It is used to evaluate the model's performance on unseen data after training is complete.</li>
-</ul>
-<p>After splitting your data, you can perform data augmentation by applying transformations like rotating, scaling, and flipping images to artificially increase the size of your dataset. Data augmentation makes your model more robust to variations and improves its performance on unseen images.</p>
+<p>These open-source tools are budget-friendly and provide a range of features to meet different annotation needs.</p>
+<h3 id="some-more-things-to-consider-before-annotating-data">Some More Things to Consider Before Annotating Data</h3>
+<p>Before you dive into annotating your data, there are a few more things to keep in mind. You should be aware of accuracy, precision, outliers, and quality control to avoid labeling your data in a counterproductive manner. </p>
+<h4 id="understanding-accuracy-and-precision">Understanding Accuracy and Precision</h4>
+<p>It's important to understand the difference between accuracy and precision and how it relates to annotation. Accuracy refers to how close the annotated data is to the true values. It helps us measure how closely the labels reflect real-world scenarios. Precision indicates the consistency of annotations. It checks if you are giving the same label to the same object or feature throughout the dataset. High accuracy and precision lead to better-trained models by reducing noise and improving the model's ability to generalize from the training data.</p>
 <p align="center">
-<img alt="Examples of Data Augmentations" src="https://www.labellerr.com/blog/content/images/size/w2000/2022/11/banner-data-augmentation--1-.webp" width="100%"/>
+<img alt="Example of Precision" src="https://keylabs.ai/blog/content/images/size/w1600/2023/12/new26-3.jpg" width="100%"/>
 </p>
-<p>Libraries like OpenCV, Albumentations, and TensorFlow offer flexible augmentation functions that you can use. Additionally, some libraries, such as Ultralytics, have <a href="../../modes/train/">built-in augmentation settings</a> directly within its model training function, simplifying the process.</p>
-<p>To understand your data better, you can use tools like <a href="https://matplotlib.org/">Matplotlib</a> or <a href="https://seaborn.pydata.org/">Seaborn</a> to visualize the images and analyze their distribution and characteristics. Visualizing your data helps identify patterns, anomalies, and the effectiveness of your augmentation techniques. You can also use <a href="../../datasets/explorer/">Ultralytics Explorer</a>, a tool for exploring computer vision datasets with semantic search, SQL queries, and vector similarity search.</p>
-<p align="center">
-<img alt="The Ultralytics Explorer Tool" src="https://github.com/ultralytics/ultralytics/assets/15766192/feb1fe05-58c5-4173-a9ff-e611e3bba3d0" width="100%"/>
-</p>
-<p>By properly <a href="../preprocessing_annotated_data/">understanding, splitting, and augmenting your data</a>, you can develop a well-trained, validated, and tested model that performs well in real-world applications.</p>
-<h2 id="step-4-model-training">Step 4: Model Training</h2>
-<p>Once your dataset is ready for training, you can focus on setting up the necessary environment, managing your datasets, and training your model.</p>
-<p>First, you’ll need to make sure your environment is configured correctly. Typically, this includes the following:</p>
+<h4 id="identifying-outliers">Identifying Outliers</h4>
+<p>Outliers are data points that deviate quite a bit from other observations in the dataset. With respect to annotations, an outlier could be an incorrectly labeled image or an annotation that doesn't fit with the rest of the dataset. Outliers are concerning because they can distort the model's learning process, leading to inaccurate predictions and poor generalization.</p>
+<p>You can use various methods to detect and correct outliers:</p>
 <ul>
-<li>Installing essential libraries and frameworks like TensorFlow, PyTorch, or <a href="../../quickstart/">Ultralytics</a>.</li>
-<li>If you are using a GPU, installing libraries like CUDA and cuDNN will help enable GPU acceleration and speed up the training process.</li>
+<li><strong>Statistical Techniques</strong>: To detect outliers in numerical features like pixel values, bounding box coordinates, or object sizes, you can use methods such as box plots, histograms, or z-scores.</li>
+<li><strong>Visual Techniques</strong>: To spot anomalies in categorical features like object classes, colors, or shapes, use visual methods like plotting images, labels, or heat maps.</li>
+<li><strong>Algorithmic Methods</strong>: Use tools like clustering (e.g., K-means clustering, DBSCAN) and anomaly detection algorithms to identify outliers based on data distribution patterns.</li>
 </ul>
-<p>Then, you can load your training and validation datasets into your environment. Normalize and preprocess the data through resizing, format conversion, or augmentation. With your model selected, configure the layers and specify hyperparameters. Compile the model by setting the loss function, optimizer, and performance metrics.</p>
-<p>Libraries like Ultralytics simplify the training process. You can <a href="../../modes/train/">start training</a> by feeding data into the model with minimal code. These libraries handle weight adjustments, backpropagation, and validation automatically. They also offer tools to monitor progress and adjust hyperparameters easily. After training, save the model and its weights with a few commands.</p>
-<p>It's important to keep in mind that proper dataset management is vital for efficient training. Use version control for datasets to track changes and ensure reproducibility. Tools like <a href="../../integrations/dvc/">DVC (Data Version Control)</a> can help manage large datasets.</p>
-<h2 id="step-5-model-evaluation-and-model-finetuning">Step 5: Model Evaluation and Model Finetuning</h2>
-<p>It’s important to assess your model's performance using various metrics and refine it to improve accuracy. <a href="../../modes/val/">Evaluating</a> helps identify areas where the model excels and where it may need improvement. Fine-tuning ensures the model is optimized for the best possible performance.</p>
+<h4 id="quality-control-of-annotated-data">Quality Control of Annotated Data</h4>
+<p>Just like other technical projects, quality control is a must for annotated data. It is a good practice to regularly check annotations to make sure they are accurate and consistent. This can be done in a few different ways:</p>
 <ul>
-<li><strong><a href="../yolo-performance-metrics/">Performance Metrics</a>:</strong> Use metrics like accuracy, precision, recall, and F1-score to evaluate your model’s performance. These metrics provide insights into how well your model is making predictions.</li>
-<li>
-<p><strong><a href="../hyperparameter-tuning/">Hyperparameter Tuning</a>:</strong> Adjust hyperparameters to optimize model performance. Techniques like grid search or random search can help find the best hyperparameter values.</p>
-</li>
-<li>
-<p>Fine-Tuning: Make small adjustments to the model architecture or training process to enhance performance. This might involve tweaking learning rates, batch sizes, or other model parameters.</p>
-</li>
+<li>Reviewing samples of annotated data</li>
+<li>Using automated tools to spot common errors</li>
+<li>Having another person double-check the annotations</li>
 </ul>
-<h2 id="step-6-model-testing">Step 6: Model Testing</h2>
-<p>In this step, you can make sure that your model performs well on completely unseen data, confirming its readiness for deployment. The difference between model testing and model evaluation is that it focuses on verifying the final model's performance rather than iteratively improving it.</p>
-<p>It's important to thoroughly test and debug any common issues that may arise. Test your model on a separate test dataset that was not used during training or validation. This dataset should represent real-world scenarios to ensure the model's performance is consistent and reliable.</p>
-<p>Also, address common problems such as overfitting, underfitting, and data leakage. Use techniques like cross-validation and anomaly detection to identify and fix these issues.</p>
-<h2 id="step-7-model-deployment">Step 7: Model Deployment</h2>
-<p>Once your model has been thoroughly tested, it's time to deploy it. Deployment involves making your model available for use in a production environment. Here are the steps to deploy a computer vision model:</p>
-<ul>
-<li>
-<p>Setting Up the Environment: Configure the necessary infrastructure for your chosen deployment option, whether it's cloud-based (AWS, Google Cloud, Azure) or edge-based (local devices, IoT).</p>
-</li>
-<li>
-<p><strong><a href="../../modes/export/">Exporting the Model</a>:</strong> Export your model to the appropriate format (e.g., ONNX, TensorRT, CoreML for YOLOv8) to ensure compatibility with your deployment platform.</p>
-</li>
-<li><strong>Deploying the Model:</strong> Deploy the model by setting up APIs or endpoints and integrating it with your application.</li>
-<li><strong>Ensuring Scalability</strong>: Implement load balancers, auto-scaling groups, and monitoring tools to manage resources and handle increasing data and user requests.</li>
-</ul>
-<h2 id="step-8-monitoring-maintenance-and-documentation">Step 8: Monitoring, Maintenance, and Documentation</h2>
-<p>Once your model is deployed, it’s important to continuously monitor its performance, maintain it to handle any issues, and document the entire process for future reference and improvements.</p>
-<p>Monitoring tools can help you track key performance indicators (KPIs) and detect anomalies or drops in accuracy. By monitoring the model, you can be aware of model drift, where the model's performance declines over time due to changes in the input data. Periodically retrain the model with updated data to maintain accuracy and relevance.</p>
-<p align="center">
-<img alt="Model Monitoring" src="https://www.kdnuggets.com/wp-content/uploads//ai-infinite-training-maintaining-loop.jpg" width="100%"/>
-</p>
-<p>In addition to monitoring and maintenance, documentation is also key. Thoroughly document the entire process, including model architecture, training procedures, hyperparameters, data preprocessing steps, and any changes made during deployment and maintenance. Good documentation ensures reproducibility and makes future updates or troubleshooting easier. By effectively monitoring, maintaining, and documenting your model, you can ensure it remains accurate, reliable, and easy to manage over its lifecycle.</p>
+<p>If you are working with multiple people, consistency between different annotators is important. Good inter-annotator agreement means that the guidelines are clear and everyone is following them the same way. It keeps everyone on the same page and the annotations consistent.</p>
+<p>While reviewing, if you find errors, correct them and update the guidelines to avoid future mistakes. Provide feedback to annotators and offer regular training to help reduce errors. Having a strong process for handling errors keeps your dataset accurate and reliable.</p>
 <h2 id="faqs">FAQs</h2>
-<p>Here are some common questions that might arise during a computer vision project:</p>
+<p>Here are some questions that might encounter while collecting and annotating data:</p>
 <ul>
-<li>
-<p><strong>Q1:</strong> How do the steps change if I already have a dataset or data when starting a computer vision project?</p>
-<ul>
-<li><strong>A1:</strong> Starting with a pre-existing dataset or data affects the initial steps of your project. In Step 1, along with deciding the computer vision task and model, you’ll also need to explore your dataset thoroughly. Understanding its quality, variety, and limitations will guide your choice of model and training approach. Your approach should align closely with the data's characteristics for more effective outcomes. Depending on your data or dataset, you may be able to skip Step 2 as well.</li>
-</ul>
-</li>
-<li>
-<p><strong>Q2:</strong>  I’m not sure what computer vision project to start my AI learning journey with.</p>
-<ul>
-<li><strong>A2:</strong>  Check out our <a href="../">guides on Real-World Projects</a> for inspiration and guidance.</li>
-</ul>
-</li>
-<li>
-<p><strong>Q3:</strong> I don’t want to train a model. I just want to try running a model on an image. How can I do that?</p>
-<ul>
-<li><strong>A3:</strong> You can use a pre-trained model to run predictions on an image without training a new model. Check out the <a href="../../modes/predict/">YOLOv8 predict docs page</a> for instructions on how to use a pre-trained YOLOv8 model to make predictions on your images.</li>
-</ul>
-</li>
-<li>
-<p><strong>Q4:</strong> Where can I find more detailed articles and updates about computer vision applications and YOLOv8?</p>
-<ul>
-<li><strong>A4:</strong> For more detailed articles, updates, and insights about computer vision applications and YOLOv8, visit the <a href="https://www.ultralytics.com/blog">Ultralytics blog page</a>. The blog covers a wide range of topics and provides valuable information to help you stay updated and improve your projects.</li>
+<li><strong>Q1:</strong> What is active learning in the context of data annotation?<ul>
+<li><strong>A1:</strong> Active learning in data annotation is a technique where a machine learning model iteratively selects the most informative data points for labeling. This improves the model's performance with fewer labeled examples. By focusing on the most valuable data, active learning accelerates the training process and improves the model's ability to generalize from limited data.</li>
 </ul>
 </li>
 </ul>
-<h2 id="engaging-with-the-community">Engaging with the Community</h2>
-<p>Connecting with a community of computer vision enthusiasts can help you tackle any issues you face while working on your computer vision project with confidence. Here are some ways to learn, troubleshoot, and network effectively.</p>
-<h3 id="community-resources">Community Resources</h3>
+<p align="center">
+<img alt="Overview of Active Learning" src="https://assets-global.website-files.com/5d7b77b063a9066d83e1209c/63b413cc43a073846453dca4_633a98dcd9b9793e1eebdfb6_HERO_Active%2520Learning%2520.png" width="100%"/>
+</p>
 <ul>
-<li><strong>GitHub Issues:</strong> Check out the <a href="https://github.com/ultralytics/ultralytics/issues">YOLOv8 GitHub repository</a> and use the Issues tab to ask questions, report bugs, and suggest new features. The active community and maintainers are there to help with specific issues.</li>
-<li><strong>Ultralytics Discord Server:</strong> Join the <a href="https://ultralytics.com/discord/">Ultralytics Discord server</a> to interact with other users and developers, get support, and share insights.</li>
+<li>
+<p><strong>Q2:</strong> How does automated annotation work?</p>
+<ul>
+<li><strong>A2:</strong> Automated annotation uses pre-trained models and algorithms to label data without needing human effort. These models, which have been trained on large datasets, can identify patterns and features in new data. Techniques like transfer learning adjust these models for specific tasks, and active learning helps by selecting the most useful data points for labeling. However, this approach is only possible in certain cases where the model has been trained on sufficiently similar data and tasks.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q3:</strong> How many images do I need to collect for <a href="../../modes/train/">YOLOv8 custom training</a>?</p>
+<ul>
+<li><strong>A3:</strong> For transfer learning and object detection, a good general rule of thumb is to have a minimum of a few hundred annotated objects per class. However, when training a model to detect just one class, it is advisable to start with at least 100 annotated images and train for around 100 epochs. For complex tasks, you may need thousands of images per class to achieve reliable model performance.</li>
+</ul>
+</li>
+</ul>
+<h2 id="share-your-thoughts-with-the-community">Share Your Thoughts with the Community</h2>
+<p>Bouncing your ideas and queries off other computer vision enthusiasts can help accelerate your projects. Here are some great ways to learn, troubleshoot, and network:</p>
+<h3 id="where-to-find-help-and-support">Where to Find Help and Support</h3>
+<ul>
+<li><strong>GitHub Issues:</strong> Visit the YOLOv8 GitHub repository and use the <a href="https://github.com/ultralytics/ultralytics/issues">Issues tab</a> to raise questions, report bugs, and suggest features. The community and maintainers are there to help with any issues you face.</li>
+<li><strong>Ultralytics Discord Server:</strong> Join the <a href="https://ultralytics.com/discord/">Ultralytics Discord server</a> to connect with other users and developers, get support, share knowledge, and brainstorm ideas.</li>
 </ul>
 <h3 id="official-documentation">Official Documentation</h3>
 <ul>
-<li><strong>Ultralytics YOLOv8 Documentation:</strong> Explore the <a href="../">official YOLOv8 documentation</a> for detailed guides with helpful tips on different computer vision tasks and projects.</li>
+<li><strong>Ultralytics YOLOv8 Documentation:</strong> Refer to the <a href="../">official YOLOv8 documentation</a> for thorough guides and valuable insights on numerous computer vision tasks and projects.</li>
 </ul>
-<p>Using these resources will help you overcome challenges and stay updated with the latest trends and best practices in the computer vision community.</p>
-<h2 id="kickstart-your-computer-vision-project-today">Kickstart Your Computer Vision Project Today!</h2>
-<p>Taking on a computer vision project can be exciting and rewarding. By following the steps in this guide, you can build a solid foundation for success. Each step is crucial for developing a solution that meets your objectives and works well in real-world scenarios. As you gain experience, you'll discover advanced techniques and tools to improve your projects. Stay curious, keep learning, and explore new methods and innovations!</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>By following the best practices for collecting and annotating data, avoiding bias, and using the right tools and techniques, you can significantly improve your model's performance. Engaging with the community and using available resources will keep you informed and help you troubleshoot issues effectively. Remember, quality data is the foundation of a successful project, and the right strategies will help you build robust and reliable models.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1085,7 +1092,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-05-29, Updated 2024-05-31<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (2), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-05-31, Updated 2024-05-31<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1096,10 +1103,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/steps-of-a-cv-project', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/data-collection-and-annotation', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/steps-of-a-cv-project', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/data-collection-and-annotation', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -1148,7 +1155,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: OpenVINO Latency vs Throughput modes" class="md-footer__link md-footer__link--prev" href="../optimizing-openvino-latency-vs-throughput-modes/">
+<a aria-label="Previous: Defining A Computer Vision Project's Goals" class="md-footer__link md-footer__link--prev" href="../defining-project-goals/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1157,17 +1164,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                OpenVINO Latency vs Throughput modes
+                Defining A Computer Vision Project's Goals
               </div>
 </div>
 </a>
-<a aria-label="Next: Defining A Computer Vision Project's Goals" class="md-footer__link md-footer__link--next" href="../defining-project-goals/">
+<a aria-label="Next: Preprocessing Annotated Data" class="md-footer__link md-footer__link--next" href="../preprocessing_annotated_data/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Defining A Computer Vision Project's Goals
+                Preprocessing Annotated Data
               </div>
 </div>
 <div class="md-footer__button md-icon">
