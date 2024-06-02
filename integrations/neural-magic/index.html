@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to deploy your YOLOv8 models rapidly using Neural Magic’s DeepSparse. This guide focuses on integrating Ultralytics YOLOv8 with the DeepSparse Engine for high-speed, CPU-based inference, leveraging advanced neural network sparsity techniques." name="description"/>
+<meta content="Learn how to deploy your YOLOv8 models rapidly using Neural Magic's DeepSparse. This guide focuses on integrating Ultralytics YOLOv8 with the DeepSparse Engine for high-speed, CPU-based inference, leveraging advanced neural network sparsity techniques." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/integrations/neural-magic/" rel="canonical"/>
 <link href="../weights-biases/" rel="prev"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Neural Magic" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv8, DeepSparse Engine, Ultralytics, CPU Inference, Neural Network Sparsity, Object Detection, Model Optimization" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/neural-magic" property="og:url"/><meta content="Neural Magic" property="og:title"/><meta content="Learn how to deploy your YOLOv8 models rapidly using Neural Magic’s DeepSparse. This guide focuses on integrating Ultralytics YOLOv8 with the DeepSparse Engine for high-speed, CPU-based inference, leveraging advanced neural network sparsity techniques." property="og:description"/><meta content="https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/neural-magic" property="twitter:url"/><meta content="Neural Magic" property="twitter:title"/><meta content="Learn how to deploy your YOLOv8 models rapidly using Neural Magic’s DeepSparse. This guide focuses on integrating Ultralytics YOLOv8 with the DeepSparse Engine for high-speed, CPU-based inference, leveraging advanced neural network sparsity techniques." property="twitter:description"/><meta content="https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Neural Magic", "image": ["https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png"], "datePublished": "2023-12-30 19:01:13 +0530", "dateModified": "2024-05-18 18:58:06 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Neural Magic" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv8, DeepSparse Engine, Ultralytics, CPU Inference, Neural Network Sparsity, Object Detection, Model Optimization" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/neural-magic" property="og:url"/><meta content="Neural Magic" property="og:title"/><meta content="Learn how to deploy your YOLOv8 models rapidly using Neural Magic's DeepSparse. This guide focuses on integrating Ultralytics YOLOv8 with the DeepSparse Engine for high-speed, CPU-based inference, leveraging advanced neural network sparsity techniques." property="og:description"/><meta content="https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/neural-magic" property="twitter:url"/><meta content="Neural Magic" property="twitter:title"/><meta content="Learn how to deploy your YOLOv8 models rapidly using Neural Magic's DeepSparse. This guide focuses on integrating Ultralytics YOLOv8 with the DeepSparse Engine for high-speed, CPU-based inference, leveraging advanced neural network sparsity techniques." property="twitter:description"/><meta content="https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Neural Magic", "image": ["https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png"], "datePublished": "2023-12-30 19:01:13 +0530", "dateModified": "2024-06-02 14:07:14 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -516,14 +516,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#neural-magics-deepsparse">
 <span class="md-ellipsis">
-      Neural Magic’s DeepSparse
+      Neural Magic's DeepSparse
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#benefits-of-integrating-neural-magics-deepsparse-with-yolov8">
 <span class="md-ellipsis">
-      Benefits of Integrating Neural Magic’s DeepSparse with YOLOv8
+      Benefits of Integrating Neural Magic's DeepSparse with YOLOv8
     </span>
 </a>
 </li>
@@ -676,14 +676,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#neural-magics-deepsparse">
 <span class="md-ellipsis">
-      Neural Magic’s DeepSparse
+      Neural Magic's DeepSparse
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#benefits-of-integrating-neural-magics-deepsparse-with-yolov8">
 <span class="md-ellipsis">
-      Benefits of Integrating Neural Magic’s DeepSparse with YOLOv8
+      Benefits of Integrating Neural Magic's DeepSparse with YOLOv8
     </span>
 </a>
 </li>
@@ -764,16 +764,16 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/neural-magic.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="optimizing-yolov8-inferences-with-neural-magics-deepsparse-engine">Optimizing YOLOv8 Inferences with Neural Magic’s DeepSparse Engine</h1>
-<p>When deploying object detection models like <a href="https://ultralytics.com">Ultralytics YOLOv8</a> on various hardware, you can bump into unique issues like optimization. This is where YOLOv8’s integration with Neural Magic’s DeepSparse Engine steps in. It transforms the way YOLOv8 models are executed and enables GPU-level performance directly on CPUs.</p>
+<h1 id="optimizing-yolov8-inferences-with-neural-magics-deepsparse-engine">Optimizing YOLOv8 Inferences with Neural Magic's DeepSparse Engine</h1>
+<p>When deploying object detection models like <a href="https://ultralytics.com">Ultralytics YOLOv8</a> on various hardware, you can bump into unique issues like optimization. This is where YOLOv8's integration with Neural Magic's DeepSparse Engine steps in. It transforms the way YOLOv8 models are executed and enables GPU-level performance directly on CPUs.</p>
 <p>This guide shows you how to deploy YOLOv8 using Neural Magic's DeepSparse, how to run inferences, and also how to benchmark performance to ensure it is optimized.</p>
-<h2 id="neural-magics-deepsparse">Neural Magic’s DeepSparse</h2>
+<h2 id="neural-magics-deepsparse">Neural Magic's DeepSparse</h2>
 <p align="center">
-<img alt="Neural Magic’s DeepSparse Overview" src="https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png" width="640"/>
+<img alt="Neural Magic's DeepSparse Overview" src="https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png" width="640"/>
 </p>
-<p><a href="https://neuralmagic.com/deepsparse/">Neural Magic’s DeepSparse</a> is an inference run-time designed to optimize the execution of neural networks on CPUs. It applies advanced techniques like sparsity, pruning, and quantization to dramatically reduce computational demands while maintaining accuracy. DeepSparse offers an agile solution for efficient and scalable neural network execution across various devices.</p>
-<h2 id="benefits-of-integrating-neural-magics-deepsparse-with-yolov8">Benefits of Integrating Neural Magic’s DeepSparse with YOLOv8</h2>
-<p>Before diving into how to deploy YOLOV8 using DeepSparse, let’s understand the benefits of using DeepSparse. Some key advantages include:</p>
+<p><a href="https://neuralmagic.com/deepsparse/">Neural Magic's DeepSparse</a> is an inference run-time designed to optimize the execution of neural networks on CPUs. It applies advanced techniques like sparsity, pruning, and quantization to dramatically reduce computational demands while maintaining accuracy. DeepSparse offers an agile solution for efficient and scalable neural network execution across various devices.</p>
+<h2 id="benefits-of-integrating-neural-magics-deepsparse-with-yolov8">Benefits of Integrating Neural Magic's DeepSparse with YOLOv8</h2>
+<p>Before diving into how to deploy YOLOV8 using DeepSparse, let's understand the benefits of using DeepSparse. Some key advantages include:</p>
 <ul>
 <li><strong>Enhanced Inference Speed</strong>: Achieves up to 525 FPS (on YOLOv8n), significantly speeding up YOLOv8's inference capabilities compared to traditional methods.</li>
 </ul>
@@ -801,7 +801,7 @@
 </li>
 </ul>
 <h2 id="how-does-neural-magics-deepsparse-technology-works">How Does Neural Magic's DeepSparse Technology Works?</h2>
-<p>Neural Magic’s Deep Sparse technology is inspired by the human brain’s efficiency in neural network computation. It adopts two key principles from the brain as follows:</p>
+<p>Neural Magic's Deep Sparse technology is inspired by the human brain's efficiency in neural network computation. It adopts two key principles from the brain as follows:</p>
 <ul>
 <li>
 <p><strong>Sparsity</strong>: The process of sparsification involves pruning redundant information from deep learning networks, leading to smaller and faster models without compromising accuracy. This technique reduces the network's size and computational needs significantly.</p>
@@ -908,8 +908,8 @@
 </p>
 <p>After running the eval command, you will receive detailed output metrics such as precision, recall, and mAP (mean Average Precision). This provides a comprehensive view of your model's performance on the dataset. This functionality is particularly useful for fine-tuning and optimizing your YOLOv8 models for specific use cases, ensuring high accuracy and efficiency.</p>
 <h2 id="summary">Summary</h2>
-<p>This guide explored integrating Ultralytics’ YOLOv8 with Neural Magic's DeepSparse Engine. It highlighted how this integration enhances YOLOv8's performance on CPU platforms, offering GPU-level efficiency and advanced neural network sparsity techniques.</p>
-<p>For more detailed information and advanced usage, visit <a href="https://docs.neuralmagic.com/products/deepsparse/">Neural Magic’s DeepSparse documentation</a>. Also, check out Neural Magic’s documentation on the integration with YOLOv8 <a href="https://github.com/neuralmagic/deepsparse/tree/main/src/deepsparse/yolov8#yolov8-inference-pipelines">here</a> and watch a great session on it <a href="https://www.youtube.com/watch?v=qtJ7bdt52x8">here</a>.</p>
+<p>This guide explored integrating Ultralytics' YOLOv8 with Neural Magic's DeepSparse Engine. It highlighted how this integration enhances YOLOv8's performance on CPU platforms, offering GPU-level efficiency and advanced neural network sparsity techniques.</p>
+<p>For more detailed information and advanced usage, visit <a href="https://docs.neuralmagic.com/products/deepsparse/">Neural Magic's DeepSparse documentation</a>. Also, check out Neural Magic's documentation on the integration with YOLOv8 <a href="https://github.com/neuralmagic/deepsparse/tree/main/src/deepsparse/yolov8#yolov8-inference-pipelines">here</a> and watch a great session on it <a href="https://www.youtube.com/watch?v=qtJ7bdt52x8">here</a>.</p>
 <p>Additionally, for a broader understanding of various YOLOv8 integrations, visit the <a href="../">Ultralytics integration guide page</a>, where you can discover a range of other exciting integration possibilities.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
@@ -919,7 +919,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-30, Updated 2024-05-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-30, Updated 2024-06-02<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
