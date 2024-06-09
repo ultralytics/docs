@@ -2713,8 +2713,7 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <span class="normal"><a href="#__codelineno-0-842">842</a></span>
 <span class="normal"><a href="#__codelineno-0-843">843</a></span>
 <span class="normal"><a href="#__codelineno-0-844">844</a></span>
-<span class="normal"><a href="#__codelineno-0-845">845</a></span>
-<span class="normal"><a href="#__codelineno-0-846">846</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-845">845</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    A base class for implementing YOLO models, unifying APIs across different model types.</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a>
@@ -3431,108 +3430,107 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <a id="__codelineno-0-742" name="__codelineno-0-742"></a>
 <a id="__codelineno-0-743" name="__codelineno-0-743"></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"names"</span><span class="p">):</span>
 <a id="__codelineno-0-744" name="__codelineno-0-744"></a>            <span class="k">return</span> <span class="n">check_class_names</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-0-745" name="__codelineno-0-745"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-746" name="__codelineno-0-746"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">:</span>  <span class="c1"># export formats will not have predictor defined until predict() is called</span>
-<a id="__codelineno-0-747" name="__codelineno-0-747"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_smart_load</span><span class="p">(</span><span class="s2">"predictor"</span><span class="p">)(</span><span class="n">overrides</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
-<a id="__codelineno-0-748" name="__codelineno-0-748"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">setup_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-749" name="__codelineno-0-749"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span>
-<a id="__codelineno-0-750" name="__codelineno-0-750"></a>
-<a id="__codelineno-0-751" name="__codelineno-0-751"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-752" name="__codelineno-0-752"></a>    <span class="k">def</span> <span class="nf">device</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">:</span>
-<a id="__codelineno-0-753" name="__codelineno-0-753"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-754" name="__codelineno-0-754"></a><span class="sd">        Retrieves the device on which the model's parameters are allocated.</span>
-<a id="__codelineno-0-755" name="__codelineno-0-755"></a>
-<a id="__codelineno-0-756" name="__codelineno-0-756"></a><span class="sd">        This property is used to determine whether the model's parameters are on CPU or GPU. It only applies to models</span>
-<a id="__codelineno-0-757" name="__codelineno-0-757"></a><span class="sd">        that are instances of nn.Module.</span>
-<a id="__codelineno-0-758" name="__codelineno-0-758"></a>
-<a id="__codelineno-0-759" name="__codelineno-0-759"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-760" name="__codelineno-0-760"></a><span class="sd">            (torch.device | None): The device (CPU/GPU) of the model if it is a PyTorch model, otherwise None.</span>
-<a id="__codelineno-0-761" name="__codelineno-0-761"></a><span class="sd">        """</span>
-<a id="__codelineno-0-762" name="__codelineno-0-762"></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
-<a id="__codelineno-0-763" name="__codelineno-0-763"></a>
-<a id="__codelineno-0-764" name="__codelineno-0-764"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-765" name="__codelineno-0-765"></a>    <span class="k">def</span> <span class="nf">transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-766" name="__codelineno-0-766"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-767" name="__codelineno-0-767"></a><span class="sd">        Retrieves the transformations applied to the input data of the loaded model.</span>
-<a id="__codelineno-0-768" name="__codelineno-0-768"></a>
-<a id="__codelineno-0-769" name="__codelineno-0-769"></a><span class="sd">        This property returns the transformations if they are defined in the model.</span>
-<a id="__codelineno-0-770" name="__codelineno-0-770"></a>
-<a id="__codelineno-0-771" name="__codelineno-0-771"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-772" name="__codelineno-0-772"></a><span class="sd">            (object | None): The transform object of the model if available, otherwise None.</span>
-<a id="__codelineno-0-773" name="__codelineno-0-773"></a><span class="sd">        """</span>
-<a id="__codelineno-0-774" name="__codelineno-0-774"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transforms</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"transforms"</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
-<a id="__codelineno-0-775" name="__codelineno-0-775"></a>
-<a id="__codelineno-0-776" name="__codelineno-0-776"></a>    <span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-777" name="__codelineno-0-777"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-778" name="__codelineno-0-778"></a><span class="sd">        Adds a callback function for a specified event.</span>
-<a id="__codelineno-0-779" name="__codelineno-0-779"></a>
-<a id="__codelineno-0-780" name="__codelineno-0-780"></a><span class="sd">        This method allows the user to register a custom callback function that is triggered on a specific event during</span>
-<a id="__codelineno-0-781" name="__codelineno-0-781"></a><span class="sd">        model training or inference.</span>
-<a id="__codelineno-0-782" name="__codelineno-0-782"></a>
-<a id="__codelineno-0-783" name="__codelineno-0-783"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-784" name="__codelineno-0-784"></a><span class="sd">            event (str): The name of the event to attach the callback to.</span>
-<a id="__codelineno-0-785" name="__codelineno-0-785"></a><span class="sd">            func (callable): The callback function to be registered.</span>
-<a id="__codelineno-0-786" name="__codelineno-0-786"></a>
-<a id="__codelineno-0-787" name="__codelineno-0-787"></a><span class="sd">        Raises:</span>
-<a id="__codelineno-0-788" name="__codelineno-0-788"></a><span class="sd">            ValueError: If the event name is not recognized.</span>
-<a id="__codelineno-0-789" name="__codelineno-0-789"></a><span class="sd">        """</span>
-<a id="__codelineno-0-790" name="__codelineno-0-790"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<a id="__codelineno-0-791" name="__codelineno-0-791"></a>
-<a id="__codelineno-0-792" name="__codelineno-0-792"></a>    <span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-793" name="__codelineno-0-793"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-794" name="__codelineno-0-794"></a><span class="sd">        Clears all callback functions registered for a specified event.</span>
-<a id="__codelineno-0-795" name="__codelineno-0-795"></a>
-<a id="__codelineno-0-796" name="__codelineno-0-796"></a><span class="sd">        This method removes all custom and default callback functions associated with the given event.</span>
-<a id="__codelineno-0-797" name="__codelineno-0-797"></a>
-<a id="__codelineno-0-798" name="__codelineno-0-798"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-799" name="__codelineno-0-799"></a><span class="sd">            event (str): The name of the event for which to clear the callbacks.</span>
-<a id="__codelineno-0-800" name="__codelineno-0-800"></a>
-<a id="__codelineno-0-801" name="__codelineno-0-801"></a><span class="sd">        Raises:</span>
-<a id="__codelineno-0-802" name="__codelineno-0-802"></a><span class="sd">            ValueError: If the event name is not recognized.</span>
-<a id="__codelineno-0-803" name="__codelineno-0-803"></a><span class="sd">        """</span>
-<a id="__codelineno-0-804" name="__codelineno-0-804"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-805" name="__codelineno-0-805"></a>
-<a id="__codelineno-0-806" name="__codelineno-0-806"></a>    <span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-807" name="__codelineno-0-807"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-808" name="__codelineno-0-808"></a><span class="sd">        Resets all callbacks to their default functions.</span>
-<a id="__codelineno-0-809" name="__codelineno-0-809"></a>
-<a id="__codelineno-0-810" name="__codelineno-0-810"></a><span class="sd">        This method reinstates the default callback functions for all events, removing any custom callbacks that were</span>
-<a id="__codelineno-0-811" name="__codelineno-0-811"></a><span class="sd">        added previously.</span>
-<a id="__codelineno-0-812" name="__codelineno-0-812"></a><span class="sd">        """</span>
-<a id="__codelineno-0-813" name="__codelineno-0-813"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<a id="__codelineno-0-814" name="__codelineno-0-814"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
-<a id="__codelineno-0-815" name="__codelineno-0-815"></a>
-<a id="__codelineno-0-816" name="__codelineno-0-816"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-817" name="__codelineno-0-817"></a>    <span class="k">def</span> <span class="nf">_reset_ckpt_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<a id="__codelineno-0-818" name="__codelineno-0-818"></a><span class="w">        </span><span class="sd">"""Reset arguments when loading a PyTorch model."""</span>
-<a id="__codelineno-0-819" name="__codelineno-0-819"></a>        <span class="n">include</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"imgsz"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"task"</span><span class="p">,</span> <span class="s2">"single_cls"</span><span class="p">}</span>  <span class="c1"># only remember these arguments when loading a PyTorch model</span>
-<a id="__codelineno-0-820" name="__codelineno-0-820"></a>        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">include</span><span class="p">}</span>
-<a id="__codelineno-0-821" name="__codelineno-0-821"></a>
-<a id="__codelineno-0-822" name="__codelineno-0-822"></a>    <span class="c1"># def __getattr__(self, attr):</span>
-<a id="__codelineno-0-823" name="__codelineno-0-823"></a>    <span class="c1">#    """Raises error if object has no requested attribute."""</span>
-<a id="__codelineno-0-824" name="__codelineno-0-824"></a>    <span class="c1">#    name = self.__class__.__name__</span>
-<a id="__codelineno-0-825" name="__codelineno-0-825"></a>    <span class="c1">#    raise AttributeError(f"'{name}' object has no attribute '{attr}'. See valid attributes below.\n{self.__doc__}")</span>
-<a id="__codelineno-0-826" name="__codelineno-0-826"></a>
-<a id="__codelineno-0-827" name="__codelineno-0-827"></a>    <span class="k">def</span> <span class="nf">_smart_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-0-828" name="__codelineno-0-828"></a><span class="w">        </span><span class="sd">"""Load model/trainer/validator/predictor."""</span>
-<a id="__codelineno-0-829" name="__codelineno-0-829"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-830" name="__codelineno-0-830"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_map</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
-<a id="__codelineno-0-831" name="__codelineno-0-831"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-832" name="__codelineno-0-832"></a>            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
-<a id="__codelineno-0-833" name="__codelineno-0-833"></a>            <span class="n">mode</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># get the function name.</span>
-<a id="__codelineno-0-834" name="__codelineno-0-834"></a>            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-<a id="__codelineno-0-835" name="__codelineno-0-835"></a>                <span class="n">emojis</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">' model does not support '</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">' mode for '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' task yet."</span><span class="p">)</span>
-<a id="__codelineno-0-836" name="__codelineno-0-836"></a>            <span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<a id="__codelineno-0-837" name="__codelineno-0-837"></a>
-<a id="__codelineno-0-838" name="__codelineno-0-838"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-839" name="__codelineno-0-839"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<a id="__codelineno-0-840" name="__codelineno-0-840"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-841" name="__codelineno-0-841"></a><span class="sd">        Map head to model, trainer, validator, and predictor classes.</span>
-<a id="__codelineno-0-842" name="__codelineno-0-842"></a>
-<a id="__codelineno-0-843" name="__codelineno-0-843"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-844" name="__codelineno-0-844"></a><span class="sd">            task_map (dict): The map of model task to mode classes.</span>
-<a id="__codelineno-0-845" name="__codelineno-0-845"></a><span class="sd">        """</span>
-<a id="__codelineno-0-846" name="__codelineno-0-846"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Please provide task map for your model!"</span><span class="p">)</span>
+<a id="__codelineno-0-745" name="__codelineno-0-745"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">:</span>  <span class="c1"># export formats will not have predictor defined until predict() is called</span>
+<a id="__codelineno-0-746" name="__codelineno-0-746"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_smart_load</span><span class="p">(</span><span class="s2">"predictor"</span><span class="p">)(</span><span class="n">overrides</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
+<a id="__codelineno-0-747" name="__codelineno-0-747"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">setup_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-748" name="__codelineno-0-748"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span>
+<a id="__codelineno-0-749" name="__codelineno-0-749"></a>
+<a id="__codelineno-0-750" name="__codelineno-0-750"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-751" name="__codelineno-0-751"></a>    <span class="k">def</span> <span class="nf">device</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">:</span>
+<a id="__codelineno-0-752" name="__codelineno-0-752"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-753" name="__codelineno-0-753"></a><span class="sd">        Retrieves the device on which the model's parameters are allocated.</span>
+<a id="__codelineno-0-754" name="__codelineno-0-754"></a>
+<a id="__codelineno-0-755" name="__codelineno-0-755"></a><span class="sd">        This property is used to determine whether the model's parameters are on CPU or GPU. It only applies to models</span>
+<a id="__codelineno-0-756" name="__codelineno-0-756"></a><span class="sd">        that are instances of nn.Module.</span>
+<a id="__codelineno-0-757" name="__codelineno-0-757"></a>
+<a id="__codelineno-0-758" name="__codelineno-0-758"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-759" name="__codelineno-0-759"></a><span class="sd">            (torch.device | None): The device (CPU/GPU) of the model if it is a PyTorch model, otherwise None.</span>
+<a id="__codelineno-0-760" name="__codelineno-0-760"></a><span class="sd">        """</span>
+<a id="__codelineno-0-761" name="__codelineno-0-761"></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-762" name="__codelineno-0-762"></a>
+<a id="__codelineno-0-763" name="__codelineno-0-763"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-764" name="__codelineno-0-764"></a>    <span class="k">def</span> <span class="nf">transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-765" name="__codelineno-0-765"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-766" name="__codelineno-0-766"></a><span class="sd">        Retrieves the transformations applied to the input data of the loaded model.</span>
+<a id="__codelineno-0-767" name="__codelineno-0-767"></a>
+<a id="__codelineno-0-768" name="__codelineno-0-768"></a><span class="sd">        This property returns the transformations if they are defined in the model.</span>
+<a id="__codelineno-0-769" name="__codelineno-0-769"></a>
+<a id="__codelineno-0-770" name="__codelineno-0-770"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-771" name="__codelineno-0-771"></a><span class="sd">            (object | None): The transform object of the model if available, otherwise None.</span>
+<a id="__codelineno-0-772" name="__codelineno-0-772"></a><span class="sd">        """</span>
+<a id="__codelineno-0-773" name="__codelineno-0-773"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transforms</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"transforms"</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-774" name="__codelineno-0-774"></a>
+<a id="__codelineno-0-775" name="__codelineno-0-775"></a>    <span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-776" name="__codelineno-0-776"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-777" name="__codelineno-0-777"></a><span class="sd">        Adds a callback function for a specified event.</span>
+<a id="__codelineno-0-778" name="__codelineno-0-778"></a>
+<a id="__codelineno-0-779" name="__codelineno-0-779"></a><span class="sd">        This method allows the user to register a custom callback function that is triggered on a specific event during</span>
+<a id="__codelineno-0-780" name="__codelineno-0-780"></a><span class="sd">        model training or inference.</span>
+<a id="__codelineno-0-781" name="__codelineno-0-781"></a>
+<a id="__codelineno-0-782" name="__codelineno-0-782"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-783" name="__codelineno-0-783"></a><span class="sd">            event (str): The name of the event to attach the callback to.</span>
+<a id="__codelineno-0-784" name="__codelineno-0-784"></a><span class="sd">            func (callable): The callback function to be registered.</span>
+<a id="__codelineno-0-785" name="__codelineno-0-785"></a>
+<a id="__codelineno-0-786" name="__codelineno-0-786"></a><span class="sd">        Raises:</span>
+<a id="__codelineno-0-787" name="__codelineno-0-787"></a><span class="sd">            ValueError: If the event name is not recognized.</span>
+<a id="__codelineno-0-788" name="__codelineno-0-788"></a><span class="sd">        """</span>
+<a id="__codelineno-0-789" name="__codelineno-0-789"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<a id="__codelineno-0-790" name="__codelineno-0-790"></a>
+<a id="__codelineno-0-791" name="__codelineno-0-791"></a>    <span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-792" name="__codelineno-0-792"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-793" name="__codelineno-0-793"></a><span class="sd">        Clears all callback functions registered for a specified event.</span>
+<a id="__codelineno-0-794" name="__codelineno-0-794"></a>
+<a id="__codelineno-0-795" name="__codelineno-0-795"></a><span class="sd">        This method removes all custom and default callback functions associated with the given event.</span>
+<a id="__codelineno-0-796" name="__codelineno-0-796"></a>
+<a id="__codelineno-0-797" name="__codelineno-0-797"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-798" name="__codelineno-0-798"></a><span class="sd">            event (str): The name of the event for which to clear the callbacks.</span>
+<a id="__codelineno-0-799" name="__codelineno-0-799"></a>
+<a id="__codelineno-0-800" name="__codelineno-0-800"></a><span class="sd">        Raises:</span>
+<a id="__codelineno-0-801" name="__codelineno-0-801"></a><span class="sd">            ValueError: If the event name is not recognized.</span>
+<a id="__codelineno-0-802" name="__codelineno-0-802"></a><span class="sd">        """</span>
+<a id="__codelineno-0-803" name="__codelineno-0-803"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-804" name="__codelineno-0-804"></a>
+<a id="__codelineno-0-805" name="__codelineno-0-805"></a>    <span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-806" name="__codelineno-0-806"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-807" name="__codelineno-0-807"></a><span class="sd">        Resets all callbacks to their default functions.</span>
+<a id="__codelineno-0-808" name="__codelineno-0-808"></a>
+<a id="__codelineno-0-809" name="__codelineno-0-809"></a><span class="sd">        This method reinstates the default callback functions for all events, removing any custom callbacks that were</span>
+<a id="__codelineno-0-810" name="__codelineno-0-810"></a><span class="sd">        added previously.</span>
+<a id="__codelineno-0-811" name="__codelineno-0-811"></a><span class="sd">        """</span>
+<a id="__codelineno-0-812" name="__codelineno-0-812"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-0-813" name="__codelineno-0-813"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+<a id="__codelineno-0-814" name="__codelineno-0-814"></a>
+<a id="__codelineno-0-815" name="__codelineno-0-815"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-816" name="__codelineno-0-816"></a>    <span class="k">def</span> <span class="nf">_reset_ckpt_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-0-817" name="__codelineno-0-817"></a><span class="w">        </span><span class="sd">"""Reset arguments when loading a PyTorch model."""</span>
+<a id="__codelineno-0-818" name="__codelineno-0-818"></a>        <span class="n">include</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"imgsz"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"task"</span><span class="p">,</span> <span class="s2">"single_cls"</span><span class="p">}</span>  <span class="c1"># only remember these arguments when loading a PyTorch model</span>
+<a id="__codelineno-0-819" name="__codelineno-0-819"></a>        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">include</span><span class="p">}</span>
+<a id="__codelineno-0-820" name="__codelineno-0-820"></a>
+<a id="__codelineno-0-821" name="__codelineno-0-821"></a>    <span class="c1"># def __getattr__(self, attr):</span>
+<a id="__codelineno-0-822" name="__codelineno-0-822"></a>    <span class="c1">#    """Raises error if object has no requested attribute."""</span>
+<a id="__codelineno-0-823" name="__codelineno-0-823"></a>    <span class="c1">#    name = self.__class__.__name__</span>
+<a id="__codelineno-0-824" name="__codelineno-0-824"></a>    <span class="c1">#    raise AttributeError(f"'{name}' object has no attribute '{attr}'. See valid attributes below.\n{self.__doc__}")</span>
+<a id="__codelineno-0-825" name="__codelineno-0-825"></a>
+<a id="__codelineno-0-826" name="__codelineno-0-826"></a>    <span class="k">def</span> <span class="nf">_smart_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-0-827" name="__codelineno-0-827"></a><span class="w">        </span><span class="sd">"""Load model/trainer/validator/predictor."""</span>
+<a id="__codelineno-0-828" name="__codelineno-0-828"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-829" name="__codelineno-0-829"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_map</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+<a id="__codelineno-0-830" name="__codelineno-0-830"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-0-831" name="__codelineno-0-831"></a>            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+<a id="__codelineno-0-832" name="__codelineno-0-832"></a>            <span class="n">mode</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># get the function name.</span>
+<a id="__codelineno-0-833" name="__codelineno-0-833"></a>            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+<a id="__codelineno-0-834" name="__codelineno-0-834"></a>                <span class="n">emojis</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">' model does not support '</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">' mode for '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' task yet."</span><span class="p">)</span>
+<a id="__codelineno-0-835" name="__codelineno-0-835"></a>            <span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<a id="__codelineno-0-836" name="__codelineno-0-836"></a>
+<a id="__codelineno-0-837" name="__codelineno-0-837"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-838" name="__codelineno-0-838"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-0-839" name="__codelineno-0-839"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-840" name="__codelineno-0-840"></a><span class="sd">        Map head to model, trainer, validator, and predictor classes.</span>
+<a id="__codelineno-0-841" name="__codelineno-0-841"></a>
+<a id="__codelineno-0-842" name="__codelineno-0-842"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-843" name="__codelineno-0-843"></a><span class="sd">            task_map (dict): The map of model task to mode classes.</span>
+<a id="__codelineno-0-844" name="__codelineno-0-844"></a><span class="sd">        """</span>
+<a id="__codelineno-0-845" name="__codelineno-0-845"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Please provide task map for your model!"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -4110,7 +4108,8 @@ model training or inference.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-776">776</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-775">775</a></span>
+<span class="normal"><a href="#__codelineno-0-776">776</a></span>
 <span class="normal"><a href="#__codelineno-0-777">777</a></span>
 <span class="normal"><a href="#__codelineno-0-778">778</a></span>
 <span class="normal"><a href="#__codelineno-0-779">779</a></span>
@@ -4123,22 +4122,21 @@ model training or inference.</p>
 <span class="normal"><a href="#__codelineno-0-786">786</a></span>
 <span class="normal"><a href="#__codelineno-0-787">787</a></span>
 <span class="normal"><a href="#__codelineno-0-788">788</a></span>
-<span class="normal"><a href="#__codelineno-0-789">789</a></span>
-<span class="normal"><a href="#__codelineno-0-790">790</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-776" name="__codelineno-0-776"></a><span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-777" name="__codelineno-0-777"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-778" name="__codelineno-0-778"></a><span class="sd">    Adds a callback function for a specified event.</span>
-<a id="__codelineno-0-779" name="__codelineno-0-779"></a>
-<a id="__codelineno-0-780" name="__codelineno-0-780"></a><span class="sd">    This method allows the user to register a custom callback function that is triggered on a specific event during</span>
-<a id="__codelineno-0-781" name="__codelineno-0-781"></a><span class="sd">    model training or inference.</span>
-<a id="__codelineno-0-782" name="__codelineno-0-782"></a>
-<a id="__codelineno-0-783" name="__codelineno-0-783"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-784" name="__codelineno-0-784"></a><span class="sd">        event (str): The name of the event to attach the callback to.</span>
-<a id="__codelineno-0-785" name="__codelineno-0-785"></a><span class="sd">        func (callable): The callback function to be registered.</span>
-<a id="__codelineno-0-786" name="__codelineno-0-786"></a>
-<a id="__codelineno-0-787" name="__codelineno-0-787"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-788" name="__codelineno-0-788"></a><span class="sd">        ValueError: If the event name is not recognized.</span>
-<a id="__codelineno-0-789" name="__codelineno-0-789"></a><span class="sd">    """</span>
-<a id="__codelineno-0-790" name="__codelineno-0-790"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-789">789</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-775" name="__codelineno-0-775"></a><span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-776" name="__codelineno-0-776"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-777" name="__codelineno-0-777"></a><span class="sd">    Adds a callback function for a specified event.</span>
+<a id="__codelineno-0-778" name="__codelineno-0-778"></a>
+<a id="__codelineno-0-779" name="__codelineno-0-779"></a><span class="sd">    This method allows the user to register a custom callback function that is triggered on a specific event during</span>
+<a id="__codelineno-0-780" name="__codelineno-0-780"></a><span class="sd">    model training or inference.</span>
+<a id="__codelineno-0-781" name="__codelineno-0-781"></a>
+<a id="__codelineno-0-782" name="__codelineno-0-782"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-783" name="__codelineno-0-783"></a><span class="sd">        event (str): The name of the event to attach the callback to.</span>
+<a id="__codelineno-0-784" name="__codelineno-0-784"></a><span class="sd">        func (callable): The callback function to be registered.</span>
+<a id="__codelineno-0-785" name="__codelineno-0-785"></a>
+<a id="__codelineno-0-786" name="__codelineno-0-786"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-787" name="__codelineno-0-787"></a><span class="sd">        ValueError: If the event name is not recognized.</span>
+<a id="__codelineno-0-788" name="__codelineno-0-788"></a><span class="sd">    """</span>
+<a id="__codelineno-0-789" name="__codelineno-0-789"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4368,7 +4366,8 @@ default configurations, model-specific arguments, and method defaults.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-792">792</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-791">791</a></span>
+<span class="normal"><a href="#__codelineno-0-792">792</a></span>
 <span class="normal"><a href="#__codelineno-0-793">793</a></span>
 <span class="normal"><a href="#__codelineno-0-794">794</a></span>
 <span class="normal"><a href="#__codelineno-0-795">795</a></span>
@@ -4379,20 +4378,19 @@ default configurations, model-specific arguments, and method defaults.</p>
 <span class="normal"><a href="#__codelineno-0-800">800</a></span>
 <span class="normal"><a href="#__codelineno-0-801">801</a></span>
 <span class="normal"><a href="#__codelineno-0-802">802</a></span>
-<span class="normal"><a href="#__codelineno-0-803">803</a></span>
-<span class="normal"><a href="#__codelineno-0-804">804</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-792" name="__codelineno-0-792"></a><span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-793" name="__codelineno-0-793"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-794" name="__codelineno-0-794"></a><span class="sd">    Clears all callback functions registered for a specified event.</span>
-<a id="__codelineno-0-795" name="__codelineno-0-795"></a>
-<a id="__codelineno-0-796" name="__codelineno-0-796"></a><span class="sd">    This method removes all custom and default callback functions associated with the given event.</span>
-<a id="__codelineno-0-797" name="__codelineno-0-797"></a>
-<a id="__codelineno-0-798" name="__codelineno-0-798"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-799" name="__codelineno-0-799"></a><span class="sd">        event (str): The name of the event for which to clear the callbacks.</span>
-<a id="__codelineno-0-800" name="__codelineno-0-800"></a>
-<a id="__codelineno-0-801" name="__codelineno-0-801"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-802" name="__codelineno-0-802"></a><span class="sd">        ValueError: If the event name is not recognized.</span>
-<a id="__codelineno-0-803" name="__codelineno-0-803"></a><span class="sd">    """</span>
-<a id="__codelineno-0-804" name="__codelineno-0-804"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="normal"><a href="#__codelineno-0-803">803</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-791" name="__codelineno-0-791"></a><span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-792" name="__codelineno-0-792"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-793" name="__codelineno-0-793"></a><span class="sd">    Clears all callback functions registered for a specified event.</span>
+<a id="__codelineno-0-794" name="__codelineno-0-794"></a>
+<a id="__codelineno-0-795" name="__codelineno-0-795"></a><span class="sd">    This method removes all custom and default callback functions associated with the given event.</span>
+<a id="__codelineno-0-796" name="__codelineno-0-796"></a>
+<a id="__codelineno-0-797" name="__codelineno-0-797"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-798" name="__codelineno-0-798"></a><span class="sd">        event (str): The name of the event for which to clear the callbacks.</span>
+<a id="__codelineno-0-799" name="__codelineno-0-799"></a>
+<a id="__codelineno-0-800" name="__codelineno-0-800"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-801" name="__codelineno-0-801"></a><span class="sd">        ValueError: If the event name is not recognized.</span>
+<a id="__codelineno-0-802" name="__codelineno-0-802"></a><span class="sd">    """</span>
+<a id="__codelineno-0-803" name="__codelineno-0-803"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5340,23 +5338,23 @@ for further customization of the prediction behavior.</p>
 added previously.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-806">806</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-805">805</a></span>
+<span class="normal"><a href="#__codelineno-0-806">806</a></span>
 <span class="normal"><a href="#__codelineno-0-807">807</a></span>
 <span class="normal"><a href="#__codelineno-0-808">808</a></span>
 <span class="normal"><a href="#__codelineno-0-809">809</a></span>
 <span class="normal"><a href="#__codelineno-0-810">810</a></span>
 <span class="normal"><a href="#__codelineno-0-811">811</a></span>
 <span class="normal"><a href="#__codelineno-0-812">812</a></span>
-<span class="normal"><a href="#__codelineno-0-813">813</a></span>
-<span class="normal"><a href="#__codelineno-0-814">814</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-806" name="__codelineno-0-806"></a><span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-807" name="__codelineno-0-807"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-808" name="__codelineno-0-808"></a><span class="sd">    Resets all callbacks to their default functions.</span>
-<a id="__codelineno-0-809" name="__codelineno-0-809"></a>
-<a id="__codelineno-0-810" name="__codelineno-0-810"></a><span class="sd">    This method reinstates the default callback functions for all events, removing any custom callbacks that were</span>
-<a id="__codelineno-0-811" name="__codelineno-0-811"></a><span class="sd">    added previously.</span>
-<a id="__codelineno-0-812" name="__codelineno-0-812"></a><span class="sd">    """</span>
-<a id="__codelineno-0-813" name="__codelineno-0-813"></a>    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<a id="__codelineno-0-814" name="__codelineno-0-814"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+<span class="normal"><a href="#__codelineno-0-813">813</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-805" name="__codelineno-0-805"></a><span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-806" name="__codelineno-0-806"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-807" name="__codelineno-0-807"></a><span class="sd">    Resets all callbacks to their default functions.</span>
+<a id="__codelineno-0-808" name="__codelineno-0-808"></a>
+<a id="__codelineno-0-809" name="__codelineno-0-809"></a><span class="sd">    This method reinstates the default callback functions for all events, removing any custom callbacks that were</span>
+<a id="__codelineno-0-810" name="__codelineno-0-810"></a><span class="sd">    added previously.</span>
+<a id="__codelineno-0-811" name="__codelineno-0-811"></a><span class="sd">    """</span>
+<a id="__codelineno-0-812" name="__codelineno-0-812"></a>    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-0-813" name="__codelineno-0-813"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

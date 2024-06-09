@@ -1282,8 +1282,7 @@
 <span class="normal"><a href="#__codelineno-0-74">74</a></span>
 <span class="normal"><a href="#__codelineno-0-75">75</a></span>
 <span class="normal"><a href="#__codelineno-0-76">76</a></span>
-<span class="normal"><a href="#__codelineno-0-77">77</a></span>
-<span class="normal"><a href="#__codelineno-0-78">78</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="k">def</span> <span class="nf">on_predict_postprocess_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-77">77</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="k">def</span> <span class="nf">on_predict_postprocess_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    Postprocess detected boxes and update with object tracking.</span>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a>
@@ -1311,9 +1310,8 @@
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a>        <span class="n">idx</span> <span class="o">=</span> <span class="n">tracks</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a>        <span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">idx</span><span class="p">]</span>
 <a id="__codelineno-0-75" name="__codelineno-0-75"></a>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="n">update_args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="n">update_args</span><span class="p">[</span><span class="s2">"obb"</span> <span class="k">if</span> <span class="n">is_obb</span> <span class="k">else</span> <span class="s2">"boxes"</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">tracks</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>        <span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">update_args</span><span class="p">)</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="n">update_args</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"obb"</span> <span class="k">if</span> <span class="n">is_obb</span> <span class="k">else</span> <span class="s2">"boxes"</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">tracks</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])}</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">update_args</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1367,7 +1365,8 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/track.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-81">81</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-80">80</a></span>
+<span class="normal"><a href="#__codelineno-0-81">81</a></span>
 <span class="normal"><a href="#__codelineno-0-82">82</a></span>
 <span class="normal"><a href="#__codelineno-0-83">83</a></span>
 <span class="normal"><a href="#__codelineno-0-84">84</a></span>
@@ -1375,17 +1374,16 @@
 <span class="normal"><a href="#__codelineno-0-86">86</a></span>
 <span class="normal"><a href="#__codelineno-0-87">87</a></span>
 <span class="normal"><a href="#__codelineno-0-88">88</a></span>
-<span class="normal"><a href="#__codelineno-0-89">89</a></span>
-<span class="normal"><a href="#__codelineno-0-90">90</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="k">def</span> <span class="nf">register_tracker</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="sd">    Register tracking callbacks to the model for object tracking during prediction.</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">        model (object): The model object to register tracking callbacks for.</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="sd">        persist (bool): Whether to persist the trackers if they already exist.</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="sd">    """</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_start"</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">on_predict_start</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">))</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_postprocess_end"</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">on_predict_postprocess_end</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">))</span>
+<span class="normal"><a href="#__codelineno-0-89">89</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="k">def</span> <span class="nf">register_tracker</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">    Register tracking callbacks to the model for object tracking during prediction.</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">        model (object): The model object to register tracking callbacks for.</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">        persist (bool): Whether to persist the trackers if they already exist.</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="sd">    """</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_start"</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">on_predict_start</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">))</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_postprocess_end"</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">on_predict_postprocess_end</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
