@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Architecture Summary" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 architecture, object detection, Ultralytics, YOLO, model structure, data augmentation, training strategies, loss computations, deep learning, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/architecture_description" property="og:url"/><meta content="Architecture Summary" property="og:title"/><meta content="Dive deep into the powerful YOLOv5 architecture by Ultralytics, exploring its model structure, data augmentation techniques, training strategies, and loss computations." property="og:description"/><meta content="https://user-images.githubusercontent.com/31005897/172404576-c260dcf9-76bb-4bc8-b6a9-f2d987792583.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/architecture_description" property="twitter:url"/><meta content="Architecture Summary" property="twitter:title"/><meta content="Dive deep into the powerful YOLOv5 architecture by Ultralytics, exploring its model structure, data augmentation techniques, training strategies, and loss computations." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/31005897/172404576-c260dcf9-76bb-4bc8-b6a9-f2d987792583.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Architecture Summary", "image": ["https://user-images.githubusercontent.com/31005897/172404576-c260dcf9-76bb-4bc8-b6a9-f2d987792583.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-06-02 21:39:34 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Architecture Summary" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 architecture, object detection, Ultralytics, YOLO, model structure, data augmentation, training strategies, loss computations, deep learning, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/architecture_description" property="og:url"/><meta content="Architecture Summary" property="og:title"/><meta content="Dive deep into the powerful YOLOv5 architecture by Ultralytics, exploring its model structure, data augmentation techniques, training strategies, and loss computations." property="og:description"/><meta content="https://user-images.githubusercontent.com/31005897/172404576-c260dcf9-76bb-4bc8-b6a9-f2d987792583.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/architecture_description" property="twitter:url"/><meta content="Architecture Summary" property="twitter:title"/><meta content="Dive deep into the powerful YOLOv5 architecture by Ultralytics, exploring its model structure, data augmentation techniques, training strategies, and loss computations." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/31005897/172404576-c260dcf9-76bb-4bc8-b6a9-f2d987792583.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Architecture Summary", "image": ["https://user-images.githubusercontent.com/31005897/172404576-c260dcf9-76bb-4bc8-b6a9-f2d987792583.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-06-10 12:59:01 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1005,34 +1005,34 @@ result:
 <h2 id="2-data-augmentation-techniques">2. Data Augmentation Techniques</h2>
 <p>YOLOv5 employs various data augmentation techniques to improve the model's ability to generalize and reduce overfitting. These techniques include:</p>
 <ul>
-<li><strong>Mosaic Augmentation</strong>: An image processing technique that combines four training images into one in ways that encourage object detection models to better handle various object scales and translations.</li>
-</ul>
+<li>
+<p><strong>Mosaic Augmentation</strong>: An image processing technique that combines four training images into one in ways that encourage object detection models to better handle various object scales and translations.</p>
 <p><img alt="mosaic" src="https://user-images.githubusercontent.com/31005897/159109235-c7aad8f2-1d4f-41f9-8d5f-b2fde6f2885e.png"/></p>
-<ul>
-<li><strong>Copy-Paste Augmentation</strong>: An innovative data augmentation method that copies random patches from an image and pastes them onto another randomly chosen image, effectively generating a new training sample.</li>
-</ul>
+</li>
+<li>
+<p><strong>Copy-Paste Augmentation</strong>: An innovative data augmentation method that copies random patches from an image and pastes them onto another randomly chosen image, effectively generating a new training sample.</p>
 <p><img alt="copy-paste" src="https://user-images.githubusercontent.com/31005897/159116277-91b45033-6bec-4f82-afc4-41138866628e.png"/></p>
-<ul>
-<li><strong>Random Affine Transformations</strong>: This includes random rotation, scaling, translation, and shearing of the images.</li>
-</ul>
+</li>
+<li>
+<p><strong>Random Affine Transformations</strong>: This includes random rotation, scaling, translation, and shearing of the images.</p>
 <p><img alt="random-affine" src="https://user-images.githubusercontent.com/31005897/159109326-45cd5acb-14fa-43e7-9235-0f21b0021c7d.png"/></p>
-<ul>
-<li><strong>MixUp Augmentation</strong>: A method that creates composite images by taking a linear combination of two images and their associated labels.</li>
-</ul>
+</li>
+<li>
+<p><strong>MixUp Augmentation</strong>: A method that creates composite images by taking a linear combination of two images and their associated labels.</p>
 <p><img alt="mixup" src="https://user-images.githubusercontent.com/31005897/159109361-3b24333b-f481-478b-ae00-df7838f0b5cd.png"/></p>
-<ul>
+</li>
 <li>
 <p><strong>Albumentations</strong>: A powerful library for image augmenting that supports a wide variety of augmentation techniques.</p>
 </li>
 <li>
 <p><strong>HSV Augmentation</strong>: Random changes to the Hue, Saturation, and Value of the images.</p>
+<p><img alt="hsv" src="https://user-images.githubusercontent.com/31005897/159109407-83d100ba-1aba-4f4b-aa03-4f048f815981.png"/></p>
+</li>
+<li>
+<p><strong>Random Horizontal Flip</strong>: An augmentation method that randomly flips images horizontally.</p>
+<p><img alt="horizontal-flip" src="https://user-images.githubusercontent.com/31005897/159109429-0d44619a-a76a-49eb-bfc0-6709860c043e.png"/></p>
 </li>
 </ul>
-<p><img alt="hsv" src="https://user-images.githubusercontent.com/31005897/159109407-83d100ba-1aba-4f4b-aa03-4f048f815981.png"/></p>
-<ul>
-<li><strong>Random Horizontal Flip</strong>: An augmentation method that randomly flips images horizontally.</li>
-</ul>
-<p><img alt="horizontal-flip" src="https://user-images.githubusercontent.com/31005897/159109429-0d44619a-a76a-49eb-bfc0-6709860c043e.png"/></p>
 <h2 id="3-training-strategies">3. Training Strategies</h2>
 <p>YOLOv5 applies several sophisticated training strategies to enhance the model's performance. They include:</p>
 <ul>
@@ -1106,7 +1106,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-06-02<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-06-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (9), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
