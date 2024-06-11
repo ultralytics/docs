@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="NVIDIA Jetson" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, NVIDIA Jetson, JetPack, AI deployment, performance benchmarks, embedded systems, deep learning, TensorRT, computer vision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/nvidia-jetson" property="og:url"/><meta content="NVIDIA Jetson" property="og:title"/><meta content="Learn to deploy Ultralytics YOLOv8 on NVIDIA Jetson devices with our detailed guide. Explore performance benchmarks and maximize AI capabilities." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/nvidia-jetson" property="twitter:url"/><meta content="NVIDIA Jetson" property="twitter:title"/><meta content="Learn to deploy Ultralytics YOLOv8 on NVIDIA Jetson devices with our detailed guide. Explore performance benchmarks and maximize AI capabilities." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "NVIDIA Jetson", "image": ["https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07"], "datePublished": "2024-04-02 01:31:15 -0700", "dateModified": "2024-06-10 12:59:01 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="NVIDIA Jetson" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLOv8, NVIDIA Jetson, JetPack, AI deployment, performance benchmarks, embedded systems, deep learning, TensorRT, computer vision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/nvidia-jetson" property="og:url"/><meta content="NVIDIA Jetson" property="og:title"/><meta content="Learn to deploy Ultralytics YOLOv8 on NVIDIA Jetson devices with our detailed guide. Explore performance benchmarks and maximize AI capabilities." property="og:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/nvidia-jetson" property="twitter:url"/><meta content="NVIDIA Jetson" property="twitter:title"/><meta content="Learn to deploy Ultralytics YOLOv8 on NVIDIA Jetson devices with our detailed guide. Explore performance benchmarks and maximize AI capabilities." property="twitter:description"/><meta content="https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "NVIDIA Jetson", "image": ["https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07"], "datePublished": "2024-04-02 01:31:15 -0700", "dateModified": "2024-06-11 02:17:38 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -478,6 +478,14 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#run-on-jetpack-5x">
+<span class="md-ellipsis">
+      Run on JetPack 5.x
+    </span>
+</a>
+<nav aria-label="Run on JetPack 5.x" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
 <a class="md-nav__link" href="#set-up-ultralytics">
 <span class="md-ellipsis">
       Set Up Ultralytics
@@ -526,6 +534,16 @@
 </li>
 </ul>
 </nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-on-jetpack-4x">
+<span class="md-ellipsis">
+      Run on JetPack 4.x
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#use-tensorrt-on-nvidia-jetson">
@@ -817,6 +835,14 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#run-on-jetpack-5x">
+<span class="md-ellipsis">
+      Run on JetPack 5.x
+    </span>
+</a>
+<nav aria-label="Run on JetPack 5.x" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
 <a class="md-nav__link" href="#set-up-ultralytics">
 <span class="md-ellipsis">
       Set Up Ultralytics
@@ -865,6 +891,16 @@
 </li>
 </ul>
 </nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-on-jetpack-4x">
+<span class="md-ellipsis">
+      Run on JetPack 4.x
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#use-tensorrt-on-nvidia-jetson">
@@ -941,7 +977,7 @@
 <p><img alt="NVIDIA Jetson Ecosystem" src="https://github.com/ultralytics/ultralytics/assets/20147381/c68fb2eb-371a-43e5-b7b8-2b869d90bc07" width="1024"/></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This guide has been tested with <a href="https://www.seeedstudio.com/reComputer-J4012-p-5586.html">Seeed Studio reComputer J4012</a> which is based on NVIDIA Jetson Orin NX 16GB running the latest stable JetPack release of <a href="https://developer.nvidia.com/embedded/jetpack-sdk-513">JP5.1.3</a>. Using this guide for older Jetson devices such as the Jetson Nano (this only supports until JP4.6.4) may not be guaranteed to work. However this is expected to work on all Jetson Orin, Xavier NX, AGX Xavier devices running JP5.1.3.</p>
+<p>This guide has been tested with both <a href="https://www.seeedstudio.com/reComputer-J4012-p-5586.html">Seeed Studio reComputer J4012</a> which is based on NVIDIA Jetson Orin NX 16GB running the latest stable JetPack release of <a href="https://developer.nvidia.com/embedded/jetpack-sdk-513">JP5.1.3</a> and <a href="https://www.seeedstudio.com/reComputer-J1020-v2-p-5498.html">Seeed Studio reComputer J1020 v2</a> which is based on NVIDIA Jetson Nano 4GB running JetPack release of <a href="https://developer.nvidia.com/embedded/jetpack-sdk-461">JP4.6.1</a>. It is expected to work across all the NVIDIA Jetson hardware lineup including latest and legacy.</p>
 </div>
 <h2 id="what-is-nvidia-jetson">What is NVIDIA Jetson?</h2>
 <p>NVIDIA Jetson is a series of embedded computing boards designed to bring accelerated AI (artificial intelligence) computing to edge devices. These compact and powerful devices are built around NVIDIA's GPU architecture and are capable of running complex AI algorithms and deep learning models directly on the device, without needing to rely on cloud computing resources. Jetson boards are often used in robotics, autonomous vehicles, industrial automation, and other applications where AI inference needs to be performed locally with low latency and high efficiency. Additionally, these boards are based on the ARM64 architecture and runs on lower power compared to traditional GPU computing devices.</p>
@@ -1022,29 +1058,31 @@
 <h2 id="flash-jetpack-to-nvidia-jetson">Flash JetPack to NVIDIA Jetson</h2>
 <p>The first step after getting your hands on an NVIDIA Jetson device is to flash NVIDIA JetPack to the device. There are several different way of flashing NVIDIA Jetson devices.</p>
 <ol>
-<li>If you own an official NVIDIA Development Kit such as the Jetson Orin Nano Developer Kit, you can visit <a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit">this link</a> to download an image and prepare an SD card with JetPack for booting the device.</li>
-<li>If you own any other NVIDIA Development Kit, you can visit <a href="https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html">this link</a> to flash JetPack to the device using <a href="https://developer.nvidia.com/sdk-manager">SDK Manager</a>.</li>
-<li>If you own a Seeed Studio reComputer J4012 device, you can visit <a href="https://wiki.seeedstudio.com/reComputer_J4012_Flash_Jetpack">this link</a> to flash JetPack to the included SSD.</li>
-<li>If you own any other third party device powered by the NVIDIA Jetson module, it is recommended to follow command-line flashing by visiting <a href="https://docs.nvidia.com/jetson/archives/r35.5.0/DeveloperGuide/IN/QuickStart.html">this link</a>.</li>
+<li>If you own an official NVIDIA Development Kit such as the Jetson Orin Nano Developer Kit, you can <a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit">download an image and prepare an SD card with JetPack for booting the device</a>.</li>
+<li>If you own any other NVIDIA Development Kit, you can <a href="https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html">flash JetPack to the device using SDK Manager</a>.</li>
+<li>If you own a Seeed Studio reComputer J4012 device, you can <a href="https://wiki.seeedstudio.com/reComputer_J4012_Flash_Jetpack">flash JetPack to the included SSD</a> and if you own a Seeed Studio reComputer J1020 v2 device, you can <a href="https://wiki.seeedstudio.com/reComputer_J2021_J202_Flash_Jetpack">flash JetPack to the eMMC/ SSD</a>.</li>
+<li>If you own any other third party device powered by the NVIDIA Jetson module, it is recommended to follow <a href="https://docs.nvidia.com/jetson/archives/r35.5.0/DeveloperGuide/IN/QuickStart.html">command-line flashing</a>.</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For methods 3 and 4 above, after flashing the system and booting the device, please enter "sudo apt update &amp;&amp; sudo apt install nvidia-jetpack -y" on the device terminal to install all the remaining JetPack components needed.</p>
 </div>
-<h2 id="set-up-ultralytics">Set Up Ultralytics</h2>
+<h2 id="run-on-jetpack-5x">Run on JetPack 5.x</h2>
+<p>If you own a Jetson Xavier NX, AGX Xavier, AGX Orin, Orin Nano or Orin NX which supports JetPack 5.x, you can continue to follow this guide. However, if you have a legacy device such as Jetson Nano, please skip to <a href="#run-on-jetpack-4x">Run on JetPack 4.x</a>.</p>
+<h3 id="set-up-ultralytics">Set Up Ultralytics</h3>
 <p>There are two ways of setting up Ultralytics package on NVIDIA Jetson to build your next Computer Vision project. You can use either of them.</p>
 <ul>
 <li><a href="#start-with-docker">Start with Docker</a></li>
 <li><a href="#start-without-docker">Start without Docker</a></li>
 </ul>
-<h3 id="start-with-docker">Start with Docker</h3>
+<h4 id="start-with-docker">Start with Docker</h4>
 <p>The fastest way to get started with Ultralytics YOLOv8 on NVIDIA Jetson is to run with pre-built docker image for Jetson.</p>
 <p>Execute the below command to pull the Docker container and run on Jetson. This is based on <a href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/l4t-pytorch">l4t-pytorch</a> docker image which contains PyTorch and Torchvision in a Python3 environment.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest-jetson<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--runtime<span class="o">=</span>nvidia<span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest-jetson-jp5<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--runtime<span class="o">=</span>nvidia<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>After this is done, skip to <a href="#use-tensorrt-on-nvidia-jetson">Use TensorRT on NVIDIA Jetson section</a>.</p>
-<h3 id="start-without-docker">Start without Docker</h3>
-<h4 id="install-ultralytics-package">Install Ultralytics Package</h4>
+<h4 id="start-without-docker">Start without Docker</h4>
+<h5 id="install-ultralytics-package">Install Ultralytics Package</h5>
 <p>Here we will install Ultralytics package on the Jetson with optional dependencies so that we can export the PyTorch models to other different formats. We will mainly focus on <a href="../../integrations/tensorrt/">NVIDIA TensorRT exports</a> because TensorRT will make sure we can get the maximum performance out of the Jetson devices.</p>
 <ol>
 <li>
@@ -1065,7 +1103,7 @@
 </code></pre></div>
 </li>
 </ol>
-<h4 id="install-pytorch-and-torchvision">Install PyTorch and Torchvision</h4>
+<h5 id="install-pytorch-and-torchvision">Install PyTorch and Torchvision</h5>
 <p>The above ultralytics installation will install Torch and Torchvision. However, these 2 packages installed via pip are not compatible to run on Jetson platform which is based on ARM64 architecture. Therefore, we need to manually install pre-built PyTorch pip wheel and compile/ install Torchvision from source.</p>
 <ol>
 <li>
@@ -1091,7 +1129,7 @@
 </li>
 </ol>
 <p>Visit the <a href="https://forums.developer.nvidia.com/t/pytorch-for-jetson/72048">PyTorch for Jetson page</a> to access all different versions of PyTorch for different JetPack versions. For a more detailed list on the PyTorch, Torchvision compatibility, visit the <a href="https://github.com/pytorch/vision">PyTorch and Torchvision compatibility page</a>.</p>
-<h4 id="install-onnxruntime-gpu">Install <code>onnxruntime-gpu</code></h4>
+<h5 id="install-onnxruntime-gpu">Install <code>onnxruntime-gpu</code></h5>
 <p>The <a href="https://pypi.org/project/onnxruntime-gpu/">onnxruntime-gpu</a> package hosted in PyPI does not have <code>aarch64</code> binaries for the Jetson. So we need to manually install this package. This package is needed for some of the exports.</p>
 <p>All different <code>onnxruntime-gpu</code> packages corresponding to different JetPack and Python versions are listed <a href="https://elinux.org/Jetson_Zoo#ONNX_Runtime">here</a>. However, here we will download and install <code>onnxruntime-gpu 1.17.0</code> with <code>Python3.8</code> support for the JetPack we are using for this guide.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>wget<span class="w"> </span>https://nvidia.box.com/shared/static/zostg6agm00fb6t5uisw51qi6kpcuwzd.whl<span class="w"> </span>-O<span class="w"> </span>onnxruntime_gpu-1.17.0-cp38-cp38-linux_aarch64.whl
@@ -1102,6 +1140,11 @@
 <p><code>onnxruntime-gpu</code> will automatically revert back the numpy version to latest. So we need to reinstall numpy to <code>1.23.5</code> to fix an issue by executing:</p>
 <p><code>pip install numpy==1.23.5</code></p>
 </div>
+<h2 id="run-on-jetpack-4x">Run on JetPack 4.x</h2>
+<p>Here we support to run Ultralytics on legacy hardware such as the Jetson Nano. Currently we use Docker to achieve this.</p>
+<p>Execute the below command to pull the Docker container and run on Jetson. This is based on <a href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/l4t-cuda">l4t-cuda</a> docker image which contains CUDA in a L4T environment.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:jetson-jp4<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--runtime<span class="o">=</span>nvidia<span class="w"> </span><span class="nv">$t</span>
+</code></pre></div>
 <h2 id="use-tensorrt-on-nvidia-jetson">Use TensorRT on NVIDIA Jetson</h2>
 <p>Out of all the model export formats supported by Ultralytics, TensorRT delivers the best inference performance when working with NVIDIA Jetson devices and our recommendation is to use TensorRT with Jetson. We also have a detailed document on TensorRT <a href="../../integrations/tensorrt/">here</a>.</p>
 <h2 id="convert-model-to-tensorrt-and-run-inference">Convert Model to TensorRT and Run Inference</h2>
@@ -1111,27 +1154,27 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="c1"># Load a YOLOv8n PyTorch model</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="c1"># Export the model</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"engine"</span><span class="p">)</span>  <span class="c1"># creates 'yolov8n.engine'</span>
-<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>
-<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="c1"># Load the exported TensorRT model</span>
-<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="n">trt_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.engine"</span><span class="p">)</span>
-<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>
-<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="c1"># Run inference</span>
-<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">trt_model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="c1"># Load a YOLOv8n PyTorch model</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="c1"># Export the model</span>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"engine"</span><span class="p">)</span>  <span class="c1"># creates 'yolov8n.engine'</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="c1"># Load the exported TensorRT model</span>
+<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="n">trt_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.engine"</span><span class="p">)</span>
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a>
+<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="c1"># Run inference</span>
+<a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">trt_model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># Export a YOLOv8n PyTorch model to TensorRT format</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>engine<span class="w">  </span><span class="c1"># creates 'yolov8n.engine'</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="c1"># Run inference with the exported model</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.engine<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># Export a YOLOv8n PyTorch model to TensorRT format</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>engine<span class="w">  </span><span class="c1"># creates 'yolov8n.engine'</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="c1"># Run inference with the exported model</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.engine<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
 </code></pre></div>
 </div>
 </div>
@@ -1582,7 +1625,7 @@
 </div>
 </input></input></input></input></input></div>
 </div>
-<p>Visit <a href="https://www.seeedstudio.com/blog/2023/03/30/yolov8-performance-benchmarks-on-nvidia-jetson-devices">this link</a> to explore more benchmarking efforts by Seeed Studio running on different versions of NVIDIA Jetson hardware.</p>
+<p><a href="https://www.seeedstudio.com/blog/2023/03/30/yolov8-performance-benchmarks-on-nvidia-jetson-devices">Explore more benchmarking efforts by Seeed Studio</a> running on different versions of NVIDIA Jetson hardware.</p>
 <h2 id="reproduce-our-results">Reproduce Our Results</h2>
 <p>To reproduce the above Ultralytics benchmarks on all export <a href="../../modes/export/">formats</a> run this code:</p>
 <div class="admonition example">
@@ -1590,18 +1633,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="c1"># Load a YOLOv8n PyTorch model</span>
-<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
-<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># Benchmark YOLOv8n speed and accuracy on the COCO8 dataset for all all export formats</span>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">benchmarks</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1"># Load a YOLOv8n PyTorch model</span>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="c1"># Benchmark YOLOv8n speed and accuracy on the COCO8 dataset for all all export formats</span>
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">benchmarks</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1"># Benchmark YOLOv8n speed and accuracy on the COCO8 dataset for all all export formats</span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>yolo<span class="w"> </span>benchmark<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># Benchmark YOLOv8n speed and accuracy on the COCO8 dataset for all all export formats</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>yolo<span class="w"> </span>benchmark<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -1614,22 +1657,22 @@
 <li>
 <p>Enable MAX Power Mode</p>
 <p>Enabling MAX Power Mode on the Jetson will make sure all CPU, GPU cores are turned on.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>sudo<span class="w"> </span>nvpmodel<span class="w"> </span>-m<span class="w"> </span><span class="m">0</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>sudo<span class="w"> </span>nvpmodel<span class="w"> </span>-m<span class="w"> </span><span class="m">0</span>
 </code></pre></div>
 </li>
 <li>
 <p>Enable Jetson Clocks</p>
 <p>Enabling Jetson Clocks will make sure all CPU, GPU cores are clocked at their maximum frequency.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>sudo<span class="w"> </span>jetson_clocks
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo<span class="w"> </span>jetson_clocks
 </code></pre></div>
 </li>
 <li>
 <p>Install Jetson Stats Application</p>
 <p>We can use jetson stats application to monitor the temperatures of the system components and check other system details such as view CPU, GPU, RAM utilization, change power modes, set to max clocks, check JetPack information</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>jetson-stats
-<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>sudo<span class="w"> </span>reboot
-<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>jtop
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>jetson-stats
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>sudo<span class="w"> </span>reboot
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>jtop
 </code></pre></div>
 </li>
 </ol>
@@ -1644,7 +1687,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-04-02, Updated 2024-06-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (2), <a href="https://github.com/lakshanthad">lakshanthad</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-04-02, Updated 2024-06-11<br/>Authors: <a href="https://github.com/Ahelsamahy">Ahelsamahy</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (2), <a href="https://github.com/lakshanthad">lakshanthad</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
