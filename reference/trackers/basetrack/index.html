@@ -11,7 +11,7 @@
 <link href="../../solutions/speed_estimation/" rel="prev"/>
 <link href="../bot_sort/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.26" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
 <title>basetrack - Ultralytics YOLO Docs</title>
 <link href="../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -829,13 +829,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.trackers.basetrack.BaseTrack.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.trackers.basetrack.BaseTrack.activate">
 <span class="md-ellipsis">
       activate
@@ -1117,13 +1110,6 @@
 <a class="md-nav__link" href="#ultralytics.trackers.basetrack.BaseTrack.end_frame">
 <span class="md-ellipsis">
       end_frame
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.trackers.basetrack.BaseTrack.__init__">
-<span class="md-ellipsis">
-      __init__
     </span>
 </a>
 </li>
@@ -1692,43 +1678,6 @@
 </h3>
 <div class="doc doc-contents">
 <p>Return the last frame ID of the track.</p>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="ultralytics.trackers.basetrack.BaseTrack.__init__">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">()</span></code>
-</h3>
-<div class="doc doc-contents">
-<p>Initializes a new track with unique ID and foundational tracking attributes.</p>
-<details class="quote">
-<summary>Source code in <code>ultralytics/trackers/basetrack.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span>
-<span class="normal"><a href="#__codelineno-0-59">59</a></span>
-<span class="normal"><a href="#__codelineno-0-60">60</a></span>
-<span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span>
-<span class="normal"><a href="#__codelineno-0-64">64</a></span>
-<span class="normal"><a href="#__codelineno-0-65">65</a></span>
-<span class="normal"><a href="#__codelineno-0-66">66</a></span>
-<span class="normal"><a href="#__codelineno-0-67">67</a></span>
-<span class="normal"><a href="#__codelineno-0-68">68</a></span>
-<span class="normal"><a href="#__codelineno-0-69">69</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">    </span><span class="sd">"""Initializes a new track with unique ID and foundational tracking attributes."""</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">track_id</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">is_activated</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">TrackState</span><span class="o">.</span><span class="n">New</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">curr_feature</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">start_frame</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">time_since_update</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-</details>
 </div>
 </div>
 <div class="doc doc-object doc-function">

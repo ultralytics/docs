@@ -11,7 +11,7 @@
 <link href="../exceptions/" rel="prev"/>
 <link href="../utils/" rel="next"/>
 <link href="../../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.26" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
 <title>logger - Ultralytics YOLO Docs</title>
 <link href="../../../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -612,13 +612,6 @@
 <nav aria-label="Logger" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#hub_sdk.helpers.logger.Logger.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#hub_sdk.helpers.logger.Logger.get_logger">
 <span class="md-ellipsis">
       get_logger
@@ -721,13 +714,6 @@
 </a>
 <nav aria-label="Logger" class="md-nav">
 <ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hub_sdk.helpers.logger.Logger.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#hub_sdk.helpers.logger.Logger.get_logger">
 <span class="md-ellipsis">
@@ -938,110 +924,6 @@
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="hub_sdk.helpers.logger.Logger.__init__">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">logger_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_level</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
-</h3>
-<div class="doc doc-contents">
-<p>Initialize a Logger instance.</p>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td><code>logger_name</code></td>
-<td>
-<code>str</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Name of the logger. If not provided, defaults to the root logger.</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code>log_format</code></td>
-<td>
-<code>str</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Format for log messages. Defaults to the value of 'LOGGER_FORMAT'
-             environment variable or '%(asctime)s - %(levelname)s - %(message)s'.</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code>log_level</code></td>
-<td>
-<code>str</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Log level for the logger. Defaults to the value of 'LOGGER_LEVEL'
-            environment variable or 'INFO'.</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>hub_sdk/helpers/logger.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log_level</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    Initialize a Logger instance.</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        logger_name (str): Name of the logger. If not provided, defaults to the root logger.</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        log_format (str): Format for log messages. Defaults to the value of 'LOGGER_FORMAT'</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">                         environment variable or '%(asctime)s - %(levelname)s - %(message)s'.</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">        log_level (str): Log level for the logger. Defaults to the value of 'LOGGER_LEVEL'</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">                        environment variable or 'INFO'.</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    """</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">log_format</span> <span class="o">=</span> <span class="n">log_format</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="s2">"LOGGER_FORMAT"</span><span class="p">,</span> <span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(name)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">"</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="p">)</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">log_level</span> <span class="o">=</span> <span class="n">log_level</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"LOGGER_LEVEL"</span><span class="p">,</span> <span class="s2">"INFO"</span><span class="p">)</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">logger_name</span> <span class="o">=</span> <span class="n">logger_name</span> <span class="ow">or</span> <span class="vm">__name__</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_configure_logger</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="hub_sdk.helpers.logger.Logger.get_logger">
 <code class="highlight language-python"><span class="n">get_logger</span><span class="p">()</span></code>

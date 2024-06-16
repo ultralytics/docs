@@ -11,7 +11,7 @@
 <link href="../../../project/" rel="prev"/>
 <link href="../auth/" rel="next"/>
 <link href="../../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.26" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
 <title>api_client - Ultralytics YOLO Docs</title>
 <link href="../../../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -587,17 +587,6 @@
       APIClientError
     </span>
 </a>
-<nav aria-label="APIClientError" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hub_sdk.base.api_client.APIClientError.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#hub_sdk.base.api_client.APIClient">
@@ -607,13 +596,6 @@
 </a>
 <nav aria-label="APIClient" class="md-nav">
 <ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hub_sdk.base.api_client.APIClient.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#hub_sdk.base.api_client.APIClient.delete">
 <span class="md-ellipsis">
@@ -772,17 +754,6 @@
       APIClientError
     </span>
 </a>
-<nav aria-label="APIClientError" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hub_sdk.base.api_client.APIClientError.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#hub_sdk.base.api_client.APIClient">
@@ -792,13 +763,6 @@
 </a>
 <nav aria-label="APIClient" class="md-nav">
 <ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hub_sdk.base.api_client.APIClient.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#hub_sdk.base.api_client.APIClient.delete">
 <span class="md-ellipsis">
@@ -945,80 +909,6 @@
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="hub_sdk.base.api_client.APIClientError.__init__">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
-</h3>
-<div class="doc doc-contents">
-<p>Initialize the APIClientError instance.</p>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td><code>message</code></td>
-<td>
-<code>str</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>A human-readable error message.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code>status_code</code></td>
-<td>
-<code>int</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The HTTP status code associated with the error, if available.</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>hub_sdk/base/api_client.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">status_code</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    Initialize the APIClientError instance.</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        message (str): A human-readable error message.</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        status_code (int, optional): The HTTP status code associated with the error, if available.</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    """</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="n">status_code</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div>
 </div>
 </div>
 </div><p><br/><br/></p>
@@ -1397,80 +1287,6 @@
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="hub_sdk.base.api_client.APIClient.__init__">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">base_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
-</h3>
-<div class="doc doc-contents">
-<p>Initialize an instance of the APIClient class.</p>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td><code>base_url</code></td>
-<td>
-<code>str</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The base URL for the API.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code>headers</code></td>
-<td>
-<code>dict</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Headers to be included in each request.</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>hub_sdk/base/api_client.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">headers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    Initialize an instance of the APIClient class.</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        base_url (str): The base URL for the API.</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        headers (dict, optional): Headers to be included in each request.</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    """</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">base_url</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="hub_sdk.base.api_client.APIClient.delete">
 <code class="highlight language-python"><span class="n">delete</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>

@@ -11,7 +11,7 @@
 <link href="../helpers/utils/" rel="prev"/>
 <link href="../modules/datasets/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.26" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
 <title>hub_client - Ultralytics YOLO Docs</title>
 <link href="../../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -592,13 +592,6 @@
 <nav aria-label="HUBClient" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#hub_sdk.hub_client.HUBClient.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#hub_sdk.hub_client.HUBClient.dataset">
 <span class="md-ellipsis">
       dataset
@@ -754,13 +747,6 @@
 </a>
 <nav aria-label="HUBClient" class="md-nav">
 <ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hub_sdk.hub_client.HUBClient.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#hub_sdk.hub_client.HUBClient.dataset">
 <span class="md-ellipsis">
@@ -1228,78 +1214,6 @@
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="hub_sdk.hub_client.HUBClient.__init__">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">credentials</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
-</h3>
-<div class="doc doc-contents">
-<p>Initializes the HUBClient instance.</p>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td><code>credentials</code></td>
-<td>
-<code>dict</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>A dictionary containing authentication credentials.
-            If None, the client will attempt to retrieve the API key
-            from the environment variable "HUB_API_KEY".</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>hub_sdk/hub_client.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credentials</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    Initializes the HUBClient instance.</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        credentials (dict, optional): A dictionary containing authentication credentials.</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">                        If None, the client will attempt to retrieve the API key</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">                        from the environment variable "HUB_API_KEY".</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    """</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">authenticated</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">credentials</span><span class="p">:</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"HUB_API_KEY"</span><span class="p">)</span>  <span class="c1"># Safely retrieve the API key from an environment variable.</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">}</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="o">**</span><span class="n">credentials</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="hub_sdk.hub_client.HUBClient.dataset">
 <code class="highlight language-python"><span class="n">dataset</span><span class="p">(</span><span class="n">dataset_id</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>

@@ -11,7 +11,7 @@
 <link href="../../sam/predict/" rel="prev"/>
 <link href="../ops/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.26" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
 <title>loss - Ultralytics YOLO Docs</title>
 <link href="../../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -684,13 +684,6 @@
 <nav aria-label="DETRLoss" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.models.utils.loss.DETRLoss.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.models.utils.loss.DETRLoss.forward">
 <span class="md-ellipsis">
       forward
@@ -1098,13 +1091,6 @@
 </a>
 <nav aria-label="DETRLoss" class="md-nav">
 <ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.models.utils.loss.DETRLoss.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.models.utils.loss.DETRLoss.forward">
 <span class="md-ellipsis">
@@ -1833,170 +1819,6 @@ losses.</p>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="ultralytics.models.utils.loss.DETRLoss.__init__">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">loss_gain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aux_loss</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_fl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_vfl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_uni_match</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">uni_match_ind</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></code>
-</h3>
-<div class="doc doc-contents">
-<p>DETR loss function.</p>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td><code>nc</code></td>
-<td>
-<code>int</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The number of classes.</p>
-</div>
-</td>
-<td>
-<code>80</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code>loss_gain</code></td>
-<td>
-<code>dict</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The coefficient of loss.</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code>aux_loss</code></td>
-<td>
-<code>bool</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>If 'aux_loss = True', loss at each decoder layer are to be used.</p>
-</div>
-</td>
-<td>
-<code>True</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code>use_vfl</code></td>
-<td>
-<code>bool</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Use VarifocalLoss or not.</p>
-</div>
-</td>
-<td>
-<code>False</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code>use_uni_match</code></td>
-<td>
-<code>bool</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Whether to use a fixed layer to assign labels for auxiliary branch.</p>
-</div>
-</td>
-<td>
-<code>False</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code>uni_match_ind</code></td>
-<td>
-<code>int</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The fixed indices of a layer.</p>
-</div>
-</td>
-<td>
-<code>0</code>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>ultralytics/models/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span>
-<span class="normal"><a href="#__codelineno-0-59">59</a></span>
-<span class="normal"><a href="#__codelineno-0-60">60</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">loss_gain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aux_loss</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_fl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_vfl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_uni_match</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">uni_match_ind</span><span class="o">=</span><span class="mi">0</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="p">):</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    DETR loss function.</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        nc (int): The number of classes.</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        loss_gain (dict): The coefficient of loss.</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        aux_loss (bool): If 'aux_loss = True', loss at each decoder layer are to be used.</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        use_vfl (bool): Use VarifocalLoss or not.</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        use_uni_match (bool): Whether to use a fixed layer to assign labels for auxiliary branch.</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        uni_match_ind (int): The fixed indices of a layer.</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    """</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="k">if</span> <span class="n">loss_gain</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="n">loss_gain</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"class"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"bbox"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">"giou"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"no_object"</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">"mask"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"dice"</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="n">nc</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span> <span class="o">=</span> <span class="n">HungarianMatcher</span><span class="p">(</span><span class="n">cost_gain</span><span class="o">=</span><span class="p">{</span><span class="s2">"class"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"bbox"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">"giou"</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_gain</span> <span class="o">=</span> <span class="n">loss_gain</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">aux_loss</span> <span class="o">=</span> <span class="n">aux_loss</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fl</span> <span class="o">=</span> <span class="n">FocalLoss</span><span class="p">()</span> <span class="k">if</span> <span class="n">use_fl</span> <span class="k">else</span> <span class="kc">None</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">vfl</span> <span class="o">=</span> <span class="n">VarifocalLoss</span><span class="p">()</span> <span class="k">if</span> <span class="n">use_vfl</span> <span class="k">else</span> <span class="kc">None</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_uni_match</span> <span class="o">=</span> <span class="n">use_uni_match</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">uni_match_ind</span> <span class="o">=</span> <span class="n">uni_match_ind</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.models.utils.loss.DETRLoss.forward">
 <code class="highlight language-python"><span class="n">forward</span><span class="p">(</span><span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">pred_scores</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">postfix</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
