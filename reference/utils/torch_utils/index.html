@@ -1969,7 +1969,7 @@ To disable EMA set the <code>enabled</code> attribute to <code>False</code>.</p>
 <code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">torch_utils</span><span class="o">.</span><span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">local_rank</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
-<p>Decorator to make all processes in distributed training wait for each local_master to do something.</p>
+<p>Ensures all processes in distributed training wait for the local master (rank 0) to complete a task first.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/torch_utils.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-44">44</a></span>
@@ -1982,8 +1982,8 @@ To disable EMA set the <code>enabled</code> attribute to <code>False</code>.</p>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
 <span class="normal"><a href="#__codelineno-0-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="nd">@contextmanager</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="k">def</span> <span class="nf">torch_distributed_zero_first</span><span class="p">(</span><span class="n">local_rank</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">    </span><span class="sd">"""Decorator to make all processes in distributed training wait for each local_master to do something."""</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="n">initialized</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributed</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="ow">and</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributed</span><span class="o">.</span><span class="n">is_initialized</span><span class="p">()</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">    </span><span class="sd">"""Ensures all processes in distributed training wait for the local master (rank 0) to complete a task first."""</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="n">initialized</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="ow">and</span> <span class="n">dist</span><span class="o">.</span><span class="n">is_initialized</span><span class="p">()</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="k">if</span> <span class="n">initialized</span> <span class="ow">and</span> <span class="n">local_rank</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="n">dist</span><span class="o">.</span><span class="n">barrier</span><span class="p">(</span><span class="n">device_ids</span><span class="o">=</span><span class="p">[</span><span class="n">local_rank</span><span class="p">])</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">yield</span>
