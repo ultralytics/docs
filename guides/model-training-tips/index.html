@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to define clear goals and objectives for your computer vision project with our practical guide. Includes tips on problem statements, measurable objectives, and key decisions." name="description"/>
+<meta content="Find best practices, optimization strategies, and troubleshooting advice for training computer vision models. Improve your model training efficiency and accuracy." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/guides/defining-project-goals/" rel="canonical"/>
-<link href="../steps-of-a-cv-project/" rel="prev"/>
-<link href="../data-collection-and-annotation/" rel="next"/>
+<link href="https://docs.ultralytics.com/guides/model-training-tips/" rel="canonical"/>
+<link href="../preprocessing_annotated_data/" rel="prev"/>
+<link href="../../datasets/explorer/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.27" name="generator"/>
-<title>Defining A Computer Vision Project's Goals - Ultralytics YOLO Docs</title>
+<title>Tips for Model Training - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Defining A Computer Vision Project's Goals" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="computer vision, project planning, problem statement, measurable objectives, dataset preparation, model selection, YOLOv8, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/defining-project-goals" property="og:url"/><meta content="Defining A Computer Vision Project's Goals" property="og:title"/><meta content="Learn how to define clear goals and objectives for your computer vision project with our practical guide. Includes tips on problem statements, measurable objectives, and key decisions." property="og:description"/><meta content="https://assets-global.website-files.com/6479eab6eb2ed5e597810e9e/664efc6e1c4bef6407824558_Abi%20Speed%20fig1.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/defining-project-goals" property="twitter:url"/><meta content="Defining A Computer Vision Project's Goals" property="twitter:title"/><meta content="Learn how to define clear goals and objectives for your computer vision project with our practical guide. Includes tips on problem statements, measurable objectives, and key decisions." property="twitter:description"/><meta content="https://assets-global.website-files.com/6479eab6eb2ed5e597810e9e/664efc6e1c4bef6407824558_Abi%20Speed%20fig1.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Defining A Computer Vision Project's Goals", "image": ["https://assets-global.website-files.com/6479eab6eb2ed5e597810e9e/664efc6e1c4bef6407824558_Abi%20Speed%20fig1.png"], "datePublished": "2024-05-29 15:10:14 +0530", "dateModified": "2024-06-10 12:59:01 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Tips for Model Training" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Model Training Machine Learning, AI Model Training, Number of Epochs, How to Train a Model in Machine Learning, Machine Learning Best Practices, What is Model Training" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-training-tips" property="og:url"/><meta content="Tips for Model Training" property="og:title"/><meta content="Find best practices, optimization strategies, and troubleshooting advice for training computer vision models. Improve your model training efficiency and accuracy." property="og:description"/><meta content="https://editor.analyticsvidhya.com/uploads/18870backprop2.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-training-tips" property="twitter:url"/><meta content="Tips for Model Training" property="twitter:title"/><meta content="Find best practices, optimization strategies, and troubleshooting advice for training computer vision models. Improve your model training efficiency and accuracy." property="twitter:description"/><meta content="https://editor.analyticsvidhya.com/uploads/18870backprop2.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Tips for Model Training", "image": ["https://editor.analyticsvidhya.com/uploads/18870backprop2.png"], "datePublished": "2024-06-26 20:04:11 +0530", "dateModified": "2024-06-26 20:04:11 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#a-practical-guide-for-defining-your-computer-vision-project">
+<a class="md-skip" href="#machine-learning-best-practices-and-tips-for-model-training">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Defining A Computer Vision Project's Goals
+              Tips for Model Training
             
           </span>
 </div>
@@ -486,17 +486,38 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../defining-project-goals/">
+<span class="md-ellipsis">
+    Defining A Computer Vision Project's Goals
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-collection-and-annotation/">
+<span class="md-ellipsis">
+    Data Collection and Annotation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../preprocessing_annotated_data/">
+<span class="md-ellipsis">
+    Preprocessing Annotated Data
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    Defining A Computer Vision Project's Goals
+    Tips for Model Training
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    Defining A Computer Vision Project's Goals
+    Tips for Model Training
   </span>
 </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
@@ -513,24 +534,66 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#defining-a-clear-problem-statement">
+<a class="md-nav__link" href="#how-to-train-a-machine-learning-model">
 <span class="md-ellipsis">
-      Defining A Clear Problem Statement
-    </span>
-</a>
-<nav aria-label="Defining A Clear Problem Statement" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#example-of-a-business-problem-statement">
-<span class="md-ellipsis">
-      Example of a Business Problem Statement
+      How to Train a Machine Learning Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#setting-measurable-objectives">
+<a class="md-nav__link" href="#training-on-large-datasets">
 <span class="md-ellipsis">
-      Setting Measurable Objectives
+      Training on Large Datasets
+    </span>
+</a>
+<nav aria-label="Training on Large Datasets" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#batch-size-and-gpu-utilization">
+<span class="md-ellipsis">
+      Batch Size and GPU Utilization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#subset-training">
+<span class="md-ellipsis">
+      Subset Training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multi-scale-training">
+<span class="md-ellipsis">
+      Multi-scale Training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caching">
+<span class="md-ellipsis">
+      Caching
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mixed-precision-training">
+<span class="md-ellipsis">
+      Mixed Precision Training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pre-trained-weights">
+<span class="md-ellipsis">
+      Pre-trained Weights
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#other-techniques-to-consider-when-handling-a-large-dataset">
+<span class="md-ellipsis">
+      Other Techniques to Consider When Handling a Large Dataset
     </span>
 </a>
 </li>
@@ -538,45 +601,38 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#the-connection-between-the-problem-statement-and-the-computer-vision-tasks">
+<a class="md-nav__link" href="#the-number-of-epochs-to-train-for">
 <span class="md-ellipsis">
-      The Connection Between The Problem Statement and The Computer Vision Tasks
+      The Number of Epochs To Train For
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#which-comes-first-model-selection-dataset-preparation-or-model-training-approach">
+<a class="md-nav__link" href="#early-stopping">
 <span class="md-ellipsis">
-      Which Comes First: Model Selection, Dataset Preparation, or Model Training Approach?
+      Early Stopping
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#common-discussion-points-in-the-community">
+<a class="md-nav__link" href="#choosing-between-cloud-and-local-training">
 <span class="md-ellipsis">
-      Common Discussion Points in the Community
+      Choosing Between Cloud and Local Training
     </span>
 </a>
-<nav aria-label="Common Discussion Points in the Community" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#selecting-an-optimizer">
+<span class="md-ellipsis">
+      Selecting an Optimizer
+    </span>
+</a>
+<nav aria-label="Selecting an Optimizer" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-different-computer-vision-tasks">
+<a class="md-nav__link" href="#common-optimizers">
 <span class="md-ellipsis">
-      What Are the Different Computer Vision Tasks?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#can-a-pre-trained-model-remember-classes-it-knew-before-custom-training">
-<span class="md-ellipsis">
-      Can a Pre-trained Model Remember Classes It Knew Before Custom Training?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-deployment-options-affect-my-computer-vision-project">
-<span class="md-ellipsis">
-      How Do Deployment Options Affect My Computer Vision Project?
+      Common Optimizers
     </span>
 </a>
 </li>
@@ -599,26 +655,16 @@
 <nav aria-label="Connecting with the Community" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#community-support-channels">
+<a class="md-nav__link" href="#community-resources">
 <span class="md-ellipsis">
-      Community Support Channels
+      Community Resources
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#comprehensive-guides-and-documentation">
+<a class="md-nav__link" href="#official-documentation">
 <span class="md-ellipsis">
-      Comprehensive Guides and Documentation
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
-<span class="md-ellipsis">
-      Conclusion
+      Official Documentation
     </span>
 </a>
 </li>
@@ -626,25 +672,14 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../data-collection-and-annotation/">
+<a class="md-nav__link" href="#key-takeaways">
 <span class="md-ellipsis">
-    Data Collection and Annotation
-  </span>
+      Key Takeaways
+    </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../preprocessing_annotated_data/">
-<span class="md-ellipsis">
-    Preprocessing Annotated Data
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../model-training-tips/">
-<span class="md-ellipsis">
-    Tips for Model Training
-  </span>
-</a>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8_25" type="checkbox"/>
@@ -789,24 +824,66 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#defining-a-clear-problem-statement">
+<a class="md-nav__link" href="#how-to-train-a-machine-learning-model">
 <span class="md-ellipsis">
-      Defining A Clear Problem Statement
-    </span>
-</a>
-<nav aria-label="Defining A Clear Problem Statement" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#example-of-a-business-problem-statement">
-<span class="md-ellipsis">
-      Example of a Business Problem Statement
+      How to Train a Machine Learning Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#setting-measurable-objectives">
+<a class="md-nav__link" href="#training-on-large-datasets">
 <span class="md-ellipsis">
-      Setting Measurable Objectives
+      Training on Large Datasets
+    </span>
+</a>
+<nav aria-label="Training on Large Datasets" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#batch-size-and-gpu-utilization">
+<span class="md-ellipsis">
+      Batch Size and GPU Utilization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#subset-training">
+<span class="md-ellipsis">
+      Subset Training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multi-scale-training">
+<span class="md-ellipsis">
+      Multi-scale Training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caching">
+<span class="md-ellipsis">
+      Caching
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mixed-precision-training">
+<span class="md-ellipsis">
+      Mixed Precision Training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pre-trained-weights">
+<span class="md-ellipsis">
+      Pre-trained Weights
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#other-techniques-to-consider-when-handling-a-large-dataset">
+<span class="md-ellipsis">
+      Other Techniques to Consider When Handling a Large Dataset
     </span>
 </a>
 </li>
@@ -814,45 +891,38 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#the-connection-between-the-problem-statement-and-the-computer-vision-tasks">
+<a class="md-nav__link" href="#the-number-of-epochs-to-train-for">
 <span class="md-ellipsis">
-      The Connection Between The Problem Statement and The Computer Vision Tasks
+      The Number of Epochs To Train For
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#which-comes-first-model-selection-dataset-preparation-or-model-training-approach">
+<a class="md-nav__link" href="#early-stopping">
 <span class="md-ellipsis">
-      Which Comes First: Model Selection, Dataset Preparation, or Model Training Approach?
+      Early Stopping
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#common-discussion-points-in-the-community">
+<a class="md-nav__link" href="#choosing-between-cloud-and-local-training">
 <span class="md-ellipsis">
-      Common Discussion Points in the Community
+      Choosing Between Cloud and Local Training
     </span>
 </a>
-<nav aria-label="Common Discussion Points in the Community" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#selecting-an-optimizer">
+<span class="md-ellipsis">
+      Selecting an Optimizer
+    </span>
+</a>
+<nav aria-label="Selecting an Optimizer" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-different-computer-vision-tasks">
+<a class="md-nav__link" href="#common-optimizers">
 <span class="md-ellipsis">
-      What Are the Different Computer Vision Tasks?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#can-a-pre-trained-model-remember-classes-it-knew-before-custom-training">
-<span class="md-ellipsis">
-      Can a Pre-trained Model Remember Classes It Knew Before Custom Training?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-deployment-options-affect-my-computer-vision-project">
-<span class="md-ellipsis">
-      How Do Deployment Options Affect My Computer Vision Project?
+      Common Optimizers
     </span>
 </a>
 </li>
@@ -875,16 +945,16 @@
 <nav aria-label="Connecting with the Community" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#community-support-channels">
+<a class="md-nav__link" href="#community-resources">
 <span class="md-ellipsis">
-      Community Support Channels
+      Community Resources
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#comprehensive-guides-and-documentation">
+<a class="md-nav__link" href="#official-documentation">
 <span class="md-ellipsis">
-      Comprehensive Guides and Documentation
+      Official Documentation
     </span>
 </a>
 </li>
@@ -892,9 +962,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
+<a class="md-nav__link" href="#key-takeaways">
 <span class="md-ellipsis">
-      Conclusion
+      Key Takeaways
     </span>
 </a>
 </li>
@@ -905,127 +975,138 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/defining-project-goals.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/model-training-tips.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="a-practical-guide-for-defining-your-computer-vision-project">A Practical Guide for Defining Your Computer Vision Project</h1>
+<h1 id="machine-learning-best-practices-and-tips-for-model-training">Machine Learning Best Practices and Tips for Model Training</h1>
 <h2 id="introduction">Introduction</h2>
-<p>The first step in any computer vision project is defining what you want to achieve. It's crucial to have a clear roadmap from the start, which includes everything from data collection to deploying your model.</p>
-<p>If you need a quick refresher on the basics of a computer vision project, take a moment to read our guide on <a href="../steps-of-a-cv-project/">the key steps in a computer vision project</a>. It'll give you a solid overview of the whole process. Once you're caught up, come back here to dive into how exactly you can define and refine the goals for your project.</p>
-<p>Now, let's get to the heart of defining a clear problem statement for your project and exploring the key decisions you'll need to make along the way.</p>
-<h2 id="defining-a-clear-problem-statement">Defining A Clear Problem Statement</h2>
-<p>Setting clear goals and objectives for your project is the first big step toward finding the most effective solutions. Let's understand how you can clearly define your project's problem statement:</p>
-<ul>
-<li><strong>Identify the Core Issue:</strong> Pinpoint the specific challenge your computer vision project aims to solve.</li>
-<li><strong>Determine the Scope:</strong> Define the boundaries of your problem.</li>
-<li><strong>Consider End Users and Stakeholders:</strong> Identify who will be affected by the solution.</li>
-<li><strong>Analyze Project Requirements and Constraints:</strong> Assess available resources (time, budget, personnel) and identify any technical or regulatory constraints.</li>
-</ul>
-<h3 id="example-of-a-business-problem-statement">Example of a Business Problem Statement</h3>
-<p>Let's walk through an example.</p>
-<p>Consider a computer vision project where you want to <a href="../speed-estimation/">estimate the speed of vehicles</a> on a highway. The core issue is that current speed monitoring methods are inefficient and error-prone due to outdated radar systems and manual processes. The project aims to develop a real-time computer vision system that can replace legacy <a href="https://www.ultralytics.com/blog/ultralytics-yolov8-for-speed-estimation-in-computer-vision-projects">speed estimation</a> systems.</p>
+<p>One of the most important steps when working on a <a href="../steps-of-a-cv-project/">computer vision project</a> is model training. Before reaching this step, you need to <a href="../defining-project-goals/">define your goals</a> and <a href="../data-collection-and-annotation/">collect and annotate your data</a>. After <a href="../preprocessing_annotated_data/">preprocessing the data</a> to make sure it is clean and consistent, you can move on to training your model.</p>
+<p>So, what is <a href="../../modes/train/">model training</a>? Model training is the process of teaching your model to recognize visual patterns and make predictions based on your data. It directly impacts the performance and accuracy of your application. In this guide, we'll cover best practices, optimization techniques, and troubleshooting tips to help you train your computer vision models effectively.</p>
+<h2 id="how-to-train-a-machine-learning-model">How to Train a Machine Learning Model</h2>
+<p>A computer vision model is trained by adjusting its internal parameters to minimize errors. Initially, the model is fed a large set of labeled images. It makes predictions about what is in these images, and the predictions are compared to the actual labels or contents to calculate errors. These errors show how far off the model's predictions are from the true values.</p>
+<p>During training, the model iteratively makes predictions, calculates errors, and updates its parameters through a process called backpropagation. In this process, the model adjusts its internal parameters (weights and biases) to reduce the errors. By repeating this cycle many times, the model gradually improves its accuracy. Over time, it learns to recognize complex patterns such as shapes, colors, and textures.</p>
 <p align="center">
-<img alt="Speed Estimation Using YOLOv8" src="https://assets-global.website-files.com/6479eab6eb2ed5e597810e9e/664efc6e1c4bef6407824558_Abi%20Speed%20fig1.png" width="100%"/>
+<img alt="What is Backpropagation?" src="https://editor.analyticsvidhya.com/uploads/18870backprop2.png" width="100%"/>
 </p>
-<p>Primary users include traffic management authorities and law enforcement, while secondary stakeholders are highway planners and the public benefiting from safer roads. Key requirements involve evaluating budget, time, and personnel, as well as addressing technical needs like high-resolution cameras and real-time data processing. Additionally, regulatory constraints on privacy and data security must be considered.</p>
-<h3 id="setting-measurable-objectives">Setting Measurable Objectives</h3>
-<p>Setting measurable objectives is key to the success of a computer vision project. These goals should be clear, achievable, and time-bound.</p>
-<p>For example, if you are developing a system to estimate vehicle speeds on a highway. You could consider the following measurable objectives:</p>
+<p>This learning process makes it possible for the computer vision model to perform various <a href="../../tasks/">tasks</a>, including <a href="../../tasks/detect/">object detection</a>, <a href="../../tasks/segment/">instance segmentation</a>, and <a href="../../tasks/classify/">image classification</a>. The ultimate goal is to create a model that can generalize its learning to new, unseen images so that it can accurately understand visual data in real-world applications.</p>
+<p>Now that we know what is happening behind the scenes when we train a model, let's look at points to consider when training a model.</p>
+<h2 id="training-on-large-datasets">Training on Large Datasets</h2>
+<p>There are a few different aspects to think about when you are planning on using a large dataset to train a model. For example, you can adjust the batch size, control the GPU utilization, choose to use multi-scale training, etc. Let's walk through each of these options in detail.</p>
+<h3 id="batch-size-and-gpu-utilization">Batch Size and GPU Utilization</h3>
+<p>When training models on large datasets, efficiently utilizing your GPU is key. Batch size is an important factor. It is the number of data samples that a machine learning model processes in a single training iteration.
+Using the maximum batch size supported by your GPU, you can fully take advantage of its capabilities and reduce the time model training takes. However, you want to avoid running out of GPU memory. If you encounter memory errors, reduce the batch size incrementally until the model trains smoothly.</p>
+<p>With respect to YOLOv8, you can set the <code>batch_size</code> parameter in the <a href="../../modes/train/">training configuration</a> to match your GPU's capacity. Also, setting <code>batch=-1</code> in your training script will automatically determine the batch size that can be efficiently processed based on your device's capabilities. By fine-tuning the batch size, you can make the most of your GPU resources and improve the overall training process.</p>
+<h3 id="subset-training">Subset Training</h3>
+<p>Subset training is a smart strategy that involves training your model on a smaller set of data that represents the larger dataset. It can save time and resources, especially during initial model development and testing. If you are running short on time or experimenting with different model configurations, subset training is a good option.</p>
+<p>When it comes to YOLOv8, you can easily implement subset training by using the <code>fraction</code> parameter. This parameter lets you specify what fraction of your dataset to use for training. For example, setting <code>fraction=0.1</code> will train your model on 10% of the data. You can use this technique for quick iterations and tuning your model before committing to training a model using a full dataset. Subset training helps you make rapid progress and identify potential issues early on.</p>
+<h3 id="multi-scale-training">Multi-scale Training</h3>
+<p>Multi-scale training is a technique that improves your model's ability to generalize by training it on images of varying sizes. Your model can learn to detect objects at different scales and distances and become more robust.</p>
+<p>For example, when you train YOLOv8, you can enable multi-scale training by setting the <code>scale</code> parameter. This parameter adjusts the size of training images by a specified factor, simulating objects at different distances. For example, setting <code>scale=0.5</code> will reduce the image size by half, while <code>scale=2.0</code> will double it. Configuring this parameter allows your model to experience a variety of image scales and improve its detection capabilities across different object sizes and scenarios.</p>
+<h3 id="caching">Caching</h3>
+<p>Caching is an important technique to improve the efficiency of training machine learning models. By storing preprocessed images in memory, caching reduces the time the GPU spends waiting for data to be loaded from the disk. The model can continuously receive data without delays caused by disk I/O operations.</p>
+<p>Caching can be controlled when training YOLOv8 using the <code>cache</code> parameter:</p>
 <ul>
-<li>To achieve at least 95% accuracy in speed detection within six months, using a dataset of 10,000 vehicle images.</li>
-<li>The system should be able to process real-time video feeds at 30 frames per second with minimal delay.</li>
+<li><em><code>cache=True</code></em>: Stores dataset images in RAM, providing the fastest access speed but at the cost of increased memory usage.</li>
+<li><em><code>cache='disk'</code></em>: Stores the images on disk, slower than RAM but faster than loading fresh data each time.</li>
+<li><em><code>cache=False</code></em>: Disables caching, relying entirely on disk I/O, which is the slowest option.</li>
 </ul>
-<p>By setting specific and quantifiable goals, you can effectively track progress, identify areas for improvement, and ensure the project stays on course.</p>
-<h2 id="the-connection-between-the-problem-statement-and-the-computer-vision-tasks">The Connection Between The Problem Statement and The Computer Vision Tasks</h2>
-<p>Your problem statement helps you conceptualize which computer vision task can solve your issue.</p>
-<p>For example, if your problem is monitoring vehicle speeds on a highway, the relevant computer vision task is object tracking. <a href="../../modes/track/">Object tracking</a> is suitable because it allows the system to continuously follow each vehicle in the video feed, which is crucial for accurately calculating their speeds.</p>
+<h3 id="mixed-precision-training">Mixed Precision Training</h3>
+<p>Mixed precision training uses both 16-bit (FP16) and 32-bit (FP32) floating-point types. The strengths of both FP16 and FP32 are leveraged by using FP16 for faster computation and FP32 to maintain precision where needed. Most of the neural network's operations are done in FP16 to benefit from faster computation and lower memory usage. However, a master copy of the model's weights is kept in FP32 to ensure accuracy during the weight update steps. You can handle larger models or larger batch sizes within the same hardware constraints.</p>
 <p align="center">
-<img alt="Example of Object Tracking" src="https://assets-global.website-files.com/6479eab6eb2ed5e597810e9e/664f03ba300cf6e61689862f_FIG%20444.gif" width="100%"/>
+<img alt="Mixed Precision Training Overview" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*htZ4PF2fZ0ttJ5HdsIaAbQ.png" width="100%"/>
 </p>
-<p>Other tasks, like <a href="../../tasks/detect/">object detection</a>, are not suitable as they don't provide continuous location or movement information. Once you've identified the appropriate computer vision task, it guides several critical aspects of your project, like model selection, dataset preparation, and model training approaches.</p>
-<h2 id="which-comes-first-model-selection-dataset-preparation-or-model-training-approach">Which Comes First: Model Selection, Dataset Preparation, or Model Training Approach?</h2>
-<p>The order of model selection, dataset preparation, and training approach depends on the specifics of your project. Here are a few tips to help you decide:</p>
+<p>To implement mixed precision training, you'll need to modify your training scripts and ensure your hardware (like GPUs) supports it. Many modern deep learning frameworks, such as Tensorflow, offer built-in support for mixed precision.</p>
+<p>Mixed precision training is straightforward when working with YOLOv8. You can use the <code>amp</code> flag in your training configuration. Setting <code>amp=True</code> enables Automatic Mixed Precision (AMP) training. Mixed precision training is a simple yet effective way to optimize your model training process.</p>
+<h3 id="pre-trained-weights">Pre-trained Weights</h3>
+<p>Using pre-trained weights is a smart way to speed up your model's training process. Pretrained weights come from models already trained on large datasets, giving your model a head start. Transfer learning adapts pre-trained models to new, related tasks. Fine-tuning a pre-trained model involves starting with these weights and then continuing training on your specific dataset. This method of training results in faster training times and often better performance because the model starts with a solid understanding of basic features.</p>
+<p>The <code>pretrained</code> parameter makes transfer learning easy with YOLOv8. Setting <code>pretrained=True</code> will use default pre-trained weights, or you can specify a path to a custom pre-trained model. Using pre-trained weights and transfer learning effectively boosts your model's capabilities and reduces training costs.</p>
+<h3 id="other-techniques-to-consider-when-handling-a-large-dataset">Other Techniques to Consider When Handling a Large Dataset</h3>
+<p>There are a couple of other techniques to consider when handling a large dataset:</p>
+<ul>
+<li><strong>Learning Rate Schedulers</strong>: Implementing learning rate schedulers dynamically adjusts the learning rate during training. A well-tuned learning rate can prevent the model from overshooting minima and improve stability. When training YOLOv8, the <code>lrf</code> parameter helps manage learning rate scheduling by setting the final learning rate as a fraction of the initial rate.</li>
+<li><strong>Distributed Training</strong>: For handling large datasets, distributed training can be a game-changer. You can reduce the training time by spreading the training workload across multiple GPUs or machines.</li>
+</ul>
+<h2 id="the-number-of-epochs-to-train-for">The Number of Epochs To Train For</h2>
+<p>When training a model, an epoch refers to one complete pass through the entire training dataset. During an epoch, the model processes each example in the training set once and updates its parameters based on the learning algorithm. Multiple epochs are usually needed to allow the model to learn and refine its parameters over time.</p>
+<p>A common question that comes up is how to determine the number of epochs to train the model for. A good starting point is 300 epochs. If the model overfits early, you can reduce the number of epochs. If overfitting does not occur after 300 epochs, you can extend the training to 600, 1200, or more epochs.</p>
+<p>However, the ideal number of epochs can vary based on your dataset's size and project goals. Larger datasets might require more epochs for the model to learn effectively, while smaller datasets might need fewer epochs to avoid overfitting. With respect to YOLOv8, you can set the <code>epochs</code> parameter in your training script.</p>
+<h2 id="early-stopping">Early Stopping</h2>
+<p>Early stopping is a valuable technique for optimizing model training. By monitoring validation performance, you can halt training once the model stops improving. You can save computational resources and prevent overfitting.</p>
+<p>The process involves setting a patience parameter that determines how many epochs to wait for an improvement in validation metrics before stopping training. If the model's performance doesn't improve within these epochs, training is stopped to avoid wasting time and resources.</p>
+<p align="center">
+<img alt="Early Stopping Overview" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*06sTlOC3AYeZAjzUDwbaMw@2x.jpeg" width="100%"/>
+</p>
+<p>For YOLOv8, you can enable early stopping by setting the patience parameter in your training configuration. For example, <code>patience=5</code> means training will stop if there's no improvement in validation metrics for 5 consecutive epochs. Using this method ensures the training process remains efficient and achieves optimal performance without excessive computation.</p>
+<h2 id="choosing-between-cloud-and-local-training">Choosing Between Cloud and Local Training</h2>
+<p>There are two options for training your model: cloud training and local training.</p>
+<p>Cloud training offers scalability and powerful hardware and is ideal for handling large datasets and complex models. Platforms like Google Cloud, AWS, and Azure provide on-demand access to high-performance GPUs and TPUs, speeding up training times and enabling experiments with larger models. However, cloud training can be expensive, especially for long periods, and data transfer can add to costs and latency.</p>
+<p>Local training provides greater control and customization, letting you tailor your environment to specific needs and avoid ongoing cloud costs. It can be more economical for long-term projects, and since your data stays on-premises, it's more secure. However, local hardware may have resource limitations and require maintenance, which can lead to longer training times for large models.</p>
+<h2 id="selecting-an-optimizer">Selecting an Optimizer</h2>
+<p>An optimizer is an algorithm that adjusts the weights of your neural network to minimize the loss function, which measures how well the model is performing. In simpler terms, the optimizer helps the model learn by tweaking its parameters to reduce errors. Choosing the right optimizer directly affects how quickly and accurately the model learns.</p>
+<p>You can also fine-tune optimizer parameters to improve model performance. Adjusting the learning rate sets the size of the steps when updating parameters. For stability, you might start with a moderate learning rate and gradually decrease it over time to improve long-term learning. Additionally, setting the momentum determines how much influence past updates have on current updates. A common value for momentum is around 0.9. It generally provides a good balance.</p>
+<h3 id="common-optimizers">Common Optimizers</h3>
+<p>Different optimizers have various strengths and weaknesses. Let's take a glimpse at a few common optimizers.</p>
 <ul>
 <li>
-<p><strong>Clear Understanding of the Problem</strong>: If your problem and objectives are well-defined, start with model selection. Then, prepare your dataset and decide on the training approach based on the model's requirements.</p>
+<p><strong>SGD (Stochastic Gradient Descent)</strong>:</p>
 <ul>
-<li><strong>Example</strong>: Start by selecting a model for a traffic monitoring system that estimates vehicle speeds. Choose an object tracking model, gather and annotate highway videos, and then train the model with techniques for real-time video processing.</li>
+<li>Updates model parameters using the gradient of the loss function with respect to the parameters.</li>
+<li>Simple and efficient but can be slow to converge and might get stuck in local minima.</li>
 </ul>
 </li>
 <li>
-<p><strong>Unique or Limited Data</strong>: If your project is constrained by unique or limited data, begin with dataset preparation. For instance, if you have a rare dataset of medical images, annotate and prepare the data first. Then, select a model that performs well on such data, followed by choosing a suitable training approach.</p>
+<p><strong>Adam (Adaptive Moment Estimation)</strong>:</p>
 <ul>
-<li><strong>Example</strong>: Prepare the data first for a facial recognition system with a small dataset. Annotate it, then select a model that works well with limited data, such as a pre-trained model for transfer learning. Finally, decide on a training approach, including data augmentation, to expand the dataset.</li>
+<li>Combines the benefits of both SGD with momentum and RMSProp.</li>
+<li>Adjusts the learning rate for each parameter based on estimates of the first and second moments of the gradients.</li>
+<li>Well-suited for noisy data and sparse gradients.</li>
+<li>Efficient and generally requires less tuning, making it a recommended optimizer for YOLOv8.</li>
 </ul>
 </li>
 <li>
-<p><strong>Need for Experimentation</strong>: In projects where experimentation is crucial, start with the training approach. This is common in research projects where you might initially test different training techniques. Refine your model selection after identifying a promising method and prepare the dataset based on your findings.</p>
+<p><strong>RMSProp (Root Mean Square Propagation)</strong>:</p>
 <ul>
-<li><strong>Example</strong>: In a project exploring new methods for detecting manufacturing defects, start with experimenting on a small data subset. Once you find a promising technique, select a model tailored to those findings and prepare a comprehensive dataset.</li>
+<li>Adjusts the learning rate for each parameter by dividing the gradient by a running average of the magnitudes of recent gradients.</li>
+<li>Helps in handling the vanishing gradient problem and is effective for recurrent neural networks.</li>
 </ul>
 </li>
 </ul>
-<h2 id="common-discussion-points-in-the-community">Common Discussion Points in the Community</h2>
-<p>Next, let's look at a few common discussion points in the community regarding computer vision tasks and project planning.</p>
-<h3 id="what-are-the-different-computer-vision-tasks">What Are the Different Computer Vision Tasks?</h3>
-<p>The most popular computer vision tasks include image classification, object detection, and image segmentation.</p>
-<p align="center">
-<img alt="Overview of Computer Vision Tasks" src="https://assets-global.website-files.com/614c82ed388d53640613982e/64aeb16e742bde3dc050e048_image%20classification%20vs%20object%20detection%20vs%20image%20segmentation.webp" width="100%"/>
-</p>
-<p>For a detailed explanation of various tasks, please take a look at the Ultralytics Docs page on <a href="../../tasks/">YOLOv8 Tasks</a>.</p>
-<h3 id="can-a-pre-trained-model-remember-classes-it-knew-before-custom-training">Can a Pre-trained Model Remember Classes It Knew Before Custom Training?</h3>
-<p>No, pre-trained models don't "remember" classes in the traditional sense. They learn patterns from massive datasets, and during custom training (fine-tuning), these patterns are adjusted for your specific task. The model's capacity is limited, and focusing on new information can overwrite some previous learnings.</p>
-<p align="center">
-<img alt="Overview of Transfer Learning" src="https://media.licdn.com/dms/image/D4D12AQHIJdbNXjBXEQ/article-cover_image-shrink_720_1280/0/1692158503859?e=2147483647&amp;v=beta&amp;t=pib5jFzINB9RzKIATGHMsE0jK1_4_m5LRqx7GkYiFqA" width="100%"/>
-</p>
-<p>If you want to use the classes the model was pre-trained on, a practical approach is to use two models: one retains the original performance, and the other is fine-tuned for your specific task. This way, you can combine the outputs of both models. There are other options like freezing layers, using the pre-trained model as a feature extractor, and task-specific branching, but these are more complex solutions and require more expertise.</p>
-<h3 id="how-do-deployment-options-affect-my-computer-vision-project">How Do Deployment Options Affect My Computer Vision Project?</h3>
-<p><a href="../model-deployment-options/">Model deployment options</a> critically impact the performance of your computer vision project. For instance, the deployment environment must handle the computational load of your model. Here are some practical examples:</p>
-<ul>
-<li><strong>Edge Devices</strong>: Deploying on edge devices like smartphones or IoT devices requires lightweight models due to their limited computational resources. Example technologies include <a href="../../integrations/tflite/">TensorFlow Lite</a> and <a href="../../integrations/onnx/">ONNX Runtime</a>, which are optimized for such environments.</li>
-<li><strong>Cloud Servers</strong>: Cloud deployments can handle more complex models with larger computational demands. Cloud platforms like <a href="../../integrations/amazon-sagemaker/">AWS</a>, Google Cloud, and Azure offer robust hardware options that can scale based on the project's needs.</li>
-<li><strong>On-Premise Servers</strong>: For scenarios requiring high data privacy and security, deploying on-premise might be necessary. This involves significant upfront hardware investment but allows full control over the data and infrastructure.</li>
-<li><strong>Hybrid Solutions</strong>: Some projects might benefit from a hybrid approach, where some processing is done on the edge, while more complex analyses are offloaded to the cloud. This can balance performance needs with cost and latency considerations.</li>
-</ul>
-<p>Each deployment option offers different benefits and challenges, and the choice depends on specific project requirements like performance, cost, and security.</p>
+<p>For YOLOv8, the <code>optimizer</code> parameter lets you choose from various optimizers, including SGD, Adam, AdamW, NAdam, RAdam, and RMSProp, or you can set it to <code>auto</code> for automatic selection based on model configuration.</p>
 <h2 id="faqs">FAQs</h2>
-<p>Here are some questions that might encounter while defining your computer vision project:</p>
-<ul>
-<li><strong>Q1:</strong> How do I set effective and measurable objectives for my computer vision project?<ul>
-<li><strong>A1:</strong> To set effective and measurable objectives, follow the SMART criteria: Specific, Measurable, Achievable, Relevant, and Time-bound. Define what success looks like, how it will be measured, ensure the goals are attainable with available resources, align them with broader project aims, and set a deadline.</li>
-</ul>
-</li>
-</ul>
-<p align="center">
-<img alt="Overview of SMART criteria" src="https://ugc.futurelearn.com/uploads/assets/58/fa/58fa21ca-e284-4086-a1ce-58689ea49982.png" width="100%"/>
-</p>
 <ul>
 <li>
-<p><strong>Q2:</strong> Can the scope of a computer vision project change after the problem statement is defined?</p>
+<p><strong>Q1:</strong> Does the Size of Training Images Affect Predictions on High-Quality Images?</p>
 <ul>
-<li><strong>A2:</strong> Yes, the scope of a computer vision project can change as new information becomes available or as project requirements evolve. It's important to regularly review and adjust the problem statement and objectives to reflect any new insights or changes in project direction.</li>
+<li><strong>A1:</strong> The size of training images can indeed impact the prediction accuracy of high-resolution images. Training on low-resolution images might not capture the finer details that high-resolution images contain, potentially leading to less accurate predictions when the model is applied to high-resolution images. To achieve optimal performance, it's generally recommended to train your model on images that are similar in resolution to those you expect to encounter during inference.</li>
 </ul>
 </li>
 <li>
-<p><strong>Q3:</strong> What are some common challenges in defining the problem for a computer vision project?</p>
+<p><strong>Q2:</strong> Does 'Auto' Optimizer Switch Between during Training?</p>
 <ul>
-<li><strong>A3:</strong> Common challenges include vague or overly broad problem statements, unrealistic objectives, lack of stakeholder alignment, insufficient understanding of technical constraints, and underestimating data requirements. Addressing these challenges requires thorough initial research, clear communication with stakeholders, and iterative refinement of the problem statement and objectives.</li>
+<li><strong>A2:</strong> No, the 'Auto' setting does not switch between different optimizers during training. It selects a single optimizer at the start of the training process and uses it consistently throughout the entire training session, ensuring stability and consistency in the optimization process.</li>
+</ul>
+</li>
+<li>
+<p><strong>Q3:</strong> Can Yolov8 handle various image sizes?</p>
+<ul>
+<li><strong>A3:</strong> Yes, YOLOv8 can handle images of various sizes. During training and prediction, the model automatically resizes the images to the specified <code>imgsz</code> parameter.</li>
 </ul>
 </li>
 </ul>
 <h2 id="connecting-with-the-community">Connecting with the Community</h2>
-<p>Connecting with other computer vision enthusiasts can be incredibly helpful for your projects by providing support, solutions, and new ideas. Here are some great ways to learn, troubleshoot, and network:</p>
-<h3 id="community-support-channels">Community Support Channels</h3>
+<p>Being part of a community of computer vision enthusiasts can help you solve problems and learn faster. Here are some ways to connect, get help, and share ideas.</p>
+<h3 id="community-resources">Community Resources</h3>
 <ul>
-<li><strong>GitHub Issues:</strong> Head over to the YOLOv8 GitHub repository. You can use the <a href="https://github.com/ultralytics/ultralytics/issues">Issues tab</a> to raise questions, report bugs, and suggest features. The community and maintainers can assist with specific problems you encounter.</li>
-<li><strong>Ultralytics Discord Server:</strong> Become part of the <a href="https://ultralytics.com/discord/">Ultralytics Discord server</a>. Connect with fellow users and developers, seek support, exchange knowledge, and discuss ideas.</li>
+<li><strong>GitHub Issues:</strong> Visit the <a href="https://github.com/ultralytics/ultralytics/issues">YOLOv8 GitHub repository</a> and use the Issues tab to ask questions, report bugs, and suggest new features. The community and maintainers are very active and ready to help.</li>
+<li><strong>Ultralytics Discord Server:</strong> Join the <a href="https://ultralytics.com/discord/">Ultralytics Discord server</a> to chat with other users and developers, get support, and share your experiences.</li>
 </ul>
-<h3 id="comprehensive-guides-and-documentation">Comprehensive Guides and Documentation</h3>
+<h3 id="official-documentation">Official Documentation</h3>
 <ul>
-<li><strong>Ultralytics YOLOv8 Documentation:</strong> Explore the <a href="../">official YOLOv8 documentation</a> for in-depth guides and valuable tips on various computer vision tasks and projects.</li>
+<li><strong>Ultralytics YOLOv8 Documentation:</strong> Check out the <a href="../">official YOLOv8 documentation</a> for detailed guides and helpful tips on various computer vision projects.</li>
 </ul>
-<h2 id="conclusion">Conclusion</h2>
-<p>Defining a clear problem and setting measurable goals is key to a successful computer vision project. We've highlighted the importance of being clear and focused from the start. Having specific goals helps avoid oversight. Also, staying connected with others in the community through platforms like GitHub or Discord is important for learning and staying current. In short, good planning and engaging with the community is a huge part of successful computer vision projects.</p>
+<p>Using these resources will help you solve challenges and stay up-to-date with the latest trends and practices in the computer vision community.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>Training computer vision models involves following good practices, optimizing your strategies, and solving problems as they arise. Techniques like adjusting batch sizes, mixed precision training, and starting with pre-trained weights can make your models work better and train faster. Methods like subset training and early stopping help you save time and resources. Staying connected with the community and keeping up with new trends will help you keep improving your model training skills.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1034,7 +1115,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-05-29, Updated 2024-06-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-06-26, Updated 2024-06-26<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1), <a href="https://github.com/ultralytics/ultralytics">not.committed.yet</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1045,10 +1126,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/defining-project-goals', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/model-training-tips', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/defining-project-goals', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/model-training-tips', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -1097,7 +1178,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Steps of a Computer Vision Project" class="md-footer__link md-footer__link--prev" href="../steps-of-a-cv-project/">
+<a aria-label="Previous: Preprocessing Annotated Data" class="md-footer__link md-footer__link--prev" href="../preprocessing_annotated_data/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1106,17 +1187,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                Steps of a Computer Vision Project
+                Preprocessing Annotated Data
               </div>
 </div>
 </a>
-<a aria-label="Next: Data Collection and Annotation" class="md-footer__link md-footer__link--next" href="../data-collection-and-annotation/">
+<a aria-label="Next: Ultralytics Explorer" class="md-footer__link md-footer__link--next" href="../../datasets/explorer/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Data Collection and Annotation
+                Ultralytics Explorer
               </div>
 </div>
 <div class="md-footer__button md-icon">
