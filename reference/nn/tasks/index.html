@@ -2987,7 +2987,7 @@ computation efficiency.</p>
 <a id="__codelineno-0-337" name="__codelineno-0-337"></a>
 <a id="__codelineno-0-338" name="__codelineno-0-338"></a>    <span class="k">def</span> <span class="nf">_predict_augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="w">        </span><span class="sd">"""Perform augmentations on input image x and return augmented inference and train outputs."""</span>
-<a id="__codelineno-0-340" name="__codelineno-0-340"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">end2end</span><span class="p">:</span>
+<a id="__codelineno-0-340" name="__codelineno-0-340"></a>        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"end2end"</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
 <a id="__codelineno-0-341" name="__codelineno-0-341"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
 <a id="__codelineno-0-342" name="__codelineno-0-342"></a>                <span class="s2">"WARNING ⚠️ End2End model does not support 'augment=True' prediction. "</span>
 <a id="__codelineno-0-343" name="__codelineno-0-343"></a>                <span class="s2">"Reverting to single-scale prediction."</span>
