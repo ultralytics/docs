@@ -5611,7 +5611,7 @@ exceptions and to exclude events with 'out of memory' in their exception message
 </div><p><br/><br/></p>
 <div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="ultralytics.utils.deprecation_warn">
-<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
 <p>Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument.</p>
@@ -5621,17 +5621,11 @@ exceptions and to exclude events with 'out of memory' in their exception message
 <span class="normal"><a href="#__codelineno-0-1030">1030</a></span>
 <span class="normal"><a href="#__codelineno-0-1031">1031</a></span>
 <span class="normal"><a href="#__codelineno-0-1032">1032</a></span>
-<span class="normal"><a href="#__codelineno-0-1033">1033</a></span>
-<span class="normal"><a href="#__codelineno-0-1034">1034</a></span>
-<span class="normal"><a href="#__codelineno-0-1035">1035</a></span>
-<span class="normal"><a href="#__codelineno-0-1036">1036</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1029" name="__codelineno-0-1029"></a><span class="k">def</span> <span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-1033">1033</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1029" name="__codelineno-0-1029"></a><span class="k">def</span> <span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="p">):</span>
 <a id="__codelineno-0-1030" name="__codelineno-0-1030"></a><span class="w">    </span><span class="sd">"""Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument."""</span>
-<a id="__codelineno-0-1031" name="__codelineno-0-1031"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">version</span><span class="p">:</span>
-<a id="__codelineno-0-1032" name="__codelineno-0-1032"></a>        <span class="n">version</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">__version__</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span> <span class="o">+</span> <span class="mf">0.2</span>  <span class="c1"># deprecate after 2nd major release</span>
-<a id="__codelineno-0-1033" name="__codelineno-0-1033"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<a id="__codelineno-0-1034" name="__codelineno-0-1034"></a>        <span class="sa">f</span><span class="s2">"WARNING ⚠️ '</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">' is deprecated and will be removed in 'ultralytics </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">' in the future. "</span>
-<a id="__codelineno-0-1035" name="__codelineno-0-1035"></a>        <span class="sa">f</span><span class="s2">"Please use '</span><span class="si">{</span><span class="n">new_arg</span><span class="si">}</span><span class="s2">' instead."</span>
-<a id="__codelineno-0-1036" name="__codelineno-0-1036"></a>    <span class="p">)</span>
+<a id="__codelineno-0-1031" name="__codelineno-0-1031"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+<a id="__codelineno-0-1032" name="__codelineno-0-1032"></a>        <span class="sa">f</span><span class="s2">"WARNING ⚠️ '</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">' is deprecated and will be removed in in the future. "</span> <span class="sa">f</span><span class="s2">"Please use '</span><span class="si">{</span><span class="n">new_arg</span><span class="si">}</span><span class="s2">' instead."</span>
+<a id="__codelineno-0-1033" name="__codelineno-0-1033"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5644,13 +5638,13 @@ exceptions and to exclude events with 'out of memory' in their exception message
 <p>Strip auth from URL, i.e. https://url.com/file.txt?auth -&gt; https://url.com/file.txt.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1039">1039</a></span>
-<span class="normal"><a href="#__codelineno-0-1040">1040</a></span>
-<span class="normal"><a href="#__codelineno-0-1041">1041</a></span>
-<span class="normal"><a href="#__codelineno-0-1042">1042</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1039" name="__codelineno-0-1039"></a><span class="k">def</span> <span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-<a id="__codelineno-0-1040" name="__codelineno-0-1040"></a><span class="w">    </span><span class="sd">"""Strip auth from URL, i.e. https://url.com/file.txt?auth -&gt; https://url.com/file.txt."""</span>
-<a id="__codelineno-0-1041" name="__codelineno-0-1041"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":/"</span><span class="p">,</span> <span class="s2">"://"</span><span class="p">)</span>  <span class="c1"># Pathlib turns :// -&gt; :/, as_posix() for Windows</span>
-<a id="__codelineno-0-1042" name="__codelineno-0-1042"></a>    <span class="k">return</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"?"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># '%2F' to '/', split https://url.com/file.txt?auth</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1036">1036</a></span>
+<span class="normal"><a href="#__codelineno-0-1037">1037</a></span>
+<span class="normal"><a href="#__codelineno-0-1038">1038</a></span>
+<span class="normal"><a href="#__codelineno-0-1039">1039</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1036" name="__codelineno-0-1036"></a><span class="k">def</span> <span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<a id="__codelineno-0-1037" name="__codelineno-0-1037"></a><span class="w">    </span><span class="sd">"""Strip auth from URL, i.e. https://url.com/file.txt?auth -&gt; https://url.com/file.txt."""</span>
+<a id="__codelineno-0-1038" name="__codelineno-0-1038"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":/"</span><span class="p">,</span> <span class="s2">"://"</span><span class="p">)</span>  <span class="c1"># Pathlib turns :// -&gt; :/, as_posix() for Windows</span>
+<a id="__codelineno-0-1039" name="__codelineno-0-1039"></a>    <span class="k">return</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">unquote</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"?"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># '%2F' to '/', split https://url.com/file.txt?auth</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5663,11 +5657,11 @@ exceptions and to exclude events with 'out of memory' in their exception message
 <p>Convert URL to filename, i.e. https://url.com/file.txt?auth -&gt; file.txt.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1045">1045</a></span>
-<span class="normal"><a href="#__codelineno-0-1046">1046</a></span>
-<span class="normal"><a href="#__codelineno-0-1047">1047</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1045" name="__codelineno-0-1045"></a><span class="k">def</span> <span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-<a id="__codelineno-0-1046" name="__codelineno-0-1046"></a><span class="w">    </span><span class="sd">"""Convert URL to filename, i.e. https://url.com/file.txt?auth -&gt; file.txt."""</span>
-<a id="__codelineno-0-1047" name="__codelineno-0-1047"></a>    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">name</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1042">1042</a></span>
+<span class="normal"><a href="#__codelineno-0-1043">1043</a></span>
+<span class="normal"><a href="#__codelineno-0-1044">1044</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1042" name="__codelineno-0-1042"></a><span class="k">def</span> <span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<a id="__codelineno-0-1043" name="__codelineno-0-1043"></a><span class="w">    </span><span class="sd">"""Convert URL to filename, i.e. https://url.com/file.txt?auth -&gt; file.txt."""</span>
+<a id="__codelineno-0-1044" name="__codelineno-0-1044"></a>    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">name</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
