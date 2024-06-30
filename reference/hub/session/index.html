@@ -635,6 +635,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.hub.session.HUBTrainingSession.request_queue">
+<span class="md-ellipsis">
+      request_queue
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.hub.session.HUBTrainingSession.upload_metrics">
 <span class="md-ellipsis">
       upload_metrics
@@ -1103,6 +1110,13 @@
 <a class="md-nav__link" href="#ultralytics.hub.session.HUBTrainingSession.load_model">
 <span class="md-ellipsis">
       load_model
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.hub.session.HUBTrainingSession.request_queue">
+<span class="md-ellipsis">
+      request_queue
     </span>
 </a>
 </li>
@@ -1597,7 +1611,9 @@
 <span class="normal"><a href="#__codelineno-0-386">386</a></span>
 <span class="normal"><a href="#__codelineno-0-387">387</a></span>
 <span class="normal"><a href="#__codelineno-0-388">388</a></span>
-<span class="normal"><a href="#__codelineno-0-389">389</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="k">class</span> <span class="nc">HUBTrainingSession</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-389">389</a></span>
+<span class="normal"><a href="#__codelineno-0-390">390</a></span>
+<span class="normal"><a href="#__codelineno-0-391">391</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="k">class</span> <span class="nc">HUBTrainingSession</span><span class="p">:</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    HUB training session for Ultralytics HUB YOLO models. Handles model initialization, heartbeats, and checkpointing.</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a>
@@ -1813,163 +1829,165 @@
 <a id="__codelineno-0-230" name="__codelineno-0-230"></a>        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
 <a id="__codelineno-0-231" name="__codelineno-0-231"></a>        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <a id="__codelineno-0-232" name="__codelineno-0-232"></a>    <span class="p">):</span>
-<a id="__codelineno-0-233" name="__codelineno-0-233"></a>        <span class="k">def</span> <span class="nf">retry_request</span><span class="p">():</span>
-<a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="w">            </span><span class="sd">"""Attempts to call `request_func` with retries, timeout, and optional threading."""</span>
-<a id="__codelineno-0-235" name="__codelineno-0-235"></a>            <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># Record the start time for the timeout</span>
-<a id="__codelineno-0-236" name="__codelineno-0-236"></a>            <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-237" name="__codelineno-0-237"></a>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">retry</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-238" name="__codelineno-0-238"></a>                <span class="k">if</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
-<a id="__codelineno-0-239" name="__codelineno-0-239"></a>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Timeout for request reached. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-240" name="__codelineno-0-240"></a>                    <span class="k">break</span>  <span class="c1"># Timeout reached, exit loop</span>
-<a id="__codelineno-0-241" name="__codelineno-0-241"></a>
-<a id="__codelineno-0-242" name="__codelineno-0-242"></a>                <span class="n">response</span> <span class="o">=</span> <span class="n">request_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a id="__codelineno-0-243" name="__codelineno-0-243"></a>                <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-244" name="__codelineno-0-244"></a>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Received no response from the request. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-245" name="__codelineno-0-245"></a>                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Exponential backoff before retrying</span>
-<a id="__codelineno-0-246" name="__codelineno-0-246"></a>                    <span class="k">continue</span>  <span class="c1"># Skip further processing and retry</span>
-<a id="__codelineno-0-247" name="__codelineno-0-247"></a>
-<a id="__codelineno-0-248" name="__codelineno-0-248"></a>                <span class="k">if</span> <span class="n">progress_total</span><span class="p">:</span>
-<a id="__codelineno-0-249" name="__codelineno-0-249"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">_show_upload_progress</span><span class="p">(</span><span class="n">progress_total</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
-<a id="__codelineno-0-250" name="__codelineno-0-250"></a>                <span class="k">elif</span> <span class="n">stream_response</span><span class="p">:</span>
-<a id="__codelineno-0-251" name="__codelineno-0-251"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">_iterate_content</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-<a id="__codelineno-0-252" name="__codelineno-0-252"></a>
-<a id="__codelineno-0-253" name="__codelineno-0-253"></a>                <span class="k">if</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span> <span class="o">&lt;=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">MULTIPLE_CHOICES</span><span class="p">:</span>
-<a id="__codelineno-0-254" name="__codelineno-0-254"></a>                    <span class="c1"># if request related to metrics upload</span>
-<a id="__codelineno-0-255" name="__codelineno-0-255"></a>                    <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">):</span>
-<a id="__codelineno-0-256" name="__codelineno-0-256"></a>                        <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-257" name="__codelineno-0-257"></a>                    <span class="k">return</span> <span class="n">response</span>  <span class="c1"># Success, no need to retry</span>
-<a id="__codelineno-0-258" name="__codelineno-0-258"></a>
-<a id="__codelineno-0-259" name="__codelineno-0-259"></a>                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-260" name="__codelineno-0-260"></a>                    <span class="c1"># Initial attempt, check status code and provide messages</span>
-<a id="__codelineno-0-261" name="__codelineno-0-261"></a>                    <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_failure_message</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">retry</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-<a id="__codelineno-0-262" name="__codelineno-0-262"></a>
-<a id="__codelineno-0-263" name="__codelineno-0-263"></a>                    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-<a id="__codelineno-0-264" name="__codelineno-0-264"></a>                        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="n">message</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
-<a id="__codelineno-0-265" name="__codelineno-0-265"></a>
-<a id="__codelineno-0-266" name="__codelineno-0-266"></a>                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_retry</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">):</span>
-<a id="__codelineno-0-267" name="__codelineno-0-267"></a>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Request failed. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-268" name="__codelineno-0-268"></a>                    <span class="k">break</span>  <span class="c1"># Not an error that should be retried, exit loop</span>
-<a id="__codelineno-0-269" name="__codelineno-0-269"></a>
-<a id="__codelineno-0-270" name="__codelineno-0-270"></a>                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Exponential backoff for retries</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="w">        </span><span class="sd">"""Attempts to execute `request_func` with retries, timeout handling, optional threading, and progress."""</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a>
+<a id="__codelineno-0-235" name="__codelineno-0-235"></a>        <span class="k">def</span> <span class="nf">retry_request</span><span class="p">():</span>
+<a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="w">            </span><span class="sd">"""Attempts to call `request_func` with retries, timeout, and optional threading."""</span>
+<a id="__codelineno-0-237" name="__codelineno-0-237"></a>            <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># Record the start time for the timeout</span>
+<a id="__codelineno-0-238" name="__codelineno-0-238"></a>            <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-239" name="__codelineno-0-239"></a>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">retry</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-240" name="__codelineno-0-240"></a>                <span class="k">if</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
+<a id="__codelineno-0-241" name="__codelineno-0-241"></a>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Timeout for request reached. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-242" name="__codelineno-0-242"></a>                    <span class="k">break</span>  <span class="c1"># Timeout reached, exit loop</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a>
+<a id="__codelineno-0-244" name="__codelineno-0-244"></a>                <span class="n">response</span> <span class="o">=</span> <span class="n">request_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-245" name="__codelineno-0-245"></a>                <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-246" name="__codelineno-0-246"></a>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Received no response from the request. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-247" name="__codelineno-0-247"></a>                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Exponential backoff before retrying</span>
+<a id="__codelineno-0-248" name="__codelineno-0-248"></a>                    <span class="k">continue</span>  <span class="c1"># Skip further processing and retry</span>
+<a id="__codelineno-0-249" name="__codelineno-0-249"></a>
+<a id="__codelineno-0-250" name="__codelineno-0-250"></a>                <span class="k">if</span> <span class="n">progress_total</span><span class="p">:</span>
+<a id="__codelineno-0-251" name="__codelineno-0-251"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">_show_upload_progress</span><span class="p">(</span><span class="n">progress_total</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-0-252" name="__codelineno-0-252"></a>                <span class="k">elif</span> <span class="n">stream_response</span><span class="p">:</span>
+<a id="__codelineno-0-253" name="__codelineno-0-253"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">_iterate_content</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-0-254" name="__codelineno-0-254"></a>
+<a id="__codelineno-0-255" name="__codelineno-0-255"></a>                <span class="k">if</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span> <span class="o">&lt;=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">MULTIPLE_CHOICES</span><span class="p">:</span>
+<a id="__codelineno-0-256" name="__codelineno-0-256"></a>                    <span class="c1"># if request related to metrics upload</span>
+<a id="__codelineno-0-257" name="__codelineno-0-257"></a>                    <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">):</span>
+<a id="__codelineno-0-258" name="__codelineno-0-258"></a>                        <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-0-259" name="__codelineno-0-259"></a>                    <span class="k">return</span> <span class="n">response</span>  <span class="c1"># Success, no need to retry</span>
+<a id="__codelineno-0-260" name="__codelineno-0-260"></a>
+<a id="__codelineno-0-261" name="__codelineno-0-261"></a>                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-262" name="__codelineno-0-262"></a>                    <span class="c1"># Initial attempt, check status code and provide messages</span>
+<a id="__codelineno-0-263" name="__codelineno-0-263"></a>                    <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_failure_message</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">retry</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+<a id="__codelineno-0-264" name="__codelineno-0-264"></a>
+<a id="__codelineno-0-265" name="__codelineno-0-265"></a>                    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+<a id="__codelineno-0-266" name="__codelineno-0-266"></a>                        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="n">message</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<a id="__codelineno-0-267" name="__codelineno-0-267"></a>
+<a id="__codelineno-0-268" name="__codelineno-0-268"></a>                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_retry</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">):</span>
+<a id="__codelineno-0-269" name="__codelineno-0-269"></a>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Request failed. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-270" name="__codelineno-0-270"></a>                    <span class="k">break</span>  <span class="c1"># Not an error that should be retried, exit loop</span>
 <a id="__codelineno-0-271" name="__codelineno-0-271"></a>
-<a id="__codelineno-0-272" name="__codelineno-0-272"></a>            <span class="c1"># if request related to metrics upload and exceed retries</span>
-<a id="__codelineno-0-273" name="__codelineno-0-273"></a>            <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">):</span>
-<a id="__codelineno-0-274" name="__codelineno-0-274"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<a id="__codelineno-0-275" name="__codelineno-0-275"></a>
-<a id="__codelineno-0-276" name="__codelineno-0-276"></a>            <span class="k">return</span> <span class="n">response</span>
+<a id="__codelineno-0-272" name="__codelineno-0-272"></a>                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Exponential backoff for retries</span>
+<a id="__codelineno-0-273" name="__codelineno-0-273"></a>
+<a id="__codelineno-0-274" name="__codelineno-0-274"></a>            <span class="c1"># if request related to metrics upload and exceed retries</span>
+<a id="__codelineno-0-275" name="__codelineno-0-275"></a>            <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">):</span>
+<a id="__codelineno-0-276" name="__codelineno-0-276"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
 <a id="__codelineno-0-277" name="__codelineno-0-277"></a>
-<a id="__codelineno-0-278" name="__codelineno-0-278"></a>        <span class="k">if</span> <span class="n">thread</span><span class="p">:</span>
-<a id="__codelineno-0-279" name="__codelineno-0-279"></a>            <span class="c1"># Start a new thread to run the retry_request function</span>
-<a id="__codelineno-0-280" name="__codelineno-0-280"></a>            <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">retry_request</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<a id="__codelineno-0-281" name="__codelineno-0-281"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-282" name="__codelineno-0-282"></a>            <span class="c1"># If running in the main thread, call retry_request directly</span>
-<a id="__codelineno-0-283" name="__codelineno-0-283"></a>            <span class="k">return</span> <span class="n">retry_request</span><span class="p">()</span>
-<a id="__codelineno-0-284" name="__codelineno-0-284"></a>
-<a id="__codelineno-0-285" name="__codelineno-0-285"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-286" name="__codelineno-0-286"></a>    <span class="k">def</span> <span class="nf">_should_retry</span><span class="p">(</span><span class="n">status_code</span><span class="p">):</span>
-<a id="__codelineno-0-287" name="__codelineno-0-287"></a><span class="w">        </span><span class="sd">"""Determines if a request should be retried based on the HTTP status code."""</span>
-<a id="__codelineno-0-288" name="__codelineno-0-288"></a>        <span class="n">retry_codes</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-289" name="__codelineno-0-289"></a>            <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">REQUEST_TIMEOUT</span><span class="p">,</span>
-<a id="__codelineno-0-290" name="__codelineno-0-290"></a>            <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_GATEWAY</span><span class="p">,</span>
-<a id="__codelineno-0-291" name="__codelineno-0-291"></a>            <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">GATEWAY_TIMEOUT</span><span class="p">,</span>
-<a id="__codelineno-0-292" name="__codelineno-0-292"></a>        <span class="p">}</span>
-<a id="__codelineno-0-293" name="__codelineno-0-293"></a>        <span class="k">return</span> <span class="n">status_code</span> <span class="ow">in</span> <span class="n">retry_codes</span>
-<a id="__codelineno-0-294" name="__codelineno-0-294"></a>
-<a id="__codelineno-0-295" name="__codelineno-0-295"></a>    <span class="k">def</span> <span class="nf">_get_failure_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">,</span> <span class="n">retry</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-0-296" name="__codelineno-0-296"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-297" name="__codelineno-0-297"></a><span class="sd">        Generate a retry message based on the response status code.</span>
-<a id="__codelineno-0-298" name="__codelineno-0-298"></a>
-<a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-300" name="__codelineno-0-300"></a><span class="sd">            response: The HTTP response object.</span>
-<a id="__codelineno-0-301" name="__codelineno-0-301"></a><span class="sd">            retry: The number of retry attempts allowed.</span>
-<a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">            timeout: The maximum timeout duration.</span>
-<a id="__codelineno-0-303" name="__codelineno-0-303"></a>
-<a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="sd">            (str): The retry message.</span>
-<a id="__codelineno-0-306" name="__codelineno-0-306"></a><span class="sd">        """</span>
-<a id="__codelineno-0-307" name="__codelineno-0-307"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_retry</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">):</span>
-<a id="__codelineno-0-308" name="__codelineno-0-308"></a>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"Retrying </span><span class="si">{</span><span class="n">retry</span><span class="si">}</span><span class="s2">x for </span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s2">s."</span> <span class="k">if</span> <span class="n">retry</span> <span class="k">else</span> <span class="s2">""</span>
-<a id="__codelineno-0-309" name="__codelineno-0-309"></a>        <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">TOO_MANY_REQUESTS</span><span class="p">:</span>  <span class="c1"># rate limit</span>
-<a id="__codelineno-0-310" name="__codelineno-0-310"></a>            <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span>
-<a id="__codelineno-0-311" name="__codelineno-0-311"></a>            <span class="k">return</span> <span class="p">(</span>
-<a id="__codelineno-0-312" name="__codelineno-0-312"></a>                <span class="sa">f</span><span class="s2">"Rate limit reached (</span><span class="si">{</span><span class="n">headers</span><span class="p">[</span><span class="s1">'X-RateLimit-Remaining'</span><span class="p">]</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">headers</span><span class="p">[</span><span class="s1">'X-RateLimit-Limit'</span><span class="p">]</span><span class="si">}</span><span class="s2">). "</span>
-<a id="__codelineno-0-313" name="__codelineno-0-313"></a>                <span class="sa">f</span><span class="s2">"Please retry after </span><span class="si">{</span><span class="n">headers</span><span class="p">[</span><span class="s1">'Retry-After'</span><span class="p">]</span><span class="si">}</span><span class="s2">s."</span>
-<a id="__codelineno-0-314" name="__codelineno-0-314"></a>            <span class="p">)</span>
-<a id="__codelineno-0-315" name="__codelineno-0-315"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-316" name="__codelineno-0-316"></a>            <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-317" name="__codelineno-0-317"></a>                <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"message"</span><span class="p">,</span> <span class="s2">"No JSON message."</span><span class="p">)</span>
-<a id="__codelineno-0-318" name="__codelineno-0-318"></a>            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-<a id="__codelineno-0-319" name="__codelineno-0-319"></a>                <span class="k">return</span> <span class="s2">"Unable to read JSON."</span>
-<a id="__codelineno-0-320" name="__codelineno-0-320"></a>
-<a id="__codelineno-0-321" name="__codelineno-0-321"></a>    <span class="k">def</span> <span class="nf">upload_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="w">        </span><span class="sd">"""Upload model metrics to Ultralytics HUB."""</span>
-<a id="__codelineno-0-323" name="__codelineno-0-323"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics_queue</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-324" name="__codelineno-0-324"></a>
-<a id="__codelineno-0-325" name="__codelineno-0-325"></a>    <span class="k">def</span> <span class="nf">upload_model</span><span class="p">(</span>
-<a id="__codelineno-0-326" name="__codelineno-0-326"></a>        <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-327" name="__codelineno-0-327"></a>        <span class="n">epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-0-328" name="__codelineno-0-328"></a>        <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-<a id="__codelineno-0-329" name="__codelineno-0-329"></a>        <span class="n">is_best</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-330" name="__codelineno-0-330"></a>        <span class="nb">map</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
-<a id="__codelineno-0-331" name="__codelineno-0-331"></a>        <span class="n">final</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-332" name="__codelineno-0-332"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">        Upload a model checkpoint to Ultralytics HUB.</span>
-<a id="__codelineno-0-335" name="__codelineno-0-335"></a>
-<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-337" name="__codelineno-0-337"></a><span class="sd">            epoch (int): The current training epoch.</span>
-<a id="__codelineno-0-338" name="__codelineno-0-338"></a><span class="sd">            weights (str): Path to the model weights file.</span>
-<a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="sd">            is_best (bool): Indicates if the current model is the best one so far.</span>
-<a id="__codelineno-0-340" name="__codelineno-0-340"></a><span class="sd">            map (float): Mean average precision of the model.</span>
-<a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="sd">            final (bool): Indicates if the model is the final model after training.</span>
-<a id="__codelineno-0-342" name="__codelineno-0-342"></a><span class="sd">        """</span>
-<a id="__codelineno-0-343" name="__codelineno-0-343"></a>        <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-<a id="__codelineno-0-344" name="__codelineno-0-344"></a>            <span class="n">progress_total</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="k">if</span> <span class="n">final</span> <span class="k">else</span> <span class="kc">None</span>  <span class="c1"># Only show progress if final</span>
-<a id="__codelineno-0-345" name="__codelineno-0-345"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span>
-<a id="__codelineno-0-346" name="__codelineno-0-346"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_model</span><span class="p">,</span>
-<a id="__codelineno-0-347" name="__codelineno-0-347"></a>                <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span>
-<a id="__codelineno-0-348" name="__codelineno-0-348"></a>                <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span>
-<a id="__codelineno-0-349" name="__codelineno-0-349"></a>                <span class="n">is_best</span><span class="o">=</span><span class="n">is_best</span><span class="p">,</span>
-<a id="__codelineno-0-350" name="__codelineno-0-350"></a>                <span class="nb">map</span><span class="o">=</span><span class="nb">map</span><span class="p">,</span>
-<a id="__codelineno-0-351" name="__codelineno-0-351"></a>                <span class="n">final</span><span class="o">=</span><span class="n">final</span><span class="p">,</span>
-<a id="__codelineno-0-352" name="__codelineno-0-352"></a>                <span class="n">retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<a id="__codelineno-0-353" name="__codelineno-0-353"></a>                <span class="n">timeout</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
-<a id="__codelineno-0-354" name="__codelineno-0-354"></a>                <span class="n">thread</span><span class="o">=</span><span class="ow">not</span> <span class="n">final</span><span class="p">,</span>
-<a id="__codelineno-0-355" name="__codelineno-0-355"></a>                <span class="n">progress_total</span><span class="o">=</span><span class="n">progress_total</span><span class="p">,</span>
-<a id="__codelineno-0-356" name="__codelineno-0-356"></a>                <span class="n">stream_response</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-357" name="__codelineno-0-357"></a>            <span class="p">)</span>
-<a id="__codelineno-0-358" name="__codelineno-0-358"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-359" name="__codelineno-0-359"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">WARNING ⚠️ Model upload issue. Missing model </span><span class="si">{</span><span class="n">weights</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
-<a id="__codelineno-0-360" name="__codelineno-0-360"></a>
-<a id="__codelineno-0-361" name="__codelineno-0-361"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-362" name="__codelineno-0-362"></a>    <span class="k">def</span> <span class="nf">_show_upload_progress</span><span class="p">(</span><span class="n">content_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-364" name="__codelineno-0-364"></a><span class="sd">        Display a progress bar to track the upload progress of a file download.</span>
-<a id="__codelineno-0-365" name="__codelineno-0-365"></a>
-<a id="__codelineno-0-366" name="__codelineno-0-366"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-367" name="__codelineno-0-367"></a><span class="sd">            content_length (int): The total size of the content to be downloaded in bytes.</span>
-<a id="__codelineno-0-368" name="__codelineno-0-368"></a><span class="sd">            response (requests.Response): The response object from the file download request.</span>
-<a id="__codelineno-0-369" name="__codelineno-0-369"></a>
-<a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="sd">            None</span>
-<a id="__codelineno-0-372" name="__codelineno-0-372"></a><span class="sd">        """</span>
-<a id="__codelineno-0-373" name="__codelineno-0-373"></a>        <span class="k">with</span> <span class="n">TQDM</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">content_length</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">"B"</span><span class="p">,</span> <span class="n">unit_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unit_divisor</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
-<a id="__codelineno-0-374" name="__codelineno-0-374"></a>            <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
-<a id="__codelineno-0-375" name="__codelineno-0-375"></a>                <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a>
-<a id="__codelineno-0-377" name="__codelineno-0-377"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-378" name="__codelineno-0-378"></a>    <span class="k">def</span> <span class="nf">_iterate_content</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="sd">        Process the streamed HTTP response data.</span>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a>
-<a id="__codelineno-0-382" name="__codelineno-0-382"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-383" name="__codelineno-0-383"></a><span class="sd">            response (requests.Response): The response object from the file download request.</span>
-<a id="__codelineno-0-384" name="__codelineno-0-384"></a>
-<a id="__codelineno-0-385" name="__codelineno-0-385"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-386" name="__codelineno-0-386"></a><span class="sd">            None</span>
-<a id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="sd">        """</span>
-<a id="__codelineno-0-388" name="__codelineno-0-388"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
-<a id="__codelineno-0-389" name="__codelineno-0-389"></a>            <span class="k">pass</span>  <span class="c1"># Do nothing with data chunks</span>
+<a id="__codelineno-0-278" name="__codelineno-0-278"></a>            <span class="k">return</span> <span class="n">response</span>
+<a id="__codelineno-0-279" name="__codelineno-0-279"></a>
+<a id="__codelineno-0-280" name="__codelineno-0-280"></a>        <span class="k">if</span> <span class="n">thread</span><span class="p">:</span>
+<a id="__codelineno-0-281" name="__codelineno-0-281"></a>            <span class="c1"># Start a new thread to run the retry_request function</span>
+<a id="__codelineno-0-282" name="__codelineno-0-282"></a>            <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">retry_request</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a id="__codelineno-0-283" name="__codelineno-0-283"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a>            <span class="c1"># If running in the main thread, call retry_request directly</span>
+<a id="__codelineno-0-285" name="__codelineno-0-285"></a>            <span class="k">return</span> <span class="n">retry_request</span><span class="p">()</span>
+<a id="__codelineno-0-286" name="__codelineno-0-286"></a>
+<a id="__codelineno-0-287" name="__codelineno-0-287"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-288" name="__codelineno-0-288"></a>    <span class="k">def</span> <span class="nf">_should_retry</span><span class="p">(</span><span class="n">status_code</span><span class="p">):</span>
+<a id="__codelineno-0-289" name="__codelineno-0-289"></a><span class="w">        </span><span class="sd">"""Determines if a request should be retried based on the HTTP status code."""</span>
+<a id="__codelineno-0-290" name="__codelineno-0-290"></a>        <span class="n">retry_codes</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-291" name="__codelineno-0-291"></a>            <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">REQUEST_TIMEOUT</span><span class="p">,</span>
+<a id="__codelineno-0-292" name="__codelineno-0-292"></a>            <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_GATEWAY</span><span class="p">,</span>
+<a id="__codelineno-0-293" name="__codelineno-0-293"></a>            <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">GATEWAY_TIMEOUT</span><span class="p">,</span>
+<a id="__codelineno-0-294" name="__codelineno-0-294"></a>        <span class="p">}</span>
+<a id="__codelineno-0-295" name="__codelineno-0-295"></a>        <span class="k">return</span> <span class="n">status_code</span> <span class="ow">in</span> <span class="n">retry_codes</span>
+<a id="__codelineno-0-296" name="__codelineno-0-296"></a>
+<a id="__codelineno-0-297" name="__codelineno-0-297"></a>    <span class="k">def</span> <span class="nf">_get_failure_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">,</span> <span class="n">retry</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-0-298" name="__codelineno-0-298"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-299" name="__codelineno-0-299"></a><span class="sd">        Generate a retry message based on the response status code.</span>
+<a id="__codelineno-0-300" name="__codelineno-0-300"></a>
+<a id="__codelineno-0-301" name="__codelineno-0-301"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-302" name="__codelineno-0-302"></a><span class="sd">            response: The HTTP response object.</span>
+<a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="sd">            retry: The number of retry attempts allowed.</span>
+<a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="sd">            timeout: The maximum timeout duration.</span>
+<a id="__codelineno-0-305" name="__codelineno-0-305"></a>
+<a id="__codelineno-0-306" name="__codelineno-0-306"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-307" name="__codelineno-0-307"></a><span class="sd">            (str): The retry message.</span>
+<a id="__codelineno-0-308" name="__codelineno-0-308"></a><span class="sd">        """</span>
+<a id="__codelineno-0-309" name="__codelineno-0-309"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_retry</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">):</span>
+<a id="__codelineno-0-310" name="__codelineno-0-310"></a>            <span class="k">return</span> <span class="sa">f</span><span class="s2">"Retrying </span><span class="si">{</span><span class="n">retry</span><span class="si">}</span><span class="s2">x for </span><span class="si">{</span><span class="n">timeout</span><span class="si">}</span><span class="s2">s."</span> <span class="k">if</span> <span class="n">retry</span> <span class="k">else</span> <span class="s2">""</span>
+<a id="__codelineno-0-311" name="__codelineno-0-311"></a>        <span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">TOO_MANY_REQUESTS</span><span class="p">:</span>  <span class="c1"># rate limit</span>
+<a id="__codelineno-0-312" name="__codelineno-0-312"></a>            <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span>
+<a id="__codelineno-0-313" name="__codelineno-0-313"></a>            <span class="k">return</span> <span class="p">(</span>
+<a id="__codelineno-0-314" name="__codelineno-0-314"></a>                <span class="sa">f</span><span class="s2">"Rate limit reached (</span><span class="si">{</span><span class="n">headers</span><span class="p">[</span><span class="s1">'X-RateLimit-Remaining'</span><span class="p">]</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">headers</span><span class="p">[</span><span class="s1">'X-RateLimit-Limit'</span><span class="p">]</span><span class="si">}</span><span class="s2">). "</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a>                <span class="sa">f</span><span class="s2">"Please retry after </span><span class="si">{</span><span class="n">headers</span><span class="p">[</span><span class="s1">'Retry-After'</span><span class="p">]</span><span class="si">}</span><span class="s2">s."</span>
+<a id="__codelineno-0-316" name="__codelineno-0-316"></a>            <span class="p">)</span>
+<a id="__codelineno-0-317" name="__codelineno-0-317"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-318" name="__codelineno-0-318"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-319" name="__codelineno-0-319"></a>                <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"message"</span><span class="p">,</span> <span class="s2">"No JSON message."</span><span class="p">)</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a>            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a>                <span class="k">return</span> <span class="s2">"Unable to read JSON."</span>
+<a id="__codelineno-0-322" name="__codelineno-0-322"></a>
+<a id="__codelineno-0-323" name="__codelineno-0-323"></a>    <span class="k">def</span> <span class="nf">upload_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a><span class="w">        </span><span class="sd">"""Upload model metrics to Ultralytics HUB."""</span>
+<a id="__codelineno-0-325" name="__codelineno-0-325"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics_queue</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-326" name="__codelineno-0-326"></a>
+<a id="__codelineno-0-327" name="__codelineno-0-327"></a>    <span class="k">def</span> <span class="nf">upload_model</span><span class="p">(</span>
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a>        <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-329" name="__codelineno-0-329"></a>        <span class="n">epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-0-330" name="__codelineno-0-330"></a>        <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<a id="__codelineno-0-331" name="__codelineno-0-331"></a>        <span class="n">is_best</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-332" name="__codelineno-0-332"></a>        <span class="nb">map</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<a id="__codelineno-0-333" name="__codelineno-0-333"></a>        <span class="n">final</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-334" name="__codelineno-0-334"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-335" name="__codelineno-0-335"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">        Upload a model checkpoint to Ultralytics HUB.</span>
+<a id="__codelineno-0-337" name="__codelineno-0-337"></a>
+<a id="__codelineno-0-338" name="__codelineno-0-338"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="sd">            epoch (int): The current training epoch.</span>
+<a id="__codelineno-0-340" name="__codelineno-0-340"></a><span class="sd">            weights (str): Path to the model weights file.</span>
+<a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="sd">            is_best (bool): Indicates if the current model is the best one so far.</span>
+<a id="__codelineno-0-342" name="__codelineno-0-342"></a><span class="sd">            map (float): Mean average precision of the model.</span>
+<a id="__codelineno-0-343" name="__codelineno-0-343"></a><span class="sd">            final (bool): Indicates if the model is the final model after training.</span>
+<a id="__codelineno-0-344" name="__codelineno-0-344"></a><span class="sd">        """</span>
+<a id="__codelineno-0-345" name="__codelineno-0-345"></a>        <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+<a id="__codelineno-0-346" name="__codelineno-0-346"></a>            <span class="n">progress_total</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="k">if</span> <span class="n">final</span> <span class="k">else</span> <span class="kc">None</span>  <span class="c1"># Only show progress if final</span>
+<a id="__codelineno-0-347" name="__codelineno-0-347"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span>
+<a id="__codelineno-0-348" name="__codelineno-0-348"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_model</span><span class="p">,</span>
+<a id="__codelineno-0-349" name="__codelineno-0-349"></a>                <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span>
+<a id="__codelineno-0-350" name="__codelineno-0-350"></a>                <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span>
+<a id="__codelineno-0-351" name="__codelineno-0-351"></a>                <span class="n">is_best</span><span class="o">=</span><span class="n">is_best</span><span class="p">,</span>
+<a id="__codelineno-0-352" name="__codelineno-0-352"></a>                <span class="nb">map</span><span class="o">=</span><span class="nb">map</span><span class="p">,</span>
+<a id="__codelineno-0-353" name="__codelineno-0-353"></a>                <span class="n">final</span><span class="o">=</span><span class="n">final</span><span class="p">,</span>
+<a id="__codelineno-0-354" name="__codelineno-0-354"></a>                <span class="n">retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-0-355" name="__codelineno-0-355"></a>                <span class="n">timeout</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
+<a id="__codelineno-0-356" name="__codelineno-0-356"></a>                <span class="n">thread</span><span class="o">=</span><span class="ow">not</span> <span class="n">final</span><span class="p">,</span>
+<a id="__codelineno-0-357" name="__codelineno-0-357"></a>                <span class="n">progress_total</span><span class="o">=</span><span class="n">progress_total</span><span class="p">,</span>
+<a id="__codelineno-0-358" name="__codelineno-0-358"></a>                <span class="n">stream_response</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-359" name="__codelineno-0-359"></a>            <span class="p">)</span>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-361" name="__codelineno-0-361"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">WARNING ⚠️ Model upload issue. Missing model </span><span class="si">{</span><span class="n">weights</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<a id="__codelineno-0-362" name="__codelineno-0-362"></a>
+<a id="__codelineno-0-363" name="__codelineno-0-363"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-364" name="__codelineno-0-364"></a>    <span class="k">def</span> <span class="nf">_show_upload_progress</span><span class="p">(</span><span class="n">content_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-365" name="__codelineno-0-365"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-366" name="__codelineno-0-366"></a><span class="sd">        Display a progress bar to track the upload progress of a file download.</span>
+<a id="__codelineno-0-367" name="__codelineno-0-367"></a>
+<a id="__codelineno-0-368" name="__codelineno-0-368"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-369" name="__codelineno-0-369"></a><span class="sd">            content_length (int): The total size of the content to be downloaded in bytes.</span>
+<a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="sd">            response (requests.Response): The response object from the file download request.</span>
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a>
+<a id="__codelineno-0-372" name="__codelineno-0-372"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-373" name="__codelineno-0-373"></a><span class="sd">            None</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a><span class="sd">        """</span>
+<a id="__codelineno-0-375" name="__codelineno-0-375"></a>        <span class="k">with</span> <span class="n">TQDM</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">content_length</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">"B"</span><span class="p">,</span> <span class="n">unit_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">unit_divisor</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a>            <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
+<a id="__codelineno-0-377" name="__codelineno-0-377"></a>                <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-380" name="__codelineno-0-380"></a>    <span class="k">def</span> <span class="nf">_iterate_content</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a><span class="sd">        Process the streamed HTTP response data.</span>
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a>
+<a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-385" name="__codelineno-0-385"></a><span class="sd">            response (requests.Response): The response object from the file download request.</span>
+<a id="__codelineno-0-386" name="__codelineno-0-386"></a>
+<a id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="sd">            None</span>
+<a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="sd">        """</span>
+<a id="__codelineno-0-390" name="__codelineno-0-390"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
+<a id="__codelineno-0-391" name="__codelineno-0-391"></a>            <span class="k">pass</span>  <span class="c1"># Do nothing with data chunks</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2296,6 +2314,147 @@ It can be a URL string or a model key with specific format.</p>
 </div>
 </div>
 <div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.hub.session.HUBTrainingSession.request_queue">
+<code class="highlight language-python"><span class="n">request_queue</span><span class="p">(</span><span class="n">request_func</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">progress_total</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stream_response</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+</h3>
+<div class="doc doc-contents">
+<p>Attempts to execute <code>request_func</code> with retries, timeout handling, optional threading, and progress.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/hub/session.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-221">221</a></span>
+<span class="normal"><a href="#__codelineno-0-222">222</a></span>
+<span class="normal"><a href="#__codelineno-0-223">223</a></span>
+<span class="normal"><a href="#__codelineno-0-224">224</a></span>
+<span class="normal"><a href="#__codelineno-0-225">225</a></span>
+<span class="normal"><a href="#__codelineno-0-226">226</a></span>
+<span class="normal"><a href="#__codelineno-0-227">227</a></span>
+<span class="normal"><a href="#__codelineno-0-228">228</a></span>
+<span class="normal"><a href="#__codelineno-0-229">229</a></span>
+<span class="normal"><a href="#__codelineno-0-230">230</a></span>
+<span class="normal"><a href="#__codelineno-0-231">231</a></span>
+<span class="normal"><a href="#__codelineno-0-232">232</a></span>
+<span class="normal"><a href="#__codelineno-0-233">233</a></span>
+<span class="normal"><a href="#__codelineno-0-234">234</a></span>
+<span class="normal"><a href="#__codelineno-0-235">235</a></span>
+<span class="normal"><a href="#__codelineno-0-236">236</a></span>
+<span class="normal"><a href="#__codelineno-0-237">237</a></span>
+<span class="normal"><a href="#__codelineno-0-238">238</a></span>
+<span class="normal"><a href="#__codelineno-0-239">239</a></span>
+<span class="normal"><a href="#__codelineno-0-240">240</a></span>
+<span class="normal"><a href="#__codelineno-0-241">241</a></span>
+<span class="normal"><a href="#__codelineno-0-242">242</a></span>
+<span class="normal"><a href="#__codelineno-0-243">243</a></span>
+<span class="normal"><a href="#__codelineno-0-244">244</a></span>
+<span class="normal"><a href="#__codelineno-0-245">245</a></span>
+<span class="normal"><a href="#__codelineno-0-246">246</a></span>
+<span class="normal"><a href="#__codelineno-0-247">247</a></span>
+<span class="normal"><a href="#__codelineno-0-248">248</a></span>
+<span class="normal"><a href="#__codelineno-0-249">249</a></span>
+<span class="normal"><a href="#__codelineno-0-250">250</a></span>
+<span class="normal"><a href="#__codelineno-0-251">251</a></span>
+<span class="normal"><a href="#__codelineno-0-252">252</a></span>
+<span class="normal"><a href="#__codelineno-0-253">253</a></span>
+<span class="normal"><a href="#__codelineno-0-254">254</a></span>
+<span class="normal"><a href="#__codelineno-0-255">255</a></span>
+<span class="normal"><a href="#__codelineno-0-256">256</a></span>
+<span class="normal"><a href="#__codelineno-0-257">257</a></span>
+<span class="normal"><a href="#__codelineno-0-258">258</a></span>
+<span class="normal"><a href="#__codelineno-0-259">259</a></span>
+<span class="normal"><a href="#__codelineno-0-260">260</a></span>
+<span class="normal"><a href="#__codelineno-0-261">261</a></span>
+<span class="normal"><a href="#__codelineno-0-262">262</a></span>
+<span class="normal"><a href="#__codelineno-0-263">263</a></span>
+<span class="normal"><a href="#__codelineno-0-264">264</a></span>
+<span class="normal"><a href="#__codelineno-0-265">265</a></span>
+<span class="normal"><a href="#__codelineno-0-266">266</a></span>
+<span class="normal"><a href="#__codelineno-0-267">267</a></span>
+<span class="normal"><a href="#__codelineno-0-268">268</a></span>
+<span class="normal"><a href="#__codelineno-0-269">269</a></span>
+<span class="normal"><a href="#__codelineno-0-270">270</a></span>
+<span class="normal"><a href="#__codelineno-0-271">271</a></span>
+<span class="normal"><a href="#__codelineno-0-272">272</a></span>
+<span class="normal"><a href="#__codelineno-0-273">273</a></span>
+<span class="normal"><a href="#__codelineno-0-274">274</a></span>
+<span class="normal"><a href="#__codelineno-0-275">275</a></span>
+<span class="normal"><a href="#__codelineno-0-276">276</a></span>
+<span class="normal"><a href="#__codelineno-0-277">277</a></span>
+<span class="normal"><a href="#__codelineno-0-278">278</a></span>
+<span class="normal"><a href="#__codelineno-0-279">279</a></span>
+<span class="normal"><a href="#__codelineno-0-280">280</a></span>
+<span class="normal"><a href="#__codelineno-0-281">281</a></span>
+<span class="normal"><a href="#__codelineno-0-282">282</a></span>
+<span class="normal"><a href="#__codelineno-0-283">283</a></span>
+<span class="normal"><a href="#__codelineno-0-284">284</a></span>
+<span class="normal"><a href="#__codelineno-0-285">285</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-221" name="__codelineno-0-221"></a><span class="k">def</span> <span class="nf">request_queue</span><span class="p">(</span>
+<a id="__codelineno-0-222" name="__codelineno-0-222"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a>    <span class="n">request_func</span><span class="p">,</span>
+<a id="__codelineno-0-224" name="__codelineno-0-224"></a>    <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<a id="__codelineno-0-225" name="__codelineno-0-225"></a>    <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-0-226" name="__codelineno-0-226"></a>    <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-227" name="__codelineno-0-227"></a>    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-228" name="__codelineno-0-228"></a>    <span class="n">progress_total</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-229" name="__codelineno-0-229"></a>    <span class="n">stream_response</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-230" name="__codelineno-0-230"></a>    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+<a id="__codelineno-0-231" name="__codelineno-0-231"></a>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="p">):</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="w">    </span><span class="sd">"""Attempts to execute `request_func` with retries, timeout handling, optional threading, and progress."""</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a>
+<a id="__codelineno-0-235" name="__codelineno-0-235"></a>    <span class="k">def</span> <span class="nf">retry_request</span><span class="p">():</span>
+<a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="w">        </span><span class="sd">"""Attempts to call `request_func` with retries, timeout, and optional threading."""</span>
+<a id="__codelineno-0-237" name="__codelineno-0-237"></a>        <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># Record the start time for the timeout</span>
+<a id="__codelineno-0-238" name="__codelineno-0-238"></a>        <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-239" name="__codelineno-0-239"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">retry</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-240" name="__codelineno-0-240"></a>            <span class="k">if</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
+<a id="__codelineno-0-241" name="__codelineno-0-241"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Timeout for request reached. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-242" name="__codelineno-0-242"></a>                <span class="k">break</span>  <span class="c1"># Timeout reached, exit loop</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a>
+<a id="__codelineno-0-244" name="__codelineno-0-244"></a>            <span class="n">response</span> <span class="o">=</span> <span class="n">request_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-245" name="__codelineno-0-245"></a>            <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-246" name="__codelineno-0-246"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Received no response from the request. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-247" name="__codelineno-0-247"></a>                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Exponential backoff before retrying</span>
+<a id="__codelineno-0-248" name="__codelineno-0-248"></a>                <span class="k">continue</span>  <span class="c1"># Skip further processing and retry</span>
+<a id="__codelineno-0-249" name="__codelineno-0-249"></a>
+<a id="__codelineno-0-250" name="__codelineno-0-250"></a>            <span class="k">if</span> <span class="n">progress_total</span><span class="p">:</span>
+<a id="__codelineno-0-251" name="__codelineno-0-251"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">_show_upload_progress</span><span class="p">(</span><span class="n">progress_total</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-0-252" name="__codelineno-0-252"></a>            <span class="k">elif</span> <span class="n">stream_response</span><span class="p">:</span>
+<a id="__codelineno-0-253" name="__codelineno-0-253"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">_iterate_content</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-0-254" name="__codelineno-0-254"></a>
+<a id="__codelineno-0-255" name="__codelineno-0-255"></a>            <span class="k">if</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span> <span class="o">&lt;=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">MULTIPLE_CHOICES</span><span class="p">:</span>
+<a id="__codelineno-0-256" name="__codelineno-0-256"></a>                <span class="c1"># if request related to metrics upload</span>
+<a id="__codelineno-0-257" name="__codelineno-0-257"></a>                <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">):</span>
+<a id="__codelineno-0-258" name="__codelineno-0-258"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-0-259" name="__codelineno-0-259"></a>                <span class="k">return</span> <span class="n">response</span>  <span class="c1"># Success, no need to retry</span>
+<a id="__codelineno-0-260" name="__codelineno-0-260"></a>
+<a id="__codelineno-0-261" name="__codelineno-0-261"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-262" name="__codelineno-0-262"></a>                <span class="c1"># Initial attempt, check status code and provide messages</span>
+<a id="__codelineno-0-263" name="__codelineno-0-263"></a>                <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_failure_message</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">retry</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+<a id="__codelineno-0-264" name="__codelineno-0-264"></a>
+<a id="__codelineno-0-265" name="__codelineno-0-265"></a>                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+<a id="__codelineno-0-266" name="__codelineno-0-266"></a>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="n">message</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<a id="__codelineno-0-267" name="__codelineno-0-267"></a>
+<a id="__codelineno-0-268" name="__codelineno-0-268"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_retry</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">):</span>
+<a id="__codelineno-0-269" name="__codelineno-0-269"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Request failed. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-270" name="__codelineno-0-270"></a>                <span class="k">break</span>  <span class="c1"># Not an error that should be retried, exit loop</span>
+<a id="__codelineno-0-271" name="__codelineno-0-271"></a>
+<a id="__codelineno-0-272" name="__codelineno-0-272"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Exponential backoff for retries</span>
+<a id="__codelineno-0-273" name="__codelineno-0-273"></a>
+<a id="__codelineno-0-274" name="__codelineno-0-274"></a>        <span class="c1"># if request related to metrics upload and exceed retries</span>
+<a id="__codelineno-0-275" name="__codelineno-0-275"></a>        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">):</span>
+<a id="__codelineno-0-276" name="__codelineno-0-276"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<a id="__codelineno-0-277" name="__codelineno-0-277"></a>
+<a id="__codelineno-0-278" name="__codelineno-0-278"></a>        <span class="k">return</span> <span class="n">response</span>
+<a id="__codelineno-0-279" name="__codelineno-0-279"></a>
+<a id="__codelineno-0-280" name="__codelineno-0-280"></a>    <span class="k">if</span> <span class="n">thread</span><span class="p">:</span>
+<a id="__codelineno-0-281" name="__codelineno-0-281"></a>        <span class="c1"># Start a new thread to run the retry_request function</span>
+<a id="__codelineno-0-282" name="__codelineno-0-282"></a>        <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">retry_request</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a id="__codelineno-0-283" name="__codelineno-0-283"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a>        <span class="c1"># If running in the main thread, call retry_request directly</span>
+<a id="__codelineno-0-285" name="__codelineno-0-285"></a>        <span class="k">return</span> <span class="n">retry_request</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.hub.session.HUBTrainingSession.upload_metrics">
 <code class="highlight language-python"><span class="n">upload_metrics</span><span class="p">()</span></code>
 </h3>
@@ -2303,11 +2462,11 @@ It can be a URL string or a model key with specific format.</p>
 <p>Upload model metrics to Ultralytics HUB.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/session.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-321">321</a></span>
-<span class="normal"><a href="#__codelineno-0-322">322</a></span>
-<span class="normal"><a href="#__codelineno-0-323">323</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="k">def</span> <span class="nf">upload_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="w">    </span><span class="sd">"""Upload model metrics to Ultralytics HUB."""</span>
-<a id="__codelineno-0-323" name="__codelineno-0-323"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics_queue</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-323">323</a></span>
+<span class="normal"><a href="#__codelineno-0-324">324</a></span>
+<span class="normal"><a href="#__codelineno-0-325">325</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-323" name="__codelineno-0-323"></a><span class="k">def</span> <span class="nf">upload_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a><span class="w">    </span><span class="sd">"""Upload model metrics to Ultralytics HUB."""</span>
+<a id="__codelineno-0-325" name="__codelineno-0-325"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics_queue</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2403,9 +2562,7 @@ It can be a URL string or a model key with specific format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/session.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-325">325</a></span>
-<span class="normal"><a href="#__codelineno-0-326">326</a></span>
-<span class="normal"><a href="#__codelineno-0-327">327</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-327">327</a></span>
 <span class="normal"><a href="#__codelineno-0-328">328</a></span>
 <span class="normal"><a href="#__codelineno-0-329">329</a></span>
 <span class="normal"><a href="#__codelineno-0-330">330</a></span>
@@ -2437,41 +2594,43 @@ It can be a URL string or a model key with specific format.</p>
 <span class="normal"><a href="#__codelineno-0-356">356</a></span>
 <span class="normal"><a href="#__codelineno-0-357">357</a></span>
 <span class="normal"><a href="#__codelineno-0-358">358</a></span>
-<span class="normal"><a href="#__codelineno-0-359">359</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-325" name="__codelineno-0-325"></a><span class="k">def</span> <span class="nf">upload_model</span><span class="p">(</span>
-<a id="__codelineno-0-326" name="__codelineno-0-326"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-327" name="__codelineno-0-327"></a>    <span class="n">epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-0-328" name="__codelineno-0-328"></a>    <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-<a id="__codelineno-0-329" name="__codelineno-0-329"></a>    <span class="n">is_best</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-330" name="__codelineno-0-330"></a>    <span class="nb">map</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
-<a id="__codelineno-0-331" name="__codelineno-0-331"></a>    <span class="n">final</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-332" name="__codelineno-0-332"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">    Upload a model checkpoint to Ultralytics HUB.</span>
-<a id="__codelineno-0-335" name="__codelineno-0-335"></a>
-<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-337" name="__codelineno-0-337"></a><span class="sd">        epoch (int): The current training epoch.</span>
-<a id="__codelineno-0-338" name="__codelineno-0-338"></a><span class="sd">        weights (str): Path to the model weights file.</span>
-<a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="sd">        is_best (bool): Indicates if the current model is the best one so far.</span>
-<a id="__codelineno-0-340" name="__codelineno-0-340"></a><span class="sd">        map (float): Mean average precision of the model.</span>
-<a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="sd">        final (bool): Indicates if the model is the final model after training.</span>
-<a id="__codelineno-0-342" name="__codelineno-0-342"></a><span class="sd">    """</span>
-<a id="__codelineno-0-343" name="__codelineno-0-343"></a>    <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-<a id="__codelineno-0-344" name="__codelineno-0-344"></a>        <span class="n">progress_total</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="k">if</span> <span class="n">final</span> <span class="k">else</span> <span class="kc">None</span>  <span class="c1"># Only show progress if final</span>
-<a id="__codelineno-0-345" name="__codelineno-0-345"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span>
-<a id="__codelineno-0-346" name="__codelineno-0-346"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_model</span><span class="p">,</span>
-<a id="__codelineno-0-347" name="__codelineno-0-347"></a>            <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span>
-<a id="__codelineno-0-348" name="__codelineno-0-348"></a>            <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span>
-<a id="__codelineno-0-349" name="__codelineno-0-349"></a>            <span class="n">is_best</span><span class="o">=</span><span class="n">is_best</span><span class="p">,</span>
-<a id="__codelineno-0-350" name="__codelineno-0-350"></a>            <span class="nb">map</span><span class="o">=</span><span class="nb">map</span><span class="p">,</span>
-<a id="__codelineno-0-351" name="__codelineno-0-351"></a>            <span class="n">final</span><span class="o">=</span><span class="n">final</span><span class="p">,</span>
-<a id="__codelineno-0-352" name="__codelineno-0-352"></a>            <span class="n">retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<a id="__codelineno-0-353" name="__codelineno-0-353"></a>            <span class="n">timeout</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
-<a id="__codelineno-0-354" name="__codelineno-0-354"></a>            <span class="n">thread</span><span class="o">=</span><span class="ow">not</span> <span class="n">final</span><span class="p">,</span>
-<a id="__codelineno-0-355" name="__codelineno-0-355"></a>            <span class="n">progress_total</span><span class="o">=</span><span class="n">progress_total</span><span class="p">,</span>
-<a id="__codelineno-0-356" name="__codelineno-0-356"></a>            <span class="n">stream_response</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-357" name="__codelineno-0-357"></a>        <span class="p">)</span>
-<a id="__codelineno-0-358" name="__codelineno-0-358"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-359" name="__codelineno-0-359"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">WARNING ⚠️ Model upload issue. Missing model </span><span class="si">{</span><span class="n">weights</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-359">359</a></span>
+<span class="normal"><a href="#__codelineno-0-360">360</a></span>
+<span class="normal"><a href="#__codelineno-0-361">361</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-327" name="__codelineno-0-327"></a><span class="k">def</span> <span class="nf">upload_model</span><span class="p">(</span>
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-329" name="__codelineno-0-329"></a>    <span class="n">epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-0-330" name="__codelineno-0-330"></a>    <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<a id="__codelineno-0-331" name="__codelineno-0-331"></a>    <span class="n">is_best</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-332" name="__codelineno-0-332"></a>    <span class="nb">map</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<a id="__codelineno-0-333" name="__codelineno-0-333"></a>    <span class="n">final</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-335" name="__codelineno-0-335"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">    Upload a model checkpoint to Ultralytics HUB.</span>
+<a id="__codelineno-0-337" name="__codelineno-0-337"></a>
+<a id="__codelineno-0-338" name="__codelineno-0-338"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="sd">        epoch (int): The current training epoch.</span>
+<a id="__codelineno-0-340" name="__codelineno-0-340"></a><span class="sd">        weights (str): Path to the model weights file.</span>
+<a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="sd">        is_best (bool): Indicates if the current model is the best one so far.</span>
+<a id="__codelineno-0-342" name="__codelineno-0-342"></a><span class="sd">        map (float): Mean average precision of the model.</span>
+<a id="__codelineno-0-343" name="__codelineno-0-343"></a><span class="sd">        final (bool): Indicates if the model is the final model after training.</span>
+<a id="__codelineno-0-344" name="__codelineno-0-344"></a><span class="sd">    """</span>
+<a id="__codelineno-0-345" name="__codelineno-0-345"></a>    <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+<a id="__codelineno-0-346" name="__codelineno-0-346"></a>        <span class="n">progress_total</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="k">if</span> <span class="n">final</span> <span class="k">else</span> <span class="kc">None</span>  <span class="c1"># Only show progress if final</span>
+<a id="__codelineno-0-347" name="__codelineno-0-347"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span>
+<a id="__codelineno-0-348" name="__codelineno-0-348"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_model</span><span class="p">,</span>
+<a id="__codelineno-0-349" name="__codelineno-0-349"></a>            <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span>
+<a id="__codelineno-0-350" name="__codelineno-0-350"></a>            <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span>
+<a id="__codelineno-0-351" name="__codelineno-0-351"></a>            <span class="n">is_best</span><span class="o">=</span><span class="n">is_best</span><span class="p">,</span>
+<a id="__codelineno-0-352" name="__codelineno-0-352"></a>            <span class="nb">map</span><span class="o">=</span><span class="nb">map</span><span class="p">,</span>
+<a id="__codelineno-0-353" name="__codelineno-0-353"></a>            <span class="n">final</span><span class="o">=</span><span class="n">final</span><span class="p">,</span>
+<a id="__codelineno-0-354" name="__codelineno-0-354"></a>            <span class="n">retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-0-355" name="__codelineno-0-355"></a>            <span class="n">timeout</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
+<a id="__codelineno-0-356" name="__codelineno-0-356"></a>            <span class="n">thread</span><span class="o">=</span><span class="ow">not</span> <span class="n">final</span><span class="p">,</span>
+<a id="__codelineno-0-357" name="__codelineno-0-357"></a>            <span class="n">progress_total</span><span class="o">=</span><span class="n">progress_total</span><span class="p">,</span>
+<a id="__codelineno-0-358" name="__codelineno-0-358"></a>            <span class="n">stream_response</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-359" name="__codelineno-0-359"></a>        <span class="p">)</span>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-361" name="__codelineno-0-361"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">WARNING ⚠️ Model upload issue. Missing model </span><span class="si">{</span><span class="n">weights</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
