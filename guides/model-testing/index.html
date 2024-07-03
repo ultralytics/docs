@@ -5,31 +5,31 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to set up and run YOLOv5 in a Docker container with step-by-step instructions. Explore other quickstart options for an easy setup." name="description"/>
+<meta content="Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/yolov5/environments/docker_image_quickstart_tutorial/" rel="canonical"/>
-<link href="../azureml_quickstart_tutorial/" rel="prev"/>
-<link href="../../tutorials/train_custom_data/" rel="next"/>
-<link href="../../../assets/favicon.ico" rel="icon"/>
+<link href="https://docs.ultralytics.com/guides/model-testing/" rel="canonical"/>
+<link href="../model-evaluation-insights/" rel="prev"/>
+<link href="../model-deployment-practices/" rel="next"/>
+<link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.28" name="generator"/>
-<title>Docker Image - Ultralytics YOLO Docs</title>
-<link href="../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<title>A Guide on Model Testing - Ultralytics YOLO Docs</title>
+<link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../../../stylesheets/style.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/style.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Docker Image" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, Docker, Ultralytics, setup, guide, tutorial, machine learning, deep learning, AI, GPU, NVIDIA, container" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/environments/docker_image_quickstart_tutorial" property="og:url"/><meta content="Docker Image" property="og:title"/><meta content="Learn how to set up and run YOLOv5 in a Docker container with step-by-step instructions. Explore other quickstart options for an easy setup." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/environments/docker_image_quickstart_tutorial" property="twitter:url"/><meta content="Docker Image" property="twitter:title"/><meta content="Learn how to set up and run YOLOv5 in a Docker container with step-by-step instructions. Explore other quickstart options for an easy setup." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Docker Image", "image": ["https://colab.research.google.com/assets/colab-badge.svg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-06-02 21:39:34 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="A Guide on Model Testing" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Overfitting and Underfitting in Machine Learning, Model Testing, Data Leakage Machine Learning, Testing a Model, Testing Machine Learning Models, How to Test AI Models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-testing" property="og:url"/><meta content="A Guide on Model Testing" property="og:title"/><meta content="Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed." property="og:description"/><meta content="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-testing" property="twitter:url"/><meta content="A Guide on Model Testing" property="twitter:title"/><meta content="Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed." property="twitter:description"/><meta content="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "A Guide on Model Testing", "image": ["https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg"], "datePublished": "2024-07-04 01:00:35 +0530", "dateModified": "2024-07-04 01:00:35 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#get-started-with-yolov5-in-docker">
+<a class="md-skip" href="#a-guide-on-model-testing">
           Skip to content
         </a>
 </div>
@@ -46,7 +46,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Ultralytics YOLO Docs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLO Docs">
+<a aria-label="Ultralytics YOLO Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Docker Image
+              A Guide on Model Testing
             
           </span>
 </div>
@@ -132,7 +132,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../..">
+<a class="md-tabs__link" href="../..">
           
   
     
@@ -142,7 +142,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../quickstart/">
+<a class="md-tabs__link" href="../../quickstart/">
           
   
     
@@ -152,7 +152,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../modes/">
+<a class="md-tabs__link" href="../../modes/">
           
   
     
@@ -162,7 +162,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../tasks/">
+<a class="md-tabs__link" href="../../tasks/">
           
   
     
@@ -172,7 +172,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../models/">
+<a class="md-tabs__link" href="../../models/">
           
   
     
@@ -182,7 +182,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../datasets/">
+<a class="md-tabs__link" href="../../datasets/">
           
   
     
@@ -192,7 +192,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../solutions/">
+<a class="md-tabs__link" href="../../solutions/">
           
   
     
@@ -202,7 +202,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../../guides/">
+<a class="md-tabs__link" href="../">
           
   
     
@@ -212,7 +212,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../integrations/">
+<a class="md-tabs__link" href="../../integrations/">
           
   
     
@@ -222,7 +222,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../hub/">
+<a class="md-tabs__link" href="../../hub/">
           
   
     
@@ -232,7 +232,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../reference/cfg/__init__/">
+<a class="md-tabs__link" href="../../reference/cfg/__init__/">
           
   
     
@@ -242,7 +242,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../help/">
+<a class="md-tabs__link" href="../../help/">
           
   
     
@@ -263,7 +263,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Ultralytics YOLO Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Ultralytics YOLO Docs">
+<a aria-label="Ultralytics YOLO Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
 <img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLO Docs
@@ -280,7 +280,7 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../..">
+<a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -288,7 +288,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../quickstart/">
+<a class="md-nav__link" href="../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -296,7 +296,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../modes/">
+<a class="md-nav__link" href="../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -304,7 +304,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../tasks/">
+<a class="md-nav__link" href="../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -312,7 +312,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../models/">
+<a class="md-nav__link" href="../../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -320,7 +320,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../datasets/">
+<a class="md-nav__link" href="../../datasets/">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -328,7 +328,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../solutions/">
+<a class="md-nav__link" href="../../solutions/">
 <span class="md-ellipsis">
     NEW 🚀 Solutions
   </span>
@@ -338,7 +338,7 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../guides/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -354,189 +354,318 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/yolo-common-issues/">
+<a class="md-nav__link" href="../yolo-common-issues/">
 <span class="md-ellipsis">
     YOLO Common Issues
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/yolo-performance-metrics/">
+<a class="md-nav__link" href="../yolo-performance-metrics/">
 <span class="md-ellipsis">
     YOLO Performance Metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/yolo-thread-safe-inference/">
+<a class="md-nav__link" href="../yolo-thread-safe-inference/">
 <span class="md-ellipsis">
     YOLO Thread-Safe Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/model-deployment-options/">
+<a class="md-nav__link" href="../model-deployment-options/">
 <span class="md-ellipsis">
     Model Deployment Options
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/kfold-cross-validation/">
+<a class="md-nav__link" href="../kfold-cross-validation/">
 <span class="md-ellipsis">
     K-Fold Cross Validation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/hyperparameter-tuning/">
+<a class="md-nav__link" href="../hyperparameter-tuning/">
 <span class="md-ellipsis">
     Hyperparameter Tuning
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/sahi-tiled-inference/">
+<a class="md-nav__link" href="../sahi-tiled-inference/">
 <span class="md-ellipsis">
     SAHI Tiled Inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/azureml-quickstart/">
+<a class="md-nav__link" href="../azureml-quickstart/">
 <span class="md-ellipsis">
     AzureML Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/conda-quickstart/">
+<a class="md-nav__link" href="../conda-quickstart/">
 <span class="md-ellipsis">
     Conda Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/docker-quickstart/">
+<a class="md-nav__link" href="../docker-quickstart/">
 <span class="md-ellipsis">
     Docker Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/raspberry-pi/">
+<a class="md-nav__link" href="../raspberry-pi/">
 <span class="md-ellipsis">
     Raspberry Pi
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/nvidia-jetson/">
+<a class="md-nav__link" href="../nvidia-jetson/">
 <span class="md-ellipsis">
     NVIDIA Jetson
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/deepstream-nvidia-jetson/">
+<a class="md-nav__link" href="../deepstream-nvidia-jetson/">
 <span class="md-ellipsis">
     DeepStream on NVIDIA Jetson
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/triton-inference-server/">
+<a class="md-nav__link" href="../triton-inference-server/">
 <span class="md-ellipsis">
     Triton Inference Server
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/isolating-segmentation-objects/">
+<a class="md-nav__link" href="../isolating-segmentation-objects/">
 <span class="md-ellipsis">
     Isolating Segmentation Objects
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/coral-edge-tpu-on-raspberry-pi/">
+<a class="md-nav__link" href="../coral-edge-tpu-on-raspberry-pi/">
 <span class="md-ellipsis">
     Edge TPU on Raspberry Pi
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/view-results-in-terminal/">
+<a class="md-nav__link" href="../view-results-in-terminal/">
 <span class="md-ellipsis">
     Viewing Inference Images in a Terminal
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/optimizing-openvino-latency-vs-throughput-modes/">
+<a class="md-nav__link" href="../optimizing-openvino-latency-vs-throughput-modes/">
 <span class="md-ellipsis">
     OpenVINO Latency vs Throughput modes
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/ros-quickstart/">
+<a class="md-nav__link" href="../ros-quickstart/">
 <span class="md-ellipsis">
     ROS Quickstart
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/steps-of-a-cv-project/">
+<a class="md-nav__link" href="../steps-of-a-cv-project/">
 <span class="md-ellipsis">
     Steps of a Computer Vision Project
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/defining-project-goals/">
+<a class="md-nav__link" href="../defining-project-goals/">
 <span class="md-ellipsis">
     Defining A Computer Vision Project's Goals
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/data-collection-and-annotation/">
+<a class="md-nav__link" href="../data-collection-and-annotation/">
 <span class="md-ellipsis">
     Data Collection and Annotation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/preprocessing_annotated_data/">
+<a class="md-nav__link" href="../preprocessing_annotated_data/">
 <span class="md-ellipsis">
     Preprocessing Annotated Data
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/model-training-tips/">
+<a class="md-nav__link" href="../model-training-tips/">
 <span class="md-ellipsis">
     Tips for Model Training
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/model-evaluation-insights/">
+<a class="md-nav__link" href="../model-evaluation-insights/">
 <span class="md-ellipsis">
     Insights on Model Evaluation and Fine-Tuning
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/model-testing/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    A Guide on Model Testing
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     A Guide on Model Testing
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../guides/model-deployment-practices/">
+<a class="md-nav__link" href="#model-testing-vs-model-evaluation">
+<span class="md-ellipsis">
+      Model Testing Vs. Model Evaluation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#preparing-for-model-testing">
+<span class="md-ellipsis">
+      Preparing for Model Testing
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing-your-computer-vision-model">
+<span class="md-ellipsis">
+      Testing Your Computer Vision Model
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing-your-yolov8-model">
+<span class="md-ellipsis">
+      Testing Your YOLOv8 Model
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-yolov8-to-predict-on-multiple-test-images">
+<span class="md-ellipsis">
+      Using YOLOv8 to Predict on Multiple Test Images
+    </span>
+</a>
+<nav aria-label="Using YOLOv8 to Predict on Multiple Test Images" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#difference-between-validation-and-prediction-modes">
+<span class="md-ellipsis">
+      Difference Between Validation and Prediction Modes
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-yolov8-predictions-without-custom-training">
+<span class="md-ellipsis">
+      Running YOLOv8 Predictions Without Custom Training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overfitting-and-underfitting-in-machine-learning">
+<span class="md-ellipsis">
+      Overfitting and Underfitting in Machine Learning
+    </span>
+</a>
+<nav aria-label="Overfitting and Underfitting in Machine Learning" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overfitting">
+<span class="md-ellipsis">
+      Overfitting
+    </span>
+</a>
+<nav aria-label="Overfitting" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#signs-of-overfitting">
+<span class="md-ellipsis">
+      Signs of Overfitting
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#underfitting">
+<span class="md-ellipsis">
+      Underfitting
+    </span>
+</a>
+<nav aria-label="Underfitting" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#signs-of-underfitting">
+<span class="md-ellipsis">
+      Signs of Underfitting
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#balancing-overfitting-and-underfitting">
+<span class="md-ellipsis">
+      Balancing Overfitting and Underfitting
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../model-deployment-practices/">
 <span class="md-ellipsis">
     Best Practices for Model Deployment
   </span>
@@ -545,7 +674,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8_29" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../../datasets/explorer/">
+<a class="md-nav__link" href="../../datasets/explorer/">
 <span class="md-ellipsis">
     Explorer
   </span>
@@ -561,21 +690,21 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/explorer/api/">
+<a class="md-nav__link" href="../../datasets/explorer/api/">
 <span class="md-ellipsis">
     Explorer API
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/explorer/dashboard/">
+<a class="md-nav__link" href="../../datasets/explorer/dashboard/">
 <span class="md-ellipsis">
     Explorer Dashboard
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../datasets/explorer/explorer/">
+<a class="md-nav__link" href="../../datasets/explorer/explorer/">
 <span class="md-ellipsis">
     VOC Exploration Example
   </span>
@@ -584,10 +713,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_8_30" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8_30" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../">
+<a class="md-nav__link" href="../../yolov5/">
 <span class="md-ellipsis">
     YOLOv5
   </span>
@@ -596,134 +725,29 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_8_30_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_8_30_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_30">
 <span class="md-nav__icon md-icon"></span>
             YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../quickstart_tutorial/">
+<a class="md-nav__link" href="../../yolov5/quickstart_tutorial/">
 <span class="md-ellipsis">
     Quickstart
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_8_30_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_8_30_3" id="__nav_8_30_3_label" tabindex="0">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../yolov5/environments/aws_quickstart_tutorial/">
 <span class="md-ellipsis">
     Environments
   </span>
 <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="true" aria-labelledby="__nav_8_30_3_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_8_30_3">
-<span class="md-nav__icon md-icon"></span>
-            Environments
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../aws_quickstart_tutorial/">
-<span class="md-ellipsis">
-    Amazon Web Services (AWS)
-  </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../google_cloud_quickstart_tutorial/">
-<span class="md-ellipsis">
-    Google Cloud (GCP)
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../azureml_quickstart_tutorial/">
-<span class="md-ellipsis">
-    AzureML
-  </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Docker Image
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
-    Docker Image
-  </span>
-</a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
-<span class="md-ellipsis">
-      Prerequisites
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-pull-the-yolov5-docker-image">
-<span class="md-ellipsis">
-      Step 1: Pull the YOLOv5 Docker Image
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-run-the-docker-container">
-<span class="md-ellipsis">
-      Step 2: Run the Docker Container
-    </span>
-</a>
-<nav aria-label="Step 2: Run the Docker Container" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#basic-container">
-<span class="md-ellipsis">
-      Basic container:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#container-with-local-file-access">
-<span class="md-ellipsis">
-      Container with local file access:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#container-with-gpu-access">
-<span class="md-ellipsis">
-      Container with GPU access:
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-use-yolov5-within-the-docker-container">
-<span class="md-ellipsis">
-      Step 3: Use YOLOv5 🚀 within the Docker Container
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../tutorials/train_custom_data/">
+<a class="md-nav__link" href="../../yolov5/tutorials/train_custom_data/">
 <span class="md-ellipsis">
     Tutorials
   </span>
@@ -737,7 +761,7 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../integrations/">
+<a class="md-nav__link" href="../../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -745,7 +769,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../hub/">
+<a class="md-nav__link" href="../../hub/">
 <span class="md-ellipsis">
     HUB
   </span>
@@ -753,7 +777,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../reference/cfg/__init__/">
+<a class="md-nav__link" href="../../reference/cfg/__init__/">
 <span class="md-ellipsis">
     Reference
   </span>
@@ -761,7 +785,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../../help/">
+<a class="md-nav__link" href="../../help/">
 <span class="md-ellipsis">
     Help
   </span>
@@ -783,45 +807,52 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
+<a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Prerequisites
+      Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-pull-the-yolov5-docker-image">
+<a class="md-nav__link" href="#model-testing-vs-model-evaluation">
 <span class="md-ellipsis">
-      Step 1: Pull the YOLOv5 Docker Image
+      Model Testing Vs. Model Evaluation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-run-the-docker-container">
+<a class="md-nav__link" href="#preparing-for-model-testing">
 <span class="md-ellipsis">
-      Step 2: Run the Docker Container
+      Preparing for Model Testing
     </span>
 </a>
-<nav aria-label="Step 2: Run the Docker Container" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing-your-computer-vision-model">
+<span class="md-ellipsis">
+      Testing Your Computer Vision Model
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#testing-your-yolov8-model">
+<span class="md-ellipsis">
+      Testing Your YOLOv8 Model
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-yolov8-to-predict-on-multiple-test-images">
+<span class="md-ellipsis">
+      Using YOLOv8 to Predict on Multiple Test Images
+    </span>
+</a>
+<nav aria-label="Using YOLOv8 to Predict on Multiple Test Images" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#basic-container">
+<a class="md-nav__link" href="#difference-between-validation-and-prediction-modes">
 <span class="md-ellipsis">
-      Basic container:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#container-with-local-file-access">
-<span class="md-ellipsis">
-      Container with local file access:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#container-with-gpu-access">
-<span class="md-ellipsis">
-      Container with GPU access:
+      Difference Between Validation and Prediction Modes
     </span>
 </a>
 </li>
@@ -829,11 +860,65 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-use-yolov5-within-the-docker-container">
+<a class="md-nav__link" href="#running-yolov8-predictions-without-custom-training">
 <span class="md-ellipsis">
-      Step 3: Use YOLOv5 🚀 within the Docker Container
+      Running YOLOv8 Predictions Without Custom Training
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overfitting-and-underfitting-in-machine-learning">
+<span class="md-ellipsis">
+      Overfitting and Underfitting in Machine Learning
+    </span>
+</a>
+<nav aria-label="Overfitting and Underfitting in Machine Learning" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overfitting">
+<span class="md-ellipsis">
+      Overfitting
+    </span>
+</a>
+<nav aria-label="Overfitting" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#signs-of-overfitting">
+<span class="md-ellipsis">
+      Signs of Overfitting
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#underfitting">
+<span class="md-ellipsis">
+      Underfitting
+    </span>
+</a>
+<nav aria-label="Underfitting" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#signs-of-underfitting">
+<span class="md-ellipsis">
+      Signs of Underfitting
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#balancing-overfitting-and-underfitting">
+<span class="md-ellipsis">
+      Balancing Overfitting and Underfitting
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -842,50 +927,121 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/yolov5/environments/docker_image_quickstart_tutorial.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/model-testing.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="get-started-with-yolov5-in-docker">Get Started with YOLOv5 🚀 in Docker</h1>
-<p>This tutorial will guide you through the process of setting up and running YOLOv5 in a Docker container.</p>
-<p>You can also explore other quickstart options for YOLOv5, such as our <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb">Colab Notebook</a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a>, <a href="../google_cloud_quickstart_tutorial/">GCP Deep Learning VM</a>, and <a href="../aws_quickstart_tutorial/">Amazon AWS</a>.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<ol>
-<li><strong>NVIDIA Driver</strong>: Version 455.23 or higher. Download from <a href="https://www.nvidia.com/Download/index.aspx">Nvidia's website</a>.</li>
-<li><strong>NVIDIA-Docker</strong>: Allows Docker to interact with your local GPU. Installation instructions are available on the <a href="https://github.com/NVIDIA/nvidia-docker">NVIDIA-Docker GitHub repository</a>.</li>
-<li><strong>Docker Engine - CE</strong>: Version 19.03 or higher. Download and installation instructions can be found on the <a href="https://docs.docker.com/install/">Docker website</a>.</li>
-</ol>
-<h2 id="step-1-pull-the-yolov5-docker-image">Step 1: Pull the YOLOv5 Docker Image</h2>
-<p>The Ultralytics YOLOv5 DockerHub repository is available at <a href="https://hub.docker.com/r/ultralytics/yolov5">https://hub.docker.com/r/ultralytics/yolov5</a>. Docker Autobuild ensures that the <code>ultralytics/yolov5:latest</code> image is always in sync with the most recent repository commit. To pull the latest image, run the following command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ultralytics/yolov5:latest
-</code></pre></div>
-<h2 id="step-2-run-the-docker-container">Step 2: Run the Docker Container</h2>
-<h3 id="basic-container">Basic container:</h3>
-<p>Run an interactive instance of the YOLOv5 Docker image (called a "container") using the <code>-it</code> flag:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>-it<span class="w"> </span>ultralytics/yolov5:latest
-</code></pre></div>
-<h3 id="container-with-local-file-access">Container with local file access:</h3>
-<p>To run a container with access to local files (e.g., COCO training data in <code>/datasets</code>), use the <code>-v</code> flag:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>-it<span class="w"> </span>-v<span class="w"> </span><span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">"</span>/datasets:/usr/src/datasets<span class="w"> </span>ultralytics/yolov5:latest
-</code></pre></div>
-<h3 id="container-with-gpu-access">Container with GPU access:</h3>
-<p>To run a container with GPU access, use the <code>--gpus all</code> flag:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>ultralytics/yolov5:latest
-</code></pre></div>
-<h2 id="step-3-use-yolov5-within-the-docker-container">Step 3: Use YOLOv5 🚀 within the Docker Container</h2>
-<p>Now you can train, test, detect, and export YOLOv5 models within the running Docker container:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Train a model on your data</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>python<span class="w"> </span>train.py
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># Validate the trained model for Precision, Recall, and mAP</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># Run inference using the trained model on your images or videos</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/images
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="c1"># Export the trained model to other formats for deployment</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite
-</code></pre></div>
-<p align="center"><img alt="GCP running Docker" src="https://user-images.githubusercontent.com/26833433/142224770-6e57caaf-ac01-4719-987f-c37d1b6f401f.png" width="1000"/></p>
+<h1 id="a-guide-on-model-testing">A Guide on Model Testing</h1>
+<h2 id="introduction">Introduction</h2>
+<p>After <a href="../model-training-tips/">training</a> and <a href="../model-evaluation-insights/">evaluating</a> your model, it's time to test it. Model testing involves assessing how well it performs in real-world scenarios. Testing considers factors like accuracy, reliability, fairness, and how easy it is to understand the model's decisions. The goal is to make sure the model performs as intended, delivers the expected results, and fits into the <a href="../defining-project-goals/">overall objective of your application</a> or project.</p>
+<p>Model testing's definition is quite similar to model evaluation, but they are two distinct <a href="../steps-of-a-cv-project/">steps in a computer vision project</a>. Model evaluation involves metrics and plots to assess the model's accuracy. On the other hand, model testing checks if the model's learned behavior is the same as expectations. In this guide, we'll explore strategies for testing your computer vision models.</p>
+<h2 id="model-testing-vs-model-evaluation">Model Testing Vs. Model Evaluation</h2>
+<p>First, let's understand the difference between model evaluation and testing with an example.</p>
+<p>Suppose you have trained a computer vision model to recognize cats and dogs, and you want to deploy this model at a pet store to monitor the animals. During the model evaluation phase, you use a labeled dataset to calculate metrics like accuracy, precision, recall, and F1 score. For instance, the model might have an accuracy of 98% in distinguishing between cats and dogs in a given dataset.</p>
+<p>After evaluation, you test the model using images from a pet store to see how well it identifies cats and dogs in more varied and realistic conditions. You check if it can correctly label cats and dogs when they are moving, in different lighting conditions, or partially obscured by objects like toys or furniture. Model testing checks that the model behaves as expected outside the controlled evaluation environment.</p>
+<h2 id="preparing-for-model-testing">Preparing for Model Testing</h2>
+<p>Computer vision models learn from datasets by detecting patterns, making predictions, and evaluating their performance. These <a href="../preprocessing_annotated_data/">datasets</a> are usually divided into training and testing sets to simulate real-world conditions. Training data teaches the model while testing data verifies its accuracy.</p>
+<p>Here are two points to keep in mind before testing your model:</p>
+<ul>
+<li><strong>Realistic Representation:</strong> The previously unseen testing data should be similar to the data that the model will have to handle when deployed. This helps get a realistic understanding of the model's capabilities.</li>
+<li><strong>Sufficient Size:</strong> The size of the testing dataset needs to be large enough to provide reliable insights into how well the model performs.</li>
+</ul>
+<h2 id="testing-your-computer-vision-model">Testing Your Computer Vision Model</h2>
+<p>Here are the key steps to take to test your computer vision model and understand its performance.</p>
+<ul>
+<li><strong>Run Predictions:</strong> Use the model to make predictions on the test dataset.</li>
+<li><strong>Compare Predictions:</strong> Check how well the model's predictions match the actual labels (ground truth).</li>
+<li><strong>Calculate Performance Metrics:</strong> <a href="../yolo-performance-metrics/">Compute metrics</a> like accuracy, precision, recall, and F1 score to understand the model's strengths and weaknesses. Testing focuses on how these metrics reflect real-world performance.</li>
+<li><strong>Visualize Results:</strong> Create visual aids like confusion matrices and ROC curves. These help you spot specific areas where the model might not be performing well in practical applications.</li>
+</ul>
+<p>Next, the testing results can be analyzed:</p>
+<ul>
+<li><strong>Misclassified Images:</strong> Identify and review images that the model misclassified to understand where it is going wrong.</li>
+<li><strong>Error Analysis:</strong> Perform a thorough error analysis to understand the types of errors (e.g., false positives vs. false negatives) and their potential causes.</li>
+<li><strong>Bias and Fairness:</strong> Check for any biases in the model's predictions. Ensure that the model performs equally well across different subsets of the data, especially if it includes sensitive attributes like race, gender, or age.</li>
+</ul>
+<h2 id="testing-your-yolov8-model">Testing Your YOLOv8 Model</h2>
+<p>To test your YOLOv8 model, you can use the validation mode. It's a straightforward way to understand the model's strengths and areas that need improvement. Also, you'll need to format your test dataset correctly for YOLOv8. For more details on how to use the validation mode, check out the <a href="../../modes/val/">Model Validation</a> docs page.</p>
+<h2 id="using-yolov8-to-predict-on-multiple-test-images">Using YOLOv8 to Predict on Multiple Test Images</h2>
+<p>If you want to test your trained YOLOv8 model on multiple images stored in a folder, you can easily do so in one go. Instead of using the validation mode, which is typically used to evaluate model performance on a validation set and provide detailed metrics, you might just want to see predictions on all images in your test set. For this, you can use the <a href="../../modes/predict/">prediction mode</a>.</p>
+<h3 id="difference-between-validation-and-prediction-modes">Difference Between Validation and Prediction Modes</h3>
+<ul>
+<li><strong><a href="../../modes/val/">Validation Mode</a>:</strong> Used to evaluate the model's performance by comparing predictions against known labels (ground truth). It provides detailed metrics such as accuracy, precision, recall, and F1 score.</li>
+<li><strong><a href="../../modes/predict/">Prediction Mode</a>:</strong> Used to run the model on new, unseen data to generate predictions. It does not provide detailed performance metrics but allows you to see how the model performs on real-world images.</li>
+</ul>
+<h2 id="running-yolov8-predictions-without-custom-training">Running YOLOv8 Predictions Without Custom Training</h2>
+<p>If you are interested in testing the basic YOLOv8 model to understand whether it can be used for your application without custom training, you can use the prediction mode. While the model is pre-trained on datasets like COCO, running predictions on your own dataset can give you a quick sense of how well it might perform in your specific context.</p>
+<h2 id="overfitting-and-underfitting-in-machine-learning">Overfitting and Underfitting in Machine Learning</h2>
+<p>When testing a machine learning model, especially in computer vision, it's important to watch out for overfitting and underfitting. These issues can significantly affect how well your model works with new data.</p>
+<h3 id="overfitting">Overfitting</h3>
+<p>Overfitting happens when your model learns the training data too well, including the noise and details that don't generalize to new data. In computer vision, this means your model might do great with training images but struggle with new ones.</p>
+<h4 id="signs-of-overfitting">Signs of Overfitting</h4>
+<ul>
+<li><strong>High Training Accuracy, Low Validation Accuracy:</strong> If your model performs very well on training data but poorly on validation or test data, it's likely overfitting.</li>
+<li><strong>Visual Inspection:</strong> Sometimes, you can see overfitting if your model is too sensitive to minor changes or irrelevant details in images.</li>
+</ul>
+<h3 id="underfitting">Underfitting</h3>
+<p>Underfitting occurs when your model can't capture the underlying patterns in the data. In computer vision, an underfitted model might not even recognize objects correctly in the training images.</p>
+<h4 id="signs-of-underfitting">Signs of Underfitting</h4>
+<ul>
+<li><strong>Low Training Accuracy:</strong> If your model can't achieve high accuracy on the training set, it might be underfitting.</li>
+<li><strong>Visual Misclassification:</strong> Consistent failure to recognize obvious features or objects suggests underfitting.</li>
+</ul>
+<h3 id="balancing-overfitting-and-underfitting">Balancing Overfitting and Underfitting</h3>
+<p>The key is to find a balance between overfitting and underfitting. Ideally, a model should perform well on both training and validation datasets. Regularly monitoring your model's performance through metrics and visual inspections, along with applying the right strategies, can help you achieve the best results.</p>
+<p align="center">
+<img alt="Overfitting and Underfitting Overview" src="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" width="100%"/>
+
+## Data Leakage in Computer Vision and How to Avoid It
+
+While testing your model, something important to keep in mind is data leakage. Data leakage happens when information from outside the training dataset accidentally gets used to train the model. The model may seem very accurate during training, but it won't perform well on new, unseen data when data leakage occurs.
+
+### Why Data Leakage Happens
+
+Data leakage can be tricky to spot and often comes from hidden biases in the training data. Here are some common ways it can happen in computer vision:
+
+- **Camera Bias:** Different angles, lighting, shadows, and camera movements can introduce unwanted patterns.
+- **Overlay Bias:** Logos, timestamps, or other overlays in images can mislead the model.
+- **Font and Object Bias:** Specific fonts or objects that frequently appear in certain classes can skew the model's learning.
+- **Spatial Bias:** Imbalances in foreground-background, bounding box distributions, and object locations can affect training.
+- **Label and Domain Bias:** Incorrect labels or shifts in data types can lead to leakage.
+
+### Detecting Data Leakage
+
+To find data leakage, you can:
+
+- **Check Performance:** If the model's results are surprisingly good, it might be leaking.
+- **Look at Feature Importance:** If one feature is much more important than others, it could indicate leakage.
+- **Visual Inspection:** Double-check that the model's decisions make sense intuitively.
+- **Verify Data Separation:** Make sure data was divided correctly before any processing.
+
+### Avoiding Data Leakage
+
+To prevent data leakage, use a diverse dataset with images or videos from different cameras and environments. Carefully review your data and check that there are no hidden biases, such as all positive samples being taken at a specific time of day. Avoiding data leakage will help make your computer vision models more reliable and effective in real-world situations.
+
+## What Comes After Model Testing
+
+After testing your model, the next steps depend on the results. If your model performs well, you can deploy it into a real-world environment. If the results aren't satisfactory, you'll need to make improvements. This might involve analyzing errors, [gathering more data](./data-collection-and-annotation.md), improving data quality, [adjusting hyperparameters](./hyperparameter-tuning.md), and retraining the model.
+
+## Join the AI Conversation
+
+Becoming part of a community of computer vision enthusiasts can aid in solving problems and learning more efficiently. Here are some ways to connect, seek help, and share your thoughts.
+
+### Community Resources
+
+- **GitHub Issues:** Explore the [YOLOv8 GitHub repository](https://github.com/ultralytics/ultralytics/issues) and use the Issues tab to ask questions, report bugs, and suggest new features. The community and maintainers are very active and ready to help.
+- **Ultralytics Discord Server:** Join the [Ultralytics Discord server](https://ultralytics.com/discord/) to chat with other users and developers, get support, and share your experiences.
+
+### Official Documentation
+
+- **Ultralytics YOLOv8 Documentation:** Check out the [official YOLOv8 documentation](./index.md) for detailed guides and helpful tips on various computer vision projects.
+
+These resources will help you navigate challenges and remain updated on the latest trends and practices within the computer vision community.
+
+## In Summary
+
+Building trustworthy computer vision models relies on rigorous model testing. By testing the model with previously unseen data, we can analyze it and spot weaknesses like overfitting and data leakage. Addressing these issues before deployment helps the model perform well in real-world applications. It's important to remember that model testing is just as crucial as model evaluation in guaranteeing the model's long-term success and effectiveness.
+
+
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -894,7 +1050,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-06-02<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-07-04, Updated 2024-07-04<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1), <a href="https://github.com/ultralytics/ultralytics">not.committed.yet</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -905,10 +1061,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/yolov5/environments/docker_image_quickstart_tutorial', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/model-testing', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/yolov5/environments/docker_image_quickstart_tutorial', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/model-testing', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -945,7 +1101,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
       })
     })
 </script>
-</article>
+</p></article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -957,7 +1113,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: AzureML" class="md-footer__link md-footer__link--prev" href="../azureml_quickstart_tutorial/">
+<a aria-label="Previous: Insights on Model Evaluation and Fine-Tuning" class="md-footer__link md-footer__link--prev" href="../model-evaluation-insights/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -966,17 +1122,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                AzureML
+                Insights on Model Evaluation and Fine-Tuning
               </div>
 </div>
 </a>
-<a aria-label="Next: Train Custom Data" class="md-footer__link md-footer__link--next" href="../../tutorials/train_custom_data/">
+<a aria-label="Next: Best Practices for Model Deployment" class="md-footer__link md-footer__link--next" href="../model-deployment-practices/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Train Custom Data
+                Best Practices for Model Deployment
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -1028,8 +1184,8 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
-<script src="../../../javascript/extra.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+<script src="../../javascript/extra.js"></script>
 </body>
 </html>
