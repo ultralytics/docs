@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="A Guide on Model Testing" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Overfitting and Underfitting in Machine Learning, Model Testing, Data Leakage Machine Learning, Testing a Model, Testing Machine Learning Models, How to Test AI Models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-testing" property="og:url"/><meta content="A Guide on Model Testing" property="og:title"/><meta content="Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed." property="og:description"/><meta content="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-testing" property="twitter:url"/><meta content="A Guide on Model Testing" property="twitter:title"/><meta content="Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed." property="twitter:description"/><meta content="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "A Guide on Model Testing", "image": ["https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg"], "datePublished": "2024-07-04 01:00:35 +0530", "dateModified": "2024-07-04 01:00:35 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="A Guide on Model Testing" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Overfitting and Underfitting in Machine Learning, Model Testing, Data Leakage Machine Learning, Testing a Model, Testing Machine Learning Models, How to Test AI Models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-testing" property="og:url"/><meta content="A Guide on Model Testing" property="og:title"/><meta content="Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed." property="og:description"/><meta content="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-testing" property="twitter:url"/><meta content="A Guide on Model Testing" property="twitter:title"/><meta content="Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed." property="twitter:description"/><meta content="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "A Guide on Model Testing", "image": ["https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg"], "datePublished": "2024-07-04 01:00:35 +0530", "dateModified": "2024-07-04 17:16:16 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -661,6 +661,77 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-leakage-in-computer-vision-and-how-to-avoid-it">
+<span class="md-ellipsis">
+      Data Leakage in Computer Vision and How to Avoid It
+    </span>
+</a>
+<nav aria-label="Data Leakage in Computer Vision and How to Avoid It" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-data-leakage-happens">
+<span class="md-ellipsis">
+      Why Data Leakage Happens
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detecting-data-leakage">
+<span class="md-ellipsis">
+      Detecting Data Leakage
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#avoiding-data-leakage">
+<span class="md-ellipsis">
+      Avoiding Data Leakage
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-comes-after-model-testing">
+<span class="md-ellipsis">
+      What Comes After Model Testing
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#join-the-ai-conversation">
+<span class="md-ellipsis">
+      Join the AI Conversation
+    </span>
+</a>
+<nav aria-label="Join the AI Conversation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#community-resources">
+<span class="md-ellipsis">
+      Community Resources
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#official-documentation">
+<span class="md-ellipsis">
+      Official Documentation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#in-summary">
+<span class="md-ellipsis">
+      In Summary
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -920,6 +991,77 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-leakage-in-computer-vision-and-how-to-avoid-it">
+<span class="md-ellipsis">
+      Data Leakage in Computer Vision and How to Avoid It
+    </span>
+</a>
+<nav aria-label="Data Leakage in Computer Vision and How to Avoid It" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-data-leakage-happens">
+<span class="md-ellipsis">
+      Why Data Leakage Happens
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detecting-data-leakage">
+<span class="md-ellipsis">
+      Detecting Data Leakage
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#avoiding-data-leakage">
+<span class="md-ellipsis">
+      Avoiding Data Leakage
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-comes-after-model-testing">
+<span class="md-ellipsis">
+      What Comes After Model Testing
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#join-the-ai-conversation">
+<span class="md-ellipsis">
+      Join the AI Conversation
+    </span>
+</a>
+<nav aria-label="Join the AI Conversation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#community-resources">
+<span class="md-ellipsis">
+      Community Resources
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#official-documentation">
+<span class="md-ellipsis">
+      Official Documentation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#in-summary">
+<span class="md-ellipsis">
+      In Summary
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -990,58 +1132,44 @@
 <p>The key is to find a balance between overfitting and underfitting. Ideally, a model should perform well on both training and validation datasets. Regularly monitoring your model's performance through metrics and visual inspections, along with applying the right strategies, can help you achieve the best results.</p>
 <p align="center">
 <img alt="Overfitting and Underfitting Overview" src="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" width="100%"/>
-
-## Data Leakage in Computer Vision and How to Avoid It
-
-While testing your model, something important to keep in mind is data leakage. Data leakage happens when information from outside the training dataset accidentally gets used to train the model. The model may seem very accurate during training, but it won't perform well on new, unseen data when data leakage occurs.
-
-### Why Data Leakage Happens
-
-Data leakage can be tricky to spot and often comes from hidden biases in the training data. Here are some common ways it can happen in computer vision:
-
-- **Camera Bias:** Different angles, lighting, shadows, and camera movements can introduce unwanted patterns.
-- **Overlay Bias:** Logos, timestamps, or other overlays in images can mislead the model.
-- **Font and Object Bias:** Specific fonts or objects that frequently appear in certain classes can skew the model's learning.
-- **Spatial Bias:** Imbalances in foreground-background, bounding box distributions, and object locations can affect training.
-- **Label and Domain Bias:** Incorrect labels or shifts in data types can lead to leakage.
-
-### Detecting Data Leakage
-
-To find data leakage, you can:
-
-- **Check Performance:** If the model's results are surprisingly good, it might be leaking.
-- **Look at Feature Importance:** If one feature is much more important than others, it could indicate leakage.
-- **Visual Inspection:** Double-check that the model's decisions make sense intuitively.
-- **Verify Data Separation:** Make sure data was divided correctly before any processing.
-
-### Avoiding Data Leakage
-
-To prevent data leakage, use a diverse dataset with images or videos from different cameras and environments. Carefully review your data and check that there are no hidden biases, such as all positive samples being taken at a specific time of day. Avoiding data leakage will help make your computer vision models more reliable and effective in real-world situations.
-
-## What Comes After Model Testing
-
-After testing your model, the next steps depend on the results. If your model performs well, you can deploy it into a real-world environment. If the results aren't satisfactory, you'll need to make improvements. This might involve analyzing errors, [gathering more data](./data-collection-and-annotation.md), improving data quality, [adjusting hyperparameters](./hyperparameter-tuning.md), and retraining the model.
-
-## Join the AI Conversation
-
-Becoming part of a community of computer vision enthusiasts can aid in solving problems and learning more efficiently. Here are some ways to connect, seek help, and share your thoughts.
-
-### Community Resources
-
-- **GitHub Issues:** Explore the [YOLOv8 GitHub repository](https://github.com/ultralytics/ultralytics/issues) and use the Issues tab to ask questions, report bugs, and suggest new features. The community and maintainers are very active and ready to help.
-- **Ultralytics Discord Server:** Join the [Ultralytics Discord server](https://ultralytics.com/discord/) to chat with other users and developers, get support, and share your experiences.
-
-### Official Documentation
-
-- **Ultralytics YOLOv8 Documentation:** Check out the [official YOLOv8 documentation](./index.md) for detailed guides and helpful tips on various computer vision projects.
-
-These resources will help you navigate challenges and remain updated on the latest trends and practices within the computer vision community.
-
-## In Summary
-
-Building trustworthy computer vision models relies on rigorous model testing. By testing the model with previously unseen data, we can analyze it and spot weaknesses like overfitting and data leakage. Addressing these issues before deployment helps the model perform well in real-world applications. It's important to remember that model testing is just as crucial as model evaluation in guaranteeing the model's long-term success and effectiveness.
-
-
+</p>
+<h2 id="data-leakage-in-computer-vision-and-how-to-avoid-it">Data Leakage in Computer Vision and How to Avoid It</h2>
+<p>While testing your model, something important to keep in mind is data leakage. Data leakage happens when information from outside the training dataset accidentally gets used to train the model. The model may seem very accurate during training, but it won't perform well on new, unseen data when data leakage occurs.</p>
+<h3 id="why-data-leakage-happens">Why Data Leakage Happens</h3>
+<p>Data leakage can be tricky to spot and often comes from hidden biases in the training data. Here are some common ways it can happen in computer vision:</p>
+<ul>
+<li><strong>Camera Bias:</strong> Different angles, lighting, shadows, and camera movements can introduce unwanted patterns.</li>
+<li><strong>Overlay Bias:</strong> Logos, timestamps, or other overlays in images can mislead the model.</li>
+<li><strong>Font and Object Bias:</strong> Specific fonts or objects that frequently appear in certain classes can skew the model's learning.</li>
+<li><strong>Spatial Bias:</strong> Imbalances in foreground-background, bounding box distributions, and object locations can affect training.</li>
+<li><strong>Label and Domain Bias:</strong> Incorrect labels or shifts in data types can lead to leakage.</li>
+</ul>
+<h3 id="detecting-data-leakage">Detecting Data Leakage</h3>
+<p>To find data leakage, you can:</p>
+<ul>
+<li><strong>Check Performance:</strong> If the model's results are surprisingly good, it might be leaking.</li>
+<li><strong>Look at Feature Importance:</strong> If one feature is much more important than others, it could indicate leakage.</li>
+<li><strong>Visual Inspection:</strong> Double-check that the model's decisions make sense intuitively.</li>
+<li><strong>Verify Data Separation:</strong> Make sure data was divided correctly before any processing.</li>
+</ul>
+<h3 id="avoiding-data-leakage">Avoiding Data Leakage</h3>
+<p>To prevent data leakage, use a diverse dataset with images or videos from different cameras and environments. Carefully review your data and check that there are no hidden biases, such as all positive samples being taken at a specific time of day. Avoiding data leakage will help make your computer vision models more reliable and effective in real-world situations.</p>
+<h2 id="what-comes-after-model-testing">What Comes After Model Testing</h2>
+<p>After testing your model, the next steps depend on the results. If your model performs well, you can deploy it into a real-world environment. If the results aren't satisfactory, you'll need to make improvements. This might involve analyzing errors, <a href="../data-collection-and-annotation/">gathering more data</a>, improving data quality, <a href="../hyperparameter-tuning/">adjusting hyperparameters</a>, and retraining the model.</p>
+<h2 id="join-the-ai-conversation">Join the AI Conversation</h2>
+<p>Becoming part of a community of computer vision enthusiasts can aid in solving problems and learning more efficiently. Here are some ways to connect, seek help, and share your thoughts.</p>
+<h3 id="community-resources">Community Resources</h3>
+<ul>
+<li><strong>GitHub Issues:</strong> Explore the <a href="https://github.com/ultralytics/ultralytics/issues">YOLOv8 GitHub repository</a> and use the Issues tab to ask questions, report bugs, and suggest new features. The community and maintainers are very active and ready to help.</li>
+<li><strong>Ultralytics Discord Server:</strong> Join the <a href="https://ultralytics.com/discord/">Ultralytics Discord server</a> to chat with other users and developers, get support, and share your experiences.</li>
+</ul>
+<h3 id="official-documentation">Official Documentation</h3>
+<ul>
+<li><strong>Ultralytics YOLOv8 Documentation:</strong> Check out the <a href="../">official YOLOv8 documentation</a> for detailed guides and helpful tips on various computer vision projects.</li>
+</ul>
+<p>These resources will help you navigate challenges and remain updated on the latest trends and practices within the computer vision community.</p>
+<h2 id="in-summary">In Summary</h2>
+<p>Building trustworthy computer vision models relies on rigorous model testing. By testing the model with previously unseen data, we can analyze it and spot weaknesses like overfitting and data leakage. Addressing these issues before deployment helps the model perform well in real-world applications. It's important to remember that model testing is just as crucial as model evaluation in guaranteeing the model's long-term success and effectiveness.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1050,7 +1178,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-07-04, Updated 2024-07-04<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1), <a href="https://github.com/ultralytics/ultralytics">not.committed.yet</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-07-04, Updated 2024-07-04<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1101,7 +1229,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
       })
     })
 </script>
-</p></article>
+</article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

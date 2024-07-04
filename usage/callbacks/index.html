@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Callbacks" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, callbacks, training, validation, export, prediction, ML models, YOLOv8, Python, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/usage/callbacks" property="og:url"/><meta content="Callbacks" property="og:title"/><meta content="Explore Ultralytics callbacks for training, validation, exporting, and prediction. Learn how to use and customize them for your ML models." property="og:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/usage/callbacks" property="twitter:url"/><meta content="Callbacks" property="twitter:title"/><meta content="Explore Ultralytics callbacks for training, validation, exporting, and prediction. Learn how to use and customize them for your ML models." property="twitter:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Callbacks", "image": ["https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-06-18 20:51:37 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Callbacks" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, callbacks, training, validation, export, prediction, ML models, YOLOv8, Python, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/usage/callbacks" property="og:url"/><meta content="Callbacks" property="og:title"/><meta content="Explore Ultralytics callbacks for training, validation, exporting, and prediction. Learn how to use and customize them for your ML models." property="og:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/usage/callbacks" property="twitter:url"/><meta content="Callbacks" property="twitter:title"/><meta content="Explore Ultralytics callbacks for training, validation, exporting, and prediction. Learn how to use and customize them for your ML models." property="twitter:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Callbacks", "image": ["https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-07-04 17:16:16 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -413,6 +413,52 @@
 <a class="md-nav__link" href="#exporter-callbacks">
 <span class="md-ellipsis">
       Exporter Callbacks
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-ultralytics-callbacks-and-how-can-i-use-them">
+<span class="md-ellipsis">
+      What are Ultralytics callbacks and how can I use them?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-customize-ultralytics-training-routine-using-callbacks">
+<span class="md-ellipsis">
+      How can I customize Ultralytics training routine using callbacks?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-i-use-callbacks-during-validation-in-ultralytics-yolo">
+<span class="md-ellipsis">
+      Why should I use callbacks during validation in Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-attach-a-custom-callback-for-the-prediction-mode-in-ultralytics-yolo">
+<span class="md-ellipsis">
+      How do I attach a custom callback for the prediction mode in Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-some-practical-examples-of-using-callbacks-in-ultralytics-yolo">
+<span class="md-ellipsis">
+      What are some practical examples of using callbacks in Ultralytics YOLO?
     </span>
 </a>
 </li>
@@ -816,6 +862,52 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-ultralytics-callbacks-and-how-can-i-use-them">
+<span class="md-ellipsis">
+      What are Ultralytics callbacks and how can I use them?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-customize-ultralytics-training-routine-using-callbacks">
+<span class="md-ellipsis">
+      How can I customize Ultralytics training routine using callbacks?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-i-use-callbacks-during-validation-in-ultralytics-yolo">
+<span class="md-ellipsis">
+      Why should I use callbacks during validation in Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-attach-a-custom-callback-for-the-prediction-mode-in-ultralytics-yolo">
+<span class="md-ellipsis">
+      How do I attach a custom callback for the prediction mode in Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-some-practical-examples-of-using-callbacks-in-ultralytics-yolo">
+<span class="md-ellipsis">
+      What are some practical examples of using callbacks in Ultralytics YOLO?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -1009,6 +1101,100 @@
 </tr>
 </tbody>
 </table>
+<h2 id="faq">FAQ</h2>
+<h3 id="what-are-ultralytics-callbacks-and-how-can-i-use-them">What are Ultralytics callbacks and how can I use them?</h3>
+<p><strong>Ultralytics callbacks</strong> are specialized entry points triggered during key stages of model operations like training, validation, exporting, and prediction. These callbacks allow for custom functionality at specific points in the process, enabling enhancements and modifications to the workflow. Each callback accepts a <code>Trainer</code>, <code>Validator</code>, or <code>Predictor</code> object, depending on the operation type. For detailed properties of these objects, refer to the <a href="../../reference/cfg/__init__/">Reference section</a>.</p>
+<p>To use a callback, you can define a function and then add it to the model with the <code>add_callback</code> method. Here's an example of how to return additional information during prediction:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="k">def</span> <span class="nf">on_predict_batch_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="sd">"""Handle prediction batch end by combining results with corresponding frames; modifies predictor results."""</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">batch</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>    <span class="n">predictor</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_batch_end"</span><span class="p">,</span> <span class="n">on_predict_batch_end</span><span class="p">)</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="k">for</span> <span class="n">result</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">():</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="k">pass</span>
+</code></pre></div>
+<h3 id="how-can-i-customize-ultralytics-training-routine-using-callbacks">How can I customize Ultralytics training routine using callbacks?</h3>
+<p>To customize your Ultralytics training routine using callbacks, you can inject your logic at specific stages of the training process. Ultralytics YOLO provides a variety of training callbacks such as <code>on_train_start</code>, <code>on_train_end</code>, and <code>on_train_batch_end</code>. These allow you to add custom metrics, processing, or logging.</p>
+<p>Here's an example of how to log additional metrics at the end of each training epoch:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="k">def</span> <span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="sd">"""Custom logic for additional metrics logging at the end of each training epoch."""</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="n">additional_metric</span> <span class="o">=</span> <span class="n">compute_additional_metric</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="n">trainer</span><span class="o">.</span><span class="n">log</span><span class="p">({</span><span class="s2">"additional_metric"</span><span class="p">:</span> <span class="n">additional_metric</span><span class="p">})</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_epoch_end"</span><span class="p">,</span> <span class="n">on_train_epoch_end</span><span class="p">)</span>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<p>Refer to the <a href="../../modes/train/">Training Guide</a> for more details on how to effectively use training callbacks.</p>
+<h3 id="why-should-i-use-callbacks-during-validation-in-ultralytics-yolo">Why should I use callbacks during validation in Ultralytics YOLO?</h3>
+<p>Using <strong>callbacks during validation</strong> in Ultralytics YOLO can enhance model evaluation by allowing custom processing, logging, or metrics calculation. Callbacks such as <code>on_val_start</code>, <code>on_val_batch_end</code>, and <code>on_val_end</code> provide entry points to inject custom logic, ensuring detailed and comprehensive validation processes.</p>
+<p>For instance, you might want to log additional validation metrics or save intermediate results for further analysis. Here's an example of how to log custom metrics at the end of validation:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="k">def</span> <span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="sd">"""Log custom metrics at end of validation."""</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span class="n">custom_metric</span> <span class="o">=</span> <span class="n">compute_custom_metric</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="n">validator</span><span class="o">.</span><span class="n">log</span><span class="p">({</span><span class="s2">"custom_metric"</span><span class="p">:</span> <span class="n">custom_metric</span><span class="p">})</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_val_end"</span><span class="p">,</span> <span class="n">on_val_end</span><span class="p">)</span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">)</span>
+</code></pre></div>
+<p>Check out the <a href="../../modes/val/">Validation Guide</a> for further insights on incorporating callbacks into your validation process.</p>
+<h3 id="how-do-i-attach-a-custom-callback-for-the-prediction-mode-in-ultralytics-yolo">How do I attach a custom callback for the prediction mode in Ultralytics YOLO?</h3>
+<p>To attach a custom callback for the <strong>prediction mode</strong> in Ultralytics YOLO, you define a callback function and register it with the prediction process. Common prediction callbacks include <code>on_predict_start</code>, <code>on_predict_batch_end</code>, and <code>on_predict_end</code>. These allow for modification of prediction outputs and integration of additional functionalities like data logging or result transformation.</p>
+<p>Here is an example where a custom callback is used to log predictions:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">def</span> <span class="nf">on_predict_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="sd">"""Log predictions at the end of prediction."""</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>        <span class="n">log_prediction</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_end"</span><span class="p">,</span> <span class="n">on_predict_end</span><span class="p">)</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"image.jpg"</span><span class="p">)</span>
+</code></pre></div>
+<p>For more comprehensive usage, refer to the <a href="../../modes/predict/">Prediction Guide</a> which includes detailed instructions and additional customization options.</p>
+<h3 id="what-are-some-practical-examples-of-using-callbacks-in-ultralytics-yolo">What are some practical examples of using callbacks in Ultralytics YOLO?</h3>
+<p>Ultralytics YOLO supports various practical implementations of callbacks to enhance and customize different phases like training, validation, and prediction. Some practical examples include:</p>
+<ol>
+<li><strong>Logging Custom Metrics</strong>: Log additional metrics at different stages, such as the end of training or validation epochs.</li>
+<li><strong>Data Augmentation</strong>: Implement custom data transformations or augmentations during prediction or training batches.</li>
+<li><strong>Intermediate Results</strong>: Save intermediate results such as predictions or frames for further analysis or visualization.</li>
+</ol>
+<p>Example: Combining frames with prediction results during prediction using <code>on_predict_batch_end</code>:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="k">def</span> <span class="nf">on_predict_batch_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="sd">"""Combine prediction results with frames."""</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">batch</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="n">predictor</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_batch_end"</span><span class="p">,</span> <span class="n">on_predict_batch_end</span><span class="p">)</span>
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="k">for</span> <span class="n">result</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">():</span>
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a>    <span class="k">pass</span>
+</code></pre></div>
+<p>Explore the <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/callbacks/base.py">Complete Callback Reference</a> to find more options and examples.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1017,7 +1203,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-06-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-07-04<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (9), <a href="https://github.com/RizwanMunawar">RizwanMunawar</a> (1), <a href="https://github.com/Laughing-q">Laughing-q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
