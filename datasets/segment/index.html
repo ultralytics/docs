@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Instance Segmentation Datasets Overview" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, instance segmentation, dataset formats, auto-annotation, COCO, segmentation models, training data" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/segment" property="og:url"/><meta content="Instance Segmentation Datasets Overview" property="og:title"/><meta content="Explore the supported dataset formats for Ultralytics YOLO and learn how to prepare and use datasets for training object segmentation models." property="og:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/segment" property="twitter:url"/><meta content="Instance Segmentation Datasets Overview" property="twitter:title"/><meta content="Explore the supported dataset formats for Ultralytics YOLO and learn how to prepare and use datasets for training object segmentation models." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Instance Segmentation Datasets Overview", "image": ["https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-06-06 04:17:41 -0400", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Instance Segmentation Datasets Overview" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, instance segmentation, dataset formats, auto-annotation, COCO, segmentation models, training data" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/segment" property="og:url"/><meta content="Instance Segmentation Datasets Overview" property="og:title"/><meta content="Explore the supported dataset formats for Ultralytics YOLO and learn how to prepare and use datasets for training object segmentation models." property="og:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/segment" property="twitter:url"/><meta content="Instance Segmentation Datasets Overview" property="twitter:title"/><meta content="Explore the supported dataset formats for Ultralytics YOLO and learn how to prepare and use datasets for training object segmentation models." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Instance Segmentation Datasets Overview", "image": ["https://github.com/ultralytics/assets/blob/main/yolov8/banner-yolov8.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-07-04 20:42:31 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -905,6 +905,45 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-dataset-formats-does-ultralytics-yolo-support-for-instance-segmentation">
+<span class="md-ellipsis">
+      What dataset formats does Ultralytics YOLO support for instance segmentation?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-convert-coco-dataset-annotations-to-the-yolo-format">
+<span class="md-ellipsis">
+      How can I convert COCO dataset annotations to the YOLO format?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-prepare-a-yaml-file-for-training-ultralytics-yolo-models">
+<span class="md-ellipsis">
+      How do I prepare a YAML file for training Ultralytics YOLO models?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-the-auto-annotation-feature-in-ultralytics-yolo">
+<span class="md-ellipsis">
+      What is the auto-annotation feature in Ultralytics YOLO?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -1076,6 +1115,36 @@
 </table>
 <p>The <code>auto_annotate</code> function takes the path to your images, along with optional arguments for specifying the pre-trained detection and <a href="../../models/sam/">SAM segmentation models</a>, the device to run the models on, and the output directory for saving the annotated results.</p>
 <p>By leveraging the power of pre-trained models, auto-annotation can significantly reduce the time and effort required for creating high-quality segmentation datasets. This feature is particularly useful for researchers and developers working with large image collections, as it allows them to focus on model development and evaluation rather than manual annotation.</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="what-dataset-formats-does-ultralytics-yolo-support-for-instance-segmentation">What dataset formats does Ultralytics YOLO support for instance segmentation?</h3>
+<p>Ultralytics YOLO supports several dataset formats for instance segmentation, with the primary format being its own Ultralytics YOLO format. Each image in your dataset needs a corresponding text file with object information segmented into multiple rows (one row per object), listing the class index and normalized bounding coordinates. For more detailed instructions on the YOLO dataset format, visit the <a href="#instance-segmentation-datasets-overview">Instance Segmentation Datasets Overview</a>.</p>
+<h3 id="how-can-i-convert-coco-dataset-annotations-to-the-yolo-format">How can I convert COCO dataset annotations to the YOLO format?</h3>
+<p>Converting COCO format annotations to YOLO format is straightforward using Ultralytics tools. You can use the <code>convert_coco</code> function from the <code>ultralytics.data.converter</code> module:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">convert_coco</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>This script converts your COCO dataset annotations to the required YOLO format, making it suitable for training your YOLO models. For more details, refer to <a href="#coco-dataset-format-to-yolo-format">Port or Convert Label Formats</a>.</p>
+<h3 id="how-do-i-prepare-a-yaml-file-for-training-ultralytics-yolo-models">How do I prepare a YAML file for training Ultralytics YOLO models?</h3>
+<p>To prepare a YAML file for training YOLO models with Ultralytics, you need to define the dataset paths and class names. Here's an example YAML configuration:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco8-seg</span><span class="w">  </span><span class="c1"># dataset root dir</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w">  </span><span class="c1"># train images (relative to 'path') </span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w">  </span><span class="c1"># val images (relative to 'path') </span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="nt">names</span><span class="p">:</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
+<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">  </span><span class="c1"># ...</span>
+</code></pre></div>
+<p>Ensure you update the paths and class names according to your dataset. For more information, check the <a href="#dataset-yaml-format">Dataset YAML Format</a> section.</p>
+<h3 id="what-is-the-auto-annotation-feature-in-ultralytics-yolo">What is the auto-annotation feature in Ultralytics YOLO?</h3>
+<p>Auto-annotation in Ultralytics YOLO allows you to generate segmentation annotations for your dataset using a pre-trained detection model. This significantly reduces the need for manual labeling. You can use the <code>auto_annotate</code> function as follows:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.annotator</span> <span class="kn">import</span> <span class="n">auto_annotate</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">auto_annotate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span> <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolov8x.pt"</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
+</code></pre></div>
+<p>This function automates the annotation process, making it faster and more efficient. For more details, explore the <a href="#auto-annotation">Auto-Annotation</a> section.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1084,7 +1153,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-06-06<br/>Authors: <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (11)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-07-04<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (12), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

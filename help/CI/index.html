@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Continuous Integration (CI) Guide" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, Continuous Integration, CI, Docker deployment, CodeQL, PyPI publishing, code quality, automated testing" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/help/CI" property="og:url"/><meta content="Continuous Integration (CI) Guide" property="og:title"/><meta content="Learn about Ultralytics CI actions, Docker deployment, broken link checks, CodeQL analysis, and PyPI publishing to ensure high-quality code." property="og:description"/><meta content="https://github.com/ultralytics/yolov3/actions/workflows/ci-testing.yml/badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/help/CI" property="twitter:url"/><meta content="Continuous Integration (CI) Guide" property="twitter:title"/><meta content="Learn about Ultralytics CI actions, Docker deployment, broken link checks, CodeQL analysis, and PyPI publishing to ensure high-quality code." property="twitter:description"/><meta content="https://github.com/ultralytics/yolov3/actions/workflows/ci-testing.yml/badge.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Continuous Integration (CI) Guide", "image": ["https://github.com/ultralytics/yolov3/actions/workflows/ci-testing.yml/badge.svg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-06-10 12:59:01 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
+<meta content="Continuous Integration (CI) Guide" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, Continuous Integration, CI, Docker deployment, CodeQL, PyPI publishing, code quality, automated testing" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/help/CI" property="og:url"/><meta content="Continuous Integration (CI) Guide" property="og:title"/><meta content="Learn about Ultralytics CI actions, Docker deployment, broken link checks, CodeQL analysis, and PyPI publishing to ensure high-quality code." property="og:description"/><meta content="https://github.com/ultralytics/yolov3/actions/workflows/ci-testing.yml/badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/help/CI" property="twitter:url"/><meta content="Continuous Integration (CI) Guide" property="twitter:title"/><meta content="Learn about Ultralytics CI actions, Docker deployment, broken link checks, CodeQL analysis, and PyPI publishing to ensure high-quality code." property="twitter:description"/><meta content="https://github.com/ultralytics/yolov3/actions/workflows/ci-testing.yml/badge.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Continuous Integration (CI) Guide", "image": ["https://github.com/ultralytics/yolov3/actions/workflows/ci-testing.yml/badge.svg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-07-04 20:42:31 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -461,6 +461,59 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-continuous-integration-ci-in-ultralytics">
+<span class="md-ellipsis">
+      What is Continuous Integration (CI) in Ultralytics?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-ultralytics-check-for-broken-links-in-documentation-and-code">
+<span class="md-ellipsis">
+      How does Ultralytics check for broken links in documentation and code?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-is-codeql-analysis-important-for-ultralytics-codebase">
+<span class="md-ellipsis">
+      Why is CodeQL analysis important for Ultralytics' codebase?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-ultralytics-utilize-docker-for-deployment">
+<span class="md-ellipsis">
+      How does Ultralytics utilize Docker for deployment?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-the-role-of-automated-pypi-publishing-in-ultralytics">
+<span class="md-ellipsis">
+      What is the role of automated PyPI publishing in Ultralytics?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-ultralytics-measure-code-coverage-and-why-is-it-important">
+<span class="md-ellipsis">
+      How does Ultralytics measure code coverage and why is it important?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -560,6 +613,59 @@
 <a class="md-nav__link" href="#coverage-results">
 <span class="md-ellipsis">
       Coverage Results
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-continuous-integration-ci-in-ultralytics">
+<span class="md-ellipsis">
+      What is Continuous Integration (CI) in Ultralytics?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-ultralytics-check-for-broken-links-in-documentation-and-code">
+<span class="md-ellipsis">
+      How does Ultralytics check for broken links in documentation and code?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-is-codeql-analysis-important-for-ultralytics-codebase">
+<span class="md-ellipsis">
+      Why is CodeQL analysis important for Ultralytics' codebase?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-ultralytics-utilize-docker-for-deployment">
+<span class="md-ellipsis">
+      How does Ultralytics utilize Docker for deployment?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-the-role-of-automated-pypi-publishing-in-ultralytics">
+<span class="md-ellipsis">
+      What is the role of automated PyPI publishing in Ultralytics?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-ultralytics-measure-code-coverage-and-why-is-it-important">
+<span class="md-ellipsis">
+      How does Ultralytics measure code coverage and why is it important?
     </span>
 </a>
 </li>
@@ -671,6 +777,19 @@
 <p><a href="https://codecov.io/github/ultralytics/ultralytics">
 <img alt="Ultralytics Codecov Image" src="https://codecov.io/gh/ultralytics/ultralytics/branch/main/graphs/sunburst.svg?token=HHW7IIVFVY"/>
 </a></p>
+<h2 id="faq">FAQ</h2>
+<h3 id="what-is-continuous-integration-ci-in-ultralytics">What is Continuous Integration (CI) in Ultralytics?</h3>
+<p>Continuous Integration (CI) in Ultralytics involves automatically integrating and testing code changes to ensure high-quality standards. Our CI setup includes running <a href="https://github.com/ultralytics/ultralytics/actions/workflows/ci.yaml">unit tests, linting checks, and comprehensive tests</a>. Additionally, we perform <a href="https://github.com/ultralytics/ultralytics/actions/workflows/docker.yaml">Docker deployment</a>, <a href="https://github.com/ultralytics/ultralytics/actions/workflows/links.yml">broken link checks</a>, <a href="https://github.com/ultralytics/ultralytics/actions/workflows/codeql.yaml">CodeQL analysis</a> for security vulnerabilities, and <a href="https://github.com/ultralytics/ultralytics/actions/workflows/publish.yml">PyPI publishing</a> to package and distribute our software.</p>
+<h3 id="how-does-ultralytics-check-for-broken-links-in-documentation-and-code">How does Ultralytics check for broken links in documentation and code?</h3>
+<p>Ultralytics uses a specific CI action to <a href="https://github.com/ultralytics/ultralytics/actions/workflows/links.yml">check for broken links</a> within our markdown and HTML files. This helps maintain the integrity of our documentation by scanning and identifying dead or broken links, ensuring that users always have access to accurate and live resources.</p>
+<h3 id="why-is-codeql-analysis-important-for-ultralytics-codebase">Why is CodeQL analysis important for Ultralytics' codebase?</h3>
+<p><a href="https://github.com/ultralytics/ultralytics/actions/workflows/codeql.yaml">CodeQL analysis</a> is crucial for Ultralytics as it performs semantic code analysis to find potential security vulnerabilities and maintain high-quality standards. With CodeQL, we can proactively identify and mitigate risks in our code, helping us deliver robust and secure software solutions.</p>
+<h3 id="how-does-ultralytics-utilize-docker-for-deployment">How does Ultralytics utilize Docker for deployment?</h3>
+<p>Ultralytics employs Docker to validate the deployment of our projects through a dedicated CI action. This process ensures that our <a href="https://github.com/ultralytics/ultralytics/actions/workflows/docker.yaml">Dockerfile and associated scripts</a> are functioning correctly, allowing for consistent and reproducible deployment environments which are critical for scalable and reliable AI solutions.</p>
+<h3 id="what-is-the-role-of-automated-pypi-publishing-in-ultralytics">What is the role of automated PyPI publishing in Ultralytics?</h3>
+<p>Automated <a href="https://github.com/ultralytics/ultralytics/actions/workflows/publish.yml">PyPI publishing</a> ensures that our projects can be packaged and published without errors. This step is essential for distributing Ultralytics' Python packages, allowing users to easily install and use our tools via the Python Package Index (PyPI).</p>
+<h3 id="how-does-ultralytics-measure-code-coverage-and-why-is-it-important">How does Ultralytics measure code coverage and why is it important?</h3>
+<p>Ultralytics measures code coverage by integrating with <a href="https://codecov.io/github/ultralytics/ultralytics">Codecov</a>, providing insights into how much of the codebase is executed during tests. High code coverage can indicate well-tested code, helping to uncover untested areas that might be prone to bugs. Detailed code coverage metrics can be explored via badges displayed on our main repositories or directly on <a href="https://codecov.io/gh/ultralytics/ultralytics">Codecov</a>.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -679,7 +798,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-06-10<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-07-04<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (8), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
