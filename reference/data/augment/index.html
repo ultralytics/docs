@@ -1311,6 +1311,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/streamlit_inference/">
+<span class="md-ellipsis">
+    streamlit_inference
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -5271,7 +5278,7 @@ image.</p>
 <a id="__codelineno-0-686" name="__codelineno-0-686"></a><span class="sd">            flip_idx (array-like, optional): Index mapping for flipping keypoints, if any.</span>
 <a id="__codelineno-0-687" name="__codelineno-0-687"></a><span class="sd">        """</span>
 <a id="__codelineno-0-688" name="__codelineno-0-688"></a>        <span class="k">assert</span> <span class="n">direction</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"horizontal"</span><span class="p">,</span> <span class="s2">"vertical"</span><span class="p">},</span> <span class="sa">f</span><span class="s2">"Support direction `horizontal` or `vertical`, got </span><span class="si">{</span><span class="n">direction</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-689" name="__codelineno-0-689"></a>        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="mf">1.0</span>
+<a id="__codelineno-0-689" name="__codelineno-0-689"></a>        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"The probability should be in range [0, 1], but got </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">."</span>
 <a id="__codelineno-0-690" name="__codelineno-0-690"></a>
 <a id="__codelineno-0-691" name="__codelineno-0-691"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span>
 <a id="__codelineno-0-692" name="__codelineno-0-692"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">direction</span>
@@ -5523,7 +5530,7 @@ Default is 'horizontal'.</p>
 <a id="__codelineno-0-686" name="__codelineno-0-686"></a><span class="sd">        flip_idx (array-like, optional): Index mapping for flipping keypoints, if any.</span>
 <a id="__codelineno-0-687" name="__codelineno-0-687"></a><span class="sd">    """</span>
 <a id="__codelineno-0-688" name="__codelineno-0-688"></a>    <span class="k">assert</span> <span class="n">direction</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"horizontal"</span><span class="p">,</span> <span class="s2">"vertical"</span><span class="p">},</span> <span class="sa">f</span><span class="s2">"Support direction `horizontal` or `vertical`, got </span><span class="si">{</span><span class="n">direction</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-689" name="__codelineno-0-689"></a>    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="mf">1.0</span>
+<a id="__codelineno-0-689" name="__codelineno-0-689"></a>    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">p</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"The probability should be in range [0, 1], but got </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">."</span>
 <a id="__codelineno-0-690" name="__codelineno-0-690"></a>
 <a id="__codelineno-0-691" name="__codelineno-0-691"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span>
 <a id="__codelineno-0-692" name="__codelineno-0-692"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">direction</span>
@@ -8417,7 +8424,7 @@ T.Compose([CenterCrop(size), ToTensor()]).</p>
 <a id="__codelineno-0-1210" name="__codelineno-0-1210"></a>    <span class="kn">import</span> <span class="nn">torchvision.transforms</span> <span class="k">as</span> <span class="nn">T</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
 <a id="__codelineno-0-1211" name="__codelineno-0-1211"></a>
 <a id="__codelineno-0-1212" name="__codelineno-0-1212"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
-<a id="__codelineno-0-1213" name="__codelineno-0-1213"></a>        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+<a id="__codelineno-0-1213" name="__codelineno-0-1213"></a>        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"'size' tuples must be length 2, not length </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">size</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
 <a id="__codelineno-0-1214" name="__codelineno-0-1214"></a>        <span class="n">scale_size</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">crop_fraction</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">size</span><span class="p">)</span>
 <a id="__codelineno-0-1215" name="__codelineno-0-1215"></a>    <span class="k">else</span><span class="p">:</span>
 <a id="__codelineno-0-1216" name="__codelineno-0-1216"></a>        <span class="n">scale_size</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">size</span> <span class="o">/</span> <span class="n">crop_fraction</span><span class="p">)</span>
@@ -8826,7 +8833,7 @@ T.Compose([CenterCrop(size), ToTensor()]).</p>
 <a id="__codelineno-0-1288" name="__codelineno-0-1288"></a>    <span class="n">secondary_tfl</span> <span class="o">=</span> <span class="p">[]</span>
 <a id="__codelineno-0-1289" name="__codelineno-0-1289"></a>    <span class="n">disable_color_jitter</span> <span class="o">=</span> <span class="kc">False</span>
 <a id="__codelineno-0-1290" name="__codelineno-0-1290"></a>    <span class="k">if</span> <span class="n">auto_augment</span><span class="p">:</span>
-<a id="__codelineno-0-1291" name="__codelineno-0-1291"></a>        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">auto_augment</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+<a id="__codelineno-0-1291" name="__codelineno-0-1291"></a>        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">auto_augment</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"Provided argument should be string, but got type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">auto_augment</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
 <a id="__codelineno-0-1292" name="__codelineno-0-1292"></a>        <span class="c1"># color jitter is typically disabled if AA/RA on,</span>
 <a id="__codelineno-0-1293" name="__codelineno-0-1293"></a>        <span class="c1"># this allows override without breaking old hparm cfgs</span>
 <a id="__codelineno-0-1294" name="__codelineno-0-1294"></a>        <span class="n">disable_color_jitter</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">force_color_jitter</span>
