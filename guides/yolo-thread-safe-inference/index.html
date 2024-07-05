@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLO Thread-Safe Inference" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO models, thread-safe, Python threading, model inference, concurrency, race conditions, multi-threaded, parallelism, Python GIL" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-thread-safe-inference" property="og:url"/><meta content="YOLO Thread-Safe Inference" property="og:title"/><meta content="Learn how to ensure thread-safe YOLO model inference in Python. Avoid race conditions and run your multi-threaded tasks reliably with best practices." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/281418476-7f478570-fd77-4a40-bf3d-74b4db4d668c.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-thread-safe-inference" property="twitter:url"/><meta content="YOLO Thread-Safe Inference" property="twitter:title"/><meta content="Learn how to ensure thread-safe YOLO model inference in Python. Avoid race conditions and run your multi-threaded tasks reliably with best practices." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/281418476-7f478570-fd77-4a40-bf3d-74b4db4d668c.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLO Thread-Safe Inference", "image": ["https://user-images.githubusercontent.com/26833433/281418476-7f478570-fd77-4a40-bf3d-74b4db4d668c.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-06-02 21:39:34 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to ensure thread-safe YOLO model inference in Python. Avoid race conditions and run your multi-threaded tasks reliably with best practices."}</script></head>
+<meta content="YOLO Thread-Safe Inference" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO models, thread-safe, Python threading, model inference, concurrency, race conditions, multi-threaded, parallelism, Python GIL" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-thread-safe-inference" property="og:url"/><meta content="YOLO Thread-Safe Inference" property="og:title"/><meta content="Learn how to ensure thread-safe YOLO model inference in Python. Avoid race conditions and run your multi-threaded tasks reliably with best practices." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/281418476-7f478570-fd77-4a40-bf3d-74b4db4d668c.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-thread-safe-inference" property="twitter:url"/><meta content="YOLO Thread-Safe Inference" property="twitter:title"/><meta content="Learn how to ensure thread-safe YOLO model inference in Python. Avoid race conditions and run your multi-threaded tasks reliably with best practices." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/281418476-7f478570-fd77-4a40-bf3d-74b4db4d668c.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "YOLO Thread-Safe Inference", "image": ["https://user-images.githubusercontent.com/26833433/281418476-7f478570-fd77-4a40-bf3d-74b4db4d668c.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-07-05 02:25:02 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to ensure thread-safe YOLO model inference in Python. Avoid race conditions and run your multi-threaded tasks reliably with best practices.", "mainEntity": [{"@type": "Question", "name": "How can I avoid race conditions when using YOLO models in a multi-threaded Python environment?", "acceptedAnswer": {"@type": "Answer", "text": "To prevent race conditions when using Ultralytics YOLO models in a multi-threaded Python environment, instantiate a separate YOLO model within each thread. This ensures that each thread has its own isolated model instance, avoiding concurrent modification of the model state. Example: For more information on ensuring thread safety, visit the Thread-Safe Inference with YOLO Models."}}, {"@type": "Question", "name": "What are the best practices for running multi-threaded YOLO model inference in Python?", "acceptedAnswer": {"@type": "Answer", "text": "To run multi-threaded YOLO model inference safely in Python, follow these best practices: Example for thread-safe model instantiation: For additional context, refer to the section on Thread-Safe Inference."}}, {"@type": "Question", "name": "Why should each thread have its own YOLO model instance?", "acceptedAnswer": {"@type": "Answer", "text": "Each thread should have its own YOLO model instance to prevent race conditions. When a single model instance is shared among multiple threads, concurrent accesses can lead to unpredictable behavior and modifications of the model's internal state. By using separate instances, you ensure thread isolation, making your multi-threaded tasks reliable and safe. For detailed guidance, check the Non-Thread-Safe Example: Single Model Instance and Thread-Safe Example sections."}}, {"@type": "Question", "name": "How does Python's Global Interpreter Lock (GIL) affect YOLO model inference?", "acceptedAnswer": {"@type": "Answer", "text": "Python's Global Interpreter Lock (GIL) allows only one thread to execute Python bytecode at a time, which can limit the performance of CPU-bound multi-threading tasks. However, for I/O-bound operations or processes that use libraries releasing the GIL, like YOLO's C libraries, you can still achieve concurrency. For enhanced performance, consider using process-based parallelism with Python's multiprocessing module. For more about threading in Python, see the Understanding Python Threading section."}}, {"@type": "Question", "name": "Is it safer to use process-based parallelism instead of threading for YOLO model inference?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, using Python's multiprocessing module is safer and often more efficient for running YOLO model inference in parallel. Process-based parallelism creates separate memory spaces, avoiding the Global Interpreter Lock (GIL) and reducing the risk of concurrency issues. Each process will operate independently with its own YOLO model instance. For further details on process-based parallelism with YOLO models, refer to the page on Thread-Safe Inference."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -47,7 +47,7 @@
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="Ultralytics YOLO Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
-<img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+<img alt="logo" src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -264,7 +264,7 @@
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="Ultralytics YOLO Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
-<img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+<img alt="logo" src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLO Docs
   </label>
@@ -442,6 +442,52 @@
       Conclusion
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-avoid-race-conditions-when-using-yolo-models-in-a-multi-threaded-python-environment">
+<span class="md-ellipsis">
+      How can I avoid race conditions when using YOLO models in a multi-threaded Python environment?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-best-practices-for-running-multi-threaded-yolo-model-inference-in-python">
+<span class="md-ellipsis">
+      What are the best practices for running multi-threaded YOLO model inference in Python?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-each-thread-have-its-own-yolo-model-instance">
+<span class="md-ellipsis">
+      Why should each thread have its own YOLO model instance?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-pythons-global-interpreter-lock-gil-affect-yolo-model-inference">
+<span class="md-ellipsis">
+      How does Python's Global Interpreter Lock (GIL) affect YOLO model inference?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#is-it-safer-to-use-process-based-parallelism-instead-of-threading-for-yolo-model-inference">
+<span class="md-ellipsis">
+      Is it safer to use process-based parallelism instead of threading for YOLO model inference?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -806,6 +852,52 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-avoid-race-conditions-when-using-yolo-models-in-a-multi-threaded-python-environment">
+<span class="md-ellipsis">
+      How can I avoid race conditions when using YOLO models in a multi-threaded Python environment?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-best-practices-for-running-multi-threaded-yolo-model-inference-in-python">
+<span class="md-ellipsis">
+      What are the best practices for running multi-threaded YOLO model inference in Python?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-each-thread-have-its-own-yolo-model-instance">
+<span class="md-ellipsis">
+      Why should each thread have its own YOLO model instance?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-pythons-global-interpreter-lock-gil-affect-yolo-model-inference">
+<span class="md-ellipsis">
+      How does Python's Global Interpreter Lock (GIL) affect YOLO model inference?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#is-it-safer-to-use-process-based-parallelism-instead-of-threading-for-yolo-model-inference">
+<span class="md-ellipsis">
+      Is it safer to use process-based parallelism instead of threading for YOLO model inference?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -896,6 +988,60 @@
 <h2 id="conclusion">Conclusion</h2>
 <p>When using YOLO models with Python's <code>threading</code>, always instantiate your models within the thread that will use them to ensure thread safety. This practice avoids race conditions and makes sure that your inference tasks run reliably.</p>
 <p>For more advanced scenarios and to further optimize your multi-threaded inference performance, consider using process-based parallelism with <code>multiprocessing</code> or leveraging a task queue with dedicated worker processes.</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="how-can-i-avoid-race-conditions-when-using-yolo-models-in-a-multi-threaded-python-environment">How can I avoid race conditions when using YOLO models in a multi-threaded Python environment?</h3>
+<p>To prevent race conditions when using Ultralytics YOLO models in a multi-threaded Python environment, instantiate a separate YOLO model within each thread. This ensures that each thread has its own isolated model instance, avoiding concurrent modification of the model state.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="k">def</span> <span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="sd">"""Predict on an image in a thread-safe manner."""</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>    <span class="n">local_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="c1"># Process results</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div>
+<p>For more information on ensuring thread safety, visit the <a href="#thread-safe-inference">Thread-Safe Inference with YOLO Models</a>.</p>
+<h3 id="what-are-the-best-practices-for-running-multi-threaded-yolo-model-inference-in-python">What are the best practices for running multi-threaded YOLO model inference in Python?</h3>
+<p>To run multi-threaded YOLO model inference safely in Python, follow these best practices:</p>
+<ol>
+<li>Instantiate YOLO models within each thread rather than sharing a single model instance across threads.</li>
+<li>Use Python's <code>multiprocessing</code> module for parallel processing to avoid issues related to Global Interpreter Lock (GIL).</li>
+<li>Release the GIL by using operations performed by YOLO's underlying C libraries.</li>
+</ol>
+<p>Example for thread-safe model instantiation:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="k">def</span> <span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="sd">"""Runs inference in a thread-safe manner with a new YOLO model instance."""</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="c1"># Process results</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="c1"># Initiate multiple threads</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</code></pre></div>
+<p>For additional context, refer to the section on <a href="#thread-safe-inference">Thread-Safe Inference</a>.</p>
+<h3 id="why-should-each-thread-have-its-own-yolo-model-instance">Why should each thread have its own YOLO model instance?</h3>
+<p>Each thread should have its own YOLO model instance to prevent race conditions. When a single model instance is shared among multiple threads, concurrent accesses can lead to unpredictable behavior and modifications of the model's internal state. By using separate instances, you ensure thread isolation, making your multi-threaded tasks reliable and safe.</p>
+<p>For detailed guidance, check the <a href="#non-thread-safe-example-single-model-instance">Non-Thread-Safe Example: Single Model Instance</a> and <a href="#thread-safe-example">Thread-Safe Example</a> sections.</p>
+<h3 id="how-does-pythons-global-interpreter-lock-gil-affect-yolo-model-inference">How does Python's Global Interpreter Lock (GIL) affect YOLO model inference?</h3>
+<p>Python's Global Interpreter Lock (GIL) allows only one thread to execute Python bytecode at a time, which can limit the performance of CPU-bound multi-threading tasks. However, for I/O-bound operations or processes that use libraries releasing the GIL, like YOLO's C libraries, you can still achieve concurrency. For enhanced performance, consider using process-based parallelism with Python's <code>multiprocessing</code> module.</p>
+<p>For more about threading in Python, see the <a href="#understanding-python-threading">Understanding Python Threading</a> section.</p>
+<h3 id="is-it-safer-to-use-process-based-parallelism-instead-of-threading-for-yolo-model-inference">Is it safer to use process-based parallelism instead of threading for YOLO model inference?</h3>
+<p>Yes, using Python's <code>multiprocessing</code> module is safer and often more efficient for running YOLO model inference in parallel. Process-based parallelism creates separate memory spaces, avoiding the Global Interpreter Lock (GIL) and reducing the risk of concurrency issues. Each process will operate independently with its own YOLO model instance.</p>
+<p>For further details on process-based parallelism with YOLO models, refer to the page on <a href="#thread-safe-inference">Thread-Safe Inference</a>.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -904,7 +1050,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-06-02<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (4)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-07-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="K-Fold Cross Validation" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, K-Fold Cross Validation, object detection, sklearn, pandas, PyYaml, machine learning, dataset split" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/kfold-cross-validation" property="og:url"/><meta content="K-Fold Cross Validation" property="og:title"/><meta content="Learn to implement K-Fold Cross Validation for object detection datasets using Ultralytics YOLO. Improve your model's reliability and robustness." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/258589390-8d815058-ece8-48b9-a94e-0e1ab53ea0f6.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/kfold-cross-validation" property="twitter:url"/><meta content="K-Fold Cross Validation" property="twitter:title"/><meta content="Learn to implement K-Fold Cross Validation for object detection datasets using Ultralytics YOLO. Improve your model's reliability and robustness." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/258589390-8d815058-ece8-48b9-a94e-0e1ab53ea0f6.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "K-Fold Cross Validation", "image": ["https://user-images.githubusercontent.com/26833433/258589390-8d815058-ece8-48b9-a94e-0e1ab53ea0f6.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-06-18 20:51:37 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to implement K-Fold Cross Validation for object detection datasets using Ultralytics YOLO. Improve your model's reliability and robustness."}</script></head>
+<meta content="K-Fold Cross Validation" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, K-Fold Cross Validation, object detection, sklearn, pandas, PyYaml, machine learning, dataset split" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/kfold-cross-validation" property="og:url"/><meta content="K-Fold Cross Validation" property="og:title"/><meta content="Learn to implement K-Fold Cross Validation for object detection datasets using Ultralytics YOLO. Improve your model's reliability and robustness." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/258589390-8d815058-ece8-48b9-a94e-0e1ab53ea0f6.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/kfold-cross-validation" property="twitter:url"/><meta content="K-Fold Cross Validation" property="twitter:title"/><meta content="Learn to implement K-Fold Cross Validation for object detection datasets using Ultralytics YOLO. Improve your model's reliability and robustness." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/258589390-8d815058-ece8-48b9-a94e-0e1ab53ea0f6.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "K-Fold Cross Validation", "image": ["https://user-images.githubusercontent.com/26833433/258589390-8d815058-ece8-48b9-a94e-0e1ab53ea0f6.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-07-05 02:25:02 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to implement K-Fold Cross Validation for object detection datasets using Ultralytics YOLO. Improve your model's reliability and robustness.", "mainEntity": [{"@type": "Question", "name": "What is K-Fold Cross Validation and why is it useful in object detection?", "acceptedAnswer": {"@type": "Answer", "text": "K-Fold Cross Validation is a technique where the dataset is divided into 'k' subsets (folds) to evaluate model performance more reliably. Each fold serves as both training and validation data. In the context of object detection, using K-Fold Cross Validation helps to ensure your Ultralytics YOLO model's performance is robust and generalizable across different data splits, enhancing its reliability. For detailed instructions on setting up K-Fold Cross Validation with Ultralytics YOLO, refer to K-Fold Cross Validation with Ultralytics."}}, {"@type": "Question", "name": "How do I implement K-Fold Cross Validation using Ultralytics YOLO?", "acceptedAnswer": {"@type": "Answer", "text": "To implement K-Fold Cross Validation with Ultralytics YOLO, you need to follow these steps: For a comprehensive guide, see the K-Fold Dataset Split section in our documentation."}}, {"@type": "Question", "name": "Why should I use Ultralytics YOLO for object detection?", "acceptedAnswer": {"@type": "Answer", "text": "Ultralytics YOLO offers state-of-the-art, real-time object detection with high accuracy and efficiency. It's versatile, supporting multiple computer vision tasks such as detection, segmentation, and classification. Additionally, it integrates seamlessly with tools like Ultralytics HUB for no-code model training and deployment. For more details, explore the benefits and features on our Ultralytics YOLO page."}}, {"@type": "Question", "name": "How can I ensure my annotations are in the correct format for Ultralytics YOLO?", "acceptedAnswer": {"@type": "Answer", "text": "Your annotations should follow the YOLO detection format. Each annotation file must list the object class, alongside its bounding box coordinates in the image. The YOLO format ensures streamlined and standardized data processing for training object detection models. For more information on proper annotation formatting, visit the YOLO detection format guide."}}, {"@type": "Question", "name": "Can I use K-Fold Cross Validation with custom datasets other than Fruit Detection?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can use K-Fold Cross Validation with any custom dataset as long as the annotations are in the YOLO detection format. Replace the dataset paths and class labels with those specific to your custom dataset. This flexibility ensures that any object detection project can benefit from robust model evaluation using K-Fold Cross Validation. For a practical example, review our Generating Feature Vectors section."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -47,7 +47,7 @@
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="Ultralytics YOLO Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
-<img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+<img alt="logo" src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -264,7 +264,7 @@
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="Ultralytics YOLO Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
-<img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+<img alt="logo" src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLO Docs
   </label>
@@ -448,6 +448,52 @@
       Conclusion
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-k-fold-cross-validation-and-why-is-it-useful-in-object-detection">
+<span class="md-ellipsis">
+      What is K-Fold Cross Validation and why is it useful in object detection?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-implement-k-fold-cross-validation-using-ultralytics-yolo">
+<span class="md-ellipsis">
+      How do I implement K-Fold Cross Validation using Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-i-use-ultralytics-yolo-for-object-detection">
+<span class="md-ellipsis">
+      Why should I use Ultralytics YOLO for object detection?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-ensure-my-annotations-are-in-the-correct-format-for-ultralytics-yolo">
+<span class="md-ellipsis">
+      How can I ensure my annotations are in the correct format for Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#can-i-use-k-fold-cross-validation-with-custom-datasets-other-than-fruit-detection">
+<span class="md-ellipsis">
+      Can I use K-Fold Cross Validation with custom datasets other than Fruit Detection?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -790,6 +836,52 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-k-fold-cross-validation-and-why-is-it-useful-in-object-detection">
+<span class="md-ellipsis">
+      What is K-Fold Cross Validation and why is it useful in object detection?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-implement-k-fold-cross-validation-using-ultralytics-yolo">
+<span class="md-ellipsis">
+      How do I implement K-Fold Cross Validation using Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-i-use-ultralytics-yolo-for-object-detection">
+<span class="md-ellipsis">
+      Why should I use Ultralytics YOLO for object detection?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-ensure-my-annotations-are-in-the-correct-format-for-ultralytics-yolo">
+<span class="md-ellipsis">
+      How can I ensure my annotations are in the correct format for Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#can-i-use-k-fold-cross-validation-with-custom-datasets-other-than-fruit-detection">
+<span class="md-ellipsis">
+      Can I use K-Fold Cross Validation with custom datasets other than Fruit Detection?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -1094,6 +1186,25 @@
 <p>Finally, we implemented the actual model training using each split in a loop, saving our training results for further analysis and comparison.</p>
 <p>This technique of K-Fold cross-validation is a robust way of making the most out of your available data, and it helps to ensure that your model performance is reliable and consistent across different data subsets. This results in a more generalizable and reliable model that is less likely to overfit to specific data patterns.</p>
 <p>Remember that although we used YOLO in this guide, these steps are mostly transferable to other machine learning models. Understanding these steps allows you to apply cross-validation effectively in your own machine learning projects. Happy coding!</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="what-is-k-fold-cross-validation-and-why-is-it-useful-in-object-detection">What is K-Fold Cross Validation and why is it useful in object detection?</h3>
+<p>K-Fold Cross Validation is a technique where the dataset is divided into 'k' subsets (folds) to evaluate model performance more reliably. Each fold serves as both training and validation data. In the context of object detection, using K-Fold Cross Validation helps to ensure your Ultralytics YOLO model's performance is robust and generalizable across different data splits, enhancing its reliability. For detailed instructions on setting up K-Fold Cross Validation with Ultralytics YOLO, refer to <a href="#introduction">K-Fold Cross Validation with Ultralytics</a>.</p>
+<h3 id="how-do-i-implement-k-fold-cross-validation-using-ultralytics-yolo">How do I implement K-Fold Cross Validation using Ultralytics YOLO?</h3>
+<p>To implement K-Fold Cross Validation with Ultralytics YOLO, you need to follow these steps:</p>
+<ol>
+<li>Verify annotations are in the <a href="../../datasets/detect/">YOLO detection format</a>.</li>
+<li>Use Python libraries like <code>sklearn</code>, <code>pandas</code>, and <code>pyyaml</code>.</li>
+<li>Create feature vectors from your dataset.</li>
+<li>Split your dataset using <code>KFold</code> from <code>sklearn.model_selection</code>.</li>
+<li>Train the YOLO model on each split.</li>
+</ol>
+<p>For a comprehensive guide, see the <a href="#k-fold-dataset-split">K-Fold Dataset Split</a> section in our documentation.</p>
+<h3 id="why-should-i-use-ultralytics-yolo-for-object-detection">Why should I use Ultralytics YOLO for object detection?</h3>
+<p>Ultralytics YOLO offers state-of-the-art, real-time object detection with high accuracy and efficiency. It's versatile, supporting multiple computer vision tasks such as detection, segmentation, and classification. Additionally, it integrates seamlessly with tools like Ultralytics HUB for no-code model training and deployment. For more details, explore the benefits and features on our <a href="https://www.ultralytics.com/yolo">Ultralytics YOLO page</a>.</p>
+<h3 id="how-can-i-ensure-my-annotations-are-in-the-correct-format-for-ultralytics-yolo">How can I ensure my annotations are in the correct format for Ultralytics YOLO?</h3>
+<p>Your annotations should follow the YOLO detection format. Each annotation file must list the object class, alongside its bounding box coordinates in the image. The YOLO format ensures streamlined and standardized data processing for training object detection models. For more information on proper annotation formatting, visit the <a href="../../datasets/detect/">YOLO detection format guide</a>.</p>
+<h3 id="can-i-use-k-fold-cross-validation-with-custom-datasets-other-than-fruit-detection">Can I use K-Fold Cross Validation with custom datasets other than Fruit Detection?</h3>
+<p>Yes, you can use K-Fold Cross Validation with any custom dataset as long as the annotations are in the YOLO detection format. Replace the dataset paths and class labels with those specific to your custom dataset. This flexibility ensures that any object detection project can benefit from robust model evaluation using K-Fold Cross Validation. For a practical example, review our <a href="#generating-feature-vectors-for-object-detection-dataset">Generating Feature Vectors</a> section.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1102,7 +1213,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-06-18<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (9), <a href="https://github.com/IvorZhu331">IvorZhu331</a> (1), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-07-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (10), <a href="https://github.com/IvorZhu331">IvorZhu331</a> (1), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);

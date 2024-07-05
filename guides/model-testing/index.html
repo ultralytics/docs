@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="A Guide on Model Testing" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Overfitting and Underfitting in Machine Learning, Model Testing, Data Leakage Machine Learning, Testing a Model, Testing Machine Learning Models, How to Test AI Models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-testing" property="og:url"/><meta content="A Guide on Model Testing" property="og:title"/><meta content="Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed." property="og:description"/><meta content="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-testing" property="twitter:url"/><meta content="A Guide on Model Testing" property="twitter:title"/><meta content="Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed." property="twitter:description"/><meta content="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "A Guide on Model Testing", "image": ["https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg"], "datePublished": "2024-07-04 01:00:35 +0530", "dateModified": "2024-07-04 17:16:16 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed."}</script></head>
+<meta content="A Guide on Model Testing" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Overfitting and Underfitting in Machine Learning, Model Testing, Data Leakage Machine Learning, Testing a Model, Testing Machine Learning Models, How to Test AI Models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-testing" property="og:url"/><meta content="A Guide on Model Testing" property="og:title"/><meta content="Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed." property="og:description"/><meta content="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-testing" property="twitter:url"/><meta content="A Guide on Model Testing" property="twitter:title"/><meta content="Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed." property="twitter:description"/><meta content="https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "A Guide on Model Testing", "image": ["https://viso.ai/wp-content/uploads/2022/07/overfitting-underfitting-appropriate-fitting.jpg"], "datePublished": "2024-07-04 01:00:35 +0530", "dateModified": "2024-07-05 02:25:02 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore effective methods for testing computer vision models to make sure they are reliable, perform well, and are ready to be deployed.", "mainEntity": [{"@type": "Question", "name": "What are the key differences between model evaluation and model testing in computer vision?", "acceptedAnswer": {"@type": "Answer", "text": "Model evaluation and model testing are distinct steps in a computer vision project. Model evaluation involves using a labeled dataset to compute metrics such as accuracy, precision, recall, and F1 score, providing insights into the model's performance with a controlled dataset. Model testing, on the other hand, assesses the model's performance in real-world scenarios by applying it to new, unseen data, ensuring the model's learned behavior aligns with expectations outside the evaluation environment. For a detailed guide, refer to the steps in a computer vision project."}}, {"@type": "Question", "name": "How can I test my Ultralytics YOLOv8 model on multiple images?", "acceptedAnswer": {"@type": "Answer", "text": "To test your Ultralytics YOLOv8 model on multiple images, you can use the prediction mode. This mode allows you to run the model on new, unseen data to generate predictions without providing detailed metrics. This is ideal for real-world performance testing on larger image sets stored in a folder. For evaluating performance metrics, use the validation mode instead."}}, {"@type": "Question", "name": "What should I do if my computer vision model shows signs of overfitting or underfitting?", "acceptedAnswer": {"@type": "Answer", "text": "To address overfitting: To address underfitting: Review misclassified images, perform thorough error analysis, and regularly track performance metrics to maintain a balance. For more information on these concepts, explore our section on Overfitting and Underfitting."}}, {"@type": "Question", "name": "How can I detect and avoid data leakage in computer vision?", "acceptedAnswer": {"@type": "Answer", "text": "To detect data leakage: To avoid data leakage: For detailed strategies on preventing data leakage, refer to our section on Data Leakage in Computer Vision."}}, {"@type": "Question", "name": "What steps should I take after testing my computer vision model?", "acceptedAnswer": {"@type": "Answer", "text": "Post-testing, if the model performance meets the project goals, proceed with deployment. If the results are unsatisfactory, consider: Gain insights from the Model Testing Vs. Model Evaluation section to refine and enhance model effectiveness in real-world applications."}}, {"@type": "Question", "name": "How do I run YOLOv8 predictions without custom training?", "acceptedAnswer": {"@type": "Answer", "text": "You can run predictions using the pre-trained YOLOv8 model on your dataset to see if it suits your application needs. Utilize the prediction mode to get a quick sense of performance results without diving into custom training."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -47,7 +47,7 @@
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="Ultralytics YOLO Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
-<img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+<img alt="logo" src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -264,7 +264,7 @@
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="Ultralytics YOLO Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Ultralytics YOLO Docs">
-<img alt="logo" src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+<img alt="logo" src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Reverse.svg"/>
 </a>
     Ultralytics YOLO Docs
   </label>
@@ -732,6 +732,59 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-key-differences-between-model-evaluation-and-model-testing-in-computer-vision">
+<span class="md-ellipsis">
+      What are the key differences between model evaluation and model testing in computer vision?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-test-my-ultralytics-yolov8-model-on-multiple-images">
+<span class="md-ellipsis">
+      How can I test my Ultralytics YOLOv8 model on multiple images?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-should-i-do-if-my-computer-vision-model-shows-signs-of-overfitting-or-underfitting">
+<span class="md-ellipsis">
+      What should I do if my computer vision model shows signs of overfitting or underfitting?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-detect-and-avoid-data-leakage-in-computer-vision">
+<span class="md-ellipsis">
+      How can I detect and avoid data leakage in computer vision?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-steps-should-i-take-after-testing-my-computer-vision-model">
+<span class="md-ellipsis">
+      What steps should I take after testing my computer vision model?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-run-yolov8-predictions-without-custom-training">
+<span class="md-ellipsis">
+      How do I run YOLOv8 predictions without custom training?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -1062,6 +1115,59 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-key-differences-between-model-evaluation-and-model-testing-in-computer-vision">
+<span class="md-ellipsis">
+      What are the key differences between model evaluation and model testing in computer vision?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-test-my-ultralytics-yolov8-model-on-multiple-images">
+<span class="md-ellipsis">
+      How can I test my Ultralytics YOLOv8 model on multiple images?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-should-i-do-if-my-computer-vision-model-shows-signs-of-overfitting-or-underfitting">
+<span class="md-ellipsis">
+      What should I do if my computer vision model shows signs of overfitting or underfitting?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-detect-and-avoid-data-leakage-in-computer-vision">
+<span class="md-ellipsis">
+      How can I detect and avoid data leakage in computer vision?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-steps-should-i-take-after-testing-my-computer-vision-model">
+<span class="md-ellipsis">
+      What steps should I take after testing my computer vision model?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-run-yolov8-predictions-without-custom-training">
+<span class="md-ellipsis">
+      How do I run YOLOv8 predictions without custom training?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -1075,7 +1181,7 @@
 <h1 id="a-guide-on-model-testing">A Guide on Model Testing</h1>
 <h2 id="introduction">Introduction</h2>
 <p>After <a href="../model-training-tips/">training</a> and <a href="../model-evaluation-insights/">evaluating</a> your model, it's time to test it. Model testing involves assessing how well it performs in real-world scenarios. Testing considers factors like accuracy, reliability, fairness, and how easy it is to understand the model's decisions. The goal is to make sure the model performs as intended, delivers the expected results, and fits into the <a href="../defining-project-goals/">overall objective of your application</a> or project.</p>
-<p>Model testing's definition is quite similar to model evaluation, but they are two distinct <a href="../steps-of-a-cv-project/">steps in a computer vision project</a>. Model evaluation involves metrics and plots to assess the model's accuracy. On the other hand, model testing checks if the model's learned behavior is the same as expectations. In this guide, we'll explore strategies for testing your computer vision models.</p>
+<p>Model testing is quite similar to model evaluation, but they are two distinct <a href="../steps-of-a-cv-project/">steps in a computer vision project</a>. Model evaluation involves metrics and plots to assess the model's accuracy. On the other hand, model testing checks if the model's learned behavior is the same as expectations. In this guide, we'll explore strategies for testing your computer vision models.</p>
 <h2 id="model-testing-vs-model-evaluation">Model Testing Vs. Model Evaluation</h2>
 <p>First, let's understand the difference between model evaluation and testing with an example.</p>
 <p>Suppose you have trained a computer vision model to recognize cats and dogs, and you want to deploy this model at a pet store to monitor the animals. During the model evaluation phase, you use a labeled dataset to calculate metrics like accuracy, precision, recall, and F1 score. For instance, the model might have an accuracy of 98% in distinguishing between cats and dogs in a given dataset.</p>
@@ -1170,6 +1276,51 @@
 <p>These resources will help you navigate challenges and remain updated on the latest trends and practices within the computer vision community.</p>
 <h2 id="in-summary">In Summary</h2>
 <p>Building trustworthy computer vision models relies on rigorous model testing. By testing the model with previously unseen data, we can analyze it and spot weaknesses like overfitting and data leakage. Addressing these issues before deployment helps the model perform well in real-world applications. It's important to remember that model testing is just as crucial as model evaluation in guaranteeing the model's long-term success and effectiveness.</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="what-are-the-key-differences-between-model-evaluation-and-model-testing-in-computer-vision">What are the key differences between model evaluation and model testing in computer vision?</h3>
+<p>Model evaluation and model testing are distinct steps in a computer vision project. Model evaluation involves using a labeled dataset to compute metrics such as accuracy, precision, recall, and F1 score, providing insights into the model's performance with a controlled dataset. Model testing, on the other hand, assesses the model's performance in real-world scenarios by applying it to new, unseen data, ensuring the model's learned behavior aligns with expectations outside the evaluation environment. For a detailed guide, refer to the <a href="../steps-of-a-cv-project/">steps in a computer vision project</a>.</p>
+<h3 id="how-can-i-test-my-ultralytics-yolov8-model-on-multiple-images">How can I test my Ultralytics YOLOv8 model on multiple images?</h3>
+<p>To test your Ultralytics YOLOv8 model on multiple images, you can use the <a href="../../modes/predict/">prediction mode</a>. This mode allows you to run the model on new, unseen data to generate predictions without providing detailed metrics. This is ideal for real-world performance testing on larger image sets stored in a folder. For evaluating performance metrics, use the <a href="../../modes/val/">validation mode</a> instead.</p>
+<h3 id="what-should-i-do-if-my-computer-vision-model-shows-signs-of-overfitting-or-underfitting">What should I do if my computer vision model shows signs of overfitting or underfitting?</h3>
+<p>To address <strong>overfitting</strong>:</p>
+<ul>
+<li>Regularization techniques like dropout.</li>
+<li>Increase the size of the training dataset.</li>
+<li>Simplify the model architecture.</li>
+</ul>
+<p>To address <strong>underfitting</strong>:</p>
+<ul>
+<li>Use a more complex model.</li>
+<li>Provide more relevant features.</li>
+<li>Increase training iterations or epochs.</li>
+</ul>
+<p>Review misclassified images, perform thorough error analysis, and regularly track performance metrics to maintain a balance. For more information on these concepts, explore our section on <a href="#overfitting-and-underfitting-in-machine-learning">Overfitting and Underfitting</a>.</p>
+<h3 id="how-can-i-detect-and-avoid-data-leakage-in-computer-vision">How can I detect and avoid data leakage in computer vision?</h3>
+<p>To detect data leakage:</p>
+<ul>
+<li>Verify that the testing performance is not unusually high.</li>
+<li>Check feature importance for unexpected insights.</li>
+<li>Intuitively review model decisions.</li>
+<li>Ensure correct data division before processing.</li>
+</ul>
+<p>To avoid data leakage:</p>
+<ul>
+<li>Use diverse datasets with various environments.</li>
+<li>Carefully review data for hidden biases.</li>
+<li>Ensure no overlapping information between training and testing sets.</li>
+</ul>
+<p>For detailed strategies on preventing data leakage, refer to our section on <a href="#data-leakage-in-computer-vision-and-how-to-avoid-it">Data Leakage in Computer Vision</a>.</p>
+<h3 id="what-steps-should-i-take-after-testing-my-computer-vision-model">What steps should I take after testing my computer vision model?</h3>
+<p>Post-testing, if the model performance meets the project goals, proceed with deployment. If the results are unsatisfactory, consider:</p>
+<ul>
+<li>Error analysis.</li>
+<li>Gathering more diverse and high-quality data.</li>
+<li>Hyperparameter tuning.</li>
+<li>Retraining the model.</li>
+</ul>
+<p>Gain insights from the <a href="#model-testing-vs-model-evaluation">Model Testing Vs. Model Evaluation</a> section to refine and enhance model effectiveness in real-world applications.</p>
+<h3 id="how-do-i-run-yolov8-predictions-without-custom-training">How do I run YOLOv8 predictions without custom training?</h3>
+<p>You can run predictions using the pre-trained YOLOv8 model on your dataset to see if it suits your application needs. Utilize the <a href="../../modes/predict/">prediction mode</a> to get a quick sense of performance results without diving into custom training.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1178,7 +1329,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-07-04, Updated 2024-07-04<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-07-04, Updated 2024-07-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
