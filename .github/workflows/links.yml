@@ -65,8 +65,14 @@ jobs:
         if: matrix.branch == 'main'
         run: |
           mkdir ultralytics_website
-          wget -P ultralytics_website --recursive --no-parent --adjust-extension --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" https://www.ultralytics.com/ || true
-
+          wget -P ultralytics_website \
+               --recursive \
+               --no-parent \
+               --adjust-extension \
+               --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
+               --exclude-directories="/zh/,/ko/,/ja/,/ru/,/de/,/fr/,/es/,/pt/,/tr/,/vi/,/hi/,/ar/,/it/,/nl/" \
+               https://www.ultralytics.com/ || true
+               
       - name: Run Broken Link Checks on Ultralytics Website
         if: matrix.branch == 'main'
         uses: nick-fields/retry@v3
