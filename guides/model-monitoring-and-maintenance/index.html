@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Discover essential steps for launching a successful computer vision project, from defining goals to model deployment and maintenance. Boost your AI capabilities now!." name="description"/>
+<meta content="Understand the key practices for monitoring, maintaining, and documenting computer vision models to guarantee accuracy, spot anomalies, and mitigate data drift." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/guides/steps-of-a-cv-project/" rel="canonical"/>
-<link href="../ros-quickstart/" rel="prev"/>
-<link href="../defining-project-goals/" rel="next"/>
+<link href="https://docs.ultralytics.com/guides/model-monitoring-and-maintenance/" rel="canonical"/>
+<link href="../model-deployment-practices/" rel="prev"/>
+<link href="../../datasets/explorer/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.28" name="generator"/>
-<title>Steps of a Computer Vision Project - Ultralytics YOLO Docs</title>
+<title>Maintaining Your Computer Vision Model - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Steps of a Computer Vision Project" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Computer Vision, AI, Object Detection, Image Classification, Instance Segmentation, Data Annotation, Model Training, Model Evaluation, Model Deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/steps-of-a-cv-project" property="og:url"/><meta content="Steps of a Computer Vision Project" property="og:title"/><meta content="Discover essential steps for launching a successful computer vision project, from defining goals to model deployment and maintenance. Boost your AI capabilities now!." property="og:description"/><meta content="https://media.licdn.com/dms/image/D4D12AQGf61lmNOm3xA/article-cover_image-shrink_720_1280/0/1656513646049?e=1722470400&amp;v=beta&amp;t=23Rqohhxfie38U5syPeL2XepV2QZe6_HSSC-4rAAvt4" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/steps-of-a-cv-project" property="twitter:url"/><meta content="Steps of a Computer Vision Project" property="twitter:title"/><meta content="Discover essential steps for launching a successful computer vision project, from defining goals to model deployment and maintenance. Boost your AI capabilities now!." property="twitter:description"/><meta content="https://media.licdn.com/dms/image/D4D12AQGf61lmNOm3xA/article-cover_image-shrink_720_1280/0/1656513646049?e=1722470400&amp;v=beta&amp;t=23Rqohhxfie38U5syPeL2XepV2QZe6_HSSC-4rAAvt4" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Steps of a Computer Vision Project", "image": ["https://media.licdn.com/dms/image/D4D12AQGf61lmNOm3xA/article-cover_image-shrink_720_1280/0/1656513646049?e=1722470400&v=beta&t=23Rqohhxfie38U5syPeL2XepV2QZe6_HSSC-4rAAvt4"], "datePublished": "2024-05-29 15:10:14 +0530", "dateModified": "2024-07-05 22:02:38 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover essential steps for launching a successful computer vision project, from defining goals to model deployment and maintenance. Boost your AI capabilities now!.", "mainEntity": [{"@type": "Question", "name": "How do I choose the right computer vision task for my project?", "acceptedAnswer": {"@type": "Answer", "text": "Choosing the right computer vision task depends on your project's end goal. For instance, if you want to monitor traffic, object detection is suitable as it can locate and identify multiple vehicle types in real-time. For medical imaging, image segmentation is ideal for providing detailed boundaries of tumors, aiding in diagnosis and treatment planning. Learn more about specific tasks like object detection, image classification, and instance segmentation."}}, {"@type": "Question", "name": "Why is data annotation crucial in computer vision projects?", "acceptedAnswer": {"@type": "Answer", "text": "Data annotation is vital for teaching your model to recognize patterns. The type of annotation varies with the task: Tools like Label Studio, CVAT, and Labelme can assist in this process. For more details, refer to our data collection and annotation guide."}}, {"@type": "Question", "name": "What steps should I follow to augment and split my dataset effectively?", "acceptedAnswer": {"@type": "Answer", "text": "Splitting your dataset before augmentation helps validate model performance on original, unaltered data. Follow these steps: After splitting, apply data augmentation techniques like rotation, scaling, and flipping to increase dataset diversity. Libraries such as Albumentations and OpenCV can help. Ultralytics also offers built-in augmentation settings for convenience."}}, {"@type": "Question", "name": "How can I export my trained computer vision model for deployment?", "acceptedAnswer": {"@type": "Answer", "text": "Exporting your model ensures compatibility with different deployment platforms. Ultralytics provides multiple formats, including ONNX, TensorRT, and CoreML. To export your YOLOv8 model, follow this guide: For more information, check out the model export guide."}}, {"@type": "Question", "name": "What are the best practices for monitoring and maintaining a deployed computer vision model?", "acceptedAnswer": {"@type": "Answer", "text": "Continuous monitoring and maintenance are essential for a model's long-term success. Implement tools for tracking Key Performance Indicators (KPIs) and detecting anomalies. Regularly retrain the model with updated data to counteract model drift. Document the entire process, including model architecture, hyperparameters, and changes, to ensure reproducibility and ease of future updates. Learn more in our monitoring and maintenance guide."}}]}</script></head>
+<meta content="Maintaining Your Computer Vision Model" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Computer Vision Models, AI Model Monitoring, Data Drift Detection, Anomaly Detection in AI, Model Monitoring" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-monitoring-and-maintenance" property="og:url"/><meta content="Maintaining Your Computer Vision Model" property="og:title"/><meta content="Understand the key practices for monitoring, maintaining, and documenting computer vision models to guarantee accuracy, spot anomalies, and mitigate data drift." property="og:description"/><meta content="https://cdn.prod.website-files.com/660ef16a9e0687d9cc27474a/6625e0d5fe28fe414563ad0d_64498c4145adad5ecd2bfdcb_5_evidently_grafana_-min.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-monitoring-and-maintenance" property="twitter:url"/><meta content="Maintaining Your Computer Vision Model" property="twitter:title"/><meta content="Understand the key practices for monitoring, maintaining, and documenting computer vision models to guarantee accuracy, spot anomalies, and mitigate data drift." property="twitter:description"/><meta content="https://cdn.prod.website-files.com/660ef16a9e0687d9cc27474a/6625e0d5fe28fe414563ad0d_64498c4145adad5ecd2bfdcb_5_evidently_grafana_-min.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Maintaining Your Computer Vision Model", "image": ["https://cdn.prod.website-files.com/660ef16a9e0687d9cc27474a/6625e0d5fe28fe414563ad0d_64498c4145adad5ecd2bfdcb_5_evidently_grafana_-min.png"], "datePublished": "2024-07-10 04:16:45 +0530", "dateModified": "2024-07-10 04:16:45 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Understand the key practices for monitoring, maintaining, and documenting computer vision models to guarantee accuracy, spot anomalies, and mitigate data drift."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#understanding-the-key-steps-in-a-computer-vision-project">
+<a class="md-skip" href="#maintaining-your-computer-vision-models-after-deployment">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Steps of a Computer Vision Project
+              Maintaining Your Computer Vision Model
             
           </span>
 </div>
@@ -486,186 +486,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Steps of a Computer Vision Project
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../steps-of-a-cv-project/">
 <span class="md-ellipsis">
     Steps of a Computer Vision Project
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction">
-<span class="md-ellipsis">
-      Introduction
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#an-overview-of-a-computer-vision-project">
-<span class="md-ellipsis">
-      An Overview of a Computer Vision Project
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-defining-your-projects-goals">
-<span class="md-ellipsis">
-      Step 1: Defining Your Project's Goals
-    </span>
-</a>
-<nav aria-label="Step 1: Defining Your Project's Goals" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-15-selecting-the-right-model-and-training-approach">
-<span class="md-ellipsis">
-      Step 1.5: Selecting the Right Model and Training Approach
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-data-collection-and-data-annotation">
-<span class="md-ellipsis">
-      Step 2: Data Collection and Data Annotation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-data-augmentation-and-splitting-your-dataset">
-<span class="md-ellipsis">
-      Step 3: Data Augmentation and Splitting Your Dataset
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-model-training">
-<span class="md-ellipsis">
-      Step 4: Model Training
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-model-evaluation-and-model-finetuning">
-<span class="md-ellipsis">
-      Step 5: Model Evaluation and Model Finetuning
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-6-model-testing">
-<span class="md-ellipsis">
-      Step 6: Model Testing
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-7-model-deployment">
-<span class="md-ellipsis">
-      Step 7: Model Deployment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-8-monitoring-maintenance-and-documentation">
-<span class="md-ellipsis">
-      Step 8: Monitoring, Maintenance, and Documentation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#engaging-with-the-community">
-<span class="md-ellipsis">
-      Engaging with the Community
-    </span>
-</a>
-<nav aria-label="Engaging with the Community" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#community-resources">
-<span class="md-ellipsis">
-      Community Resources
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#official-documentation">
-<span class="md-ellipsis">
-      Official Documentation
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#kickstart-your-computer-vision-project-today">
-<span class="md-ellipsis">
-      Kickstart Your Computer Vision Project Today!
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-<span class="md-ellipsis">
-      FAQ
-    </span>
-</a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-choose-the-right-computer-vision-task-for-my-project">
-<span class="md-ellipsis">
-      How do I choose the right computer vision task for my project?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-is-data-annotation-crucial-in-computer-vision-projects">
-<span class="md-ellipsis">
-      Why is data annotation crucial in computer vision projects?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-steps-should-i-follow-to-augment-and-split-my-dataset-effectively">
-<span class="md-ellipsis">
-      What steps should I follow to augment and split my dataset effectively?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-export-my-trained-computer-vision-model-for-deployment">
-<span class="md-ellipsis">
-      How can I export my trained computer vision model for deployment?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-best-practices-for-monitoring-and-maintaining-a-deployed-computer-vision-model">
-<span class="md-ellipsis">
-      What are the best practices for monitoring and maintaining a deployed computer vision model?
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../defining-project-goals/">
@@ -716,12 +542,166 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../model-monitoring-and-maintenance/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Maintaining Your Computer Vision Model
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Maintaining Your Computer Vision Model
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model-monitoring-is-key">
+<span class="md-ellipsis">
+      Model Monitoring is Key
+    </span>
+</a>
+<nav aria-label="Model Monitoring is Key" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#best-practices-for-model-monitoring">
+<span class="md-ellipsis">
+      Best Practices for Model Monitoring
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tools-for-ai-model-monitoring">
+<span class="md-ellipsis">
+      Tools for AI Model Monitoring
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#anomaly-detection-and-alert-systems">
+<span class="md-ellipsis">
+      Anomaly Detection and Alert Systems
+    </span>
+</a>
+<nav aria-label="Anomaly Detection and Alert Systems" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#things-to-keep-in-mind-when-configuring-thresholds-and-alerts">
+<span class="md-ellipsis">
+      Things to Keep in Mind When Configuring Thresholds and Alerts
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-drift-detection">
+<span class="md-ellipsis">
+      Data Drift Detection
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model-maintenance">
+<span class="md-ellipsis">
+      Model Maintenance
+    </span>
+</a>
+<nav aria-label="Model Maintenance" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regular-updates-and-re-training">
+<span class="md-ellipsis">
+      Regular Updates and Re-training
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deciding-when-to-retrain-your-model">
+<span class="md-ellipsis">
+      Deciding When to Retrain Your Model
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#documentation">
+<span class="md-ellipsis">
+      Documentation
+    </span>
+</a>
+<nav aria-label="Documentation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-elements-to-document">
+<span class="md-ellipsis">
+      Key Elements to Document
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tools-for-documentation">
+<span class="md-ellipsis">
+      Tools for Documentation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#connect-with-the-community">
+<span class="md-ellipsis">
+      Connect with the Community
+    </span>
+</a>
+<nav aria-label="Connect with the Community" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#community-resources">
+<span class="md-ellipsis">
+      Community Resources
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#official-documentation">
+<span class="md-ellipsis">
+      Official Documentation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-takeaways">
+<span class="md-ellipsis">
+      Key Takeaways
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8_30" type="checkbox"/>
@@ -866,24 +846,39 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#an-overview-of-a-computer-vision-project">
+<a class="md-nav__link" href="#model-monitoring-is-key">
 <span class="md-ellipsis">
-      An Overview of a Computer Vision Project
+      Model Monitoring is Key
+    </span>
+</a>
+<nav aria-label="Model Monitoring is Key" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#best-practices-for-model-monitoring">
+<span class="md-ellipsis">
+      Best Practices for Model Monitoring
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-defining-your-projects-goals">
+<a class="md-nav__link" href="#tools-for-ai-model-monitoring">
 <span class="md-ellipsis">
-      Step 1: Defining Your Project's Goals
+      Tools for AI Model Monitoring
     </span>
 </a>
-<nav aria-label="Step 1: Defining Your Project's Goals" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#anomaly-detection-and-alert-systems">
+<span class="md-ellipsis">
+      Anomaly Detection and Alert Systems
+    </span>
+</a>
+<nav aria-label="Anomaly Detection and Alert Systems" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-15-selecting-the-right-model-and-training-approach">
+<a class="md-nav__link" href="#things-to-keep-in-mind-when-configuring-thresholds-and-alerts">
 <span class="md-ellipsis">
-      Step 1.5: Selecting the Right Model and Training Approach
+      Things to Keep in Mind When Configuring Thresholds and Alerts
     </span>
 </a>
 </li>
@@ -891,61 +886,72 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-data-collection-and-data-annotation">
+<a class="md-nav__link" href="#data-drift-detection">
 <span class="md-ellipsis">
-      Step 2: Data Collection and Data Annotation
+      Data Drift Detection
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model-maintenance">
+<span class="md-ellipsis">
+      Model Maintenance
+    </span>
+</a>
+<nav aria-label="Model Maintenance" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regular-updates-and-re-training">
+<span class="md-ellipsis">
+      Regular Updates and Re-training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-data-augmentation-and-splitting-your-dataset">
+<a class="md-nav__link" href="#deciding-when-to-retrain-your-model">
 <span class="md-ellipsis">
-      Step 3: Data Augmentation and Splitting Your Dataset
+      Deciding When to Retrain Your Model
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#documentation">
+<span class="md-ellipsis">
+      Documentation
+    </span>
+</a>
+<nav aria-label="Documentation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-elements-to-document">
+<span class="md-ellipsis">
+      Key Elements to Document
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-model-training">
+<a class="md-nav__link" href="#tools-for-documentation">
 <span class="md-ellipsis">
-      Step 4: Model Training
+      Tools for Documentation
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-model-evaluation-and-model-finetuning">
-<span class="md-ellipsis">
-      Step 5: Model Evaluation and Model Finetuning
-    </span>
-</a>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-6-model-testing">
+<a class="md-nav__link" href="#connect-with-the-community">
 <span class="md-ellipsis">
-      Step 6: Model Testing
+      Connect with the Community
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-7-model-deployment">
-<span class="md-ellipsis">
-      Step 7: Model Deployment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-8-monitoring-maintenance-and-documentation">
-<span class="md-ellipsis">
-      Step 8: Monitoring, Maintenance, and Documentation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#engaging-with-the-community">
-<span class="md-ellipsis">
-      Engaging with the Community
-    </span>
-</a>
-<nav aria-label="Engaging with the Community" class="md-nav">
+<nav aria-label="Connect with the Community" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#community-resources">
@@ -965,57 +971,11 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#kickstart-your-computer-vision-project-today">
+<a class="md-nav__link" href="#key-takeaways">
 <span class="md-ellipsis">
-      Kickstart Your Computer Vision Project Today!
+      Key Takeaways
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-<span class="md-ellipsis">
-      FAQ
-    </span>
-</a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-choose-the-right-computer-vision-task-for-my-project">
-<span class="md-ellipsis">
-      How do I choose the right computer vision task for my project?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-is-data-annotation-crucial-in-computer-vision-projects">
-<span class="md-ellipsis">
-      Why is data annotation crucial in computer vision projects?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-steps-should-i-follow-to-augment-and-split-my-dataset-effectively">
-<span class="md-ellipsis">
-      What steps should I follow to augment and split my dataset effectively?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-export-my-trained-computer-vision-model-for-deployment">
-<span class="md-ellipsis">
-      How can I export my trained computer vision model for deployment?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-best-practices-for-monitoring-and-maintaining-a-deployed-computer-vision-model">
-<span class="md-ellipsis">
-      What are the best practices for monitoring and maintaining a deployed computer vision model?
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -1024,186 +984,99 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/steps-of-a-cv-project.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/model-monitoring-and-maintenance.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="understanding-the-key-steps-in-a-computer-vision-project">Understanding the Key Steps in a Computer Vision Project</h1>
+<h1 id="maintaining-your-computer-vision-models-after-deployment">Maintaining Your Computer Vision Models After Deployment</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Computer vision is a subfield of artificial intelligence (AI) that helps computers see and understand the world like humans do. It processes and analyzes images or videos to extract information, recognize patterns, and make decisions based on that data.</p>
-<p>Computer vision techniques like <a href="../../tasks/detect/">object detection</a>, <a href="../../tasks/classify/">image classification</a>, and <a href="../../tasks/segment/">instance segmentation</a> can be applied across various industries, from <a href="https://www.ultralytics.com/solutions/ai-in-self-driving">autonomous driving</a> to <a href="https://www.ultralytics.com/solutions/ai-in-healthcare">medical imaging</a> to gain valuable insights.</p>
+<p>If you are here, we can assume you've completed many <a href="../steps-of-a-cv-project/">steps in your computer vision project</a>: from <a href="../defining-project-goals/">gathering requirements</a>, <a href="../data-collection-and-annotation/">annotating data</a>, and <a href="../model-training-tips/">training the model</a> to finally <a href="../model-deployment-practices/">deploying</a> it. Your application is now running in production, but your project doesn't end here. The most important part of a computer vision project is making sure your model continues to fulfill your <a href="../defining-project-goals/">project's objectives</a> over time, and that's where monitoring, maintaining, and documenting your computer vision model enters the picture.</p>
+<p>In this guide, we'll take a closer look at how you can maintain your computer vision models after deployment. We'll explore how model monitoring can help you catch problems early on, how to keep your model accurate and up-to-date, and why documentation is important for troubleshooting.</p>
+<h2 id="model-monitoring-is-key">Model Monitoring is Key</h2>
+<p>Keeping a close eye on your deployed computer vision models is essential. Without proper monitoring, models can lose accuracy. A common issue is data distribution shift or data drift, where the data the model encounters changes from what it was trained on. When the model has to make predictions on data it doesn't recognize, it can lead to misinterpretations and poor performance. Outliers, or unusual data points, can also throw off the model's accuracy.</p>
+<p>Regular model monitoring helps developers track the <a href="../model-evaluation-insights/">model's performance</a>, spot anomalies, and quickly address problems like data drift. It also helps manage resources by indicating when updates are needed, avoiding expensive overhauls, and keeping the model relevant.</p>
+<h3 id="best-practices-for-model-monitoring">Best Practices for Model Monitoring</h3>
+<p>Here are some best practices to keep in mind while monitoring your computer vision model in production:</p>
+<ul>
+<li><strong>Track Performance Regularly</strong>: Continuously monitor the model's performance to detect changes over time.</li>
+<li><strong>Double Check the Data Quality</strong>: Check for missing values or anomalies in the data.</li>
+<li><strong>Use Diverse Data Sources</strong>: Monitor data from various sources to get a comprehensive view of the model's performance.</li>
+<li><strong>Combine Monitoring Techniques</strong>: Use a mix of drift detection algorithms and rule-based approaches to identify a wide range of issues.</li>
+<li><strong>Monitor Inputs and Outputs</strong>: Keep an eye on both the data the model processes and the results it produces to make sure everything is functioning correctly.</li>
+<li><strong>Set Up Alerts</strong>: Implement alerts for unusual behavior, such as performance drops, to be able to make quick corrective actions.</li>
+</ul>
+<h3 id="tools-for-ai-model-monitoring">Tools for AI Model Monitoring</h3>
+<p>You can use automated monitoring tools to make it easier to monitor models after deployment. Many tools offer real-time insights and alerting capabilities. Here are some examples of open-source model monitoring tools that can work together:</p>
+<ul>
+<li><strong><a href="https://prometheus.io/">Prometheus</a></strong>: Prometheus is an open-source monitoring tool that collects and stores metrics for detailed performance tracking. It integrates easily with Kubernetes and Docker, collecting data at set intervals and storing it in a time-series database. Prometheus can also scrape HTTP endpoints to gather real-time metrics. Collected data can be queried using the PromQL language.</li>
+<li><strong><a href="https://grafana.com/">Grafana</a></strong>: Grafana is an open-source data visualization and monitoring tool that allows you to query, visualize, alert on, and understand your metrics no matter where they are stored. It works well with Prometheus and offers advanced data visualization features. You can create custom dashboards to show important metrics for your computer vision models, like inference latency, error rates, and resource usage. Grafana turns collected data into easy-to-read dashboards with line graphs, heat maps, and histograms. It also supports alerts, which can be sent through channels like Slack to quickly notify teams of any issues.</li>
+<li><strong><a href="https://www.evidentlyai.com/">Evidently AI</a></strong>: Evidently AI is an open-source tool designed for monitoring and debugging machine learning models in production. It generates interactive reports from pandas DataFrames, helping analyze machine learning models. Evidently AI can detect data drift, model performance degradation, and other issues that may arise with your deployed models.</li>
+</ul>
+<p>The three tools introduced above, Evidently AI, Prometheus, and Grafana, can work together seamlessly as a fully open-source ML monitoring solution that is ready for production. Evidently AI is used to collect and calculate metrics, Prometheus stores these metrics, and Grafana displays them and sets up alerts. While there are many other tools available, this setup is an exciting open-source option that provides robust capabilities for monitoring and maintaining your models.</p>
 <p align="center">
-<img alt="Overview of computer vision techniques" src="https://media.licdn.com/dms/image/D4D12AQGf61lmNOm3xA/article-cover_image-shrink_720_1280/0/1656513646049?e=1722470400&amp;v=beta&amp;t=23Rqohhxfie38U5syPeL2XepV2QZe6_HSSC-4rAAvt4" width="100%"/>
+<img alt="Overview of Open Source Model Monitoring Tools" src="https://cdn.prod.website-files.com/660ef16a9e0687d9cc27474a/6625e0d5fe28fe414563ad0d_64498c4145adad5ecd2bfdcb_5_evidently_grafana_-min.png" width="100%"/>
 </p>
-<p>Working on your own computer vision projects is a great way to understand and learn more about computer vision. However, a computer vision project can consist of many steps, and it might seem confusing at first. By the end of this guide, you'll be familiar with the steps involved in a computer vision project. We'll walk through everything from the beginning to the end of a project, explaining why each part is important. Let's get started and make your computer vision project a success!</p>
-<h2 id="an-overview-of-a-computer-vision-project">An Overview of a Computer Vision Project</h2>
-<p>Before discussing the details of each step involved in a computer vision project, let's look at the overall process. If you started a computer vision project today, you'd take the following steps:</p>
+<h3 id="anomaly-detection-and-alert-systems">Anomaly Detection and Alert Systems</h3>
+<p>An anomaly is any data point or pattern that deviates quite a bit from what is expected. With respect to computer vision models, anomalies can be images that are very different from the ones the model was trained on. These unexpected images can be signs of issues like changes in data distribution, outliers, or behaviors that might reduce model performance. Setting up alert systems to detect these anomalies is an important part of model monitoring.</p>
+<p>By setting standard performance levels and limits for key metrics, you can catch problems early. When performance goes outside these limits, alerts are triggered, prompting quick fixes. Regularly updating and retraining models with new data keeps them relevant and accurate as the data changes.</p>
+<h4 id="things-to-keep-in-mind-when-configuring-thresholds-and-alerts">Things to Keep in Mind When Configuring Thresholds and Alerts</h4>
+<p>When you are setting up your alert systems, keep these best practices in mind:</p>
 <ul>
-<li>Your first priority would be to understand your project's requirements.</li>
-<li>Then, you'd collect and accurately label the images that will help train your model.</li>
-<li>Next, you'd clean your data and apply augmentation techniques to prepare it for model training.</li>
-<li>After model training, you'd thoroughly test and evaluate your model to make sure it performs consistently under different conditions.</li>
-<li>Finally, you'd deploy your model into the real world and update it based on new insights and feedback.</li>
+<li><strong>Standardized Alerts</strong>: Use consistent tools and formats for all alerts, such as email or messaging apps like Slack. Standardization makes it easier for you to quickly understand and respond to alerts.</li>
+<li><strong>Include Expected Behavior</strong>: Alert messages should clearly state what went wrong, what was expected, and the timeframe evaluated. It helps you gauge the urgency and context of the alert.</li>
+<li><strong>Configurable Alerts</strong>: Make alerts easily configurable to adapt to changing conditions. Allow yourself to edit thresholds, snooze, disable, or acknowledge alerts.</li>
 </ul>
+<h3 id="data-drift-detection">Data Drift Detection</h3>
+<p>Data drift detection is a concept that helps identify when the statistical properties of the input data change over time, which can degrade model performance. Before you decide to retrain or adjust your models, this technique helps spot that there is an issue. Data drift deals with changes in the overall data landscape over time, while anomaly detection focuses on identifying rare or unexpected data points that may require immediate attention.</p>
 <p align="center">
-<img alt="Computer Vision Project Steps Overview" src="https://assets-global.website-files.com/6108e07db6795265f203a636/626bf3577837448d9ed716ff_The%20five%20stages%20of%20ML%20development%20lifecycle%20(1).jpeg" width="100%"/>
+<img alt="Data Drift Detection Overview" src="https://cdn.prod.website-files.com/660ef16a9e0687d9cc27474a/662c3c84dc614ac9ad250314_65406ec83d5a6ca96619262f_data_drift10.png" width="100%"/>
 </p>
-<p>Now that we know what to expect, let's dive right into the steps and get your project moving forward.</p>
-<h2 id="step-1-defining-your-projects-goals">Step 1: Defining Your Project's Goals</h2>
-<p>The first step in any computer vision project is clearly defining the problem you're trying to solve. Knowing the end goal helps you start to build a solution. This is especially true when it comes to computer vision because your project's objective will directly affect which computer vision task you need to focus on.</p>
-<p>Here are some examples of project objectives and the computer vision tasks that can be used to reach these objectives:</p>
-<ul>
-<li>
-<p><strong>Objective:</strong> To develop a system that can monitor and manage the flow of different vehicle types on highways, improving traffic management and safety.</p>
-<ul>
-<li><strong>Computer Vision Task:</strong> Object detection is ideal for traffic monitoring because it efficiently locates and identifies multiple vehicles. It is less computationally demanding than image segmentation, which provides unnecessary detail for this task, ensuring faster, real-time analysis.</li>
-</ul>
-</li>
-<li>
-<p><strong>Objective:</strong> To develop a tool that assists radiologists by providing precise, pixel-level outlines of tumors in medical imaging scans.</p>
-<ul>
-<li><strong>Computer Vision Task:</strong> Image segmentation is suitable for medical imaging because it provides accurate and detailed boundaries of tumors that are crucial for assessing size, shape, and treatment planning.</li>
-</ul>
-</li>
-<li>
-<p><strong>Objective:</strong> To create a digital system that categorizes various documents (e.g., invoices, receipts, legal paperwork) to improve organizational efficiency and document retrieval.</p>
-<ul>
-<li><strong>Computer Vision Task:</strong> Image classification is ideal here as it handles one document at a time, without needing to consider the document's position in the image. This approach simplifies and accelerates the sorting process.</li>
-</ul>
-</li>
-</ul>
-<h3 id="step-15-selecting-the-right-model-and-training-approach">Step 1.5: Selecting the Right Model and Training Approach</h3>
-<p>After understanding the project objective and suitable computer vision tasks, an essential part of defining the project goal is <a href="../../models/">selecting the right model</a> and training approach.</p>
-<p>Depending on the objective, you might choose to select the model first or after seeing what data you are able to collect in Step 2. For example, suppose your project is highly dependent on the availability of specific types of data. In that case, it may be more practical to gather and analyze the data first before selecting a model. On the other hand, if you have a clear understanding of the model requirements, you can choose the model first and then collect data that fits those specifications.</p>
-<p>Choosing between training from scratch or using transfer learning affects how you prepare your data. Training from scratch requires a diverse dataset to build the model's understanding from the ground up. Transfer learning, on the other hand, allows you to use a pre-trained model and adapt it with a smaller, more specific dataset. Also, choosing a specific model to train will determine how you need to prepare your data, such as resizing images or adding annotations, according to the model's specific requirements.</p>
+<p>Here are several methods to detect data drift:</p>
+<p><strong>Continuous Monitoring</strong>: Regularly monitor the model's input data and outputs for signs of drift. Track key metrics and compare them against historical data to identify significant changes.</p>
+<p><strong>Statistical Techniques</strong>: Use methods like the Kolmogorov-Smirnov test or Population Stability Index (PSI) to detect changes in data distributions. These tests compare the distribution of new data with the training data to identify significant differences.</p>
+<p><strong>Feature Drift</strong>: Monitor individual features for drift. Sometimes, the overall data distribution may remain stable, but individual features may drift. Identifying which features are drifting helps in fine-tuning the retraining process.</p>
+<h2 id="model-maintenance">Model Maintenance</h2>
+<p>Model maintenance is crucial to keep computer vision models accurate and relevant over time. Model maintenance involves regularly updating and retraining models, addressing data drift, and ensuring the model stays relevant as data and environments change. You might be wondering how model maintenance differs from model monitoring. Monitoring is about watching the model's performance in real time to catch issues early. Maintenance, on the other hand, is about fixing these issues.</p>
+<h3 id="regular-updates-and-re-training">Regular Updates and Re-training</h3>
+<p>Once a model is deployed, while monitoring, you may notice changes in data patterns or performance, indicating model drift. Regular updates and re-training become essential parts of model maintenance to ensure the model can handle new patterns and scenarios. There are a few techniques you can use based on how your data is changing.</p>
 <p align="center">
-<img alt="Training From Scratch Vs. Using Transfer Learning" src="https://miro.medium.com/v2/resize:fit:1330/format:webp/1*zCnoXfPVcdXizTmhL68Rlw.jpeg" width="100%"/>
+<img alt="Computer Vision Model Drift Overview" src="https://f8federal.com/wp-content/uploads/2021/06/Asset-2@5x.png" width="100%"/>
 </p>
-<p>Note: When choosing a model, consider its <a href="../model-deployment-options/">deployment</a> to ensure compatibility and performance. For example, lightweight models are ideal for edge computing due to their efficiency on resource-constrained devices. To learn more about the key points related to defining your project, read <a href="../defining-project-goals/">our guide</a> on defining your project's goals and selecting the right model.</p>
-<p>Before getting into the hands-on work of a computer vision project, it's important to have a clear understanding of these details. Double-check that you've considered the following before moving on to Step 2:</p>
-<ul>
-<li>Clearly define the problem you're trying to solve.</li>
-<li>Determine the end goal of your project.</li>
-<li>Identify the specific computer vision task needed (e.g., object detection, image classification, image segmentation).</li>
-<li>Decide whether to train a model from scratch or use transfer learning.</li>
-<li>Select the appropriate model for your task and deployment needs.</li>
-</ul>
-<h2 id="step-2-data-collection-and-data-annotation">Step 2: Data Collection and Data Annotation</h2>
-<p>The quality of your computer vision models depend on the quality of your dataset. You can either collect images from the internet, take your own pictures, or use pre-existing datasets. Here are some great resources for downloading high-quality datasets: <a href="https://datasetsearch.research.google.com/">Google Dataset Search Engine</a>, <a href="https://archive.ics.uci.edu/">UC Irvine Machine Learning Repository</a>, and <a href="https://www.kaggle.com/datasets">Kaggle Datasets</a>.</p>
-<p>Some libraries, like Ultralytics, provide <a href="../../datasets/">built-in support for various datasets</a>, making it easier to get started with high-quality data. These libraries often include utilities for using popular datasets seamlessly, which can save you a lot of time and effort in the initial stages of your project.</p>
-<p>However, if you choose to collect images or take your own pictures, you'll need to annotate your data. Data annotation is the process of labeling your data to impart knowledge to your model. The type of data annotation you'll work with depends on your specific computer vision technique. Here are some examples:</p>
-<ul>
-<li><strong>Image Classification:</strong> You'll label the entire image as a single class.</li>
-<li><strong>Object Detection:</strong> You'll draw bounding boxes around each object in the image and label each box.</li>
-<li><strong>Image Segmentation:</strong> You'll label each pixel in the image according to the object it belongs to, creating detailed object boundaries.</li>
-</ul>
+<p>For example, if the data is changing gradually over time, incremental learning is a good approach. Incremental learning involves updating the model with new data without completely retraining it from scratch, saving computational resources and time. However, if the data has changed drastically, a periodic full re-training might be a better option to ensure the model does not overfit on the new data while losing track of older patterns.</p>
+<p>Regardless of the method, validation and testing are a must after updates. It is important to validate the model on a separate <a href="../model-testing/">test dataset</a> to check for performance improvements or degradation.</p>
+<h3 id="deciding-when-to-retrain-your-model">Deciding When to Retrain Your Model</h3>
+<p>The frequency of retraining your computer vision model depends on data changes and model performance. Retrain your model whenever you observe a significant performance drop or detect data drift. Regular evaluations can help determine the right retraining schedule by testing the model against new data. Monitoring performance metrics and data patterns lets you decide if your model needs more frequent updates to maintain accuracy.</p>
 <p align="center">
-<img alt="Different Types of Image Annotation" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*VhpVAAJnvq5ZE_pv" width="100%"/>
+<img alt="When to Retrain Overview" src="https://cdn.prod.website-files.com/660ef16a9e0687d9cc27474a/6625e0e2ce5af6ba15764bf6_62e1b89973a9fd20eb9cde71_blog_retrain_or_not_-20.png" width="100%"/>
 </p>
-<p><a href="../data-collection-and-annotation/">Data collection and annotation</a> can be a time-consuming manual effort. Annotation tools can help make this process easier. Here are some useful open annotation tools: <a href="https://github.com/HumanSignal/label-studio">LabeI Studio</a>, <a href="https://github.com/cvat-ai/cvat">CVAT</a>, and <a href="https://github.com/labelmeai/labelme">Labelme</a>.</p>
-<h2 id="step-3-data-augmentation-and-splitting-your-dataset">Step 3: Data Augmentation and Splitting Your Dataset</h2>
-<p>After collecting and annotating your image data, it's important to first split your dataset into training, validation, and test sets before performing data augmentation. Splitting your dataset before augmentation is crucial to test and validate your model on original, unaltered data. It helps accurately assess how well the model generalizes to new, unseen data.</p>
-<p>Here's how to split your data:</p>
+<h2 id="documentation">Documentation</h2>
+<p>Documenting a computer vision project makes it easier to understand, reproduce, and collaborate on. Good documentation covers model architecture, hyperparameters, datasets, evaluation metrics, and more. It provides transparency, helping team members and stakeholders understand what has been done and why. Documentation also aids in troubleshooting, maintenance, and future enhancements by providing a clear reference of past decisions and methods.</p>
+<h3 id="key-elements-to-document">Key Elements to Document</h3>
+<p>These are some of the key elements that should be included in project documentation:</p>
 <ul>
-<li><strong>Training Set:</strong> It is the largest portion of your data, typically 70-80% of the total, used to train your model.</li>
-<li><strong>Validation Set:</strong> Usually around 10-15% of your data; this set is used to tune hyperparameters and validate the model during training, helping to prevent overfitting.</li>
-<li><strong>Test Set:</strong> The remaining 10-15% of your data is set aside as the test set. It is used to evaluate the model's performance on unseen data after training is complete.</li>
+<li><strong><a href="../steps-of-a-cv-project/">Project Overview</a></strong>: Provide a high-level summary of the project, including the problem statement, solution approach, expected outcomes, and project scope. Explain the role of computer vision in addressing the problem and outline the stages and deliverables.</li>
+<li><strong>Model Architecture</strong>: Detail the structure and design of the model, including its components, layers, and connections. Explain the chosen hyperparameters and the rationale behind these choices.</li>
+<li><strong><a href="../data-collection-and-annotation/">Data Preparation</a></strong>: Describe the data sources, types, formats, sizes, and preprocessing steps. Discuss data quality, reliability, and any transformations applied before training the model.</li>
+<li><strong><a href="../model-training-tips/">Training Process</a></strong>: Document the training procedure, including the datasets used, training parameters, and loss functions. Explain how the model was trained and any challenges encountered during training.</li>
+<li><strong><a href="../model-evaluation-insights/">Evaluation Metrics</a></strong>: Specify the metrics used to evaluate the model's performance, such as accuracy, precision, recall, and F1-score. Include performance results and an analysis of these metrics.</li>
+<li><strong><a href="../model-deployment-options/">Deployment Steps</a></strong>: Outline the steps taken to deploy the model, including the tools and platforms used, deployment configurations, and any specific challenges or considerations.</li>
+<li><strong>Monitoring and Maintenance Procedure</strong>: Provide a detailed plan for monitoring the model's performance post-deployment. Include methods for detecting and addressing data and model drift, and describe the process for regular updates and retraining.</li>
 </ul>
-<p>After splitting your data, you can perform data augmentation by applying transformations like rotating, scaling, and flipping images to artificially increase the size of your dataset. Data augmentation makes your model more robust to variations and improves its performance on unseen images.</p>
-<p align="center">
-<img alt="Examples of Data Augmentations" src="https://www.labellerr.com/blog/content/images/size/w2000/2022/11/banner-data-augmentation--1-.webp" width="100%"/>
-</p>
-<p>Libraries like OpenCV, Albumentations, and TensorFlow offer flexible augmentation functions that you can use. Additionally, some libraries, such as Ultralytics, have <a href="../../modes/train/">built-in augmentation settings</a> directly within its model training function, simplifying the process.</p>
-<p>To understand your data better, you can use tools like <a href="https://matplotlib.org/">Matplotlib</a> or <a href="https://seaborn.pydata.org/">Seaborn</a> to visualize the images and analyze their distribution and characteristics. Visualizing your data helps identify patterns, anomalies, and the effectiveness of your augmentation techniques. You can also use <a href="../../datasets/explorer/">Ultralytics Explorer</a>, a tool for exploring computer vision datasets with semantic search, SQL queries, and vector similarity search.</p>
-<p align="center">
-<img alt="The Ultralytics Explorer Tool" src="https://github.com/ultralytics/ultralytics/assets/15766192/feb1fe05-58c5-4173-a9ff-e611e3bba3d0" width="100%"/>
-</p>
-<p>By properly <a href="../preprocessing_annotated_data/">understanding, splitting, and augmenting your data</a>, you can develop a well-trained, validated, and tested model that performs well in real-world applications.</p>
-<h2 id="step-4-model-training">Step 4: Model Training</h2>
-<p>Once your dataset is ready for training, you can focus on setting up the necessary environment, managing your datasets, and training your model.</p>
-<p>First, you'll need to make sure your environment is configured correctly. Typically, this includes the following:</p>
-<ul>
-<li>Installing essential libraries and frameworks like TensorFlow, PyTorch, or <a href="../../quickstart/">Ultralytics</a>.</li>
-<li>If you are using a GPU, installing libraries like CUDA and cuDNN will help enable GPU acceleration and speed up the training process.</li>
-</ul>
-<p>Then, you can load your training and validation datasets into your environment. Normalize and preprocess the data through resizing, format conversion, or augmentation. With your model selected, configure the layers and specify hyperparameters. Compile the model by setting the loss function, optimizer, and performance metrics.</p>
-<p>Libraries like Ultralytics simplify the training process. You can <a href="../../modes/train/">start training</a> by feeding data into the model with minimal code. These libraries handle weight adjustments, backpropagation, and validation automatically. They also offer tools to monitor progress and adjust hyperparameters easily. After training, save the model and its weights with a few commands.</p>
-<p>It's important to keep in mind that proper dataset management is vital for efficient training. Use version control for datasets to track changes and ensure reproducibility. Tools like <a href="../../integrations/dvc/">DVC (Data Version Control)</a> can help manage large datasets.</p>
-<h2 id="step-5-model-evaluation-and-model-finetuning">Step 5: Model Evaluation and Model Finetuning</h2>
-<p>It's important to assess your model's performance using various metrics and refine it to improve accuracy. <a href="../../modes/val/">Evaluating</a> helps identify areas where the model excels and where it may need improvement. Fine-tuning ensures the model is optimized for the best possible performance.</p>
-<ul>
-<li><strong><a href="../yolo-performance-metrics/">Performance Metrics</a>:</strong> Use metrics like accuracy, precision, recall, and F1-score to evaluate your model's performance. These metrics provide insights into how well your model is making predictions.</li>
-<li>
-<p><strong><a href="../hyperparameter-tuning/">Hyperparameter Tuning</a>:</strong> Adjust hyperparameters to optimize model performance. Techniques like grid search or random search can help find the best hyperparameter values.</p>
-</li>
-<li>
-<p>Fine-Tuning: Make small adjustments to the model architecture or training process to enhance performance. This might involve tweaking learning rates, batch sizes, or other model parameters.</p>
-</li>
-</ul>
-<h2 id="step-6-model-testing">Step 6: Model Testing</h2>
-<p>In this step, you can make sure that your model performs well on completely unseen data, confirming its readiness for deployment. The difference between model testing and model evaluation is that it focuses on verifying the final model's performance rather than iteratively improving it.</p>
-<p>It's important to thoroughly test and debug any common issues that may arise. Test your model on a separate test dataset that was not used during training or validation. This dataset should represent real-world scenarios to ensure the model's performance is consistent and reliable.</p>
-<p>Also, address common problems such as overfitting, underfitting, and data leakage. Use techniques like cross-validation and anomaly detection to identify and fix these issues.</p>
-<h2 id="step-7-model-deployment">Step 7: Model Deployment</h2>
-<p>Once your model has been thoroughly tested, it's time to deploy it. Deployment involves making your model available for use in a production environment. Here are the steps to deploy a computer vision model:</p>
-<ul>
-<li>
-<p>Setting Up the Environment: Configure the necessary infrastructure for your chosen deployment option, whether it's cloud-based (AWS, Google Cloud, Azure) or edge-based (local devices, IoT).</p>
-</li>
-<li>
-<p><strong><a href="../../modes/export/">Exporting the Model</a>:</strong> Export your model to the appropriate format (e.g., ONNX, TensorRT, CoreML for YOLOv8) to ensure compatibility with your deployment platform.</p>
-</li>
-<li><strong>Deploying the Model:</strong> Deploy the model by setting up APIs or endpoints and integrating it with your application.</li>
-<li><strong>Ensuring Scalability</strong>: Implement load balancers, auto-scaling groups, and monitoring tools to manage resources and handle increasing data and user requests.</li>
-</ul>
-<h2 id="step-8-monitoring-maintenance-and-documentation">Step 8: Monitoring, Maintenance, and Documentation</h2>
-<p>Once your model is deployed, it's important to continuously monitor its performance, maintain it to handle any issues, and document the entire process for future reference and improvements.</p>
-<p>Monitoring tools can help you track key performance indicators (KPIs) and detect anomalies or drops in accuracy. By monitoring the model, you can be aware of model drift, where the model's performance declines over time due to changes in the input data. Periodically retrain the model with updated data to maintain accuracy and relevance.</p>
-<p align="center">
-<img alt="Model Monitoring" src="https://www.kdnuggets.com/wp-content/uploads//ai-infinite-training-maintaining-loop.jpg" width="100%"/>
-</p>
-<p>In addition to monitoring and maintenance, documentation is also key. Thoroughly document the entire process, including model architecture, training procedures, hyperparameters, data preprocessing steps, and any changes made during deployment and maintenance. Good documentation ensures reproducibility and makes future updates or troubleshooting easier. By effectively monitoring, maintaining, and documenting your model, you can ensure it remains accurate, reliable, and easy to manage over its lifecycle.</p>
-<h2 id="engaging-with-the-community">Engaging with the Community</h2>
-<p>Connecting with a community of computer vision enthusiasts can help you tackle any issues you face while working on your computer vision project with confidence. Here are some ways to learn, troubleshoot, and network effectively.</p>
+<h3 id="tools-for-documentation">Tools for Documentation</h3>
+<p>There are many options when it comes to documenting AI projects, with open-source tools being particularly popular. Two of these are Jupyter Notebooks and MkDocs. Jupyter Notebooks allow you to create interactive documents with embedded code, visualizations, and text, making them ideal for sharing experiments and analyses. MkDocs is a static site generator that is easy to set up and deploy and is perfect for creating and hosting project documentation online.</p>
+<h2 id="connect-with-the-community">Connect with the Community</h2>
+<p>Joining a community of computer vision enthusiasts can help you solve problems and learn more quickly. Here are some ways to connect, get support, and share ideas.</p>
 <h3 id="community-resources">Community Resources</h3>
 <ul>
-<li><strong>GitHub Issues:</strong> Check out the <a href="https://github.com/ultralytics/ultralytics/issues">YOLOv8 GitHub repository</a> and use the Issues tab to ask questions, report bugs, and suggest new features. The active community and maintainers are there to help with specific issues.</li>
-<li><strong>Ultralytics Discord Server:</strong> Join the <a href="https://ultralytics.com/discord/">Ultralytics Discord server</a> to interact with other users and developers, get support, and share insights.</li>
+<li><strong>GitHub Issues:</strong> Check out the <a href="https://github.com/ultralytics/ultralytics/issues">YOLOv8 GitHub repository</a> and use the Issues tab to ask questions, report bugs, and suggest new features. The community and maintainers are highly active and supportive.</li>
+<li><strong>Ultralytics Discord Server:</strong> Join the <a href="https://ultralytics.com/discord/">Ultralytics Discord server</a> to chat with other users and developers, get support, and share your experiences.</li>
 </ul>
 <h3 id="official-documentation">Official Documentation</h3>
 <ul>
-<li><strong>Ultralytics YOLOv8 Documentation:</strong> Explore the <a href="../">official YOLOv8 documentation</a> for detailed guides with helpful tips on different computer vision tasks and projects.</li>
+<li><strong>Ultralytics YOLOv8 Documentation:</strong> Visit the <a href="../">official YOLOv8 documentation</a> for detailed guides and helpful tips on various computer vision projects.</li>
 </ul>
-<p>Using these resources will help you overcome challenges and stay updated with the latest trends and best practices in the computer vision community.</p>
-<h2 id="kickstart-your-computer-vision-project-today">Kickstart Your Computer Vision Project Today!</h2>
-<p>Taking on a computer vision project can be exciting and rewarding. By following the steps in this guide, you can build a solid foundation for success. Each step is crucial for developing a solution that meets your objectives and works well in real-world scenarios. As you gain experience, you'll discover advanced techniques and tools to improve your projects. Stay curious, keep learning, and explore new methods and innovations!</p>
-<h2 id="faq">FAQ</h2>
-<h3 id="how-do-i-choose-the-right-computer-vision-task-for-my-project">How do I choose the right computer vision task for my project?</h3>
-<p>Choosing the right computer vision task depends on your project's end goal. For instance, if you want to monitor traffic, <strong>object detection</strong> is suitable as it can locate and identify multiple vehicle types in real-time. For medical imaging, <strong>image segmentation</strong> is ideal for providing detailed boundaries of tumors, aiding in diagnosis and treatment planning. Learn more about specific tasks like <a href="../../tasks/detect/">object detection</a>, <a href="../../tasks/classify/">image classification</a>, and <a href="../../tasks/segment/">instance segmentation</a>.</p>
-<h3 id="why-is-data-annotation-crucial-in-computer-vision-projects">Why is data annotation crucial in computer vision projects?</h3>
-<p>Data annotation is vital for teaching your model to recognize patterns. The type of annotation varies with the task:</p>
-<ul>
-<li><strong>Image Classification</strong>: Entire image labeled as a single class.</li>
-<li><strong>Object Detection</strong>: Bounding boxes drawn around objects.</li>
-<li><strong>Image Segmentation</strong>: Each pixel labeled according to the object it belongs to.</li>
-</ul>
-<p>Tools like <a href="https://github.com/HumanSignal/label-studio">Label Studio</a>, <a href="https://github.com/cvat-ai/cvat">CVAT</a>, and <a href="https://github.com/labelmeai/labelme">Labelme</a> can assist in this process. For more details, refer to our <a href="../data-collection-and-annotation/">data collection and annotation guide</a>.</p>
-<h3 id="what-steps-should-i-follow-to-augment-and-split-my-dataset-effectively">What steps should I follow to augment and split my dataset effectively?</h3>
-<p>Splitting your dataset before augmentation helps validate model performance on original, unaltered data. Follow these steps:</p>
-<ul>
-<li><strong>Training Set</strong>: 70-80% of your data.</li>
-<li><strong>Validation Set</strong>: 10-15% for hyperparameter tuning.</li>
-<li><strong>Test Set</strong>: Remaining 10-15% for final evaluation.</li>
-</ul>
-<p>After splitting, apply data augmentation techniques like rotation, scaling, and flipping to increase dataset diversity. Libraries such as Albumentations and OpenCV can help. Ultralytics also offers <a href="../../modes/train/">built-in augmentation settings</a> for convenience.</p>
-<h3 id="how-can-i-export-my-trained-computer-vision-model-for-deployment">How can I export my trained computer vision model for deployment?</h3>
-<p>Exporting your model ensures compatibility with different deployment platforms. Ultralytics provides multiple formats, including ONNX, TensorRT, and CoreML. To export your YOLOv8 model, follow this guide:</p>
-<ul>
-<li>Use the <code>export</code> function with the desired format parameter.</li>
-<li>Ensure the exported model fits the specifications of your deployment environment (e.g., edge devices, cloud).</li>
-</ul>
-<p>For more information, check out the <a href="../../modes/export/">model export guide</a>.</p>
-<h3 id="what-are-the-best-practices-for-monitoring-and-maintaining-a-deployed-computer-vision-model">What are the best practices for monitoring and maintaining a deployed computer vision model?</h3>
-<p>Continuous monitoring and maintenance are essential for a model's long-term success. Implement tools for tracking Key Performance Indicators (KPIs) and detecting anomalies. Regularly retrain the model with updated data to counteract model drift. Document the entire process, including model architecture, hyperparameters, and changes, to ensure reproducibility and ease of future updates. Learn more in our <a href="#step-8-monitoring-maintenance-and-documentation">monitoring and maintenance guide</a>.</p>
+<p>Using these resources will help you solve challenges and stay up-to-date with the latest trends and practices in the computer vision community.</p>
+<h2 id="key-takeaways">Key Takeaways</h2>
+<p>We covered key tips for monitoring, maintaining, and documenting your computer vision models. Regular updates and re-training help the model adapt to new data patterns. Detecting and fixing data drift helps your model stay accurate. Continuous monitoring catches issues early, and good documentation makes collaboration and future updates easier. Following these steps will help your computer vision project stay successful and effective over time.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1212,7 +1085,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-05-29, Updated 2024-07-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (6), <a href="https://github.com/abirami-vina">abirami-vina</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-07-10, Updated 2024-07-10<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1), <a href="https://github.com/ultralytics/ultralytics">not.committed.yet</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1223,10 +1096,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/steps-of-a-cv-project', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/guides/model-monitoring-and-maintenance', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/steps-of-a-cv-project', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/guides/model-monitoring-and-maintenance', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -1275,7 +1148,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: ROS Quickstart" class="md-footer__link md-footer__link--prev" href="../ros-quickstart/">
+<a aria-label="Previous: Best Practices for Model Deployment" class="md-footer__link md-footer__link--prev" href="../model-deployment-practices/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1284,17 +1157,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                ROS Quickstart
+                Best Practices for Model Deployment
               </div>
 </div>
 </a>
-<a aria-label="Next: Defining A Computer Vision Project's Goals" class="md-footer__link md-footer__link--next" href="../defining-project-goals/">
+<a aria-label="Next: Ultralytics Explorer" class="md-footer__link md-footer__link--next" href="../../datasets/explorer/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Defining A Computer Vision Project's Goals
+                Ultralytics Explorer
               </div>
 </div>
 <div class="md-footer__button md-icon">
