@@ -7862,7 +7862,9 @@ T.Compose([CenterCrop(size), ToTensor()]).</p>
 <span class="normal"><a href="#__codelineno-0-1404">1404</a></span>
 <span class="normal"><a href="#__codelineno-0-1405">1405</a></span>
 <span class="normal"><a href="#__codelineno-0-1406">1406</a></span>
-<span class="normal"><a href="#__codelineno-0-1407">1407</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1384" name="__codelineno-0-1384"></a><span class="k">class</span> <span class="nc">CenterCrop</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-1407">1407</a></span>
+<span class="normal"><a href="#__codelineno-0-1408">1408</a></span>
+<span class="normal"><a href="#__codelineno-0-1409">1409</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1384" name="__codelineno-0-1384"></a><span class="k">class</span> <span class="nc">CenterCrop</span><span class="p">:</span>
 <a id="__codelineno-0-1385" name="__codelineno-0-1385"></a><span class="w">    </span><span class="sd">"""YOLOv8 CenterCrop class for image preprocessing, designed to be part of a transformation pipeline, e.g.,</span>
 <a id="__codelineno-0-1386" name="__codelineno-0-1386"></a><span class="sd">    T.Compose([CenterCrop(size), ToTensor()]).</span>
 <a id="__codelineno-0-1387" name="__codelineno-0-1387"></a><span class="sd">    """</span>
@@ -7882,10 +7884,12 @@ T.Compose([CenterCrop(size), ToTensor()]).</p>
 <a id="__codelineno-0-1401" name="__codelineno-0-1401"></a><span class="sd">        Returns:</span>
 <a id="__codelineno-0-1402" name="__codelineno-0-1402"></a><span class="sd">            (numpy.ndarray): The center-cropped and resized image as a numpy array.</span>
 <a id="__codelineno-0-1403" name="__codelineno-0-1403"></a><span class="sd">        """</span>
-<a id="__codelineno-0-1404" name="__codelineno-0-1404"></a>        <span class="n">imh</span><span class="p">,</span> <span class="n">imw</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-0-1405" name="__codelineno-0-1405"></a>        <span class="n">m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">imh</span><span class="p">,</span> <span class="n">imw</span><span class="p">)</span>  <span class="c1"># min dimension</span>
-<a id="__codelineno-0-1406" name="__codelineno-0-1406"></a>        <span class="n">top</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="p">(</span><span class="n">imh</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">imw</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-<a id="__codelineno-0-1407" name="__codelineno-0-1407"></a>        <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">im</span><span class="p">[</span><span class="n">top</span> <span class="p">:</span> <span class="n">top</span> <span class="o">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">left</span> <span class="p">:</span> <span class="n">left</span> <span class="o">+</span> <span class="n">m</span><span class="p">],</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_LINEAR</span><span class="p">)</span>
+<a id="__codelineno-0-1404" name="__codelineno-0-1404"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>  <span class="c1"># convert from PIL to numpy array if required</span>
+<a id="__codelineno-0-1405" name="__codelineno-0-1405"></a>            <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-1406" name="__codelineno-0-1406"></a>        <span class="n">imh</span><span class="p">,</span> <span class="n">imw</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-0-1407" name="__codelineno-0-1407"></a>        <span class="n">m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">imh</span><span class="p">,</span> <span class="n">imw</span><span class="p">)</span>  <span class="c1"># min dimension</span>
+<a id="__codelineno-0-1408" name="__codelineno-0-1408"></a>        <span class="n">top</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="p">(</span><span class="n">imh</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">imw</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+<a id="__codelineno-0-1409" name="__codelineno-0-1409"></a>        <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">im</span><span class="p">[</span><span class="n">top</span> <span class="p">:</span> <span class="n">top</span> <span class="o">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">left</span> <span class="p">:</span> <span class="n">left</span> <span class="o">+</span> <span class="n">m</span><span class="p">],</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_LINEAR</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -7958,7 +7962,9 @@ T.Compose([CenterCrop(size), ToTensor()]).</p>
 <span class="normal"><a href="#__codelineno-0-1404">1404</a></span>
 <span class="normal"><a href="#__codelineno-0-1405">1405</a></span>
 <span class="normal"><a href="#__codelineno-0-1406">1406</a></span>
-<span class="normal"><a href="#__codelineno-0-1407">1407</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1394" name="__codelineno-0-1394"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-1407">1407</a></span>
+<span class="normal"><a href="#__codelineno-0-1408">1408</a></span>
+<span class="normal"><a href="#__codelineno-0-1409">1409</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1394" name="__codelineno-0-1394"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <a id="__codelineno-0-1395" name="__codelineno-0-1395"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-1396" name="__codelineno-0-1396"></a><span class="sd">    Resizes and crops the center of the image using a letterbox method.</span>
 <a id="__codelineno-0-1397" name="__codelineno-0-1397"></a>
@@ -7968,10 +7974,12 @@ T.Compose([CenterCrop(size), ToTensor()]).</p>
 <a id="__codelineno-0-1401" name="__codelineno-0-1401"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-1402" name="__codelineno-0-1402"></a><span class="sd">        (numpy.ndarray): The center-cropped and resized image as a numpy array.</span>
 <a id="__codelineno-0-1403" name="__codelineno-0-1403"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1404" name="__codelineno-0-1404"></a>    <span class="n">imh</span><span class="p">,</span> <span class="n">imw</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-0-1405" name="__codelineno-0-1405"></a>    <span class="n">m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">imh</span><span class="p">,</span> <span class="n">imw</span><span class="p">)</span>  <span class="c1"># min dimension</span>
-<a id="__codelineno-0-1406" name="__codelineno-0-1406"></a>    <span class="n">top</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="p">(</span><span class="n">imh</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">imw</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-<a id="__codelineno-0-1407" name="__codelineno-0-1407"></a>    <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">im</span><span class="p">[</span><span class="n">top</span> <span class="p">:</span> <span class="n">top</span> <span class="o">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">left</span> <span class="p">:</span> <span class="n">left</span> <span class="o">+</span> <span class="n">m</span><span class="p">],</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_LINEAR</span><span class="p">)</span>
+<a id="__codelineno-0-1404" name="__codelineno-0-1404"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>  <span class="c1"># convert from PIL to numpy array if required</span>
+<a id="__codelineno-0-1405" name="__codelineno-0-1405"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-1406" name="__codelineno-0-1406"></a>    <span class="n">imh</span><span class="p">,</span> <span class="n">imw</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-0-1407" name="__codelineno-0-1407"></a>    <span class="n">m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">imh</span><span class="p">,</span> <span class="n">imw</span><span class="p">)</span>  <span class="c1"># min dimension</span>
+<a id="__codelineno-0-1408" name="__codelineno-0-1408"></a>    <span class="n">top</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="p">(</span><span class="n">imh</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">imw</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+<a id="__codelineno-0-1409" name="__codelineno-0-1409"></a>    <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">im</span><span class="p">[</span><span class="n">top</span> <span class="p">:</span> <span class="n">top</span> <span class="o">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">left</span> <span class="p">:</span> <span class="n">left</span> <span class="o">+</span> <span class="n">m</span><span class="p">],</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">h</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_LINEAR</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -8006,9 +8014,7 @@ T.Compose([CenterCrop(size), ToTensor()]).</p>
 <p>YOLOv8 ToTensor class for image preprocessing, i.e., T.Compose([LetterBox(size), ToTensor()]).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1411">1411</a></span>
-<span class="normal"><a href="#__codelineno-0-1412">1412</a></span>
-<span class="normal"><a href="#__codelineno-0-1413">1413</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1413">1413</a></span>
 <span class="normal"><a href="#__codelineno-0-1414">1414</a></span>
 <span class="normal"><a href="#__codelineno-0-1415">1415</a></span>
 <span class="normal"><a href="#__codelineno-0-1416">1416</a></span>
@@ -8028,29 +8034,31 @@ T.Compose([CenterCrop(size), ToTensor()]).</p>
 <span class="normal"><a href="#__codelineno-0-1430">1430</a></span>
 <span class="normal"><a href="#__codelineno-0-1431">1431</a></span>
 <span class="normal"><a href="#__codelineno-0-1432">1432</a></span>
-<span class="normal"><a href="#__codelineno-0-1433">1433</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1411" name="__codelineno-0-1411"></a><span class="k">class</span> <span class="nc">ToTensor</span><span class="p">:</span>
-<a id="__codelineno-0-1412" name="__codelineno-0-1412"></a><span class="w">    </span><span class="sd">"""YOLOv8 ToTensor class for image preprocessing, i.e., T.Compose([LetterBox(size), ToTensor()])."""</span>
-<a id="__codelineno-0-1413" name="__codelineno-0-1413"></a>
-<a id="__codelineno-0-1414" name="__codelineno-0-1414"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<a id="__codelineno-0-1415" name="__codelineno-0-1415"></a><span class="w">        </span><span class="sd">"""Initialize YOLOv8 ToTensor object with optional half-precision support."""</span>
-<a id="__codelineno-0-1416" name="__codelineno-0-1416"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-1417" name="__codelineno-0-1417"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">half</span> <span class="o">=</span> <span class="n">half</span>
-<a id="__codelineno-0-1418" name="__codelineno-0-1418"></a>
-<a id="__codelineno-0-1419" name="__codelineno-0-1419"></a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
-<a id="__codelineno-0-1420" name="__codelineno-0-1420"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-1421" name="__codelineno-0-1421"></a><span class="sd">        Transforms an image from a numpy array to a PyTorch tensor, applying optional half-precision and normalization.</span>
-<a id="__codelineno-0-1422" name="__codelineno-0-1422"></a>
-<a id="__codelineno-0-1423" name="__codelineno-0-1423"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-1424" name="__codelineno-0-1424"></a><span class="sd">            im (numpy.ndarray): Input image as a numpy array with shape (H, W, C) in BGR order.</span>
-<a id="__codelineno-0-1425" name="__codelineno-0-1425"></a>
-<a id="__codelineno-0-1426" name="__codelineno-0-1426"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-1427" name="__codelineno-0-1427"></a><span class="sd">            (torch.Tensor): The transformed image as a PyTorch tensor in float32 or float16, normalized to [0, 1].</span>
-<a id="__codelineno-0-1428" name="__codelineno-0-1428"></a><span class="sd">        """</span>
-<a id="__codelineno-0-1429" name="__codelineno-0-1429"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># HWC to CHW -&gt; BGR to RGB -&gt; contiguous</span>
-<a id="__codelineno-0-1430" name="__codelineno-0-1430"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># to torch</span>
-<a id="__codelineno-0-1431" name="__codelineno-0-1431"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">half</span> <span class="k">else</span> <span class="n">im</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
-<a id="__codelineno-0-1432" name="__codelineno-0-1432"></a>        <span class="n">im</span> <span class="o">/=</span> <span class="mf">255.0</span>  <span class="c1"># 0-255 to 0.0-1.0</span>
-<a id="__codelineno-0-1433" name="__codelineno-0-1433"></a>        <span class="k">return</span> <span class="n">im</span>
+<span class="normal"><a href="#__codelineno-0-1433">1433</a></span>
+<span class="normal"><a href="#__codelineno-0-1434">1434</a></span>
+<span class="normal"><a href="#__codelineno-0-1435">1435</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1413" name="__codelineno-0-1413"></a><span class="k">class</span> <span class="nc">ToTensor</span><span class="p">:</span>
+<a id="__codelineno-0-1414" name="__codelineno-0-1414"></a><span class="w">    </span><span class="sd">"""YOLOv8 ToTensor class for image preprocessing, i.e., T.Compose([LetterBox(size), ToTensor()])."""</span>
+<a id="__codelineno-0-1415" name="__codelineno-0-1415"></a>
+<a id="__codelineno-0-1416" name="__codelineno-0-1416"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-0-1417" name="__codelineno-0-1417"></a><span class="w">        </span><span class="sd">"""Initialize YOLOv8 ToTensor object with optional half-precision support."""</span>
+<a id="__codelineno-0-1418" name="__codelineno-0-1418"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-1419" name="__codelineno-0-1419"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">half</span> <span class="o">=</span> <span class="n">half</span>
+<a id="__codelineno-0-1420" name="__codelineno-0-1420"></a>
+<a id="__codelineno-0-1421" name="__codelineno-0-1421"></a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<a id="__codelineno-0-1422" name="__codelineno-0-1422"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-1423" name="__codelineno-0-1423"></a><span class="sd">        Transforms an image from a numpy array to a PyTorch tensor, applying optional half-precision and normalization.</span>
+<a id="__codelineno-0-1424" name="__codelineno-0-1424"></a>
+<a id="__codelineno-0-1425" name="__codelineno-0-1425"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-1426" name="__codelineno-0-1426"></a><span class="sd">            im (numpy.ndarray): Input image as a numpy array with shape (H, W, C) in BGR order.</span>
+<a id="__codelineno-0-1427" name="__codelineno-0-1427"></a>
+<a id="__codelineno-0-1428" name="__codelineno-0-1428"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-1429" name="__codelineno-0-1429"></a><span class="sd">            (torch.Tensor): The transformed image as a PyTorch tensor in float32 or float16, normalized to [0, 1].</span>
+<a id="__codelineno-0-1430" name="__codelineno-0-1430"></a><span class="sd">        """</span>
+<a id="__codelineno-0-1431" name="__codelineno-0-1431"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># HWC to CHW -&gt; BGR to RGB -&gt; contiguous</span>
+<a id="__codelineno-0-1432" name="__codelineno-0-1432"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># to torch</span>
+<a id="__codelineno-0-1433" name="__codelineno-0-1433"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">half</span> <span class="k">else</span> <span class="n">im</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
+<a id="__codelineno-0-1434" name="__codelineno-0-1434"></a>        <span class="n">im</span> <span class="o">/=</span> <span class="mf">255.0</span>  <span class="c1"># 0-255 to 0.0-1.0</span>
+<a id="__codelineno-0-1435" name="__codelineno-0-1435"></a>        <span class="k">return</span> <span class="n">im</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -8110,9 +8118,7 @@ T.Compose([CenterCrop(size), ToTensor()]).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1419">1419</a></span>
-<span class="normal"><a href="#__codelineno-0-1420">1420</a></span>
-<span class="normal"><a href="#__codelineno-0-1421">1421</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1421">1421</a></span>
 <span class="normal"><a href="#__codelineno-0-1422">1422</a></span>
 <span class="normal"><a href="#__codelineno-0-1423">1423</a></span>
 <span class="normal"><a href="#__codelineno-0-1424">1424</a></span>
@@ -8124,21 +8130,23 @@ T.Compose([CenterCrop(size), ToTensor()]).</p>
 <span class="normal"><a href="#__codelineno-0-1430">1430</a></span>
 <span class="normal"><a href="#__codelineno-0-1431">1431</a></span>
 <span class="normal"><a href="#__codelineno-0-1432">1432</a></span>
-<span class="normal"><a href="#__codelineno-0-1433">1433</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1419" name="__codelineno-0-1419"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
-<a id="__codelineno-0-1420" name="__codelineno-0-1420"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-1421" name="__codelineno-0-1421"></a><span class="sd">    Transforms an image from a numpy array to a PyTorch tensor, applying optional half-precision and normalization.</span>
-<a id="__codelineno-0-1422" name="__codelineno-0-1422"></a>
-<a id="__codelineno-0-1423" name="__codelineno-0-1423"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-1424" name="__codelineno-0-1424"></a><span class="sd">        im (numpy.ndarray): Input image as a numpy array with shape (H, W, C) in BGR order.</span>
-<a id="__codelineno-0-1425" name="__codelineno-0-1425"></a>
-<a id="__codelineno-0-1426" name="__codelineno-0-1426"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-1427" name="__codelineno-0-1427"></a><span class="sd">        (torch.Tensor): The transformed image as a PyTorch tensor in float32 or float16, normalized to [0, 1].</span>
-<a id="__codelineno-0-1428" name="__codelineno-0-1428"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1429" name="__codelineno-0-1429"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># HWC to CHW -&gt; BGR to RGB -&gt; contiguous</span>
-<a id="__codelineno-0-1430" name="__codelineno-0-1430"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># to torch</span>
-<a id="__codelineno-0-1431" name="__codelineno-0-1431"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">half</span> <span class="k">else</span> <span class="n">im</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
-<a id="__codelineno-0-1432" name="__codelineno-0-1432"></a>    <span class="n">im</span> <span class="o">/=</span> <span class="mf">255.0</span>  <span class="c1"># 0-255 to 0.0-1.0</span>
-<a id="__codelineno-0-1433" name="__codelineno-0-1433"></a>    <span class="k">return</span> <span class="n">im</span>
+<span class="normal"><a href="#__codelineno-0-1433">1433</a></span>
+<span class="normal"><a href="#__codelineno-0-1434">1434</a></span>
+<span class="normal"><a href="#__codelineno-0-1435">1435</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1421" name="__codelineno-0-1421"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<a id="__codelineno-0-1422" name="__codelineno-0-1422"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-1423" name="__codelineno-0-1423"></a><span class="sd">    Transforms an image from a numpy array to a PyTorch tensor, applying optional half-precision and normalization.</span>
+<a id="__codelineno-0-1424" name="__codelineno-0-1424"></a>
+<a id="__codelineno-0-1425" name="__codelineno-0-1425"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1426" name="__codelineno-0-1426"></a><span class="sd">        im (numpy.ndarray): Input image as a numpy array with shape (H, W, C) in BGR order.</span>
+<a id="__codelineno-0-1427" name="__codelineno-0-1427"></a>
+<a id="__codelineno-0-1428" name="__codelineno-0-1428"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-1429" name="__codelineno-0-1429"></a><span class="sd">        (torch.Tensor): The transformed image as a PyTorch tensor in float32 or float16, normalized to [0, 1].</span>
+<a id="__codelineno-0-1430" name="__codelineno-0-1430"></a><span class="sd">    """</span>
+<a id="__codelineno-0-1431" name="__codelineno-0-1431"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># HWC to CHW -&gt; BGR to RGB -&gt; contiguous</span>
+<a id="__codelineno-0-1432" name="__codelineno-0-1432"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># to torch</span>
+<a id="__codelineno-0-1433" name="__codelineno-0-1433"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">half</span> <span class="k">else</span> <span class="n">im</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
+<a id="__codelineno-0-1434" name="__codelineno-0-1434"></a>    <span class="n">im</span> <span class="o">/=</span> <span class="mf">255.0</span>  <span class="c1"># 0-255 to 0.0-1.0</span>
+<a id="__codelineno-0-1435" name="__codelineno-0-1435"></a>    <span class="k">return</span> <span class="n">im</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -8151,13 +8159,13 @@ T.Compose([CenterCrop(size), ToTensor()]).</p>
 <p>Initialize YOLOv8 ToTensor object with optional half-precision support.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1414">1414</a></span>
-<span class="normal"><a href="#__codelineno-0-1415">1415</a></span>
-<span class="normal"><a href="#__codelineno-0-1416">1416</a></span>
-<span class="normal"><a href="#__codelineno-0-1417">1417</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1414" name="__codelineno-0-1414"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<a id="__codelineno-0-1415" name="__codelineno-0-1415"></a><span class="w">    </span><span class="sd">"""Initialize YOLOv8 ToTensor object with optional half-precision support."""</span>
-<a id="__codelineno-0-1416" name="__codelineno-0-1416"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-1417" name="__codelineno-0-1417"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">half</span> <span class="o">=</span> <span class="n">half</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1416">1416</a></span>
+<span class="normal"><a href="#__codelineno-0-1417">1417</a></span>
+<span class="normal"><a href="#__codelineno-0-1418">1418</a></span>
+<span class="normal"><a href="#__codelineno-0-1419">1419</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1416" name="__codelineno-0-1416"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-0-1417" name="__codelineno-0-1417"></a><span class="w">    </span><span class="sd">"""Initialize YOLOv8 ToTensor object with optional half-precision support."""</span>
+<a id="__codelineno-0-1418" name="__codelineno-0-1418"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-1419" name="__codelineno-0-1419"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">half</span> <span class="o">=</span> <span class="n">half</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
