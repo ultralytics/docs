@@ -1379,7 +1379,7 @@
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="n">classes_names</span><span class="p">,</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="n">names</span><span class="p">,</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="n">reg_pts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="n">count_reg_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="n">count_txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
@@ -1399,7 +1399,7 @@
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        Initializes the ObjectCounter with various tracking and counting parameters.</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">            classes_names (dict): Dictionary of class names.</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">            names (dict): Dictionary of class names.</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">            reg_pts (list): List of points defining the counting region.</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">            count_reg_color (tuple): RGB color of the counting region.</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">            count_txt_color (tuple): RGB color of the count text.</span>
@@ -1434,7 +1434,7 @@
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">view_in_counts</span> <span class="o">=</span> <span class="n">view_in_counts</span>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">view_out_counts</span> <span class="o">=</span> <span class="n">view_out_counts</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">classes_names</span>  <span class="c1"># Classes names</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>  <span class="c1"># Classes names</span>
 <a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Annotator</span>
 <a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">window_name</span> <span class="o">=</span> <span class="s2">"Ultralytics YOLOv8 Object Counter"</span>
 <a id="__codelineno-0-78" name="__codelineno-0-78"></a>
@@ -1614,7 +1614,7 @@
 <div class="doc doc-children">
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.solutions.object_counter.ObjectCounter.__init__">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">classes_names</span><span class="p">,</span> <span class="n">reg_pts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">count_reg_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">count_txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">count_bg_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">line_thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">track_thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">view_img</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view_in_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">view_out_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">draw_tracks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">track_color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">region_thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">line_dist_thresh</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">cls_txtdisplay_gap</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">reg_pts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">count_reg_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">count_txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">count_bg_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">line_thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">track_thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">view_img</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">view_in_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">view_out_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">draw_tracks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">track_color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">region_thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">line_dist_thresh</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">cls_txtdisplay_gap</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
 <p>Initializes the ObjectCounter with various tracking and counting parameters.</p>
@@ -1630,7 +1630,7 @@
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>classes_names</code></td>
+<td><code>names</code></td>
 <td>
 <code>dict</code>
 </td>
@@ -1936,7 +1936,7 @@
 <span class="normal"><a href="#__codelineno-0-108">108</a></span>
 <span class="normal"><a href="#__codelineno-0-109">109</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="n">classes_names</span><span class="p">,</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="n">names</span><span class="p">,</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="n">reg_pts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="n">count_reg_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="n">count_txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
@@ -1956,7 +1956,7 @@
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    Initializes the ObjectCounter with various tracking and counting parameters.</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        classes_names (dict): Dictionary of class names.</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        names (dict): Dictionary of class names.</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        reg_pts (list): List of points defining the counting region.</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        count_reg_color (tuple): RGB color of the counting region.</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        count_txt_color (tuple): RGB color of the count text.</span>
@@ -1991,7 +1991,7 @@
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">view_in_counts</span> <span class="o">=</span> <span class="n">view_in_counts</span>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">view_out_counts</span> <span class="o">=</span> <span class="n">view_out_counts</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">classes_names</span>  <span class="c1"># Classes names</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>  <span class="c1"># Classes names</span>
 <a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Annotator</span>
 <a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">window_name</span> <span class="o">=</span> <span class="s2">"Ultralytics YOLOv8 Object Counter"</span>
 <a id="__codelineno-0-78" name="__codelineno-0-78"></a>
