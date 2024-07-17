@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Enhance YOLOv8 performance using Neural Magic's DeepSparse Engine. Learn how to deploy and benchmark YOLOv8 models on CPUs for efficient object detection." name="description"/>
+<meta content="Dive into our guide on YOLOv8's integration with Kaggle. Find out what Kaggle is, its key features, and how to train a YOLOv8 model using the integration." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/integrations/neural-magic/" rel="canonical"/>
-<link href="../weights-biases/" rel="prev"/>
-<link href="../gradio/" rel="next"/>
+<link href="https://docs.ultralytics.com/integrations/kaggle/" rel="canonical"/>
+<link href="../google-colab/" rel="prev"/>
+<link href="../../hub/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.29" name="generator"/>
-<title>Neural Magic - Ultralytics YOLO Docs</title>
+<title>Kaggle - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.76a95c52.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Neural Magic" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv8, DeepSparse, Neural Magic, model optimization, object detection, inference speed, CPU performance, sparsity, pruning, quantization" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/neural-magic" property="og:url"/><meta content="Neural Magic" property="og:title"/><meta content="Enhance YOLOv8 performance using Neural Magic's DeepSparse Engine. Learn how to deploy and benchmark YOLOv8 models on CPUs for efficient object detection." property="og:description"/><meta content="https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/neural-magic" property="twitter:url"/><meta content="Neural Magic" property="twitter:title"/><meta content="Enhance YOLOv8 performance using Neural Magic's DeepSparse Engine. Learn how to deploy and benchmark YOLOv8 models on CPUs for efficient object detection." property="twitter:description"/><meta content="https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Neural Magic", "image": ["https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png"], "datePublished": "2023-12-30 19:01:13 +0530", "dateModified": "2024-07-05 02:25:02 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Enhance YOLOv8 performance using Neural Magic's DeepSparse Engine. Learn how to deploy and benchmark YOLOv8 models on CPUs for efficient object detection.", "mainEntity": [{"@type": "Question", "name": "What is Neural Magic's DeepSparse Engine and how does it optimize YOLOv8 performance?", "acceptedAnswer": {"@type": "Answer", "text": "Neural Magic's DeepSparse Engine is an inference runtime designed to optimize the execution of neural networks on CPUs through advanced techniques such as sparsity, pruning, and quantization. By integrating DeepSparse with YOLOv8, you can achieve GPU-like performance on standard CPUs, significantly enhancing inference speed, model efficiency, and overall performance while maintaining accuracy. For more details, check out the Neural Magic's DeepSparse section."}}, {"@type": "Question", "name": "How can I install the needed packages to deploy YOLOv8 using Neural Magic's DeepSparse?", "acceptedAnswer": {"@type": "Answer", "text": "Installing the required packages for deploying YOLOv8 with Neural Magic's DeepSparse is straightforward. You can easily install them using the CLI. Here's the command you need to run: Once installed, follow the steps provided in the Installation section to set up your environment and start using DeepSparse with YOLOv8."}}, {"@type": "Question", "name": "How do I convert YOLOv8 models to ONNX format for use with DeepSparse?", "acceptedAnswer": {"@type": "Answer", "text": "To convert YOLOv8 models to the ONNX format, which is required for compatibility with DeepSparse, you can use the following CLI command: This command will export your YOLOv8 model (yolov8n.pt) to a format (yolov8n.onnx) that can be utilized by the DeepSparse Engine. More information about model export can be found in the Model Export section."}}, {"@type": "Question", "name": "How do I benchmark YOLOv8 performance on the DeepSparse Engine?", "acceptedAnswer": {"@type": "Answer", "text": "Benchmarking YOLOv8 performance on DeepSparse helps you analyze throughput and latency to ensure your model is optimized. You can use the following CLI command to run a benchmark: This command will provide you with vital performance metrics. For more details, see the Benchmarking Performance section."}}, {"@type": "Question", "name": "Why should I use Neural Magic's DeepSparse with YOLOv8 for object detection tasks?", "acceptedAnswer": {"@type": "Answer", "text": "Integrating Neural Magic's DeepSparse with YOLOv8 offers several benefits: For a deeper dive into these advantages, visit the Benefits of Integrating Neural Magic's DeepSparse with YOLOv8 section."}}]}</script></head>
+<meta content="Kaggle" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="What is Kaggle, What is Kaggle Used For, YOLOv8, Kaggle Machine Learning, Model Training, GPU, TPU, cloud computing" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/kaggle" property="og:url"/><meta content="Kaggle" property="og:title"/><meta content="Dive into our guide on YOLOv8's integration with Kaggle. Find out what Kaggle is, its key features, and how to train a YOLOv8 model using the integration." property="og:description"/><meta content="https://github.com/user-attachments/assets/4068b343-bb62-462c-9a44-b32413c4a765" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/kaggle" property="twitter:url"/><meta content="Kaggle" property="twitter:title"/><meta content="Dive into our guide on YOLOv8's integration with Kaggle. Find out what Kaggle is, its key features, and how to train a YOLOv8 model using the integration." property="twitter:description"/><meta content="https://github.com/user-attachments/assets/4068b343-bb62-462c-9a44-b32413c4a765" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Kaggle", "image": ["https://github.com/user-attachments/assets/4068b343-bb62-462c-9a44-b32413c4a765"], "datePublished": "2024-07-18 03:42:24 +0530", "dateModified": "2024-07-18 03:42:24 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Dive into our guide on YOLOv8's integration with Kaggle. Find out what Kaggle is, its key features, and how to train a YOLOv8 model using the integration."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#optimizing-yolov8-inferences-with-neural-magics-deepsparse-engine">
+<a class="md-skip" href="#a-guide-on-using-kaggle-to-train-your-yolov8-models">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Neural Magic
+              Kaggle
             
           </span>
 </div>
@@ -494,154 +494,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Neural Magic
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../neural-magic/">
 <span class="md-ellipsis">
     Neural Magic
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#neural-magics-deepsparse">
-<span class="md-ellipsis">
-      Neural Magic's DeepSparse
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#benefits-of-integrating-neural-magics-deepsparse-with-yolov8">
-<span class="md-ellipsis">
-      Benefits of Integrating Neural Magic's DeepSparse with YOLOv8
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-does-neural-magics-deepsparse-technology-works">
-<span class="md-ellipsis">
-      How Does Neural Magic's DeepSparse Technology Works?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-sparse-version-of-yolov8-trained-on-a-custom-dataset">
-<span class="md-ellipsis">
-      Creating A Sparse Version of YOLOv8 Trained on a Custom Dataset
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-deploying-yolov8-using-deepsparse">
-<span class="md-ellipsis">
-      Usage: Deploying YOLOV8 using DeepSparse
-    </span>
-</a>
-<nav aria-label="Usage: Deploying YOLOV8 using DeepSparse" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-installation">
-<span class="md-ellipsis">
-      Step 1: Installation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-exporting-yolov8-to-onnx-format">
-<span class="md-ellipsis">
-      Step 2: Exporting YOLOv8 to ONNX Format
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-deploying-and-running-inferences">
-<span class="md-ellipsis">
-      Step 3: Deploying and Running Inferences
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-benchmarking-performance">
-<span class="md-ellipsis">
-      Step 4: Benchmarking Performance
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-additional-features">
-<span class="md-ellipsis">
-      Step 5: Additional Features
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
-<span class="md-ellipsis">
-      Summary
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-<span class="md-ellipsis">
-      FAQ
-    </span>
-</a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-neural-magics-deepsparse-engine-and-how-does-it-optimize-yolov8-performance">
-<span class="md-ellipsis">
-      What is Neural Magic's DeepSparse Engine and how does it optimize YOLOv8 performance?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-install-the-needed-packages-to-deploy-yolov8-using-neural-magics-deepsparse">
-<span class="md-ellipsis">
-      How can I install the needed packages to deploy YOLOv8 using Neural Magic's DeepSparse?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-convert-yolov8-models-to-onnx-format-for-use-with-deepsparse">
-<span class="md-ellipsis">
-      How do I convert YOLOv8 models to ONNX format for use with DeepSparse?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-benchmark-yolov8-performance-on-the-deepsparse-engine">
-<span class="md-ellipsis">
-      How do I benchmark YOLOv8 performance on the DeepSparse Engine?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-i-use-neural-magics-deepsparse-with-yolov8-for-object-detection-tasks">
-<span class="md-ellipsis">
-      Why should I use Neural Magic's DeepSparse with YOLOv8 for object detection tasks?
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../gradio/">
@@ -678,12 +536,80 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../kaggle/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Kaggle
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Kaggle
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-kaggle">
+<span class="md-ellipsis">
+      What is Kaggle?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#training-yolov8-using-kaggle">
+<span class="md-ellipsis">
+      Training YOLOv8 Using Kaggle
+    </span>
+</a>
+<nav aria-label="Training YOLOv8 Using Kaggle" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-issues-while-working-with-kaggle">
+<span class="md-ellipsis">
+      Common Issues While Working with Kaggle
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-kaggle">
+<span class="md-ellipsis">
+      Key Features of Kaggle
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-you-use-kaggle-for-your-yolov8-projects">
+<span class="md-ellipsis">
+      Why Should You Use Kaggle for Your YOLOv8 Projects?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#keep-learning-about-kaggle">
+<span class="md-ellipsis">
+      Keep Learning about Kaggle
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -727,78 +653,50 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#neural-magics-deepsparse">
+<a class="md-nav__link" href="#what-is-kaggle">
 <span class="md-ellipsis">
-      Neural Magic's DeepSparse
+      What is Kaggle?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#benefits-of-integrating-neural-magics-deepsparse-with-yolov8">
+<a class="md-nav__link" href="#training-yolov8-using-kaggle">
 <span class="md-ellipsis">
-      Benefits of Integrating Neural Magic's DeepSparse with YOLOv8
+      Training YOLOv8 Using Kaggle
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-does-neural-magics-deepsparse-technology-works">
-<span class="md-ellipsis">
-      How Does Neural Magic's DeepSparse Technology Works?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-sparse-version-of-yolov8-trained-on-a-custom-dataset">
-<span class="md-ellipsis">
-      Creating A Sparse Version of YOLOv8 Trained on a Custom Dataset
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-deploying-yolov8-using-deepsparse">
-<span class="md-ellipsis">
-      Usage: Deploying YOLOV8 using DeepSparse
-    </span>
-</a>
-<nav aria-label="Usage: Deploying YOLOV8 using DeepSparse" class="md-nav">
+<nav aria-label="Training YOLOv8 Using Kaggle" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-installation">
+<a class="md-nav__link" href="#common-issues-while-working-with-kaggle">
 <span class="md-ellipsis">
-      Step 1: Installation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-exporting-yolov8-to-onnx-format">
-<span class="md-ellipsis">
-      Step 2: Exporting YOLOv8 to ONNX Format
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-deploying-and-running-inferences">
-<span class="md-ellipsis">
-      Step 3: Deploying and Running Inferences
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-benchmarking-performance">
-<span class="md-ellipsis">
-      Step 4: Benchmarking Performance
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-additional-features">
-<span class="md-ellipsis">
-      Step 5: Additional Features
+      Common Issues While Working with Kaggle
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-kaggle">
+<span class="md-ellipsis">
+      Key Features of Kaggle
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-you-use-kaggle-for-your-yolov8-projects">
+<span class="md-ellipsis">
+      Why Should You Use Kaggle for Your YOLOv8 Projects?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#keep-learning-about-kaggle">
+<span class="md-ellipsis">
+      Keep Learning about Kaggle
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#summary">
@@ -807,52 +705,6 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-<span class="md-ellipsis">
-      FAQ
-    </span>
-</a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-neural-magics-deepsparse-engine-and-how-does-it-optimize-yolov8-performance">
-<span class="md-ellipsis">
-      What is Neural Magic's DeepSparse Engine and how does it optimize YOLOv8 performance?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-install-the-needed-packages-to-deploy-yolov8-using-neural-magics-deepsparse">
-<span class="md-ellipsis">
-      How can I install the needed packages to deploy YOLOv8 using Neural Magic's DeepSparse?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-convert-yolov8-models-to-onnx-format-for-use-with-deepsparse">
-<span class="md-ellipsis">
-      How do I convert YOLOv8 models to ONNX format for use with DeepSparse?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-benchmark-yolov8-performance-on-the-deepsparse-engine">
-<span class="md-ellipsis">
-      How do I benchmark YOLOv8 performance on the DeepSparse Engine?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-i-use-neural-magics-deepsparse-with-yolov8-for-object-detection-tasks">
-<span class="md-ellipsis">
-      Why should I use Neural Magic's DeepSparse with YOLOv8 for object detection tasks?
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
 </ul>
 </nav>
 </div>
@@ -860,185 +712,74 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/neural-magic.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/kaggle.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="optimizing-yolov8-inferences-with-neural-magics-deepsparse-engine">Optimizing YOLOv8 Inferences with Neural Magic's DeepSparse Engine</h1>
-<p>When deploying object detection models like <a href="https://ultralytics.com">Ultralytics YOLOv8</a> on various hardware, you can bump into unique issues like optimization. This is where YOLOv8's integration with Neural Magic's DeepSparse Engine steps in. It transforms the way YOLOv8 models are executed and enables GPU-level performance directly on CPUs.</p>
-<p>This guide shows you how to deploy YOLOv8 using Neural Magic's DeepSparse, how to run inferences, and also how to benchmark performance to ensure it is optimized.</p>
-<h2 id="neural-magics-deepsparse">Neural Magic's DeepSparse</h2>
-<p align="center">
-<img alt="Neural Magic's DeepSparse Overview" src="https://docs.neuralmagic.com/assets/images/nm-flows-55d56c0695a30bf9ecb716ea98977a95.png" width="640"/>
-</p>
-<p><a href="https://neuralmagic.com/deepsparse/">Neural Magic's DeepSparse</a> is an inference run-time designed to optimize the execution of neural networks on CPUs. It applies advanced techniques like sparsity, pruning, and quantization to dramatically reduce computational demands while maintaining accuracy. DeepSparse offers an agile solution for efficient and scalable neural network execution across various devices.</p>
-<h2 id="benefits-of-integrating-neural-magics-deepsparse-with-yolov8">Benefits of Integrating Neural Magic's DeepSparse with YOLOv8</h2>
-<p>Before diving into how to deploy YOLOV8 using DeepSparse, let's understand the benefits of using DeepSparse. Some key advantages include:</p>
+<h1 id="a-guide-on-using-kaggle-to-train-your-yolov8-models">A Guide on Using Kaggle to Train Your YOLOv8 Models</h1>
+<p>If you are learning about AI and working on <a href="../../solutions/">small projects</a>, you might not have access to powerful computing resources yet, and high-end hardware can be pretty expensive. Fortunately, Kaggle, a platform owned by Google, offers a great solution. Kaggle provides a free, cloud-based environment where you can access GPU resources, handle large datasets, and collaborate with a diverse community of data scientists and machine learning enthusiasts.</p>
+<p>Kaggle is a great choice for <a href="../../guides/model-training-tips/">training</a> and experimenting with <a href="https://github.com/ultralytics/ultralytics?tab=readme-ov-file">Ultralytics YOLOv8</a> models. Kaggle Notebooks make using popular machine-learning libraries and frameworks in your projects easy. Let's explore Kaggle's main features and learn how you can train YOLOv8 models on this platform!</p>
+<h2 id="what-is-kaggle">What is Kaggle?</h2>
+<p>Kaggle is a platform that brings together data scientists from around the world to collaborate, learn, and compete in solving real-world data science problems. Launched in 2010 by Anthony Goldbloom and Jeremy Howard and acquired by Google in 2017. Kaggle enables users to connect, discover and share datasets, use GPU-powered notebooks, and participate in data science competitions. The platform is designed to help both seasoned professionals and eager learners achieve their goals by offering robust tools and resources.</p>
+<p>With more than <a href="https://www.kaggle.com/discussions/general/332147">10 million users</a> as of 2022, Kaggle provides a rich environment for developing and experimenting with machine learning models. You don't need to worry about your local machine's specs or setup; you can dive right in with just a Kaggle account and a web browser.</p>
+<h2 id="training-yolov8-using-kaggle">Training YOLOv8 Using Kaggle</h2>
+<p>Training YOLOv8 models on Kaggle is simple and efficient, thanks to the platform's access to powerful GPUs.</p>
+<p>To get started, access the <a href="https://www.kaggle.com/code/ultralytics/yolov8">Kaggle YOLOv8 Notebook</a>. Kaggle's environment comes with pre-installed libraries like TensorFlow and PyTorch, making the setup process hassle-free.</p>
+<p><img alt="What is the kaggle integration with respect to YOLOv8?" src="https://github.com/user-attachments/assets/4068b343-bb62-462c-9a44-b32413c4a765"/></p>
+<p>Once you sign in to your Kaggle account, you can click on the option to copy and edit the code, select a GPU under the accelerator settings, and run the notebook's cells to begin training your model. For a detailed understanding of the model training process and best practices, refer to our <a href="../../modes/train/">YOLOv8 Model Training guide</a>.</p>
+<p><img alt="Using kaggle for machine learning model training with a GPU" src="https://github.com/user-attachments/assets/264f01b9-207b-4a8d-be5d-7b51739e9726"/></p>
+<p>On the <a href="https://www.kaggle.com/code/ultralytics/yolov8">official YOLOv8 Kaggle notebook page</a>, if you click on the three dots in the upper right-hand corner, you'll notice more options will pop up.</p>
+<p><img alt="Overview of Options From the Official YOLOv8 Kaggle Notebook Page" src="https://github.com/user-attachments/assets/bca100a6-fae8-433d-8dfd-1ecf4cc4f691"/></p>
+<p>These options include:</p>
 <ul>
-<li><strong>Enhanced Inference Speed</strong>: Achieves up to 525 FPS (on YOLOv8n), significantly speeding up YOLOv8's inference capabilities compared to traditional methods.</li>
+<li><strong>View Versions</strong>: Browse through different versions of the notebook to see changes over time and revert to previous versions if needed.</li>
+<li><strong>Copy API Command</strong>: Get an API command to programmatically interact with the notebook, which is useful for automation and integration into workflows.</li>
+<li><strong>Open in Google Notebooks</strong>: Open the notebook in Google's hosted notebook environment.</li>
+<li><strong>Open in Colab</strong>: Launch the notebook in <a href="../google-colab/">Google Colab</a> for further editing and execution.</li>
+<li><strong>Follow Comments</strong>: Subscribe to the comments section to get updates and engage with the community.</li>
+<li><strong>Download Code</strong>: Download the entire notebook as a Jupyter (.ipynb) file for offline use or version control in your local environment.</li>
+<li><strong>Add to Collection</strong>: Save the notebook to a collection within your Kaggle account for easy access and organization.</li>
+<li><strong>Bookmark</strong>: Bookmark the notebook for quick access in the future.</li>
+<li><strong>Embed Notebook</strong>: Get an embed link to include the notebook in blogs, websites, or documentation.</li>
 </ul>
-<p align="center">
-<img alt="Enhanced Inference Speed" src="https://neuralmagic.com/wp-content/uploads/2023/04/image1.png" width="640"/>
-</p>
+<h3 id="common-issues-while-working-with-kaggle">Common Issues While Working with Kaggle</h3>
+<p>When working with Kaggle, you might come across some common issues. Here are some points to help you navigate the platform smoothly:</p>
 <ul>
-<li><strong>Optimized Model Efficiency</strong>: Uses pruning and quantization to enhance YOLOv8's efficiency, reducing model size and computational requirements while maintaining accuracy.</li>
+<li><strong>Access to GPUs</strong>: In your Kaggle notebooks, you can activate a GPU at any time, with usage allowed for up to 30 hours per week. Kaggle provides the Nvidia Tesla P100 GPU with 16GB of memory and also offers the option of using a Nvidia GPU T4 x2. Powerful hardware accelerates your machine-learning tasks, making model training and inference much faster.</li>
+<li><strong>Kaggle Kernels</strong>: Kaggle Kernels are free Jupyter notebook servers that can integrate GPUs, allowing you to perform machine learning operations on cloud computers. You don't have to rely on your own computer's CPU, avoiding overload and freeing up your local resources.</li>
+<li><strong>Kaggle Datasets</strong>: Kaggle datasets are free to download. However, it's important to check the license for each dataset to understand any usage restrictions. Some datasets may have limitations on academic publications or commercial use. You can download datasets directly to your Kaggle notebook or anywhere else via the Kaggle API.</li>
+<li><strong>Saving and Committing Notebooks</strong>: To save and commit a notebook on Kaggle, click "Save Version." This saves the current state of your notebook. Once the background kernel finishes generating the output files, you can access them from the Output tab on the main notebook page.</li>
+<li><strong>Collaboration</strong>: Kaggle supports collaboration, but multiple users cannot edit a notebook simultaneously. Collaboration on Kaggle is asynchronous, meaning users can share and work on the same notebook at different times.</li>
+<li><strong>Reverting to a Previous Version</strong>: If you need to revert to a previous version of your notebook, open the notebook and click on the three vertical dots in the top right corner to select "View Versions." Find the version you want to revert to, click on the "..." menu next to it, and select "Revert to Version." After the notebook reverts, click "Save Version" to commit the changes.</li>
 </ul>
-<p align="center">
-<img alt="Optimized Model Efficiency" src="https://neuralmagic.com/wp-content/uploads/2023/04/YOLOv8-charts-Page-1.drawio.png" width="640"/>
-</p>
+<h2 id="key-features-of-kaggle">Key Features of Kaggle</h2>
+<p>Next, let's understand the features Kaggle offers that make it an excellent platform for data science and machine learning enthusiasts. Here are some of the key highlights:</p>
 <ul>
-<li>
-<p><strong>High Performance on Standard CPUs</strong>: Delivers GPU-like performance on CPUs, providing a more accessible and cost-effective option for various applications.</p>
-</li>
-<li>
-<p><strong>Streamlined Integration and Deployment</strong>: Offers user-friendly tools for easy integration of YOLOv8 into applications, including image and video annotation features.</p>
-</li>
-<li>
-<p><strong>Support for Various Model Types</strong>: Compatible with both standard and sparsity-optimized YOLOv8 models, adding deployment flexibility.</p>
-</li>
-<li>
-<p><strong>Cost-Effective and Scalable Solution</strong>: Reduces operational expenses and offers scalable deployment of advanced object detection models.</p>
-</li>
+<li><strong>Datasets</strong>: Kaggle hosts a massive collection of datasets on various topics. You can easily search and use these datasets in your projects, which is particularly handy for training and testing your YOLOv8 models.</li>
+<li><strong>Competitions</strong>: Known for its exciting competitions, Kaggle allows data scientists and machine learning enthusiasts to solve real-world problems. Competing helps you improve your skills, learn new techniques, and gain recognition in the community.</li>
+<li><strong>Free Access to TPUs</strong>: Kaggle provides free access to powerful TPUs, which are essential for training complex machine learning models. This means you can speed up processing and boost the performance of your YOLOv8 projects without incurring extra costs.</li>
+<li><strong>Integration with Github</strong>: Kaggle allows you to easily connect your GitHub repository to upload notebooks and save your work. This integration makes it convenient to manage and access your files.</li>
+<li><strong>Community and Discussions</strong>: Kaggle boasts a strong community of data scientists and machine learning practitioners. The discussion forums and shared notebooks are fantastic resources for learning and troubleshooting. You can easily find help, share your knowledge, and collaborate with others.</li>
 </ul>
-<h2 id="how-does-neural-magics-deepsparse-technology-works">How Does Neural Magic's DeepSparse Technology Works?</h2>
-<p>Neural Magic's Deep Sparse technology is inspired by the human brain's efficiency in neural network computation. It adopts two key principles from the brain as follows:</p>
+<h2 id="why-should-you-use-kaggle-for-your-yolov8-projects">Why Should You Use Kaggle for Your YOLOv8 Projects?</h2>
+<p>There are multiple platforms for training and evaluating machine learning models, so what makes Kaggle stand out? Let's dive into the benefits of using Kaggle for your machine-learning projects:</p>
 <ul>
-<li>
-<p><strong>Sparsity</strong>: The process of sparsification involves pruning redundant information from deep learning networks, leading to smaller and faster models without compromising accuracy. This technique reduces the network's size and computational needs significantly.</p>
-</li>
-<li>
-<p><strong>Locality of Reference</strong>: DeepSparse uses a unique execution method, breaking the network into Tensor Columns. These columns are executed depth-wise, fitting entirely within the CPU's cache. This approach mimics the brain's efficiency, minimizing data movement and maximizing the CPU's cache use.</p>
-</li>
+<li><strong>Public Notebooks</strong>: You can make your Kaggle notebooks public, allowing other users to view, vote, fork, and discuss your work. Kaggle promotes collaboration, feedback, and the sharing of ideas, helping you improve your YOLOv8 models.</li>
+<li><strong>Comprehensive History of Notebook Commits</strong>: Kaggle creates a detailed history of your notebook commits. This allows you to review and track changes over time, making it easier to understand the evolution of your project and revert to previous versions if needed.</li>
+<li><strong>Console Access</strong>: Kaggle provides a console, giving you more control over your environment. This feature allows you to perform various tasks directly from the command line, enhancing your workflow and productivity.</li>
+<li><strong>Resource Availability</strong>: Each notebook editing session on Kaggle is provided with significant resources: 12 hours of execution time for CPU and GPU sessions, 9 hours of execution time for TPU sessions, and 20 gigabytes of auto-saved disk space.</li>
+<li><strong>Notebook Scheduling</strong>: Kaggle allows you to schedule your notebooks to run at specific times. You can automate repetitive tasks without manual intervention, such as training your model at regular intervals.</li>
 </ul>
-<p align="center">
-<img alt="How Neural Magic's DeepSparse Technology Works " src="https://neuralmagic.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-16-at-11.09.45-AM.png" width="640"/>
-</p>
-<p>For more details on how Neural Magic's DeepSparse technology work, check out <a href="https://neuralmagic.com/blog/how-neural-magics-deep-sparse-technology-works/">their blog post</a>.</p>
-<h2 id="creating-a-sparse-version-of-yolov8-trained-on-a-custom-dataset">Creating A Sparse Version of YOLOv8 Trained on a Custom Dataset</h2>
-<p>SparseZoo, an open-source model repository by Neural Magic, offers <a href="https://sparsezoo.neuralmagic.com/?modelSet=computer_vision&amp;searchModels=yolo">a collection of pre-sparsified YOLOv8 model checkpoints</a>. With SparseML, seamlessly integrated with Ultralytics, users can effortlessly fine-tune these sparse checkpoints on their specific datasets using a straightforward command-line interface.</p>
-<p>Checkout <a href="https://github.com/neuralmagic/sparseml/tree/main/integrations/ultralytics-yolov8">Neural Magic's SparseML YOLOv8 documentation</a> for more details.</p>
-<h2 id="usage-deploying-yolov8-using-deepsparse">Usage: Deploying YOLOV8 using DeepSparse</h2>
-<p>Deploying YOLOv8 with Neural Magic's DeepSparse involves a few straightforward steps. Before diving into the usage instructions, be sure to check out the range of <a href="../../models/">YOLOv8 models offered by Ultralytics</a>. This will help you choose the most appropriate model for your project requirements. Here's how you can get started.</p>
-<h3 id="step-1-installation">Step 1: Installation</h3>
-<p>To install the required packages, run:</p>
-<div class="admonition tip">
-<p class="admonition-title">Installation</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the required packages</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>deepsparse<span class="o">[</span>yolov8<span class="o">]</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<h3 id="step-2-exporting-yolov8-to-onnx-format">Step 2: Exporting YOLOv8 to ONNX Format</h3>
-<p>DeepSparse Engine requires YOLOv8 models in ONNX format. Exporting your model to this format is essential for compatibility with DeepSparse. Use the following command to export YOLOv8 models:</p>
-<div class="admonition tip">
-<p class="admonition-title">Model Export</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Export YOLOv8 model to ONNX format</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">opset</span><span class="o">=</span><span class="m">13</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<p>This command will save the <code>yolov8n.onnx</code> model to your disk.</p>
-<h3 id="step-3-deploying-and-running-inferences">Step 3: Deploying and Running Inferences</h3>
-<p>With your YOLOv8 model in ONNX format, you can deploy and run inferences using DeepSparse. This can be done easily with their intuitive Python API:</p>
-<div class="admonition tip">
-<p class="admonition-title">Deploying and Running Inferences</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">deepsparse</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Specify the path to your YOLOv8 ONNX model</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model_path</span> <span class="o">=</span> <span class="s2">"path/to/yolov8n.onnx"</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Set up the DeepSparse Pipeline</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">yolo_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">model_path</span><span class="o">=</span><span class="n">model_path</span><span class="p">)</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1"># Run the model on your images</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"path/to/image.jpg"</span><span class="p">]</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">pipeline_outputs</span> <span class="o">=</span> <span class="n">yolo_pipeline</span><span class="p">(</span><span class="n">images</span><span class="o">=</span><span class="n">images</span><span class="p">)</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<h3 id="step-4-benchmarking-performance">Step 4: Benchmarking Performance</h3>
-<p>It's important to check that your YOLOv8 model is performing optimally on DeepSparse. You can benchmark your model's performance to analyze throughput and latency:</p>
-<div class="admonition tip">
-<p class="admonition-title">Benchmarking</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Benchmark performance</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>deepsparse.benchmark<span class="w"> </span><span class="nv">model_path</span><span class="o">=</span><span class="s2">"path/to/yolov8n.onnx"</span><span class="w"> </span>--scenario<span class="o">=</span>sync<span class="w"> </span>--input_shapes<span class="o">=</span><span class="s2">"[1,3,640,640]"</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<h3 id="step-5-additional-features">Step 5: Additional Features</h3>
-<p>DeepSparse provides additional features for practical integration of YOLOv8 in applications, such as image annotation and dataset evaluation.</p>
-<div class="admonition tip">
-<p class="admonition-title">Additional Features</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># For image annotation</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>deepsparse.yolov8.annotate<span class="w"> </span>--source<span class="w"> </span><span class="s2">"path/to/image.jpg"</span><span class="w"> </span>--model_filepath<span class="w"> </span><span class="s2">"path/to/yolov8n.onnx"</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># For evaluating model performance on a dataset</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>deepsparse.yolov8.eval<span class="w"> </span>--model_path<span class="w"> </span><span class="s2">"path/to/yolov8n.onnx"</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<p>Running the annotate command processes your specified image, detecting objects, and saving the annotated image with bounding boxes and classifications. The annotated image will be stored in an annotation-results folder. This helps provide a visual representation of the model's detection capabilities.</p>
-<p align="center">
-<img alt="Image Annotation Feature" src="https://user-images.githubusercontent.com/3195154/211942937-1d32193a-6dda-473d-a7ad-e2162bbb42e9.png" width="640"/>
-</p>
-<p>After running the eval command, you will receive detailed output metrics such as precision, recall, and mAP (mean Average Precision). This provides a comprehensive view of your model's performance on the dataset. This functionality is particularly useful for fine-tuning and optimizing your YOLOv8 models for specific use cases, ensuring high accuracy and efficiency.</p>
+<h2 id="keep-learning-about-kaggle">Keep Learning about Kaggle</h2>
+<p>If you want to learn more about Kaggle, here are some helpful resources to guide you:</p>
+<ul>
+<li><a href="https://www.kaggle.com/learn"><strong>Kaggle Learn</strong></a>: Discover a variety of free, interactive tutorials on Kaggle Learn. These courses cover essential data science topics and provide hands-on experience to help you master new skills.</li>
+<li><a href="https://www.kaggle.com/code/alexisbcook/getting-started-with-kaggle"><strong>Getting Started with Kaggle</strong></a>: This comprehensive guide walks you through the basics of using Kaggle, from joining competitions to creating your first notebook. It's a great starting point for newcomers.</li>
+<li><a href="https://medium.com/@kaggleteam"><strong>Kaggle Medium Page</strong></a>: Explore tutorials, updates, and community contributions on Kaggle's Medium page. It's an excellent source for staying up-to-date with the latest trends and gaining deeper insights into data science.</li>
+</ul>
 <h2 id="summary">Summary</h2>
-<p>This guide explored integrating Ultralytics' YOLOv8 with Neural Magic's DeepSparse Engine. It highlighted how this integration enhances YOLOv8's performance on CPU platforms, offering GPU-level efficiency and advanced neural network sparsity techniques.</p>
-<p>For more detailed information and advanced usage, visit <a href="https://docs.neuralmagic.com/products/deepsparse/">Neural Magic's DeepSparse documentation</a>. Also, check out Neural Magic's documentation on the integration with YOLOv8 <a href="https://github.com/neuralmagic/deepsparse/tree/main/src/deepsparse/yolov8#yolov8-inference-pipelines">here</a> and watch a great session on it <a href="https://www.youtube.com/watch?v=qtJ7bdt52x8">here</a>.</p>
-<p>Additionally, for a broader understanding of various YOLOv8 integrations, visit the <a href="../">Ultralytics integration guide page</a>, where you can discover a range of other exciting integration possibilities.</p>
-<h2 id="faq">FAQ</h2>
-<h3 id="what-is-neural-magics-deepsparse-engine-and-how-does-it-optimize-yolov8-performance">What is Neural Magic's DeepSparse Engine and how does it optimize YOLOv8 performance?</h3>
-<p>Neural Magic's DeepSparse Engine is an inference runtime designed to optimize the execution of neural networks on CPUs through advanced techniques such as sparsity, pruning, and quantization. By integrating DeepSparse with YOLOv8, you can achieve GPU-like performance on standard CPUs, significantly enhancing inference speed, model efficiency, and overall performance while maintaining accuracy. For more details, check out the <a href="#neural-magics-deepsparse">Neural Magic's DeepSparse section</a>.</p>
-<h3 id="how-can-i-install-the-needed-packages-to-deploy-yolov8-using-neural-magics-deepsparse">How can I install the needed packages to deploy YOLOv8 using Neural Magic's DeepSparse?</h3>
-<p>Installing the required packages for deploying YOLOv8 with Neural Magic's DeepSparse is straightforward. You can easily install them using the CLI. Here's the command you need to run:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>deepsparse<span class="o">[</span>yolov8<span class="o">]</span>
-</code></pre></div>
-<p>Once installed, follow the steps provided in the <a href="#step-1-installation">Installation section</a> to set up your environment and start using DeepSparse with YOLOv8.</p>
-<h3 id="how-do-i-convert-yolov8-models-to-onnx-format-for-use-with-deepsparse">How do I convert YOLOv8 models to ONNX format for use with DeepSparse?</h3>
-<p>To convert YOLOv8 models to the ONNX format, which is required for compatibility with DeepSparse, you can use the following CLI command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">opset</span><span class="o">=</span><span class="m">13</span>
-</code></pre></div>
-<p>This command will export your YOLOv8 model (<code>yolov8n.pt</code>) to a format (<code>yolov8n.onnx</code>) that can be utilized by the DeepSparse Engine. More information about model export can be found in the <a href="#step-2-exporting-yolov8-to-onnx-format">Model Export section</a>.</p>
-<h3 id="how-do-i-benchmark-yolov8-performance-on-the-deepsparse-engine">How do I benchmark YOLOv8 performance on the DeepSparse Engine?</h3>
-<p>Benchmarking YOLOv8 performance on DeepSparse helps you analyze throughput and latency to ensure your model is optimized. You can use the following CLI command to run a benchmark:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>deepsparse.benchmark<span class="w"> </span><span class="nv">model_path</span><span class="o">=</span><span class="s2">"path/to/yolov8n.onnx"</span><span class="w"> </span>--scenario<span class="o">=</span>sync<span class="w"> </span>--input_shapes<span class="o">=</span><span class="s2">"[1,3,640,640]"</span>
-</code></pre></div>
-<p>This command will provide you with vital performance metrics. For more details, see the <a href="#step-4-benchmarking-performance">Benchmarking Performance section</a>.</p>
-<h3 id="why-should-i-use-neural-magics-deepsparse-with-yolov8-for-object-detection-tasks">Why should I use Neural Magic's DeepSparse with YOLOv8 for object detection tasks?</h3>
-<p>Integrating Neural Magic's DeepSparse with YOLOv8 offers several benefits:</p>
-<ul>
-<li><strong>Enhanced Inference Speed:</strong> Achieves up to 525 FPS, significantly speeding up YOLOv8's capabilities.</li>
-<li><strong>Optimized Model Efficiency:</strong> Uses sparsity, pruning, and quantization techniques to reduce model size and computational needs while maintaining accuracy.</li>
-<li><strong>High Performance on Standard CPUs:</strong> Offers GPU-like performance on cost-effective CPU hardware.</li>
-<li><strong>Streamlined Integration:</strong> User-friendly tools for easy deployment and integration.</li>
-<li><strong>Flexibility:</strong> Supports both standard and sparsity-optimized YOLOv8 models.</li>
-<li><strong>Cost-Effective:</strong> Reduces operational expenses through efficient resource utilization.</li>
-</ul>
-<p>For a deeper dive into these advantages, visit the <a href="#benefits-of-integrating-neural-magics-deepsparse-with-yolov8">Benefits of Integrating Neural Magic's DeepSparse with YOLOv8 section</a>.</p>
+<p>We've seen how Kaggle can boost your YOLOv8 projects by providing free access to powerful GPUs, making model training and evaluation efficient. Kaggle's platform is user-friendly, with pre-installed libraries for quick setup.</p>
+<p>For more details, visit <a href="https://www.kaggle.com/docs">Kaggle's documentation</a>.</p>
+<p>Interested in more YOLOv8 integrations? Check out the<a href="https://docs.ultralytics.com/integrations/"> Ultralytics integration guide</a> to explore additional tools and capabilities for your machine learning projects.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1047,7 +788,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-12-30, Updated 2024-07-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-07-18, Updated 2024-07-18<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1), <a href="https://github.com/ultralytics/ultralytics">not.committed.yet</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1058,10 +799,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/neural-magic', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/kaggle', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/neural-magic', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/kaggle', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -1110,7 +851,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Weights &amp; Biases" class="md-footer__link md-footer__link--prev" href="../weights-biases/">
+<a aria-label="Previous: Google Colab" class="md-footer__link md-footer__link--prev" href="../google-colab/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1119,17 +860,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                Weights &amp; Biases
+                Google Colab
               </div>
 </div>
 </a>
-<a aria-label="Next: Gradio" class="md-footer__link md-footer__link--next" href="../gradio/">
+<a aria-label="Next: Ultralytics HUB" class="md-footer__link md-footer__link--next" href="../../hub/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Gradio
+                Ultralytics HUB
               </div>
 </div>
 <div class="md-footer__button md-icon">
