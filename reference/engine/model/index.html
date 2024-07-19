@@ -2691,7 +2691,13 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <span class="normal"><a href="#__codelineno-0-820">820</a></span>
 <span class="normal"><a href="#__codelineno-0-821">821</a></span>
 <span class="normal"><a href="#__codelineno-0-822">822</a></span>
-<span class="normal"><a href="#__codelineno-0-823">823</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-823">823</a></span>
+<span class="normal"><a href="#__codelineno-0-824">824</a></span>
+<span class="normal"><a href="#__codelineno-0-825">825</a></span>
+<span class="normal"><a href="#__codelineno-0-826">826</a></span>
+<span class="normal"><a href="#__codelineno-0-827">827</a></span>
+<span class="normal"><a href="#__codelineno-0-828">828</a></span>
+<span class="normal"><a href="#__codelineno-0-829">829</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    A base class for implementing YOLO models, unifying APIs across different model types.</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a>
@@ -3255,239 +3261,245 @@ application domain, such as object detection, segmentation, etc. Defaults to Non
 <a id="__codelineno-0-588" name="__codelineno-0-588"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
 <a id="__codelineno-0-589" name="__codelineno-0-589"></a>        <span class="kn">from</span> <span class="nn">.exporter</span> <span class="kn">import</span> <span class="n">Exporter</span>
 <a id="__codelineno-0-590" name="__codelineno-0-590"></a>
-<a id="__codelineno-0-591" name="__codelineno-0-591"></a>        <span class="n">custom</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"imgsz"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">"imgsz"</span><span class="p">],</span> <span class="s2">"batch"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"verbose"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>  <span class="c1"># method defaults</span>
-<a id="__codelineno-0-592" name="__codelineno-0-592"></a>        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"export"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
-<a id="__codelineno-0-593" name="__codelineno-0-593"></a>        <span class="k">return</span> <span class="n">Exporter</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
-<a id="__codelineno-0-594" name="__codelineno-0-594"></a>
-<a id="__codelineno-0-595" name="__codelineno-0-595"></a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span>
-<a id="__codelineno-0-596" name="__codelineno-0-596"></a>        <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-597" name="__codelineno-0-597"></a>        <span class="n">trainer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-598" name="__codelineno-0-598"></a>        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<a id="__codelineno-0-599" name="__codelineno-0-599"></a>    <span class="p">):</span>
-<a id="__codelineno-0-600" name="__codelineno-0-600"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-601" name="__codelineno-0-601"></a><span class="sd">        Trains the model using the specified dataset and training configuration.</span>
-<a id="__codelineno-0-602" name="__codelineno-0-602"></a>
-<a id="__codelineno-0-603" name="__codelineno-0-603"></a><span class="sd">        This method facilitates model training with a range of customizable settings and configurations. It supports</span>
-<a id="__codelineno-0-604" name="__codelineno-0-604"></a><span class="sd">        training with a custom trainer or the default training approach defined in the method. The method handles</span>
-<a id="__codelineno-0-605" name="__codelineno-0-605"></a><span class="sd">        different scenarios, such as resuming training from a checkpoint, integrating with Ultralytics HUB, and</span>
-<a id="__codelineno-0-606" name="__codelineno-0-606"></a><span class="sd">        updating model and configuration after training.</span>
-<a id="__codelineno-0-607" name="__codelineno-0-607"></a>
-<a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="sd">        When using Ultralytics HUB, if the session already has a loaded model, the method prioritizes HUB training</span>
-<a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">        arguments and issues a warning if local arguments are provided. It checks for pip updates and combines default</span>
-<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">        configurations, method-specific defaults, and user-provided arguments to configure the training process. After</span>
-<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">        training, it updates the model and its configurations, and optionally attaches metrics.</span>
-<a id="__codelineno-0-612" name="__codelineno-0-612"></a>
-<a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="sd">            trainer (BaseTrainer, optional): An instance of a custom trainer class for training the model. If None, the</span>
-<a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="sd">                method uses a default trainer. Defaults to None.</span>
-<a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="sd">            **kwargs (any): Arbitrary keyword arguments representing the training configuration. These arguments are</span>
-<a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="sd">                used to customize various aspects of the training process.</span>
+<a id="__codelineno-0-591" name="__codelineno-0-591"></a>        <span class="n">custom</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-592" name="__codelineno-0-592"></a>            <span class="s2">"imgsz"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">"imgsz"</span><span class="p">],</span>
+<a id="__codelineno-0-593" name="__codelineno-0-593"></a>            <span class="s2">"batch"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-594" name="__codelineno-0-594"></a>            <span class="s2">"data"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-595" name="__codelineno-0-595"></a>            <span class="s2">"device"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># reset to avoid multi-GPU errors</span>
+<a id="__codelineno-0-596" name="__codelineno-0-596"></a>            <span class="s2">"verbose"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-597" name="__codelineno-0-597"></a>        <span class="p">}</span>  <span class="c1"># method defaults</span>
+<a id="__codelineno-0-598" name="__codelineno-0-598"></a>        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"export"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
+<a id="__codelineno-0-599" name="__codelineno-0-599"></a>        <span class="k">return</span> <span class="n">Exporter</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-0-600" name="__codelineno-0-600"></a>
+<a id="__codelineno-0-601" name="__codelineno-0-601"></a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span>
+<a id="__codelineno-0-602" name="__codelineno-0-602"></a>        <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-603" name="__codelineno-0-603"></a>        <span class="n">trainer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-604" name="__codelineno-0-604"></a>        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<a id="__codelineno-0-605" name="__codelineno-0-605"></a>    <span class="p">):</span>
+<a id="__codelineno-0-606" name="__codelineno-0-606"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="sd">        Trains the model using the specified dataset and training configuration.</span>
+<a id="__codelineno-0-608" name="__codelineno-0-608"></a>
+<a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">        This method facilitates model training with a range of customizable settings and configurations. It supports</span>
+<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">        training with a custom trainer or the default training approach defined in the method. The method handles</span>
+<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">        different scenarios, such as resuming training from a checkpoint, integrating with Ultralytics HUB, and</span>
+<a id="__codelineno-0-612" name="__codelineno-0-612"></a><span class="sd">        updating model and configuration after training.</span>
+<a id="__codelineno-0-613" name="__codelineno-0-613"></a>
+<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="sd">        When using Ultralytics HUB, if the session already has a loaded model, the method prioritizes HUB training</span>
+<a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="sd">        arguments and issues a warning if local arguments are provided. It checks for pip updates and combines default</span>
+<a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="sd">        configurations, method-specific defaults, and user-provided arguments to configure the training process. After</span>
+<a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="sd">        training, it updates the model and its configurations, and optionally attaches metrics.</span>
 <a id="__codelineno-0-618" name="__codelineno-0-618"></a>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a><span class="sd">            (dict | None): Training metrics if available and training is successful; otherwise, None.</span>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a>
-<a id="__codelineno-0-622" name="__codelineno-0-622"></a><span class="sd">        Raises:</span>
-<a id="__codelineno-0-623" name="__codelineno-0-623"></a><span class="sd">            AssertionError: If the model is not a PyTorch model.</span>
-<a id="__codelineno-0-624" name="__codelineno-0-624"></a><span class="sd">            PermissionError: If there is a permission issue with the HUB session.</span>
-<a id="__codelineno-0-625" name="__codelineno-0-625"></a><span class="sd">            ModuleNotFoundError: If the HUB SDK is not installed.</span>
-<a id="__codelineno-0-626" name="__codelineno-0-626"></a><span class="sd">        """</span>
-<a id="__codelineno-0-627" name="__codelineno-0-627"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
-<a id="__codelineno-0-628" name="__codelineno-0-628"></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>  <span class="c1"># Ultralytics HUB session with loaded model</span>
-<a id="__codelineno-0-629" name="__codelineno-0-629"></a>            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-630" name="__codelineno-0-630"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"WARNING ⚠️ using HUB training arguments, ignoring local training arguments."</span><span class="p">)</span>
-<a id="__codelineno-0-631" name="__codelineno-0-631"></a>            <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">train_args</span>  <span class="c1"># overwrite kwargs</span>
-<a id="__codelineno-0-632" name="__codelineno-0-632"></a>
-<a id="__codelineno-0-633" name="__codelineno-0-633"></a>        <span class="n">checks</span><span class="o">.</span><span class="n">check_pip_update_available</span><span class="p">()</span>
-<a id="__codelineno-0-634" name="__codelineno-0-634"></a>
-<a id="__codelineno-0-635" name="__codelineno-0-635"></a>        <span class="n">overrides</span> <span class="o">=</span> <span class="n">yaml_load</span><span class="p">(</span><span class="n">checks</span><span class="o">.</span><span class="n">check_yaml</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">"cfg"</span><span class="p">]))</span> <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"cfg"</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span>
-<a id="__codelineno-0-636" name="__codelineno-0-636"></a>        <span class="n">custom</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-637" name="__codelineno-0-637"></a>            <span class="c1"># NOTE: handle the case when 'cfg' includes 'data'.</span>
-<a id="__codelineno-0-638" name="__codelineno-0-638"></a>            <span class="s2">"data"</span><span class="p">:</span> <span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">DEFAULT_CFG_DICT</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="ow">or</span> <span class="n">TASK2DATA</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">],</span>
-<a id="__codelineno-0-639" name="__codelineno-0-639"></a>            <span class="s2">"model"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span>
-<a id="__codelineno-0-640" name="__codelineno-0-640"></a>            <span class="s2">"task"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">,</span>
-<a id="__codelineno-0-641" name="__codelineno-0-641"></a>        <span class="p">}</span>  <span class="c1"># method defaults</span>
-<a id="__codelineno-0-642" name="__codelineno-0-642"></a>        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"train"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
-<a id="__codelineno-0-643" name="__codelineno-0-643"></a>        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"resume"</span><span class="p">):</span>
-<a id="__codelineno-0-644" name="__codelineno-0-644"></a>            <span class="n">args</span><span class="p">[</span><span class="s2">"resume"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ckpt_path</span>
-<a id="__codelineno-0-645" name="__codelineno-0-645"></a>
-<a id="__codelineno-0-646" name="__codelineno-0-646"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span> <span class="o">=</span> <span class="p">(</span><span class="n">trainer</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_smart_load</span><span class="p">(</span><span class="s2">"trainer"</span><span class="p">))(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
-<a id="__codelineno-0-647" name="__codelineno-0-647"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"resume"</span><span class="p">):</span>  <span class="c1"># manually set model only if not resuming</span>
-<a id="__codelineno-0-648" name="__codelineno-0-648"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ckpt</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">yaml</span><span class="p">)</span>
-<a id="__codelineno-0-649" name="__codelineno-0-649"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span>
-<a id="__codelineno-0-650" name="__codelineno-0-650"></a>
-<a id="__codelineno-0-651" name="__codelineno-0-651"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">hub_session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span>  <span class="c1"># attach optional HUB session</span>
-<a id="__codelineno-0-652" name="__codelineno-0-652"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-<a id="__codelineno-0-653" name="__codelineno-0-653"></a>        <span class="c1"># Update model and cfg after training</span>
-<a id="__codelineno-0-654" name="__codelineno-0-654"></a>        <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
-<a id="__codelineno-0-655" name="__codelineno-0-655"></a>            <span class="n">ckpt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
-<a id="__codelineno-0-656" name="__codelineno-0-656"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">attempt_load_one_weight</span><span class="p">(</span><span class="n">ckpt</span><span class="p">)</span>
-<a id="__codelineno-0-657" name="__codelineno-0-657"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span>
-<a id="__codelineno-0-658" name="__codelineno-0-658"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="p">,</span> <span class="s2">"metrics"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># TODO: no metrics returned by DDP</span>
-<a id="__codelineno-0-659" name="__codelineno-0-659"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span>
-<a id="__codelineno-0-660" name="__codelineno-0-660"></a>
-<a id="__codelineno-0-661" name="__codelineno-0-661"></a>    <span class="k">def</span> <span class="nf">tune</span><span class="p">(</span>
-<a id="__codelineno-0-662" name="__codelineno-0-662"></a>        <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-663" name="__codelineno-0-663"></a>        <span class="n">use_ray</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-664" name="__codelineno-0-664"></a>        <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<a id="__codelineno-0-665" name="__codelineno-0-665"></a>        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<a id="__codelineno-0-666" name="__codelineno-0-666"></a>        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<a id="__codelineno-0-667" name="__codelineno-0-667"></a>    <span class="p">):</span>
-<a id="__codelineno-0-668" name="__codelineno-0-668"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-669" name="__codelineno-0-669"></a><span class="sd">        Conducts hyperparameter tuning for the model, with an option to use Ray Tune.</span>
-<a id="__codelineno-0-670" name="__codelineno-0-670"></a>
-<a id="__codelineno-0-671" name="__codelineno-0-671"></a><span class="sd">        This method supports two modes of hyperparameter tuning: using Ray Tune or a custom tuning method.</span>
-<a id="__codelineno-0-672" name="__codelineno-0-672"></a><span class="sd">        When Ray Tune is enabled, it leverages the 'run_ray_tune' function from the ultralytics.utils.tuner module.</span>
-<a id="__codelineno-0-673" name="__codelineno-0-673"></a><span class="sd">        Otherwise, it uses the internal 'Tuner' class for tuning. The method combines default, overridden, and</span>
-<a id="__codelineno-0-674" name="__codelineno-0-674"></a><span class="sd">        custom arguments to configure the tuning process.</span>
-<a id="__codelineno-0-675" name="__codelineno-0-675"></a>
-<a id="__codelineno-0-676" name="__codelineno-0-676"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-677" name="__codelineno-0-677"></a><span class="sd">            use_ray (bool): If True, uses Ray Tune for hyperparameter tuning. Defaults to False.</span>
-<a id="__codelineno-0-678" name="__codelineno-0-678"></a><span class="sd">            iterations (int): The number of tuning iterations to perform. Defaults to 10.</span>
-<a id="__codelineno-0-679" name="__codelineno-0-679"></a><span class="sd">            *args (list): Variable length argument list for additional arguments.</span>
-<a id="__codelineno-0-680" name="__codelineno-0-680"></a><span class="sd">            **kwargs (any): Arbitrary keyword arguments. These are combined with the model's overrides and defaults.</span>
+<a id="__codelineno-0-619" name="__codelineno-0-619"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-620" name="__codelineno-0-620"></a><span class="sd">            trainer (BaseTrainer, optional): An instance of a custom trainer class for training the model. If None, the</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a><span class="sd">                method uses a default trainer. Defaults to None.</span>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a><span class="sd">            **kwargs (any): Arbitrary keyword arguments representing the training configuration. These arguments are</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a><span class="sd">                used to customize various aspects of the training process.</span>
+<a id="__codelineno-0-624" name="__codelineno-0-624"></a>
+<a id="__codelineno-0-625" name="__codelineno-0-625"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-626" name="__codelineno-0-626"></a><span class="sd">            (dict | None): Training metrics if available and training is successful; otherwise, None.</span>
+<a id="__codelineno-0-627" name="__codelineno-0-627"></a>
+<a id="__codelineno-0-628" name="__codelineno-0-628"></a><span class="sd">        Raises:</span>
+<a id="__codelineno-0-629" name="__codelineno-0-629"></a><span class="sd">            AssertionError: If the model is not a PyTorch model.</span>
+<a id="__codelineno-0-630" name="__codelineno-0-630"></a><span class="sd">            PermissionError: If there is a permission issue with the HUB session.</span>
+<a id="__codelineno-0-631" name="__codelineno-0-631"></a><span class="sd">            ModuleNotFoundError: If the HUB SDK is not installed.</span>
+<a id="__codelineno-0-632" name="__codelineno-0-632"></a><span class="sd">        """</span>
+<a id="__codelineno-0-633" name="__codelineno-0-633"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
+<a id="__codelineno-0-634" name="__codelineno-0-634"></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>  <span class="c1"># Ultralytics HUB session with loaded model</span>
+<a id="__codelineno-0-635" name="__codelineno-0-635"></a>            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-636" name="__codelineno-0-636"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"WARNING ⚠️ using HUB training arguments, ignoring local training arguments."</span><span class="p">)</span>
+<a id="__codelineno-0-637" name="__codelineno-0-637"></a>            <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">train_args</span>  <span class="c1"># overwrite kwargs</span>
+<a id="__codelineno-0-638" name="__codelineno-0-638"></a>
+<a id="__codelineno-0-639" name="__codelineno-0-639"></a>        <span class="n">checks</span><span class="o">.</span><span class="n">check_pip_update_available</span><span class="p">()</span>
+<a id="__codelineno-0-640" name="__codelineno-0-640"></a>
+<a id="__codelineno-0-641" name="__codelineno-0-641"></a>        <span class="n">overrides</span> <span class="o">=</span> <span class="n">yaml_load</span><span class="p">(</span><span class="n">checks</span><span class="o">.</span><span class="n">check_yaml</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">"cfg"</span><span class="p">]))</span> <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"cfg"</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span>
+<a id="__codelineno-0-642" name="__codelineno-0-642"></a>        <span class="n">custom</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-643" name="__codelineno-0-643"></a>            <span class="c1"># NOTE: handle the case when 'cfg' includes 'data'.</span>
+<a id="__codelineno-0-644" name="__codelineno-0-644"></a>            <span class="s2">"data"</span><span class="p">:</span> <span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">DEFAULT_CFG_DICT</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="ow">or</span> <span class="n">TASK2DATA</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">],</span>
+<a id="__codelineno-0-645" name="__codelineno-0-645"></a>            <span class="s2">"model"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span>
+<a id="__codelineno-0-646" name="__codelineno-0-646"></a>            <span class="s2">"task"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">,</span>
+<a id="__codelineno-0-647" name="__codelineno-0-647"></a>        <span class="p">}</span>  <span class="c1"># method defaults</span>
+<a id="__codelineno-0-648" name="__codelineno-0-648"></a>        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"train"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
+<a id="__codelineno-0-649" name="__codelineno-0-649"></a>        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"resume"</span><span class="p">):</span>
+<a id="__codelineno-0-650" name="__codelineno-0-650"></a>            <span class="n">args</span><span class="p">[</span><span class="s2">"resume"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ckpt_path</span>
+<a id="__codelineno-0-651" name="__codelineno-0-651"></a>
+<a id="__codelineno-0-652" name="__codelineno-0-652"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span> <span class="o">=</span> <span class="p">(</span><span class="n">trainer</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_smart_load</span><span class="p">(</span><span class="s2">"trainer"</span><span class="p">))(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
+<a id="__codelineno-0-653" name="__codelineno-0-653"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"resume"</span><span class="p">):</span>  <span class="c1"># manually set model only if not resuming</span>
+<a id="__codelineno-0-654" name="__codelineno-0-654"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ckpt</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">yaml</span><span class="p">)</span>
+<a id="__codelineno-0-655" name="__codelineno-0-655"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span>
+<a id="__codelineno-0-656" name="__codelineno-0-656"></a>
+<a id="__codelineno-0-657" name="__codelineno-0-657"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">hub_session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span>  <span class="c1"># attach optional HUB session</span>
+<a id="__codelineno-0-658" name="__codelineno-0-658"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<a id="__codelineno-0-659" name="__codelineno-0-659"></a>        <span class="c1"># Update model and cfg after training</span>
+<a id="__codelineno-0-660" name="__codelineno-0-660"></a>        <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
+<a id="__codelineno-0-661" name="__codelineno-0-661"></a>            <span class="n">ckpt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
+<a id="__codelineno-0-662" name="__codelineno-0-662"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">attempt_load_one_weight</span><span class="p">(</span><span class="n">ckpt</span><span class="p">)</span>
+<a id="__codelineno-0-663" name="__codelineno-0-663"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span>
+<a id="__codelineno-0-664" name="__codelineno-0-664"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="p">,</span> <span class="s2">"metrics"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># TODO: no metrics returned by DDP</span>
+<a id="__codelineno-0-665" name="__codelineno-0-665"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span>
+<a id="__codelineno-0-666" name="__codelineno-0-666"></a>
+<a id="__codelineno-0-667" name="__codelineno-0-667"></a>    <span class="k">def</span> <span class="nf">tune</span><span class="p">(</span>
+<a id="__codelineno-0-668" name="__codelineno-0-668"></a>        <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-669" name="__codelineno-0-669"></a>        <span class="n">use_ray</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-670" name="__codelineno-0-670"></a>        <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-0-671" name="__codelineno-0-671"></a>        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+<a id="__codelineno-0-672" name="__codelineno-0-672"></a>        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<a id="__codelineno-0-673" name="__codelineno-0-673"></a>    <span class="p">):</span>
+<a id="__codelineno-0-674" name="__codelineno-0-674"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-675" name="__codelineno-0-675"></a><span class="sd">        Conducts hyperparameter tuning for the model, with an option to use Ray Tune.</span>
+<a id="__codelineno-0-676" name="__codelineno-0-676"></a>
+<a id="__codelineno-0-677" name="__codelineno-0-677"></a><span class="sd">        This method supports two modes of hyperparameter tuning: using Ray Tune or a custom tuning method.</span>
+<a id="__codelineno-0-678" name="__codelineno-0-678"></a><span class="sd">        When Ray Tune is enabled, it leverages the 'run_ray_tune' function from the ultralytics.utils.tuner module.</span>
+<a id="__codelineno-0-679" name="__codelineno-0-679"></a><span class="sd">        Otherwise, it uses the internal 'Tuner' class for tuning. The method combines default, overridden, and</span>
+<a id="__codelineno-0-680" name="__codelineno-0-680"></a><span class="sd">        custom arguments to configure the tuning process.</span>
 <a id="__codelineno-0-681" name="__codelineno-0-681"></a>
-<a id="__codelineno-0-682" name="__codelineno-0-682"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-683" name="__codelineno-0-683"></a><span class="sd">            (dict): A dictionary containing the results of the hyperparameter search.</span>
-<a id="__codelineno-0-684" name="__codelineno-0-684"></a>
-<a id="__codelineno-0-685" name="__codelineno-0-685"></a><span class="sd">        Raises:</span>
-<a id="__codelineno-0-686" name="__codelineno-0-686"></a><span class="sd">            AssertionError: If the model is not a PyTorch model.</span>
-<a id="__codelineno-0-687" name="__codelineno-0-687"></a><span class="sd">        """</span>
-<a id="__codelineno-0-688" name="__codelineno-0-688"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
-<a id="__codelineno-0-689" name="__codelineno-0-689"></a>        <span class="k">if</span> <span class="n">use_ray</span><span class="p">:</span>
-<a id="__codelineno-0-690" name="__codelineno-0-690"></a>            <span class="kn">from</span> <span class="nn">ultralytics.utils.tuner</span> <span class="kn">import</span> <span class="n">run_ray_tune</span>
-<a id="__codelineno-0-691" name="__codelineno-0-691"></a>
-<a id="__codelineno-0-692" name="__codelineno-0-692"></a>            <span class="k">return</span> <span class="n">run_ray_tune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_samples</span><span class="o">=</span><span class="n">iterations</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a id="__codelineno-0-693" name="__codelineno-0-693"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-694" name="__codelineno-0-694"></a>            <span class="kn">from</span> <span class="nn">.tuner</span> <span class="kn">import</span> <span class="n">Tuner</span>
-<a id="__codelineno-0-695" name="__codelineno-0-695"></a>
-<a id="__codelineno-0-696" name="__codelineno-0-696"></a>            <span class="n">custom</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># method defaults</span>
-<a id="__codelineno-0-697" name="__codelineno-0-697"></a>            <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"train"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
-<a id="__codelineno-0-698" name="__codelineno-0-698"></a>            <span class="k">return</span> <span class="n">Tuner</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span>
-<a id="__codelineno-0-699" name="__codelineno-0-699"></a>
-<a id="__codelineno-0-700" name="__codelineno-0-700"></a>    <span class="k">def</span> <span class="nf">_apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Model"</span><span class="p">:</span>
-<a id="__codelineno-0-701" name="__codelineno-0-701"></a><span class="w">        </span><span class="sd">"""Apply to(), cpu(), cuda(), half(), float() to model tensors that are not parameters or registered buffers."""</span>
-<a id="__codelineno-0-702" name="__codelineno-0-702"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
-<a id="__codelineno-0-703" name="__codelineno-0-703"></a>        <span class="bp">self</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-704" name="__codelineno-0-704"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># reset predictor as device may have changed</span>
-<a id="__codelineno-0-705" name="__codelineno-0-705"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">[</span><span class="s2">"device"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span>  <span class="c1"># was str(self.device) i.e. device(type='cuda', index=0) -&gt; 'cuda:0'</span>
-<a id="__codelineno-0-706" name="__codelineno-0-706"></a>        <span class="k">return</span> <span class="bp">self</span>
-<a id="__codelineno-0-707" name="__codelineno-0-707"></a>
-<a id="__codelineno-0-708" name="__codelineno-0-708"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-709" name="__codelineno-0-709"></a>    <span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-<a id="__codelineno-0-710" name="__codelineno-0-710"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-711" name="__codelineno-0-711"></a><span class="sd">        Retrieves the class names associated with the loaded model.</span>
-<a id="__codelineno-0-712" name="__codelineno-0-712"></a>
-<a id="__codelineno-0-713" name="__codelineno-0-713"></a><span class="sd">        This property returns the class names if they are defined in the model. It checks the class names for validity</span>
-<a id="__codelineno-0-714" name="__codelineno-0-714"></a><span class="sd">        using the 'check_class_names' function from the ultralytics.nn.autobackend module.</span>
-<a id="__codelineno-0-715" name="__codelineno-0-715"></a>
-<a id="__codelineno-0-716" name="__codelineno-0-716"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-717" name="__codelineno-0-717"></a><span class="sd">            (list | None): The class names of the model if available, otherwise None.</span>
-<a id="__codelineno-0-718" name="__codelineno-0-718"></a><span class="sd">        """</span>
-<a id="__codelineno-0-719" name="__codelineno-0-719"></a>        <span class="kn">from</span> <span class="nn">ultralytics.nn.autobackend</span> <span class="kn">import</span> <span class="n">check_class_names</span>
-<a id="__codelineno-0-720" name="__codelineno-0-720"></a>
-<a id="__codelineno-0-721" name="__codelineno-0-721"></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"names"</span><span class="p">):</span>
-<a id="__codelineno-0-722" name="__codelineno-0-722"></a>            <span class="k">return</span> <span class="n">check_class_names</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-0-723" name="__codelineno-0-723"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">:</span>  <span class="c1"># export formats will not have predictor defined until predict() is called</span>
-<a id="__codelineno-0-724" name="__codelineno-0-724"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_smart_load</span><span class="p">(</span><span class="s2">"predictor"</span><span class="p">)(</span><span class="n">overrides</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
-<a id="__codelineno-0-725" name="__codelineno-0-725"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">setup_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-726" name="__codelineno-0-726"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span>
-<a id="__codelineno-0-727" name="__codelineno-0-727"></a>
-<a id="__codelineno-0-728" name="__codelineno-0-728"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-729" name="__codelineno-0-729"></a>    <span class="k">def</span> <span class="nf">device</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">:</span>
-<a id="__codelineno-0-730" name="__codelineno-0-730"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-731" name="__codelineno-0-731"></a><span class="sd">        Retrieves the device on which the model's parameters are allocated.</span>
-<a id="__codelineno-0-732" name="__codelineno-0-732"></a>
-<a id="__codelineno-0-733" name="__codelineno-0-733"></a><span class="sd">        This property is used to determine whether the model's parameters are on CPU or GPU. It only applies to models</span>
-<a id="__codelineno-0-734" name="__codelineno-0-734"></a><span class="sd">        that are instances of nn.Module.</span>
-<a id="__codelineno-0-735" name="__codelineno-0-735"></a>
-<a id="__codelineno-0-736" name="__codelineno-0-736"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-737" name="__codelineno-0-737"></a><span class="sd">            (torch.device | None): The device (CPU/GPU) of the model if it is a PyTorch model, otherwise None.</span>
-<a id="__codelineno-0-738" name="__codelineno-0-738"></a><span class="sd">        """</span>
-<a id="__codelineno-0-739" name="__codelineno-0-739"></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
-<a id="__codelineno-0-740" name="__codelineno-0-740"></a>
-<a id="__codelineno-0-741" name="__codelineno-0-741"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-742" name="__codelineno-0-742"></a>    <span class="k">def</span> <span class="nf">transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-743" name="__codelineno-0-743"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-744" name="__codelineno-0-744"></a><span class="sd">        Retrieves the transformations applied to the input data of the loaded model.</span>
-<a id="__codelineno-0-745" name="__codelineno-0-745"></a>
-<a id="__codelineno-0-746" name="__codelineno-0-746"></a><span class="sd">        This property returns the transformations if they are defined in the model.</span>
-<a id="__codelineno-0-747" name="__codelineno-0-747"></a>
-<a id="__codelineno-0-748" name="__codelineno-0-748"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-749" name="__codelineno-0-749"></a><span class="sd">            (object | None): The transform object of the model if available, otherwise None.</span>
-<a id="__codelineno-0-750" name="__codelineno-0-750"></a><span class="sd">        """</span>
-<a id="__codelineno-0-751" name="__codelineno-0-751"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transforms</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"transforms"</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
-<a id="__codelineno-0-752" name="__codelineno-0-752"></a>
-<a id="__codelineno-0-753" name="__codelineno-0-753"></a>    <span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-754" name="__codelineno-0-754"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-755" name="__codelineno-0-755"></a><span class="sd">        Adds a callback function for a specified event.</span>
-<a id="__codelineno-0-756" name="__codelineno-0-756"></a>
-<a id="__codelineno-0-757" name="__codelineno-0-757"></a><span class="sd">        This method allows the user to register a custom callback function that is triggered on a specific event during</span>
-<a id="__codelineno-0-758" name="__codelineno-0-758"></a><span class="sd">        model training or inference.</span>
-<a id="__codelineno-0-759" name="__codelineno-0-759"></a>
-<a id="__codelineno-0-760" name="__codelineno-0-760"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-761" name="__codelineno-0-761"></a><span class="sd">            event (str): The name of the event to attach the callback to.</span>
-<a id="__codelineno-0-762" name="__codelineno-0-762"></a><span class="sd">            func (callable): The callback function to be registered.</span>
-<a id="__codelineno-0-763" name="__codelineno-0-763"></a>
-<a id="__codelineno-0-764" name="__codelineno-0-764"></a><span class="sd">        Raises:</span>
-<a id="__codelineno-0-765" name="__codelineno-0-765"></a><span class="sd">            ValueError: If the event name is not recognized.</span>
-<a id="__codelineno-0-766" name="__codelineno-0-766"></a><span class="sd">        """</span>
-<a id="__codelineno-0-767" name="__codelineno-0-767"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<a id="__codelineno-0-768" name="__codelineno-0-768"></a>
-<a id="__codelineno-0-769" name="__codelineno-0-769"></a>    <span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-770" name="__codelineno-0-770"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-771" name="__codelineno-0-771"></a><span class="sd">        Clears all callback functions registered for a specified event.</span>
-<a id="__codelineno-0-772" name="__codelineno-0-772"></a>
-<a id="__codelineno-0-773" name="__codelineno-0-773"></a><span class="sd">        This method removes all custom and default callback functions associated with the given event.</span>
+<a id="__codelineno-0-682" name="__codelineno-0-682"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-683" name="__codelineno-0-683"></a><span class="sd">            use_ray (bool): If True, uses Ray Tune for hyperparameter tuning. Defaults to False.</span>
+<a id="__codelineno-0-684" name="__codelineno-0-684"></a><span class="sd">            iterations (int): The number of tuning iterations to perform. Defaults to 10.</span>
+<a id="__codelineno-0-685" name="__codelineno-0-685"></a><span class="sd">            *args (list): Variable length argument list for additional arguments.</span>
+<a id="__codelineno-0-686" name="__codelineno-0-686"></a><span class="sd">            **kwargs (any): Arbitrary keyword arguments. These are combined with the model's overrides and defaults.</span>
+<a id="__codelineno-0-687" name="__codelineno-0-687"></a>
+<a id="__codelineno-0-688" name="__codelineno-0-688"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-689" name="__codelineno-0-689"></a><span class="sd">            (dict): A dictionary containing the results of the hyperparameter search.</span>
+<a id="__codelineno-0-690" name="__codelineno-0-690"></a>
+<a id="__codelineno-0-691" name="__codelineno-0-691"></a><span class="sd">        Raises:</span>
+<a id="__codelineno-0-692" name="__codelineno-0-692"></a><span class="sd">            AssertionError: If the model is not a PyTorch model.</span>
+<a id="__codelineno-0-693" name="__codelineno-0-693"></a><span class="sd">        """</span>
+<a id="__codelineno-0-694" name="__codelineno-0-694"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
+<a id="__codelineno-0-695" name="__codelineno-0-695"></a>        <span class="k">if</span> <span class="n">use_ray</span><span class="p">:</span>
+<a id="__codelineno-0-696" name="__codelineno-0-696"></a>            <span class="kn">from</span> <span class="nn">ultralytics.utils.tuner</span> <span class="kn">import</span> <span class="n">run_ray_tune</span>
+<a id="__codelineno-0-697" name="__codelineno-0-697"></a>
+<a id="__codelineno-0-698" name="__codelineno-0-698"></a>            <span class="k">return</span> <span class="n">run_ray_tune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_samples</span><span class="o">=</span><span class="n">iterations</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-699" name="__codelineno-0-699"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-700" name="__codelineno-0-700"></a>            <span class="kn">from</span> <span class="nn">.tuner</span> <span class="kn">import</span> <span class="n">Tuner</span>
+<a id="__codelineno-0-701" name="__codelineno-0-701"></a>
+<a id="__codelineno-0-702" name="__codelineno-0-702"></a>            <span class="n">custom</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># method defaults</span>
+<a id="__codelineno-0-703" name="__codelineno-0-703"></a>            <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"train"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
+<a id="__codelineno-0-704" name="__codelineno-0-704"></a>            <span class="k">return</span> <span class="n">Tuner</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span>
+<a id="__codelineno-0-705" name="__codelineno-0-705"></a>
+<a id="__codelineno-0-706" name="__codelineno-0-706"></a>    <span class="k">def</span> <span class="nf">_apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Model"</span><span class="p">:</span>
+<a id="__codelineno-0-707" name="__codelineno-0-707"></a><span class="w">        </span><span class="sd">"""Apply to(), cpu(), cuda(), half(), float() to model tensors that are not parameters or registered buffers."""</span>
+<a id="__codelineno-0-708" name="__codelineno-0-708"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
+<a id="__codelineno-0-709" name="__codelineno-0-709"></a>        <span class="bp">self</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_apply</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-710" name="__codelineno-0-710"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># reset predictor as device may have changed</span>
+<a id="__codelineno-0-711" name="__codelineno-0-711"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">[</span><span class="s2">"device"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span>  <span class="c1"># was str(self.device) i.e. device(type='cuda', index=0) -&gt; 'cuda:0'</span>
+<a id="__codelineno-0-712" name="__codelineno-0-712"></a>        <span class="k">return</span> <span class="bp">self</span>
+<a id="__codelineno-0-713" name="__codelineno-0-713"></a>
+<a id="__codelineno-0-714" name="__codelineno-0-714"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-715" name="__codelineno-0-715"></a>    <span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<a id="__codelineno-0-716" name="__codelineno-0-716"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-717" name="__codelineno-0-717"></a><span class="sd">        Retrieves the class names associated with the loaded model.</span>
+<a id="__codelineno-0-718" name="__codelineno-0-718"></a>
+<a id="__codelineno-0-719" name="__codelineno-0-719"></a><span class="sd">        This property returns the class names if they are defined in the model. It checks the class names for validity</span>
+<a id="__codelineno-0-720" name="__codelineno-0-720"></a><span class="sd">        using the 'check_class_names' function from the ultralytics.nn.autobackend module.</span>
+<a id="__codelineno-0-721" name="__codelineno-0-721"></a>
+<a id="__codelineno-0-722" name="__codelineno-0-722"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-723" name="__codelineno-0-723"></a><span class="sd">            (list | None): The class names of the model if available, otherwise None.</span>
+<a id="__codelineno-0-724" name="__codelineno-0-724"></a><span class="sd">        """</span>
+<a id="__codelineno-0-725" name="__codelineno-0-725"></a>        <span class="kn">from</span> <span class="nn">ultralytics.nn.autobackend</span> <span class="kn">import</span> <span class="n">check_class_names</span>
+<a id="__codelineno-0-726" name="__codelineno-0-726"></a>
+<a id="__codelineno-0-727" name="__codelineno-0-727"></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"names"</span><span class="p">):</span>
+<a id="__codelineno-0-728" name="__codelineno-0-728"></a>            <span class="k">return</span> <span class="n">check_class_names</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+<a id="__codelineno-0-729" name="__codelineno-0-729"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">:</span>  <span class="c1"># export formats will not have predictor defined until predict() is called</span>
+<a id="__codelineno-0-730" name="__codelineno-0-730"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_smart_load</span><span class="p">(</span><span class="s2">"predictor"</span><span class="p">)(</span><span class="n">overrides</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
+<a id="__codelineno-0-731" name="__codelineno-0-731"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">setup_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-732" name="__codelineno-0-732"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span>
+<a id="__codelineno-0-733" name="__codelineno-0-733"></a>
+<a id="__codelineno-0-734" name="__codelineno-0-734"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-735" name="__codelineno-0-735"></a>    <span class="k">def</span> <span class="nf">device</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">:</span>
+<a id="__codelineno-0-736" name="__codelineno-0-736"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-737" name="__codelineno-0-737"></a><span class="sd">        Retrieves the device on which the model's parameters are allocated.</span>
+<a id="__codelineno-0-738" name="__codelineno-0-738"></a>
+<a id="__codelineno-0-739" name="__codelineno-0-739"></a><span class="sd">        This property is used to determine whether the model's parameters are on CPU or GPU. It only applies to models</span>
+<a id="__codelineno-0-740" name="__codelineno-0-740"></a><span class="sd">        that are instances of nn.Module.</span>
+<a id="__codelineno-0-741" name="__codelineno-0-741"></a>
+<a id="__codelineno-0-742" name="__codelineno-0-742"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-743" name="__codelineno-0-743"></a><span class="sd">            (torch.device | None): The device (CPU/GPU) of the model if it is a PyTorch model, otherwise None.</span>
+<a id="__codelineno-0-744" name="__codelineno-0-744"></a><span class="sd">        """</span>
+<a id="__codelineno-0-745" name="__codelineno-0-745"></a>        <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-746" name="__codelineno-0-746"></a>
+<a id="__codelineno-0-747" name="__codelineno-0-747"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-748" name="__codelineno-0-748"></a>    <span class="k">def</span> <span class="nf">transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-749" name="__codelineno-0-749"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-750" name="__codelineno-0-750"></a><span class="sd">        Retrieves the transformations applied to the input data of the loaded model.</span>
+<a id="__codelineno-0-751" name="__codelineno-0-751"></a>
+<a id="__codelineno-0-752" name="__codelineno-0-752"></a><span class="sd">        This property returns the transformations if they are defined in the model.</span>
+<a id="__codelineno-0-753" name="__codelineno-0-753"></a>
+<a id="__codelineno-0-754" name="__codelineno-0-754"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-755" name="__codelineno-0-755"></a><span class="sd">            (object | None): The transform object of the model if available, otherwise None.</span>
+<a id="__codelineno-0-756" name="__codelineno-0-756"></a><span class="sd">        """</span>
+<a id="__codelineno-0-757" name="__codelineno-0-757"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transforms</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"transforms"</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-758" name="__codelineno-0-758"></a>
+<a id="__codelineno-0-759" name="__codelineno-0-759"></a>    <span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-760" name="__codelineno-0-760"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-761" name="__codelineno-0-761"></a><span class="sd">        Adds a callback function for a specified event.</span>
+<a id="__codelineno-0-762" name="__codelineno-0-762"></a>
+<a id="__codelineno-0-763" name="__codelineno-0-763"></a><span class="sd">        This method allows the user to register a custom callback function that is triggered on a specific event during</span>
+<a id="__codelineno-0-764" name="__codelineno-0-764"></a><span class="sd">        model training or inference.</span>
+<a id="__codelineno-0-765" name="__codelineno-0-765"></a>
+<a id="__codelineno-0-766" name="__codelineno-0-766"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-767" name="__codelineno-0-767"></a><span class="sd">            event (str): The name of the event to attach the callback to.</span>
+<a id="__codelineno-0-768" name="__codelineno-0-768"></a><span class="sd">            func (callable): The callback function to be registered.</span>
+<a id="__codelineno-0-769" name="__codelineno-0-769"></a>
+<a id="__codelineno-0-770" name="__codelineno-0-770"></a><span class="sd">        Raises:</span>
+<a id="__codelineno-0-771" name="__codelineno-0-771"></a><span class="sd">            ValueError: If the event name is not recognized.</span>
+<a id="__codelineno-0-772" name="__codelineno-0-772"></a><span class="sd">        """</span>
+<a id="__codelineno-0-773" name="__codelineno-0-773"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
 <a id="__codelineno-0-774" name="__codelineno-0-774"></a>
-<a id="__codelineno-0-775" name="__codelineno-0-775"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-776" name="__codelineno-0-776"></a><span class="sd">            event (str): The name of the event for which to clear the callbacks.</span>
-<a id="__codelineno-0-777" name="__codelineno-0-777"></a>
-<a id="__codelineno-0-778" name="__codelineno-0-778"></a><span class="sd">        Raises:</span>
-<a id="__codelineno-0-779" name="__codelineno-0-779"></a><span class="sd">            ValueError: If the event name is not recognized.</span>
-<a id="__codelineno-0-780" name="__codelineno-0-780"></a><span class="sd">        """</span>
-<a id="__codelineno-0-781" name="__codelineno-0-781"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-782" name="__codelineno-0-782"></a>
-<a id="__codelineno-0-783" name="__codelineno-0-783"></a>    <span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-784" name="__codelineno-0-784"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-785" name="__codelineno-0-785"></a><span class="sd">        Resets all callbacks to their default functions.</span>
-<a id="__codelineno-0-786" name="__codelineno-0-786"></a>
-<a id="__codelineno-0-787" name="__codelineno-0-787"></a><span class="sd">        This method reinstates the default callback functions for all events, removing any custom callbacks that were</span>
-<a id="__codelineno-0-788" name="__codelineno-0-788"></a><span class="sd">        added previously.</span>
-<a id="__codelineno-0-789" name="__codelineno-0-789"></a><span class="sd">        """</span>
-<a id="__codelineno-0-790" name="__codelineno-0-790"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<a id="__codelineno-0-791" name="__codelineno-0-791"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+<a id="__codelineno-0-775" name="__codelineno-0-775"></a>    <span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-776" name="__codelineno-0-776"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-777" name="__codelineno-0-777"></a><span class="sd">        Clears all callback functions registered for a specified event.</span>
+<a id="__codelineno-0-778" name="__codelineno-0-778"></a>
+<a id="__codelineno-0-779" name="__codelineno-0-779"></a><span class="sd">        This method removes all custom and default callback functions associated with the given event.</span>
+<a id="__codelineno-0-780" name="__codelineno-0-780"></a>
+<a id="__codelineno-0-781" name="__codelineno-0-781"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-782" name="__codelineno-0-782"></a><span class="sd">            event (str): The name of the event for which to clear the callbacks.</span>
+<a id="__codelineno-0-783" name="__codelineno-0-783"></a>
+<a id="__codelineno-0-784" name="__codelineno-0-784"></a><span class="sd">        Raises:</span>
+<a id="__codelineno-0-785" name="__codelineno-0-785"></a><span class="sd">            ValueError: If the event name is not recognized.</span>
+<a id="__codelineno-0-786" name="__codelineno-0-786"></a><span class="sd">        """</span>
+<a id="__codelineno-0-787" name="__codelineno-0-787"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-788" name="__codelineno-0-788"></a>
+<a id="__codelineno-0-789" name="__codelineno-0-789"></a>    <span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-790" name="__codelineno-0-790"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-791" name="__codelineno-0-791"></a><span class="sd">        Resets all callbacks to their default functions.</span>
 <a id="__codelineno-0-792" name="__codelineno-0-792"></a>
-<a id="__codelineno-0-793" name="__codelineno-0-793"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-794" name="__codelineno-0-794"></a>    <span class="k">def</span> <span class="nf">_reset_ckpt_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<a id="__codelineno-0-795" name="__codelineno-0-795"></a><span class="w">        </span><span class="sd">"""Reset arguments when loading a PyTorch model."""</span>
-<a id="__codelineno-0-796" name="__codelineno-0-796"></a>        <span class="n">include</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"imgsz"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"task"</span><span class="p">,</span> <span class="s2">"single_cls"</span><span class="p">}</span>  <span class="c1"># only remember these arguments when loading a PyTorch model</span>
-<a id="__codelineno-0-797" name="__codelineno-0-797"></a>        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">include</span><span class="p">}</span>
+<a id="__codelineno-0-793" name="__codelineno-0-793"></a><span class="sd">        This method reinstates the default callback functions for all events, removing any custom callbacks that were</span>
+<a id="__codelineno-0-794" name="__codelineno-0-794"></a><span class="sd">        added previously.</span>
+<a id="__codelineno-0-795" name="__codelineno-0-795"></a><span class="sd">        """</span>
+<a id="__codelineno-0-796" name="__codelineno-0-796"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-0-797" name="__codelineno-0-797"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
 <a id="__codelineno-0-798" name="__codelineno-0-798"></a>
-<a id="__codelineno-0-799" name="__codelineno-0-799"></a>    <span class="c1"># def __getattr__(self, attr):</span>
-<a id="__codelineno-0-800" name="__codelineno-0-800"></a>    <span class="c1">#    """Raises error if object has no requested attribute."""</span>
-<a id="__codelineno-0-801" name="__codelineno-0-801"></a>    <span class="c1">#    name = self.__class__.__name__</span>
-<a id="__codelineno-0-802" name="__codelineno-0-802"></a>    <span class="c1">#    raise AttributeError(f"'{name}' object has no attribute '{attr}'. See valid attributes below.\n{self.__doc__}")</span>
-<a id="__codelineno-0-803" name="__codelineno-0-803"></a>
-<a id="__codelineno-0-804" name="__codelineno-0-804"></a>    <span class="k">def</span> <span class="nf">_smart_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-0-805" name="__codelineno-0-805"></a><span class="w">        </span><span class="sd">"""Load model/trainer/validator/predictor."""</span>
-<a id="__codelineno-0-806" name="__codelineno-0-806"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-807" name="__codelineno-0-807"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_map</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
-<a id="__codelineno-0-808" name="__codelineno-0-808"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-809" name="__codelineno-0-809"></a>            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
-<a id="__codelineno-0-810" name="__codelineno-0-810"></a>            <span class="n">mode</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># get the function name.</span>
-<a id="__codelineno-0-811" name="__codelineno-0-811"></a>            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-<a id="__codelineno-0-812" name="__codelineno-0-812"></a>                <span class="n">emojis</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">' model does not support '</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">' mode for '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' task yet."</span><span class="p">)</span>
-<a id="__codelineno-0-813" name="__codelineno-0-813"></a>            <span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<a id="__codelineno-0-814" name="__codelineno-0-814"></a>
-<a id="__codelineno-0-815" name="__codelineno-0-815"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-816" name="__codelineno-0-816"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<a id="__codelineno-0-817" name="__codelineno-0-817"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-818" name="__codelineno-0-818"></a><span class="sd">        Map head to model, trainer, validator, and predictor classes.</span>
-<a id="__codelineno-0-819" name="__codelineno-0-819"></a>
-<a id="__codelineno-0-820" name="__codelineno-0-820"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-821" name="__codelineno-0-821"></a><span class="sd">            task_map (dict): The map of model task to mode classes.</span>
-<a id="__codelineno-0-822" name="__codelineno-0-822"></a><span class="sd">        """</span>
-<a id="__codelineno-0-823" name="__codelineno-0-823"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Please provide task map for your model!"</span><span class="p">)</span>
+<a id="__codelineno-0-799" name="__codelineno-0-799"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-0-800" name="__codelineno-0-800"></a>    <span class="k">def</span> <span class="nf">_reset_ckpt_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-0-801" name="__codelineno-0-801"></a><span class="w">        </span><span class="sd">"""Reset arguments when loading a PyTorch model."""</span>
+<a id="__codelineno-0-802" name="__codelineno-0-802"></a>        <span class="n">include</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"imgsz"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"task"</span><span class="p">,</span> <span class="s2">"single_cls"</span><span class="p">}</span>  <span class="c1"># only remember these arguments when loading a PyTorch model</span>
+<a id="__codelineno-0-803" name="__codelineno-0-803"></a>        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">include</span><span class="p">}</span>
+<a id="__codelineno-0-804" name="__codelineno-0-804"></a>
+<a id="__codelineno-0-805" name="__codelineno-0-805"></a>    <span class="c1"># def __getattr__(self, attr):</span>
+<a id="__codelineno-0-806" name="__codelineno-0-806"></a>    <span class="c1">#    """Raises error if object has no requested attribute."""</span>
+<a id="__codelineno-0-807" name="__codelineno-0-807"></a>    <span class="c1">#    name = self.__class__.__name__</span>
+<a id="__codelineno-0-808" name="__codelineno-0-808"></a>    <span class="c1">#    raise AttributeError(f"'{name}' object has no attribute '{attr}'. See valid attributes below.\n{self.__doc__}")</span>
+<a id="__codelineno-0-809" name="__codelineno-0-809"></a>
+<a id="__codelineno-0-810" name="__codelineno-0-810"></a>    <span class="k">def</span> <span class="nf">_smart_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-0-811" name="__codelineno-0-811"></a><span class="w">        </span><span class="sd">"""Load model/trainer/validator/predictor."""</span>
+<a id="__codelineno-0-812" name="__codelineno-0-812"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-813" name="__codelineno-0-813"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_map</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+<a id="__codelineno-0-814" name="__codelineno-0-814"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-0-815" name="__codelineno-0-815"></a>            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+<a id="__codelineno-0-816" name="__codelineno-0-816"></a>            <span class="n">mode</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># get the function name.</span>
+<a id="__codelineno-0-817" name="__codelineno-0-817"></a>            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+<a id="__codelineno-0-818" name="__codelineno-0-818"></a>                <span class="n">emojis</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">' model does not support '</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">' mode for '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' task yet."</span><span class="p">)</span>
+<a id="__codelineno-0-819" name="__codelineno-0-819"></a>            <span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<a id="__codelineno-0-820" name="__codelineno-0-820"></a>
+<a id="__codelineno-0-821" name="__codelineno-0-821"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-822" name="__codelineno-0-822"></a>    <span class="k">def</span> <span class="nf">task_map</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-0-823" name="__codelineno-0-823"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-824" name="__codelineno-0-824"></a><span class="sd">        Map head to model, trainer, validator, and predictor classes.</span>
+<a id="__codelineno-0-825" name="__codelineno-0-825"></a>
+<a id="__codelineno-0-826" name="__codelineno-0-826"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-827" name="__codelineno-0-827"></a><span class="sd">            task_map (dict): The map of model task to mode classes.</span>
+<a id="__codelineno-0-828" name="__codelineno-0-828"></a><span class="sd">        """</span>
+<a id="__codelineno-0-829" name="__codelineno-0-829"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Please provide task map for your model!"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -4063,13 +4075,7 @@ model training or inference.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-753">753</a></span>
-<span class="normal"><a href="#__codelineno-0-754">754</a></span>
-<span class="normal"><a href="#__codelineno-0-755">755</a></span>
-<span class="normal"><a href="#__codelineno-0-756">756</a></span>
-<span class="normal"><a href="#__codelineno-0-757">757</a></span>
-<span class="normal"><a href="#__codelineno-0-758">758</a></span>
-<span class="normal"><a href="#__codelineno-0-759">759</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-759">759</a></span>
 <span class="normal"><a href="#__codelineno-0-760">760</a></span>
 <span class="normal"><a href="#__codelineno-0-761">761</a></span>
 <span class="normal"><a href="#__codelineno-0-762">762</a></span>
@@ -4077,21 +4083,27 @@ model training or inference.</p>
 <span class="normal"><a href="#__codelineno-0-764">764</a></span>
 <span class="normal"><a href="#__codelineno-0-765">765</a></span>
 <span class="normal"><a href="#__codelineno-0-766">766</a></span>
-<span class="normal"><a href="#__codelineno-0-767">767</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-753" name="__codelineno-0-753"></a><span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-754" name="__codelineno-0-754"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-755" name="__codelineno-0-755"></a><span class="sd">    Adds a callback function for a specified event.</span>
-<a id="__codelineno-0-756" name="__codelineno-0-756"></a>
-<a id="__codelineno-0-757" name="__codelineno-0-757"></a><span class="sd">    This method allows the user to register a custom callback function that is triggered on a specific event during</span>
-<a id="__codelineno-0-758" name="__codelineno-0-758"></a><span class="sd">    model training or inference.</span>
-<a id="__codelineno-0-759" name="__codelineno-0-759"></a>
-<a id="__codelineno-0-760" name="__codelineno-0-760"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-761" name="__codelineno-0-761"></a><span class="sd">        event (str): The name of the event to attach the callback to.</span>
-<a id="__codelineno-0-762" name="__codelineno-0-762"></a><span class="sd">        func (callable): The callback function to be registered.</span>
-<a id="__codelineno-0-763" name="__codelineno-0-763"></a>
-<a id="__codelineno-0-764" name="__codelineno-0-764"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-765" name="__codelineno-0-765"></a><span class="sd">        ValueError: If the event name is not recognized.</span>
-<a id="__codelineno-0-766" name="__codelineno-0-766"></a><span class="sd">    """</span>
-<a id="__codelineno-0-767" name="__codelineno-0-767"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-767">767</a></span>
+<span class="normal"><a href="#__codelineno-0-768">768</a></span>
+<span class="normal"><a href="#__codelineno-0-769">769</a></span>
+<span class="normal"><a href="#__codelineno-0-770">770</a></span>
+<span class="normal"><a href="#__codelineno-0-771">771</a></span>
+<span class="normal"><a href="#__codelineno-0-772">772</a></span>
+<span class="normal"><a href="#__codelineno-0-773">773</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-759" name="__codelineno-0-759"></a><span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-760" name="__codelineno-0-760"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-761" name="__codelineno-0-761"></a><span class="sd">    Adds a callback function for a specified event.</span>
+<a id="__codelineno-0-762" name="__codelineno-0-762"></a>
+<a id="__codelineno-0-763" name="__codelineno-0-763"></a><span class="sd">    This method allows the user to register a custom callback function that is triggered on a specific event during</span>
+<a id="__codelineno-0-764" name="__codelineno-0-764"></a><span class="sd">    model training or inference.</span>
+<a id="__codelineno-0-765" name="__codelineno-0-765"></a>
+<a id="__codelineno-0-766" name="__codelineno-0-766"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-767" name="__codelineno-0-767"></a><span class="sd">        event (str): The name of the event to attach the callback to.</span>
+<a id="__codelineno-0-768" name="__codelineno-0-768"></a><span class="sd">        func (callable): The callback function to be registered.</span>
+<a id="__codelineno-0-769" name="__codelineno-0-769"></a>
+<a id="__codelineno-0-770" name="__codelineno-0-770"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-771" name="__codelineno-0-771"></a><span class="sd">        ValueError: If the event name is not recognized.</span>
+<a id="__codelineno-0-772" name="__codelineno-0-772"></a><span class="sd">    """</span>
+<a id="__codelineno-0-773" name="__codelineno-0-773"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4321,31 +4333,31 @@ default configurations, model-specific arguments, and method defaults.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-769">769</a></span>
-<span class="normal"><a href="#__codelineno-0-770">770</a></span>
-<span class="normal"><a href="#__codelineno-0-771">771</a></span>
-<span class="normal"><a href="#__codelineno-0-772">772</a></span>
-<span class="normal"><a href="#__codelineno-0-773">773</a></span>
-<span class="normal"><a href="#__codelineno-0-774">774</a></span>
-<span class="normal"><a href="#__codelineno-0-775">775</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-775">775</a></span>
 <span class="normal"><a href="#__codelineno-0-776">776</a></span>
 <span class="normal"><a href="#__codelineno-0-777">777</a></span>
 <span class="normal"><a href="#__codelineno-0-778">778</a></span>
 <span class="normal"><a href="#__codelineno-0-779">779</a></span>
 <span class="normal"><a href="#__codelineno-0-780">780</a></span>
-<span class="normal"><a href="#__codelineno-0-781">781</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-769" name="__codelineno-0-769"></a><span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-770" name="__codelineno-0-770"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-771" name="__codelineno-0-771"></a><span class="sd">    Clears all callback functions registered for a specified event.</span>
-<a id="__codelineno-0-772" name="__codelineno-0-772"></a>
-<a id="__codelineno-0-773" name="__codelineno-0-773"></a><span class="sd">    This method removes all custom and default callback functions associated with the given event.</span>
-<a id="__codelineno-0-774" name="__codelineno-0-774"></a>
-<a id="__codelineno-0-775" name="__codelineno-0-775"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-776" name="__codelineno-0-776"></a><span class="sd">        event (str): The name of the event for which to clear the callbacks.</span>
-<a id="__codelineno-0-777" name="__codelineno-0-777"></a>
-<a id="__codelineno-0-778" name="__codelineno-0-778"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-779" name="__codelineno-0-779"></a><span class="sd">        ValueError: If the event name is not recognized.</span>
-<a id="__codelineno-0-780" name="__codelineno-0-780"></a><span class="sd">    """</span>
-<a id="__codelineno-0-781" name="__codelineno-0-781"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="normal"><a href="#__codelineno-0-781">781</a></span>
+<span class="normal"><a href="#__codelineno-0-782">782</a></span>
+<span class="normal"><a href="#__codelineno-0-783">783</a></span>
+<span class="normal"><a href="#__codelineno-0-784">784</a></span>
+<span class="normal"><a href="#__codelineno-0-785">785</a></span>
+<span class="normal"><a href="#__codelineno-0-786">786</a></span>
+<span class="normal"><a href="#__codelineno-0-787">787</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-775" name="__codelineno-0-775"></a><span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-776" name="__codelineno-0-776"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-777" name="__codelineno-0-777"></a><span class="sd">    Clears all callback functions registered for a specified event.</span>
+<a id="__codelineno-0-778" name="__codelineno-0-778"></a>
+<a id="__codelineno-0-779" name="__codelineno-0-779"></a><span class="sd">    This method removes all custom and default callback functions associated with the given event.</span>
+<a id="__codelineno-0-780" name="__codelineno-0-780"></a>
+<a id="__codelineno-0-781" name="__codelineno-0-781"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-782" name="__codelineno-0-782"></a><span class="sd">        event (str): The name of the event for which to clear the callbacks.</span>
+<a id="__codelineno-0-783" name="__codelineno-0-783"></a>
+<a id="__codelineno-0-784" name="__codelineno-0-784"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-785" name="__codelineno-0-785"></a><span class="sd">        ValueError: If the event name is not recognized.</span>
+<a id="__codelineno-0-786" name="__codelineno-0-786"></a><span class="sd">    """</span>
+<a id="__codelineno-0-787" name="__codelineno-0-787"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4627,7 +4639,13 @@ model's overrides and method defaults.</p>
 <span class="normal"><a href="#__codelineno-0-590">590</a></span>
 <span class="normal"><a href="#__codelineno-0-591">591</a></span>
 <span class="normal"><a href="#__codelineno-0-592">592</a></span>
-<span class="normal"><a href="#__codelineno-0-593">593</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-564" name="__codelineno-0-564"></a><span class="k">def</span> <span class="nf">export</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-593">593</a></span>
+<span class="normal"><a href="#__codelineno-0-594">594</a></span>
+<span class="normal"><a href="#__codelineno-0-595">595</a></span>
+<span class="normal"><a href="#__codelineno-0-596">596</a></span>
+<span class="normal"><a href="#__codelineno-0-597">597</a></span>
+<span class="normal"><a href="#__codelineno-0-598">598</a></span>
+<span class="normal"><a href="#__codelineno-0-599">599</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-564" name="__codelineno-0-564"></a><span class="k">def</span> <span class="nf">export</span><span class="p">(</span>
 <a id="__codelineno-0-565" name="__codelineno-0-565"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-566" name="__codelineno-0-566"></a>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <a id="__codelineno-0-567" name="__codelineno-0-567"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -4654,9 +4672,15 @@ model's overrides and method defaults.</p>
 <a id="__codelineno-0-588" name="__codelineno-0-588"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
 <a id="__codelineno-0-589" name="__codelineno-0-589"></a>    <span class="kn">from</span> <span class="nn">.exporter</span> <span class="kn">import</span> <span class="n">Exporter</span>
 <a id="__codelineno-0-590" name="__codelineno-0-590"></a>
-<a id="__codelineno-0-591" name="__codelineno-0-591"></a>    <span class="n">custom</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"imgsz"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">"imgsz"</span><span class="p">],</span> <span class="s2">"batch"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"verbose"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>  <span class="c1"># method defaults</span>
-<a id="__codelineno-0-592" name="__codelineno-0-592"></a>    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"export"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
-<a id="__codelineno-0-593" name="__codelineno-0-593"></a>    <span class="k">return</span> <span class="n">Exporter</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-0-591" name="__codelineno-0-591"></a>    <span class="n">custom</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-592" name="__codelineno-0-592"></a>        <span class="s2">"imgsz"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">"imgsz"</span><span class="p">],</span>
+<a id="__codelineno-0-593" name="__codelineno-0-593"></a>        <span class="s2">"batch"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-594" name="__codelineno-0-594"></a>        <span class="s2">"data"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-595" name="__codelineno-0-595"></a>        <span class="s2">"device"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># reset to avoid multi-GPU errors</span>
+<a id="__codelineno-0-596" name="__codelineno-0-596"></a>        <span class="s2">"verbose"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-597" name="__codelineno-0-597"></a>    <span class="p">}</span>  <span class="c1"># method defaults</span>
+<a id="__codelineno-0-598" name="__codelineno-0-598"></a>    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"export"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
+<a id="__codelineno-0-599" name="__codelineno-0-599"></a>    <span class="k">return</span> <span class="n">Exporter</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5293,23 +5317,23 @@ for further customization of the prediction behavior.</p>
 added previously.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-783">783</a></span>
-<span class="normal"><a href="#__codelineno-0-784">784</a></span>
-<span class="normal"><a href="#__codelineno-0-785">785</a></span>
-<span class="normal"><a href="#__codelineno-0-786">786</a></span>
-<span class="normal"><a href="#__codelineno-0-787">787</a></span>
-<span class="normal"><a href="#__codelineno-0-788">788</a></span>
-<span class="normal"><a href="#__codelineno-0-789">789</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-789">789</a></span>
 <span class="normal"><a href="#__codelineno-0-790">790</a></span>
-<span class="normal"><a href="#__codelineno-0-791">791</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-783" name="__codelineno-0-783"></a><span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-784" name="__codelineno-0-784"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-785" name="__codelineno-0-785"></a><span class="sd">    Resets all callbacks to their default functions.</span>
-<a id="__codelineno-0-786" name="__codelineno-0-786"></a>
-<a id="__codelineno-0-787" name="__codelineno-0-787"></a><span class="sd">    This method reinstates the default callback functions for all events, removing any custom callbacks that were</span>
-<a id="__codelineno-0-788" name="__codelineno-0-788"></a><span class="sd">    added previously.</span>
-<a id="__codelineno-0-789" name="__codelineno-0-789"></a><span class="sd">    """</span>
-<a id="__codelineno-0-790" name="__codelineno-0-790"></a>    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<a id="__codelineno-0-791" name="__codelineno-0-791"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+<span class="normal"><a href="#__codelineno-0-791">791</a></span>
+<span class="normal"><a href="#__codelineno-0-792">792</a></span>
+<span class="normal"><a href="#__codelineno-0-793">793</a></span>
+<span class="normal"><a href="#__codelineno-0-794">794</a></span>
+<span class="normal"><a href="#__codelineno-0-795">795</a></span>
+<span class="normal"><a href="#__codelineno-0-796">796</a></span>
+<span class="normal"><a href="#__codelineno-0-797">797</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-789" name="__codelineno-0-789"></a><span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-790" name="__codelineno-0-790"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-791" name="__codelineno-0-791"></a><span class="sd">    Resets all callbacks to their default functions.</span>
+<a id="__codelineno-0-792" name="__codelineno-0-792"></a>
+<a id="__codelineno-0-793" name="__codelineno-0-793"></a><span class="sd">    This method reinstates the default callback functions for all events, removing any custom callbacks that were</span>
+<a id="__codelineno-0-794" name="__codelineno-0-794"></a><span class="sd">    added previously.</span>
+<a id="__codelineno-0-795" name="__codelineno-0-795"></a><span class="sd">    """</span>
+<a id="__codelineno-0-796" name="__codelineno-0-796"></a>    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-0-797" name="__codelineno-0-797"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callbacks</span><span class="o">.</span><span class="n">default_callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5868,13 +5892,7 @@ used to customize various aspects of the training process.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-595">595</a></span>
-<span class="normal"><a href="#__codelineno-0-596">596</a></span>
-<span class="normal"><a href="#__codelineno-0-597">597</a></span>
-<span class="normal"><a href="#__codelineno-0-598">598</a></span>
-<span class="normal"><a href="#__codelineno-0-599">599</a></span>
-<span class="normal"><a href="#__codelineno-0-600">600</a></span>
-<span class="normal"><a href="#__codelineno-0-601">601</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-601">601</a></span>
 <span class="normal"><a href="#__codelineno-0-602">602</a></span>
 <span class="normal"><a href="#__codelineno-0-603">603</a></span>
 <span class="normal"><a href="#__codelineno-0-604">604</a></span>
@@ -5932,71 +5950,77 @@ used to customize various aspects of the training process.</p>
 <span class="normal"><a href="#__codelineno-0-656">656</a></span>
 <span class="normal"><a href="#__codelineno-0-657">657</a></span>
 <span class="normal"><a href="#__codelineno-0-658">658</a></span>
-<span class="normal"><a href="#__codelineno-0-659">659</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-595" name="__codelineno-0-595"></a><span class="k">def</span> <span class="nf">train</span><span class="p">(</span>
-<a id="__codelineno-0-596" name="__codelineno-0-596"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-597" name="__codelineno-0-597"></a>    <span class="n">trainer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-598" name="__codelineno-0-598"></a>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<a id="__codelineno-0-599" name="__codelineno-0-599"></a><span class="p">):</span>
-<a id="__codelineno-0-600" name="__codelineno-0-600"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-601" name="__codelineno-0-601"></a><span class="sd">    Trains the model using the specified dataset and training configuration.</span>
-<a id="__codelineno-0-602" name="__codelineno-0-602"></a>
-<a id="__codelineno-0-603" name="__codelineno-0-603"></a><span class="sd">    This method facilitates model training with a range of customizable settings and configurations. It supports</span>
-<a id="__codelineno-0-604" name="__codelineno-0-604"></a><span class="sd">    training with a custom trainer or the default training approach defined in the method. The method handles</span>
-<a id="__codelineno-0-605" name="__codelineno-0-605"></a><span class="sd">    different scenarios, such as resuming training from a checkpoint, integrating with Ultralytics HUB, and</span>
-<a id="__codelineno-0-606" name="__codelineno-0-606"></a><span class="sd">    updating model and configuration after training.</span>
-<a id="__codelineno-0-607" name="__codelineno-0-607"></a>
-<a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="sd">    When using Ultralytics HUB, if the session already has a loaded model, the method prioritizes HUB training</span>
-<a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">    arguments and issues a warning if local arguments are provided. It checks for pip updates and combines default</span>
-<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">    configurations, method-specific defaults, and user-provided arguments to configure the training process. After</span>
-<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">    training, it updates the model and its configurations, and optionally attaches metrics.</span>
-<a id="__codelineno-0-612" name="__codelineno-0-612"></a>
-<a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="sd">        trainer (BaseTrainer, optional): An instance of a custom trainer class for training the model. If None, the</span>
-<a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="sd">            method uses a default trainer. Defaults to None.</span>
-<a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="sd">        **kwargs (any): Arbitrary keyword arguments representing the training configuration. These arguments are</span>
-<a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="sd">            used to customize various aspects of the training process.</span>
+<span class="normal"><a href="#__codelineno-0-659">659</a></span>
+<span class="normal"><a href="#__codelineno-0-660">660</a></span>
+<span class="normal"><a href="#__codelineno-0-661">661</a></span>
+<span class="normal"><a href="#__codelineno-0-662">662</a></span>
+<span class="normal"><a href="#__codelineno-0-663">663</a></span>
+<span class="normal"><a href="#__codelineno-0-664">664</a></span>
+<span class="normal"><a href="#__codelineno-0-665">665</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-601" name="__codelineno-0-601"></a><span class="k">def</span> <span class="nf">train</span><span class="p">(</span>
+<a id="__codelineno-0-602" name="__codelineno-0-602"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-603" name="__codelineno-0-603"></a>    <span class="n">trainer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-604" name="__codelineno-0-604"></a>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<a id="__codelineno-0-605" name="__codelineno-0-605"></a><span class="p">):</span>
+<a id="__codelineno-0-606" name="__codelineno-0-606"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="sd">    Trains the model using the specified dataset and training configuration.</span>
+<a id="__codelineno-0-608" name="__codelineno-0-608"></a>
+<a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">    This method facilitates model training with a range of customizable settings and configurations. It supports</span>
+<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">    training with a custom trainer or the default training approach defined in the method. The method handles</span>
+<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">    different scenarios, such as resuming training from a checkpoint, integrating with Ultralytics HUB, and</span>
+<a id="__codelineno-0-612" name="__codelineno-0-612"></a><span class="sd">    updating model and configuration after training.</span>
+<a id="__codelineno-0-613" name="__codelineno-0-613"></a>
+<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="sd">    When using Ultralytics HUB, if the session already has a loaded model, the method prioritizes HUB training</span>
+<a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="sd">    arguments and issues a warning if local arguments are provided. It checks for pip updates and combines default</span>
+<a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="sd">    configurations, method-specific defaults, and user-provided arguments to configure the training process. After</span>
+<a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="sd">    training, it updates the model and its configurations, and optionally attaches metrics.</span>
 <a id="__codelineno-0-618" name="__codelineno-0-618"></a>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a><span class="sd">        (dict | None): Training metrics if available and training is successful; otherwise, None.</span>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a>
-<a id="__codelineno-0-622" name="__codelineno-0-622"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-623" name="__codelineno-0-623"></a><span class="sd">        AssertionError: If the model is not a PyTorch model.</span>
-<a id="__codelineno-0-624" name="__codelineno-0-624"></a><span class="sd">        PermissionError: If there is a permission issue with the HUB session.</span>
-<a id="__codelineno-0-625" name="__codelineno-0-625"></a><span class="sd">        ModuleNotFoundError: If the HUB SDK is not installed.</span>
-<a id="__codelineno-0-626" name="__codelineno-0-626"></a><span class="sd">    """</span>
-<a id="__codelineno-0-627" name="__codelineno-0-627"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
-<a id="__codelineno-0-628" name="__codelineno-0-628"></a>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>  <span class="c1"># Ultralytics HUB session with loaded model</span>
-<a id="__codelineno-0-629" name="__codelineno-0-629"></a>        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-630" name="__codelineno-0-630"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"WARNING ⚠️ using HUB training arguments, ignoring local training arguments."</span><span class="p">)</span>
-<a id="__codelineno-0-631" name="__codelineno-0-631"></a>        <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">train_args</span>  <span class="c1"># overwrite kwargs</span>
-<a id="__codelineno-0-632" name="__codelineno-0-632"></a>
-<a id="__codelineno-0-633" name="__codelineno-0-633"></a>    <span class="n">checks</span><span class="o">.</span><span class="n">check_pip_update_available</span><span class="p">()</span>
-<a id="__codelineno-0-634" name="__codelineno-0-634"></a>
-<a id="__codelineno-0-635" name="__codelineno-0-635"></a>    <span class="n">overrides</span> <span class="o">=</span> <span class="n">yaml_load</span><span class="p">(</span><span class="n">checks</span><span class="o">.</span><span class="n">check_yaml</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">"cfg"</span><span class="p">]))</span> <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"cfg"</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span>
-<a id="__codelineno-0-636" name="__codelineno-0-636"></a>    <span class="n">custom</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-637" name="__codelineno-0-637"></a>        <span class="c1"># NOTE: handle the case when 'cfg' includes 'data'.</span>
-<a id="__codelineno-0-638" name="__codelineno-0-638"></a>        <span class="s2">"data"</span><span class="p">:</span> <span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">DEFAULT_CFG_DICT</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="ow">or</span> <span class="n">TASK2DATA</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">],</span>
-<a id="__codelineno-0-639" name="__codelineno-0-639"></a>        <span class="s2">"model"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span>
-<a id="__codelineno-0-640" name="__codelineno-0-640"></a>        <span class="s2">"task"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">,</span>
-<a id="__codelineno-0-641" name="__codelineno-0-641"></a>    <span class="p">}</span>  <span class="c1"># method defaults</span>
-<a id="__codelineno-0-642" name="__codelineno-0-642"></a>    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"train"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
-<a id="__codelineno-0-643" name="__codelineno-0-643"></a>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"resume"</span><span class="p">):</span>
-<a id="__codelineno-0-644" name="__codelineno-0-644"></a>        <span class="n">args</span><span class="p">[</span><span class="s2">"resume"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ckpt_path</span>
-<a id="__codelineno-0-645" name="__codelineno-0-645"></a>
-<a id="__codelineno-0-646" name="__codelineno-0-646"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span> <span class="o">=</span> <span class="p">(</span><span class="n">trainer</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_smart_load</span><span class="p">(</span><span class="s2">"trainer"</span><span class="p">))(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
-<a id="__codelineno-0-647" name="__codelineno-0-647"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"resume"</span><span class="p">):</span>  <span class="c1"># manually set model only if not resuming</span>
-<a id="__codelineno-0-648" name="__codelineno-0-648"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ckpt</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">yaml</span><span class="p">)</span>
-<a id="__codelineno-0-649" name="__codelineno-0-649"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span>
-<a id="__codelineno-0-650" name="__codelineno-0-650"></a>
-<a id="__codelineno-0-651" name="__codelineno-0-651"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">hub_session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span>  <span class="c1"># attach optional HUB session</span>
-<a id="__codelineno-0-652" name="__codelineno-0-652"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-<a id="__codelineno-0-653" name="__codelineno-0-653"></a>    <span class="c1"># Update model and cfg after training</span>
-<a id="__codelineno-0-654" name="__codelineno-0-654"></a>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
-<a id="__codelineno-0-655" name="__codelineno-0-655"></a>        <span class="n">ckpt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
-<a id="__codelineno-0-656" name="__codelineno-0-656"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">attempt_load_one_weight</span><span class="p">(</span><span class="n">ckpt</span><span class="p">)</span>
-<a id="__codelineno-0-657" name="__codelineno-0-657"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span>
-<a id="__codelineno-0-658" name="__codelineno-0-658"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="p">,</span> <span class="s2">"metrics"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># TODO: no metrics returned by DDP</span>
-<a id="__codelineno-0-659" name="__codelineno-0-659"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span>
+<a id="__codelineno-0-619" name="__codelineno-0-619"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-620" name="__codelineno-0-620"></a><span class="sd">        trainer (BaseTrainer, optional): An instance of a custom trainer class for training the model. If None, the</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a><span class="sd">            method uses a default trainer. Defaults to None.</span>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a><span class="sd">        **kwargs (any): Arbitrary keyword arguments representing the training configuration. These arguments are</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a><span class="sd">            used to customize various aspects of the training process.</span>
+<a id="__codelineno-0-624" name="__codelineno-0-624"></a>
+<a id="__codelineno-0-625" name="__codelineno-0-625"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-626" name="__codelineno-0-626"></a><span class="sd">        (dict | None): Training metrics if available and training is successful; otherwise, None.</span>
+<a id="__codelineno-0-627" name="__codelineno-0-627"></a>
+<a id="__codelineno-0-628" name="__codelineno-0-628"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-629" name="__codelineno-0-629"></a><span class="sd">        AssertionError: If the model is not a PyTorch model.</span>
+<a id="__codelineno-0-630" name="__codelineno-0-630"></a><span class="sd">        PermissionError: If there is a permission issue with the HUB session.</span>
+<a id="__codelineno-0-631" name="__codelineno-0-631"></a><span class="sd">        ModuleNotFoundError: If the HUB SDK is not installed.</span>
+<a id="__codelineno-0-632" name="__codelineno-0-632"></a><span class="sd">    """</span>
+<a id="__codelineno-0-633" name="__codelineno-0-633"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
+<a id="__codelineno-0-634" name="__codelineno-0-634"></a>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>  <span class="c1"># Ultralytics HUB session with loaded model</span>
+<a id="__codelineno-0-635" name="__codelineno-0-635"></a>        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-636" name="__codelineno-0-636"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"WARNING ⚠️ using HUB training arguments, ignoring local training arguments."</span><span class="p">)</span>
+<a id="__codelineno-0-637" name="__codelineno-0-637"></a>        <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">train_args</span>  <span class="c1"># overwrite kwargs</span>
+<a id="__codelineno-0-638" name="__codelineno-0-638"></a>
+<a id="__codelineno-0-639" name="__codelineno-0-639"></a>    <span class="n">checks</span><span class="o">.</span><span class="n">check_pip_update_available</span><span class="p">()</span>
+<a id="__codelineno-0-640" name="__codelineno-0-640"></a>
+<a id="__codelineno-0-641" name="__codelineno-0-641"></a>    <span class="n">overrides</span> <span class="o">=</span> <span class="n">yaml_load</span><span class="p">(</span><span class="n">checks</span><span class="o">.</span><span class="n">check_yaml</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">"cfg"</span><span class="p">]))</span> <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"cfg"</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span>
+<a id="__codelineno-0-642" name="__codelineno-0-642"></a>    <span class="n">custom</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-643" name="__codelineno-0-643"></a>        <span class="c1"># NOTE: handle the case when 'cfg' includes 'data'.</span>
+<a id="__codelineno-0-644" name="__codelineno-0-644"></a>        <span class="s2">"data"</span><span class="p">:</span> <span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">DEFAULT_CFG_DICT</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="ow">or</span> <span class="n">TASK2DATA</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">],</span>
+<a id="__codelineno-0-645" name="__codelineno-0-645"></a>        <span class="s2">"model"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span>
+<a id="__codelineno-0-646" name="__codelineno-0-646"></a>        <span class="s2">"task"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">,</span>
+<a id="__codelineno-0-647" name="__codelineno-0-647"></a>    <span class="p">}</span>  <span class="c1"># method defaults</span>
+<a id="__codelineno-0-648" name="__codelineno-0-648"></a>    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"train"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
+<a id="__codelineno-0-649" name="__codelineno-0-649"></a>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"resume"</span><span class="p">):</span>
+<a id="__codelineno-0-650" name="__codelineno-0-650"></a>        <span class="n">args</span><span class="p">[</span><span class="s2">"resume"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ckpt_path</span>
+<a id="__codelineno-0-651" name="__codelineno-0-651"></a>
+<a id="__codelineno-0-652" name="__codelineno-0-652"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span> <span class="o">=</span> <span class="p">(</span><span class="n">trainer</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_smart_load</span><span class="p">(</span><span class="s2">"trainer"</span><span class="p">))(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)</span>
+<a id="__codelineno-0-653" name="__codelineno-0-653"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"resume"</span><span class="p">):</span>  <span class="c1"># manually set model only if not resuming</span>
+<a id="__codelineno-0-654" name="__codelineno-0-654"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ckpt</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">yaml</span><span class="p">)</span>
+<a id="__codelineno-0-655" name="__codelineno-0-655"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span>
+<a id="__codelineno-0-656" name="__codelineno-0-656"></a>
+<a id="__codelineno-0-657" name="__codelineno-0-657"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">hub_session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span>  <span class="c1"># attach optional HUB session</span>
+<a id="__codelineno-0-658" name="__codelineno-0-658"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<a id="__codelineno-0-659" name="__codelineno-0-659"></a>    <span class="c1"># Update model and cfg after training</span>
+<a id="__codelineno-0-660" name="__codelineno-0-660"></a>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
+<a id="__codelineno-0-661" name="__codelineno-0-661"></a>        <span class="n">ckpt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
+<a id="__codelineno-0-662" name="__codelineno-0-662"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">attempt_load_one_weight</span><span class="p">(</span><span class="n">ckpt</span><span class="p">)</span>
+<a id="__codelineno-0-663" name="__codelineno-0-663"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span>
+<a id="__codelineno-0-664" name="__codelineno-0-664"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="p">,</span> <span class="s2">"metrics"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># TODO: no metrics returned by DDP</span>
+<a id="__codelineno-0-665" name="__codelineno-0-665"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -6124,13 +6148,7 @@ custom arguments to configure the tuning process.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-661">661</a></span>
-<span class="normal"><a href="#__codelineno-0-662">662</a></span>
-<span class="normal"><a href="#__codelineno-0-663">663</a></span>
-<span class="normal"><a href="#__codelineno-0-664">664</a></span>
-<span class="normal"><a href="#__codelineno-0-665">665</a></span>
-<span class="normal"><a href="#__codelineno-0-666">666</a></span>
-<span class="normal"><a href="#__codelineno-0-667">667</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-667">667</a></span>
 <span class="normal"><a href="#__codelineno-0-668">668</a></span>
 <span class="normal"><a href="#__codelineno-0-669">669</a></span>
 <span class="normal"><a href="#__codelineno-0-670">670</a></span>
@@ -6161,44 +6179,50 @@ custom arguments to configure the tuning process.</p>
 <span class="normal"><a href="#__codelineno-0-695">695</a></span>
 <span class="normal"><a href="#__codelineno-0-696">696</a></span>
 <span class="normal"><a href="#__codelineno-0-697">697</a></span>
-<span class="normal"><a href="#__codelineno-0-698">698</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-661" name="__codelineno-0-661"></a><span class="k">def</span> <span class="nf">tune</span><span class="p">(</span>
-<a id="__codelineno-0-662" name="__codelineno-0-662"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-663" name="__codelineno-0-663"></a>    <span class="n">use_ray</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-664" name="__codelineno-0-664"></a>    <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<a id="__codelineno-0-665" name="__codelineno-0-665"></a>    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<a id="__codelineno-0-666" name="__codelineno-0-666"></a>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<a id="__codelineno-0-667" name="__codelineno-0-667"></a><span class="p">):</span>
-<a id="__codelineno-0-668" name="__codelineno-0-668"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-669" name="__codelineno-0-669"></a><span class="sd">    Conducts hyperparameter tuning for the model, with an option to use Ray Tune.</span>
-<a id="__codelineno-0-670" name="__codelineno-0-670"></a>
-<a id="__codelineno-0-671" name="__codelineno-0-671"></a><span class="sd">    This method supports two modes of hyperparameter tuning: using Ray Tune or a custom tuning method.</span>
-<a id="__codelineno-0-672" name="__codelineno-0-672"></a><span class="sd">    When Ray Tune is enabled, it leverages the 'run_ray_tune' function from the ultralytics.utils.tuner module.</span>
-<a id="__codelineno-0-673" name="__codelineno-0-673"></a><span class="sd">    Otherwise, it uses the internal 'Tuner' class for tuning. The method combines default, overridden, and</span>
-<a id="__codelineno-0-674" name="__codelineno-0-674"></a><span class="sd">    custom arguments to configure the tuning process.</span>
-<a id="__codelineno-0-675" name="__codelineno-0-675"></a>
-<a id="__codelineno-0-676" name="__codelineno-0-676"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-677" name="__codelineno-0-677"></a><span class="sd">        use_ray (bool): If True, uses Ray Tune for hyperparameter tuning. Defaults to False.</span>
-<a id="__codelineno-0-678" name="__codelineno-0-678"></a><span class="sd">        iterations (int): The number of tuning iterations to perform. Defaults to 10.</span>
-<a id="__codelineno-0-679" name="__codelineno-0-679"></a><span class="sd">        *args (list): Variable length argument list for additional arguments.</span>
-<a id="__codelineno-0-680" name="__codelineno-0-680"></a><span class="sd">        **kwargs (any): Arbitrary keyword arguments. These are combined with the model's overrides and defaults.</span>
+<span class="normal"><a href="#__codelineno-0-698">698</a></span>
+<span class="normal"><a href="#__codelineno-0-699">699</a></span>
+<span class="normal"><a href="#__codelineno-0-700">700</a></span>
+<span class="normal"><a href="#__codelineno-0-701">701</a></span>
+<span class="normal"><a href="#__codelineno-0-702">702</a></span>
+<span class="normal"><a href="#__codelineno-0-703">703</a></span>
+<span class="normal"><a href="#__codelineno-0-704">704</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-667" name="__codelineno-0-667"></a><span class="k">def</span> <span class="nf">tune</span><span class="p">(</span>
+<a id="__codelineno-0-668" name="__codelineno-0-668"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-669" name="__codelineno-0-669"></a>    <span class="n">use_ray</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-670" name="__codelineno-0-670"></a>    <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-0-671" name="__codelineno-0-671"></a>    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+<a id="__codelineno-0-672" name="__codelineno-0-672"></a>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<a id="__codelineno-0-673" name="__codelineno-0-673"></a><span class="p">):</span>
+<a id="__codelineno-0-674" name="__codelineno-0-674"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-675" name="__codelineno-0-675"></a><span class="sd">    Conducts hyperparameter tuning for the model, with an option to use Ray Tune.</span>
+<a id="__codelineno-0-676" name="__codelineno-0-676"></a>
+<a id="__codelineno-0-677" name="__codelineno-0-677"></a><span class="sd">    This method supports two modes of hyperparameter tuning: using Ray Tune or a custom tuning method.</span>
+<a id="__codelineno-0-678" name="__codelineno-0-678"></a><span class="sd">    When Ray Tune is enabled, it leverages the 'run_ray_tune' function from the ultralytics.utils.tuner module.</span>
+<a id="__codelineno-0-679" name="__codelineno-0-679"></a><span class="sd">    Otherwise, it uses the internal 'Tuner' class for tuning. The method combines default, overridden, and</span>
+<a id="__codelineno-0-680" name="__codelineno-0-680"></a><span class="sd">    custom arguments to configure the tuning process.</span>
 <a id="__codelineno-0-681" name="__codelineno-0-681"></a>
-<a id="__codelineno-0-682" name="__codelineno-0-682"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-683" name="__codelineno-0-683"></a><span class="sd">        (dict): A dictionary containing the results of the hyperparameter search.</span>
-<a id="__codelineno-0-684" name="__codelineno-0-684"></a>
-<a id="__codelineno-0-685" name="__codelineno-0-685"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-686" name="__codelineno-0-686"></a><span class="sd">        AssertionError: If the model is not a PyTorch model.</span>
-<a id="__codelineno-0-687" name="__codelineno-0-687"></a><span class="sd">    """</span>
-<a id="__codelineno-0-688" name="__codelineno-0-688"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
-<a id="__codelineno-0-689" name="__codelineno-0-689"></a>    <span class="k">if</span> <span class="n">use_ray</span><span class="p">:</span>
-<a id="__codelineno-0-690" name="__codelineno-0-690"></a>        <span class="kn">from</span> <span class="nn">ultralytics.utils.tuner</span> <span class="kn">import</span> <span class="n">run_ray_tune</span>
-<a id="__codelineno-0-691" name="__codelineno-0-691"></a>
-<a id="__codelineno-0-692" name="__codelineno-0-692"></a>        <span class="k">return</span> <span class="n">run_ray_tune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_samples</span><span class="o">=</span><span class="n">iterations</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a id="__codelineno-0-693" name="__codelineno-0-693"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-694" name="__codelineno-0-694"></a>        <span class="kn">from</span> <span class="nn">.tuner</span> <span class="kn">import</span> <span class="n">Tuner</span>
-<a id="__codelineno-0-695" name="__codelineno-0-695"></a>
-<a id="__codelineno-0-696" name="__codelineno-0-696"></a>        <span class="n">custom</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># method defaults</span>
-<a id="__codelineno-0-697" name="__codelineno-0-697"></a>        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"train"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
-<a id="__codelineno-0-698" name="__codelineno-0-698"></a>        <span class="k">return</span> <span class="n">Tuner</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span>
+<a id="__codelineno-0-682" name="__codelineno-0-682"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-683" name="__codelineno-0-683"></a><span class="sd">        use_ray (bool): If True, uses Ray Tune for hyperparameter tuning. Defaults to False.</span>
+<a id="__codelineno-0-684" name="__codelineno-0-684"></a><span class="sd">        iterations (int): The number of tuning iterations to perform. Defaults to 10.</span>
+<a id="__codelineno-0-685" name="__codelineno-0-685"></a><span class="sd">        *args (list): Variable length argument list for additional arguments.</span>
+<a id="__codelineno-0-686" name="__codelineno-0-686"></a><span class="sd">        **kwargs (any): Arbitrary keyword arguments. These are combined with the model's overrides and defaults.</span>
+<a id="__codelineno-0-687" name="__codelineno-0-687"></a>
+<a id="__codelineno-0-688" name="__codelineno-0-688"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-689" name="__codelineno-0-689"></a><span class="sd">        (dict): A dictionary containing the results of the hyperparameter search.</span>
+<a id="__codelineno-0-690" name="__codelineno-0-690"></a>
+<a id="__codelineno-0-691" name="__codelineno-0-691"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-692" name="__codelineno-0-692"></a><span class="sd">        AssertionError: If the model is not a PyTorch model.</span>
+<a id="__codelineno-0-693" name="__codelineno-0-693"></a><span class="sd">    """</span>
+<a id="__codelineno-0-694" name="__codelineno-0-694"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
+<a id="__codelineno-0-695" name="__codelineno-0-695"></a>    <span class="k">if</span> <span class="n">use_ray</span><span class="p">:</span>
+<a id="__codelineno-0-696" name="__codelineno-0-696"></a>        <span class="kn">from</span> <span class="nn">ultralytics.utils.tuner</span> <span class="kn">import</span> <span class="n">run_ray_tune</span>
+<a id="__codelineno-0-697" name="__codelineno-0-697"></a>
+<a id="__codelineno-0-698" name="__codelineno-0-698"></a>        <span class="k">return</span> <span class="n">run_ray_tune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_samples</span><span class="o">=</span><span class="n">iterations</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-699" name="__codelineno-0-699"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-700" name="__codelineno-0-700"></a>        <span class="kn">from</span> <span class="nn">.tuner</span> <span class="kn">import</span> <span class="n">Tuner</span>
+<a id="__codelineno-0-701" name="__codelineno-0-701"></a>
+<a id="__codelineno-0-702" name="__codelineno-0-702"></a>        <span class="n">custom</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># method defaults</span>
+<a id="__codelineno-0-703" name="__codelineno-0-703"></a>        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"train"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
+<a id="__codelineno-0-704" name="__codelineno-0-704"></a>        <span class="k">return</span> <span class="n">Tuner</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)(</span><span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

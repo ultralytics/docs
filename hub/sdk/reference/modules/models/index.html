@@ -3411,6 +3411,7 @@ considering the client as disconnected or unavailable.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../base/paginated_list/#hub_sdk.base.paginated_list.PaginatedList" title="hub_sdk.base.paginated_list.PaginatedList">PaginatedList</a></code></p>
+<p>Provides a paginated list interface for managing and querying models from the Ultralytics HUB API.</p>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/models.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-370">370</a></span>
@@ -3424,18 +3425,22 @@ considering the client as disconnected or unavailable.</p>
 <span class="normal"><a href="#__codelineno-0-378">378</a></span>
 <span class="normal"><a href="#__codelineno-0-379">379</a></span>
 <span class="normal"><a href="#__codelineno-0-380">380</a></span>
-<span class="normal"><a href="#__codelineno-0-381">381</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="k">class</span> <span class="nc">ModelList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-372" name="__codelineno-0-372"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-373" name="__codelineno-0-373"></a><span class="sd">        Initialize a ModelList instance.</span>
-<a id="__codelineno-0-374" name="__codelineno-0-374"></a>
-<a id="__codelineno-0-375" name="__codelineno-0-375"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a><span class="sd">            page_size (int, optional): The number of items to request per page.</span>
-<a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="sd">            public (bool, optional): Whether the items should be publicly accessible.</span>
-<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="sd">            headers (dict, optional): Headers to be included in API requests.</span>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="sd">        """</span>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"models"</span>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-381">381</a></span>
+<span class="normal"><a href="#__codelineno-0-382">382</a></span>
+<span class="normal"><a href="#__codelineno-0-383">383</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-370" name="__codelineno-0-370"></a><span class="k">class</span> <span class="nc">ModelList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="w">    </span><span class="sd">"""Provides a paginated list interface for managing and querying models from the Ultralytics HUB API."""</span>
+<a id="__codelineno-0-372" name="__codelineno-0-372"></a>
+<a id="__codelineno-0-373" name="__codelineno-0-373"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-375" name="__codelineno-0-375"></a><span class="sd">        Initialize a ModelList instance.</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a>
+<a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="sd">            page_size (int, optional): The number of items to request per page.</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="sd">            public (bool, optional): Whether the items should be publicly accessible.</span>
+<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="sd">            headers (dict, optional): Headers to be included in API requests.</span>
+<a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="sd">        """</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"models"</span>
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -3502,9 +3507,7 @@ considering the client as disconnected or unavailable.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/models.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-371">371</a></span>
-<span class="normal"><a href="#__codelineno-0-372">372</a></span>
-<span class="normal"><a href="#__codelineno-0-373">373</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-373">373</a></span>
 <span class="normal"><a href="#__codelineno-0-374">374</a></span>
 <span class="normal"><a href="#__codelineno-0-375">375</a></span>
 <span class="normal"><a href="#__codelineno-0-376">376</a></span>
@@ -3512,17 +3515,19 @@ considering the client as disconnected or unavailable.</p>
 <span class="normal"><a href="#__codelineno-0-378">378</a></span>
 <span class="normal"><a href="#__codelineno-0-379">379</a></span>
 <span class="normal"><a href="#__codelineno-0-380">380</a></span>
-<span class="normal"><a href="#__codelineno-0-381">381</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-371" name="__codelineno-0-371"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-372" name="__codelineno-0-372"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-373" name="__codelineno-0-373"></a><span class="sd">    Initialize a ModelList instance.</span>
-<a id="__codelineno-0-374" name="__codelineno-0-374"></a>
-<a id="__codelineno-0-375" name="__codelineno-0-375"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a><span class="sd">        page_size (int, optional): The number of items to request per page.</span>
-<a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="sd">        public (bool, optional): Whether the items should be publicly accessible.</span>
-<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="sd">        headers (dict, optional): Headers to be included in API requests.</span>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="sd">    """</span>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a>    <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"models"</span>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-381">381</a></span>
+<span class="normal"><a href="#__codelineno-0-382">382</a></span>
+<span class="normal"><a href="#__codelineno-0-383">383</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-373" name="__codelineno-0-373"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-375" name="__codelineno-0-375"></a><span class="sd">    Initialize a ModelList instance.</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a>
+<a id="__codelineno-0-377" name="__codelineno-0-377"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="sd">        page_size (int, optional): The number of items to request per page.</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="sd">        public (bool, optional): Whether the items should be publicly accessible.</span>
+<a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="sd">        headers (dict, optional): Headers to be included in API requests.</span>
+<a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="sd">    """</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a>    <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"models"</span>
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

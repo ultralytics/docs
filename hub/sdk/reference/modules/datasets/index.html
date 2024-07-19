@@ -1778,6 +1778,7 @@ If no dataset ID has been set, it logs an error message.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../base/paginated_list/#hub_sdk.base.paginated_list.PaginatedList" title="hub_sdk.base.paginated_list.PaginatedList">PaginatedList</a></code></p>
+<p>A class for managing a paginated list of datasets from the Ultralytics Hub API.</p>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/datasets.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-144">144</a></span>
@@ -1791,18 +1792,22 @@ If no dataset ID has been set, it logs an error message.</p>
 <span class="normal"><a href="#__codelineno-0-152">152</a></span>
 <span class="normal"><a href="#__codelineno-0-153">153</a></span>
 <span class="normal"><a href="#__codelineno-0-154">154</a></span>
-<span class="normal"><a href="#__codelineno-0-155">155</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-144" name="__codelineno-0-144"></a><span class="k">class</span> <span class="nc">DatasetList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
-<a id="__codelineno-0-145" name="__codelineno-0-145"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-146" name="__codelineno-0-146"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="sd">        Initialize a Dataset instance.</span>
-<a id="__codelineno-0-148" name="__codelineno-0-148"></a>
-<a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-150" name="__codelineno-0-150"></a><span class="sd">            page_size (int, optional): The number of items to request per page.</span>
-<a id="__codelineno-0-151" name="__codelineno-0-151"></a><span class="sd">            public (bool, optional): Whether the items should be publicly accessible.</span>
-<a id="__codelineno-0-152" name="__codelineno-0-152"></a><span class="sd">            headers (dict, optional): Headers to be included in API requests.</span>
-<a id="__codelineno-0-153" name="__codelineno-0-153"></a><span class="sd">        """</span>
-<a id="__codelineno-0-154" name="__codelineno-0-154"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
-<a id="__codelineno-0-155" name="__codelineno-0-155"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"dataset"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-155">155</a></span>
+<span class="normal"><a href="#__codelineno-0-156">156</a></span>
+<span class="normal"><a href="#__codelineno-0-157">157</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-144" name="__codelineno-0-144"></a><span class="k">class</span> <span class="nc">DatasetList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
+<a id="__codelineno-0-145" name="__codelineno-0-145"></a><span class="w">    </span><span class="sd">"""A class for managing a paginated list of datasets from the Ultralytics Hub API."""</span>
+<a id="__codelineno-0-146" name="__codelineno-0-146"></a>
+<a id="__codelineno-0-147" name="__codelineno-0-147"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="sd">        Initialize a Dataset instance.</span>
+<a id="__codelineno-0-150" name="__codelineno-0-150"></a>
+<a id="__codelineno-0-151" name="__codelineno-0-151"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-152" name="__codelineno-0-152"></a><span class="sd">            page_size (int, optional): The number of items to request per page.</span>
+<a id="__codelineno-0-153" name="__codelineno-0-153"></a><span class="sd">            public (bool, optional): Whether the items should be publicly accessible.</span>
+<a id="__codelineno-0-154" name="__codelineno-0-154"></a><span class="sd">            headers (dict, optional): Headers to be included in API requests.</span>
+<a id="__codelineno-0-155" name="__codelineno-0-155"></a><span class="sd">        """</span>
+<a id="__codelineno-0-156" name="__codelineno-0-156"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
+<a id="__codelineno-0-157" name="__codelineno-0-157"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"dataset"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1869,9 +1874,7 @@ If no dataset ID has been set, it logs an error message.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/datasets.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-145">145</a></span>
-<span class="normal"><a href="#__codelineno-0-146">146</a></span>
-<span class="normal"><a href="#__codelineno-0-147">147</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-147">147</a></span>
 <span class="normal"><a href="#__codelineno-0-148">148</a></span>
 <span class="normal"><a href="#__codelineno-0-149">149</a></span>
 <span class="normal"><a href="#__codelineno-0-150">150</a></span>
@@ -1879,17 +1882,19 @@ If no dataset ID has been set, it logs an error message.</p>
 <span class="normal"><a href="#__codelineno-0-152">152</a></span>
 <span class="normal"><a href="#__codelineno-0-153">153</a></span>
 <span class="normal"><a href="#__codelineno-0-154">154</a></span>
-<span class="normal"><a href="#__codelineno-0-155">155</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-145" name="__codelineno-0-145"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-146" name="__codelineno-0-146"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="sd">    Initialize a Dataset instance.</span>
-<a id="__codelineno-0-148" name="__codelineno-0-148"></a>
-<a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-150" name="__codelineno-0-150"></a><span class="sd">        page_size (int, optional): The number of items to request per page.</span>
-<a id="__codelineno-0-151" name="__codelineno-0-151"></a><span class="sd">        public (bool, optional): Whether the items should be publicly accessible.</span>
-<a id="__codelineno-0-152" name="__codelineno-0-152"></a><span class="sd">        headers (dict, optional): Headers to be included in API requests.</span>
-<a id="__codelineno-0-153" name="__codelineno-0-153"></a><span class="sd">    """</span>
-<a id="__codelineno-0-154" name="__codelineno-0-154"></a>    <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
-<a id="__codelineno-0-155" name="__codelineno-0-155"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"dataset"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-155">155</a></span>
+<span class="normal"><a href="#__codelineno-0-156">156</a></span>
+<span class="normal"><a href="#__codelineno-0-157">157</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="sd">    Initialize a Dataset instance.</span>
+<a id="__codelineno-0-150" name="__codelineno-0-150"></a>
+<a id="__codelineno-0-151" name="__codelineno-0-151"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-152" name="__codelineno-0-152"></a><span class="sd">        page_size (int, optional): The number of items to request per page.</span>
+<a id="__codelineno-0-153" name="__codelineno-0-153"></a><span class="sd">        public (bool, optional): Whether the items should be publicly accessible.</span>
+<a id="__codelineno-0-154" name="__codelineno-0-154"></a><span class="sd">        headers (dict, optional): Headers to be included in API requests.</span>
+<a id="__codelineno-0-155" name="__codelineno-0-155"></a><span class="sd">    """</span>
+<a id="__codelineno-0-156" name="__codelineno-0-156"></a>    <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
+<a id="__codelineno-0-157" name="__codelineno-0-157"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"dataset"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">public</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

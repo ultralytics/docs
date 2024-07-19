@@ -1566,6 +1566,7 @@ If no team ID has been set, it logs an error message.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../base/paginated_list/#hub_sdk.base.paginated_list.PaginatedList" title="hub_sdk.base.paginated_list.PaginatedList">PaginatedList</a></code></p>
+<p>Provides a paginated list interface for managing and retrieving teams via API requests.</p>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/teams.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-121">121</a></span>
@@ -1581,20 +1582,24 @@ If no team ID has been set, it logs an error message.</p>
 <span class="normal"><a href="#__codelineno-0-131">131</a></span>
 <span class="normal"><a href="#__codelineno-0-132">132</a></span>
 <span class="normal"><a href="#__codelineno-0-133">133</a></span>
-<span class="normal"><a href="#__codelineno-0-134">134</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="k">class</span> <span class="nc">TeamList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
-<a id="__codelineno-0-122" name="__codelineno-0-122"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="sd">        Initialize a TeamList instance.</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>
-<a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="sd">            page_size (int, optional): The number of items to request per page.</span>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">            public (bool, optional): Whether the items should be publicly accessible.</span>
-<a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">            headers (dict, optional): Headers to be included in API requests.</span>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">        """</span>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
-<a id="__codelineno-0-132" name="__codelineno-0-132"></a>        <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
-<a id="__codelineno-0-133" name="__codelineno-0-133"></a>            <span class="n">base_endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"public/</span><span class="si">{</span><span class="n">base_endpoint</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-134" name="__codelineno-0-134"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"team"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-134">134</a></span>
+<span class="normal"><a href="#__codelineno-0-135">135</a></span>
+<span class="normal"><a href="#__codelineno-0-136">136</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="k">class</span> <span class="nc">TeamList</span><span class="p">(</span><span class="n">PaginatedList</span><span class="p">):</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="w">    </span><span class="sd">"""Provides a paginated list interface for managing and retrieving teams via API requests."""</span>
+<a id="__codelineno-0-123" name="__codelineno-0-123"></a>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="sd">        Initialize a TeamList instance.</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">            page_size (int, optional): The number of items to request per page.</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">            public (bool, optional): Whether the items should be publicly accessible.</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">            headers (dict, optional): Headers to be included in API requests.</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">        """</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a>        <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
+<a id="__codelineno-0-135" name="__codelineno-0-135"></a>            <span class="n">base_endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"public/</span><span class="si">{</span><span class="n">base_endpoint</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-136" name="__codelineno-0-136"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"team"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1661,9 +1666,7 @@ If no team ID has been set, it logs an error message.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/modules/teams.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-122">122</a></span>
-<span class="normal"><a href="#__codelineno-0-123">123</a></span>
-<span class="normal"><a href="#__codelineno-0-124">124</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-124">124</a></span>
 <span class="normal"><a href="#__codelineno-0-125">125</a></span>
 <span class="normal"><a href="#__codelineno-0-126">126</a></span>
 <span class="normal"><a href="#__codelineno-0-127">127</a></span>
@@ -1673,19 +1676,21 @@ If no team ID has been set, it logs an error message.</p>
 <span class="normal"><a href="#__codelineno-0-131">131</a></span>
 <span class="normal"><a href="#__codelineno-0-132">132</a></span>
 <span class="normal"><a href="#__codelineno-0-133">133</a></span>
-<span class="normal"><a href="#__codelineno-0-134">134</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="sd">    Initialize a TeamList instance.</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>
-<a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="sd">        page_size (int, optional): The number of items to request per page.</span>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">        public (bool, optional): Whether the items should be publicly accessible.</span>
-<a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">        headers (dict, optional): Headers to be included in API requests.</span>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">    """</span>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a>    <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
-<a id="__codelineno-0-132" name="__codelineno-0-132"></a>    <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
-<a id="__codelineno-0-133" name="__codelineno-0-133"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"public/</span><span class="si">{</span><span class="n">base_endpoint</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-134" name="__codelineno-0-134"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"team"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-134">134</a></span>
+<span class="normal"><a href="#__codelineno-0-135">135</a></span>
+<span class="normal"><a href="#__codelineno-0-136">136</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="sd">    Initialize a TeamList instance.</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">        page_size (int, optional): The number of items to request per page.</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">        public (bool, optional): Whether the items should be publicly accessible.</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">        headers (dict, optional): Headers to be included in API requests.</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">    """</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a>    <span class="n">base_endpoint</span> <span class="o">=</span> <span class="s2">"datasets"</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a>    <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
+<a id="__codelineno-0-135" name="__codelineno-0-135"></a>        <span class="n">base_endpoint</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"public/</span><span class="si">{</span><span class="n">base_endpoint</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-136" name="__codelineno-0-136"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_endpoint</span><span class="p">,</span> <span class="s2">"team"</span><span class="p">,</span> <span class="n">page_size</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
