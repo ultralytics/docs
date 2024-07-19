@@ -7910,6 +7910,7 @@ ratio.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<p>Spatial Channel Downsample (SCDown) module for reducing spatial and channel dimensions.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-932">932</a></span>
@@ -7937,32 +7938,36 @@ ratio.</p>
 <span class="normal"><a href="#__codelineno-0-954">954</a></span>
 <span class="normal"><a href="#__codelineno-0-955">955</a></span>
 <span class="normal"><a href="#__codelineno-0-956">956</a></span>
-<span class="normal"><a href="#__codelineno-0-957">957</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-932" name="__codelineno-0-932"></a><span class="k">class</span> <span class="nc">SCDown</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<a id="__codelineno-0-933" name="__codelineno-0-933"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-<a id="__codelineno-0-934" name="__codelineno-0-934"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-935" name="__codelineno-0-935"></a><span class="sd">        Spatial Channel Downsample (SCDown) module.</span>
-<a id="__codelineno-0-936" name="__codelineno-0-936"></a>
-<a id="__codelineno-0-937" name="__codelineno-0-937"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-938" name="__codelineno-0-938"></a><span class="sd">            c1 (int): Number of input channels.</span>
-<a id="__codelineno-0-939" name="__codelineno-0-939"></a><span class="sd">            c2 (int): Number of output channels.</span>
-<a id="__codelineno-0-940" name="__codelineno-0-940"></a><span class="sd">            k (int): Kernel size for the convolutional layer.</span>
-<a id="__codelineno-0-941" name="__codelineno-0-941"></a><span class="sd">            s (int): Stride for the convolutional layer.</span>
-<a id="__codelineno-0-942" name="__codelineno-0-942"></a><span class="sd">        """</span>
-<a id="__codelineno-0-943" name="__codelineno-0-943"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-944" name="__codelineno-0-944"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cv1</span> <span class="o">=</span> <span class="n">Conv</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-945" name="__codelineno-0-945"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cv2</span> <span class="o">=</span> <span class="n">Conv</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">c2</span><span class="p">,</span> <span class="n">act</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-946" name="__codelineno-0-946"></a>
-<a id="__codelineno-0-947" name="__codelineno-0-947"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a id="__codelineno-0-948" name="__codelineno-0-948"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-949" name="__codelineno-0-949"></a><span class="sd">        Forward pass of the SCDown module.</span>
-<a id="__codelineno-0-950" name="__codelineno-0-950"></a>
-<a id="__codelineno-0-951" name="__codelineno-0-951"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-952" name="__codelineno-0-952"></a><span class="sd">            x (torch.Tensor): Input tensor.</span>
-<a id="__codelineno-0-953" name="__codelineno-0-953"></a>
-<a id="__codelineno-0-954" name="__codelineno-0-954"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-955" name="__codelineno-0-955"></a><span class="sd">            (torch.Tensor): Output tensor after applying the SCDown module.</span>
-<a id="__codelineno-0-956" name="__codelineno-0-956"></a><span class="sd">        """</span>
-<a id="__codelineno-0-957" name="__codelineno-0-957"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cv2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cv1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="normal"><a href="#__codelineno-0-957">957</a></span>
+<span class="normal"><a href="#__codelineno-0-958">958</a></span>
+<span class="normal"><a href="#__codelineno-0-959">959</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-932" name="__codelineno-0-932"></a><span class="k">class</span> <span class="nc">SCDown</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<a id="__codelineno-0-933" name="__codelineno-0-933"></a><span class="w">    </span><span class="sd">"""Spatial Channel Downsample (SCDown) module for reducing spatial and channel dimensions."""</span>
+<a id="__codelineno-0-934" name="__codelineno-0-934"></a>
+<a id="__codelineno-0-935" name="__codelineno-0-935"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<a id="__codelineno-0-936" name="__codelineno-0-936"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-937" name="__codelineno-0-937"></a><span class="sd">        Spatial Channel Downsample (SCDown) module.</span>
+<a id="__codelineno-0-938" name="__codelineno-0-938"></a>
+<a id="__codelineno-0-939" name="__codelineno-0-939"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-940" name="__codelineno-0-940"></a><span class="sd">            c1 (int): Number of input channels.</span>
+<a id="__codelineno-0-941" name="__codelineno-0-941"></a><span class="sd">            c2 (int): Number of output channels.</span>
+<a id="__codelineno-0-942" name="__codelineno-0-942"></a><span class="sd">            k (int): Kernel size for the convolutional layer.</span>
+<a id="__codelineno-0-943" name="__codelineno-0-943"></a><span class="sd">            s (int): Stride for the convolutional layer.</span>
+<a id="__codelineno-0-944" name="__codelineno-0-944"></a><span class="sd">        """</span>
+<a id="__codelineno-0-945" name="__codelineno-0-945"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-946" name="__codelineno-0-946"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cv1</span> <span class="o">=</span> <span class="n">Conv</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-947" name="__codelineno-0-947"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cv2</span> <span class="o">=</span> <span class="n">Conv</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">c2</span><span class="p">,</span> <span class="n">act</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-948" name="__codelineno-0-948"></a>
+<a id="__codelineno-0-949" name="__codelineno-0-949"></a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-0-950" name="__codelineno-0-950"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-951" name="__codelineno-0-951"></a><span class="sd">        Forward pass of the SCDown module.</span>
+<a id="__codelineno-0-952" name="__codelineno-0-952"></a>
+<a id="__codelineno-0-953" name="__codelineno-0-953"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-954" name="__codelineno-0-954"></a><span class="sd">            x (torch.Tensor): Input tensor.</span>
+<a id="__codelineno-0-955" name="__codelineno-0-955"></a>
+<a id="__codelineno-0-956" name="__codelineno-0-956"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-957" name="__codelineno-0-957"></a><span class="sd">            (torch.Tensor): Output tensor after applying the SCDown module.</span>
+<a id="__codelineno-0-958" name="__codelineno-0-958"></a><span class="sd">        """</span>
+<a id="__codelineno-0-959" name="__codelineno-0-959"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cv2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cv1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -8043,9 +8048,7 @@ ratio.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-933">933</a></span>
-<span class="normal"><a href="#__codelineno-0-934">934</a></span>
-<span class="normal"><a href="#__codelineno-0-935">935</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-935">935</a></span>
 <span class="normal"><a href="#__codelineno-0-936">936</a></span>
 <span class="normal"><a href="#__codelineno-0-937">937</a></span>
 <span class="normal"><a href="#__codelineno-0-938">938</a></span>
@@ -8055,19 +8058,21 @@ ratio.</p>
 <span class="normal"><a href="#__codelineno-0-942">942</a></span>
 <span class="normal"><a href="#__codelineno-0-943">943</a></span>
 <span class="normal"><a href="#__codelineno-0-944">944</a></span>
-<span class="normal"><a href="#__codelineno-0-945">945</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-933" name="__codelineno-0-933"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-<a id="__codelineno-0-934" name="__codelineno-0-934"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-935" name="__codelineno-0-935"></a><span class="sd">    Spatial Channel Downsample (SCDown) module.</span>
-<a id="__codelineno-0-936" name="__codelineno-0-936"></a>
-<a id="__codelineno-0-937" name="__codelineno-0-937"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-938" name="__codelineno-0-938"></a><span class="sd">        c1 (int): Number of input channels.</span>
-<a id="__codelineno-0-939" name="__codelineno-0-939"></a><span class="sd">        c2 (int): Number of output channels.</span>
-<a id="__codelineno-0-940" name="__codelineno-0-940"></a><span class="sd">        k (int): Kernel size for the convolutional layer.</span>
-<a id="__codelineno-0-941" name="__codelineno-0-941"></a><span class="sd">        s (int): Stride for the convolutional layer.</span>
-<a id="__codelineno-0-942" name="__codelineno-0-942"></a><span class="sd">    """</span>
-<a id="__codelineno-0-943" name="__codelineno-0-943"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-944" name="__codelineno-0-944"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">cv1</span> <span class="o">=</span> <span class="n">Conv</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-945" name="__codelineno-0-945"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">cv2</span> <span class="o">=</span> <span class="n">Conv</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">c2</span><span class="p">,</span> <span class="n">act</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-945">945</a></span>
+<span class="normal"><a href="#__codelineno-0-946">946</a></span>
+<span class="normal"><a href="#__codelineno-0-947">947</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-935" name="__codelineno-0-935"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<a id="__codelineno-0-936" name="__codelineno-0-936"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-937" name="__codelineno-0-937"></a><span class="sd">    Spatial Channel Downsample (SCDown) module.</span>
+<a id="__codelineno-0-938" name="__codelineno-0-938"></a>
+<a id="__codelineno-0-939" name="__codelineno-0-939"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-940" name="__codelineno-0-940"></a><span class="sd">        c1 (int): Number of input channels.</span>
+<a id="__codelineno-0-941" name="__codelineno-0-941"></a><span class="sd">        c2 (int): Number of output channels.</span>
+<a id="__codelineno-0-942" name="__codelineno-0-942"></a><span class="sd">        k (int): Kernel size for the convolutional layer.</span>
+<a id="__codelineno-0-943" name="__codelineno-0-943"></a><span class="sd">        s (int): Stride for the convolutional layer.</span>
+<a id="__codelineno-0-944" name="__codelineno-0-944"></a><span class="sd">    """</span>
+<a id="__codelineno-0-945" name="__codelineno-0-945"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-946" name="__codelineno-0-946"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">cv1</span> <span class="o">=</span> <span class="n">Conv</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-947" name="__codelineno-0-947"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">cv2</span> <span class="o">=</span> <span class="n">Conv</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="n">c2</span><span class="p">,</span> <span class="n">act</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -8128,9 +8133,7 @@ ratio.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-947">947</a></span>
-<span class="normal"><a href="#__codelineno-0-948">948</a></span>
-<span class="normal"><a href="#__codelineno-0-949">949</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-949">949</a></span>
 <span class="normal"><a href="#__codelineno-0-950">950</a></span>
 <span class="normal"><a href="#__codelineno-0-951">951</a></span>
 <span class="normal"><a href="#__codelineno-0-952">952</a></span>
@@ -8138,17 +8141,19 @@ ratio.</p>
 <span class="normal"><a href="#__codelineno-0-954">954</a></span>
 <span class="normal"><a href="#__codelineno-0-955">955</a></span>
 <span class="normal"><a href="#__codelineno-0-956">956</a></span>
-<span class="normal"><a href="#__codelineno-0-957">957</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-947" name="__codelineno-0-947"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a id="__codelineno-0-948" name="__codelineno-0-948"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-949" name="__codelineno-0-949"></a><span class="sd">    Forward pass of the SCDown module.</span>
-<a id="__codelineno-0-950" name="__codelineno-0-950"></a>
-<a id="__codelineno-0-951" name="__codelineno-0-951"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-952" name="__codelineno-0-952"></a><span class="sd">        x (torch.Tensor): Input tensor.</span>
-<a id="__codelineno-0-953" name="__codelineno-0-953"></a>
-<a id="__codelineno-0-954" name="__codelineno-0-954"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-955" name="__codelineno-0-955"></a><span class="sd">        (torch.Tensor): Output tensor after applying the SCDown module.</span>
-<a id="__codelineno-0-956" name="__codelineno-0-956"></a><span class="sd">    """</span>
-<a id="__codelineno-0-957" name="__codelineno-0-957"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cv2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cv1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="normal"><a href="#__codelineno-0-957">957</a></span>
+<span class="normal"><a href="#__codelineno-0-958">958</a></span>
+<span class="normal"><a href="#__codelineno-0-959">959</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-949" name="__codelineno-0-949"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-0-950" name="__codelineno-0-950"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-951" name="__codelineno-0-951"></a><span class="sd">    Forward pass of the SCDown module.</span>
+<a id="__codelineno-0-952" name="__codelineno-0-952"></a>
+<a id="__codelineno-0-953" name="__codelineno-0-953"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-954" name="__codelineno-0-954"></a><span class="sd">        x (torch.Tensor): Input tensor.</span>
+<a id="__codelineno-0-955" name="__codelineno-0-955"></a>
+<a id="__codelineno-0-956" name="__codelineno-0-956"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-957" name="__codelineno-0-957"></a><span class="sd">        (torch.Tensor): Output tensor after applying the SCDown module.</span>
+<a id="__codelineno-0-958" name="__codelineno-0-958"></a><span class="sd">    """</span>
+<a id="__codelineno-0-959" name="__codelineno-0-959"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cv2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cv1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

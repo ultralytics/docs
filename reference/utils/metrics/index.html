@@ -6842,6 +6842,7 @@ on the values provided in the <code>results</code> tuple.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.utils.SimpleClass" href="../__init__/#ultralytics.utils.SimpleClass">SimpleClass</a></code></p>
+<p>Metrics for evaluating oriented bounding box (OBB) detection, see https://arxiv.org/pdf/2106.06072.pdf.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1223">1223</a></span>
@@ -6910,73 +6911,77 @@ on the values provided in the <code>results</code> tuple.</p>
 <span class="normal"><a href="#__codelineno-0-1286">1286</a></span>
 <span class="normal"><a href="#__codelineno-0-1287">1287</a></span>
 <span class="normal"><a href="#__codelineno-0-1288">1288</a></span>
-<span class="normal"><a href="#__codelineno-0-1289">1289</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1223" name="__codelineno-0-1223"></a><span class="k">class</span> <span class="nc">OBBMetrics</span><span class="p">(</span><span class="n">SimpleClass</span><span class="p">):</span>
-<a id="__codelineno-0-1224" name="__codelineno-0-1224"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1225" name="__codelineno-0-1225"></a><span class="w">        </span><span class="sd">"""Initialize an OBBMetrics instance with directory, plotting, callback, and class names."""</span>
-<a id="__codelineno-0-1226" name="__codelineno-0-1226"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
-<a id="__codelineno-0-1227" name="__codelineno-0-1227"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
-<a id="__codelineno-0-1228" name="__codelineno-0-1228"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span> <span class="o">=</span> <span class="n">on_plot</span>
-<a id="__codelineno-0-1229" name="__codelineno-0-1229"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
-<a id="__codelineno-0-1230" name="__codelineno-0-1230"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
-<a id="__codelineno-0-1231" name="__codelineno-0-1231"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
-<a id="__codelineno-0-1232" name="__codelineno-0-1232"></a>
-<a id="__codelineno-0-1233" name="__codelineno-0-1233"></a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">):</span>
-<a id="__codelineno-0-1234" name="__codelineno-0-1234"></a><span class="w">        </span><span class="sd">"""Process predicted results for object detection and update metrics."""</span>
-<a id="__codelineno-0-1235" name="__codelineno-0-1235"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
-<a id="__codelineno-0-1236" name="__codelineno-0-1236"></a>            <span class="n">tp</span><span class="p">,</span>
-<a id="__codelineno-0-1237" name="__codelineno-0-1237"></a>            <span class="n">conf</span><span class="p">,</span>
-<a id="__codelineno-0-1238" name="__codelineno-0-1238"></a>            <span class="n">pred_cls</span><span class="p">,</span>
-<a id="__codelineno-0-1239" name="__codelineno-0-1239"></a>            <span class="n">target_cls</span><span class="p">,</span>
-<a id="__codelineno-0-1240" name="__codelineno-0-1240"></a>            <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
-<a id="__codelineno-0-1241" name="__codelineno-0-1241"></a>            <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
-<a id="__codelineno-0-1242" name="__codelineno-0-1242"></a>            <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
-<a id="__codelineno-0-1243" name="__codelineno-0-1243"></a>            <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
-<a id="__codelineno-0-1244" name="__codelineno-0-1244"></a>        <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-0-1245" name="__codelineno-0-1245"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-0-1246" name="__codelineno-0-1246"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<a id="__codelineno-0-1247" name="__codelineno-0-1247"></a>
-<a id="__codelineno-0-1248" name="__codelineno-0-1248"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-1249" name="__codelineno-0-1249"></a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1250" name="__codelineno-0-1250"></a><span class="w">        </span><span class="sd">"""Returns a list of keys for accessing specific metrics."""</span>
-<a id="__codelineno-0-1251" name="__codelineno-0-1251"></a>        <span class="k">return</span> <span class="p">[</span><span class="s2">"metrics/precision(B)"</span><span class="p">,</span> <span class="s2">"metrics/recall(B)"</span><span class="p">,</span> <span class="s2">"metrics/mAP50(B)"</span><span class="p">,</span> <span class="s2">"metrics/mAP50-95(B)"</span><span class="p">]</span>
-<a id="__codelineno-0-1252" name="__codelineno-0-1252"></a>
-<a id="__codelineno-0-1253" name="__codelineno-0-1253"></a>    <span class="k">def</span> <span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1254" name="__codelineno-0-1254"></a><span class="w">        </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
-<a id="__codelineno-0-1255" name="__codelineno-0-1255"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
-<a id="__codelineno-0-1256" name="__codelineno-0-1256"></a>
-<a id="__codelineno-0-1257" name="__codelineno-0-1257"></a>    <span class="k">def</span> <span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-<a id="__codelineno-0-1258" name="__codelineno-0-1258"></a><span class="w">        </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
-<a id="__codelineno-0-1259" name="__codelineno-0-1259"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<a id="__codelineno-0-1260" name="__codelineno-0-1260"></a>
-<a id="__codelineno-0-1261" name="__codelineno-0-1261"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-1262" name="__codelineno-0-1262"></a>    <span class="k">def</span> <span class="nf">maps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1263" name="__codelineno-0-1263"></a><span class="w">        </span><span class="sd">"""Returns mean Average Precision (mAP) scores per class."""</span>
-<a id="__codelineno-0-1264" name="__codelineno-0-1264"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">maps</span>
-<a id="__codelineno-0-1265" name="__codelineno-0-1265"></a>
-<a id="__codelineno-0-1266" name="__codelineno-0-1266"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-1267" name="__codelineno-0-1267"></a>    <span class="k">def</span> <span class="nf">fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1268" name="__codelineno-0-1268"></a><span class="w">        </span><span class="sd">"""Returns the fitness of box object."""</span>
-<a id="__codelineno-0-1269" name="__codelineno-0-1269"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">fitness</span><span class="p">()</span>
-<a id="__codelineno-0-1270" name="__codelineno-0-1270"></a>
-<a id="__codelineno-0-1271" name="__codelineno-0-1271"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-1272" name="__codelineno-0-1272"></a>    <span class="k">def</span> <span class="nf">ap_class_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1273" name="__codelineno-0-1273"></a><span class="w">        </span><span class="sd">"""Returns the average precision index per class."""</span>
-<a id="__codelineno-0-1274" name="__codelineno-0-1274"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">ap_class_index</span>
-<a id="__codelineno-0-1275" name="__codelineno-0-1275"></a>
-<a id="__codelineno-0-1276" name="__codelineno-0-1276"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-1277" name="__codelineno-0-1277"></a>    <span class="k">def</span> <span class="nf">results_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1278" name="__codelineno-0-1278"></a><span class="w">        </span><span class="sd">"""Returns dictionary of computed performance metrics and statistics."""</span>
-<a id="__codelineno-0-1279" name="__codelineno-0-1279"></a>        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keys</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"fitness"</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">fitness</span><span class="p">]))</span>
-<a id="__codelineno-0-1280" name="__codelineno-0-1280"></a>
-<a id="__codelineno-0-1281" name="__codelineno-0-1281"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-1282" name="__codelineno-0-1282"></a>    <span class="k">def</span> <span class="nf">curves</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1283" name="__codelineno-0-1283"></a><span class="w">        </span><span class="sd">"""Returns a list of curves for accessing specific metrics curves."""</span>
-<a id="__codelineno-0-1284" name="__codelineno-0-1284"></a>        <span class="k">return</span> <span class="p">[]</span>
-<a id="__codelineno-0-1285" name="__codelineno-0-1285"></a>
-<a id="__codelineno-0-1286" name="__codelineno-0-1286"></a>    <span class="nd">@property</span>
-<a id="__codelineno-0-1287" name="__codelineno-0-1287"></a>    <span class="k">def</span> <span class="nf">curves_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1288" name="__codelineno-0-1288"></a><span class="w">        </span><span class="sd">"""Returns a list of curves for accessing specific metrics curves."""</span>
-<a id="__codelineno-0-1289" name="__codelineno-0-1289"></a>        <span class="k">return</span> <span class="p">[]</span>
+<span class="normal"><a href="#__codelineno-0-1289">1289</a></span>
+<span class="normal"><a href="#__codelineno-0-1290">1290</a></span>
+<span class="normal"><a href="#__codelineno-0-1291">1291</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1223" name="__codelineno-0-1223"></a><span class="k">class</span> <span class="nc">OBBMetrics</span><span class="p">(</span><span class="n">SimpleClass</span><span class="p">):</span>
+<a id="__codelineno-0-1224" name="__codelineno-0-1224"></a><span class="w">    </span><span class="sd">"""Metrics for evaluating oriented bounding box (OBB) detection, see https://arxiv.org/pdf/2106.06072.pdf."""</span>
+<a id="__codelineno-0-1225" name="__codelineno-0-1225"></a>
+<a id="__codelineno-0-1226" name="__codelineno-0-1226"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1227" name="__codelineno-0-1227"></a><span class="w">        </span><span class="sd">"""Initialize an OBBMetrics instance with directory, plotting, callback, and class names."""</span>
+<a id="__codelineno-0-1228" name="__codelineno-0-1228"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
+<a id="__codelineno-0-1229" name="__codelineno-0-1229"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
+<a id="__codelineno-0-1230" name="__codelineno-0-1230"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span> <span class="o">=</span> <span class="n">on_plot</span>
+<a id="__codelineno-0-1231" name="__codelineno-0-1231"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
+<a id="__codelineno-0-1232" name="__codelineno-0-1232"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
+<a id="__codelineno-0-1233" name="__codelineno-0-1233"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+<a id="__codelineno-0-1234" name="__codelineno-0-1234"></a>
+<a id="__codelineno-0-1235" name="__codelineno-0-1235"></a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">):</span>
+<a id="__codelineno-0-1236" name="__codelineno-0-1236"></a><span class="w">        </span><span class="sd">"""Process predicted results for object detection and update metrics."""</span>
+<a id="__codelineno-0-1237" name="__codelineno-0-1237"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
+<a id="__codelineno-0-1238" name="__codelineno-0-1238"></a>            <span class="n">tp</span><span class="p">,</span>
+<a id="__codelineno-0-1239" name="__codelineno-0-1239"></a>            <span class="n">conf</span><span class="p">,</span>
+<a id="__codelineno-0-1240" name="__codelineno-0-1240"></a>            <span class="n">pred_cls</span><span class="p">,</span>
+<a id="__codelineno-0-1241" name="__codelineno-0-1241"></a>            <span class="n">target_cls</span><span class="p">,</span>
+<a id="__codelineno-0-1242" name="__codelineno-0-1242"></a>            <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
+<a id="__codelineno-0-1243" name="__codelineno-0-1243"></a>            <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
+<a id="__codelineno-0-1244" name="__codelineno-0-1244"></a>            <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+<a id="__codelineno-0-1245" name="__codelineno-0-1245"></a>            <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
+<a id="__codelineno-0-1246" name="__codelineno-0-1246"></a>        <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+<a id="__codelineno-0-1247" name="__codelineno-0-1247"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+<a id="__codelineno-0-1248" name="__codelineno-0-1248"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<a id="__codelineno-0-1249" name="__codelineno-0-1249"></a>
+<a id="__codelineno-0-1250" name="__codelineno-0-1250"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-1251" name="__codelineno-0-1251"></a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1252" name="__codelineno-0-1252"></a><span class="w">        </span><span class="sd">"""Returns a list of keys for accessing specific metrics."""</span>
+<a id="__codelineno-0-1253" name="__codelineno-0-1253"></a>        <span class="k">return</span> <span class="p">[</span><span class="s2">"metrics/precision(B)"</span><span class="p">,</span> <span class="s2">"metrics/recall(B)"</span><span class="p">,</span> <span class="s2">"metrics/mAP50(B)"</span><span class="p">,</span> <span class="s2">"metrics/mAP50-95(B)"</span><span class="p">]</span>
+<a id="__codelineno-0-1254" name="__codelineno-0-1254"></a>
+<a id="__codelineno-0-1255" name="__codelineno-0-1255"></a>    <span class="k">def</span> <span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1256" name="__codelineno-0-1256"></a><span class="w">        </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
+<a id="__codelineno-0-1257" name="__codelineno-0-1257"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
+<a id="__codelineno-0-1258" name="__codelineno-0-1258"></a>
+<a id="__codelineno-0-1259" name="__codelineno-0-1259"></a>    <span class="k">def</span> <span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-0-1260" name="__codelineno-0-1260"></a><span class="w">        </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
+<a id="__codelineno-0-1261" name="__codelineno-0-1261"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-0-1262" name="__codelineno-0-1262"></a>
+<a id="__codelineno-0-1263" name="__codelineno-0-1263"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-1264" name="__codelineno-0-1264"></a>    <span class="k">def</span> <span class="nf">maps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1265" name="__codelineno-0-1265"></a><span class="w">        </span><span class="sd">"""Returns mean Average Precision (mAP) scores per class."""</span>
+<a id="__codelineno-0-1266" name="__codelineno-0-1266"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">maps</span>
+<a id="__codelineno-0-1267" name="__codelineno-0-1267"></a>
+<a id="__codelineno-0-1268" name="__codelineno-0-1268"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-1269" name="__codelineno-0-1269"></a>    <span class="k">def</span> <span class="nf">fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1270" name="__codelineno-0-1270"></a><span class="w">        </span><span class="sd">"""Returns the fitness of box object."""</span>
+<a id="__codelineno-0-1271" name="__codelineno-0-1271"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">fitness</span><span class="p">()</span>
+<a id="__codelineno-0-1272" name="__codelineno-0-1272"></a>
+<a id="__codelineno-0-1273" name="__codelineno-0-1273"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-1274" name="__codelineno-0-1274"></a>    <span class="k">def</span> <span class="nf">ap_class_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1275" name="__codelineno-0-1275"></a><span class="w">        </span><span class="sd">"""Returns the average precision index per class."""</span>
+<a id="__codelineno-0-1276" name="__codelineno-0-1276"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">ap_class_index</span>
+<a id="__codelineno-0-1277" name="__codelineno-0-1277"></a>
+<a id="__codelineno-0-1278" name="__codelineno-0-1278"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-1279" name="__codelineno-0-1279"></a>    <span class="k">def</span> <span class="nf">results_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1280" name="__codelineno-0-1280"></a><span class="w">        </span><span class="sd">"""Returns dictionary of computed performance metrics and statistics."""</span>
+<a id="__codelineno-0-1281" name="__codelineno-0-1281"></a>        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keys</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"fitness"</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">fitness</span><span class="p">]))</span>
+<a id="__codelineno-0-1282" name="__codelineno-0-1282"></a>
+<a id="__codelineno-0-1283" name="__codelineno-0-1283"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-1284" name="__codelineno-0-1284"></a>    <span class="k">def</span> <span class="nf">curves</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1285" name="__codelineno-0-1285"></a><span class="w">        </span><span class="sd">"""Returns a list of curves for accessing specific metrics curves."""</span>
+<a id="__codelineno-0-1286" name="__codelineno-0-1286"></a>        <span class="k">return</span> <span class="p">[]</span>
+<a id="__codelineno-0-1287" name="__codelineno-0-1287"></a>
+<a id="__codelineno-0-1288" name="__codelineno-0-1288"></a>    <span class="nd">@property</span>
+<a id="__codelineno-0-1289" name="__codelineno-0-1289"></a>    <span class="k">def</span> <span class="nf">curves_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1290" name="__codelineno-0-1290"></a><span class="w">        </span><span class="sd">"""Returns a list of curves for accessing specific metrics curves."""</span>
+<a id="__codelineno-0-1291" name="__codelineno-0-1291"></a>        <span class="k">return</span> <span class="p">[]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -7065,21 +7070,21 @@ on the values provided in the <code>results</code> tuple.</p>
 <p>Initialize an OBBMetrics instance with directory, plotting, callback, and class names.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1224">1224</a></span>
-<span class="normal"><a href="#__codelineno-0-1225">1225</a></span>
-<span class="normal"><a href="#__codelineno-0-1226">1226</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1226">1226</a></span>
 <span class="normal"><a href="#__codelineno-0-1227">1227</a></span>
 <span class="normal"><a href="#__codelineno-0-1228">1228</a></span>
 <span class="normal"><a href="#__codelineno-0-1229">1229</a></span>
 <span class="normal"><a href="#__codelineno-0-1230">1230</a></span>
-<span class="normal"><a href="#__codelineno-0-1231">1231</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1224" name="__codelineno-0-1224"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1225" name="__codelineno-0-1225"></a><span class="w">    </span><span class="sd">"""Initialize an OBBMetrics instance with directory, plotting, callback, and class names."""</span>
-<a id="__codelineno-0-1226" name="__codelineno-0-1226"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
-<a id="__codelineno-0-1227" name="__codelineno-0-1227"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
-<a id="__codelineno-0-1228" name="__codelineno-0-1228"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span> <span class="o">=</span> <span class="n">on_plot</span>
-<a id="__codelineno-0-1229" name="__codelineno-0-1229"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
-<a id="__codelineno-0-1230" name="__codelineno-0-1230"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
-<a id="__codelineno-0-1231" name="__codelineno-0-1231"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-0-1231">1231</a></span>
+<span class="normal"><a href="#__codelineno-0-1232">1232</a></span>
+<span class="normal"><a href="#__codelineno-0-1233">1233</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1226" name="__codelineno-0-1226"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1227" name="__codelineno-0-1227"></a><span class="w">    </span><span class="sd">"""Initialize an OBBMetrics instance with directory, plotting, callback, and class names."""</span>
+<a id="__codelineno-0-1228" name="__codelineno-0-1228"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
+<a id="__codelineno-0-1229" name="__codelineno-0-1229"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
+<a id="__codelineno-0-1230" name="__codelineno-0-1230"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span> <span class="o">=</span> <span class="n">on_plot</span>
+<a id="__codelineno-0-1231" name="__codelineno-0-1231"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
+<a id="__codelineno-0-1232" name="__codelineno-0-1232"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
+<a id="__codelineno-0-1233" name="__codelineno-0-1233"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -7092,11 +7097,11 @@ on the values provided in the <code>results</code> tuple.</p>
 <p>Return the result of evaluating the performance of an object detection model on a specific class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1257">1257</a></span>
-<span class="normal"><a href="#__codelineno-0-1258">1258</a></span>
-<span class="normal"><a href="#__codelineno-0-1259">1259</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1257" name="__codelineno-0-1257"></a><span class="k">def</span> <span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-<a id="__codelineno-0-1258" name="__codelineno-0-1258"></a><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
-<a id="__codelineno-0-1259" name="__codelineno-0-1259"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1259">1259</a></span>
+<span class="normal"><a href="#__codelineno-0-1260">1260</a></span>
+<span class="normal"><a href="#__codelineno-0-1261">1261</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1259" name="__codelineno-0-1259"></a><span class="k">def</span> <span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-0-1260" name="__codelineno-0-1260"></a><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
+<a id="__codelineno-0-1261" name="__codelineno-0-1261"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -7109,11 +7114,11 @@ on the values provided in the <code>results</code> tuple.</p>
 <p>Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1253">1253</a></span>
-<span class="normal"><a href="#__codelineno-0-1254">1254</a></span>
-<span class="normal"><a href="#__codelineno-0-1255">1255</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1253" name="__codelineno-0-1253"></a><span class="k">def</span> <span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1254" name="__codelineno-0-1254"></a><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
-<a id="__codelineno-0-1255" name="__codelineno-0-1255"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1255">1255</a></span>
+<span class="normal"><a href="#__codelineno-0-1256">1256</a></span>
+<span class="normal"><a href="#__codelineno-0-1257">1257</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1255" name="__codelineno-0-1255"></a><span class="k">def</span> <span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1256" name="__codelineno-0-1256"></a><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
+<a id="__codelineno-0-1257" name="__codelineno-0-1257"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -7126,9 +7131,7 @@ on the values provided in the <code>results</code> tuple.</p>
 <p>Process predicted results for object detection and update metrics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1233">1233</a></span>
-<span class="normal"><a href="#__codelineno-0-1234">1234</a></span>
-<span class="normal"><a href="#__codelineno-0-1235">1235</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1235">1235</a></span>
 <span class="normal"><a href="#__codelineno-0-1236">1236</a></span>
 <span class="normal"><a href="#__codelineno-0-1237">1237</a></span>
 <span class="normal"><a href="#__codelineno-0-1238">1238</a></span>
@@ -7139,20 +7142,22 @@ on the values provided in the <code>results</code> tuple.</p>
 <span class="normal"><a href="#__codelineno-0-1243">1243</a></span>
 <span class="normal"><a href="#__codelineno-0-1244">1244</a></span>
 <span class="normal"><a href="#__codelineno-0-1245">1245</a></span>
-<span class="normal"><a href="#__codelineno-0-1246">1246</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1233" name="__codelineno-0-1233"></a><span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">):</span>
-<a id="__codelineno-0-1234" name="__codelineno-0-1234"></a><span class="w">    </span><span class="sd">"""Process predicted results for object detection and update metrics."""</span>
-<a id="__codelineno-0-1235" name="__codelineno-0-1235"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
-<a id="__codelineno-0-1236" name="__codelineno-0-1236"></a>        <span class="n">tp</span><span class="p">,</span>
-<a id="__codelineno-0-1237" name="__codelineno-0-1237"></a>        <span class="n">conf</span><span class="p">,</span>
-<a id="__codelineno-0-1238" name="__codelineno-0-1238"></a>        <span class="n">pred_cls</span><span class="p">,</span>
-<a id="__codelineno-0-1239" name="__codelineno-0-1239"></a>        <span class="n">target_cls</span><span class="p">,</span>
-<a id="__codelineno-0-1240" name="__codelineno-0-1240"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
-<a id="__codelineno-0-1241" name="__codelineno-0-1241"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
-<a id="__codelineno-0-1242" name="__codelineno-0-1242"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
-<a id="__codelineno-0-1243" name="__codelineno-0-1243"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
-<a id="__codelineno-0-1244" name="__codelineno-0-1244"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-0-1245" name="__codelineno-0-1245"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-0-1246" name="__codelineno-0-1246"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-1246">1246</a></span>
+<span class="normal"><a href="#__codelineno-0-1247">1247</a></span>
+<span class="normal"><a href="#__codelineno-0-1248">1248</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1235" name="__codelineno-0-1235"></a><span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">):</span>
+<a id="__codelineno-0-1236" name="__codelineno-0-1236"></a><span class="w">    </span><span class="sd">"""Process predicted results for object detection and update metrics."""</span>
+<a id="__codelineno-0-1237" name="__codelineno-0-1237"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
+<a id="__codelineno-0-1238" name="__codelineno-0-1238"></a>        <span class="n">tp</span><span class="p">,</span>
+<a id="__codelineno-0-1239" name="__codelineno-0-1239"></a>        <span class="n">conf</span><span class="p">,</span>
+<a id="__codelineno-0-1240" name="__codelineno-0-1240"></a>        <span class="n">pred_cls</span><span class="p">,</span>
+<a id="__codelineno-0-1241" name="__codelineno-0-1241"></a>        <span class="n">target_cls</span><span class="p">,</span>
+<a id="__codelineno-0-1242" name="__codelineno-0-1242"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
+<a id="__codelineno-0-1243" name="__codelineno-0-1243"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
+<a id="__codelineno-0-1244" name="__codelineno-0-1244"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+<a id="__codelineno-0-1245" name="__codelineno-0-1245"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
+<a id="__codelineno-0-1246" name="__codelineno-0-1246"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+<a id="__codelineno-0-1247" name="__codelineno-0-1247"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+<a id="__codelineno-0-1248" name="__codelineno-0-1248"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
