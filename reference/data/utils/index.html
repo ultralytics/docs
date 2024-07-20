@@ -503,13 +503,6 @@
 <nav aria-label="HUBDatasetStats" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.data.utils.HUBDatasetStats.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.data.utils.HUBDatasetStats.get_json">
 <span class="md-ellipsis">
       get_json
@@ -1170,13 +1163,6 @@
 <nav aria-label="HUBDatasetStats" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.data.utils.HUBDatasetStats.__init__">
-<span class="md-ellipsis">
-      __init__
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.data.utils.HUBDatasetStats.get_json">
 <span class="md-ellipsis">
       get_json
@@ -1316,7 +1302,7 @@
 <p><br/><br/></p>
 <div class="doc doc-object doc-class">
 <h2 class="doc doc-heading" id="ultralytics.data.utils.HUBDatasetStats">
-<code>ultralytics.data.utils.HUBDatasetStats</code>
+<code class="highlight language-python"><span class="n">ultralytics</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">HUBDatasetStats</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">,</span> <span class="n">autodownload</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
 </h2>
 <div class="doc doc-contents first">
 <p>A class for generating HUB dataset JSON and <code>-hub</code> dataset directory.</p>
@@ -1377,8 +1363,8 @@
 </table>
 <details class="example" open="">
 <summary>Example</summary>
-<p>Download *.zip files from https://github.com/ultralytics/hub/tree/main/example_datasets
-    i.e. https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip for coco8.zip.
+<p>Download *.zip files from <a href="https://github.com/ultralytics/hub/tree/main/example_datasets">https://github.com/ultralytics/hub/tree/main/example_datasets</a>
+    i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip">https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip</a> for coco8.zip.
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.utils</span> <span class="kn">import</span> <span class="n">HUBDatasetStats</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">stats</span> <span class="o">=</span> <span class="n">HUBDatasetStats</span><span class="p">(</span><span class="s1">'path/to/coco8.zip'</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">)</span>  <span class="c1"># detect dataset</span>
@@ -1391,328 +1377,6 @@
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">stats</span><span class="o">.</span><span class="n">process_images</span><span class="p">()</span>
 </code></pre></div></p>
 </details>
-<details class="quote">
-<summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-426">426</a></span>
-<span class="normal"><a href="#__codelineno-0-427">427</a></span>
-<span class="normal"><a href="#__codelineno-0-428">428</a></span>
-<span class="normal"><a href="#__codelineno-0-429">429</a></span>
-<span class="normal"><a href="#__codelineno-0-430">430</a></span>
-<span class="normal"><a href="#__codelineno-0-431">431</a></span>
-<span class="normal"><a href="#__codelineno-0-432">432</a></span>
-<span class="normal"><a href="#__codelineno-0-433">433</a></span>
-<span class="normal"><a href="#__codelineno-0-434">434</a></span>
-<span class="normal"><a href="#__codelineno-0-435">435</a></span>
-<span class="normal"><a href="#__codelineno-0-436">436</a></span>
-<span class="normal"><a href="#__codelineno-0-437">437</a></span>
-<span class="normal"><a href="#__codelineno-0-438">438</a></span>
-<span class="normal"><a href="#__codelineno-0-439">439</a></span>
-<span class="normal"><a href="#__codelineno-0-440">440</a></span>
-<span class="normal"><a href="#__codelineno-0-441">441</a></span>
-<span class="normal"><a href="#__codelineno-0-442">442</a></span>
-<span class="normal"><a href="#__codelineno-0-443">443</a></span>
-<span class="normal"><a href="#__codelineno-0-444">444</a></span>
-<span class="normal"><a href="#__codelineno-0-445">445</a></span>
-<span class="normal"><a href="#__codelineno-0-446">446</a></span>
-<span class="normal"><a href="#__codelineno-0-447">447</a></span>
-<span class="normal"><a href="#__codelineno-0-448">448</a></span>
-<span class="normal"><a href="#__codelineno-0-449">449</a></span>
-<span class="normal"><a href="#__codelineno-0-450">450</a></span>
-<span class="normal"><a href="#__codelineno-0-451">451</a></span>
-<span class="normal"><a href="#__codelineno-0-452">452</a></span>
-<span class="normal"><a href="#__codelineno-0-453">453</a></span>
-<span class="normal"><a href="#__codelineno-0-454">454</a></span>
-<span class="normal"><a href="#__codelineno-0-455">455</a></span>
-<span class="normal"><a href="#__codelineno-0-456">456</a></span>
-<span class="normal"><a href="#__codelineno-0-457">457</a></span>
-<span class="normal"><a href="#__codelineno-0-458">458</a></span>
-<span class="normal"><a href="#__codelineno-0-459">459</a></span>
-<span class="normal"><a href="#__codelineno-0-460">460</a></span>
-<span class="normal"><a href="#__codelineno-0-461">461</a></span>
-<span class="normal"><a href="#__codelineno-0-462">462</a></span>
-<span class="normal"><a href="#__codelineno-0-463">463</a></span>
-<span class="normal"><a href="#__codelineno-0-464">464</a></span>
-<span class="normal"><a href="#__codelineno-0-465">465</a></span>
-<span class="normal"><a href="#__codelineno-0-466">466</a></span>
-<span class="normal"><a href="#__codelineno-0-467">467</a></span>
-<span class="normal"><a href="#__codelineno-0-468">468</a></span>
-<span class="normal"><a href="#__codelineno-0-469">469</a></span>
-<span class="normal"><a href="#__codelineno-0-470">470</a></span>
-<span class="normal"><a href="#__codelineno-0-471">471</a></span>
-<span class="normal"><a href="#__codelineno-0-472">472</a></span>
-<span class="normal"><a href="#__codelineno-0-473">473</a></span>
-<span class="normal"><a href="#__codelineno-0-474">474</a></span>
-<span class="normal"><a href="#__codelineno-0-475">475</a></span>
-<span class="normal"><a href="#__codelineno-0-476">476</a></span>
-<span class="normal"><a href="#__codelineno-0-477">477</a></span>
-<span class="normal"><a href="#__codelineno-0-478">478</a></span>
-<span class="normal"><a href="#__codelineno-0-479">479</a></span>
-<span class="normal"><a href="#__codelineno-0-480">480</a></span>
-<span class="normal"><a href="#__codelineno-0-481">481</a></span>
-<span class="normal"><a href="#__codelineno-0-482">482</a></span>
-<span class="normal"><a href="#__codelineno-0-483">483</a></span>
-<span class="normal"><a href="#__codelineno-0-484">484</a></span>
-<span class="normal"><a href="#__codelineno-0-485">485</a></span>
-<span class="normal"><a href="#__codelineno-0-486">486</a></span>
-<span class="normal"><a href="#__codelineno-0-487">487</a></span>
-<span class="normal"><a href="#__codelineno-0-488">488</a></span>
-<span class="normal"><a href="#__codelineno-0-489">489</a></span>
-<span class="normal"><a href="#__codelineno-0-490">490</a></span>
-<span class="normal"><a href="#__codelineno-0-491">491</a></span>
-<span class="normal"><a href="#__codelineno-0-492">492</a></span>
-<span class="normal"><a href="#__codelineno-0-493">493</a></span>
-<span class="normal"><a href="#__codelineno-0-494">494</a></span>
-<span class="normal"><a href="#__codelineno-0-495">495</a></span>
-<span class="normal"><a href="#__codelineno-0-496">496</a></span>
-<span class="normal"><a href="#__codelineno-0-497">497</a></span>
-<span class="normal"><a href="#__codelineno-0-498">498</a></span>
-<span class="normal"><a href="#__codelineno-0-499">499</a></span>
-<span class="normal"><a href="#__codelineno-0-500">500</a></span>
-<span class="normal"><a href="#__codelineno-0-501">501</a></span>
-<span class="normal"><a href="#__codelineno-0-502">502</a></span>
-<span class="normal"><a href="#__codelineno-0-503">503</a></span>
-<span class="normal"><a href="#__codelineno-0-504">504</a></span>
-<span class="normal"><a href="#__codelineno-0-505">505</a></span>
-<span class="normal"><a href="#__codelineno-0-506">506</a></span>
-<span class="normal"><a href="#__codelineno-0-507">507</a></span>
-<span class="normal"><a href="#__codelineno-0-508">508</a></span>
-<span class="normal"><a href="#__codelineno-0-509">509</a></span>
-<span class="normal"><a href="#__codelineno-0-510">510</a></span>
-<span class="normal"><a href="#__codelineno-0-511">511</a></span>
-<span class="normal"><a href="#__codelineno-0-512">512</a></span>
-<span class="normal"><a href="#__codelineno-0-513">513</a></span>
-<span class="normal"><a href="#__codelineno-0-514">514</a></span>
-<span class="normal"><a href="#__codelineno-0-515">515</a></span>
-<span class="normal"><a href="#__codelineno-0-516">516</a></span>
-<span class="normal"><a href="#__codelineno-0-517">517</a></span>
-<span class="normal"><a href="#__codelineno-0-518">518</a></span>
-<span class="normal"><a href="#__codelineno-0-519">519</a></span>
-<span class="normal"><a href="#__codelineno-0-520">520</a></span>
-<span class="normal"><a href="#__codelineno-0-521">521</a></span>
-<span class="normal"><a href="#__codelineno-0-522">522</a></span>
-<span class="normal"><a href="#__codelineno-0-523">523</a></span>
-<span class="normal"><a href="#__codelineno-0-524">524</a></span>
-<span class="normal"><a href="#__codelineno-0-525">525</a></span>
-<span class="normal"><a href="#__codelineno-0-526">526</a></span>
-<span class="normal"><a href="#__codelineno-0-527">527</a></span>
-<span class="normal"><a href="#__codelineno-0-528">528</a></span>
-<span class="normal"><a href="#__codelineno-0-529">529</a></span>
-<span class="normal"><a href="#__codelineno-0-530">530</a></span>
-<span class="normal"><a href="#__codelineno-0-531">531</a></span>
-<span class="normal"><a href="#__codelineno-0-532">532</a></span>
-<span class="normal"><a href="#__codelineno-0-533">533</a></span>
-<span class="normal"><a href="#__codelineno-0-534">534</a></span>
-<span class="normal"><a href="#__codelineno-0-535">535</a></span>
-<span class="normal"><a href="#__codelineno-0-536">536</a></span>
-<span class="normal"><a href="#__codelineno-0-537">537</a></span>
-<span class="normal"><a href="#__codelineno-0-538">538</a></span>
-<span class="normal"><a href="#__codelineno-0-539">539</a></span>
-<span class="normal"><a href="#__codelineno-0-540">540</a></span>
-<span class="normal"><a href="#__codelineno-0-541">541</a></span>
-<span class="normal"><a href="#__codelineno-0-542">542</a></span>
-<span class="normal"><a href="#__codelineno-0-543">543</a></span>
-<span class="normal"><a href="#__codelineno-0-544">544</a></span>
-<span class="normal"><a href="#__codelineno-0-545">545</a></span>
-<span class="normal"><a href="#__codelineno-0-546">546</a></span>
-<span class="normal"><a href="#__codelineno-0-547">547</a></span>
-<span class="normal"><a href="#__codelineno-0-548">548</a></span>
-<span class="normal"><a href="#__codelineno-0-549">549</a></span>
-<span class="normal"><a href="#__codelineno-0-550">550</a></span>
-<span class="normal"><a href="#__codelineno-0-551">551</a></span>
-<span class="normal"><a href="#__codelineno-0-552">552</a></span>
-<span class="normal"><a href="#__codelineno-0-553">553</a></span>
-<span class="normal"><a href="#__codelineno-0-554">554</a></span>
-<span class="normal"><a href="#__codelineno-0-555">555</a></span>
-<span class="normal"><a href="#__codelineno-0-556">556</a></span>
-<span class="normal"><a href="#__codelineno-0-557">557</a></span>
-<span class="normal"><a href="#__codelineno-0-558">558</a></span>
-<span class="normal"><a href="#__codelineno-0-559">559</a></span>
-<span class="normal"><a href="#__codelineno-0-560">560</a></span>
-<span class="normal"><a href="#__codelineno-0-561">561</a></span>
-<span class="normal"><a href="#__codelineno-0-562">562</a></span>
-<span class="normal"><a href="#__codelineno-0-563">563</a></span>
-<span class="normal"><a href="#__codelineno-0-564">564</a></span>
-<span class="normal"><a href="#__codelineno-0-565">565</a></span>
-<span class="normal"><a href="#__codelineno-0-566">566</a></span>
-<span class="normal"><a href="#__codelineno-0-567">567</a></span>
-<span class="normal"><a href="#__codelineno-0-568">568</a></span>
-<span class="normal"><a href="#__codelineno-0-569">569</a></span>
-<span class="normal"><a href="#__codelineno-0-570">570</a></span>
-<span class="normal"><a href="#__codelineno-0-571">571</a></span>
-<span class="normal"><a href="#__codelineno-0-572">572</a></span>
-<span class="normal"><a href="#__codelineno-0-573">573</a></span>
-<span class="normal"><a href="#__codelineno-0-574">574</a></span>
-<span class="normal"><a href="#__codelineno-0-575">575</a></span>
-<span class="normal"><a href="#__codelineno-0-576">576</a></span>
-<span class="normal"><a href="#__codelineno-0-577">577</a></span>
-<span class="normal"><a href="#__codelineno-0-578">578</a></span>
-<span class="normal"><a href="#__codelineno-0-579">579</a></span>
-<span class="normal"><a href="#__codelineno-0-580">580</a></span>
-<span class="normal"><a href="#__codelineno-0-581">581</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-426" name="__codelineno-0-426"></a><span class="k">class</span> <span class="nc">HUBDatasetStats</span><span class="p">:</span>
-<a id="__codelineno-0-427" name="__codelineno-0-427"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-428" name="__codelineno-0-428"></a><span class="sd">    A class for generating HUB dataset JSON and `-hub` dataset directory.</span>
-<a id="__codelineno-0-429" name="__codelineno-0-429"></a>
-<a id="__codelineno-0-430" name="__codelineno-0-430"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-431" name="__codelineno-0-431"></a><span class="sd">        path (str): Path to data.yaml or data.zip (with data.yaml inside data.zip). Default is 'coco8.yaml'.</span>
-<a id="__codelineno-0-432" name="__codelineno-0-432"></a><span class="sd">        task (str): Dataset task. Options are 'detect', 'segment', 'pose', 'classify'. Default is 'detect'.</span>
-<a id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="sd">        autodownload (bool): Attempt to download dataset if not found locally. Default is False.</span>
-<a id="__codelineno-0-434" name="__codelineno-0-434"></a>
-<a id="__codelineno-0-435" name="__codelineno-0-435"></a><span class="sd">    Example:</span>
-<a id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="sd">        Download *.zip files from https://github.com/ultralytics/hub/tree/main/example_datasets</span>
-<a id="__codelineno-0-437" name="__codelineno-0-437"></a><span class="sd">            i.e. https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip for coco8.zip.</span>
-<a id="__codelineno-0-438" name="__codelineno-0-438"></a><span class="sd">        ```python</span>
-<a id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="sd">        from ultralytics.data.utils import HUBDatasetStats</span>
-<a id="__codelineno-0-440" name="__codelineno-0-440"></a>
-<a id="__codelineno-0-441" name="__codelineno-0-441"></a><span class="sd">        stats = HUBDatasetStats('path/to/coco8.zip', task='detect')  # detect dataset</span>
-<a id="__codelineno-0-442" name="__codelineno-0-442"></a><span class="sd">        stats = HUBDatasetStats('path/to/coco8-seg.zip', task='segment')  # segment dataset</span>
-<a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="sd">        stats = HUBDatasetStats('path/to/coco8-pose.zip', task='pose')  # pose dataset</span>
-<a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="sd">        stats = HUBDatasetStats('path/to/dota8.zip', task='obb')  # OBB dataset</span>
-<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="sd">        stats = HUBDatasetStats('path/to/imagenet10.zip', task='classify')  # classification dataset</span>
-<a id="__codelineno-0-446" name="__codelineno-0-446"></a>
-<a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="sd">        stats.get_json(save=True)</span>
-<a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="sd">        stats.process_images()</span>
-<a id="__codelineno-0-449" name="__codelineno-0-449"></a><span class="sd">        ```</span>
-<a id="__codelineno-0-450" name="__codelineno-0-450"></a><span class="sd">    """</span>
-<a id="__codelineno-0-451" name="__codelineno-0-451"></a>
-<a id="__codelineno-0-452" name="__codelineno-0-452"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="n">autodownload</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<a id="__codelineno-0-453" name="__codelineno-0-453"></a><span class="w">        </span><span class="sd">"""Initialize class."""</span>
-<a id="__codelineno-0-454" name="__codelineno-0-454"></a>        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
-<a id="__codelineno-0-455" name="__codelineno-0-455"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Starting HUB dataset checks for </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">...."</span><span class="p">)</span>
-<a id="__codelineno-0-456" name="__codelineno-0-456"></a>
-<a id="__codelineno-0-457" name="__codelineno-0-457"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="n">task</span>  <span class="c1"># detect, segment, pose, classify</span>
-<a id="__codelineno-0-458" name="__codelineno-0-458"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"classify"</span><span class="p">:</span>
-<a id="__codelineno-0-459" name="__codelineno-0-459"></a>            <span class="n">unzip_dir</span> <span class="o">=</span> <span class="n">unzip_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<a id="__codelineno-0-460" name="__codelineno-0-460"></a>            <span class="n">data</span> <span class="o">=</span> <span class="n">check_cls_dataset</span><span class="p">(</span><span class="n">unzip_dir</span><span class="p">)</span>
-<a id="__codelineno-0-461" name="__codelineno-0-461"></a>            <span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">=</span> <span class="n">unzip_dir</span>
-<a id="__codelineno-0-462" name="__codelineno-0-462"></a>        <span class="k">else</span><span class="p">:</span>  <span class="c1"># detect, segment, pose</span>
-<a id="__codelineno-0-463" name="__codelineno-0-463"></a>            <span class="n">_</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">,</span> <span class="n">yaml_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unzip</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
-<a id="__codelineno-0-464" name="__codelineno-0-464"></a>            <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-465" name="__codelineno-0-465"></a>                <span class="c1"># Load YAML with checks</span>
-<a id="__codelineno-0-466" name="__codelineno-0-466"></a>                <span class="n">data</span> <span class="o">=</span> <span class="n">yaml_load</span><span class="p">(</span><span class="n">yaml_path</span><span class="p">)</span>
-<a id="__codelineno-0-467" name="__codelineno-0-467"></a>                <span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">""</span>  <span class="c1"># strip path since YAML should be in dataset root for all HUB datasets</span>
-<a id="__codelineno-0-468" name="__codelineno-0-468"></a>                <span class="n">yaml_save</span><span class="p">(</span><span class="n">yaml_path</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-0-469" name="__codelineno-0-469"></a>                <span class="n">data</span> <span class="o">=</span> <span class="n">check_det_dataset</span><span class="p">(</span><span class="n">yaml_path</span><span class="p">,</span> <span class="n">autodownload</span><span class="p">)</span>  <span class="c1"># dict</span>
-<a id="__codelineno-0-470" name="__codelineno-0-470"></a>                <span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_dir</span>  <span class="c1"># YAML path should be set to '' (relative) or parent (absolute)</span>
-<a id="__codelineno-0-471" name="__codelineno-0-471"></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-472" name="__codelineno-0-472"></a>                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"error/HUB/dataset_stats/init"</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
-<a id="__codelineno-0-473" name="__codelineno-0-473"></a>
-<a id="__codelineno-0-474" name="__codelineno-0-474"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">hub_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span><span class="si">}</span><span class="s1">-hub'</span><span class="p">)</span>
-<a id="__codelineno-0-475" name="__codelineno-0-475"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">im_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_dir</span> <span class="o">/</span> <span class="s2">"images"</span>
-<a id="__codelineno-0-476" name="__codelineno-0-476"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">stats</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"nc"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]),</span> <span class="s2">"names"</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())}</span>  <span class="c1"># statistics dictionary</span>
-<a id="__codelineno-0-477" name="__codelineno-0-477"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
-<a id="__codelineno-0-478" name="__codelineno-0-478"></a>
-<a id="__codelineno-0-479" name="__codelineno-0-479"></a>    <span class="nd">@staticmethod</span>
-<a id="__codelineno-0-480" name="__codelineno-0-480"></a>    <span class="k">def</span> <span class="nf">_unzip</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-<a id="__codelineno-0-481" name="__codelineno-0-481"></a><span class="w">        </span><span class="sd">"""Unzip data.zip."""</span>
-<a id="__codelineno-0-482" name="__codelineno-0-482"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".zip"</span><span class="p">):</span>  <span class="c1"># path is data.yaml</span>
-<a id="__codelineno-0-483" name="__codelineno-0-483"></a>            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">path</span>
-<a id="__codelineno-0-484" name="__codelineno-0-484"></a>        <span class="n">unzip_dir</span> <span class="o">=</span> <span class="n">unzip_file</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
-<a id="__codelineno-0-485" name="__codelineno-0-485"></a>        <span class="k">assert</span> <span class="n">unzip_dir</span><span class="o">.</span><span class="n">is_dir</span><span class="p">(),</span> <span class="p">(</span>
-<a id="__codelineno-0-486" name="__codelineno-0-486"></a>            <span class="sa">f</span><span class="s2">"Error unzipping </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">unzip_dir</span><span class="si">}</span><span class="s2"> not found. "</span> <span class="sa">f</span><span class="s2">"path/to/abc.zip MUST unzip to path/to/abc/"</span>
-<a id="__codelineno-0-487" name="__codelineno-0-487"></a>        <span class="p">)</span>
-<a id="__codelineno-0-488" name="__codelineno-0-488"></a>        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">unzip_dir</span><span class="p">),</span> <span class="n">find_dataset_yaml</span><span class="p">(</span><span class="n">unzip_dir</span><span class="p">)</span>  <span class="c1"># zipped, data_dir, yaml_path</span>
-<a id="__codelineno-0-489" name="__codelineno-0-489"></a>
-<a id="__codelineno-0-490" name="__codelineno-0-490"></a>    <span class="k">def</span> <span class="nf">_hub_ops</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-<a id="__codelineno-0-491" name="__codelineno-0-491"></a><span class="w">        </span><span class="sd">"""Saves a compressed image for HUB previews."""</span>
-<a id="__codelineno-0-492" name="__codelineno-0-492"></a>        <span class="n">compress_one_image</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im_dir</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c1"># save to dataset-hub</span>
-<a id="__codelineno-0-493" name="__codelineno-0-493"></a>
-<a id="__codelineno-0-494" name="__codelineno-0-494"></a>    <span class="k">def</span> <span class="nf">get_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<a id="__codelineno-0-495" name="__codelineno-0-495"></a><span class="w">        </span><span class="sd">"""Return dataset JSON for Ultralytics HUB."""</span>
-<a id="__codelineno-0-496" name="__codelineno-0-496"></a>
-<a id="__codelineno-0-497" name="__codelineno-0-497"></a>        <span class="k">def</span> <span class="nf">_round</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
-<a id="__codelineno-0-498" name="__codelineno-0-498"></a><span class="w">            </span><span class="sd">"""Update labels to integer class and 4 decimal place floats."""</span>
-<a id="__codelineno-0-499" name="__codelineno-0-499"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"detect"</span><span class="p">:</span>
-<a id="__codelineno-0-500" name="__codelineno-0-500"></a>                <span class="n">coordinates</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">]</span>
-<a id="__codelineno-0-501" name="__codelineno-0-501"></a>            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"segment"</span><span class="p">,</span> <span class="s2">"obb"</span><span class="p">}:</span>  <span class="c1"># Segment and OBB use segments. OBB segments are normalized xyxyxyxy</span>
-<a id="__codelineno-0-502" name="__codelineno-0-502"></a>                <span class="n">coordinates</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">[</span><span class="s2">"segments"</span><span class="p">]]</span>
-<a id="__codelineno-0-503" name="__codelineno-0-503"></a>            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"pose"</span><span class="p">:</span>
-<a id="__codelineno-0-504" name="__codelineno-0-504"></a>                <span class="n">n</span><span class="p">,</span> <span class="n">nk</span><span class="p">,</span> <span class="n">nd</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-<a id="__codelineno-0-505" name="__codelineno-0-505"></a>                <span class="n">coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">labels</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">nk</span> <span class="o">*</span> <span class="n">nd</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-506" name="__codelineno-0-506"></a>            <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-507" name="__codelineno-0-507"></a>                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Undefined dataset task=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
-<a id="__codelineno-0-508" name="__codelineno-0-508"></a>            <span class="n">zipped</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">)</span>
-<a id="__codelineno-0-509" name="__codelineno-0-509"></a>            <span class="k">return</span> <span class="p">[[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="o">*</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">points</span><span class="p">)]</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">points</span> <span class="ow">in</span> <span class="n">zipped</span><span class="p">]</span>
-<a id="__codelineno-0-510" name="__codelineno-0-510"></a>
-<a id="__codelineno-0-511" name="__codelineno-0-511"></a>        <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="s2">"train"</span><span class="p">,</span> <span class="s2">"val"</span><span class="p">,</span> <span class="s2">"test"</span><span class="p">:</span>
-<a id="__codelineno-0-512" name="__codelineno-0-512"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">[</span><span class="n">split</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># predefine</span>
-<a id="__codelineno-0-513" name="__codelineno-0-513"></a>            <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">split</span><span class="p">)</span>
-<a id="__codelineno-0-514" name="__codelineno-0-514"></a>
-<a id="__codelineno-0-515" name="__codelineno-0-515"></a>            <span class="c1"># Check split</span>
-<a id="__codelineno-0-516" name="__codelineno-0-516"></a>            <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># no split</span>
-<a id="__codelineno-0-517" name="__codelineno-0-517"></a>                <span class="k">continue</span>
-<a id="__codelineno-0-518" name="__codelineno-0-518"></a>            <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*.*"</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">suffix</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">IMG_FORMATS</span><span class="p">]</span>  <span class="c1"># image files in split</span>
-<a id="__codelineno-0-519" name="__codelineno-0-519"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">files</span><span class="p">:</span>  <span class="c1"># no images</span>
-<a id="__codelineno-0-520" name="__codelineno-0-520"></a>                <span class="k">continue</span>
-<a id="__codelineno-0-521" name="__codelineno-0-521"></a>
-<a id="__codelineno-0-522" name="__codelineno-0-522"></a>            <span class="c1"># Get dataset statistics</span>
-<a id="__codelineno-0-523" name="__codelineno-0-523"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"classify"</span><span class="p">:</span>
-<a id="__codelineno-0-524" name="__codelineno-0-524"></a>                <span class="kn">from</span> <span class="nn">torchvision.datasets</span> <span class="kn">import</span> <span class="n">ImageFolder</span>
-<a id="__codelineno-0-525" name="__codelineno-0-525"></a>
-<a id="__codelineno-0-526" name="__codelineno-0-526"></a>                <span class="n">dataset</span> <span class="o">=</span> <span class="n">ImageFolder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">split</span><span class="p">])</span>
-<a id="__codelineno-0-527" name="__codelineno-0-527"></a>
-<a id="__codelineno-0-528" name="__codelineno-0-528"></a>                <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">classes</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<a id="__codelineno-0-529" name="__codelineno-0-529"></a>                <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">imgs</span><span class="p">:</span>
-<a id="__codelineno-0-530" name="__codelineno-0-530"></a>                    <span class="n">x</span><span class="p">[</span><span class="n">im</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-0-531" name="__codelineno-0-531"></a>
-<a id="__codelineno-0-532" name="__codelineno-0-532"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">[</span><span class="n">split</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-533" name="__codelineno-0-533"></a>                    <span class="s2">"instance_stats"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"total"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">),</span> <span class="s2">"per_class"</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">tolist</span><span class="p">()},</span>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a>                    <span class="s2">"image_stats"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"total"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">),</span> <span class="s2">"unlabelled"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"per_class"</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">tolist</span><span class="p">()},</span>
-<a id="__codelineno-0-535" name="__codelineno-0-535"></a>                    <span class="s2">"labels"</span><span class="p">:</span> <span class="p">[{</span><span class="n">Path</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">v</span><span class="p">}</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">imgs</span><span class="p">],</span>
-<a id="__codelineno-0-536" name="__codelineno-0-536"></a>                <span class="p">}</span>
-<a id="__codelineno-0-537" name="__codelineno-0-537"></a>            <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-538" name="__codelineno-0-538"></a>                <span class="kn">from</span> <span class="nn">ultralytics.data</span> <span class="kn">import</span> <span class="n">YOLODataset</span>
-<a id="__codelineno-0-539" name="__codelineno-0-539"></a>
-<a id="__codelineno-0-540" name="__codelineno-0-540"></a>                <span class="n">dataset</span> <span class="o">=</span> <span class="n">YOLODataset</span><span class="p">(</span><span class="n">img_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">split</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">)</span>
-<a id="__codelineno-0-541" name="__codelineno-0-541"></a>                <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<a id="__codelineno-0-542" name="__codelineno-0-542"></a>                    <span class="p">[</span>
-<a id="__codelineno-0-543" name="__codelineno-0-543"></a>                        <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">minlength</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">])</span>
-<a id="__codelineno-0-544" name="__codelineno-0-544"></a>                        <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">TQDM</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">"Statistics"</span><span class="p">)</span>
-<a id="__codelineno-0-545" name="__codelineno-0-545"></a>                    <span class="p">]</span>
-<a id="__codelineno-0-546" name="__codelineno-0-546"></a>                <span class="p">)</span>  <span class="c1"># shape(128x80)</span>
-<a id="__codelineno-0-547" name="__codelineno-0-547"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">[</span><span class="n">split</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-548" name="__codelineno-0-548"></a>                    <span class="s2">"instance_stats"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"total"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()),</span> <span class="s2">"per_class"</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()},</span>
-<a id="__codelineno-0-549" name="__codelineno-0-549"></a>                    <span class="s2">"image_stats"</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-0-550" name="__codelineno-0-550"></a>                        <span class="s2">"total"</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">),</span>
-<a id="__codelineno-0-551" name="__codelineno-0-551"></a>                        <span class="s2">"unlabelled"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()),</span>
-<a id="__codelineno-0-552" name="__codelineno-0-552"></a>                        <span class="s2">"per_class"</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<a id="__codelineno-0-553" name="__codelineno-0-553"></a>                    <span class="p">},</span>
-<a id="__codelineno-0-554" name="__codelineno-0-554"></a>                    <span class="s2">"labels"</span><span class="p">:</span> <span class="p">[{</span><span class="n">Path</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">_round</span><span class="p">(</span><span class="n">v</span><span class="p">)}</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">im_files</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">)],</span>
-<a id="__codelineno-0-555" name="__codelineno-0-555"></a>                <span class="p">}</span>
-<a id="__codelineno-0-556" name="__codelineno-0-556"></a>
-<a id="__codelineno-0-557" name="__codelineno-0-557"></a>        <span class="c1"># Save, print and return</span>
-<a id="__codelineno-0-558" name="__codelineno-0-558"></a>        <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
-<a id="__codelineno-0-559" name="__codelineno-0-559"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">hub_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># makes dataset-hub/</span>
-<a id="__codelineno-0-560" name="__codelineno-0-560"></a>            <span class="n">stats_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_dir</span> <span class="o">/</span> <span class="s2">"stats.json"</span>
-<a id="__codelineno-0-561" name="__codelineno-0-561"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Saving </span><span class="si">{</span><span class="n">stats_path</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
-<a id="__codelineno-0-562" name="__codelineno-0-562"></a>            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">stats_path</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-0-563" name="__codelineno-0-563"></a>                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>  <span class="c1"># save stats.json</span>
-<a id="__codelineno-0-564" name="__codelineno-0-564"></a>        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-<a id="__codelineno-0-565" name="__codelineno-0-565"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-<a id="__codelineno-0-566" name="__codelineno-0-566"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats</span>
-<a id="__codelineno-0-567" name="__codelineno-0-567"></a>
-<a id="__codelineno-0-568" name="__codelineno-0-568"></a>    <span class="k">def</span> <span class="nf">process_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-569" name="__codelineno-0-569"></a><span class="w">        </span><span class="sd">"""Compress images for Ultralytics HUB."""</span>
-<a id="__codelineno-0-570" name="__codelineno-0-570"></a>        <span class="kn">from</span> <span class="nn">ultralytics.data</span> <span class="kn">import</span> <span class="n">YOLODataset</span>  <span class="c1"># ClassificationDataset</span>
-<a id="__codelineno-0-571" name="__codelineno-0-571"></a>
-<a id="__codelineno-0-572" name="__codelineno-0-572"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">im_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># makes dataset-hub/images/</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a>        <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="s2">"train"</span><span class="p">,</span> <span class="s2">"val"</span><span class="p">,</span> <span class="s2">"test"</span><span class="p">:</span>
-<a id="__codelineno-0-574" name="__codelineno-0-574"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">split</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-575" name="__codelineno-0-575"></a>                <span class="k">continue</span>
-<a id="__codelineno-0-576" name="__codelineno-0-576"></a>            <span class="n">dataset</span> <span class="o">=</span> <span class="n">YOLODataset</span><span class="p">(</span><span class="n">img_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">split</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-0-577" name="__codelineno-0-577"></a>            <span class="k">with</span> <span class="n">ThreadPool</span><span class="p">(</span><span class="n">NUM_THREADS</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
-<a id="__codelineno-0-578" name="__codelineno-0-578"></a>                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">TQDM</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_hub_ops</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">im_files</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">split</span><span class="si">}</span><span class="s2"> images"</span><span class="p">):</span>
-<a id="__codelineno-0-579" name="__codelineno-0-579"></a>                    <span class="k">pass</span>
-<a id="__codelineno-0-580" name="__codelineno-0-580"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Done. All images saved to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">im_dir</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-581" name="__codelineno-0-581"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">im_dir</span>
-</code></pre></div></td></tr></table></div>
-</details>
-<div class="doc doc-children">
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="ultralytics.data.utils.HUBDatasetStats.__init__">
-<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">,</span> <span class="n">autodownload</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
-</h3>
-<div class="doc doc-contents">
-<p>Initialize class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-452">452</a></span>
@@ -1768,8 +1432,7 @@
 <a id="__codelineno-0-477" name="__codelineno-0-477"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
 </code></pre></div></td></tr></table></div>
 </details>
-</div>
-</div>
+<div class="doc doc-children">
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.data.utils.HUBDatasetStats.get_json">
 <code class="highlight language-python"><span class="n">get_json</span><span class="p">(</span><span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
