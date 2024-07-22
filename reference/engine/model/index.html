@@ -2141,19 +2141,12 @@ various tasks and modes within the Ultralytics framework.</p>
 </tr>
 </tbody>
 </table>
-<details class="example" open="">
-<summary>Example</summary>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>model = Model()
-task_map = model.task_map
-detect_class_map = task_map['detect']
-segment_class_map = task_map['segment']</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</details>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">task_map</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">task_map</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">detect_class_map</span> <span class="o">=</span> <span class="n">task_map</span><span class="p">[</span><span class="s1">'detect'</span><span class="p">]</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">segment_class_map</span> <span class="o">=</span> <span class="n">task_map</span><span class="p">[</span><span class="s1">'segment'</span><span class="p">]</span>
+</code></pre></div>
 <details class="note" open="">
 <summary>Note</summary>
 <p>The actual implementation of this method may vary depending on the specific tasks and
@@ -4115,8 +4108,8 @@ previously added. It iterates through all default callback events and replaces t
 default ones.</p>
 <p>The default callbacks are defined in the 'callbacks.default_callbacks' dictionary, which contains predefined
 functions for various events in the model's lifecycle, such as on_train_start, on_epoch_end, etc.</p>
-<p>This method is useful when you want to revert to the original set of callbacks after making custom modifications,
-ensuring consistent behavior across different runs or experiments.</p>
+<p>This method is useful when you want to revert to the original set of callbacks after making custom
+modifications, ensuring consistent behavior across different runs or experiments.</p>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolov8n.pt'</span><span class="p">)</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s1">'on_train_start'</span><span class="p">,</span> <span class="n">custom_function</span><span class="p">)</span>
@@ -4157,8 +4150,8 @@ ensuring consistent behavior across different runs or experiments.</p>
 <a id="__codelineno-0-1028" name="__codelineno-0-1028"></a><span class="sd">    The default callbacks are defined in the 'callbacks.default_callbacks' dictionary, which contains predefined</span>
 <a id="__codelineno-0-1029" name="__codelineno-0-1029"></a><span class="sd">    functions for various events in the model's lifecycle, such as on_train_start, on_epoch_end, etc.</span>
 <a id="__codelineno-0-1030" name="__codelineno-0-1030"></a>
-<a id="__codelineno-0-1031" name="__codelineno-0-1031"></a><span class="sd">    This method is useful when you want to revert to the original set of callbacks after making custom modifications,</span>
-<a id="__codelineno-0-1032" name="__codelineno-0-1032"></a><span class="sd">    ensuring consistent behavior across different runs or experiments.</span>
+<a id="__codelineno-0-1031" name="__codelineno-0-1031"></a><span class="sd">    This method is useful when you want to revert to the original set of callbacks after making custom</span>
+<a id="__codelineno-0-1032" name="__codelineno-0-1032"></a><span class="sd">    modifications, ensuring consistent behavior across different runs or experiments.</span>
 <a id="__codelineno-0-1033" name="__codelineno-0-1033"></a>
 <a id="__codelineno-0-1034" name="__codelineno-0-1034"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-1035" name="__codelineno-0-1035"></a><span class="sd">        &gt;&gt;&gt; model = YOLO('yolov8n.pt')</span>
@@ -4525,7 +4518,7 @@ tracking. Can be a file path, URL, or video stream.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A list of tracking results, each encapsulated in a Results object.</p>
+<p>A list of tracking results, each a Results object.</p>
 </div>
 </td>
 </tr>
@@ -4635,7 +4628,7 @@ tracking. Can be a file path, URL, or video stream.</p>
 <a id="__codelineno-0-583" name="__codelineno-0-583"></a><span class="sd">        **kwargs (Any): Additional keyword arguments for configuring the tracking process.</span>
 <a id="__codelineno-0-584" name="__codelineno-0-584"></a>
 <a id="__codelineno-0-585" name="__codelineno-0-585"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-586" name="__codelineno-0-586"></a><span class="sd">        (List[ultralytics.engine.results.Results]): A list of tracking results, each encapsulated in a Results object.</span>
+<a id="__codelineno-0-586" name="__codelineno-0-586"></a><span class="sd">        (List[ultralytics.engine.results.Results]): A list of tracking results, each a Results object.</span>
 <a id="__codelineno-0-587" name="__codelineno-0-587"></a>
 <a id="__codelineno-0-588" name="__codelineno-0-588"></a><span class="sd">    Raises:</span>
 <a id="__codelineno-0-589" name="__codelineno-0-589"></a><span class="sd">        AttributeError: If the predictor does not have registered trackers.</span>
