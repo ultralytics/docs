@@ -5,10 +5,10 @@
 name: Ultralytics Actions
 
 on:
-  push:
-    branches: [main, master]
+  issues:
+    types: [opened, edited]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 
 jobs:
   format:
@@ -17,9 +17,11 @@ jobs:
       - name: Run Ultralytics Formatting
         uses: ultralytics/actions@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # automatically generated, do not modify
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }} # note GITHUB_TOKEN automatically generated
+          labels: true # autolabel issues and PRs          
           python: true # format Python code and docstrings
-          markdown: true # format Markdown and YAML
+          markdown: true # format Markdown
+          prettier: true # format YAML
           spelling: true # check spelling
           links: true # check broken links
           summary: true # print PR summary with GPT4 (requires 'openai_api_key' or 'openai_azure_api_key' and 'openai_azure_endpoint')
