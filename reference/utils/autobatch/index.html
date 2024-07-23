@@ -1181,7 +1181,7 @@
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        (int): Optimal batch size computed using the autobatch() function.</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    """</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">amp</span><span class="o">.</span><span class="n">autocast</span><span class="p">(</span><span class="n">amp</span><span class="p">):</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">with</span> <span class="n">autocast</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="n">amp</span><span class="p">):</span>
 <a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="k">return</span> <span class="n">autobatch</span><span class="p">(</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(),</span> <span class="n">imgsz</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="n">batch</span> <span class="k">if</span> <span class="mf">0.0</span> <span class="o">&lt;</span> <span class="n">batch</span> <span class="o">&lt;</span> <span class="mf">1.0</span> <span class="k">else</span> <span class="mf">0.6</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
