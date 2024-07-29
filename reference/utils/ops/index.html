@@ -3103,11 +3103,11 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <tbody>
 <tr class="doc-section-item">
 <td><code>masks</code></td> <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The masks that are being returned.</p>
+<p>The masks that are being returned with shape [h, w, num].</p>
 </div>
 </td>
 </tr>
@@ -3157,7 +3157,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="sd">        ratio_pad (tuple): the ratio of the padding to the original image.</span>
 <a id="__codelineno-0-364" name="__codelineno-0-364"></a>
 <a id="__codelineno-0-365" name="__codelineno-0-365"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-366" name="__codelineno-0-366"></a><span class="sd">        masks (torch.Tensor): The masks that are being returned.</span>
+<a id="__codelineno-0-366" name="__codelineno-0-366"></a><span class="sd">        masks (np.ndarray): The masks that are being returned with shape [h, w, num].</span>
 <a id="__codelineno-0-367" name="__codelineno-0-367"></a><span class="sd">    """</span>
 <a id="__codelineno-0-368" name="__codelineno-0-368"></a>    <span class="c1"># Rescale coordinates (xyxy) from im1_shape to im0_shape</span>
 <a id="__codelineno-0-369" name="__codelineno-0-369"></a>    <span class="n">im1_shape</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span>
