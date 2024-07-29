@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn step-by-step how to deploy Ultralytics' YOLOv8 on Amazon SageMaker Endpoints, from setup to testing, for powerful real-time inference with AWS services." name="description"/>
+<meta content="Explore our integration guide that explains how you can use JupyterLab to train a YOLOv8 model. We'll also cover key features and tips for common issues." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/integrations/amazon-sagemaker/" rel="canonical"/>
-<link href="../tensorboard/" rel="prev"/>
-<link href="../paperspace/" rel="next"/>
+<link href="https://docs.ultralytics.com/integrations/jupyterlab/" rel="canonical"/>
+<link href="../kaggle/" rel="prev"/>
+<link href="../../hub/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.30" name="generator"/>
-<title>Amazon SageMaker - Ultralytics YOLO Docs</title>
+<title>JupyterLab - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Amazon SageMaker" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv8, Amazon SageMaker, AWS, Ultralytics, machine learning, computer vision, model deployment, AWS CloudFormation, AWS CDK, real-time inference" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/amazon-sagemaker" property="og:url"/><meta content="Amazon SageMaker" property="og:title"/><meta content="Learn step-by-step how to deploy Ultralytics' YOLOv8 on Amazon SageMaker Endpoints, from setup to testing, for powerful real-time inference with AWS services." property="og:description"/><meta content="https://d1.awsstatic.com/sagemaker/Amazon-SageMaker-Studio%402x.aa0572ebf4ea9237571644c7f853c914c1d0c985.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/amazon-sagemaker" property="twitter:url"/><meta content="Amazon SageMaker" property="twitter:title"/><meta content="Learn step-by-step how to deploy Ultralytics' YOLOv8 on Amazon SageMaker Endpoints, from setup to testing, for powerful real-time inference with AWS services." property="twitter:description"/><meta content="https://d1.awsstatic.com/sagemaker/Amazon-SageMaker-Studio%402x.aa0572ebf4ea9237571644c7f853c914c1d0c985.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Amazon SageMaker", "image": ["https://d1.awsstatic.com/sagemaker/Amazon-SageMaker-Studio%402x.aa0572ebf4ea9237571644c7f853c914c1d0c985.png"], "datePublished": "2024-01-04 03:19:42 +0530", "dateModified": "2024-07-05 02:25:02 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn step-by-step how to deploy Ultralytics' YOLOv8 on Amazon SageMaker Endpoints, from setup to testing, for powerful real-time inference with AWS services.", "mainEntity": [{"@type": "Question", "name": "How do I deploy the Ultralytics YOLOv8 model on Amazon SageMaker Endpoints?", "acceptedAnswer": {"@type": "Answer", "text": "To deploy the Ultralytics YOLOv8 model on Amazon SageMaker Endpoints, follow these steps: For further details, review the documentation section."}}, {"@type": "Question", "name": "What are the prerequisites for deploying YOLOv8 on Amazon SageMaker?", "acceptedAnswer": {"@type": "Answer", "text": "To deploy YOLOv8 on Amazon SageMaker, ensure you have the following prerequisites: For detailed setup, refer to this section."}}, {"@type": "Question", "name": "Why should I use Ultralytics YOLOv8 on Amazon SageMaker?", "acceptedAnswer": {"@type": "Answer", "text": "Using Ultralytics YOLOv8 on Amazon SageMaker offers several advantages: Explore more about the advantages of using SageMaker in the introduction section."}}, {"@type": "Question", "name": "Can I customize the inference logic for YOLOv8 on Amazon SageMaker?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can customize the inference logic for YOLOv8 on Amazon SageMaker: Refer to the detailed steps for deploying the modified model."}}, {"@type": "Question", "name": "How can I test the deployed YOLOv8 model on Amazon SageMaker?", "acceptedAnswer": {"@type": "Answer", "text": "To test the deployed YOLOv8 model on Amazon SageMaker: For comprehensive testing instructions, visit the testing section."}}]}</script></head>
+<meta content="JupyterLab" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="JupyterLab, What is JupyterLab, How to Use JupyterLab, JupyterLab How to Use, YOLOv8, Ultralytics, Model Training, GPU, TPU, cloud computing" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/jupyterlab" property="og:url"/><meta content="JupyterLab" property="og:title"/><meta content="Explore our integration guide that explains how you can use JupyterLab to train a YOLOv8 model. We'll also cover key features and tips for common issues." property="og:description"/><meta content="https://github.com/user-attachments/assets/bac4b140-1d64-4034-b980-7c0721121ec2" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/jupyterlab" property="twitter:url"/><meta content="JupyterLab" property="twitter:title"/><meta content="Explore our integration guide that explains how you can use JupyterLab to train a YOLOv8 model. We'll also cover key features and tips for common issues." property="twitter:description"/><meta content="https://github.com/user-attachments/assets/bac4b140-1d64-4034-b980-7c0721121ec2" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "JupyterLab", "image": ["https://github.com/user-attachments/assets/bac4b140-1d64-4034-b980-7c0721121ec2"], "datePublished": "2024-07-29 05:31:56 +0530", "dateModified": "2024-07-29 05:31:56 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore our integration guide that explains how you can use JupyterLab to train a YOLOv8 model. We'll also cover key features and tips for common issues."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#a-guide-to-deploying-yolov8-on-amazon-sagemaker-endpoints">
+<a class="md-skip" href="#a-guide-on-how-to-use-jupyterlab-to-train-your-yolov8-models">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Amazon SageMaker
+              JupyterLab
             
           </span>
 </div>
@@ -515,147 +515,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Amazon SageMaker
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../amazon-sagemaker/">
 <span class="md-ellipsis">
     Amazon SageMaker
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#amazon-sagemaker">
-<span class="md-ellipsis">
-      Amazon SageMaker
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-yolov8-on-amazon-sagemaker-endpoints">
-<span class="md-ellipsis">
-      Deploying YOLOv8 on Amazon SageMaker Endpoints
-    </span>
-</a>
-<nav aria-label="Deploying YOLOv8 on Amazon SageMaker Endpoints" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-setup-your-aws-environment">
-<span class="md-ellipsis">
-      Step 1: Setup Your AWS Environment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-clone-the-yolov8-sagemaker-repository">
-<span class="md-ellipsis">
-      Step 2: Clone the YOLOv8 SageMaker Repository
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-set-up-the-cdk-environment">
-<span class="md-ellipsis">
-      Step 3: Set Up the CDK Environment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-create-the-aws-cloudformation-stack">
-<span class="md-ellipsis">
-      Step 4: Create the AWS CloudFormation Stack
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-deploy-the-yolov8-model">
-<span class="md-ellipsis">
-      Step 5: Deploy the YOLOv8 Model
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-6-testing-your-deployment">
-<span class="md-ellipsis">
-      Step 6: Testing Your Deployment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-7-monitoring-and-management">
-<span class="md-ellipsis">
-      Step 7: Monitoring and Management
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
-<span class="md-ellipsis">
-      Summary
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-<span class="md-ellipsis">
-      FAQ
-    </span>
-</a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-deploy-the-ultralytics-yolov8-model-on-amazon-sagemaker-endpoints">
-<span class="md-ellipsis">
-      How do I deploy the Ultralytics YOLOv8 model on Amazon SageMaker Endpoints?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-prerequisites-for-deploying-yolov8-on-amazon-sagemaker">
-<span class="md-ellipsis">
-      What are the prerequisites for deploying YOLOv8 on Amazon SageMaker?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-i-use-ultralytics-yolov8-on-amazon-sagemaker">
-<span class="md-ellipsis">
-      Why should I use Ultralytics YOLOv8 on Amazon SageMaker?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#can-i-customize-the-inference-logic-for-yolov8-on-amazon-sagemaker">
-<span class="md-ellipsis">
-      Can I customize the inference logic for YOLOv8 on Amazon SageMaker?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-test-the-deployed-yolov8-model-on-amazon-sagemaker">
-<span class="md-ellipsis">
-      How can I test the deployed YOLOv8 model on Amazon SageMaker?
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../paperspace/">
@@ -678,12 +543,108 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../jupyterlab/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    JupyterLab
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     JupyterLab
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-jupyterlab">
+<span class="md-ellipsis">
+      What is JupyterLab?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-jupyterlab">
+<span class="md-ellipsis">
+      Key Features of JupyterLab
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-you-use-jupyterlab-for-your-yolov8-projects">
+<span class="md-ellipsis">
+      Why Should You Use JupyterLab for Your YOLOv8 Projects?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-issues-while-working-with-jupyterlab">
+<span class="md-ellipsis">
+      Common Issues While Working with JupyterLab
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-use-jupyterlab-to-try-out-yolov8">
+<span class="md-ellipsis">
+      How to Use JupyterLab to Try Out YOLOv8
+    </span>
+</a>
+<nav aria-label="How to Use JupyterLab to Try Out YOLOv8" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-1-install-jupyterlab">
+<span class="md-ellipsis">
+      Step 1: Install JupyterLab
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-2-download-the-yolov8-tutorial-notebook">
+<span class="md-ellipsis">
+      Step 2: Download the YOLOv8 Tutorial Notebook
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-3-launch-jupyterlab">
+<span class="md-ellipsis">
+      Step 3: Launch JupyterLab
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-4-start-experimenting">
+<span class="md-ellipsis">
+      Step 4: Start Experimenting
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#keep-learning-about-jupyterlab">
+<span class="md-ellipsis">
+      Keep Learning about Jupyterlab
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -727,71 +688,78 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#amazon-sagemaker">
+<a class="md-nav__link" href="#what-is-jupyterlab">
 <span class="md-ellipsis">
-      Amazon SageMaker
+      What is JupyterLab?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-yolov8-on-amazon-sagemaker-endpoints">
+<a class="md-nav__link" href="#key-features-of-jupyterlab">
 <span class="md-ellipsis">
-      Deploying YOLOv8 on Amazon SageMaker Endpoints
+      Key Features of JupyterLab
     </span>
 </a>
-<nav aria-label="Deploying YOLOv8 on Amazon SageMaker Endpoints" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-should-you-use-jupyterlab-for-your-yolov8-projects">
+<span class="md-ellipsis">
+      Why Should You Use JupyterLab for Your YOLOv8 Projects?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-issues-while-working-with-jupyterlab">
+<span class="md-ellipsis">
+      Common Issues While Working with JupyterLab
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-use-jupyterlab-to-try-out-yolov8">
+<span class="md-ellipsis">
+      How to Use JupyterLab to Try Out YOLOv8
+    </span>
+</a>
+<nav aria-label="How to Use JupyterLab to Try Out YOLOv8" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-setup-your-aws-environment">
+<a class="md-nav__link" href="#step-1-install-jupyterlab">
 <span class="md-ellipsis">
-      Step 1: Setup Your AWS Environment
+      Step 1: Install JupyterLab
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-clone-the-yolov8-sagemaker-repository">
+<a class="md-nav__link" href="#step-2-download-the-yolov8-tutorial-notebook">
 <span class="md-ellipsis">
-      Step 2: Clone the YOLOv8 SageMaker Repository
+      Step 2: Download the YOLOv8 Tutorial Notebook
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-set-up-the-cdk-environment">
+<a class="md-nav__link" href="#step-3-launch-jupyterlab">
 <span class="md-ellipsis">
-      Step 3: Set Up the CDK Environment
+      Step 3: Launch JupyterLab
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-create-the-aws-cloudformation-stack">
+<a class="md-nav__link" href="#step-4-start-experimenting">
 <span class="md-ellipsis">
-      Step 4: Create the AWS CloudFormation Stack
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-deploy-the-yolov8-model">
-<span class="md-ellipsis">
-      Step 5: Deploy the YOLOv8 Model
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-6-testing-your-deployment">
-<span class="md-ellipsis">
-      Step 6: Testing Your Deployment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-7-monitoring-and-management">
-<span class="md-ellipsis">
-      Step 7: Monitoring and Management
+      Step 4: Start Experimenting
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#keep-learning-about-jupyterlab">
+<span class="md-ellipsis">
+      Keep Learning about Jupyterlab
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#summary">
@@ -800,52 +768,6 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-<span class="md-ellipsis">
-      FAQ
-    </span>
-</a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-deploy-the-ultralytics-yolov8-model-on-amazon-sagemaker-endpoints">
-<span class="md-ellipsis">
-      How do I deploy the Ultralytics YOLOv8 model on Amazon SageMaker Endpoints?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-prerequisites-for-deploying-yolov8-on-amazon-sagemaker">
-<span class="md-ellipsis">
-      What are the prerequisites for deploying YOLOv8 on Amazon SageMaker?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-i-use-ultralytics-yolov8-on-amazon-sagemaker">
-<span class="md-ellipsis">
-      Why should I use Ultralytics YOLOv8 on Amazon SageMaker?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#can-i-customize-the-inference-logic-for-yolov8-on-amazon-sagemaker">
-<span class="md-ellipsis">
-      Can I customize the inference logic for YOLOv8 on Amazon SageMaker?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-test-the-deployed-yolov8-model-on-amazon-sagemaker">
-<span class="md-ellipsis">
-      How can I test the deployed YOLOv8 model on Amazon SageMaker?
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
 </ul>
 </nav>
 </div>
@@ -853,228 +775,91 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/amazon-sagemaker.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/jupyterlab.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<h1 id="a-guide-to-deploying-yolov8-on-amazon-sagemaker-endpoints">A Guide to Deploying YOLOv8 on Amazon SageMaker Endpoints</h1>
-<p>Deploying advanced computer vision models like <a href="https://github.com/ultralytics/ultralytics">Ultralytics' YOLOv8</a> on Amazon SageMaker Endpoints opens up a wide range of possibilities for various machine learning applications. The key to effectively using these models lies in understanding their setup, configuration, and deployment processes. YOLOv8 becomes even more powerful when integrated seamlessly with Amazon SageMaker, a robust and scalable machine learning service by AWS.</p>
-<p>This guide will take you through the process of deploying YOLOv8 PyTorch models on Amazon SageMaker Endpoints step by step. You'll learn the essentials of preparing your AWS environment, configuring the model appropriately, and using tools like AWS CloudFormation and the AWS Cloud Development Kit (CDK) for deployment.</p>
-<h2 id="amazon-sagemaker">Amazon SageMaker</h2>
-<p align="center">
-<img alt="Amazon SageMaker Overview" src="https://d1.awsstatic.com/sagemaker/Amazon-SageMaker-Studio%402x.aa0572ebf4ea9237571644c7f853c914c1d0c985.png" width="640"/>
-</p>
-<p><a href="https://aws.amazon.com/sagemaker/">Amazon SageMaker</a> is a machine learning service from Amazon Web Services (AWS) that simplifies the process of building, training, and deploying machine learning models. It provides a broad range of tools for handling various aspects of machine learning workflows. This includes automated features for tuning models, options for training models at scale, and straightforward methods for deploying models into production. SageMaker supports popular machine learning frameworks, offering the flexibility needed for diverse projects. Its features also cover data labeling, workflow management, and performance analysis.</p>
-<h2 id="deploying-yolov8-on-amazon-sagemaker-endpoints">Deploying YOLOv8 on Amazon SageMaker Endpoints</h2>
-<p>Deploying YOLOv8 on Amazon SageMaker lets you use its managed environment for real-time inference and take advantage of features like autoscaling. Take a look at the AWS architecture below.</p>
-<p align="center">
-<img alt="AWS Architecture" src="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2023/02/28/ML13353_AWSArchitecture-1024x605.png" width="640"/>
-</p>
-<h3 id="step-1-setup-your-aws-environment">Step 1: Setup Your AWS Environment</h3>
-<p>First, ensure you have the following prerequisites in place:</p>
+<h1 id="a-guide-on-how-to-use-jupyterlab-to-train-your-yolov8-models">A Guide on How to Use JupyterLab to Train Your YOLOv8 Models</h1>
+<p>Building deep learning models can be tough, especially when you don't have the right tools or environment to work with. If you are facing this issue, JupyterLab might be the right solution for you. JupyterLab is a user-friendly, web-based platform that makes coding more flexible and interactive. You can use it to handle big datasets, create complex models, and even collaborate with others, all in one place.</p>
+<p>You can use JupyterLab to <a href="../../guides/steps-of-a-cv-project/">work on projects</a> related to <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLOv8 models</a>. JupyterLab is a great option for efficient model development and experimentation. It makes it easy to start experimenting with and <a href="../../modes/train/">training YOLOv8 models</a> right from your computer. Let's dive deeper into JupyterLab, its key features, and how you can use it to train YOLOv8 models.</p>
+<h2 id="what-is-jupyterlab">What is JupyterLab?</h2>
+<p>JupyterLab is an open-source web-based platform designed for working with Jupyter notebooks, code, and data. It's an upgrade from the traditional Jupyter Notebook interface that provides a more versatile and powerful user experience.</p>
+<p>JupyterLab allows you to work with notebooks, text editors, terminals, and other tools all in one place. Its flexible design lets you organize your workspace to fit your needs and makes it easier to perform tasks like data analysis, visualization, and machine learning. JupyterLab also supports real-time collaboration, making it ideal for team projects in research and data science.</p>
+<h2 id="key-features-of-jupyterlab">Key Features of JupyterLab</h2>
+<p>Here are some of the key features that make JupyterLab a great option for model development and experimentation:</p>
 <ul>
-<li>
-<p>An AWS Account: If you don't already have one, sign up for an AWS account.</p>
-</li>
-<li>
-<p>Configured IAM Roles: You'll need an IAM role with the necessary permissions for Amazon SageMaker, AWS CloudFormation, and Amazon S3. This role should have policies that allow it to access these services.</p>
-</li>
-<li>
-<p>AWS CLI: If not already installed, download and install the AWS Command Line Interface (CLI) and configure it with your account details. Follow <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">the AWS CLI instructions</a> for installation.</p>
-</li>
-<li>
-<p>AWS CDK: If not already installed, install the AWS Cloud Development Kit (CDK), which will be used for scripting the deployment. Follow <a href="https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html#getting_started_install">the AWS CDK instructions</a> for installation.</p>
-</li>
-<li>
-<p>Adequate Service Quota: Confirm that you have sufficient quotas for two separate resources in Amazon SageMaker: one for <code>ml.m5.4xlarge</code> for endpoint usage and another for <code>ml.m5.4xlarge</code> for notebook instance usage. Each of these requires a minimum of one quota value. If your current quotas are below this requirement, it's important to request an increase for each. You can request a quota increase by following the detailed instructions in the <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html#quota-console-increase">AWS Service Quotas documentation</a>.</p>
-</li>
+<li><strong>All-in-One Workspace</strong>: JupyterLab is a one-stop shop for all your data science needs. Unlike the classic Jupyter Notebook, which had separate interfaces for text editing, terminal access, and notebooks, JupyterLab integrates all these features into a single, cohesive environment. You can view and edit various file formats, including JPEG, PDF, and CSV, directly within JupyterLab. An all-in-one workspace lets you access everything you need at your fingertips, streamlining your workflow and saving you time.</li>
+<li><strong>Flexible Layouts</strong>: One of JupyterLab's standout features is its flexible layout. You can drag, drop, and resize tabs to create a personalized layout that helps you work more efficiently. The collapsible left sidebar keeps essential tabs like the file browser, running kernels, and command palette within easy reach. You can have multiple windows open at once, allowing you to multitask and manage your projects more effectively.</li>
+<li><strong>Interactive Code Consoles</strong>: Code consoles in JupyterLab provide an interactive space to test out snippets of code or functions. They also serve as a log of computations made within a notebook. Creating a new console for a notebook and viewing all kernel activity is straightforward. This feature is especially useful when you're experimenting with new ideas or troubleshooting issues in your code.</li>
+<li><strong>Markdown Preview</strong>: Working with Markdown files is more efficient in JupyterLab, thanks to its simultaneous preview feature. As you write or edit your Markdown file, you can see the formatted output in real-time. It makes it easier to double-check that your documentation looks perfect, saving you from having to switch back and forth between editing and preview modes.</li>
+<li><strong>Run Code from Text Files</strong>: If you're sharing a text file with code, JupyterLab makes it easy to run it directly within the platform. You can highlight the code and press Shift + Enter to execute it. It is great for verifying code snippets quickly and helps guarantee that the code you share is functional and error-free.</li>
 </ul>
-<h3 id="step-2-clone-the-yolov8-sagemaker-repository">Step 2: Clone the YOLOv8 SageMaker Repository</h3>
-<p>The next step is to clone the specific AWS repository that contains the resources for deploying YOLOv8 on SageMaker. This repository, hosted on GitHub, includes the necessary CDK scripts and configuration files.</p>
+<h2 id="why-should-you-use-jupyterlab-for-your-yolov8-projects">Why Should You Use JupyterLab for Your YOLOv8 Projects?</h2>
+<p>There are multiple platforms for developing and evaluating machine learning models, so what makes JupyterLab stand out? Let's explore some of the unique aspects that JupyterLab offers for your machine-learning projects:</p>
 <ul>
-<li>Clone the GitHub Repository: Execute the following command in your terminal to clone the host-yolov8-on-sagemaker-endpoint repository:</li>
+<li><strong>Easy Cell Management</strong>: Managing cells in JupyterLab is a breeze. Instead of the cumbersome cut-and-paste method, you can simply drag and drop cells to rearrange them.</li>
+<li><strong>Cross-Notebook Cell Copying</strong>: JupyterLab makes it simple to copy cells between different notebooks. You can drag and drop cells from one notebook to another.</li>
+<li><strong>Easy Switch to Classic Notebook View</strong>: For those who miss the classic Jupyter Notebook interface, JupyterLab offers an easy switch back. Simply replace <code>/lab</code> in the URL with <code>/tree</code> to return to the familiar notebook view.</li>
+<li><strong>Multiple Views</strong>: JupyterLab supports multiple views of the same notebook, which is particularly useful for long notebooks. You can open different sections side-by-side for comparison or exploration, and any changes made in one view are reflected in the other.</li>
+<li><strong>Customizable Themes</strong>: JupyterLab includes a built-in Dark theme for the notebook, which is perfect for late-night coding sessions. There are also themes available for the text editor and terminal, allowing you to customize the appearance of your entire workspace.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/aws-samples/host-yolov8-on-sagemaker-endpoint.git
+<h2 id="common-issues-while-working-with-jupyterlab">Common Issues While Working with JupyterLab</h2>
+<p>When working with Kaggle, you might come across some common issues. Here are some tips to help you navigate the platform smoothly:</p>
+<ul>
+<li><strong>Managing Kernels</strong>: Kernels are crucial because they manage the connection between the code you write in JupyterLab and the environment where it runs. They can also access and share data between notebooks. When you close a Jupyter Notebook, the kernel might still be running because other notebooks could be using it. If you want to completely shut down a kernel, you can select it, right-click, and choose "Shut Down Kernel" from the pop-up menu.</li>
+<li><strong>Installing Python Packages</strong>: Sometimes, you might need additional Python packages that aren't pre-installed on the server. You can easily install these packages in your home directory or a virtual environment by using the command <code>python -m pip install package-name</code>. To see all installed packages, use <code>python -m pip list</code>.</li>
+<li><strong>Deploying Flask/FastAPI API to Posit Connect</strong>: You can deploy your Flask and FastAPI APIs to Posit Connect using the <a href="https://docs.posit.co/rsconnect-python/">rsconnect-python</a> package from the terminal. Doing so makes it easier to integrate your web applications with JupyterLab and share them with others.</li>
+<li><strong>Installing JupyterLab Extensions</strong>: JupyterLab supports various extensions to enhance functionality. You can install and customize these extensions to suit your needs. For detailed instructions, refer to <a href="https://jupyterlab.readthedocs.io/en/latest/user/extensions.html">JupyterLab Extensions Guide</a> for more information.</li>
+<li><strong>Using Multiple Versions of Python</strong>: If you need to work with different versions of Python, you can use Jupyter kernels configured with different Python versions.</li>
+</ul>
+<h2 id="how-to-use-jupyterlab-to-try-out-yolov8">How to Use JupyterLab to Try Out YOLOv8</h2>
+<p>JupyterLab makes it easy to experiment with YOLOv8. To get started, follow these simple steps.</p>
+<h3 id="step-1-install-jupyterlab">Step 1: Install JupyterLab</h3>
+<p>First, you need to install JupyterLab. Open your terminal and run the command:</p>
+<div class="admonition tip">
+<p class="admonition-title">Installation</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the required package for JupyterLab</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>jupyterlab
 </code></pre></div>
-<ul>
-<li>Navigate to the Cloned Directory: Change your directory to the cloned repository:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>host-yolov8-on-sagemaker-endpoint/yolov8-pytorch-cdk
+</div>
+</div>
+</input></div>
+</div>
+<h3 id="step-2-download-the-yolov8-tutorial-notebook">Step 2: Download the YOLOv8 Tutorial Notebook</h3>
+<p>Next, download the <a href="https://github.com/ultralytics/ultralytics/blob/main/examples/tutorial.ipynb">tutorial.ipynb</a> file from the Ultralytics GitHub repository. Save this file to any directory on your local machine.</p>
+<h3 id="step-3-launch-jupyterlab">Step 3: Launch JupyterLab</h3>
+<p>Navigate to the directory where you saved the notebook file using your terminal. Then, run the following command to launch JupyterLab:</p>
+<div class="admonition example">
+<p class="admonition-title">Usage</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>jupyter<span class="w"> </span>lab
 </code></pre></div>
-<h3 id="step-3-set-up-the-cdk-environment">Step 3: Set Up the CDK Environment</h3>
-<p>Now that you have the necessary code, set up your environment for deploying with AWS CDK.</p>
+</div>
+</div>
+</input></div>
+</div>
+<p>Once you've run this command, it will open JupyterLab in your default web browser, as shown below.</p>
+<p><img alt="Image Showing How JupyterLab Opens On the Browser" src="https://github.com/user-attachments/assets/bac4b140-1d64-4034-b980-7c0721121ec2"/></p>
+<h3 id="step-4-start-experimenting">Step 4: Start Experimenting</h3>
+<p>In JupyterLab, open the tutorial.ipynb notebook. You can now start running the cells to explore and experiment with YOLOv8.</p>
+<p><img alt="Image Showing Opened YOLOv8 Notebook in JupyterLab" src="https://github.com/user-attachments/assets/71fe86d8-1964-4cde-9f62-479dfa41c75b"/></p>
+<p>JupyterLab's interactive environment allows you to modify code, visualize outputs, and document your findings all in one place. You can try out different configurations and understand how YOLOv8 works.</p>
+<p>For a detailed understanding of the model training process and best practices, refer to the <a href="../../modes/train/">YOLOv8 Model Training guide</a>. This guide will help you get the most out of your experiments and ensure you're using YOLOv8 effectively.</p>
+<h2 id="keep-learning-about-jupyterlab">Keep Learning about Jupyterlab</h2>
+<p>If you're excited to learn more about JupyterLab, here are some great resources to get you started:</p>
 <ul>
-<li>Create a Python Virtual Environment: This isolates your Python environment and dependencies. Run:</li>
+<li><a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/starting.html"><strong>JupyterLab Documentation</strong></a>: Dive into the official JupyterLab Documentation to explore its features and capabilities. It's a great way to understand how to use this powerful tool to its fullest potential.</li>
+<li><a href="https://mybinder.org/v2/gh/jupyterlab/jupyterlab-demo/HEAD?urlpath=lab/tree/demo"><strong>Try It With Binder</strong></a>: Experiment with JupyterLab without installing anything by using Binder, which lets you launch a live JupyterLab instance directly in your browser. It's a great way to start experimenting immediately.</li>
+<li><a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html"><strong>Installation Guide</strong></a>: For a step-by-step guide on installing JupyterLab on your local machine, check out the installation guide.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
-</code></pre></div>
-<ul>
-<li>Activate the Virtual Environment:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-</code></pre></div>
-<ul>
-<li>Install Dependencies: Install the required Python dependencies for the project:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</code></pre></div>
-<ul>
-<li>Upgrade AWS CDK Library: Ensure you have the latest version of the AWS CDK library:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>aws-cdk-lib
-</code></pre></div>
-<h3 id="step-4-create-the-aws-cloudformation-stack">Step 4: Create the AWS CloudFormation Stack</h3>
-<ul>
-<li>Synthesize the CDK Application: Generate the AWS CloudFormation template from your CDK code:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>cdk<span class="w"> </span>synth
-</code></pre></div>
-<ul>
-<li>Bootstrap the CDK Application: Prepare your AWS environment for CDK deployment:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>cdk<span class="w"> </span>bootstrap
-</code></pre></div>
-<ul>
-<li>Deploy the Stack: This will create the necessary AWS resources and deploy your model:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>cdk<span class="w"> </span>deploy
-</code></pre></div>
-<h3 id="step-5-deploy-the-yolov8-model">Step 5: Deploy the YOLOv8 Model</h3>
-<p>Before diving into the deployment instructions, be sure to check out the range of <a href="../../models/">YOLOv8 models offered by Ultralytics</a>. This will help you choose the most appropriate model for your project requirements.</p>
-<p>After creating the AWS CloudFormation Stack, the next step is to deploy YOLOv8.</p>
-<ul>
-<li>
-<p>Open the Notebook Instance: Go to the AWS Console and navigate to the Amazon SageMaker service. Select "Notebook Instances" from the dashboard, then locate the notebook instance that was created by your CDK deployment script. Open the notebook instance to access the Jupyter environment.</p>
-</li>
-<li>
-<p>Access and Modify inference.py: After opening the SageMaker notebook instance in Jupyter, locate the inference.py file. Edit the output_fn function in inference.py as shown below and save your changes to the script, ensuring that there are no syntax errors.</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">import</span> <span class="nn">json</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="k">def</span> <span class="nf">output_fn</span><span class="p">(</span><span class="n">prediction_output</span><span class="p">):</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="sd">"""Formats model outputs as JSON string, extracting attributes like boxes, masks, keypoints."""</span>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Executing output_fn from inference.py ..."</span><span class="p">)</span>
-<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span class="n">infer</span> <span class="o">=</span> <span class="p">{}</span>
-<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">prediction_output</span><span class="p">:</span>
-<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"boxes"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"masks"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"obb"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"probs"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a>    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
-</code></pre></div>
-<ul>
-<li>Deploy the Endpoint Using 1_DeployEndpoint.ipynb: In the Jupyter environment, open the 1_DeployEndpoint.ipynb notebook located in the sm-notebook directory. Follow the instructions in the notebook and run the cells to download the YOLOv8 model, package it with the updated inference code, and upload it to an Amazon S3 bucket. The notebook will guide you through creating and deploying a SageMaker endpoint for the YOLOv8 model.</li>
-</ul>
-<h3 id="step-6-testing-your-deployment">Step 6: Testing Your Deployment</h3>
-<p>Now that your YOLOv8 model is deployed, it's important to test its performance and functionality.</p>
-<ul>
-<li>
-<p>Open the Test Notebook: In the same Jupyter environment, locate and open the 2_TestEndpoint.ipynb notebook, also in the sm-notebook directory.</p>
-</li>
-<li>
-<p>Run the Test Notebook: Follow the instructions within the notebook to test the deployed SageMaker endpoint. This includes sending an image to the endpoint and running inferences. Then, you'll plot the output to visualize the model's performance and accuracy, as shown below.</p>
-</li>
-</ul>
-<p align="center">
-<img alt="Testing Results YOLOv8" src="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2023/02/28/ML13353_InferenceOutput.png" width="640"/>
-</p>
-<ul>
-<li>Clean-Up Resources: The test notebook will also guide you through the process of cleaning up the endpoint and the hosted model. This is an important step to manage costs and resources effectively, especially if you do not plan to use the deployed model immediately.</li>
-</ul>
-<h3 id="step-7-monitoring-and-management">Step 7: Monitoring and Management</h3>
-<p>After testing, continuous monitoring and management of your deployed model are essential.</p>
-<ul>
-<li>
-<p>Monitor with Amazon CloudWatch: Regularly check the performance and health of your SageMaker endpoint using <a href="https://aws.amazon.com/cloudwatch/">Amazon CloudWatch</a>.</p>
-</li>
-<li>
-<p>Manage the Endpoint: Use the SageMaker console for ongoing management of the endpoint. This includes scaling, updating, or redeploying the model as required.</p>
-</li>
-</ul>
-<p>By completing these steps, you will have successfully deployed and tested a YOLOv8 model on Amazon SageMaker Endpoints. This process not only equips you with practical experience in using AWS services for machine learning deployment but also lays the foundation for deploying other advanced models in the future.</p>
 <h2 id="summary">Summary</h2>
-<p>This guide took you step by step through deploying YOLOv8 on Amazon SageMaker Endpoints using AWS CloudFormation and the AWS Cloud Development Kit (CDK). The process includes cloning the necessary GitHub repository, setting up the CDK environment, deploying the model using AWS services, and testing its performance on SageMaker.</p>
-<p>For more technical details, refer to <a href="https://aws.amazon.com/blogs/machine-learning/hosting-yolov8-pytorch-model-on-amazon-sagemaker-endpoints/">this article</a> on the AWS Machine Learning Blog. You can also check out the official <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html">Amazon SageMaker Documentation</a> for more insights into various features and functionalities.</p>
-<p>Are you interested in learning more about different YOLOv8 integrations? Visit the <a href="../">Ultralytics integrations guide page</a> to discover additional tools and capabilities that can enhance your machine-learning projects.</p>
-<h2 id="faq">FAQ</h2>
-<h3 id="how-do-i-deploy-the-ultralytics-yolov8-model-on-amazon-sagemaker-endpoints">How do I deploy the Ultralytics YOLOv8 model on Amazon SageMaker Endpoints?</h3>
-<p>To deploy the Ultralytics YOLOv8 model on Amazon SageMaker Endpoints, follow these steps:</p>
-<ol>
-<li><strong>Set Up Your AWS Environment</strong>: Ensure you have an AWS Account, IAM roles with necessary permissions, and the AWS CLI configured. Install AWS CDK if not already done (refer to the <a href="https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html#getting_started_install">AWS CDK instructions</a>).</li>
-<li><strong>Clone the YOLOv8 SageMaker Repository</strong>:
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/aws-samples/host-yolov8-on-sagemaker-endpoint.git
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nb">cd</span><span class="w"> </span>host-yolov8-on-sagemaker-endpoint/yolov8-pytorch-cdk
-</code></pre></div></li>
-<li><strong>Set Up the CDK Environment</strong>: Create a Python virtual environment, activate it, install dependencies, and upgrade AWS CDK library.
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>aws-cdk-lib
-</code></pre></div></li>
-<li><strong>Deploy using AWS CDK</strong>: Synthesize and deploy the CloudFormation stack, bootstrap the environment.
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>cdk<span class="w"> </span>synth
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>cdk<span class="w"> </span>bootstrap
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>cdk<span class="w"> </span>deploy
-</code></pre></div></li>
-</ol>
-<p>For further details, review the <a href="#step-5-deploy-the-yolov8-model">documentation section</a>.</p>
-<h3 id="what-are-the-prerequisites-for-deploying-yolov8-on-amazon-sagemaker">What are the prerequisites for deploying YOLOv8 on Amazon SageMaker?</h3>
-<p>To deploy YOLOv8 on Amazon SageMaker, ensure you have the following prerequisites:</p>
-<ol>
-<li><strong>AWS Account</strong>: Active AWS account (<a href="https://aws.amazon.com/">sign up here</a>).</li>
-<li><strong>IAM Roles</strong>: Configured IAM roles with permissions for SageMaker, CloudFormation, and Amazon S3.</li>
-<li><strong>AWS CLI</strong>: Installed and configured AWS Command Line Interface (<a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">AWS CLI installation guide</a>).</li>
-<li><strong>AWS CDK</strong>: Installed AWS Cloud Development Kit (<a href="https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html#getting_started_install">CDK setup guide</a>).</li>
-<li><strong>Service Quotas</strong>: Sufficient quotas for <code>ml.m5.4xlarge</code> instances for both endpoint and notebook usage (<a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html#quota-console-increase">request a quota increase</a>).</li>
-</ol>
-<p>For detailed setup, refer to <a href="#step-1-setup-your-aws-environment">this section</a>.</p>
-<h3 id="why-should-i-use-ultralytics-yolov8-on-amazon-sagemaker">Why should I use Ultralytics YOLOv8 on Amazon SageMaker?</h3>
-<p>Using Ultralytics YOLOv8 on Amazon SageMaker offers several advantages:</p>
-<ol>
-<li><strong>Scalability and Management</strong>: SageMaker provides a managed environment with features like autoscaling, which helps in real-time inference needs.</li>
-<li><strong>Integration with AWS Services</strong>: Seamlessly integrate with other AWS services, such as S3 for data storage, CloudFormation for infrastructure as code, and CloudWatch for monitoring.</li>
-<li><strong>Ease of Deployment</strong>: Simplified setup using AWS CDK scripts and streamlined deployment processes.</li>
-<li><strong>Performance</strong>: Leverage Amazon SageMaker's high-performance infrastructure for running large scale inference tasks efficiently.</li>
-</ol>
-<p>Explore more about the advantages of using SageMaker in the <a href="#amazon-sagemaker">introduction section</a>.</p>
-<h3 id="can-i-customize-the-inference-logic-for-yolov8-on-amazon-sagemaker">Can I customize the inference logic for YOLOv8 on Amazon SageMaker?</h3>
-<p>Yes, you can customize the inference logic for YOLOv8 on Amazon SageMaker:</p>
-<ol>
-<li>
-<p><strong>Modify <code>inference.py</code></strong>: Locate and customize the <code>output_fn</code> function in the <code>inference.py</code> file to tailor output formats.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">import</span> <span class="nn">json</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>
-<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="k">def</span> <span class="nf">output_fn</span><span class="p">(</span><span class="n">prediction_output</span><span class="p">):</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="sd">"""Formats model outputs as JSON string, extracting attributes like boxes, masks, keypoints."""</span>
-<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="n">infer</span> <span class="o">=</span> <span class="p">{}</span>
-<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">prediction_output</span><span class="p">:</span>
-<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"boxes"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a>        <span class="c1"># Add more processing logic if necessary</span>
-<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a>    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
-</code></pre></div>
-</li>
-<li>
-<p><strong>Deploy Updated Model</strong>: Ensure you redeploy the model using Jupyter notebooks provided (<code>1_DeployEndpoint.ipynb</code>) to include these changes.</p>
-</li>
-</ol>
-<p>Refer to the <a href="#step-5-deploy-the-yolov8-model">detailed steps</a> for deploying the modified model.</p>
-<h3 id="how-can-i-test-the-deployed-yolov8-model-on-amazon-sagemaker">How can I test the deployed YOLOv8 model on Amazon SageMaker?</h3>
-<p>To test the deployed YOLOv8 model on Amazon SageMaker:</p>
-<ol>
-<li><strong>Open the Test Notebook</strong>: Locate the <code>2_TestEndpoint.ipynb</code> notebook in the SageMaker Jupyter environment.</li>
-<li><strong>Run the Notebook</strong>: Follow the notebook's instructions to send an image to the endpoint, perform inference, and display results.</li>
-<li><strong>Visualize Results</strong>: Use built-in plotting functionalities to visualize performance metrics, such as bounding boxes around detected objects.</li>
-</ol>
-<p>For comprehensive testing instructions, visit the <a href="#step-6-testing-your-deployment">testing section</a>.</p>
+<p>We've explored how JupyterLab can be a powerful tool for experimenting with Ultralytics YOLOv8 models. Using its flexible and interactive environment, you can easily set up JupyterLab on your local machine and start working with YOLOv8. JupyterLab makes it simple to <a href="../../guides/model-training-tips/">train</a> and <a href="../../guides/model-testing/">evaluate</a> your models, visualize outputs, and <a href="../../guides/model-monitoring-and-maintenance/">document your findings</a> all in one place.</p>
+<p>For more details, visit the <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/faq.html">JupyterLab FAQ Page</a>.</p>
+<p>Interested in more YOLOv8 integrations? Check out the <a href="../">Ultralytics integration guide</a> to explore additional tools and capabilities for your machine learning projects.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1083,7 +868,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-04, Updated 2024-07-05<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (7), <a href="https://github.com/ambitious-octopus">ambitious-octopus</a> (1), <a href="https://github.com/sergiuwaxmann">sergiuwaxmann</a> (1), <a href="https://github.com/abirami-vina">abirami-vina</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-07-29, Updated 2024-07-29<br/>Authors: <a href="https://github.com/abirami-vina">abirami-vina</a> (1), <a href="https://github.com/ultralytics/ultralytics">not.committed.yet</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1094,10 +879,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/amazon-sagemaker', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/jupyterlab', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/amazon-sagemaker', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/jupyterlab', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
@@ -1146,7 +931,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: TensorBoard" class="md-footer__link md-footer__link--prev" href="../tensorboard/">
+<a aria-label="Previous: Kaggle" class="md-footer__link md-footer__link--prev" href="../kaggle/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1155,17 +940,17 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                TensorBoard
+                Kaggle
               </div>
 </div>
 </a>
-<a aria-label="Next: Paperspace Gradient" class="md-footer__link md-footer__link--next" href="../paperspace/">
+<a aria-label="Next: Ultralytics HUB" class="md-footer__link md-footer__link--next" href="../../hub/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Paperspace Gradient
+                Ultralytics HUB
               </div>
 </div>
 <div class="md-footer__button md-icon">
