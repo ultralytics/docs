@@ -1442,7 +1442,9 @@ are hidden system files and can cause issues when transferring files between dif
 <h2 class="doc doc-heading" id="ultralytics.utils.downloads.zip_directory">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.downloads.zip_directory</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">zip_directory</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">compress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">(</span><span class="s1">'.DS_Store'</span><span class="p">,</span> <span class="s1">'__MACOSX'</span><span class="p">),</span> <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">zip_directory</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">directory</span><span class="p">,</span> <span class="n">compress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">(</span><span class="s2">".DS_Store"</span><span class="p">,</span> <span class="s2">"__MACOSX"</span><span class="p">),</span> <span class="n">progress</span><span class="o">=</span><span class="kc">True</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Zips the contents of a directory, excluding files containing strings in the exclude list. The resulting zip file is
@@ -1627,7 +1629,13 @@ named after the directory and placed alongside it.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.downloads.unzip_file">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.downloads.unzip_file</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">unzip_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">(</span><span class="s1">'.DS_Store'</span><span class="p">,</span> <span class="s1">'__MACOSX'</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">unzip_file</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">file</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">exclude</span><span class="o">=</span><span class="p">(</span><span class="s2">".DS_Store"</span><span class="p">,</span> <span class="s2">"__MACOSX"</span><span class="p">),</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Unzips a *.zip file to the specified path, excluding files containing strings in the exclude list.</p>
@@ -1903,7 +1911,12 @@ If a path is not provided, the function will use the parent directory of the zip
 <h2 class="doc doc-heading" id="ultralytics.utils.downloads.check_disk_space">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.downloads.check_disk_space</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_disk_space</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">'https://ultralytics.com/assets/coco8.zip'</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="n">sf</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_disk_space</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">"https://ultralytics.com/assets/coco8.zip"</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">path</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">sf</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Check if there is sufficient disk space to download and store a file.</p>
@@ -2237,7 +2250,18 @@ If a path is not provided, the function will use the parent directory of the zip
 <h2 class="doc doc-heading" id="ultralytics.utils.downloads.safe_download">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.downloads.safe_download</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">safe_download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">curl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_bytes</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">safe_download</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">url</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">curl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">min_bytes</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Downloads files from a URL, with options for retrying, unzipping, and deleting the downloaded file.</p>
@@ -2771,7 +2795,9 @@ function fetches the latest release assets.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.downloads.attempt_download_asset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.downloads.attempt_download_asset</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">attempt_download_asset</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">repo</span><span class="o">=</span><span class="s1">'ultralytics/assets'</span><span class="p">,</span> <span class="n">release</span><span class="o">=</span><span class="s1">'v8.2.0'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">attempt_download_asset</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">file</span><span class="p">,</span> <span class="n">repo</span><span class="o">=</span><span class="s2">"ultralytics/assets"</span><span class="p">,</span> <span class="n">release</span><span class="o">=</span><span class="s2">"v8.2.0"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Attempt to download a file from GitHub release assets if it is not found locally. The function checks for the file
@@ -2984,7 +3010,16 @@ locally first, then tries to download it from the specified GitHub repository re
 <h2 class="doc doc-heading" id="ultralytics.utils.downloads.download">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.downloads.download</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">curl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">threads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">download</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">url</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="nb">dir</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">curl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">threads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Downloads files from specified URLs to a given directory. Supports concurrent downloads if multiple threads are

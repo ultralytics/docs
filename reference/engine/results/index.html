@@ -2591,7 +2591,17 @@ numpy array, otherwise returns self.</p>
 <h2 class="doc doc-heading" id="ultralytics.engine.results.Results">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.engine.results.Results</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">obb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">speed</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">Results</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">orig_img</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">path</span><span class="p">,</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">names</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">boxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">probs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">obb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">speed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -3555,7 +3565,24 @@ interoperability with numpy-based libraries or when CPU-based operations are req
 <h3 class="doc doc-heading" id="ultralytics.engine.results.Results.plot">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">plot</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">plot</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s1">'Arial.ttf'</span><span class="p">,</span> <span class="n">pil</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">img</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">im_gpu</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kpt_radius</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">kpt_line</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">plot</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">conf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">line_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">font_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">font</span><span class="o">=</span><span class="s2">"Arial.ttf"</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">pil</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">img</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">im_gpu</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">kpt_radius</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">kpt_line</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="n">boxes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="n">masks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="n">probs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Plots detection results on an input RGB image.</p>

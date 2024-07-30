@@ -1125,7 +1125,14 @@
 <h2 class="doc doc-heading" id="ultralytics.models.utils.ops.HungarianMatcher">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.utils.ops.HungarianMatcher</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">HungarianMatcher</span><span class="p">(</span><span class="n">cost_gain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_fl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_mask</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_sample_points</span><span class="o">=</span><span class="mi">12544</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">HungarianMatcher</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">cost_gain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">use_fl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">with_mask</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">num_sample_points</span><span class="o">=</span><span class="mi">12544</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">gamma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -1274,7 +1281,15 @@ assignment between predictions and ground truths for a batch.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.utils.ops.HungarianMatcher.forward">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">forward</span><span class="p">(</span><span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">pred_scores</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">gt_cls</span><span class="p">,</span> <span class="n">gt_groups</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gt_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">forward</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">pred_bboxes</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">pred_scores</span><span class="p">,</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">gt_bboxes</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">gt_cls</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">gt_groups</span><span class="p">,</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">gt_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Forward pass for HungarianMatcher. This function computes costs based on prediction and ground truth
@@ -1577,7 +1592,16 @@ For each batch element, it holds:
 <h2 class="doc doc-heading" id="ultralytics.models.utils.ops.get_cdn_group">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.models.utils.ops.get_cdn_group</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">get_cdn_group</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="n">num_queries</span><span class="p">,</span> <span class="n">class_embed</span><span class="p">,</span> <span class="n">num_dn</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cls_noise_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">box_noise_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">get_cdn_group</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">batch</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">num_classes</span><span class="p">,</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">num_queries</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">class_embed</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">num_dn</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">cls_noise_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">box_noise_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Get contrastive denoising training group. This function creates a contrastive denoising training group with positive
