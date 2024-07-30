@@ -9,7 +9,7 @@
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/reference/models/sam/predict/" rel="canonical"/>
 <link href="../modules/transformer/" rel="prev"/>
-<link href="../../utils/loss/" rel="next"/>
+<link href="../../sam2/build/" rel="next"/>
 <link href="../../../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.30" name="generator"/>
 <title>predict - Ultralytics YOLO Docs</title>
@@ -720,6 +720,20 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.sam.predict.Predictor.get_im_features">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> get_im_features
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.sam.predict.Predictor.get_model">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> get_model
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.models.sam.predict.Predictor.inference">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> inference
@@ -804,6 +818,14 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../sam2/build/">
+<span class="md-ellipsis">
+    sam2
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
 <a class="md-nav__link" href="../../utils/loss/">
@@ -1184,6 +1206,20 @@
 <a class="md-nav__link" href="#ultralytics.models.sam.predict.Predictor.generate">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> generate
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.sam.predict.Predictor.get_im_features">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> get_im_features
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.sam.predict.Predictor.get_model">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> get_model
     </span>
 </a>
 </li>
@@ -1933,6 +1969,44 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </div>
 </div>
 <div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.models.sam.predict.Predictor.get_im_features">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_im_features</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">get_im_features</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Get image features from the SAM image encoder.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-427">427</a></span>
+<span class="normal"><a href="#__codelineno-0-428">428</a></span>
+<span class="normal"><a href="#__codelineno-0-429">429</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-427" name="__codelineno-0-427"></a><span class="k">def</span> <span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<a id="__codelineno-0-428" name="__codelineno-0-428"></a><span class="w">    </span><span class="sd">"""Get image features from the SAM image encoder."""</span>
+<a id="__codelineno-0-429" name="__codelineno-0-429"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.models.sam.predict.Predictor.get_model">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_model</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">get_model</span><span class="p">()</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Built Segment Anything Model (SAM) model.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-351">351</a></span>
+<span class="normal"><a href="#__codelineno-0-352">352</a></span>
+<span class="normal"><a href="#__codelineno-0-353">353</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-351" name="__codelineno-0-351"></a><span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-352" name="__codelineno-0-352"></a><span class="w">    </span><span class="sd">"""Built Segment Anything Model (SAM) model."""</span>
+<a id="__codelineno-0-353" name="__codelineno-0-353"></a>    <span class="k">return</span> <span class="n">build_sam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.models.sam.predict.Predictor.inference">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">inference</span>
 </h3>
@@ -2223,11 +2297,7 @@ The SAM model uses advanced architecture and promptable segmentation tasks to ac
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-351">351</a></span>
-<span class="normal"><a href="#__codelineno-0-352">352</a></span>
-<span class="normal"><a href="#__codelineno-0-353">353</a></span>
-<span class="normal"><a href="#__codelineno-0-354">354</a></span>
-<span class="normal"><a href="#__codelineno-0-355">355</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-355">355</a></span>
 <span class="normal"><a href="#__codelineno-0-356">356</a></span>
 <span class="normal"><a href="#__codelineno-0-357">357</a></span>
 <span class="normal"><a href="#__codelineno-0-358">358</a></span>
@@ -2258,42 +2328,46 @@ The SAM model uses advanced architecture and promptable segmentation tasks to ac
 <span class="normal"><a href="#__codelineno-0-383">383</a></span>
 <span class="normal"><a href="#__codelineno-0-384">384</a></span>
 <span class="normal"><a href="#__codelineno-0-385">385</a></span>
-<span class="normal"><a href="#__codelineno-0-386">386</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-351" name="__codelineno-0-351"></a><span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
-<a id="__codelineno-0-352" name="__codelineno-0-352"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-353" name="__codelineno-0-353"></a><span class="sd">    Post-processes SAM's inference outputs to generate object detection masks and bounding boxes.</span>
-<a id="__codelineno-0-354" name="__codelineno-0-354"></a>
-<a id="__codelineno-0-355" name="__codelineno-0-355"></a><span class="sd">    The method scales masks and boxes to the original image size and applies a threshold to the mask predictions.</span>
-<a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="sd">    The SAM model uses advanced architecture and promptable segmentation tasks to achieve real-time performance.</span>
-<a id="__codelineno-0-357" name="__codelineno-0-357"></a>
-<a id="__codelineno-0-358" name="__codelineno-0-358"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-359" name="__codelineno-0-359"></a><span class="sd">        preds (tuple): The output from SAM model inference, containing masks, scores, and optional bounding boxes.</span>
-<a id="__codelineno-0-360" name="__codelineno-0-360"></a><span class="sd">        img (torch.Tensor): The processed input image tensor.</span>
-<a id="__codelineno-0-361" name="__codelineno-0-361"></a><span class="sd">        orig_imgs (list | torch.Tensor): The original, unprocessed images.</span>
-<a id="__codelineno-0-362" name="__codelineno-0-362"></a>
-<a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-364" name="__codelineno-0-364"></a><span class="sd">        (list): List of Results objects containing detection masks, bounding boxes, and other metadata.</span>
-<a id="__codelineno-0-365" name="__codelineno-0-365"></a><span class="sd">    """</span>
-<a id="__codelineno-0-366" name="__codelineno-0-366"></a>    <span class="c1"># (N, 1, H, W), (N, 1)</span>
-<a id="__codelineno-0-367" name="__codelineno-0-367"></a>    <span class="n">pred_masks</span><span class="p">,</span> <span class="n">pred_scores</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-0-368" name="__codelineno-0-368"></a>    <span class="n">pred_bboxes</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment_all</span> <span class="k">else</span> <span class="kc">None</span>
-<a id="__codelineno-0-369" name="__codelineno-0-369"></a>    <span class="n">names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pred_masks</span><span class="p">))))</span>
-<a id="__codelineno-0-370" name="__codelineno-0-370"></a>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># input images are a torch.Tensor, not a list</span>
-<a id="__codelineno-0-372" name="__codelineno-0-372"></a>        <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
-<a id="__codelineno-0-373" name="__codelineno-0-373"></a>
-<a id="__codelineno-0-374" name="__codelineno-0-374"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-375" name="__codelineno-0-375"></a>    <span class="k">for</span> <span class="n">masks</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="n">pred_masks</span><span class="p">],</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a>        <span class="k">if</span> <span class="n">pred_bboxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-377" name="__codelineno-0-377"></a>            <span class="n">pred_bboxes</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">pred_bboxes</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-378" name="__codelineno-0-378"></a>            <span class="bp">cls</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pred_masks</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">pred_masks</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-379" name="__codelineno-0-379"></a>            <span class="n">pred_bboxes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">pred_scores</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="bp">cls</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-380" name="__codelineno-0-380"></a>
-<a id="__codelineno-0-381" name="__codelineno-0-381"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-382" name="__codelineno-0-382"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mask_threshold</span>  <span class="c1"># to bool</span>
-<a id="__codelineno-0-383" name="__codelineno-0-383"></a>        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="n">pred_bboxes</span><span class="p">))</span>
-<a id="__codelineno-0-384" name="__codelineno-0-384"></a>    <span class="c1"># Reset segment-all mode.</span>
-<a id="__codelineno-0-385" name="__codelineno-0-385"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">segment_all</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-386" name="__codelineno-0-386"></a>    <span class="k">return</span> <span class="n">results</span>
+<span class="normal"><a href="#__codelineno-0-386">386</a></span>
+<span class="normal"><a href="#__codelineno-0-387">387</a></span>
+<span class="normal"><a href="#__codelineno-0-388">388</a></span>
+<span class="normal"><a href="#__codelineno-0-389">389</a></span>
+<span class="normal"><a href="#__codelineno-0-390">390</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-355" name="__codelineno-0-355"></a><span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-357" name="__codelineno-0-357"></a><span class="sd">    Post-processes SAM's inference outputs to generate object detection masks and bounding boxes.</span>
+<a id="__codelineno-0-358" name="__codelineno-0-358"></a>
+<a id="__codelineno-0-359" name="__codelineno-0-359"></a><span class="sd">    The method scales masks and boxes to the original image size and applies a threshold to the mask predictions.</span>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a><span class="sd">    The SAM model uses advanced architecture and promptable segmentation tasks to achieve real-time performance.</span>
+<a id="__codelineno-0-361" name="__codelineno-0-361"></a>
+<a id="__codelineno-0-362" name="__codelineno-0-362"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="sd">        preds (tuple): The output from SAM model inference, containing masks, scores, and optional bounding boxes.</span>
+<a id="__codelineno-0-364" name="__codelineno-0-364"></a><span class="sd">        img (torch.Tensor): The processed input image tensor.</span>
+<a id="__codelineno-0-365" name="__codelineno-0-365"></a><span class="sd">        orig_imgs (list | torch.Tensor): The original, unprocessed images.</span>
+<a id="__codelineno-0-366" name="__codelineno-0-366"></a>
+<a id="__codelineno-0-367" name="__codelineno-0-367"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-368" name="__codelineno-0-368"></a><span class="sd">        (list): List of Results objects containing detection masks, bounding boxes, and other metadata.</span>
+<a id="__codelineno-0-369" name="__codelineno-0-369"></a><span class="sd">    """</span>
+<a id="__codelineno-0-370" name="__codelineno-0-370"></a>    <span class="c1"># (N, 1, H, W), (N, 1)</span>
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a>    <span class="n">pred_masks</span><span class="p">,</span> <span class="n">pred_scores</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-0-372" name="__codelineno-0-372"></a>    <span class="n">pred_bboxes</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment_all</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-373" name="__codelineno-0-373"></a>    <span class="n">names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pred_masks</span><span class="p">))))</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a>
+<a id="__codelineno-0-375" name="__codelineno-0-375"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># input images are a torch.Tensor, not a list</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a>        <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
+<a id="__codelineno-0-377" name="__codelineno-0-377"></a>
+<a id="__codelineno-0-378" name="__codelineno-0-378"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-379" name="__codelineno-0-379"></a>    <span class="k">for</span> <span class="n">masks</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="n">pred_masks</span><span class="p">],</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+<a id="__codelineno-0-380" name="__codelineno-0-380"></a>        <span class="k">if</span> <span class="n">pred_bboxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-381" name="__codelineno-0-381"></a>            <span class="n">pred_bboxes</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">pred_bboxes</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a>            <span class="bp">cls</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pred_masks</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">pred_masks</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a>            <span class="n">pred_bboxes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">pred_scores</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="bp">cls</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-384" name="__codelineno-0-384"></a>
+<a id="__codelineno-0-385" name="__codelineno-0-385"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-386" name="__codelineno-0-386"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">mask_threshold</span>  <span class="c1"># to bool</span>
+<a id="__codelineno-0-387" name="__codelineno-0-387"></a>        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="n">pred_bboxes</span><span class="p">))</span>
+<a id="__codelineno-0-388" name="__codelineno-0-388"></a>    <span class="c1"># Reset segment-all mode.</span>
+<a id="__codelineno-0-389" name="__codelineno-0-389"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">segment_all</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-390" name="__codelineno-0-390"></a>    <span class="k">return</span> <span class="n">results</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2724,7 +2798,7 @@ Leverages SAM's specialized architecture for prompt-based, real-time segmentatio
 <a id="__codelineno-0-168" name="__codelineno-0-168"></a><span class="sd">            - np.ndarray: An array of length C containing quality scores predicted by the model for each mask.</span>
 <a id="__codelineno-0-169" name="__codelineno-0-169"></a><span class="sd">            - np.ndarray: Low-resolution logits of shape CxHxW for subsequent inference, where H=W=256.</span>
 <a id="__codelineno-0-170" name="__codelineno-0-170"></a><span class="sd">    """</span>
-<a id="__codelineno-0-171" name="__codelineno-0-171"></a>    <span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">(</span><span class="n">im</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span>
+<a id="__codelineno-0-171" name="__codelineno-0-171"></a>    <span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_im_features</span><span class="p">(</span><span class="n">im</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">features</span>
 <a id="__codelineno-0-172" name="__codelineno-0-172"></a>
 <a id="__codelineno-0-173" name="__codelineno-0-173"></a>    <span class="n">src_shape</span><span class="p">,</span> <span class="n">dst_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
 <a id="__codelineno-0-174" name="__codelineno-0-174"></a>    <span class="n">r</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment_all</span> <span class="k">else</span> <span class="nb">min</span><span class="p">(</span><span class="n">dst_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">src_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dst_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">src_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -2861,13 +2935,7 @@ Suppression (NMS) to eliminate any newly created duplicate boxes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-434">434</a></span>
-<span class="normal"><a href="#__codelineno-0-435">435</a></span>
-<span class="normal"><a href="#__codelineno-0-436">436</a></span>
-<span class="normal"><a href="#__codelineno-0-437">437</a></span>
-<span class="normal"><a href="#__codelineno-0-438">438</a></span>
-<span class="normal"><a href="#__codelineno-0-439">439</a></span>
-<span class="normal"><a href="#__codelineno-0-440">440</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-440">440</a></span>
 <span class="normal"><a href="#__codelineno-0-441">441</a></span>
 <span class="normal"><a href="#__codelineno-0-442">442</a></span>
 <span class="normal"><a href="#__codelineno-0-443">443</a></span>
@@ -2903,49 +2971,55 @@ Suppression (NMS) to eliminate any newly created duplicate boxes.</p>
 <span class="normal"><a href="#__codelineno-0-473">473</a></span>
 <span class="normal"><a href="#__codelineno-0-474">474</a></span>
 <span class="normal"><a href="#__codelineno-0-475">475</a></span>
-<span class="normal"><a href="#__codelineno-0-476">476</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-434" name="__codelineno-0-434"></a><span class="nd">@staticmethod</span>
-<a id="__codelineno-0-435" name="__codelineno-0-435"></a><span class="k">def</span> <span class="nf">remove_small_regions</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">min_area</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nms_thresh</span><span class="o">=</span><span class="mf">0.7</span><span class="p">):</span>
-<a id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-437" name="__codelineno-0-437"></a><span class="sd">    Perform post-processing on segmentation masks generated by the Segment Anything Model (SAM). Specifically, this</span>
-<a id="__codelineno-0-438" name="__codelineno-0-438"></a><span class="sd">    function removes small disconnected regions and holes from the input masks, and then performs Non-Maximum</span>
-<a id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="sd">    Suppression (NMS) to eliminate any newly created duplicate boxes.</span>
-<a id="__codelineno-0-440" name="__codelineno-0-440"></a>
-<a id="__codelineno-0-441" name="__codelineno-0-441"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-442" name="__codelineno-0-442"></a><span class="sd">        masks (torch.Tensor): A tensor containing the masks to be processed. Shape should be (N, H, W), where N is</span>
-<a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="sd">                              the number of masks, H is height, and W is width.</span>
-<a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="sd">        min_area (int): The minimum area below which disconnected regions and holes will be removed. Defaults to 0.</span>
-<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="sd">        nms_thresh (float): The IoU threshold for the NMS algorithm. Defaults to 0.7.</span>
+<span class="normal"><a href="#__codelineno-0-476">476</a></span>
+<span class="normal"><a href="#__codelineno-0-477">477</a></span>
+<span class="normal"><a href="#__codelineno-0-478">478</a></span>
+<span class="normal"><a href="#__codelineno-0-479">479</a></span>
+<span class="normal"><a href="#__codelineno-0-480">480</a></span>
+<span class="normal"><a href="#__codelineno-0-481">481</a></span>
+<span class="normal"><a href="#__codelineno-0-482">482</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-440" name="__codelineno-0-440"></a><span class="nd">@staticmethod</span>
+<a id="__codelineno-0-441" name="__codelineno-0-441"></a><span class="k">def</span> <span class="nf">remove_small_regions</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">min_area</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nms_thresh</span><span class="o">=</span><span class="mf">0.7</span><span class="p">):</span>
+<a id="__codelineno-0-442" name="__codelineno-0-442"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="sd">    Perform post-processing on segmentation masks generated by the Segment Anything Model (SAM). Specifically, this</span>
+<a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="sd">    function removes small disconnected regions and holes from the input masks, and then performs Non-Maximum</span>
+<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="sd">    Suppression (NMS) to eliminate any newly created duplicate boxes.</span>
 <a id="__codelineno-0-446" name="__codelineno-0-446"></a>
-<a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="sd">        (tuple([torch.Tensor, List[int]])):</span>
-<a id="__codelineno-0-449" name="__codelineno-0-449"></a><span class="sd">            - new_masks (torch.Tensor): The processed masks with small regions removed. Shape is (N, H, W).</span>
-<a id="__codelineno-0-450" name="__codelineno-0-450"></a><span class="sd">            - keep (List[int]): The indices of the remaining masks post-NMS, which can be used to filter the boxes.</span>
-<a id="__codelineno-0-451" name="__codelineno-0-451"></a><span class="sd">    """</span>
-<a id="__codelineno-0-452" name="__codelineno-0-452"></a>    <span class="kn">import</span> <span class="nn">torchvision</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
-<a id="__codelineno-0-453" name="__codelineno-0-453"></a>
-<a id="__codelineno-0-454" name="__codelineno-0-454"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-455" name="__codelineno-0-455"></a>        <span class="k">return</span> <span class="n">masks</span>
-<a id="__codelineno-0-456" name="__codelineno-0-456"></a>
-<a id="__codelineno-0-457" name="__codelineno-0-457"></a>    <span class="c1"># Filter small disconnected regions and holes</span>
-<a id="__codelineno-0-458" name="__codelineno-0-458"></a>    <span class="n">new_masks</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-459" name="__codelineno-0-459"></a>    <span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-460" name="__codelineno-0-460"></a>    <span class="k">for</span> <span class="n">mask</span> <span class="ow">in</span> <span class="n">masks</span><span class="p">:</span>
-<a id="__codelineno-0-461" name="__codelineno-0-461"></a>        <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-<a id="__codelineno-0-462" name="__codelineno-0-462"></a>        <span class="n">mask</span><span class="p">,</span> <span class="n">changed</span> <span class="o">=</span> <span class="n">remove_small_regions</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">min_area</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"holes"</span><span class="p">)</span>
-<a id="__codelineno-0-463" name="__codelineno-0-463"></a>        <span class="n">unchanged</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">changed</span>
-<a id="__codelineno-0-464" name="__codelineno-0-464"></a>        <span class="n">mask</span><span class="p">,</span> <span class="n">changed</span> <span class="o">=</span> <span class="n">remove_small_regions</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">min_area</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"islands"</span><span class="p">)</span>
-<a id="__codelineno-0-465" name="__codelineno-0-465"></a>        <span class="n">unchanged</span> <span class="o">=</span> <span class="n">unchanged</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">changed</span>
-<a id="__codelineno-0-466" name="__codelineno-0-466"></a>
-<a id="__codelineno-0-467" name="__codelineno-0-467"></a>        <span class="n">new_masks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-<a id="__codelineno-0-468" name="__codelineno-0-468"></a>        <span class="c1"># Give score=0 to changed masks and 1 to unchanged masks so NMS prefers masks not needing postprocessing</span>
-<a id="__codelineno-0-469" name="__codelineno-0-469"></a>        <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">unchanged</span><span class="p">))</span>
-<a id="__codelineno-0-470" name="__codelineno-0-470"></a>
-<a id="__codelineno-0-471" name="__codelineno-0-471"></a>    <span class="c1"># Recalculate boxes and remove any new duplicates</span>
-<a id="__codelineno-0-472" name="__codelineno-0-472"></a>    <span class="n">new_masks</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">new_masks</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-473" name="__codelineno-0-473"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">batched_mask_to_box</span><span class="p">(</span><span class="n">new_masks</span><span class="p">)</span>
-<a id="__codelineno-0-474" name="__codelineno-0-474"></a>    <span class="n">keep</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">nms</span><span class="p">(</span><span class="n">boxes</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">scores</span><span class="p">),</span> <span class="n">nms_thresh</span><span class="p">)</span>
-<a id="__codelineno-0-475" name="__codelineno-0-475"></a>
-<a id="__codelineno-0-476" name="__codelineno-0-476"></a>    <span class="k">return</span> <span class="n">new_masks</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="n">keep</span>
+<a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="sd">        masks (torch.Tensor): A tensor containing the masks to be processed. Shape should be (N, H, W), where N is</span>
+<a id="__codelineno-0-449" name="__codelineno-0-449"></a><span class="sd">                              the number of masks, H is height, and W is width.</span>
+<a id="__codelineno-0-450" name="__codelineno-0-450"></a><span class="sd">        min_area (int): The minimum area below which disconnected regions and holes will be removed. Defaults to 0.</span>
+<a id="__codelineno-0-451" name="__codelineno-0-451"></a><span class="sd">        nms_thresh (float): The IoU threshold for the NMS algorithm. Defaults to 0.7.</span>
+<a id="__codelineno-0-452" name="__codelineno-0-452"></a>
+<a id="__codelineno-0-453" name="__codelineno-0-453"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-454" name="__codelineno-0-454"></a><span class="sd">        (tuple([torch.Tensor, List[int]])):</span>
+<a id="__codelineno-0-455" name="__codelineno-0-455"></a><span class="sd">            - new_masks (torch.Tensor): The processed masks with small regions removed. Shape is (N, H, W).</span>
+<a id="__codelineno-0-456" name="__codelineno-0-456"></a><span class="sd">            - keep (List[int]): The indices of the remaining masks post-NMS, which can be used to filter the boxes.</span>
+<a id="__codelineno-0-457" name="__codelineno-0-457"></a><span class="sd">    """</span>
+<a id="__codelineno-0-458" name="__codelineno-0-458"></a>    <span class="kn">import</span> <span class="nn">torchvision</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
+<a id="__codelineno-0-459" name="__codelineno-0-459"></a>
+<a id="__codelineno-0-460" name="__codelineno-0-460"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-461" name="__codelineno-0-461"></a>        <span class="k">return</span> <span class="n">masks</span>
+<a id="__codelineno-0-462" name="__codelineno-0-462"></a>
+<a id="__codelineno-0-463" name="__codelineno-0-463"></a>    <span class="c1"># Filter small disconnected regions and holes</span>
+<a id="__codelineno-0-464" name="__codelineno-0-464"></a>    <span class="n">new_masks</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-465" name="__codelineno-0-465"></a>    <span class="n">scores</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-466" name="__codelineno-0-466"></a>    <span class="k">for</span> <span class="n">mask</span> <span class="ow">in</span> <span class="n">masks</span><span class="p">:</span>
+<a id="__codelineno-0-467" name="__codelineno-0-467"></a>        <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<a id="__codelineno-0-468" name="__codelineno-0-468"></a>        <span class="n">mask</span><span class="p">,</span> <span class="n">changed</span> <span class="o">=</span> <span class="n">remove_small_regions</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">min_area</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"holes"</span><span class="p">)</span>
+<a id="__codelineno-0-469" name="__codelineno-0-469"></a>        <span class="n">unchanged</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">changed</span>
+<a id="__codelineno-0-470" name="__codelineno-0-470"></a>        <span class="n">mask</span><span class="p">,</span> <span class="n">changed</span> <span class="o">=</span> <span class="n">remove_small_regions</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">min_area</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"islands"</span><span class="p">)</span>
+<a id="__codelineno-0-471" name="__codelineno-0-471"></a>        <span class="n">unchanged</span> <span class="o">=</span> <span class="n">unchanged</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">changed</span>
+<a id="__codelineno-0-472" name="__codelineno-0-472"></a>
+<a id="__codelineno-0-473" name="__codelineno-0-473"></a>        <span class="n">new_masks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-0-474" name="__codelineno-0-474"></a>        <span class="c1"># Give score=0 to changed masks and 1 to unchanged masks so NMS prefers masks not needing postprocessing</span>
+<a id="__codelineno-0-475" name="__codelineno-0-475"></a>        <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">unchanged</span><span class="p">))</span>
+<a id="__codelineno-0-476" name="__codelineno-0-476"></a>
+<a id="__codelineno-0-477" name="__codelineno-0-477"></a>    <span class="c1"># Recalculate boxes and remove any new duplicates</span>
+<a id="__codelineno-0-478" name="__codelineno-0-478"></a>    <span class="n">new_masks</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">new_masks</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-479" name="__codelineno-0-479"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">batched_mask_to_box</span><span class="p">(</span><span class="n">new_masks</span><span class="p">)</span>
+<a id="__codelineno-0-480" name="__codelineno-0-480"></a>    <span class="n">keep</span> <span class="o">=</span> <span class="n">torchvision</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">nms</span><span class="p">(</span><span class="n">boxes</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">scores</span><span class="p">),</span> <span class="n">nms_thresh</span><span class="p">)</span>
+<a id="__codelineno-0-481" name="__codelineno-0-481"></a>
+<a id="__codelineno-0-482" name="__codelineno-0-482"></a>    <span class="k">return</span> <span class="n">new_masks</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span> <span class="n">keep</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2960,13 +3034,13 @@ Suppression (NMS) to eliminate any newly created duplicate boxes.</p>
 <p>Resets the image and its features to None.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-429">429</a></span>
-<span class="normal"><a href="#__codelineno-0-430">430</a></span>
-<span class="normal"><a href="#__codelineno-0-431">431</a></span>
-<span class="normal"><a href="#__codelineno-0-432">432</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-429" name="__codelineno-0-429"></a><span class="k">def</span> <span class="nf">reset_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-430" name="__codelineno-0-430"></a><span class="w">    </span><span class="sd">"""Resets the image and its features to None."""</span>
-<a id="__codelineno-0-431" name="__codelineno-0-431"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">im</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-432" name="__codelineno-0-432"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="kc">None</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-435">435</a></span>
+<span class="normal"><a href="#__codelineno-0-436">436</a></span>
+<span class="normal"><a href="#__codelineno-0-437">437</a></span>
+<span class="normal"><a href="#__codelineno-0-438">438</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-435" name="__codelineno-0-435"></a><span class="k">def</span> <span class="nf">reset_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="w">    </span><span class="sd">"""Resets the image and its features to None."""</span>
+<a id="__codelineno-0-437" name="__codelineno-0-437"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">im</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-438" name="__codelineno-0-438"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="kc">None</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3031,11 +3105,7 @@ and preprocesses the image for feature extraction. Only one image can be set at 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-401">401</a></span>
-<span class="normal"><a href="#__codelineno-0-402">402</a></span>
-<span class="normal"><a href="#__codelineno-0-403">403</a></span>
-<span class="normal"><a href="#__codelineno-0-404">404</a></span>
-<span class="normal"><a href="#__codelineno-0-405">405</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-405">405</a></span>
 <span class="normal"><a href="#__codelineno-0-406">406</a></span>
 <span class="normal"><a href="#__codelineno-0-407">407</a></span>
 <span class="normal"><a href="#__codelineno-0-408">408</a></span>
@@ -3053,29 +3123,29 @@ and preprocesses the image for feature extraction. Only one image can be set at 
 <span class="normal"><a href="#__codelineno-0-420">420</a></span>
 <span class="normal"><a href="#__codelineno-0-421">421</a></span>
 <span class="normal"><a href="#__codelineno-0-422">422</a></span>
-<span class="normal"><a href="#__codelineno-0-423">423</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-401" name="__codelineno-0-401"></a><span class="k">def</span> <span class="nf">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
-<a id="__codelineno-0-402" name="__codelineno-0-402"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-403" name="__codelineno-0-403"></a><span class="sd">    Preprocesses and sets a single image for inference.</span>
-<a id="__codelineno-0-404" name="__codelineno-0-404"></a>
-<a id="__codelineno-0-405" name="__codelineno-0-405"></a><span class="sd">    This function sets up the model if not already initialized, configures the data source to the specified image,</span>
-<a id="__codelineno-0-406" name="__codelineno-0-406"></a><span class="sd">    and preprocesses the image for feature extraction. Only one image can be set at a time.</span>
-<a id="__codelineno-0-407" name="__codelineno-0-407"></a>
-<a id="__codelineno-0-408" name="__codelineno-0-408"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="sd">        image (str | np.ndarray): Image file path as a string, or a np.ndarray image read by cv2.</span>
-<a id="__codelineno-0-410" name="__codelineno-0-410"></a>
-<a id="__codelineno-0-411" name="__codelineno-0-411"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-412" name="__codelineno-0-412"></a><span class="sd">        AssertionError: If more than one image is set.</span>
-<a id="__codelineno-0-413" name="__codelineno-0-413"></a><span class="sd">    """</span>
-<a id="__codelineno-0-414" name="__codelineno-0-414"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-415" name="__codelineno-0-415"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">build_sam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
-<a id="__codelineno-0-416" name="__codelineno-0-416"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setup_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-<a id="__codelineno-0-417" name="__codelineno-0-417"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">setup_source</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<a id="__codelineno-0-418" name="__codelineno-0-418"></a>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"`set_image` only supports setting one image!"</span>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a>    <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">:</span>
-<a id="__codelineno-0-420" name="__codelineno-0-420"></a>        <span class="n">im</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-0-421" name="__codelineno-0-421"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-422" name="__codelineno-0-422"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">im</span> <span class="o">=</span> <span class="n">im</span>
-<a id="__codelineno-0-423" name="__codelineno-0-423"></a>        <span class="k">break</span>
+<span class="normal"><a href="#__codelineno-0-423">423</a></span>
+<span class="normal"><a href="#__codelineno-0-424">424</a></span>
+<span class="normal"><a href="#__codelineno-0-425">425</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-405" name="__codelineno-0-405"></a><span class="k">def</span> <span class="nf">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+<a id="__codelineno-0-406" name="__codelineno-0-406"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-407" name="__codelineno-0-407"></a><span class="sd">    Preprocesses and sets a single image for inference.</span>
+<a id="__codelineno-0-408" name="__codelineno-0-408"></a>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="sd">    This function sets up the model if not already initialized, configures the data source to the specified image,</span>
+<a id="__codelineno-0-410" name="__codelineno-0-410"></a><span class="sd">    and preprocesses the image for feature extraction. Only one image can be set at a time.</span>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>
+<a id="__codelineno-0-412" name="__codelineno-0-412"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-413" name="__codelineno-0-413"></a><span class="sd">        image (str | np.ndarray): Image file path as a string, or a np.ndarray image read by cv2.</span>
+<a id="__codelineno-0-414" name="__codelineno-0-414"></a>
+<a id="__codelineno-0-415" name="__codelineno-0-415"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="sd">        AssertionError: If more than one image is set.</span>
+<a id="__codelineno-0-417" name="__codelineno-0-417"></a><span class="sd">    """</span>
+<a id="__codelineno-0-418" name="__codelineno-0-418"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setup_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-0-420" name="__codelineno-0-420"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">setup_source</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<a id="__codelineno-0-421" name="__codelineno-0-421"></a>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"`set_image` only supports setting one image!"</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>    <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">:</span>
+<a id="__codelineno-0-423" name="__codelineno-0-423"></a>        <span class="n">im</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-0-424" name="__codelineno-0-424"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_im_features</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-425" name="__codelineno-0-425"></a>        <span class="k">break</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3090,11 +3160,11 @@ and preprocesses the image for feature extraction. Only one image can be set at 
 <p>Set prompts in advance.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-425">425</a></span>
-<span class="normal"><a href="#__codelineno-0-426">426</a></span>
-<span class="normal"><a href="#__codelineno-0-427">427</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-425" name="__codelineno-0-425"></a><span class="k">def</span> <span class="nf">set_prompts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompts</span><span class="p">):</span>
-<a id="__codelineno-0-426" name="__codelineno-0-426"></a><span class="w">    </span><span class="sd">"""Set prompts in advance."""</span>
-<a id="__codelineno-0-427" name="__codelineno-0-427"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">prompts</span> <span class="o">=</span> <span class="n">prompts</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-431">431</a></span>
+<span class="normal"><a href="#__codelineno-0-432">432</a></span>
+<span class="normal"><a href="#__codelineno-0-433">433</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-431" name="__codelineno-0-431"></a><span class="k">def</span> <span class="nf">set_prompts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompts</span><span class="p">):</span>
+<a id="__codelineno-0-432" name="__codelineno-0-432"></a><span class="w">    </span><span class="sd">"""Set prompts in advance."""</span>
+<a id="__codelineno-0-433" name="__codelineno-0-433"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">prompts</span> <span class="o">=</span> <span class="n">prompts</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3258,7 +3328,7 @@ parameters for image normalization and other Ultralytics compatibility settings.
 <a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">    """</span>
 <a id="__codelineno-0-335" name="__codelineno-0-335"></a>    <span class="n">device</span> <span class="o">=</span> <span class="n">select_device</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
 <a id="__codelineno-0-336" name="__codelineno-0-336"></a>    <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-337" name="__codelineno-0-337"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">build_sam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-0-337" name="__codelineno-0-337"></a>        <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_model</span><span class="p">()</span>
 <a id="__codelineno-0-338" name="__codelineno-0-338"></a>    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 <a id="__codelineno-0-339" name="__codelineno-0-339"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 <a id="__codelineno-0-340" name="__codelineno-0-340"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
@@ -3314,29 +3384,29 @@ directory, a video file, or other types of image data sources.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-388">388</a></span>
-<span class="normal"><a href="#__codelineno-0-389">389</a></span>
-<span class="normal"><a href="#__codelineno-0-390">390</a></span>
-<span class="normal"><a href="#__codelineno-0-391">391</a></span>
-<span class="normal"><a href="#__codelineno-0-392">392</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-392">392</a></span>
 <span class="normal"><a href="#__codelineno-0-393">393</a></span>
 <span class="normal"><a href="#__codelineno-0-394">394</a></span>
 <span class="normal"><a href="#__codelineno-0-395">395</a></span>
 <span class="normal"><a href="#__codelineno-0-396">396</a></span>
 <span class="normal"><a href="#__codelineno-0-397">397</a></span>
 <span class="normal"><a href="#__codelineno-0-398">398</a></span>
-<span class="normal"><a href="#__codelineno-0-399">399</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="k">def</span> <span class="nf">setup_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
-<a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="sd">    Sets up the data source for inference.</span>
-<a id="__codelineno-0-391" name="__codelineno-0-391"></a>
-<a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="sd">    This method configures the data source from which images will be fetched for inference. The source could be a</span>
-<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="sd">    directory, a video file, or other types of image data sources.</span>
-<a id="__codelineno-0-394" name="__codelineno-0-394"></a>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="sd">        source (str | Path): The path to the image data source for inference.</span>
-<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="sd">    """</span>
-<a id="__codelineno-0-398" name="__codelineno-0-398"></a>    <span class="k">if</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-399" name="__codelineno-0-399"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_source</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-399">399</a></span>
+<span class="normal"><a href="#__codelineno-0-400">400</a></span>
+<span class="normal"><a href="#__codelineno-0-401">401</a></span>
+<span class="normal"><a href="#__codelineno-0-402">402</a></span>
+<span class="normal"><a href="#__codelineno-0-403">403</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="k">def</span> <span class="nf">setup_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="sd">    Sets up the data source for inference.</span>
+<a id="__codelineno-0-395" name="__codelineno-0-395"></a>
+<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="sd">    This method configures the data source from which images will be fetched for inference. The source could be a</span>
+<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="sd">    directory, a video file, or other types of image data sources.</span>
+<a id="__codelineno-0-398" name="__codelineno-0-398"></a>
+<a id="__codelineno-0-399" name="__codelineno-0-399"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-400" name="__codelineno-0-400"></a><span class="sd">        source (str | Path): The path to the image data source for inference.</span>
+<a id="__codelineno-0-401" name="__codelineno-0-401"></a><span class="sd">    """</span>
+<a id="__codelineno-0-402" name="__codelineno-0-402"></a>    <span class="k">if</span> <span class="n">source</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-403" name="__codelineno-0-403"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_source</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3395,13 +3465,13 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
               </div>
 </div>
 </a>
-<a aria-label="Next: loss" class="md-footer__link md-footer__link--next" href="../../utils/loss/">
+<a aria-label="Next: build" class="md-footer__link md-footer__link--next" href="../../sam2/build/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                loss
+                build
               </div>
 </div>
 <div class="md-footer__button md-icon">
