@@ -8,9 +8,11 @@
 <meta content="Discover SAM2, the next generation of Meta's Segment Anything Model, supporting real-time promptable segmentation in both images and videos with state-of-the-art performance. Learn about its key features, datasets, and how to use it." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/models/sam2/" rel="canonical"/>
+<link href="../sam/" rel="prev"/>
+<link href="../mobile-sam/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.30" name="generator"/>
-<title>Sam2 - Ultralytics YOLO Docs</title>
+<title>SAM2 (Segment Anything Model 2) - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Sam2" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="SAM2, Segment Anything, video segmentation, image segmentation, promptable segmentation, zero-shot performance, SA-V dataset, Ultralytics, real-time segmentation, AI, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/sam2" property="og:url"/><meta content="Sam2" property="og:title"/><meta content="Discover SAM2, the next generation of Meta's Segment Anything Model, supporting real-time promptable segmentation in both images and videos with state-of-the-art performance. Learn about its key features, datasets, and how to use it." property="og:description"/><meta content="https://github.com/facebookresearch/segment-anything-2/raw/main/assets/sa_v_dataset.jpg?raw=true" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/sam2" property="twitter:url"/><meta content="Sam2" property="twitter:title"/><meta content="Discover SAM2, the next generation of Meta's Segment Anything Model, supporting real-time promptable segmentation in both images and videos with state-of-the-art performance. Learn about its key features, datasets, and how to use it." property="twitter:description"/><meta content="https://github.com/facebookresearch/segment-anything-2/raw/main/assets/sa_v_dataset.jpg?raw=true" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Sam2", "image": ["https://github.com/facebookresearch/segment-anything-2/raw/main/assets/sa_v_dataset.jpg?raw=true"], "datePublished": "2024-07-30 03:37:35 +0200", "dateModified": "2024-07-30 03:37:35 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover SAM2, the next generation of Meta's Segment Anything Model, supporting real-time promptable segmentation in both images and videos with state-of-the-art performance. Learn about its key features, datasets, and how to use it.", "mainEntity": [{"@type": "Question", "name": "What is SAM2 and how does it improve upon the original Segment Anything Model (SAM)?", "acceptedAnswer": {"@type": "Answer", "text": "SAM2, the successor to Meta's Segment Anything Model (SAM), is a cutting-edge tool designed for comprehensive object segmentation in both images and videos. It excels in handling complex visual data through a unified, promptable model architecture that supports real-time processing and zero-shot generalization. SAM2 offers several improvements over the original SAM, including: For more details on SAM2's architecture and capabilities, explore the SAM2 research paper."}}, {"@type": "Question", "name": "How can I use SAM2 for real-time video segmentation?", "acceptedAnswer": {"@type": "Answer", "text": "SAM2 can be utilized for real-time video segmentation by leveraging its promptable interface and real-time inference capabilities. Here's a basic example: For more comprehensive usage, refer to the How to Use SAM2 section."}}, {"@type": "Question", "name": "What datasets are used to train SAM2, and how do they enhance its performance?", "acceptedAnswer": {"@type": "Answer", "text": "SAM2 is trained on the SA-V dataset, one of the largest and most diverse video segmentation datasets available. The SA-V dataset includes: This extensive dataset allows SAM2 to achieve superior performance across major video segmentation benchmarks and enhances its zero-shot generalization capabilities. For more information, see the SA-V Dataset section."}}, {"@type": "Question", "name": "How does SAM2 handle occlusions and object reappearances in video segmentation?", "acceptedAnswer": {"@type": "Answer", "text": "SAM2 includes a sophisticated memory mechanism to manage temporal dependencies and occlusions in video data. The memory mechanism consists of: This mechanism ensures continuity even when objects are temporarily obscured or exit and re-enter the scene. For more details, refer to the Memory Mechanism and Occlusion Handling section."}}, {"@type": "Question", "name": "How does SAM2 compare to other segmentation models like YOLOv8?", "acceptedAnswer": {"@type": "Answer", "text": "SAM2 and Ultralytics YOLOv8 serve different purposes and excel in different areas. While SAM2 is designed for comprehensive object segmentation with advanced features like zero-shot generalization and real-time performance, YOLOv8 is optimized for speed and efficiency in object detection and segmentation tasks. Here's a comparison: For more details, see the SAM comparison vs YOLOv8 section."}}]}</script></head>
+<meta content="SAM2 (Segment Anything Model 2)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="SAM2, Segment Anything, video segmentation, image segmentation, promptable segmentation, zero-shot performance, SA-V dataset, Ultralytics, real-time segmentation, AI, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/sam2" property="og:url"/><meta content="SAM2 (Segment Anything Model 2)" property="og:title"/><meta content="Discover SAM2, the next generation of Meta's Segment Anything Model, supporting real-time promptable segmentation in both images and videos with state-of-the-art performance. Learn about its key features, datasets, and how to use it." property="og:description"/><meta content="https://github.com/facebookresearch/segment-anything-2/raw/main/assets/sa_v_dataset.jpg?raw=true" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/sam2" property="twitter:url"/><meta content="SAM2 (Segment Anything Model 2)" property="twitter:title"/><meta content="Discover SAM2, the next generation of Meta's Segment Anything Model, supporting real-time promptable segmentation in both images and videos with state-of-the-art performance. Learn about its key features, datasets, and how to use it." property="twitter:description"/><meta content="https://github.com/facebookresearch/segment-anything-2/raw/main/assets/sa_v_dataset.jpg?raw=true" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "SAM2 (Segment Anything Model 2)", "image": ["https://github.com/facebookresearch/segment-anything-2/raw/main/assets/sa_v_dataset.jpg?raw=true"], "datePublished": "2024-07-30 03:37:35 +0200", "dateModified": "2024-07-30 03:51:48 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover SAM2, the next generation of Meta's Segment Anything Model, supporting real-time promptable segmentation in both images and videos with state-of-the-art performance. Learn about its key features, datasets, and how to use it.", "mainEntity": [{"@type": "Question", "name": "What is SAM2 and how does it improve upon the original Segment Anything Model (SAM)?", "acceptedAnswer": {"@type": "Answer", "text": "SAM2, the successor to Meta's Segment Anything Model (SAM), is a cutting-edge tool designed for comprehensive object segmentation in both images and videos. It excels in handling complex visual data through a unified, promptable model architecture that supports real-time processing and zero-shot generalization. SAM2 offers several improvements over the original SAM, including: For more details on SAM2's architecture and capabilities, explore the SAM2 research paper."}}, {"@type": "Question", "name": "How can I use SAM2 for real-time video segmentation?", "acceptedAnswer": {"@type": "Answer", "text": "SAM2 can be utilized for real-time video segmentation by leveraging its promptable interface and real-time inference capabilities. Here's a basic example: For more comprehensive usage, refer to the How to Use SAM2 section."}}, {"@type": "Question", "name": "What datasets are used to train SAM2, and how do they enhance its performance?", "acceptedAnswer": {"@type": "Answer", "text": "SAM2 is trained on the SA-V dataset, one of the largest and most diverse video segmentation datasets available. The SA-V dataset includes: This extensive dataset allows SAM2 to achieve superior performance across major video segmentation benchmarks and enhances its zero-shot generalization capabilities. For more information, see the SA-V Dataset section."}}, {"@type": "Question", "name": "How does SAM2 handle occlusions and object reappearances in video segmentation?", "acceptedAnswer": {"@type": "Answer", "text": "SAM2 includes a sophisticated memory mechanism to manage temporal dependencies and occlusions in video data. The memory mechanism consists of: This mechanism ensures continuity even when objects are temporarily obscured or exit and re-enter the scene. For more details, refer to the Memory Mechanism and Occlusion Handling section."}}, {"@type": "Question", "name": "How does SAM2 compare to other segmentation models like YOLOv8?", "acceptedAnswer": {"@type": "Answer", "text": "SAM2 and Ultralytics YOLOv8 serve different purposes and excel in different areas. While SAM2 is designed for comprehensive object segmentation with advanced features like zero-shot generalization and real-time performance, YOLOv8 is optimized for speed and efficiency in object detection and segmentation tasks. Here's a comparison: For more details, see the SAM comparison vs YOLOv8 section."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -60,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Sam2
+              SAM2 (Segment Anything Model 2)
             
           </span>
 </div>
@@ -169,7 +171,7 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
+<li class="md-tabs__item md-tabs__item--active">
 <a class="md-tabs__link" href="../">
           
   
@@ -309,13 +311,391 @@
 <span class="md-nav__icon md-icon"></span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Models
   </span>
-<span class="md-nav__icon md-icon"></span>
 </a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov3/">
+<span class="md-ellipsis">
+    YOLOv3
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov4/">
+<span class="md-ellipsis">
+    YOLOv4
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov5/">
+<span class="md-ellipsis">
+    YOLOv5
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov6/">
+<span class="md-ellipsis">
+    YOLOv6
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov7/">
+<span class="md-ellipsis">
+    YOLOv7
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov8/">
+<span class="md-ellipsis">
+    YOLOv8
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov9/">
+<span class="md-ellipsis">
+    YOLOv9
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov10/">
+<span class="md-ellipsis">
+    YOLOv10
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sam/">
+<span class="md-ellipsis">
+    SAM (Segment Anything Model)
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    SAM2 (Segment Anything Model 2)
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    SAM2 (Segment Anything Model 2)
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features">
+<span class="md-ellipsis">
+      Key Features
+    </span>
+</a>
+<nav aria-label="Key Features" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#unified-model-architecture">
+<span class="md-ellipsis">
+      Unified Model Architecture
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#real-time-performance">
+<span class="md-ellipsis">
+      Real-Time Performance
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#zero-shot-generalization">
+<span class="md-ellipsis">
+      Zero-Shot Generalization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interactive-refinement">
+<span class="md-ellipsis">
+      Interactive Refinement
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advanced-handling-of-visual-challenges">
+<span class="md-ellipsis">
+      Advanced Handling of Visual Challenges
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#performance-and-technical-details">
+<span class="md-ellipsis">
+      Performance and Technical Details
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model-architecture">
+<span class="md-ellipsis">
+      Model Architecture
+    </span>
+</a>
+<nav aria-label="Model Architecture" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#core-components">
+<span class="md-ellipsis">
+      Core Components
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#memory-mechanism-and-occlusion-handling">
+<span class="md-ellipsis">
+      Memory Mechanism and Occlusion Handling
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multi-mask-ambiguity-resolution">
+<span class="md-ellipsis">
+      Multi-Mask Ambiguity Resolution
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sa-v-dataset">
+<span class="md-ellipsis">
+      SA-V Dataset
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#benchmarks">
+<span class="md-ellipsis">
+      Benchmarks
+    </span>
+</a>
+<nav aria-label="Benchmarks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#video-object-segmentation">
+<span class="md-ellipsis">
+      Video Object Segmentation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interactive-segmentation">
+<span class="md-ellipsis">
+      Interactive Segmentation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+<span class="md-ellipsis">
+      Installation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-use-sam2-versatility-in-image-and-video-segmentation">
+<span class="md-ellipsis">
+      How to Use SAM2: Versatility in Image and Video Segmentation
+    </span>
+</a>
+<nav aria-label="How to Use SAM2: Versatility in Image and Video Segmentation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sam2-prediction-examples">
+<span class="md-ellipsis">
+      SAM2 Prediction Examples
+    </span>
+</a>
+<nav aria-label="SAM2 Prediction Examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#segment-with-prompts">
+<span class="md-ellipsis">
+      Segment with Prompts
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#segment-everything">
+<span class="md-ellipsis">
+      Segment Everything
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sam-comparison-vs-yolov8">
+<span class="md-ellipsis">
+      SAM comparison vs YOLOv8
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#auto-annotation-efficient-dataset-creation">
+<span class="md-ellipsis">
+      Auto-Annotation: Efficient Dataset Creation
+    </span>
+</a>
+<nav aria-label="Auto-Annotation: Efficient Dataset Creation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-auto-annotate-with-sam2">
+<span class="md-ellipsis">
+      How to Auto-Annotate with SAM2
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#limitations">
+<span class="md-ellipsis">
+      Limitations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#citations-and-acknowledgements">
+<span class="md-ellipsis">
+      Citations and Acknowledgements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-sam2-and-how-does-it-improve-upon-the-original-segment-anything-model-sam">
+<span class="md-ellipsis">
+      What is SAM2 and how does it improve upon the original Segment Anything Model (SAM)?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-use-sam2-for-real-time-video-segmentation">
+<span class="md-ellipsis">
+      How can I use SAM2 for real-time video segmentation?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-datasets-are-used-to-train-sam2-and-how-do-they-enhance-its-performance">
+<span class="md-ellipsis">
+      What datasets are used to train SAM2, and how do they enhance its performance?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-sam2-handle-occlusions-and-object-reappearances-in-video-segmentation">
+<span class="md-ellipsis">
+      How does SAM2 handle occlusions and object reappearances in video segmentation?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-sam2-compare-to-other-segmentation-models-like-yolov8">
+<span class="md-ellipsis">
+      How does SAM2 compare to other segmentation models like YOLOv8?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mobile-sam/">
+<span class="md-ellipsis">
+    MobileSAM (Mobile Segment Anything Model)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fast-sam/">
+<span class="md-ellipsis">
+    FastSAM (Fast Segment Anything Model)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolo-nas/">
+<span class="md-ellipsis">
+    YOLO-NAS (Neural Architecture Search)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rtdetr/">
+<span class="md-ellipsis">
+    RT-DETR (Realtime Detection Transformer)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolo-world/">
+<span class="md-ellipsis">
+    YOLO-World (Real-Time Open-Vocabulary Object Detection)
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
 <a class="md-nav__link" href="../../datasets/">
@@ -642,11 +1022,11 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/models/sam2.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
+<h1 id="sam2-segment-anything-model-2">SAM2: Segment Anything Model 2</h1>
 <div class="admonition note">
 <p class="admonition-title">🚧 SAM2 Integration In Progress 🚧</p>
 <p>The SAM2 features described in this documentation are currently not enabled in the <code>ultralytics</code> package. The Ultralytics team is actively working on integrating SAM2, and these capabilities should be available soon. We appreciate your patience as we work to implement this exciting new model.</p>
 </div>
-<h1 id="sam2-segment-anything-model-2">SAM2: Segment Anything Model 2</h1>
 <p>SAM2, the successor to Meta's <a href="../sam/">Segment Anything Model (SAM)</a>, is a cutting-edge tool designed for comprehensive object segmentation in both images and videos. It excels in handling complex visual data through a unified, promptable model architecture that supports real-time processing and zero-shot generalization.</p>
 <p><img alt="SAM2 Example Results" src="https://github.com/facebookresearch/segment-anything-2/raw/main/assets/sa_v_dataset.jpg?raw=true"/></p>
 <h2 id="key-features">Key Features</h2>
@@ -1111,7 +1491,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-07-30, Updated 2024-07-30<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-07-30, Updated 2024-07-30<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1173,6 +1553,34 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </button>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: SAM (Segment Anything Model)" class="md-footer__link md-footer__link--prev" href="../sam/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                SAM (Segment Anything Model)
+              </div>
+</div>
+</a>
+<a aria-label="Next: MobileSAM (Mobile Segment Anything Model)" class="md-footer__link md-footer__link--next" href="../mobile-sam/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                MobileSAM (Mobile Segment Anything Model)
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
