@@ -8,7 +8,7 @@
 <meta content="Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/models/sam/" rel="canonical"/>
-<link href="../yolov10/" rel="prev"/>
+<link href="./" rel="prev"/>
 <link href="../mobile-sam/" rel="next"/>
 <link href="../../assets/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.30" name="generator"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-2M5EHKC0BH",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="SAM (Segment Anything Model)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Segment Anything, SAM, image segmentation, promptable segmentation, zero-shot performance, SA-1B dataset, advanced architecture, auto-annotation, Ultralytics, pre-trained models, instance segmentation, computer vision, AI, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/sam" property="og:url"/><meta content="SAM (Segment Anything Model)" property="og:title"/><meta content="Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/238056229-0e8ffbeb-f81a-477e-a490-aff3d82fd8ce.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/sam" property="twitter:url"/><meta content="SAM (Segment Anything Model)" property="twitter:title"/><meta content="Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/238056229-0e8ffbeb-f81a-477e-a490-aff3d82fd8ce.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "SAM (Segment Anything Model)", "image": ["https://user-images.githubusercontent.com/26833433/238056229-0e8ffbeb-f81a-477e-a490-aff3d82fd8ce.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-07-18 06:10:48 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips.", "mainEntity": [{"@type": "Question", "name": "What is the Segment Anything Model (SAM) by Ultralytics?", "acceptedAnswer": {"@type": "Answer", "text": "The Segment Anything Model (SAM) by Ultralytics is a revolutionary image segmentation model designed for promptable segmentation tasks. It leverages advanced architecture, including image and prompt encoders combined with a lightweight mask decoder, to generate high-quality segmentation masks from various prompts such as spatial or text cues. Trained on the expansive SA-1B dataset, SAM excels in zero-shot performance, adapting to new image distributions and tasks without prior knowledge. Learn more here."}}, {"@type": "Question", "name": "How can I use the Segment Anything Model (SAM) for image segmentation?", "acceptedAnswer": {"@type": "Answer", "text": "You can use the Segment Anything Model (SAM) for image segmentation by running inference with various prompts such as bounding boxes or points. Here's an example using Python: Alternatively, you can run inference with SAM in the command line interface (CLI): For more detailed usage instructions, visit the Segmentation section."}}, {"@type": "Question", "name": "How do SAM and YOLOv8 compare in terms of performance?", "acceptedAnswer": {"@type": "Answer", "text": "Compared to YOLOv8, SAM models like SAM-b and FastSAM-s are larger and slower but offer unique capabilities for automatic segmentation. For instance, Ultralytics YOLOv8n-seg is 53.4 times smaller and 866 times faster than SAM-b. However, SAM's zero-shot performance makes it highly flexible and efficient in diverse, untrained tasks. Learn more about performance comparisons between SAM and YOLOv8 here."}}, {"@type": "Question", "name": "How can I auto-annotate my dataset using SAM?", "acceptedAnswer": {"@type": "Answer", "text": "Ultralytics' SAM offers an auto-annotation feature that allows generating segmentation datasets using a pre-trained detection model. Here's an example in Python: This function takes the path to your images and optional arguments for pre-trained detection and SAM segmentation models, along with device and output directory specifications. For a complete guide, see Auto-Annotation."}}, {"@type": "Question", "name": "What datasets are used to train the Segment Anything Model (SAM)?", "acceptedAnswer": {"@type": "Answer", "text": "SAM is trained on the extensive SA-1B dataset which comprises over 1 billion masks across 11 million images. SA-1B is the largest segmentation dataset to date, providing high-quality and diverse training data, ensuring impressive zero-shot performance in varied segmentation tasks. For more details, visit the Dataset section. This FAQ aims to address common questions related to the Segment Anything Model (SAM) from Ultralytics, enhancing user understanding and facilitating effective use of Ultralytics products. For additional information, explore the relevant sections linked throughout."}}]}</script></head>
+<meta content="SAM (Segment Anything Model)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Segment Anything, SAM, image segmentation, promptable segmentation, zero-shot performance, SA-1B dataset, advanced architecture, auto-annotation, Ultralytics, pre-trained models, instance segmentation, computer vision, AI, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/sam" property="og:url"/><meta content="SAM (Segment Anything Model)" property="og:title"/><meta content="Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips." property="og:description"/><meta content="https://user-images.githubusercontent.com/26833433/238056229-0e8ffbeb-f81a-477e-a490-aff3d82fd8ce.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/sam" property="twitter:url"/><meta content="SAM (Segment Anything Model)" property="twitter:title"/><meta content="Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips." property="twitter:description"/><meta content="https://user-images.githubusercontent.com/26833433/238056229-0e8ffbeb-f81a-477e-a490-aff3d82fd8ce.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "SAM (Segment Anything Model)", "image": ["https://user-images.githubusercontent.com/26833433/238056229-0e8ffbeb-f81a-477e-a490-aff3d82fd8ce.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-07-30 03:37:35 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips.", "mainEntity": [{"@type": "Question", "name": "What is the Segment Anything Model (SAM) by Ultralytics?", "acceptedAnswer": {"@type": "Answer", "text": "The Segment Anything Model (SAM) by Ultralytics is a revolutionary image segmentation model designed for promptable segmentation tasks. It leverages advanced architecture, including image and prompt encoders combined with a lightweight mask decoder, to generate high-quality segmentation masks from various prompts such as spatial or text cues. Trained on the expansive SA-1B dataset, SAM excels in zero-shot performance, adapting to new image distributions and tasks without prior knowledge. Learn more here."}}, {"@type": "Question", "name": "How can I use the Segment Anything Model (SAM) for image segmentation?", "acceptedAnswer": {"@type": "Answer", "text": "You can use the Segment Anything Model (SAM) for image segmentation by running inference with various prompts such as bounding boxes or points. Here's an example using Python: Alternatively, you can run inference with SAM in the command line interface (CLI): For more detailed usage instructions, visit the Segmentation section."}}, {"@type": "Question", "name": "How do SAM and YOLOv8 compare in terms of performance?", "acceptedAnswer": {"@type": "Answer", "text": "Compared to YOLOv8, SAM models like SAM-b and FastSAM-s are larger and slower but offer unique capabilities for automatic segmentation. For instance, Ultralytics YOLOv8n-seg is 53.4 times smaller and 866 times faster than SAM-b. However, SAM's zero-shot performance makes it highly flexible and efficient in diverse, untrained tasks. Learn more about performance comparisons between SAM and YOLOv8 here."}}, {"@type": "Question", "name": "How can I auto-annotate my dataset using SAM?", "acceptedAnswer": {"@type": "Answer", "text": "Ultralytics' SAM offers an auto-annotation feature that allows generating segmentation datasets using a pre-trained detection model. Here's an example in Python: This function takes the path to your images and optional arguments for pre-trained detection and SAM segmentation models, along with device and output directory specifications. For a complete guide, see Auto-Annotation."}}, {"@type": "Question", "name": "What datasets are used to train the Segment Anything Model (SAM)?", "acceptedAnswer": {"@type": "Answer", "text": "SAM is trained on the extensive SA-1B dataset which comprises over 1 billion masks across 11 million images. SA-1B is the largest segmentation dataset to date, providing high-quality and diverse training data, ensuring impressive zero-shot performance in varied segmentation tasks. For more details, visit the Dataset section."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -384,6 +384,145 @@
     YOLOv10
   </span>
 </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    SAM (Segment Anything Model)
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    SAM (Segment Anything Model)
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction-to-sam-the-segment-anything-model">
+<span class="md-ellipsis">
+      Introduction to SAM: The Segment Anything Model
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-the-segment-anything-model-sam">
+<span class="md-ellipsis">
+      Key Features of the Segment Anything Model (SAM)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#available-models-supported-tasks-and-operating-modes">
+<span class="md-ellipsis">
+      Available Models, Supported Tasks, and Operating Modes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-to-use-sam-versatility-and-power-in-image-segmentation">
+<span class="md-ellipsis">
+      How to Use SAM: Versatility and Power in Image Segmentation
+    </span>
+</a>
+<nav aria-label="How to Use SAM: Versatility and Power in Image Segmentation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sam-prediction-example">
+<span class="md-ellipsis">
+      SAM prediction example
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sam-comparison-vs-yolov8">
+<span class="md-ellipsis">
+      SAM comparison vs YOLOv8
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#auto-annotation-a-quick-path-to-segmentation-datasets">
+<span class="md-ellipsis">
+      Auto-Annotation: A Quick Path to Segmentation Datasets
+    </span>
+</a>
+<nav aria-label="Auto-Annotation: A Quick Path to Segmentation Datasets" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generate-your-segmentation-dataset-using-a-detection-model">
+<span class="md-ellipsis">
+      Generate Your Segmentation Dataset Using a Detection Model
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#citations-and-acknowledgements">
+<span class="md-ellipsis">
+      Citations and Acknowledgements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-the-segment-anything-model-sam-by-ultralytics">
+<span class="md-ellipsis">
+      What is the Segment Anything Model (SAM) by Ultralytics?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-use-the-segment-anything-model-sam-for-image-segmentation">
+<span class="md-ellipsis">
+      How can I use the Segment Anything Model (SAM) for image segmentation?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-sam-and-yolov8-compare-in-terms-of-performance">
+<span class="md-ellipsis">
+      How do SAM and YOLOv8 compare in terms of performance?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-auto-annotate-my-dataset-using-sam">
+<span class="md-ellipsis">
+      How can I auto-annotate my dataset using SAM?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-datasets-are-used-to-train-the-segment-anything-model-sam">
+<span class="md-ellipsis">
+      What datasets are used to train the Segment Anything Model (SAM)?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
@@ -1011,34 +1150,34 @@
 </thead>
 <tbody>
 <tr>
-<td>data</td>
-<td>str</td>
+<td><code>data</code></td>
+<td><code>str</code></td>
 <td>Path to a folder containing images to be annotated.</td>
 <td></td>
 </tr>
 <tr>
-<td>det_model</td>
-<td>str, optional</td>
+<td><code>det_model</code></td>
+<td><code>str</code>, optional</td>
 <td>Pre-trained YOLO detection model. Defaults to 'yolov8x.pt'.</td>
-<td>'yolov8x.pt'</td>
+<td><code>'yolov8x.pt'</code></td>
 </tr>
 <tr>
-<td>sam_model</td>
-<td>str, optional</td>
+<td><code>sam_model</code></td>
+<td><code>str</code>, optional</td>
 <td>Pre-trained SAM segmentation model. Defaults to 'sam_b.pt'.</td>
-<td>'sam_b.pt'</td>
+<td><code>'sam_b.pt'</code></td>
 </tr>
 <tr>
-<td>device</td>
-<td>str, optional</td>
+<td><code>device</code></td>
+<td><code>str</code>, optional</td>
 <td>Device to run the models on. Defaults to an empty string (CPU or GPU, if available).</td>
 <td></td>
 </tr>
 <tr>
-<td>output_dir</td>
-<td>str, None, optional</td>
+<td><code>output_dir</code></td>
+<td><code>str</code>, None, optional</td>
 <td>Directory to save the annotated results. Defaults to a 'labels' folder in the same directory as 'data'.</td>
-<td>None</td>
+<td><code>None</code></td>
 </tr>
 </tbody>
 </table>
@@ -1095,8 +1234,6 @@
 <p>This function takes the path to your images and optional arguments for pre-trained detection and SAM segmentation models, along with device and output directory specifications. For a complete guide, see <a href="#auto-annotation-a-quick-path-to-segmentation-datasets">Auto-Annotation</a>.</p>
 <h3 id="what-datasets-are-used-to-train-the-segment-anything-model-sam">What datasets are used to train the Segment Anything Model (SAM)?</h3>
 <p>SAM is trained on the extensive <a href="https://ai.facebook.com/datasets/segment-anything/">SA-1B dataset</a> which comprises over 1 billion masks across 11 million images. SA-1B is the largest segmentation dataset to date, providing high-quality and diverse training data, ensuring impressive zero-shot performance in varied segmentation tasks. For more details, visit the <a href="#key-features-of-the-segment-anything-model-sam">Dataset section</a>.</p>
-<hr/>
-<p>This FAQ aims to address common questions related to the Segment Anything Model (SAM) from Ultralytics, enhancing user understanding and facilitating effective use of Ultralytics products. For additional information, explore the relevant sections linked throughout.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1105,7 +1242,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-07-18<br/>Authors: <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/glenn-jocher">glenn-jocher</a> (15), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/ChaoningZhang">ChaoningZhang</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2023-11-12, Updated 2024-07-30<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (16), <a href="https://github.com/Laughing-q">Laughing-q</a> (1), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1), <a href="https://github.com/ChaoningZhang">ChaoningZhang</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -1168,7 +1305,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: YOLOv10" class="md-footer__link md-footer__link--prev" href="../yolov10/">
+<a aria-label="Previous: SAM (Segment Anything Model)" class="md-footer__link md-footer__link--prev" href="./">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1177,7 +1314,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
                 Previous
               </span>
 <div class="md-ellipsis">
-                YOLOv10
+                SAM (Segment Anything Model)
               </div>
 </div>
 </a>
