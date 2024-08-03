@@ -3987,7 +3987,7 @@ width and height are normalized to image dimensions.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Convert batched Oriented Bounding Boxes (OBB) from [xy1, xy2, xy3, xy4] to [xywh, rotation]. Rotation values are
-expected in degrees from 0 to 90.</p>
+returned in radians from 0 to pi/2.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -4061,7 +4061,7 @@ expected in degrees from 0 to 90.</p>
 <span class="normal"><a href="#__codelineno-0-548">548</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-528" name="__codelineno-0-528"></a><span class="k">def</span> <span class="nf">xyxyxyxy2xywhr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-529" name="__codelineno-0-529"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-530" name="__codelineno-0-530"></a><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xy1, xy2, xy3, xy4] to [xywh, rotation]. Rotation values are</span>
-<a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="sd">    expected in degrees from 0 to 90.</span>
+<a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="sd">    returned in radians from 0 to pi/2.</span>
 <a id="__codelineno-0-532" name="__codelineno-0-532"></a>
 <a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">        x (numpy.ndarray | torch.Tensor): Input box corners [xy1, xy2, xy3, xy4] of shape (n, 8).</span>
@@ -4091,7 +4091,7 @@ expected in degrees from 0 to 90.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Convert batched Oriented Bounding Boxes (OBB) from [xywh, rotation] to [xy1, xy2, xy3, xy4]. Rotation values should
-be in degrees from 0 to 90.</p>
+be in radians from 0 to pi/2.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -4173,7 +4173,7 @@ be in degrees from 0 to 90.</p>
 <span class="normal"><a href="#__codelineno-0-579">579</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-551" name="__codelineno-0-551"></a><span class="k">def</span> <span class="nf">xywhr2xyxyxyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-552" name="__codelineno-0-552"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-553" name="__codelineno-0-553"></a><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xywh, rotation] to [xy1, xy2, xy3, xy4]. Rotation values should</span>
-<a id="__codelineno-0-554" name="__codelineno-0-554"></a><span class="sd">    be in degrees from 0 to 90.</span>
+<a id="__codelineno-0-554" name="__codelineno-0-554"></a><span class="sd">    be in radians from 0 to pi/2.</span>
 <a id="__codelineno-0-555" name="__codelineno-0-555"></a>
 <a id="__codelineno-0-556" name="__codelineno-0-556"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-557" name="__codelineno-0-557"></a><span class="sd">        x (numpy.ndarray | torch.Tensor): Boxes in [cx, cy, w, h, rotation] format of shape (n, 5) or (b, n, 5).</span>
