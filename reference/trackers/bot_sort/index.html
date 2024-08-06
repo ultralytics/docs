@@ -1874,22 +1874,20 @@ bot_sort.multi_predict(tracks)</p>
 <span class="normal"><a href="#__codelineno-0-187">187</a></span>
 <span class="normal"><a href="#__codelineno-0-188">188</a></span>
 <span class="normal"><a href="#__codelineno-0-189">189</a></span>
-<span class="normal"><a href="#__codelineno-0-190">190</a></span>
-<span class="normal"><a href="#__codelineno-0-191">191</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="k">def</span> <span class="nf">get_dists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-190">190</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="k">def</span> <span class="nf">get_dists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">):</span>
 <a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="w">    </span><span class="sd">"""Get distances between tracks and detections using IoU and (optionally) ReID embeddings."""</span>
 <a id="__codelineno-0-179" name="__codelineno-0-179"></a>    <span class="n">dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">iou_distance</span><span class="p">(</span><span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span>
 <a id="__codelineno-0-180" name="__codelineno-0-180"></a>    <span class="n">dists_mask</span> <span class="o">=</span> <span class="n">dists</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">proximity_thresh</span>
 <a id="__codelineno-0-181" name="__codelineno-0-181"></a>
-<a id="__codelineno-0-182" name="__codelineno-0-182"></a>    <span class="c1"># TODO: mot20</span>
-<a id="__codelineno-0-183" name="__codelineno-0-183"></a>    <span class="c1"># if not self.args.mot20:</span>
-<a id="__codelineno-0-184" name="__codelineno-0-184"></a>    <span class="n">dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">fuse_score</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span>
-<a id="__codelineno-0-185" name="__codelineno-0-185"></a>
-<a id="__codelineno-0-186" name="__codelineno-0-186"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">with_reid</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-187" name="__codelineno-0-187"></a>        <span class="n">emb_dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">embedding_distance</span><span class="p">(</span><span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
-<a id="__codelineno-0-188" name="__codelineno-0-188"></a>        <span class="n">emb_dists</span><span class="p">[</span><span class="n">emb_dists</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">appearance_thresh</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-<a id="__codelineno-0-189" name="__codelineno-0-189"></a>        <span class="n">emb_dists</span><span class="p">[</span><span class="n">dists_mask</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-<a id="__codelineno-0-190" name="__codelineno-0-190"></a>        <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span> <span class="n">emb_dists</span><span class="p">)</span>
-<a id="__codelineno-0-191" name="__codelineno-0-191"></a>    <span class="k">return</span> <span class="n">dists</span>
+<a id="__codelineno-0-182" name="__codelineno-0-182"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">fuse_score</span><span class="p">:</span>
+<a id="__codelineno-0-183" name="__codelineno-0-183"></a>        <span class="n">dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">fuse_score</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span>
+<a id="__codelineno-0-184" name="__codelineno-0-184"></a>
+<a id="__codelineno-0-185" name="__codelineno-0-185"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">with_reid</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-186" name="__codelineno-0-186"></a>        <span class="n">emb_dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">embedding_distance</span><span class="p">(</span><span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
+<a id="__codelineno-0-187" name="__codelineno-0-187"></a>        <span class="n">emb_dists</span><span class="p">[</span><span class="n">emb_dists</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">appearance_thresh</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<a id="__codelineno-0-188" name="__codelineno-0-188"></a>        <span class="n">emb_dists</span><span class="p">[</span><span class="n">dists_mask</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<a id="__codelineno-0-189" name="__codelineno-0-189"></a>        <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span> <span class="n">emb_dists</span><span class="p">)</span>
+<a id="__codelineno-0-190" name="__codelineno-0-190"></a>    <span class="k">return</span> <span class="n">dists</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1954,11 +1952,11 @@ bot_sort.multi_predict(tracks)</p>
 <p>Predict and track multiple objects with YOLOv8 model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-193">193</a></span>
-<span class="normal"><a href="#__codelineno-0-194">194</a></span>
-<span class="normal"><a href="#__codelineno-0-195">195</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-193" name="__codelineno-0-193"></a><span class="k">def</span> <span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">):</span>
-<a id="__codelineno-0-194" name="__codelineno-0-194"></a><span class="w">    </span><span class="sd">"""Predict and track multiple objects with YOLOv8 model."""</span>
-<a id="__codelineno-0-195" name="__codelineno-0-195"></a>    <span class="n">BOTrack</span><span class="o">.</span><span class="n">multi_predict</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-192">192</a></span>
+<span class="normal"><a href="#__codelineno-0-193">193</a></span>
+<span class="normal"><a href="#__codelineno-0-194">194</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="k">def</span> <span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">):</span>
+<a id="__codelineno-0-193" name="__codelineno-0-193"></a><span class="w">    </span><span class="sd">"""Predict and track multiple objects with YOLOv8 model."""</span>
+<a id="__codelineno-0-194" name="__codelineno-0-194"></a>    <span class="n">BOTrack</span><span class="o">.</span><span class="n">multi_predict</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1973,13 +1971,13 @@ bot_sort.multi_predict(tracks)</p>
 <p>Reset tracker.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-197">197</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-196">196</a></span>
+<span class="normal"><a href="#__codelineno-0-197">197</a></span>
 <span class="normal"><a href="#__codelineno-0-198">198</a></span>
-<span class="normal"><a href="#__codelineno-0-199">199</a></span>
-<span class="normal"><a href="#__codelineno-0-200">200</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="w">    </span><span class="sd">"""Reset tracker."""</span>
-<a id="__codelineno-0-199" name="__codelineno-0-199"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-<a id="__codelineno-0-200" name="__codelineno-0-200"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">gmc</span><span class="o">.</span><span class="n">reset_params</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-199">199</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="w">    </span><span class="sd">"""Reset tracker."""</span>
+<a id="__codelineno-0-198" name="__codelineno-0-198"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<a id="__codelineno-0-199" name="__codelineno-0-199"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">gmc</span><span class="o">.</span><span class="n">reset_params</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
