@@ -1630,7 +1630,9 @@
 <h2 class="doc doc-heading" id="ultralytics.data.split_dota.crop_and_save">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.data.split_dota.crop_and_save</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">crop_and_save</span><span class="p">(</span><span class="n">anno</span><span class="p">,</span> <span class="n">windows</span><span class="p">,</span> <span class="n">window_objs</span><span class="p">,</span> <span class="n">im_dir</span><span class="p">,</span> <span class="n">lb_dir</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">crop_and_save</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">anno</span><span class="p">,</span> <span class="n">windows</span><span class="p">,</span> <span class="n">window_objs</span><span class="p">,</span> <span class="n">im_dir</span><span class="p">,</span> <span class="n">lb_dir</span><span class="p">,</span> <span class="n">allow_background_images</span><span class="o">=</span><span class="kc">True</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Crop images and save new labels.</p>
@@ -1715,6 +1717,20 @@
 <em>required</em>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td><code>allow_background_images</code></td>
+<td>
+<code>bool</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to include background images without labels.</p>
+</div>
+</td>
+<td>
+<code>True</code>
+</td>
+</tr>
 </tbody>
 </table>
 <details class="notes" open="">
@@ -1771,7 +1787,8 @@
 <span class="normal"><a href="#__codelineno-0-185">185</a></span>
 <span class="normal"><a href="#__codelineno-0-186">186</a></span>
 <span class="normal"><a href="#__codelineno-0-187">187</a></span>
-<span class="normal"><a href="#__codelineno-0-188">188</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="k">def</span> <span class="nf">crop_and_save</span><span class="p">(</span><span class="n">anno</span><span class="p">,</span> <span class="n">windows</span><span class="p">,</span> <span class="n">window_objs</span><span class="p">,</span> <span class="n">im_dir</span><span class="p">,</span> <span class="n">lb_dir</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-188">188</a></span>
+<span class="normal"><a href="#__codelineno-0-189">189</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="k">def</span> <span class="nf">crop_and_save</span><span class="p">(</span><span class="n">anno</span><span class="p">,</span> <span class="n">windows</span><span class="p">,</span> <span class="n">window_objs</span><span class="p">,</span> <span class="n">im_dir</span><span class="p">,</span> <span class="n">lb_dir</span><span class="p">,</span> <span class="n">allow_background_images</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="sd">    Crop images and save new labels.</span>
 <a id="__codelineno-0-150" name="__codelineno-0-150"></a>
@@ -1781,38 +1798,39 @@
 <a id="__codelineno-0-154" name="__codelineno-0-154"></a><span class="sd">        window_objs (list): A list of labels inside each window.</span>
 <a id="__codelineno-0-155" name="__codelineno-0-155"></a><span class="sd">        im_dir (str): The output directory path of images.</span>
 <a id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="sd">        lb_dir (str): The output directory path of labels.</span>
-<a id="__codelineno-0-157" name="__codelineno-0-157"></a>
-<a id="__codelineno-0-158" name="__codelineno-0-158"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
-<a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">            - data_root</span>
-<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">                - images</span>
-<a id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="sd">                    - train</span>
-<a id="__codelineno-0-163" name="__codelineno-0-163"></a><span class="sd">                    - val</span>
-<a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="sd">                - labels</span>
-<a id="__codelineno-0-165" name="__codelineno-0-165"></a><span class="sd">                    - train</span>
-<a id="__codelineno-0-166" name="__codelineno-0-166"></a><span class="sd">                    - val</span>
-<a id="__codelineno-0-167" name="__codelineno-0-167"></a><span class="sd">    """</span>
-<a id="__codelineno-0-168" name="__codelineno-0-168"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">anno</span><span class="p">[</span><span class="s2">"filepath"</span><span class="p">])</span>
-<a id="__codelineno-0-169" name="__codelineno-0-169"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">anno</span><span class="p">[</span><span class="s2">"filepath"</span><span class="p">])</span><span class="o">.</span><span class="n">stem</span>
-<a id="__codelineno-0-170" name="__codelineno-0-170"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">window</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">windows</span><span class="p">):</span>
-<a id="__codelineno-0-171" name="__codelineno-0-171"></a>        <span class="n">x_start</span><span class="p">,</span> <span class="n">y_start</span><span class="p">,</span> <span class="n">x_stop</span><span class="p">,</span> <span class="n">y_stop</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a id="__codelineno-0-172" name="__codelineno-0-172"></a>        <span class="n">new_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">__</span><span class="si">{</span><span class="n">x_stop</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x_start</span><span class="si">}</span><span class="s2">__</span><span class="si">{</span><span class="n">x_start</span><span class="si">}</span><span class="s2">___</span><span class="si">{</span><span class="n">y_start</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-173" name="__codelineno-0-173"></a>        <span class="n">patch_im</span> <span class="o">=</span> <span class="n">im</span><span class="p">[</span><span class="n">y_start</span><span class="p">:</span><span class="n">y_stop</span><span class="p">,</span> <span class="n">x_start</span><span class="p">:</span><span class="n">x_stop</span><span class="p">]</span>
-<a id="__codelineno-0-174" name="__codelineno-0-174"></a>        <span class="n">ph</span><span class="p">,</span> <span class="n">pw</span> <span class="o">=</span> <span class="n">patch_im</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-0-175" name="__codelineno-0-175"></a>
-<a id="__codelineno-0-176" name="__codelineno-0-176"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">im_dir</span><span class="p">)</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">new_name</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">),</span> <span class="n">patch_im</span><span class="p">)</span>
+<a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="sd">        allow_background_images (bool): Whether to include background images without labels.</span>
+<a id="__codelineno-0-158" name="__codelineno-0-158"></a>
+<a id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
+<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">            - data_root</span>
+<a id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="sd">                - images</span>
+<a id="__codelineno-0-163" name="__codelineno-0-163"></a><span class="sd">                    - train</span>
+<a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="sd">                    - val</span>
+<a id="__codelineno-0-165" name="__codelineno-0-165"></a><span class="sd">                - labels</span>
+<a id="__codelineno-0-166" name="__codelineno-0-166"></a><span class="sd">                    - train</span>
+<a id="__codelineno-0-167" name="__codelineno-0-167"></a><span class="sd">                    - val</span>
+<a id="__codelineno-0-168" name="__codelineno-0-168"></a><span class="sd">    """</span>
+<a id="__codelineno-0-169" name="__codelineno-0-169"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">anno</span><span class="p">[</span><span class="s2">"filepath"</span><span class="p">])</span>
+<a id="__codelineno-0-170" name="__codelineno-0-170"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">anno</span><span class="p">[</span><span class="s2">"filepath"</span><span class="p">])</span><span class="o">.</span><span class="n">stem</span>
+<a id="__codelineno-0-171" name="__codelineno-0-171"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">window</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">windows</span><span class="p">):</span>
+<a id="__codelineno-0-172" name="__codelineno-0-172"></a>        <span class="n">x_start</span><span class="p">,</span> <span class="n">y_start</span><span class="p">,</span> <span class="n">x_stop</span><span class="p">,</span> <span class="n">y_stop</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<a id="__codelineno-0-173" name="__codelineno-0-173"></a>        <span class="n">new_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">__</span><span class="si">{</span><span class="n">x_stop</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x_start</span><span class="si">}</span><span class="s2">__</span><span class="si">{</span><span class="n">x_start</span><span class="si">}</span><span class="s2">___</span><span class="si">{</span><span class="n">y_start</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-174" name="__codelineno-0-174"></a>        <span class="n">patch_im</span> <span class="o">=</span> <span class="n">im</span><span class="p">[</span><span class="n">y_start</span><span class="p">:</span><span class="n">y_stop</span><span class="p">,</span> <span class="n">x_start</span><span class="p">:</span><span class="n">x_stop</span><span class="p">]</span>
+<a id="__codelineno-0-175" name="__codelineno-0-175"></a>        <span class="n">ph</span><span class="p">,</span> <span class="n">pw</span> <span class="o">=</span> <span class="n">patch_im</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-0-176" name="__codelineno-0-176"></a>
 <a id="__codelineno-0-177" name="__codelineno-0-177"></a>        <span class="n">label</span> <span class="o">=</span> <span class="n">window_objs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<a id="__codelineno-0-178" name="__codelineno-0-178"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-179" name="__codelineno-0-179"></a>            <span class="k">continue</span>
-<a id="__codelineno-0-180" name="__codelineno-0-180"></a>        <span class="n">label</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">x_start</span>
-<a id="__codelineno-0-181" name="__codelineno-0-181"></a>        <span class="n">label</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">y_start</span>
-<a id="__codelineno-0-182" name="__codelineno-0-182"></a>        <span class="n">label</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">/=</span> <span class="n">pw</span>
-<a id="__codelineno-0-183" name="__codelineno-0-183"></a>        <span class="n">label</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">/=</span> <span class="n">ph</span>
-<a id="__codelineno-0-184" name="__codelineno-0-184"></a>
-<a id="__codelineno-0-185" name="__codelineno-0-185"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">lb_dir</span><span class="p">)</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">new_name</span><span class="si">}</span><span class="s2">.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-0-186" name="__codelineno-0-186"></a>            <span class="k">for</span> <span class="n">lb</span> <span class="ow">in</span> <span class="n">label</span><span class="p">:</span>
-<a id="__codelineno-0-187" name="__codelineno-0-187"></a>                <span class="n">formatted_coords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"</span><span class="si">{:.6g}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">lb</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
-<a id="__codelineno-0-188" name="__codelineno-0-188"></a>                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">lb</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">formatted_coords</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-178" name="__codelineno-0-178"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="ow">or</span> <span class="n">allow_background_images</span><span class="p">:</span>
+<a id="__codelineno-0-179" name="__codelineno-0-179"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">im_dir</span><span class="p">)</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">new_name</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">),</span> <span class="n">patch_im</span><span class="p">)</span>
+<a id="__codelineno-0-180" name="__codelineno-0-180"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
+<a id="__codelineno-0-181" name="__codelineno-0-181"></a>            <span class="n">label</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">x_start</span>
+<a id="__codelineno-0-182" name="__codelineno-0-182"></a>            <span class="n">label</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">y_start</span>
+<a id="__codelineno-0-183" name="__codelineno-0-183"></a>            <span class="n">label</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">/=</span> <span class="n">pw</span>
+<a id="__codelineno-0-184" name="__codelineno-0-184"></a>            <span class="n">label</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">/=</span> <span class="n">ph</span>
+<a id="__codelineno-0-185" name="__codelineno-0-185"></a>
+<a id="__codelineno-0-186" name="__codelineno-0-186"></a>            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">lb_dir</span><span class="p">)</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">new_name</span><span class="si">}</span><span class="s2">.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-0-187" name="__codelineno-0-187"></a>                <span class="k">for</span> <span class="n">lb</span> <span class="ow">in</span> <span class="n">label</span><span class="p">:</span>
+<a id="__codelineno-0-188" name="__codelineno-0-188"></a>                    <span class="n">formatted_coords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"</span><span class="si">{:.6g}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">lb</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+<a id="__codelineno-0-189" name="__codelineno-0-189"></a>                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">lb</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">formatted_coords</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1844,8 +1862,7 @@ and the output directory structure is:
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split_dota.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-191">191</a></span>
-<span class="normal"><a href="#__codelineno-0-192">192</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-192">192</a></span>
 <span class="normal"><a href="#__codelineno-0-193">193</a></span>
 <span class="normal"><a href="#__codelineno-0-194">194</a></span>
 <span class="normal"><a href="#__codelineno-0-195">195</a></span>
@@ -1871,34 +1888,35 @@ and the output directory structure is:
 <span class="normal"><a href="#__codelineno-0-215">215</a></span>
 <span class="normal"><a href="#__codelineno-0-216">216</a></span>
 <span class="normal"><a href="#__codelineno-0-217">217</a></span>
-<span class="normal"><a href="#__codelineno-0-218">218</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-191" name="__codelineno-0-191"></a><span class="k">def</span> <span class="nf">split_images_and_labels</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">crop_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">1024</span><span class="p">,),</span> <span class="n">gaps</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,)):</span>
-<a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-193" name="__codelineno-0-193"></a><span class="sd">    Split both images and labels.</span>
-<a id="__codelineno-0-194" name="__codelineno-0-194"></a>
-<a id="__codelineno-0-195" name="__codelineno-0-195"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
-<a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="sd">            - data_root</span>
-<a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="sd">                - images</span>
-<a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">                    - split</span>
-<a id="__codelineno-0-200" name="__codelineno-0-200"></a><span class="sd">                - labels</span>
-<a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="sd">                    - split</span>
-<a id="__codelineno-0-202" name="__codelineno-0-202"></a><span class="sd">        and the output directory structure is:</span>
-<a id="__codelineno-0-203" name="__codelineno-0-203"></a><span class="sd">            - save_dir</span>
-<a id="__codelineno-0-204" name="__codelineno-0-204"></a><span class="sd">                - images</span>
-<a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="sd">                    - split</span>
-<a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="sd">                - labels</span>
-<a id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="sd">                    - split</span>
-<a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="sd">    """</span>
-<a id="__codelineno-0-209" name="__codelineno-0-209"></a>    <span class="n">im_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"images"</span> <span class="o">/</span> <span class="n">split</span>
-<a id="__codelineno-0-210" name="__codelineno-0-210"></a>    <span class="n">im_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-211" name="__codelineno-0-211"></a>    <span class="n">lb_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"labels"</span> <span class="o">/</span> <span class="n">split</span>
-<a id="__codelineno-0-212" name="__codelineno-0-212"></a>    <span class="n">lb_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-213" name="__codelineno-0-213"></a>
-<a id="__codelineno-0-214" name="__codelineno-0-214"></a>    <span class="n">annos</span> <span class="o">=</span> <span class="n">load_yolo_dota</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="n">split</span><span class="p">)</span>
-<a id="__codelineno-0-215" name="__codelineno-0-215"></a>    <span class="k">for</span> <span class="n">anno</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">annos</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">annos</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="n">split</span><span class="p">):</span>
-<a id="__codelineno-0-216" name="__codelineno-0-216"></a>        <span class="n">windows</span> <span class="o">=</span> <span class="n">get_windows</span><span class="p">(</span><span class="n">anno</span><span class="p">[</span><span class="s2">"ori_size"</span><span class="p">],</span> <span class="n">crop_sizes</span><span class="p">,</span> <span class="n">gaps</span><span class="p">)</span>
-<a id="__codelineno-0-217" name="__codelineno-0-217"></a>        <span class="n">window_objs</span> <span class="o">=</span> <span class="n">get_window_obj</span><span class="p">(</span><span class="n">anno</span><span class="p">,</span> <span class="n">windows</span><span class="p">)</span>
-<a id="__codelineno-0-218" name="__codelineno-0-218"></a>        <span class="n">crop_and_save</span><span class="p">(</span><span class="n">anno</span><span class="p">,</span> <span class="n">windows</span><span class="p">,</span> <span class="n">window_objs</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">im_dir</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">lb_dir</span><span class="p">))</span>
+<span class="normal"><a href="#__codelineno-0-218">218</a></span>
+<span class="normal"><a href="#__codelineno-0-219">219</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="k">def</span> <span class="nf">split_images_and_labels</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">crop_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">1024</span><span class="p">,),</span> <span class="n">gaps</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,)):</span>
+<a id="__codelineno-0-193" name="__codelineno-0-193"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-194" name="__codelineno-0-194"></a><span class="sd">    Split both images and labels.</span>
+<a id="__codelineno-0-195" name="__codelineno-0-195"></a>
+<a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
+<a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="sd">            - data_root</span>
+<a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">                - images</span>
+<a id="__codelineno-0-200" name="__codelineno-0-200"></a><span class="sd">                    - split</span>
+<a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="sd">                - labels</span>
+<a id="__codelineno-0-202" name="__codelineno-0-202"></a><span class="sd">                    - split</span>
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a><span class="sd">        and the output directory structure is:</span>
+<a id="__codelineno-0-204" name="__codelineno-0-204"></a><span class="sd">            - save_dir</span>
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="sd">                - images</span>
+<a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="sd">                    - split</span>
+<a id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="sd">                - labels</span>
+<a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="sd">                    - split</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="sd">    """</span>
+<a id="__codelineno-0-210" name="__codelineno-0-210"></a>    <span class="n">im_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"images"</span> <span class="o">/</span> <span class="n">split</span>
+<a id="__codelineno-0-211" name="__codelineno-0-211"></a>    <span class="n">im_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-212" name="__codelineno-0-212"></a>    <span class="n">lb_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"labels"</span> <span class="o">/</span> <span class="n">split</span>
+<a id="__codelineno-0-213" name="__codelineno-0-213"></a>    <span class="n">lb_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-214" name="__codelineno-0-214"></a>
+<a id="__codelineno-0-215" name="__codelineno-0-215"></a>    <span class="n">annos</span> <span class="o">=</span> <span class="n">load_yolo_dota</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="n">split</span><span class="p">)</span>
+<a id="__codelineno-0-216" name="__codelineno-0-216"></a>    <span class="k">for</span> <span class="n">anno</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">annos</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">annos</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="n">split</span><span class="p">):</span>
+<a id="__codelineno-0-217" name="__codelineno-0-217"></a>        <span class="n">windows</span> <span class="o">=</span> <span class="n">get_windows</span><span class="p">(</span><span class="n">anno</span><span class="p">[</span><span class="s2">"ori_size"</span><span class="p">],</span> <span class="n">crop_sizes</span><span class="p">,</span> <span class="n">gaps</span><span class="p">)</span>
+<a id="__codelineno-0-218" name="__codelineno-0-218"></a>        <span class="n">window_objs</span> <span class="o">=</span> <span class="n">get_window_obj</span><span class="p">(</span><span class="n">anno</span><span class="p">,</span> <span class="n">windows</span><span class="p">)</span>
+<a id="__codelineno-0-219" name="__codelineno-0-219"></a>        <span class="n">crop_and_save</span><span class="p">(</span><span class="n">anno</span><span class="p">,</span> <span class="n">windows</span><span class="p">,</span> <span class="n">window_objs</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">im_dir</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">lb_dir</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1932,8 +1950,7 @@ and the output directory structure is:
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split_dota.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-221">221</a></span>
-<span class="normal"><a href="#__codelineno-0-222">222</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-222">222</a></span>
 <span class="normal"><a href="#__codelineno-0-223">223</a></span>
 <span class="normal"><a href="#__codelineno-0-224">224</a></span>
 <span class="normal"><a href="#__codelineno-0-225">225</a></span>
@@ -1959,34 +1976,35 @@ and the output directory structure is:
 <span class="normal"><a href="#__codelineno-0-245">245</a></span>
 <span class="normal"><a href="#__codelineno-0-246">246</a></span>
 <span class="normal"><a href="#__codelineno-0-247">247</a></span>
-<span class="normal"><a href="#__codelineno-0-248">248</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-221" name="__codelineno-0-221"></a><span class="k">def</span> <span class="nf">split_trainval</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">crop_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">rates</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,)):</span>
-<a id="__codelineno-0-222" name="__codelineno-0-222"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-223" name="__codelineno-0-223"></a><span class="sd">    Split train and val set of DOTA.</span>
-<a id="__codelineno-0-224" name="__codelineno-0-224"></a>
-<a id="__codelineno-0-225" name="__codelineno-0-225"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-226" name="__codelineno-0-226"></a><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
-<a id="__codelineno-0-227" name="__codelineno-0-227"></a><span class="sd">            - data_root</span>
-<a id="__codelineno-0-228" name="__codelineno-0-228"></a><span class="sd">                - images</span>
-<a id="__codelineno-0-229" name="__codelineno-0-229"></a><span class="sd">                    - train</span>
-<a id="__codelineno-0-230" name="__codelineno-0-230"></a><span class="sd">                    - val</span>
-<a id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="sd">                - labels</span>
-<a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="sd">                    - train</span>
-<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">                    - val</span>
-<a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">        and the output directory structure is:</span>
-<a id="__codelineno-0-235" name="__codelineno-0-235"></a><span class="sd">            - save_dir</span>
-<a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">                - images</span>
-<a id="__codelineno-0-237" name="__codelineno-0-237"></a><span class="sd">                    - train</span>
-<a id="__codelineno-0-238" name="__codelineno-0-238"></a><span class="sd">                    - val</span>
-<a id="__codelineno-0-239" name="__codelineno-0-239"></a><span class="sd">                - labels</span>
-<a id="__codelineno-0-240" name="__codelineno-0-240"></a><span class="sd">                    - train</span>
-<a id="__codelineno-0-241" name="__codelineno-0-241"></a><span class="sd">                    - val</span>
-<a id="__codelineno-0-242" name="__codelineno-0-242"></a><span class="sd">    """</span>
-<a id="__codelineno-0-243" name="__codelineno-0-243"></a>    <span class="n">crop_sizes</span><span class="p">,</span> <span class="n">gaps</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-<a id="__codelineno-0-244" name="__codelineno-0-244"></a>    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rates</span><span class="p">:</span>
-<a id="__codelineno-0-245" name="__codelineno-0-245"></a>        <span class="n">crop_sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">crop_size</span> <span class="o">/</span> <span class="n">r</span><span class="p">))</span>
-<a id="__codelineno-0-246" name="__codelineno-0-246"></a>        <span class="n">gaps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">gap</span> <span class="o">/</span> <span class="n">r</span><span class="p">))</span>
-<a id="__codelineno-0-247" name="__codelineno-0-247"></a>    <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"train"</span><span class="p">,</span> <span class="s2">"val"</span><span class="p">]:</span>
-<a id="__codelineno-0-248" name="__codelineno-0-248"></a>        <span class="n">split_images_and_labels</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">split</span><span class="p">,</span> <span class="n">crop_sizes</span><span class="p">,</span> <span class="n">gaps</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-248">248</a></span>
+<span class="normal"><a href="#__codelineno-0-249">249</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-222" name="__codelineno-0-222"></a><span class="k">def</span> <span class="nf">split_trainval</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">crop_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">rates</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,)):</span>
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-224" name="__codelineno-0-224"></a><span class="sd">    Split train and val set of DOTA.</span>
+<a id="__codelineno-0-225" name="__codelineno-0-225"></a>
+<a id="__codelineno-0-226" name="__codelineno-0-226"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-227" name="__codelineno-0-227"></a><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
+<a id="__codelineno-0-228" name="__codelineno-0-228"></a><span class="sd">            - data_root</span>
+<a id="__codelineno-0-229" name="__codelineno-0-229"></a><span class="sd">                - images</span>
+<a id="__codelineno-0-230" name="__codelineno-0-230"></a><span class="sd">                    - train</span>
+<a id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="sd">                    - val</span>
+<a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="sd">                - labels</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">                    - train</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">                    - val</span>
+<a id="__codelineno-0-235" name="__codelineno-0-235"></a><span class="sd">        and the output directory structure is:</span>
+<a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">            - save_dir</span>
+<a id="__codelineno-0-237" name="__codelineno-0-237"></a><span class="sd">                - images</span>
+<a id="__codelineno-0-238" name="__codelineno-0-238"></a><span class="sd">                    - train</span>
+<a id="__codelineno-0-239" name="__codelineno-0-239"></a><span class="sd">                    - val</span>
+<a id="__codelineno-0-240" name="__codelineno-0-240"></a><span class="sd">                - labels</span>
+<a id="__codelineno-0-241" name="__codelineno-0-241"></a><span class="sd">                    - train</span>
+<a id="__codelineno-0-242" name="__codelineno-0-242"></a><span class="sd">                    - val</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a><span class="sd">    """</span>
+<a id="__codelineno-0-244" name="__codelineno-0-244"></a>    <span class="n">crop_sizes</span><span class="p">,</span> <span class="n">gaps</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<a id="__codelineno-0-245" name="__codelineno-0-245"></a>    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rates</span><span class="p">:</span>
+<a id="__codelineno-0-246" name="__codelineno-0-246"></a>        <span class="n">crop_sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">crop_size</span> <span class="o">/</span> <span class="n">r</span><span class="p">))</span>
+<a id="__codelineno-0-247" name="__codelineno-0-247"></a>        <span class="n">gaps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">gap</span> <span class="o">/</span> <span class="n">r</span><span class="p">))</span>
+<a id="__codelineno-0-248" name="__codelineno-0-248"></a>    <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"train"</span><span class="p">,</span> <span class="s2">"val"</span><span class="p">]:</span>
+<a id="__codelineno-0-249" name="__codelineno-0-249"></a>        <span class="n">split_images_and_labels</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">split</span><span class="p">,</span> <span class="n">crop_sizes</span><span class="p">,</span> <span class="n">gaps</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2012,8 +2030,7 @@ and the output directory structure is:
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split_dota.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-251">251</a></span>
-<span class="normal"><a href="#__codelineno-0-252">252</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-252">252</a></span>
 <span class="normal"><a href="#__codelineno-0-253">253</a></span>
 <span class="normal"><a href="#__codelineno-0-254">254</a></span>
 <span class="normal"><a href="#__codelineno-0-255">255</a></span>
@@ -2045,40 +2062,41 @@ and the output directory structure is:
 <span class="normal"><a href="#__codelineno-0-281">281</a></span>
 <span class="normal"><a href="#__codelineno-0-282">282</a></span>
 <span class="normal"><a href="#__codelineno-0-283">283</a></span>
-<span class="normal"><a href="#__codelineno-0-284">284</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-251" name="__codelineno-0-251"></a><span class="k">def</span> <span class="nf">split_test</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">crop_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">rates</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,)):</span>
-<a id="__codelineno-0-252" name="__codelineno-0-252"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-253" name="__codelineno-0-253"></a><span class="sd">    Split test set of DOTA, labels are not included within this set.</span>
-<a id="__codelineno-0-254" name="__codelineno-0-254"></a>
-<a id="__codelineno-0-255" name="__codelineno-0-255"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-256" name="__codelineno-0-256"></a><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
-<a id="__codelineno-0-257" name="__codelineno-0-257"></a><span class="sd">            - data_root</span>
-<a id="__codelineno-0-258" name="__codelineno-0-258"></a><span class="sd">                - images</span>
-<a id="__codelineno-0-259" name="__codelineno-0-259"></a><span class="sd">                    - test</span>
-<a id="__codelineno-0-260" name="__codelineno-0-260"></a><span class="sd">        and the output directory structure is:</span>
-<a id="__codelineno-0-261" name="__codelineno-0-261"></a><span class="sd">            - save_dir</span>
-<a id="__codelineno-0-262" name="__codelineno-0-262"></a><span class="sd">                - images</span>
-<a id="__codelineno-0-263" name="__codelineno-0-263"></a><span class="sd">                    - test</span>
-<a id="__codelineno-0-264" name="__codelineno-0-264"></a><span class="sd">    """</span>
-<a id="__codelineno-0-265" name="__codelineno-0-265"></a>    <span class="n">crop_sizes</span><span class="p">,</span> <span class="n">gaps</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-<a id="__codelineno-0-266" name="__codelineno-0-266"></a>    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rates</span><span class="p">:</span>
-<a id="__codelineno-0-267" name="__codelineno-0-267"></a>        <span class="n">crop_sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">crop_size</span> <span class="o">/</span> <span class="n">r</span><span class="p">))</span>
-<a id="__codelineno-0-268" name="__codelineno-0-268"></a>        <span class="n">gaps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">gap</span> <span class="o">/</span> <span class="n">r</span><span class="p">))</span>
-<a id="__codelineno-0-269" name="__codelineno-0-269"></a>    <span class="n">save_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"images"</span> <span class="o">/</span> <span class="s2">"test"</span>
-<a id="__codelineno-0-270" name="__codelineno-0-270"></a>    <span class="n">save_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-271" name="__codelineno-0-271"></a>
-<a id="__codelineno-0-272" name="__codelineno-0-272"></a>    <span class="n">im_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"images"</span> <span class="o">/</span> <span class="s2">"test"</span>
-<a id="__codelineno-0-273" name="__codelineno-0-273"></a>    <span class="k">assert</span> <span class="n">im_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"Can't find </span><span class="si">{</span><span class="n">im_dir</span><span class="si">}</span><span class="s2">, please check your data root."</span>
-<a id="__codelineno-0-274" name="__codelineno-0-274"></a>    <span class="n">im_files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">im_dir</span> <span class="o">/</span> <span class="s2">"*"</span><span class="p">))</span>
-<a id="__codelineno-0-275" name="__codelineno-0-275"></a>    <span class="k">for</span> <span class="n">im_file</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">im_files</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">im_files</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">"test"</span><span class="p">):</span>
-<a id="__codelineno-0-276" name="__codelineno-0-276"></a>        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">exif_size</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">im_file</span><span class="p">))</span>
-<a id="__codelineno-0-277" name="__codelineno-0-277"></a>        <span class="n">windows</span> <span class="o">=</span> <span class="n">get_windows</span><span class="p">((</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">),</span> <span class="n">crop_sizes</span><span class="o">=</span><span class="n">crop_sizes</span><span class="p">,</span> <span class="n">gaps</span><span class="o">=</span><span class="n">gaps</span><span class="p">)</span>
-<a id="__codelineno-0-278" name="__codelineno-0-278"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">im_file</span><span class="p">)</span>
-<a id="__codelineno-0-279" name="__codelineno-0-279"></a>        <span class="n">name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">im_file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
-<a id="__codelineno-0-280" name="__codelineno-0-280"></a>        <span class="k">for</span> <span class="n">window</span> <span class="ow">in</span> <span class="n">windows</span><span class="p">:</span>
-<a id="__codelineno-0-281" name="__codelineno-0-281"></a>            <span class="n">x_start</span><span class="p">,</span> <span class="n">y_start</span><span class="p">,</span> <span class="n">x_stop</span><span class="p">,</span> <span class="n">y_stop</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a id="__codelineno-0-282" name="__codelineno-0-282"></a>            <span class="n">new_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">__</span><span class="si">{</span><span class="n">x_stop</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x_start</span><span class="si">}</span><span class="s2">__</span><span class="si">{</span><span class="n">x_start</span><span class="si">}</span><span class="s2">___</span><span class="si">{</span><span class="n">y_start</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-283" name="__codelineno-0-283"></a>            <span class="n">patch_im</span> <span class="o">=</span> <span class="n">im</span><span class="p">[</span><span class="n">y_start</span><span class="p">:</span><span class="n">y_stop</span><span class="p">,</span> <span class="n">x_start</span><span class="p">:</span><span class="n">x_stop</span><span class="p">]</span>
-<a id="__codelineno-0-284" name="__codelineno-0-284"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">new_name</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">),</span> <span class="n">patch_im</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-284">284</a></span>
+<span class="normal"><a href="#__codelineno-0-285">285</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-252" name="__codelineno-0-252"></a><span class="k">def</span> <span class="nf">split_test</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">crop_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">gap</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">rates</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,)):</span>
+<a id="__codelineno-0-253" name="__codelineno-0-253"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-254" name="__codelineno-0-254"></a><span class="sd">    Split test set of DOTA, labels are not included within this set.</span>
+<a id="__codelineno-0-255" name="__codelineno-0-255"></a>
+<a id="__codelineno-0-256" name="__codelineno-0-256"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-257" name="__codelineno-0-257"></a><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
+<a id="__codelineno-0-258" name="__codelineno-0-258"></a><span class="sd">            - data_root</span>
+<a id="__codelineno-0-259" name="__codelineno-0-259"></a><span class="sd">                - images</span>
+<a id="__codelineno-0-260" name="__codelineno-0-260"></a><span class="sd">                    - test</span>
+<a id="__codelineno-0-261" name="__codelineno-0-261"></a><span class="sd">        and the output directory structure is:</span>
+<a id="__codelineno-0-262" name="__codelineno-0-262"></a><span class="sd">            - save_dir</span>
+<a id="__codelineno-0-263" name="__codelineno-0-263"></a><span class="sd">                - images</span>
+<a id="__codelineno-0-264" name="__codelineno-0-264"></a><span class="sd">                    - test</span>
+<a id="__codelineno-0-265" name="__codelineno-0-265"></a><span class="sd">    """</span>
+<a id="__codelineno-0-266" name="__codelineno-0-266"></a>    <span class="n">crop_sizes</span><span class="p">,</span> <span class="n">gaps</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<a id="__codelineno-0-267" name="__codelineno-0-267"></a>    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rates</span><span class="p">:</span>
+<a id="__codelineno-0-268" name="__codelineno-0-268"></a>        <span class="n">crop_sizes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">crop_size</span> <span class="o">/</span> <span class="n">r</span><span class="p">))</span>
+<a id="__codelineno-0-269" name="__codelineno-0-269"></a>        <span class="n">gaps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">gap</span> <span class="o">/</span> <span class="n">r</span><span class="p">))</span>
+<a id="__codelineno-0-270" name="__codelineno-0-270"></a>    <span class="n">save_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"images"</span> <span class="o">/</span> <span class="s2">"test"</span>
+<a id="__codelineno-0-271" name="__codelineno-0-271"></a>    <span class="n">save_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-272" name="__codelineno-0-272"></a>
+<a id="__codelineno-0-273" name="__codelineno-0-273"></a>    <span class="n">im_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"images"</span> <span class="o">/</span> <span class="s2">"test"</span>
+<a id="__codelineno-0-274" name="__codelineno-0-274"></a>    <span class="k">assert</span> <span class="n">im_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"Can't find </span><span class="si">{</span><span class="n">im_dir</span><span class="si">}</span><span class="s2">, please check your data root."</span>
+<a id="__codelineno-0-275" name="__codelineno-0-275"></a>    <span class="n">im_files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">im_dir</span> <span class="o">/</span> <span class="s2">"*"</span><span class="p">))</span>
+<a id="__codelineno-0-276" name="__codelineno-0-276"></a>    <span class="k">for</span> <span class="n">im_file</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">im_files</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">im_files</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">"test"</span><span class="p">):</span>
+<a id="__codelineno-0-277" name="__codelineno-0-277"></a>        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">exif_size</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">im_file</span><span class="p">))</span>
+<a id="__codelineno-0-278" name="__codelineno-0-278"></a>        <span class="n">windows</span> <span class="o">=</span> <span class="n">get_windows</span><span class="p">((</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">),</span> <span class="n">crop_sizes</span><span class="o">=</span><span class="n">crop_sizes</span><span class="p">,</span> <span class="n">gaps</span><span class="o">=</span><span class="n">gaps</span><span class="p">)</span>
+<a id="__codelineno-0-279" name="__codelineno-0-279"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">im_file</span><span class="p">)</span>
+<a id="__codelineno-0-280" name="__codelineno-0-280"></a>        <span class="n">name</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">im_file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
+<a id="__codelineno-0-281" name="__codelineno-0-281"></a>        <span class="k">for</span> <span class="n">window</span> <span class="ow">in</span> <span class="n">windows</span><span class="p">:</span>
+<a id="__codelineno-0-282" name="__codelineno-0-282"></a>            <span class="n">x_start</span><span class="p">,</span> <span class="n">y_start</span><span class="p">,</span> <span class="n">x_stop</span><span class="p">,</span> <span class="n">y_stop</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<a id="__codelineno-0-283" name="__codelineno-0-283"></a>            <span class="n">new_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">__</span><span class="si">{</span><span class="n">x_stop</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x_start</span><span class="si">}</span><span class="s2">__</span><span class="si">{</span><span class="n">x_start</span><span class="si">}</span><span class="s2">___</span><span class="si">{</span><span class="n">y_start</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a>            <span class="n">patch_im</span> <span class="o">=</span> <span class="n">im</span><span class="p">[</span><span class="n">y_start</span><span class="p">:</span><span class="n">y_stop</span><span class="p">,</span> <span class="n">x_start</span><span class="p">:</span><span class="n">x_stop</span><span class="p">]</span>
+<a id="__codelineno-0-285" name="__codelineno-0-285"></a>            <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">new_name</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">),</span> <span class="n">patch_im</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2091,22 +2109,92 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <!-- mkdocs-git-revision-date-localized-plugin -->
 </small>
 </div>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-01-05, Updated 2024-07-21<br/>Authors: <a href="https://github.com/glenn-jocher">glenn-jocher</a> (5), <a href="https://github.com/Burhan-Q">Burhan-Q</a> (1)</div>
+<div class="git-info">
+<span class="dates">
+<span title="This page was first created on January 05, 2024">
+<span class="hover-item">📅</span> Created 7 months ago
+                </span>
+                 
+                <span title="This page was last updated on July 21, 2024">
+<span class="hover-item">✏️</span> Updated 18 days ago
+                </span>
+                 
+            </span>
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (5 changes)">
+<img alt="glenn-jocher" class="hover-item" src="https://github.com/glenn-jocher.png"/>
+</a>
+<a class="author-link" href="https://github.com/Burhan-Q" title="Burhan-Q (1 changes)">
+<img alt="Burhan-Q" class="hover-item" src="https://github.com/Burhan-Q.png"/>
+</a>
+</div>
 <style>
+                .git-info, .share-buttons {
+                    font-size: 0.8em;
+                    color: grey;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    margin-bottom: 10px;
+                }
+                .dates {
+                    display: flex;
+                    align-items: center;
+                }
+                .dates span, .author-link, .share-button {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                }
+                .dates span {
+                    margin-right: 10px;
+                }
+                .hover-item {
+                    transition: all 0.2s ease;
+                    filter: grayscale(100%);
+                }
+                .dates .hover-item {
+                    font-size: 1.6em;
+                    margin-right: 5px;
+                }
+                .author-link .hover-item {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    margin-right: 1px;
+                }
+                .hover-item:hover {
+                    transform: scale(1.2);
+                    filter: grayscale(0%);
+                }
+                .share-button {
+                    background-color: #1da1f2;
+                    color: white;
+                    padding: 6px 12px;
+                    border-radius: 5px;
+                    border: none;
+                    font-size: 0.95em;
+                    margin-left: 5px;
+                    transition: all 0.2s ease;
+                }
                 .share-button:hover {
+                    transform: scale(1.1);
                     filter: brightness(1.2);
                 }
-                .share-buttons {
-                    display: flex;
-                    justify-content: flex-end;
+                .share-button.linkedin {
+                    background-color: #0077b5;
+                }
+                .share-button i {
+                    margin-right: 5px;
+                    font-size: 1.1em;
                 }
             </style>
+
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/data/split_dota', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
-<i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/data/split_dota', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<i class="fa-brands fa-twitter"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/data/split_dota', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
-<i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/data/split_dota', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<i class="fa-brands fa-linkedin"></i> Share
                 </button>
 </div>
 </article>
