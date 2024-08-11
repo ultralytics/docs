@@ -2041,7 +2041,7 @@ The converted masks are saved in the specified output directory.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Total classes in the dataset i.e for COCO classes=80</p>
+<p>Total classes in the dataset i.e. for COCO classes=80</p>
 </div>
 </td>
 <td>
@@ -2054,7 +2054,7 @@ The converted masks are saved in the specified output directory.</p>
 <summary>Example</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">convert_segment_masks_to_yolo_seg</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># for coco dataset, we have 80 classes</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># The classes here is the total classes in the dataset, for COCO dataset we have 80 classes</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">convert_segment_masks_to_yolo_seg</span><span class="p">(</span><span class="s1">'path/to/masks_directory'</span><span class="p">,</span> <span class="s1">'path/to/output/directory'</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
 </code></pre></div>
 </details>
@@ -2165,13 +2165,13 @@ The converted masks are saved in the specified output directory.</p>
 <a id="__codelineno-0-344" name="__codelineno-0-344"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-345" name="__codelineno-0-345"></a><span class="sd">        masks_dir (str): The path to the directory where all mask images (png, jpg) are stored.</span>
 <a id="__codelineno-0-346" name="__codelineno-0-346"></a><span class="sd">        output_dir (str): The path to the directory where the converted YOLO segmentation masks will be stored.</span>
-<a id="__codelineno-0-347" name="__codelineno-0-347"></a><span class="sd">        classes (int): Total classes in the dataset i.e for COCO classes=80</span>
+<a id="__codelineno-0-347" name="__codelineno-0-347"></a><span class="sd">        classes (int): Total classes in the dataset i.e. for COCO classes=80</span>
 <a id="__codelineno-0-348" name="__codelineno-0-348"></a>
 <a id="__codelineno-0-349" name="__codelineno-0-349"></a><span class="sd">    Example:</span>
 <a id="__codelineno-0-350" name="__codelineno-0-350"></a><span class="sd">        ```python</span>
 <a id="__codelineno-0-351" name="__codelineno-0-351"></a><span class="sd">        from ultralytics.data.converter import convert_segment_masks_to_yolo_seg</span>
 <a id="__codelineno-0-352" name="__codelineno-0-352"></a>
-<a id="__codelineno-0-353" name="__codelineno-0-353"></a><span class="sd">        # for coco dataset, we have 80 classes</span>
+<a id="__codelineno-0-353" name="__codelineno-0-353"></a><span class="sd">        # The classes here is the total classes in the dataset, for COCO dataset we have 80 classes</span>
 <a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="sd">        convert_segment_masks_to_yolo_seg('path/to/masks_directory', 'path/to/output/directory', classes=80)</span>
 <a id="__codelineno-0-355" name="__codelineno-0-355"></a><span class="sd">        ```</span>
 <a id="__codelineno-0-356" name="__codelineno-0-356"></a>
@@ -2194,7 +2194,7 @@ The converted masks are saved in the specified output directory.</p>
 <a id="__codelineno-0-373" name="__codelineno-0-373"></a><span class="sd">    """</span>
 <a id="__codelineno-0-374" name="__codelineno-0-374"></a>    <span class="kn">import</span> <span class="nn">os</span>
 <a id="__codelineno-0-375" name="__codelineno-0-375"></a>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a>    <span class="n">pixel_to_class_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">80</span><span class="p">)}</span>
+<a id="__codelineno-0-376" name="__codelineno-0-376"></a>    <span class="n">pixel_to_class_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">classes</span><span class="p">)}</span>
 <a id="__codelineno-0-377" name="__codelineno-0-377"></a>    <span class="k">for</span> <span class="n">mask_filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">masks_dir</span><span class="p">):</span>
 <a id="__codelineno-0-378" name="__codelineno-0-378"></a>        <span class="k">if</span> <span class="n">mask_filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".png"</span><span class="p">):</span>
 <a id="__codelineno-0-379" name="__codelineno-0-379"></a>            <span class="n">mask_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">masks_dir</span><span class="p">,</span> <span class="n">mask_filename</span><span class="p">)</span>
@@ -2976,7 +2976,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <span class="hover-item">📅</span> Created 9 months ago
     </span>
 <span class="date-item" title="This page was last updated on August 01, 2024">
-<span class="hover-item">✏️</span> Updated 9 days ago
+<span class="hover-item">✏️</span> Updated 10 days ago
     </span>
 </div>
 <div class="authors-container">
