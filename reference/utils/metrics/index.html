@@ -3553,7 +3553,7 @@ on the values provided in the <code>results</code> tuple.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.DetMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.DetMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">DetMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">DetMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{})</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -3616,15 +3616,15 @@ on the values provided in the <code>results</code> tuple.</p>
 <tr class="doc-section-item">
 <td><code>names</code></td>
 <td>
-<code>tuple of str</code>
+<code>dict of str</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A tuple of strings that represents the names of the classes. Defaults to an empty tuple.</p>
+<p>A dict of strings that represents the names of the classes. Defaults to an empty tuple.</p>
 </div>
 </td>
 <td>
-<code>()</code>
+<code>{}</code>
 </td>
 </tr>
 </tbody>
@@ -3675,11 +3675,11 @@ on the values provided in the <code>results</code> tuple.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.DetMetrics.names">names</span></code></td>
 <td>
-<code>tuple of str</code>
+<code>dict of str</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A tuple of strings that represents the names of the classes.</p>
+<p>A dict of strings that represents the names of the classes.</p>
 </div>
 </td>
 </tr>
@@ -3808,7 +3808,7 @@ on the values provided in the <code>results</code> tuple.</p>
 <span class="normal"><a href="#__codelineno-0-830">830</a></span>
 <span class="normal"><a href="#__codelineno-0-831">831</a></span>
 <span class="normal"><a href="#__codelineno-0-832">832</a></span>
-<span class="normal"><a href="#__codelineno-0-833">833</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-825" name="__codelineno-0-825"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-833">833</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-825" name="__codelineno-0-825"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-826" name="__codelineno-0-826"></a><span class="w">    </span><span class="sd">"""Initialize a DetMetrics instance with a save directory, plot flag, callback function, and class names."""</span>
 <a id="__codelineno-0-827" name="__codelineno-0-827"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
 <a id="__codelineno-0-828" name="__codelineno-0-828"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
@@ -6887,7 +6887,7 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.metrics.plot_pr_curve</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">plot_pr_curve</span><span class="p">(</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"pr_curve.png"</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"pr_curve.png"</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">{},</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -6917,7 +6917,7 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 <span class="normal"><a href="#__codelineno-0-467">467</a></span>
 <span class="normal"><a href="#__codelineno-0-468">468</a></span>
 <span class="normal"><a href="#__codelineno-0-469">469</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="nd">@plt_settings</span><span class="p">()</span>
-<a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="k">def</span> <span class="nf">plot_pr_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"pr_curve.png"</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="k">def</span> <span class="nf">plot_pr_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"pr_curve.png"</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">{},</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-449" name="__codelineno-0-449"></a><span class="w">    </span><span class="sd">"""Plots a precision-recall curve."""</span>
 <a id="__codelineno-0-450" name="__codelineno-0-450"></a>    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a id="__codelineno-0-451" name="__codelineno-0-451"></a>    <span class="n">py</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">py</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -6951,7 +6951,7 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">px</span><span class="p">,</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">py</span><span class="p">,</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"mc_curve.png"</span><span class="p">),</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">names</span><span class="o">=</span><span class="p">(),</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">names</span><span class="o">=</span><span class="p">{},</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Confidence"</span><span class="p">,</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Metric"</span><span class="p">,</span>
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -6984,7 +6984,7 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 <span class="normal"><a href="#__codelineno-0-492">492</a></span>
 <span class="normal"><a href="#__codelineno-0-493">493</a></span>
 <span class="normal"><a href="#__codelineno-0-494">494</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-472" name="__codelineno-0-472"></a><span class="nd">@plt_settings</span><span class="p">()</span>
-<a id="__codelineno-0-473" name="__codelineno-0-473"></a><span class="k">def</span> <span class="nf">plot_mc_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"mc_curve.png"</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Confidence"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Metric"</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-473" name="__codelineno-0-473"></a><span class="k">def</span> <span class="nf">plot_mc_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"mc_curve.png"</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">{},</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Confidence"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Metric"</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-474" name="__codelineno-0-474"></a><span class="w">    </span><span class="sd">"""Plots a metric-confidence curve."""</span>
 <a id="__codelineno-0-475" name="__codelineno-0-475"></a>    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a id="__codelineno-0-476" name="__codelineno-0-476"></a>
@@ -7179,7 +7179,7 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(),</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">names</span><span class="o">=</span><span class="p">(),</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">names</span><span class="o">=</span><span class="p">{},</span>
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">eps</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">,</span>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
 <a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">)</span>
@@ -7298,15 +7298,15 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 <tr class="doc-section-item">
 <td><code>names</code></td>
 <td>
-<code>tuple</code>
+<code>dict</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Tuple of class names to plot PR curves. Defaults to an empty tuple.</p>
+<p>Dict of class names to plot PR curves. Defaults to an empty tuple.</p>
 </div>
 </td>
 <td>
-<code>()</code>
+<code>{}</code>
 </td>
 </tr>
 <tr class="doc-section-item">
@@ -7463,7 +7463,7 @@ prec_values: Precision values at mAP@0.5 for each class. Shape: (nc, 1000).</p>
 <span class="normal"><a href="#__codelineno-0-616">616</a></span>
 <span class="normal"><a href="#__codelineno-0-617">617</a></span>
 <span class="normal"><a href="#__codelineno-0-618">618</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-530" name="__codelineno-0-530"></a><span class="k">def</span> <span class="nf">ap_per_class</span><span class="p">(</span>
-<a id="__codelineno-0-531" name="__codelineno-0-531"></a>    <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(),</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span>
+<a id="__codelineno-0-531" name="__codelineno-0-531"></a>    <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(),</span> <span class="n">names</span><span class="o">=</span><span class="p">{},</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span>
 <a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="p">):</span>
 <a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">    Computes the average precision per class for object detection evaluation.</span>
@@ -7476,7 +7476,7 @@ prec_values: Precision values at mAP@0.5 for each class. Shape: (nc, 1000).</p>
 <a id="__codelineno-0-541" name="__codelineno-0-541"></a><span class="sd">        plot (bool, optional): Whether to plot PR curves or not. Defaults to False.</span>
 <a id="__codelineno-0-542" name="__codelineno-0-542"></a><span class="sd">        on_plot (func, optional): A callback to pass plots path and data when they are rendered. Defaults to None.</span>
 <a id="__codelineno-0-543" name="__codelineno-0-543"></a><span class="sd">        save_dir (Path, optional): Directory to save the PR curves. Defaults to an empty path.</span>
-<a id="__codelineno-0-544" name="__codelineno-0-544"></a><span class="sd">        names (tuple, optional): Tuple of class names to plot PR curves. Defaults to an empty tuple.</span>
+<a id="__codelineno-0-544" name="__codelineno-0-544"></a><span class="sd">        names (dict, optional): Dict of class names to plot PR curves. Defaults to an empty tuple.</span>
 <a id="__codelineno-0-545" name="__codelineno-0-545"></a><span class="sd">        eps (float, optional): A small value to avoid division by zero. Defaults to 1e-16.</span>
 <a id="__codelineno-0-546" name="__codelineno-0-546"></a><span class="sd">        prefix (str, optional): A prefix string for saving the plot files. Defaults to an empty string.</span>
 <a id="__codelineno-0-547" name="__codelineno-0-547"></a>
