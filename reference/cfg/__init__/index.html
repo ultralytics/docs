@@ -1317,15 +1317,15 @@ a string, a dictionary, or a SimpleNamespace object.</p>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
 <p>Convert a YAML file path to a dictionary:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config_dict</span> <span class="o">=</span> <span class="n">cfg2dict</span><span class="p">(</span><span class="s1">'config.yaml'</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config_dict</span> <span class="o">=</span> <span class="n">cfg2dict</span><span class="p">(</span><span class="s2">"config.yaml"</span><span class="p">)</span>
 </code></pre></div>
 <p>Convert a SimpleNamespace to a dictionary:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">SimpleNamespace</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config_sn</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="s1">'value1'</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="s1">'value2'</span><span class="p">)</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config_sn</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="s2">"value1"</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="s2">"value2"</span><span class="p">)</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config_dict</span> <span class="o">=</span> <span class="n">cfg2dict</span><span class="p">(</span><span class="n">config_sn</span><span class="p">)</span>
 </code></pre></div>
 <p>Pass through an already existing dictionary:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config_dict</span> <span class="o">=</span> <span class="n">cfg2dict</span><span class="p">({</span><span class="s1">'param1'</span><span class="p">:</span> <span class="s1">'value1'</span><span class="p">,</span> <span class="s1">'param2'</span><span class="p">:</span> <span class="s1">'value2'</span><span class="p">})</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config_dict</span> <span class="o">=</span> <span class="n">cfg2dict</span><span class="p">({</span><span class="s2">"param1"</span><span class="p">:</span> <span class="s2">"value1"</span><span class="p">,</span> <span class="s2">"param2"</span><span class="p">:</span> <span class="s2">"value2"</span><span class="p">})</span>
 </code></pre></div>
 <details class="notes" open="">
 <summary>Notes</summary>
@@ -1382,15 +1382,15 @@ a string, a dictionary, or a SimpleNamespace object.</p>
 <a id="__codelineno-0-198" name="__codelineno-0-198"></a>
 <a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-200" name="__codelineno-0-200"></a><span class="sd">        Convert a YAML file path to a dictionary:</span>
-<a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="sd">        &gt;&gt;&gt; config_dict = cfg2dict('config.yaml')</span>
+<a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="sd">        &gt;&gt;&gt; config_dict = cfg2dict("config.yaml")</span>
 <a id="__codelineno-0-202" name="__codelineno-0-202"></a>
 <a id="__codelineno-0-203" name="__codelineno-0-203"></a><span class="sd">        Convert a SimpleNamespace to a dictionary:</span>
 <a id="__codelineno-0-204" name="__codelineno-0-204"></a><span class="sd">        &gt;&gt;&gt; from types import SimpleNamespace</span>
-<a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="sd">        &gt;&gt;&gt; config_sn = SimpleNamespace(param1='value1', param2='value2')</span>
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="sd">        &gt;&gt;&gt; config_sn = SimpleNamespace(param1="value1", param2="value2")</span>
 <a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="sd">        &gt;&gt;&gt; config_dict = cfg2dict(config_sn)</span>
 <a id="__codelineno-0-207" name="__codelineno-0-207"></a>
 <a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="sd">        Pass through an already existing dictionary:</span>
-<a id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="sd">        &gt;&gt;&gt; config_dict = cfg2dict({'param1': 'value1', 'param2': 'value2'})</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="sd">        &gt;&gt;&gt; config_dict = cfg2dict({"param1": "value1", "param2": "value2"})</span>
 <a id="__codelineno-0-210" name="__codelineno-0-210"></a>
 <a id="__codelineno-0-211" name="__codelineno-0-211"></a><span class="sd">    Notes:</span>
 <a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="sd">        - If cfg is a path or string, it's loaded as YAML and converted to a dictionary.</span>
@@ -1483,7 +1483,7 @@ SimpleNamespace object.</p>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ultralytics.cfg</span> <span class="kn">import</span> <span class="n">get_cfg</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">()</span>  <span class="c1"># Load default configuration</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="s1">'path/to/config.yaml'</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="s1">'epochs'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'batch_size'</span><span class="p">:</span> <span class="mi">16</span><span class="p">})</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="s2">"path/to/config.yaml"</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="s2">"epochs"</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">"batch_size"</span><span class="p">:</span> <span class="mi">16</span><span class="p">})</span>
 </code></pre></div>
 <details class="notes" open="">
 <summary>Notes</summary>
@@ -1556,7 +1556,7 @@ SimpleNamespace object.</p>
 <a id="__codelineno-0-235" name="__codelineno-0-235"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">        &gt;&gt;&gt; from ultralytics.cfg import get_cfg</span>
 <a id="__codelineno-0-237" name="__codelineno-0-237"></a><span class="sd">        &gt;&gt;&gt; config = get_cfg()  # Load default configuration</span>
-<a id="__codelineno-0-238" name="__codelineno-0-238"></a><span class="sd">        &gt;&gt;&gt; config = get_cfg('path/to/config.yaml', overrides={'epochs': 50, 'batch_size': 16})</span>
+<a id="__codelineno-0-238" name="__codelineno-0-238"></a><span class="sd">        &gt;&gt;&gt; config = get_cfg("path/to/config.yaml", overrides={"epochs": 50, "batch_size": 16})</span>
 <a id="__codelineno-0-239" name="__codelineno-0-239"></a>
 <a id="__codelineno-0-240" name="__codelineno-0-240"></a><span class="sd">    Notes:</span>
 <a id="__codelineno-0-241" name="__codelineno-0-241"></a><span class="sd">        - If both `cfg` and `overrides` are provided, the values in `overrides` will take precedence.</span>
@@ -1645,10 +1645,10 @@ CFG_FRACTION_KEYS, CFG_INT_KEYS, and CFG_BOOL_KEYS.</p>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">... </span>    <span class="s1">'epochs'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>     <span class="c1"># valid integer</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">... </span>    <span class="s1">'lr0'</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>      <span class="c1"># valid float</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">... </span>    <span class="s1">'momentum'</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>  <span class="c1"># invalid float (out of 0.0-1.0 range)</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">... </span>    <span class="s1">'save'</span><span class="p">:</span> <span class="s1">'true'</span><span class="p">,</span>   <span class="c1"># invalid bool</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">... </span>    <span class="s2">"epochs"</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>  <span class="c1"># valid integer</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">... </span>    <span class="s2">"lr0"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>  <span class="c1"># valid float</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">... </span>    <span class="s2">"momentum"</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span>  <span class="c1"># invalid float (out of 0.0-1.0 range)</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">... </span>    <span class="s2">"save"</span><span class="p">:</span> <span class="s2">"true"</span><span class="p">,</span>  <span class="c1"># invalid bool</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="gp">... </span><span class="p">}</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">check_cfg</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">hard</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
@@ -1737,10 +1737,10 @@ CFG_FRACTION_KEYS, CFG_INT_KEYS, and CFG_BOOL_KEYS.</p>
 <a id="__codelineno-0-282" name="__codelineno-0-282"></a>
 <a id="__codelineno-0-283" name="__codelineno-0-283"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-284" name="__codelineno-0-284"></a><span class="sd">        &gt;&gt;&gt; config = {</span>
-<a id="__codelineno-0-285" name="__codelineno-0-285"></a><span class="sd">        ...     'epochs': 50,     # valid integer</span>
-<a id="__codelineno-0-286" name="__codelineno-0-286"></a><span class="sd">        ...     'lr0': 0.01,      # valid float</span>
-<a id="__codelineno-0-287" name="__codelineno-0-287"></a><span class="sd">        ...     'momentum': 1.2,  # invalid float (out of 0.0-1.0 range)</span>
-<a id="__codelineno-0-288" name="__codelineno-0-288"></a><span class="sd">        ...     'save': 'true',   # invalid bool</span>
+<a id="__codelineno-0-285" name="__codelineno-0-285"></a><span class="sd">        ...     "epochs": 50,  # valid integer</span>
+<a id="__codelineno-0-286" name="__codelineno-0-286"></a><span class="sd">        ...     "lr0": 0.01,  # valid float</span>
+<a id="__codelineno-0-287" name="__codelineno-0-287"></a><span class="sd">        ...     "momentum": 1.2,  # invalid float (out of 0.0-1.0 range)</span>
+<a id="__codelineno-0-288" name="__codelineno-0-288"></a><span class="sd">        ...     "save": "true",  # invalid bool</span>
 <a id="__codelineno-0-289" name="__codelineno-0-289"></a><span class="sd">        ... }</span>
 <a id="__codelineno-0-290" name="__codelineno-0-290"></a><span class="sd">        &gt;&gt;&gt; check_cfg(config, hard=False)</span>
 <a id="__codelineno-0-291" name="__codelineno-0-291"></a><span class="sd">        &gt;&gt;&gt; print(config)</span>
@@ -1861,7 +1861,7 @@ or the 'args.mode'.</p>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">SimpleNamespace</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s1">'my_project'</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'train'</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">"my_project"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">get_save_dir</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="go">my_project/detect/train</span>
@@ -1913,7 +1913,7 @@ or the 'args.mode'.</p>
 <a id="__codelineno-0-345" name="__codelineno-0-345"></a>
 <a id="__codelineno-0-346" name="__codelineno-0-346"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-347" name="__codelineno-0-347"></a><span class="sd">        &gt;&gt;&gt; from types import SimpleNamespace</span>
-<a id="__codelineno-0-348" name="__codelineno-0-348"></a><span class="sd">        &gt;&gt;&gt; args = SimpleNamespace(project='my_project', task='detect', mode='train', exist_ok=True)</span>
+<a id="__codelineno-0-348" name="__codelineno-0-348"></a><span class="sd">        &gt;&gt;&gt; args = SimpleNamespace(project="my_project", task="detect", mode="train", exist_ok=True)</span>
 <a id="__codelineno-0-349" name="__codelineno-0-349"></a><span class="sd">        &gt;&gt;&gt; save_dir = get_save_dir(args)</span>
 <a id="__codelineno-0-350" name="__codelineno-0-350"></a><span class="sd">        &gt;&gt;&gt; print(save_dir)</span>
 <a id="__codelineno-0-351" name="__codelineno-0-351"></a><span class="sd">        my_project/detect/train</span>
@@ -2139,8 +2139,8 @@ messages for mismatched keys.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">base_cfg</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'epochs'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'lr0'</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">'batch_size'</span><span class="p">:</span> <span class="mi">16</span><span class="p">}</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">custom_cfg</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'epoch'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">'lr'</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s1">'batch_size'</span><span class="p">:</span> <span class="mi">32</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">base_cfg</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"epochs"</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">"lr0"</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s2">"batch_size"</span><span class="p">:</span> <span class="mi">16</span><span class="p">}</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">custom_cfg</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"epoch"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">"lr"</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s2">"batch_size"</span><span class="p">:</span> <span class="mi">32</span><span class="p">}</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">... </span>    <span class="n">check_dict_alignment</span><span class="p">(</span><span class="n">base_cfg</span><span class="p">,</span> <span class="n">custom_cfg</span><span class="p">)</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">... </span><span class="k">except</span> <span class="ne">SystemExit</span><span class="p">:</span>
@@ -2208,8 +2208,8 @@ messages for mismatched keys.</p>
 <a id="__codelineno-0-413" name="__codelineno-0-413"></a><span class="sd">        SystemExit: If mismatched keys are found between the custom and base dictionaries.</span>
 <a id="__codelineno-0-414" name="__codelineno-0-414"></a>
 <a id="__codelineno-0-415" name="__codelineno-0-415"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="sd">        &gt;&gt;&gt; base_cfg = {'epochs': 50, 'lr0': 0.01, 'batch_size': 16}</span>
-<a id="__codelineno-0-417" name="__codelineno-0-417"></a><span class="sd">        &gt;&gt;&gt; custom_cfg = {'epoch': 100, 'lr': 0.02, 'batch_size': 32}</span>
+<a id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="sd">        &gt;&gt;&gt; base_cfg = {"epochs": 50, "lr0": 0.01, "batch_size": 16}</span>
+<a id="__codelineno-0-417" name="__codelineno-0-417"></a><span class="sd">        &gt;&gt;&gt; custom_cfg = {"epoch": 100, "lr": 0.02, "batch_size": 32}</span>
 <a id="__codelineno-0-418" name="__codelineno-0-418"></a><span class="sd">        &gt;&gt;&gt; try:</span>
 <a id="__codelineno-0-419" name="__codelineno-0-419"></a><span class="sd">        ...     check_dict_alignment(base_cfg, custom_cfg)</span>
 <a id="__codelineno-0-420" name="__codelineno-0-420"></a><span class="sd">        ... except SystemExit:</span>

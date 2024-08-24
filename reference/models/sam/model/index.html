@@ -1257,8 +1257,8 @@ boxes, points, or labels, and features zero-shot performance capabilities.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s1">'sam_b.pt'</span><span class="p">)</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">sam</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">375</span><span class="p">]])</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">sam</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"image.jpg"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">375</span><span class="p">]])</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Detected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span><span class="si">}</span><span class="s2"> masks"</span><span class="p">)</span>
 </code></pre></div>
@@ -1311,7 +1311,7 @@ boxes, points, or labels, and features zero-shot performance capabilities.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s1">'sam_b.pt'</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sam</span><span class="o">.</span><span class="n">is_sam2</span><span class="p">)</span>
 </code></pre></div>
 <details class="quote">
@@ -1344,7 +1344,7 @@ boxes, points, or labels, and features zero-shot performance capabilities.</p>
 <a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">        NotImplementedError: If the model file extension is not .pt or .pth.</span>
 <a id="__codelineno-0-59" name="__codelineno-0-59"></a>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">        &gt;&gt;&gt; sam = SAM('sam_b.pt')</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">        &gt;&gt;&gt; sam = SAM("sam_b.pt")</span>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">        &gt;&gt;&gt; print(sam.is_sam2)</span>
 <a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    """</span>
 <a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">if</span> <span class="n">model</span> <span class="ow">and</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">".pt"</span><span class="p">,</span> <span class="s2">".pth"</span><span class="p">}:</span>
@@ -1388,7 +1388,7 @@ class. For SAM2 models, it maps to SAM2Predictor, otherwise to the standard Pred
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s1">'sam_b.pt'</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">task_map</span> <span class="o">=</span> <span class="n">sam</span><span class="o">.</span><span class="n">task_map</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">task_map</span><span class="p">)</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="go">{'segment': &lt;class 'ultralytics.models.sam.predict.Predictor'&gt;}</span>
@@ -1527,8 +1527,8 @@ object, or a numpy.ndarray object.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s1">'sam_b.pt'</span><span class="p">)</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">sam</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">375</span><span class="p">]])</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">sam</span><span class="p">(</span><span class="s2">"image.jpg"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">375</span><span class="p">]])</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Detected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span><span class="si">}</span><span class="s2"> masks"</span><span class="p">)</span>
 </code></pre></div>
 <details class="quote">
@@ -1577,8 +1577,8 @@ object, or a numpy.ndarray object.</p>
 <a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">        (List): The model predictions, typically containing segmentation masks and other relevant information.</span>
 <a id="__codelineno-0-131" name="__codelineno-0-131"></a>
 <a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="sd">        &gt;&gt;&gt; sam = SAM('sam_b.pt')</span>
-<a id="__codelineno-0-134" name="__codelineno-0-134"></a><span class="sd">        &gt;&gt;&gt; results = sam('image.jpg', points=[[500, 375]])</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="sd">        &gt;&gt;&gt; sam = SAM("sam_b.pt")</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a><span class="sd">        &gt;&gt;&gt; results = sam("image.jpg", points=[[500, 375]])</span>
 <a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="sd">        &gt;&gt;&gt; print(f"Detected {len(results[0].masks)} masks")</span>
 <a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="sd">    """</span>
 <a id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -1659,7 +1659,7 @@ parameters, and computational requirements.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s1">'sam_b.pt'</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">info</span> <span class="o">=</span> <span class="n">sam</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Print summary information</span>
 </code></pre></div>
@@ -1699,7 +1699,7 @@ parameters, and computational requirements.</p>
 <a id="__codelineno-0-151" name="__codelineno-0-151"></a><span class="sd">        (Tuple): A tuple containing the model's information (string representations of the model).</span>
 <a id="__codelineno-0-152" name="__codelineno-0-152"></a>
 <a id="__codelineno-0-153" name="__codelineno-0-153"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-154" name="__codelineno-0-154"></a><span class="sd">        &gt;&gt;&gt; sam = SAM('sam_b.pt')</span>
+<a id="__codelineno-0-154" name="__codelineno-0-154"></a><span class="sd">        &gt;&gt;&gt; sam = SAM("sam_b.pt")</span>
 <a id="__codelineno-0-155" name="__codelineno-0-155"></a><span class="sd">        &gt;&gt;&gt; info = sam.info()</span>
 <a id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="sd">        &gt;&gt;&gt; print(info[0])  # Print summary information</span>
 <a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="sd">    """</span>
@@ -1836,8 +1836,8 @@ a numpy.ndarray object.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s1">'sam_b.pt'</span><span class="p">)</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">sam</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s1">'image.jpg'</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">375</span><span class="p">]])</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">sam</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"image.jpg"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">375</span><span class="p">]])</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Detected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span><span class="si">}</span><span class="s2"> masks"</span><span class="p">)</span>
 </code></pre></div>
@@ -1885,8 +1885,8 @@ a numpy.ndarray object.</p>
 <a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="sd">        (List): The model predictions.</span>
 <a id="__codelineno-0-101" name="__codelineno-0-101"></a>
 <a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">        &gt;&gt;&gt; sam = SAM('sam_b.pt')</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">        &gt;&gt;&gt; results = sam.predict('image.jpg', points=[[500, 375]])</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">        &gt;&gt;&gt; sam = SAM("sam_b.pt")</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">        &gt;&gt;&gt; results = sam.predict("image.jpg", points=[[500, 375]])</span>
 <a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">        &gt;&gt;&gt; for r in results:</span>
 <a id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="sd">        ...     print(f"Detected {len(r.masks)} masks")</span>
 <a id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="sd">    """</span>

@@ -1661,7 +1661,7 @@ and predictions based on Kalman filter.</p>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
 <p>Initialize and activate a new track</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">track</span> <span class="o">=</span> <span class="n">STrack</span><span class="p">(</span><span class="n">xywh</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">score</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="s1">'person'</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">track</span> <span class="o">=</span> <span class="n">STrack</span><span class="p">(</span><span class="n">xywh</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">score</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="s2">"person"</span><span class="p">)</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">track</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="n">kalman_filter</span><span class="o">=</span><span class="n">KalmanFilterXYAH</span><span class="p">(),</span> <span class="n">frame_id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1723,7 +1723,7 @@ and predictions based on Kalman filter.</p>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">xywh</span> <span class="o">=</span> <span class="p">[</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">150.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">75.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="mf">0.9</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="bp">cls</span> <span class="o">=</span> <span class="s1">'person'</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="bp">cls</span> <span class="o">=</span> <span class="s2">"person"</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">track</span> <span class="o">=</span> <span class="n">STrack</span><span class="p">(</span><span class="n">xywh</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>
 </code></pre></div>
 <details class="quote">
@@ -1769,7 +1769,7 @@ and predictions based on Kalman filter.</p>
 <a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">        &gt;&gt;&gt; xywh = [100.0, 150.0, 50.0, 75.0, 1]</span>
 <a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">        &gt;&gt;&gt; score = 0.9</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">        &gt;&gt;&gt; cls = 'person'</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">        &gt;&gt;&gt; cls = "person"</span>
 <a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        &gt;&gt;&gt; track = STrack(xywh, score, cls)</span>
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">    """</span>
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
