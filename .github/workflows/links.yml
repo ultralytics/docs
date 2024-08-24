@@ -1,6 +1,7 @@
 # Ultralytics YOLO 🚀, AGPL-3.0 license
 # Continuous Integration (CI) GitHub Actions tests broken link checker using https://github.com/lycheeverse/lychee
 # Ignores the following status codes to reduce false positives:
+#   - 401(Vimeo, 'unauthorized')
 #   - 403(OpenVINO, 'forbidden')
 #   - 429(Instagram, 'too many requests')
 #   - 500(Zenodo, 'cached')
@@ -12,7 +13,7 @@ name: Check Broken links
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'  # runs at 00:00 UTC every day
+    - cron: "0 0 * * *" # runs at 00:00 UTC every day
   push:
     branches:
       - main
@@ -27,12 +28,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        branch: [main, gh-pages]  # Define the branches to test
+        branch: [main, gh-pages] # Define the branches to test
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: ${{ matrix.branch }}  # Use matrix to check out the correct branch
+          ref: ${{ matrix.branch }} # Use matrix to check out the correct branch
 
       - name: Download and install lychee
         run: |
@@ -44,20 +45,21 @@ jobs:
       - name: Test Markdown and HTML links with retry
         uses: nick-fields/retry@v3
         with:
-          timeout_minutes: 5
-          retry_wait_seconds: 60
-          max_attempts: 3
+          timeout_minutes: 60
+          retry_wait_seconds: 900
+          max_attempts: 5
           command: |
             rm -rf .lycheecache
             lychee \
             --scheme 'https' \
             --timeout 60 \
             --insecure \
-            --accept 403,429,500,502,999 \
+            --accept 401,403,429,500,502,999 \
             --exclude-all-private \
-            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com)' \
+            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com)' \
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
+            --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
             './**/*.md' \
             './**/*.html'
 
@@ -65,46 +67,54 @@ jobs:
         if: matrix.branch == 'main'
         run: |
           mkdir ultralytics_website
-          wget -P ultralytics_website --recursive --no-parent --adjust-extension --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" https://www.ultralytics.com/es/ || true
-
+          wget -P ultralytics_website \
+               --recursive \
+               --no-parent \
+               --adjust-extension \
+               --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
+               --exclude-directories="/zh/,/ko/,/ja/,/ru/,/de/,/fr/,/es/,/pt/,/tr/,/vi/,/ar/,/it/" \
+               https://www.ultralytics.com/ || true
+               
       - name: Run Broken Link Checks on Ultralytics Website
         if: matrix.branch == 'main'
         uses: nick-fields/retry@v3
         with:
-          timeout_minutes: 5
-          retry_wait_seconds: 60
-          max_attempts: 3
+          timeout_minutes: 60
+          retry_wait_seconds: 900
+          max_attempts: 5
           command: |
             rm -rf .lycheecache
             lychee \
             --scheme 'https' \
             --timeout 60 \
             --insecure \
-            --accept 403,429,500,502,999 \
+            --accept 401,403,429,500,502,999 \
             --exclude-all-private \
-            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|wellfound\.com|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
+            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
+            --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
             './ultralytics_website/**/*.html'
 
       - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
         if: github.event_name == 'workflow_dispatch'
         uses: nick-fields/retry@v3
         with:
-          timeout_minutes: 5
-          retry_wait_seconds: 60
-          max_attempts: 3
+          timeout_minutes: 60
+          retry_wait_seconds: 900
+          max_attempts: 5
           command: |
             rm -rf .lycheecache
             lychee \
             --scheme 'https' \
             --timeout 60 \
             --insecure \
-            --accept 429,999 \
+            --accept 401,403,429,500,502,999 \
             --exclude-all-private \
-            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com)' \
+            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com)' \
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
+            --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
             './**/*.md' \
             './**/*.html' \
             './**/*.yml' \

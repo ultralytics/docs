@@ -24,13 +24,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
-          ref: gh-pages  # checkout gh-pages branch
-          fetch-depth: 2  # fetch the current and previous commit
+          ref: gh-pages # checkout gh-pages branch
+          fetch-depth: 2 # fetch the current and previous commit
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install Dependencies
         run: |
@@ -63,10 +63,10 @@ jobs:
                 print(f'ERROR ❌: {sitemap_url} failed to submit {e}')
           credentials_json = os.environ['CREDENTIALS_JSON']
           # Submit sitemaps for each language
-          host = "docs.ultralytics.com"
-          for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/hi', '/ar', '/tr', '/vi', '/it', '/nl']:
-              sitemap = f'https://{host}{lang}/sitemap.xml'
-              submit_sitemap(f'https://docs.ultralytics.com/', sitemap, credentials_json)
+          for host in ["www.ultralytics.com", "docs.ultralytics.com"]:
+              for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/ar', '/tr', '/vi', '/it']:
+                  sitemap = f'https://{host}{lang}/sitemap.xml'
+                  submit_sitemap(f'https://{host}/', sitemap, credentials_json)
 
       - name: Submit URLs to IndexNow
         env:
@@ -78,7 +78,7 @@ jobs:
           import os
           import re
           import requests
-          
+
           def submit_urls_to_indexnow(host, urls):
               key = os.environ['INDEXNOW_KEY']
               endpoint = "https://api.indexnow.org/indexnow"  # static API endpoint from https://www.indexnow.org/faq
@@ -92,7 +92,7 @@ jobs:
                       print(f"Failed to submit batch of URLs: Status code {response.status_code}, Response: {response.text}")
               except Exception as e:
                   print(f"ERROR ❌: Failed to submit batch of URLs - {e}")
-          
+
           def extract_urls_from_sitemap(sitemap_url):
               try:
                   response = requests.get(sitemap_url)
@@ -100,7 +100,7 @@ jobs:
               except Exception as e:
                   print(f"ERROR ❌: Failed to extract URLs from {sitemap_url} - {e}")
                   return []
-          
+
           def filter_modified_urls(urls, modified_files):
               # Filter URLs based on modified files
               modified_urls = []
@@ -110,11 +110,11 @@ jobs:
                   if full_url in urls:
                       modified_urls.append(full_url)
               return modified_urls
-          
+
           # Submit URLs from each sitemap to IndexNow
           host = "docs.ultralytics.com"
           all_urls = []
-          for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/hi', '/ar', '/tr', '/vi', '/it', '/nl']:
+          for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/ar', '/tr', '/vi', '/it']:
               sitemap = f'https://{host}{lang}/sitemap.xml'
               lang_urls = extract_urls_from_sitemap(sitemap)
               all_urls.extend(lang_urls)
