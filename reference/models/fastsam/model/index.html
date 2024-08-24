@@ -1197,7 +1197,8 @@
 <a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Performs segmentation prediction on the given image or video source.</p>
+<p>Perform segmentation prediction on image or video source.</p>
+<p>Supports prompted segmentation with bounding boxes, points, labels, and texts.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1212,11 +1213,11 @@
 <tr class="doc-section-item">
 <td><code>source</code></td>
 <td>
-<code>str</code>
+<code>str | <span title="PIL.Image">Image</span> | <span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Path to the image or video file, or a PIL.Image object, or a numpy.ndarray object.</p>
+<p>Input source.</p>
 </div>
 </td>
 <td>
@@ -1230,7 +1231,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>If True, enables real-time streaming. Defaults to False.</p>
+<p>Enable real-time streaming.</p>
 </div>
 </td>
 <td>
@@ -1244,7 +1245,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>List of bounding box coordinates for prompted segmentation. Defaults to None.</p>
+<p>Bounding box coordinates for prompted segmentation.</p>
 </div>
 </td>
 <td>
@@ -1258,7 +1259,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>List of points for prompted segmentation. Defaults to None.</p>
+<p>Points for prompted segmentation.</p>
 </div>
 </td>
 <td>
@@ -1272,7 +1273,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>List of labels for prompted segmentation. Defaults to None.</p>
+<p>Labels for prompted segmentation.</p>
 </div>
 </td>
 <td>
@@ -1286,11 +1287,25 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>List of texts for prompted segmentation. Defaults to None.</p>
+<p>Texts for prompted segmentation.</p>
 </div>
 </td>
 <td>
 <code>None</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code>**kwargs</code></td>
+<td>
+<code>Any</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Additional keyword arguments.</p>
+</div>
+</td>
+<td>
+<code>{}</code>
 </td>
 </tr>
 </tbody>
@@ -1310,7 +1325,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>The model predictions.</p>
+<p>Model predictions.</p>
 </div>
 </td>
 </tr>
@@ -1334,23 +1349,29 @@
 <span class="normal"><a href="#__codelineno-0-44">44</a></span>
 <span class="normal"><a href="#__codelineno-0-45">45</a></span>
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    Performs segmentation prediction on the given image or video source.</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    Perform segmentation prediction on image or video source.</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        source (str): Path to the image or video file, or a PIL.Image object, or a numpy.ndarray object.</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        stream (bool, optional): If True, enables real-time streaming. Defaults to False.</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        bboxes (list, optional): List of bounding box coordinates for prompted segmentation. Defaults to None.</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        points (list, optional): List of points for prompted segmentation. Defaults to None.</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        labels (list, optional): List of labels for prompted segmentation. Defaults to None.</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        texts (list, optional): List of texts for prompted segmentation. Defaults to None.</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        (list): The model predictions.</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    """</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="n">prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">bboxes</span><span class="o">=</span><span class="n">bboxes</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="n">points</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">)</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">prompts</span><span class="o">=</span><span class="n">prompts</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    Supports prompted segmentation with bounding boxes, points, labels, and texts.</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        source (str | PIL.Image | numpy.ndarray): Input source.</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        stream (bool): Enable real-time streaming.</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        bboxes (list): Bounding box coordinates for prompted segmentation.</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        points (list): Points for prompted segmentation.</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        labels (list): Labels for prompted segmentation.</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        texts (list): Texts for prompted segmentation.</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        **kwargs (Any): Additional keyword arguments.</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">        (list): Model predictions.</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    """</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">bboxes</span><span class="o">=</span><span class="n">bboxes</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="n">points</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">)</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">prompts</span><span class="o">=</span><span class="n">prompts</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

@@ -2339,39 +2339,37 @@ of dense inputs to sparse inputs.</p>
 <span class="normal"><a href="#__codelineno-0-260">260</a></span>
 <span class="normal"><a href="#__codelineno-0-261">261</a></span>
 <span class="normal"><a href="#__codelineno-0-262">262</a></span>
-<span class="normal"><a href="#__codelineno-0-263">263</a></span>
-<span class="normal"><a href="#__codelineno-0-264">264</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queries</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">query_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">key_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
+<span class="normal"><a href="#__codelineno-0-263">263</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queries</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">query_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">key_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
 <a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="w">    </span><span class="sd">"""Applies two-way attention to process query and key embeddings in a transformer block."""</span>
-<a id="__codelineno-0-235" name="__codelineno-0-235"></a>
-<a id="__codelineno-0-236" name="__codelineno-0-236"></a>    <span class="c1"># Self attention block</span>
-<a id="__codelineno-0-237" name="__codelineno-0-237"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_first_layer_pe</span><span class="p">:</span>
-<a id="__codelineno-0-238" name="__codelineno-0-238"></a>        <span class="n">queries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">self_attn</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">queries</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">queries</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">queries</span><span class="p">)</span>
-<a id="__codelineno-0-239" name="__codelineno-0-239"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-240" name="__codelineno-0-240"></a>        <span class="n">q</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">query_pe</span>
-<a id="__codelineno-0-241" name="__codelineno-0-241"></a>        <span class="n">attn_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">self_attn</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">queries</span><span class="p">)</span>
-<a id="__codelineno-0-242" name="__codelineno-0-242"></a>        <span class="n">queries</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">attn_out</span>
-<a id="__codelineno-0-243" name="__codelineno-0-243"></a>    <span class="n">queries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm1</span><span class="p">(</span><span class="n">queries</span><span class="p">)</span>
-<a id="__codelineno-0-244" name="__codelineno-0-244"></a>
-<a id="__codelineno-0-245" name="__codelineno-0-245"></a>    <span class="c1"># Cross attention block, tokens attending to image embedding</span>
-<a id="__codelineno-0-246" name="__codelineno-0-246"></a>    <span class="n">q</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">query_pe</span>
-<a id="__codelineno-0-247" name="__codelineno-0-247"></a>    <span class="n">k</span> <span class="o">=</span> <span class="n">keys</span> <span class="o">+</span> <span class="n">key_pe</span>
-<a id="__codelineno-0-248" name="__codelineno-0-248"></a>    <span class="n">attn_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cross_attn_token_to_image</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">keys</span><span class="p">)</span>
-<a id="__codelineno-0-249" name="__codelineno-0-249"></a>    <span class="n">queries</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">attn_out</span>
-<a id="__codelineno-0-250" name="__codelineno-0-250"></a>    <span class="n">queries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm2</span><span class="p">(</span><span class="n">queries</span><span class="p">)</span>
-<a id="__codelineno-0-251" name="__codelineno-0-251"></a>
-<a id="__codelineno-0-252" name="__codelineno-0-252"></a>    <span class="c1"># MLP block</span>
-<a id="__codelineno-0-253" name="__codelineno-0-253"></a>    <span class="n">mlp_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span><span class="p">(</span><span class="n">queries</span><span class="p">)</span>
-<a id="__codelineno-0-254" name="__codelineno-0-254"></a>    <span class="n">queries</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">mlp_out</span>
-<a id="__codelineno-0-255" name="__codelineno-0-255"></a>    <span class="n">queries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm3</span><span class="p">(</span><span class="n">queries</span><span class="p">)</span>
-<a id="__codelineno-0-256" name="__codelineno-0-256"></a>
-<a id="__codelineno-0-257" name="__codelineno-0-257"></a>    <span class="c1"># Cross attention block, image embedding attending to tokens</span>
-<a id="__codelineno-0-258" name="__codelineno-0-258"></a>    <span class="n">q</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">query_pe</span>
-<a id="__codelineno-0-259" name="__codelineno-0-259"></a>    <span class="n">k</span> <span class="o">=</span> <span class="n">keys</span> <span class="o">+</span> <span class="n">key_pe</span>
-<a id="__codelineno-0-260" name="__codelineno-0-260"></a>    <span class="n">attn_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cross_attn_image_to_token</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">queries</span><span class="p">)</span>
-<a id="__codelineno-0-261" name="__codelineno-0-261"></a>    <span class="n">keys</span> <span class="o">=</span> <span class="n">keys</span> <span class="o">+</span> <span class="n">attn_out</span>
-<a id="__codelineno-0-262" name="__codelineno-0-262"></a>    <span class="n">keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm4</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
-<a id="__codelineno-0-263" name="__codelineno-0-263"></a>
-<a id="__codelineno-0-264" name="__codelineno-0-264"></a>    <span class="k">return</span> <span class="n">queries</span><span class="p">,</span> <span class="n">keys</span>
+<a id="__codelineno-0-235" name="__codelineno-0-235"></a>    <span class="c1"># Self attention block</span>
+<a id="__codelineno-0-236" name="__codelineno-0-236"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_first_layer_pe</span><span class="p">:</span>
+<a id="__codelineno-0-237" name="__codelineno-0-237"></a>        <span class="n">queries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">self_attn</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">queries</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">queries</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">queries</span><span class="p">)</span>
+<a id="__codelineno-0-238" name="__codelineno-0-238"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-239" name="__codelineno-0-239"></a>        <span class="n">q</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">query_pe</span>
+<a id="__codelineno-0-240" name="__codelineno-0-240"></a>        <span class="n">attn_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">self_attn</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">queries</span><span class="p">)</span>
+<a id="__codelineno-0-241" name="__codelineno-0-241"></a>        <span class="n">queries</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">attn_out</span>
+<a id="__codelineno-0-242" name="__codelineno-0-242"></a>    <span class="n">queries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm1</span><span class="p">(</span><span class="n">queries</span><span class="p">)</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a>
+<a id="__codelineno-0-244" name="__codelineno-0-244"></a>    <span class="c1"># Cross attention block, tokens attending to image embedding</span>
+<a id="__codelineno-0-245" name="__codelineno-0-245"></a>    <span class="n">q</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">query_pe</span>
+<a id="__codelineno-0-246" name="__codelineno-0-246"></a>    <span class="n">k</span> <span class="o">=</span> <span class="n">keys</span> <span class="o">+</span> <span class="n">key_pe</span>
+<a id="__codelineno-0-247" name="__codelineno-0-247"></a>    <span class="n">attn_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cross_attn_token_to_image</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">keys</span><span class="p">)</span>
+<a id="__codelineno-0-248" name="__codelineno-0-248"></a>    <span class="n">queries</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">attn_out</span>
+<a id="__codelineno-0-249" name="__codelineno-0-249"></a>    <span class="n">queries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm2</span><span class="p">(</span><span class="n">queries</span><span class="p">)</span>
+<a id="__codelineno-0-250" name="__codelineno-0-250"></a>
+<a id="__codelineno-0-251" name="__codelineno-0-251"></a>    <span class="c1"># MLP block</span>
+<a id="__codelineno-0-252" name="__codelineno-0-252"></a>    <span class="n">mlp_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mlp</span><span class="p">(</span><span class="n">queries</span><span class="p">)</span>
+<a id="__codelineno-0-253" name="__codelineno-0-253"></a>    <span class="n">queries</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">mlp_out</span>
+<a id="__codelineno-0-254" name="__codelineno-0-254"></a>    <span class="n">queries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm3</span><span class="p">(</span><span class="n">queries</span><span class="p">)</span>
+<a id="__codelineno-0-255" name="__codelineno-0-255"></a>
+<a id="__codelineno-0-256" name="__codelineno-0-256"></a>    <span class="c1"># Cross attention block, image embedding attending to tokens</span>
+<a id="__codelineno-0-257" name="__codelineno-0-257"></a>    <span class="n">q</span> <span class="o">=</span> <span class="n">queries</span> <span class="o">+</span> <span class="n">query_pe</span>
+<a id="__codelineno-0-258" name="__codelineno-0-258"></a>    <span class="n">k</span> <span class="o">=</span> <span class="n">keys</span> <span class="o">+</span> <span class="n">key_pe</span>
+<a id="__codelineno-0-259" name="__codelineno-0-259"></a>    <span class="n">attn_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cross_attn_image_to_token</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">queries</span><span class="p">)</span>
+<a id="__codelineno-0-260" name="__codelineno-0-260"></a>    <span class="n">keys</span> <span class="o">=</span> <span class="n">keys</span> <span class="o">+</span> <span class="n">attn_out</span>
+<a id="__codelineno-0-261" name="__codelineno-0-261"></a>    <span class="n">keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm4</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
+<a id="__codelineno-0-262" name="__codelineno-0-262"></a>
+<a id="__codelineno-0-263" name="__codelineno-0-263"></a>    <span class="k">return</span> <span class="n">queries</span><span class="p">,</span> <span class="n">keys</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2641,7 +2639,8 @@ dimension for queries, keys, and values.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-298">298</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-297">297</a></span>
+<span class="normal"><a href="#__codelineno-0-298">298</a></span>
 <span class="normal"><a href="#__codelineno-0-299">299</a></span>
 <span class="normal"><a href="#__codelineno-0-300">300</a></span>
 <span class="normal"><a href="#__codelineno-0-301">301</a></span>
@@ -2680,48 +2679,47 @@ dimension for queries, keys, and values.</p>
 <span class="normal"><a href="#__codelineno-0-334">334</a></span>
 <span class="normal"><a href="#__codelineno-0-335">335</a></span>
 <span class="normal"><a href="#__codelineno-0-336">336</a></span>
-<span class="normal"><a href="#__codelineno-0-337">337</a></span>
-<span class="normal"><a href="#__codelineno-0-338">338</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-298" name="__codelineno-0-298"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-<a id="__codelineno-0-299" name="__codelineno-0-299"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-300" name="__codelineno-0-300"></a>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-0-301" name="__codelineno-0-301"></a>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-0-302" name="__codelineno-0-302"></a>    <span class="n">downsample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-303" name="__codelineno-0-303"></a>    <span class="n">kv_in_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-306" name="__codelineno-0-306"></a><span class="sd">    Initializes the Attention module with specified dimensions and settings.</span>
-<a id="__codelineno-0-307" name="__codelineno-0-307"></a>
-<a id="__codelineno-0-308" name="__codelineno-0-308"></a><span class="sd">    This class implements a multi-head attention mechanism with optional downsampling of the internal</span>
-<a id="__codelineno-0-309" name="__codelineno-0-309"></a><span class="sd">    dimension for queries, keys, and values.</span>
-<a id="__codelineno-0-310" name="__codelineno-0-310"></a>
-<a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-312" name="__codelineno-0-312"></a><span class="sd">        embedding_dim (int): Dimensionality of input embeddings.</span>
-<a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="sd">        num_heads (int): Number of attention heads.</span>
-<a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="sd">        downsample_rate (int): Factor by which internal dimensions are downsampled. Defaults to 1.</span>
-<a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="sd">        kv_in_dim (int | None): Dimensionality of key and value inputs. If None, uses embedding_dim.</span>
-<a id="__codelineno-0-316" name="__codelineno-0-316"></a>
-<a id="__codelineno-0-317" name="__codelineno-0-317"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-318" name="__codelineno-0-318"></a><span class="sd">        AssertionError: If num_heads does not evenly divide the internal dim (embedding_dim / downsample_rate).</span>
-<a id="__codelineno-0-319" name="__codelineno-0-319"></a>
-<a id="__codelineno-0-320" name="__codelineno-0-320"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">        &gt;&gt;&gt; attn = Attention(embedding_dim=256, num_heads=8, downsample_rate=2)</span>
-<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="sd">        &gt;&gt;&gt; q = torch.randn(1, 100, 256)</span>
-<a id="__codelineno-0-323" name="__codelineno-0-323"></a><span class="sd">        &gt;&gt;&gt; k = v = torch.randn(1, 50, 256)</span>
-<a id="__codelineno-0-324" name="__codelineno-0-324"></a><span class="sd">        &gt;&gt;&gt; output = attn(q, k, v)</span>
-<a id="__codelineno-0-325" name="__codelineno-0-325"></a><span class="sd">        &gt;&gt;&gt; print(output.shape)</span>
-<a id="__codelineno-0-326" name="__codelineno-0-326"></a><span class="sd">        torch.Size([1, 100, 256])</span>
-<a id="__codelineno-0-327" name="__codelineno-0-327"></a><span class="sd">    """</span>
-<a id="__codelineno-0-328" name="__codelineno-0-328"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-329" name="__codelineno-0-329"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span> <span class="o">=</span> <span class="n">embedding_dim</span>
-<a id="__codelineno-0-330" name="__codelineno-0-330"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">kv_in_dim</span> <span class="o">=</span> <span class="n">kv_in_dim</span> <span class="k">if</span> <span class="n">kv_in_dim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">embedding_dim</span>
-<a id="__codelineno-0-331" name="__codelineno-0-331"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span> <span class="o">=</span> <span class="n">embedding_dim</span> <span class="o">//</span> <span class="n">downsample_rate</span>
-<a id="__codelineno-0-332" name="__codelineno-0-332"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span> <span class="o">=</span> <span class="n">num_heads</span>
-<a id="__codelineno-0-333" name="__codelineno-0-333"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span> <span class="o">%</span> <span class="n">num_heads</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"num_heads must divide embedding_dim."</span>
-<a id="__codelineno-0-334" name="__codelineno-0-334"></a>
-<a id="__codelineno-0-335" name="__codelineno-0-335"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">q_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">embedding_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span><span class="p">)</span>
-<a id="__codelineno-0-336" name="__codelineno-0-336"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">k_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kv_in_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span><span class="p">)</span>
-<a id="__codelineno-0-337" name="__codelineno-0-337"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">v_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kv_in_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span><span class="p">)</span>
-<a id="__codelineno-0-338" name="__codelineno-0-338"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-337">337</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-297" name="__codelineno-0-297"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-0-298" name="__codelineno-0-298"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-299" name="__codelineno-0-299"></a>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-0-300" name="__codelineno-0-300"></a>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-0-301" name="__codelineno-0-301"></a>    <span class="n">downsample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-302" name="__codelineno-0-302"></a>    <span class="n">kv_in_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="sd">    Initializes the Attention module with specified dimensions and settings.</span>
+<a id="__codelineno-0-306" name="__codelineno-0-306"></a>
+<a id="__codelineno-0-307" name="__codelineno-0-307"></a><span class="sd">    This class implements a multi-head attention mechanism with optional downsampling of the internal</span>
+<a id="__codelineno-0-308" name="__codelineno-0-308"></a><span class="sd">    dimension for queries, keys, and values.</span>
+<a id="__codelineno-0-309" name="__codelineno-0-309"></a>
+<a id="__codelineno-0-310" name="__codelineno-0-310"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="sd">        embedding_dim (int): Dimensionality of input embeddings.</span>
+<a id="__codelineno-0-312" name="__codelineno-0-312"></a><span class="sd">        num_heads (int): Number of attention heads.</span>
+<a id="__codelineno-0-313" name="__codelineno-0-313"></a><span class="sd">        downsample_rate (int): Factor by which internal dimensions are downsampled. Defaults to 1.</span>
+<a id="__codelineno-0-314" name="__codelineno-0-314"></a><span class="sd">        kv_in_dim (int | None): Dimensionality of key and value inputs. If None, uses embedding_dim.</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a>
+<a id="__codelineno-0-316" name="__codelineno-0-316"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-317" name="__codelineno-0-317"></a><span class="sd">        AssertionError: If num_heads does not evenly divide the internal dim (embedding_dim / downsample_rate).</span>
+<a id="__codelineno-0-318" name="__codelineno-0-318"></a>
+<a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a><span class="sd">        &gt;&gt;&gt; attn = Attention(embedding_dim=256, num_heads=8, downsample_rate=2)</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">        &gt;&gt;&gt; q = torch.randn(1, 100, 256)</span>
+<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="sd">        &gt;&gt;&gt; k = v = torch.randn(1, 50, 256)</span>
+<a id="__codelineno-0-323" name="__codelineno-0-323"></a><span class="sd">        &gt;&gt;&gt; output = attn(q, k, v)</span>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a><span class="sd">        &gt;&gt;&gt; print(output.shape)</span>
+<a id="__codelineno-0-325" name="__codelineno-0-325"></a><span class="sd">        torch.Size([1, 100, 256])</span>
+<a id="__codelineno-0-326" name="__codelineno-0-326"></a><span class="sd">    """</span>
+<a id="__codelineno-0-327" name="__codelineno-0-327"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">embedding_dim</span> <span class="o">=</span> <span class="n">embedding_dim</span>
+<a id="__codelineno-0-329" name="__codelineno-0-329"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">kv_in_dim</span> <span class="o">=</span> <span class="n">kv_in_dim</span> <span class="k">if</span> <span class="n">kv_in_dim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">embedding_dim</span>
+<a id="__codelineno-0-330" name="__codelineno-0-330"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span> <span class="o">=</span> <span class="n">embedding_dim</span> <span class="o">//</span> <span class="n">downsample_rate</span>
+<a id="__codelineno-0-331" name="__codelineno-0-331"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span> <span class="o">=</span> <span class="n">num_heads</span>
+<a id="__codelineno-0-332" name="__codelineno-0-332"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span> <span class="o">%</span> <span class="n">num_heads</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"num_heads must divide embedding_dim."</span>
+<a id="__codelineno-0-333" name="__codelineno-0-333"></a>
+<a id="__codelineno-0-334" name="__codelineno-0-334"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">q_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">embedding_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span><span class="p">)</span>
+<a id="__codelineno-0-335" name="__codelineno-0-335"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">k_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kv_in_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span><span class="p">)</span>
+<a id="__codelineno-0-336" name="__codelineno-0-336"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">v_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kv_in_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span><span class="p">)</span>
+<a id="__codelineno-0-337" name="__codelineno-0-337"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">internal_dim</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2735,7 +2733,8 @@ dimension for queries, keys, and values.</p>
 <p>Applies multi-head attention to query, key, and value tensors with optional downsampling.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-354">354</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-353">353</a></span>
+<span class="normal"><a href="#__codelineno-0-354">354</a></span>
 <span class="normal"><a href="#__codelineno-0-355">355</a></span>
 <span class="normal"><a href="#__codelineno-0-356">356</a></span>
 <span class="normal"><a href="#__codelineno-0-357">357</a></span>
@@ -2755,31 +2754,28 @@ dimension for queries, keys, and values.</p>
 <span class="normal"><a href="#__codelineno-0-371">371</a></span>
 <span class="normal"><a href="#__codelineno-0-372">372</a></span>
 <span class="normal"><a href="#__codelineno-0-373">373</a></span>
-<span class="normal"><a href="#__codelineno-0-374">374</a></span>
-<span class="normal"><a href="#__codelineno-0-375">375</a></span>
-<span class="normal"><a href="#__codelineno-0-376">376</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-<a id="__codelineno-0-355" name="__codelineno-0-355"></a><span class="w">    </span><span class="sd">"""Applies multi-head attention to query, key, and value tensors with optional downsampling."""</span>
-<a id="__codelineno-0-356" name="__codelineno-0-356"></a>
-<a id="__codelineno-0-357" name="__codelineno-0-357"></a>    <span class="c1"># Input projections</span>
-<a id="__codelineno-0-358" name="__codelineno-0-358"></a>    <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_proj</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
-<a id="__codelineno-0-359" name="__codelineno-0-359"></a>    <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_proj</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-<a id="__codelineno-0-360" name="__codelineno-0-360"></a>    <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_proj</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<a id="__codelineno-0-361" name="__codelineno-0-361"></a>
-<a id="__codelineno-0-362" name="__codelineno-0-362"></a>    <span class="c1"># Separate into heads</span>
-<a id="__codelineno-0-363" name="__codelineno-0-363"></a>    <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_separate_heads</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span><span class="p">)</span>
-<a id="__codelineno-0-364" name="__codelineno-0-364"></a>    <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_separate_heads</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span><span class="p">)</span>
-<a id="__codelineno-0-365" name="__codelineno-0-365"></a>    <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_separate_heads</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span><span class="p">)</span>
-<a id="__codelineno-0-366" name="__codelineno-0-366"></a>
-<a id="__codelineno-0-367" name="__codelineno-0-367"></a>    <span class="c1"># Attention</span>
-<a id="__codelineno-0-368" name="__codelineno-0-368"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">c_per_head</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">shape</span>
-<a id="__codelineno-0-369" name="__codelineno-0-369"></a>    <span class="n">attn</span> <span class="o">=</span> <span class="n">q</span> <span class="o">@</span> <span class="n">k</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># B x N_heads x N_tokens x N_tokens</span>
-<a id="__codelineno-0-370" name="__codelineno-0-370"></a>    <span class="n">attn</span> <span class="o">=</span> <span class="n">attn</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">c_per_head</span><span class="p">)</span>
-<a id="__codelineno-0-371" name="__codelineno-0-371"></a>    <span class="n">attn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">attn</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-372" name="__codelineno-0-372"></a>
-<a id="__codelineno-0-373" name="__codelineno-0-373"></a>    <span class="c1"># Get output</span>
-<a id="__codelineno-0-374" name="__codelineno-0-374"></a>    <span class="n">out</span> <span class="o">=</span> <span class="n">attn</span> <span class="o">@</span> <span class="n">v</span>
-<a id="__codelineno-0-375" name="__codelineno-0-375"></a>    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recombine_heads</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
-<a id="__codelineno-0-376" name="__codelineno-0-376"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-374">374</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-353" name="__codelineno-0-353"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<a id="__codelineno-0-354" name="__codelineno-0-354"></a><span class="w">    </span><span class="sd">"""Applies multi-head attention to query, key, and value tensors with optional downsampling."""</span>
+<a id="__codelineno-0-355" name="__codelineno-0-355"></a>    <span class="c1"># Input projections</span>
+<a id="__codelineno-0-356" name="__codelineno-0-356"></a>    <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_proj</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+<a id="__codelineno-0-357" name="__codelineno-0-357"></a>    <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_proj</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<a id="__codelineno-0-358" name="__codelineno-0-358"></a>    <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_proj</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<a id="__codelineno-0-359" name="__codelineno-0-359"></a>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a>    <span class="c1"># Separate into heads</span>
+<a id="__codelineno-0-361" name="__codelineno-0-361"></a>    <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_separate_heads</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span><span class="p">)</span>
+<a id="__codelineno-0-362" name="__codelineno-0-362"></a>    <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_separate_heads</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span><span class="p">)</span>
+<a id="__codelineno-0-363" name="__codelineno-0-363"></a>    <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_separate_heads</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span><span class="p">)</span>
+<a id="__codelineno-0-364" name="__codelineno-0-364"></a>
+<a id="__codelineno-0-365" name="__codelineno-0-365"></a>    <span class="c1"># Attention</span>
+<a id="__codelineno-0-366" name="__codelineno-0-366"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">c_per_head</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-0-367" name="__codelineno-0-367"></a>    <span class="n">attn</span> <span class="o">=</span> <span class="n">q</span> <span class="o">@</span> <span class="n">k</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># B x N_heads x N_tokens x N_tokens</span>
+<a id="__codelineno-0-368" name="__codelineno-0-368"></a>    <span class="n">attn</span> <span class="o">=</span> <span class="n">attn</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">c_per_head</span><span class="p">)</span>
+<a id="__codelineno-0-369" name="__codelineno-0-369"></a>    <span class="n">attn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">attn</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-370" name="__codelineno-0-370"></a>
+<a id="__codelineno-0-371" name="__codelineno-0-371"></a>    <span class="c1"># Get output</span>
+<a id="__codelineno-0-372" name="__codelineno-0-372"></a>    <span class="n">out</span> <span class="o">=</span> <span class="n">attn</span> <span class="o">@</span> <span class="n">v</span>
+<a id="__codelineno-0-373" name="__codelineno-0-373"></a>    <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recombine_heads</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+<a id="__codelineno-0-374" name="__codelineno-0-374"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

@@ -1258,6 +1258,8 @@
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.engine.model.Model" href="../../../engine/model/#ultralytics.engine.model.Model">Model</a></code></p>
 <p>YOLO-World object detection model.</p>
+<p>Loads a YOLOv8-World model for object detection. If no custom class names are provided, it assigns default
+COCO class names.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1276,11 +1278,25 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>Path to the pre-trained model. Defaults to 'yolov8s-world.pt'.</p>
+<p>Path to the pre-trained model file. Supports <em>.pt and </em>.yaml formats.</p>
 </div>
 </td>
 <td>
 <code>'yolov8s-world.pt'</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code>verbose</code></td>
+<td>
+<code>bool</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>If True, prints additional information during initialization.</p>
+</div>
+</td>
+<td>
+<code>False</code>
 </td>
 </tr>
 </tbody>
@@ -1298,18 +1314,26 @@
 <span class="normal"><a href="#__codelineno-0-73">73</a></span>
 <span class="normal"><a href="#__codelineno-0-74">74</a></span>
 <span class="normal"><a href="#__codelineno-0-75">75</a></span>
-<span class="normal"><a href="#__codelineno-0-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolov8s-world.pt"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-76">76</a></span>
+<span class="normal"><a href="#__codelineno-0-77">77</a></span>
+<span class="normal"><a href="#__codelineno-0-78">78</a></span>
+<span class="normal"><a href="#__codelineno-0-79">79</a></span>
+<span class="normal"><a href="#__codelineno-0-80">80</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolov8s-world.pt"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Initializes the YOLOv8-World model with the given pre-trained model file. Supports *.pt and *.yaml formats.</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Initialize YOLOv8-World model with a pre-trained model file.</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        model (str | Path): Path to the pre-trained model. Defaults to 'yolov8s-world.pt'.</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    """</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="c1"># Assign default COCO class names when there are no custom names</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"names"</span><span class="p">):</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">yaml_load</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"cfg/datasets/coco8.yaml"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"names"</span><span class="p">)</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    Loads a YOLOv8-World model for object detection. If no custom class names are provided, it assigns default</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    COCO class names.</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        model (str | Path): Path to the pre-trained model file. Supports *.pt and *.yaml formats.</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">        verbose (bool): If True, prints additional information during initialization.</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    """</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="c1"># Assign default COCO class names when there are no custom names</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"names"</span><span class="p">):</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">yaml_load</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"cfg/datasets/coco8.yaml"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"names"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1363,11 +1387,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-90"> 90</a></span>
-<span class="normal"><a href="#__codelineno-0-91"> 91</a></span>
-<span class="normal"><a href="#__codelineno-0-92"> 92</a></span>
-<span class="normal"><a href="#__codelineno-0-93"> 93</a></span>
-<span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
 <span class="normal"><a href="#__codelineno-0-95"> 95</a></span>
 <span class="normal"><a href="#__codelineno-0-96"> 96</a></span>
 <span class="normal"><a href="#__codelineno-0-97"> 97</a></span>
@@ -1380,24 +1400,28 @@
 <span class="normal"><a href="#__codelineno-0-104">104</a></span>
 <span class="normal"><a href="#__codelineno-0-105">105</a></span>
 <span class="normal"><a href="#__codelineno-0-106">106</a></span>
-<span class="normal"><a href="#__codelineno-0-107">107</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="k">def</span> <span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classes</span><span class="p">):</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="sd">    Set classes.</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="sd">        classes (List(str)): A list of categories i.e. ["person"].</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">    """</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">classes</span><span class="p">)</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>    <span class="c1"># Remove background if it's given</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>    <span class="n">background</span> <span class="o">=</span> <span class="s2">" "</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="k">if</span> <span class="n">background</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="n">classes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">background</span><span class="p">)</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">classes</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="c1"># Reset method class names</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="c1"># self.predictor = None  # reset predictor otherwise old names remain</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">:</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">classes</span>
+<span class="normal"><a href="#__codelineno-0-107">107</a></span>
+<span class="normal"><a href="#__codelineno-0-108">108</a></span>
+<span class="normal"><a href="#__codelineno-0-109">109</a></span>
+<span class="normal"><a href="#__codelineno-0-110">110</a></span>
+<span class="normal"><a href="#__codelineno-0-111">111</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="k">def</span> <span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classes</span><span class="p">):</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">    Set classes.</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="sd">        classes (List(str)): A list of categories i.e. ["person"].</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="sd">    """</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">classes</span><span class="p">)</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="c1"># Remove background if it's given</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>    <span class="n">background</span> <span class="o">=</span> <span class="s2">" "</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="k">if</span> <span class="n">background</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="n">classes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">background</span><span class="p">)</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">classes</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a>    <span class="c1"># Reset method class names</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="c1"># self.predictor = None  # reset predictor otherwise old names remain</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">:</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">classes</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

@@ -2204,7 +2204,7 @@ Suitable for use with <code>yolo predict source=screen</code>.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="fm">__next__</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>mss screen capture: get raw pixels from the screen as np array.</p>
+<p>Screen capture with 'mss' to get raw pixels from the screen as np array.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-242">242</a></span>
@@ -2214,7 +2214,7 @@ Suitable for use with <code>yolo predict source=screen</code>.</p>
 <span class="normal"><a href="#__codelineno-0-246">246</a></span>
 <span class="normal"><a href="#__codelineno-0-247">247</a></span>
 <span class="normal"><a href="#__codelineno-0-248">248</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-242" name="__codelineno-0-242"></a><span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-243" name="__codelineno-0-243"></a><span class="w">    </span><span class="sd">"""mss screen capture: get raw pixels from the screen as np array."""</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a><span class="w">    </span><span class="sd">"""Screen capture with 'mss' to get raw pixels from the screen as np array."""</span>
 <a id="__codelineno-0-244" name="__codelineno-0-244"></a>    <span class="n">im0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sct</span><span class="o">.</span><span class="n">grab</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">monitor</span><span class="p">))[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># BGRA to BGR</span>
 <a id="__codelineno-0-245" name="__codelineno-0-245"></a>    <span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"screen </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">screen</span><span class="si">}</span><span class="s2"> (LTWH): </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">top</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2">: "</span>
 <a id="__codelineno-0-246" name="__codelineno-0-246"></a>
