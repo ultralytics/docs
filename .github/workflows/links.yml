@@ -47,7 +47,7 @@ jobs:
         with:
           timeout_minutes: 60
           retry_wait_seconds: 900
-          max_attempts: 5
+          max_attempts: 1
           command: |
             rm -rf .lycheecache
             lychee \
@@ -82,7 +82,7 @@ jobs:
         with:
           timeout_minutes: 60
           retry_wait_seconds: 900
-          max_attempts: 5
+          max_attempts: 1
           command: |
             rm -rf .lycheecache
             lychee \
@@ -104,7 +104,7 @@ jobs:
         with:
           timeout_minutes: 60
           retry_wait_seconds: 900
-          max_attempts: 5
+          max_attempts: 1
           command: |
             rm -rf .lycheecache
             lychee \
@@ -151,7 +151,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Check for failure and notify
-        if: needs.Links.result == 'failure' && github.repository == 'ultralytics/docs' && (github.event_name == 'schedule' || github.event_name == 'push')
+        if: needs.Links.result == 'failure' && github.repository == 'ultralytics/docs' && (github.event_name == 'schedule' || github.event_name == 'pull_request')
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload: |
