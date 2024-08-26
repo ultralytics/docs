@@ -42,6 +42,25 @@ jobs:
           tar xzf lychee.tar.gz
           sudo mv lychee /usr/local/bin
 
+      - name: Download Ultralytics Website
+        # WARNING: Do not remove deprecated language directories from --exclude-directories list
+        if: matrix.branch == 'main'
+        run: |
+          mkdir ultralytics_website
+          wget -P ultralytics_website \
+               --recursive \
+               --no-parent \
+               --adjust-extension \
+               --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
+               --exclude-directories="/zh/,/ko/,/ja/,/ru/,/de/,/fr/,/es/,/pt/,/tr/,/vi/,/ar/,/it/,/nl/,/hi/" \
+               https://www.ultralytics.com/ || true
+
+      - name: Connect to NordVPN
+        uses: NordSecurity/nordvpn-linux-github-action@v1
+        with:
+          token: ${{ secrets.NORDVPN_TOKEN }}
+          connect: 'United_States'  # Optional: Specify a country or server
+
       - name: Test Markdown and HTML links with retry
         uses: nick-fields/retry@v3
         with:
@@ -62,19 +81,6 @@ jobs:
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
             './**/*.md' \
             './**/*.html'
-
-      - name: Download Ultralytics Website
-        # WARNING: Do not remove deprecated language directories from --exclude-directories list
-        if: matrix.branch == 'main'
-        run: |
-          mkdir ultralytics_website
-          wget -P ultralytics_website \
-               --recursive \
-               --no-parent \
-               --adjust-extension \
-               --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
-               --exclude-directories="/zh/,/ko/,/ja/,/ru/,/de/,/fr/,/es/,/pt/,/tr/,/vi/,/ar/,/it/,/nl/,/hi/" \
-               https://www.ultralytics.com/ || true
 
       - name: Run Broken Link Checks on Ultralytics Website
         if: matrix.branch == 'main'
