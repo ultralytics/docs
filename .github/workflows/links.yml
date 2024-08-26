@@ -74,6 +74,10 @@ jobs:
           grep -oP '(?<=<loc>)https://www.ultralytics.com/[^<]+(?=</loc>)' sitemap.xml | \
           grep -vE '/zh/|/ko/|/ja/|/ru/|/de/|/fr/|/es/|/pt/|/tr/|/vi/|/ar/|/it/|/nl/|/hi/' > urls.txt
           
+          # Count total URLs to be downloaded
+          total_urls=$(wc -l < urls.txt)
+          echo "Total URLs to be downloaded: $total_urls"
+          
           # Download all URLs in parallel
           wget -P ultralytics_website \
                --adjust-extension \
@@ -84,7 +88,11 @@ jobs:
                --wait=0.5 \
                --random-wait \
                --tries=3 \
-                 --no-verbose
+               --no-verbose
+          
+          # Count successfully downloaded files
+          downloaded_files=$(find ultralytics_website -type f | wc -l)
+          echo "Total pages downloaded: $downloaded_files"
 
       - name: Run Broken Link Checks on Ultralytics Website
         if: matrix.branch == 'main'
