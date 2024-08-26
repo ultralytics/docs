@@ -23,11 +23,20 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y nordvpn
 
+      - name: Set up NordVPN permissions
+        run: |
+          sudo groupadd -f nordvpn
+          sudo usermod -aG nordvpn $USER
+          sudo mkdir -p /run/nordvpn
+          sudo chown -R $USER:nordvpn /run/nordvpn
+          sudo setcap cap_net_admin+eip $(which nordvpnd)
+
       - name: Connect to NordVPN
         env:
           NORDVPN_TOKEN: ${{ secrets.NORDVPN_TOKEN }}
         run: |
           nordvpn login --token $NORDVPN_TOKEN
+          nordvpn set technology nordlynx
           nordvpn connect
 
       - name: Download and install lychee
