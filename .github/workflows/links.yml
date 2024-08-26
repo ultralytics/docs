@@ -66,19 +66,21 @@ jobs:
       - name: Download Ultralytics Website
         if: matrix.branch == 'main'
         run: |
-          mkdir ultralytics_website
           # Download sitemap.xml
           wget -O sitemap.xml https://www.ultralytics.com/sitemap.xml
           
-          # Extract URLs from sitemap.xml, excluding specific language directories
-          grep -oP '(?<=<loc>)https://www.ultralytics.com/[^<]+(?=</loc>)' sitemap.xml | \
-          grep -vE '/zh/|/ko/|/ja/|/ru/|/de/|/fr/|/es/|/pt/|/tr/|/vi/|/ar/|/it/|/nl/|/hi/' > urls.txt
+          # Parse URLs using a combination of tr, sed, and grep
+          tr '\n' ' ' < sitemap.xml | \
+            sed 's/<loc>/\n<loc>/g' | \
+            grep -oP '(?<=<loc>).*?(?=</loc>)' | \
+            sed 's/^[[:space:]]*//;s/[[:space:]]*$//' > urls.txt
           
           # Count total URLs to be downloaded
           total_urls=$(wc -l < urls.txt)
           echo "Total URLs to be downloaded: $total_urls"
           
           # Download all URLs in parallel
+          mkdir ultralytics_website
           wget -P ultralytics_website \
                --adjust-extension \
                --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
