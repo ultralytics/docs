@@ -79,18 +79,18 @@ jobs:
           total_urls=$(wc -l < urls.txt)
           echo "Total URLs to be downloaded: $total_urls"
           
-          # Download all URLs in parallel
-          mkdir ultralytics_website
-          wget -P ultralytics_website \
-               --adjust-extension \
-               --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
-               --input-file=urls.txt \
-               --no-clobber \
-               --no-parent \
-               --wait=0.001 \
-               --random-wait \
-               --tries=3 \
-               --no-verbose
+          # Download all URLs
+          wget \
+            --adjust-extension \
+            --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
+            --input-file=urls.txt \
+            --no-clobber \
+            --no-parent \
+            --wait=0.001 \
+            --random-wait \
+            --tries=3 \
+            --no-verbose \
+            --force-directories
           
           # Count successfully downloaded files
           downloaded_files=$(find ultralytics_website -type f | wc -l)
@@ -115,7 +115,7 @@ jobs:
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './ultralytics_website/**/*.html'
+            './www.ultralytics.com/**/*.html'
 
       - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
         if: github.event_name == 'workflow_dispatch'
