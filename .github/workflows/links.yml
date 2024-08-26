@@ -64,17 +64,27 @@ jobs:
             './**/*.html'
 
       - name: Download Ultralytics Website
-        # WARNING: Do not remove deprecated language directories from --exclude-directories list
         if: matrix.branch == 'main'
         run: |
           mkdir ultralytics_website
+          # Download sitemap.xml
+          wget -O sitemap.xml https://www.ultralytics.com/sitemap.xml
+          
+          # Extract URLs from sitemap.xml, excluding specific language directories
+          grep -oP '(?<=<loc>)https://www.ultralytics.com/[^<]+(?=</loc>)' sitemap.xml | \
+          grep -vE '/zh/|/ko/|/ja/|/ru/|/de/|/fr/|/es/|/pt/|/tr/|/vi/|/ar/|/it/|/nl/|/hi/' > urls.txt
+          
+          # Download all URLs in parallel
           wget -P ultralytics_website \
-               --recursive \
-               --no-parent \
                --adjust-extension \
                --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
-               --exclude-directories="/zh/,/ko/,/ja/,/ru/,/de/,/fr/,/es/,/pt/,/tr/,/vi/,/ar/,/it/,/nl/,/hi/" \
-               https://www.ultralytics.com/ || true
+               --input-file=urls.txt \
+               --no-clobber \
+               --no-parent \
+               --wait=0.5 \
+               --random-wait \
+               --tries=3 \
+                 --no-verbose
 
       - name: Run Broken Link Checks on Ultralytics Website
         if: matrix.branch == 'main'
