@@ -35,6 +35,14 @@ jobs:
           sudo apt-get install -y nordvpn
           sudo nordvpn login --token ${{ secrets.NORDVPN_TOKEN }}
 
+      - name: Configure NordVPN permissions
+        run: |
+          sudo groupadd nordvpn || true
+          sudo usermod -aG nordvpn $USER
+          # Restart the necessary services to apply group changes without reboot
+          sudo systemctl restart nordvpnd
+          sudo systemctl restart NetworkManager
+
       - name: Connect to NordVPN
         run: |
           nordvpn connect
