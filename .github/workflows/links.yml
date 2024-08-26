@@ -68,7 +68,6 @@ jobs:
             './**/*.html'
 
       - name: Download Ultralytics Website
-        if: matrix.branch == 'main'
         run: |
           # Download sitemap.xml
           wget -O sitemap.xml https://www.ultralytics.com/sitemap.xml
@@ -103,9 +102,9 @@ jobs:
       - name: Run Broken Link Checks on Ultralytics Website
         uses: nick-fields/retry@v3
         with:
-          timeout_minutes: 60
-          retry_wait_seconds: 900
-          max_attempts: 5
+          timeout_minutes: 1
+          retry_wait_seconds: 1
+          max_attempts: 1
           command: |
             rm -rf .lycheecache
             lychee \
