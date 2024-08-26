@@ -33,15 +33,13 @@ jobs:
           echo "deb https://repo.nordvpn.com/deb/nordvpn/debian stable main" | sudo tee /etc/apt/sources.list.d/nordvpn.list
           sudo apt-get update
           sudo apt-get install -y nordvpn
-          sudo nordvpn login --token ${{ secrets.NORDVPN_TOKEN }}
 
       - name: Configure NordVPN permissions
         run: |
           sudo groupadd nordvpn || true
           sudo usermod -aG nordvpn $USER
-          # Restart the necessary services to apply group changes without reboot
+          # Restart the NordVPN daemon to apply group changes
           sudo systemctl restart nordvpnd
-          sudo systemctl restart NetworkManager
 
       - name: Connect to NordVPN
         run: |
