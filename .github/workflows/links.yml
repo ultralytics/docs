@@ -1,13 +1,3 @@
-# Ultralytics YOLO 🚀, AGPL-3.0 license
-# Continuous Integration (CI) GitHub Actions tests broken link checker using https://github.com/lycheeverse/lychee
-# Ignores the following status codes to reduce false positives:
-#   - 401(Vimeo, 'unauthorized')
-#   - 403(OpenVINO, 'forbidden')
-#   - 429(Instagram, 'too many requests')
-#   - 500(Zenodo, 'cached')
-#   - 502(Zenodo, 'bad gateway')
-#   - 999(LinkedIn, 'unknown status code')
-
 name: Check Broken links
 
 on:
@@ -35,31 +25,27 @@ jobs:
         with:
           ref: ${{ matrix.branch }} # Use matrix to check out the correct branch
 
+      - name: Install NordVPN
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y nordvpn
+
+      - name: Authenticate NordVPN
+        env:
+          NORDVPN_TOKEN: ${{ secrets.NORDVPN_TOKEN }}
+        run: |
+          echo "$NORDVPN_TOKEN" | nordvpn login --token
+
+      - name: Connect to NordVPN
+        run: |
+          nordvpn connect
+
       - name: Download and install lychee
         run: |
           LYCHEE_URL=$(curl -s https://api.github.com/repos/lycheeverse/lychee/releases/latest | grep "browser_download_url" | grep "x86_64-unknown-linux-gnu.tar.gz" | cut -d '"' -f 4)
           curl -L $LYCHEE_URL -o lychee.tar.gz
           tar xzf lychee.tar.gz
           sudo mv lychee /usr/local/bin
-
-      - name: Download Ultralytics Website
-        # WARNING: Do not remove deprecated language directories from --exclude-directories list
-        if: matrix.branch == 'main'
-        run: |
-          mkdir ultralytics_website
-          wget -P ultralytics_website \
-               --recursive \
-               --no-parent \
-               --adjust-extension \
-               --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
-               --exclude-directories="/zh/,/ko/,/ja/,/ru/,/de/,/fr/,/es/,/pt/,/tr/,/vi/,/ar/,/it/,/nl/,/hi/" \
-               https://www.ultralytics.com/ || true
-
-      - name: Connect to NordVPN
-        uses: NordSecurity/nordvpn-linux-github-action@v1
-        with:
-          token: ${{ secrets.NORDVPN_TOKEN }}
-          connect: 'United_States'  # Optional: Specify a country or server
 
       - name: Test Markdown and HTML links with retry
         uses: nick-fields/retry@v3
@@ -82,6 +68,18 @@ jobs:
             './**/*.md' \
             './**/*.html'
 
+      - name: Download Ultralytics Website
+        if: matrix.branch == 'main'
+        run: |
+          mkdir ultralytics_website
+          wget -P ultralytics_website \
+               --recursive \
+               --no-parent \
+               --adjust-extension \
+               --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
+               --exclude-directories="/zh/,/ko/,/ja/,/ru/,/de/,/fr/,/es/,/pt/,/tr/,/vi/,/ar/,/it/,/nl/,/hi/" \
+               https://www.ultralytics.com/ || true
+
       - name: Run Broken Link Checks on Ultralytics Website
         if: matrix.branch == 'main'
         uses: nick-fields/retry@v3
@@ -103,7 +101,7 @@ jobs:
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
             './ultralytics_website/**/*.html'
 
-      - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
+      - name: Test Website, Markdown, HTML, YAML, Python, and Notebook links with retry
         if: github.event_name == 'workflow_dispatch'
         uses: nick-fields/retry@v3
         with:
@@ -128,6 +126,10 @@ jobs:
             './**/*.yaml' \
             './**/*.py' \
             './**/*.ipynb'
+
+      - name: Disconnect from NordVPN
+        if: always()
+        run: nordvpn disconnect
 
   Summary:
     runs-on: ubuntu-latest
