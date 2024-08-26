@@ -42,12 +42,20 @@ jobs:
           tar xzf lychee.tar.gz
           sudo mv lychee /usr/local/bin
 
+      - name: Set up Tor proxy
+        run: |
+          apt-get update && apt-get install -y tor
+          service tor start
+          echo "socks5://127.0.0.1:9050" > proxy.txt
+          echo "HTTP_PROXY=socks5://127.0.0.1:9050" >> $GITHUB_ENV
+          echo "HTTPS_PROXY=socks5://127.0.0.1:9050" >> $GITHUB_ENV
+
       - name: Test Markdown and HTML links with retry
         uses: nick-fields/retry@v3
         with:
-          timeout_minutes: 60
-          retry_wait_seconds: 900
-          max_attempts: 5
+          timeout_minutes: 1
+          retry_wait_seconds: 1
+          max_attempts: 1
           command: |
             rm -rf .lycheecache
             lychee \
@@ -60,6 +68,7 @@ jobs:
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
+            --proxy-file proxy.txt \
             './**/*.md' \
             './**/*.html'
 
@@ -80,9 +89,9 @@ jobs:
         if: matrix.branch == 'main'
         uses: nick-fields/retry@v3
         with:
-          timeout_minutes: 60
-          retry_wait_seconds: 900
-          max_attempts: 5
+          timeout_minutes: 1
+          retry_wait_seconds: 1
+          max_attempts: 1
           command: |
             rm -rf .lycheecache
             lychee \
@@ -95,15 +104,16 @@ jobs:
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
+            --proxy-file proxy.txt \
             './ultralytics_website/**/*.html'
 
       - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
         if: github.event_name == 'workflow_dispatch'
         uses: nick-fields/retry@v3
         with:
-          timeout_minutes: 60
-          retry_wait_seconds: 900
-          max_attempts: 5
+          timeout_minutes: 1
+          retry_wait_seconds: 1
+          max_attempts: 1
           command: |
             rm -rf .lycheecache
             lychee \
@@ -116,6 +126,7 @@ jobs:
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
+            --proxy-file proxy.txt \
             './**/*.md' \
             './**/*.html' \
             './**/*.yml' \
