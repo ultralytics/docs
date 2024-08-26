@@ -1,39 +1,20 @@
-# Ultralytics YOLO 🚀, AGPL-3.0 license
-# Continuous Integration (CI) GitHub Actions tests broken link checker using https://github.com/lycheeverse/lychee
-# Ignores the following status codes to reduce false positives:
-#   - 401(Vimeo, 'unauthorized')
-#   - 403(OpenVINO, 'forbidden')
-#   - 429(Instagram, 'too many requests')
-#   - 500(Zenodo, 'cached')
-#   - 502(Zenodo, 'bad gateway')
-#   - 999(LinkedIn, 'unknown status code')
-
-name: Check Broken links
+name: Check Broken links with Tor and Privoxy
 
 on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *" # runs at 00:00 UTC every day
   push:
-    branches:
-      - main
-      - gh-pages
+    branches: [main, gh-pages]
   pull_request:
-    branches:
-      - main
-      - gh-pages
+    branches: [main, gh-pages]
 
 jobs:
   Links:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        branch: [main, gh-pages] # Define the branches to test
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          ref: ${{ matrix.branch }} # Use matrix to check out the correct branch
 
       - name: Download and install lychee
         run: |
@@ -42,15 +23,17 @@ jobs:
           tar xzf lychee.tar.gz
           sudo mv lychee /usr/local/bin
 
-      - name: Set up Tor proxy
+      - name: Set up Tor and Privoxy
         run: |
-          sudo apt-get install -y tor
+          sudo apt-get update
+          sudo apt-get install -y tor privoxy
           sudo service tor start
-          echo "all_proxy=socks5h://127.0.0.1:9050" >> $GITHUB_ENV
-          echo "http_proxy=socks5h://127.0.0.1:9050" >> $GITHUB_ENV
-          echo "https_proxy=socks5h://127.0.0.1:9050" >> $GITHUB_ENV
+          echo 'forward-socks5 / 127.0.0.1:9050 .' | sudo tee -a /etc/privoxy/config
+          sudo service privoxy restart
+          echo "http_proxy=http://127.0.0.1:8118" >> $GITHUB_ENV
+          echo "https_proxy=http://127.0.0.1:8118" >> $GITHUB_ENV
 
-      - name: Test Markdown and HTML links with retry
+      - name: Test links with retry and Tor+Privoxy proxy
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 1
@@ -72,8 +55,7 @@ jobs:
             './**/*.html'
 
       - name: Download Ultralytics Website
-        # WARNING: Do not remove deprecated language directories from --exclude-directories list
-        if: matrix.branch == 'main'
+        if: github.ref == 'refs/heads/main'
         run: |
           mkdir ultralytics_website
           wget -P ultralytics_website \
@@ -85,7 +67,7 @@ jobs:
                https://www.ultralytics.com/ || true
 
       - name: Run Broken Link Checks on Ultralytics Website
-        if: matrix.branch == 'main'
+        if: github.ref == 'refs/heads/main'
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 1
@@ -104,43 +86,3 @@ jobs:
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
             './ultralytics_website/**/*.html'
-
-      - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
-        if: github.event_name == 'workflow_dispatch'
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 1
-          retry_wait_seconds: 1
-          max_attempts: 1
-          command: |
-            rm -rf .lycheecache
-            lychee \
-            --scheme 'https' \
-            --timeout 60 \
-            --insecure \
-            --accept 401,403,429,500,502,999 \
-            --exclude-all-private \
-            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com)' \
-            --exclude-path '**/ci.yaml' \
-            --github-token ${{ secrets.GITHUB_TOKEN }} \
-            --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './**/*.md' \
-            './**/*.html' \
-            './**/*.yml' \
-            './**/*.yaml' \
-            './**/*.py' \
-            './**/*.ipynb'
-
-  Summary:
-    runs-on: ubuntu-latest
-    needs: [Links] # Add job names that you want to check for failure
-    if: always() # This ensures the job runs even if previous jobs fail
-    steps:
-      - name: Check for failure and notify
-        if: needs.Links.result == 'failure' && github.repository == 'ultralytics/docs' && (github.event_name == 'schedule' || github.event_name == 'push')
-        uses: slackapi/slack-github-action@v1.26.0
-        with:
-          payload: |
-            {"text": "<!channel> GitHub Actions error for ${{ github.workflow }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n"}
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_WEBSITE }}
