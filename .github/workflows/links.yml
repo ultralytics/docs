@@ -25,16 +25,15 @@ jobs:
         with:
           ref: ${{ matrix.branch }} # Use matrix to check out the correct branch
 
-      - name: Install NordVPN
+      - name: Add NordVPN repository and install NordVPN CLI
         run: |
           sudo apt-get update
+          sudo apt-get install -y apt-transport-https
+          sudo wget -qnc https://repo.nordvpn.com/gpg/nordvpn_public.asc -O /etc/apt/trusted.gpg.d/nordvpn.asc
+          echo "deb https://repo.nordvpn.com/deb/nordvpn/debian stable main" | sudo tee /etc/apt/sources.list.d/nordvpn.list
+          sudo apt-get update
           sudo apt-get install -y nordvpn
-
-      - name: Authenticate NordVPN
-        env:
-          NORDVPN_TOKEN: ${{ secrets.NORDVPN_TOKEN }}
-        run: |
-          echo "$NORDVPN_TOKEN" | nordvpn login --token
+          sudo nordvpn login --token ${{ secrets.NORDVPN_TOKEN }}
 
       - name: Connect to NordVPN
         run: |
