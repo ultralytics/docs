@@ -44,7 +44,6 @@ jobs:
 
       - name: Set up Tor proxy
         run: |
-          sudo apt-get update
           sudo apt-get install -y tor
           sudo service tor start
           echo "all_proxy=socks5h://127.0.0.1:9050" >> $GITHUB_ENV
