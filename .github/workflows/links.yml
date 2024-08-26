@@ -79,18 +79,18 @@ jobs:
           total_urls=$(wc -l < urls.txt)
           echo "Total URLs to be downloaded: $total_urls"
           
-          # Download all URLs in parallel
-          mkdir ultralytics_website
-          wget -P ultralytics_website \
-               --adjust-extension \
-               --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
-               --input-file=urls.txt \
-               --no-clobber \
-               --no-parent \
-               --wait=0.001 \
-               --random-wait \
-               --tries=3 \
-               --no-verbose
+          # Download all URLs
+          wget \
+            --adjust-extension \
+            --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
+            --input-file=urls.txt \
+            --no-clobber \
+            --no-parent \
+            --wait=0.001 \
+            --random-wait \
+            --tries=3 \
+            --no-verbose \
+            --force-directories
           
           # Count successfully downloaded files
           downloaded_files=$(find ultralytics_website -type f | wc -l)
