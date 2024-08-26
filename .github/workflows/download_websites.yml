@@ -1,11 +1,12 @@
 # Ultralytics YOLO 🚀, AGPL-3.0 license
 # Action to download Ultralytics website and docs
+
 name: Download Websites
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"  # runs at 00:00 UTC every day
+    - cron: "0 0 * * *" # runs at 00:00 UTC every day
   push:
     branches:
       - gh-pages
@@ -13,7 +14,7 @@ on:
 jobs:
   Download:
     runs-on: ubuntu-latest
-    continue-on-error: true  # continue all steps if any fail
+    continue-on-error: true # continue all steps if any fail
     steps:
       - name: Download Ultralytics Website
         run: |
@@ -23,6 +24,8 @@ jobs:
             --no-parent \
             --adjust-extension \
             --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
+            --wait=0.5 \
+            --random-wait \
             https://www.ultralytics.com/
 
       - name: Download Ultralytics Docs
@@ -33,4 +36,6 @@ jobs:
             --no-parent \
             --adjust-extension \
             --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
+            --wait=0.5 \
+            --random-wait \
             https://docs.ultralytics.com/
