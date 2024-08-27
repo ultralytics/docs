@@ -87,8 +87,8 @@ jobs:
             # Add the lychee output to GitHub step summary
             cat lychee_output.txt >> $GITHUB_STEP_SUMMARY
             
-            # Escape newlines, replace [] with *, and escape special characters for GitHub Actions environment file
-            ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' lychee_output.txt | sed 's/\[/*/g; s/\]/*/g; s/"/\\"/g')
+            # Escape newlines, remove [], and escape special characters for GitHub Actions environment file
+            ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' lychee_output.txt | sed 's/\[//g; s/\]//g; s/"/\\"/g')
             echo "SUMMARY<<EOF" >> $GITHUB_ENV
             echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
@@ -100,6 +100,6 @@ jobs:
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload: |
-            {"text": "GitHub Actions error for ${{ github.workflow }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n*Summary:*\n---\n${{ env.SUMMARY }}\n"}
+            {"text": "GitHub Actions error for ${{ github.workflow }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_WEBSITE }}
