@@ -33,7 +33,7 @@ jobs:
       - name: Download Ultralytics Website
         run: |
           # Download sitemap.xml
-          wget -O sitemap.xml https://docs.ultralytics.com/sitemap.xml
+          wget -O sitemap.xml https://www.ultralytics.com/sitemap.xml
           
           # Parse URLs using a combination of tr, sed, and grep
           tr '\n' ' ' < sitemap.xml | \
@@ -57,10 +57,6 @@ jobs:
             --tries=3 \
             --no-verbose \
             --force-directories
-          
-          # Count successfully downloaded files
-          downloaded_files=$(find https://docs.ultralytics.com -type f | wc -l)
-          echo "Total pages downloaded: $downloaded_files"
 
           #rm -rf www.ultralytics.com/blogs
           #rm -rf www.ultralytics.com/glossary
@@ -72,6 +68,10 @@ jobs:
           retry_wait_seconds: 1
           max_attempts: 1
           command: |
+            # Count successfully downloaded files
+            downloaded_files=$(find https://www.ultralytics.com -type f | wc -l)
+            echo "Total pages downloaded: $downloaded_files"
+          
             rm -rf .lycheecache
             lychee \
             --scheme 'https' \
@@ -83,7 +83,7 @@ jobs:
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './docs.ultralytics.com/**/*.html' | tee lychee_output.txt
+            './www.ultralytics.com/**/*.html' | tee lychee_output.txt
             
             # Add the lychee output to GitHub step summary
             cat lychee_output.txt >> $GITHUB_STEP_SUMMARY
@@ -104,7 +104,7 @@ jobs:
             fi
 
       - name: Check for failure and notify
-        if: failure() && steps.lychee.outcome == 'failure' && (github.event_name == 'schedule' || github.event_name == 'push')
+        if: always() && steps.lychee.outcome == 'failure' && (github.event_name == 'schedule' || github.event_name == 'push')
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload: |
