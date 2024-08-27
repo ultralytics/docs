@@ -21,8 +21,10 @@ on:
 jobs:
   Links:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        website: [www.ultralytics.com, docs.ultralytics.com]
     steps:
-
       - name: Download and install lychee
         run: |
           LYCHEE_URL=$(curl -s https://api.github.com/repos/lycheeverse/lychee/releases/latest | grep "browser_download_url" | grep "x86_64-unknown-linux-gnu.tar.gz" | cut -d '"' -f 4)
@@ -30,21 +32,21 @@ jobs:
           tar xzf lychee.tar.gz
           sudo mv lychee /usr/local/bin
 
-      - name: Download Ultralytics Website
+      - name: Download Website
         run: |
           # Download sitemap.xml
-          wget -O sitemap.xml https://www.ultralytics.com/sitemap.xml
-          
+          wget -O sitemap.xml https://${{ matrix.website }}/sitemap.xml
+
           # Parse URLs using a combination of tr, sed, and grep
           tr '\n' ' ' < sitemap.xml | \
             sed 's/<loc>/\n<loc>/g' | \
             grep -oP '(?<=<loc>).*?(?=</loc>)' | \
             sed 's/^[[:space:]]*//;s/[[:space:]]*$//' > urls.txt
-          
+
           # Count total URLs to be downloaded
           total_urls=$(wc -l < urls.txt)
           echo "Total URLs to be downloaded: $total_urls"
-          
+
           # Download all URLs
           wget \
             --adjust-extension \
@@ -58,10 +60,8 @@ jobs:
             --no-verbose \
             --force-directories
 
-          #rm -rf www.ultralytics.com/blogs
-          #rm -rf www.ultralytics.com/glossary
-
-      - name: Run Broken Link Checks on Ultralytics Website
+      - name: Run Broken Link Checks on Website
+        id: lychee
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 60
@@ -69,9 +69,9 @@ jobs:
           max_attempts: 1
           command: |
             # Count successfully downloaded files
-            downloaded_files=$(find www.ultralytics.com -type f | wc -l)
+            downloaded_files=$(find ${{ matrix.website }} -type f | wc -l)
             echo "Total pages downloaded: $downloaded_files"
-          
+
             rm -rf .lycheecache
             lychee \
             --scheme 'https' \
@@ -83,19 +83,19 @@ jobs:
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './www.ultralytics.com/**/*.html' | tee lychee_output.txt
-            
+            './${{ matrix.website }}/**/*.html' | tee lychee_output.txt
+
             # Add the total file count and lychee output to GitHub step summary
-            echo "Total pages in www.ultralytics.com checked: $downloaded_files" >> $GITHUB_STEP_SUMMARY
+            echo "Total pages in ${{ matrix.website }} checked: $downloaded_files" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             cat lychee_output.txt >> $GITHUB_STEP_SUMMARY
-            
+
             # Escape newlines, remove [], remove .html, and escape special characters for GitHub Actions environment file
             ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' lychee_output.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
             echo "SUMMARY<<EOF" >> $GITHUB_ENV
             echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
-            
+
             # Check if lychee found any broken links
             if grep -q "0 Errors" lychee_output.txt; then
               echo "No broken links found."
@@ -110,6 +110,6 @@ jobs:
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload: |
-            {"text": "GitHub Actions: Broken links found in ${{ github.workflow }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"}
+            {"text": "GitHub Actions: Broken links found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"}
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_YOLO }}
+          SLACK_WEBHOOK_URL: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
