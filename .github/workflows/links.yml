@@ -62,6 +62,7 @@ jobs:
           downloaded_files=$(find https://www.ultralytics.com -type f | wc -l)
           echo "Total pages downloaded: $downloaded_files"
 
+          rm -rf www.ultralytics.com/blogs
           rm -rf www.ultralytics.com/glossary
 
       - name: Run Broken Link Checks on Ultralytics Website
@@ -92,14 +93,21 @@ jobs:
             echo "SUMMARY<<EOF" >> $GITHUB_ENV
             echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
+            
+            # Check if lychee found any broken links
+            if grep -q "0 errors" lychee_output.txt; then
+              echo "No broken links found."
+              exit 0
+            else
+              echo "Broken links found."
+              exit 1
+            fi
 
       - name: Check for failure and notify
-        if: always() # This ensures the job runs even if previous jobs fail
-        # {"text": "<!channel> GitHub Actions error for
-        # if: needs.Links.result == 'failure' && github.repository == 'ultralytics/docs' && (github.event_name == 'schedule' || github.event_name == 'push')
+        if: failure() && steps.lychee.outcome == 'failure' && (github.event_name == 'schedule' || github.event_name == 'push')
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload: |
-            {"text": "GitHub Actions error for ${{ github.workflow }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"}
+            {"text": "GitHub Actions: Broken links found in ${{ github.workflow }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_WEBSITE }}
