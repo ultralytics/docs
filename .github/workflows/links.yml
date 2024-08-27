@@ -59,10 +59,10 @@ jobs:
             --force-directories
           
           # Count successfully downloaded files
-          downloaded_files=$(find ultralytics_website -type f | wc -l)
+          downloaded_files=$(find https://www.ultralytics.com -type f | wc -l)
           echo "Total pages downloaded: $downloaded_files"
 
-          # rm -rf www.ultralytics.com/blog
+          rm -rf www.ultralytics.com/blog
           rm -rf www.ultralytics.com/glossary
 
       - name: Run Broken Link Checks on Ultralytics Website
@@ -89,10 +89,11 @@ jobs:
 
       - name: Check for failure and notify
         if: always() # This ensures the job runs even if previous jobs fail
+        # {"text": "<!channel> GitHub Actions error for
         # if: needs.Links.result == 'failure' && github.repository == 'ultralytics/docs' && (github.event_name == 'schedule' || github.event_name == 'push')
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload: |
-            {"text": "<!channel> GitHub Actions error for ${{ github.workflow }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n*Summary:*\n\n${{ env.SUMMARY }}\n"}
+            {"text": "GitHub Actions error for ${{ github.workflow }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n*Summary:*\n\n${{ $SUMMARY }}\n"}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_WEBSITE }}
