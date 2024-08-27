@@ -101,8 +101,8 @@ jobs:
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 60
-          retry_wait_seconds: 900
-          max_attempts: 5
+          retry_wait_seconds: 1
+          max_attempts: 1
           command: |
             rm -rf .lycheecache
             lychee \
@@ -115,7 +115,7 @@ jobs:
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './www.ultralytics.com/**/*.html'
+            './www.ultralytics.com/**/*.html' | tee -a >(cat >> $GITHUB_STEP_SUMMARY)
 
       - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
         if: github.event_name == 'workflow_dispatch'
