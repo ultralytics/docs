@@ -63,46 +63,50 @@ jobs:
 
       - name: Run Broken Link Checks on Website
         id: lychee
-        continue-on-error: true
-        run: |
-          # Count successfully downloaded files
-          downloaded_files=$(find ${{ matrix.website }} -type f | wc -l)
-          echo "Scanning $downloaded_files downloaded pages for broken links..."
-
-          # Create summary.txt with the total page count
-          echo "*Results for $downloaded_files pages in https://${{ matrix.website }}*" > summary.txt
-          echo "" >> summary.txt
-
-          rm -rf .lycheecache
-          lychee \
-          --scheme 'https' \
-          --timeout 60 \
-          --insecure \
-          --accept 401,403,429,500,502,999 \
-          --exclude-all-private \
-          --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
-          --exclude-path '**/ci.yaml' \
-          --github-token ${{ secrets.GITHUB_TOKEN }} \
-          --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-          './${{ matrix.website }}/**/*.html' | tee -a summary.txt
-
-          # Add the summary to GitHub step summary
-          cat summary.txt >> $GITHUB_STEP_SUMMARY
-
-          # Prepare the summary for Slack (escape newlines, remove [], remove .html, and escape special characters)
-          ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
-          echo "SUMMARY<<EOF" >> $GITHUB_ENV
-          echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-          # Check if lychee found any broken links
-          if grep -q "0 Errors" summary.txt; then
-            echo "No broken links found."
-            exit 0
-          else
-            echo "Broken links found."
-            exit 1
-          fi
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 60
+          retry_wait_seconds: 300
+          max_attempts: 3
+          command: |
+            # Count successfully downloaded files
+            downloaded_files=$(find ${{ matrix.website }} -type f | wc -l)
+            echo "Scanning $downloaded_files downloaded pages for broken links..."
+            
+            # Create summary.txt with the total page count
+            echo "*Results for $downloaded_files pages in https://${{ matrix.website }}*" > summary.txt
+            echo "" >> summary.txt
+            
+            rm -rf .lycheecache
+            lychee \
+            --scheme 'https' \
+            --timeout 60 \
+            --insecure \
+            --accept 401,403,429,500,502,999 \
+            --exclude-all-private \
+            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
+            --exclude-path '**/ci.yaml' \
+            --github-token ${{ secrets.GITHUB_TOKEN }} \
+            --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
+            './${{ matrix.website }}/**/*.html' | tee -a summary.txt
+            
+            # Add the summary to GitHub step summary
+            cat summary.txt >> $GITHUB_STEP_SUMMARY
+            
+            # Prepare the summary for Slack (escape newlines, remove [], remove .html, and escape special characters)
+            ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
+            echo "SUMMARY<<EOF" >> $GITHUB_ENV
+            echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+            
+            # Check if lychee found any broken links
+            if grep -q "0 Errors" summary.txt; then
+              echo "No broken links found."
+              exit 0
+            else
+              echo "Broken links found."
+              exit 1
+            fi
 
       - name: Check for failure and notify
         if: always() && steps.lychee.outcome == 'failure' && github.event_name == 'schedule'
