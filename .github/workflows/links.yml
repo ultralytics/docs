@@ -107,7 +107,8 @@ jobs:
             fi
 
       - name: Check for failure and notify
-        if: always() && steps.lychee.outcome == 'failure' && (github.event_name == 'schedule' || github.event_name == 'push')
+        # if: always() && steps.lychee.outcome == 'failure' && (github.event_name == 'schedule' || github.event_name == 'push')
+        if: always() && steps.lychee.outcome == 'failure'
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload: |
