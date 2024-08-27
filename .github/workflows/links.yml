@@ -8,28 +8,22 @@
 #   - 502(Zenodo, 'bad gateway')
 #   - 999(LinkedIn, 'unknown status code')
 
-name: Check Broken links
+name: Check Broken Website links
 
 on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *" # runs at 00:00 UTC every day
-  push:
-    branches:
-      - main
-      - gh-pages
   pull_request:
-    branches:
-      - main
-      - gh-pages
 
 jobs:
   Links:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false # This ensures that if one job fails, the others will still run
+      matrix:
+        website: [www.ultralytics.com, docs.ultralytics.com]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Download and install lychee
         run: |
           LYCHEE_URL=$(curl -s https://api.github.com/repos/lycheeverse/lychee/releases/latest | grep "browser_download_url" | grep "x86_64-unknown-linux-gnu.tar.gz" | cut -d '"' -f 4)
@@ -37,35 +31,50 @@ jobs:
           tar xzf lychee.tar.gz
           sudo mv lychee /usr/local/bin
 
-      - name: Test Markdown and HTML links with retry
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 60
-          retry_wait_seconds: 3
-          max_attempts: 2
-          command: |
-            rm -rf .lycheecache
-            lychee \
-            --scheme 'https' \
-            --timeout 60 \
-            --insecure \
-            --accept 401,403,429,500,502,999 \
-            --exclude-all-private \
-            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com)' \
-            --exclude-path '**/ci.yaml' \
-            --github-token ${{ secrets.GITHUB_TOKEN }} \
-            --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './**/*.md' \
-            './**/*.html'
+      - name: Download Website
+        run: |
+          # Download sitemap.xml
+          wget -O sitemap.xml https://${{ matrix.website }}/sitemap.xml
 
-      - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
-        if: github.event_name == 'workflow_dispatch'
+          # Parse URLs using a combination of tr, sed, and grep
+          tr '\n' ' ' < sitemap.xml | \
+            sed 's/<loc>/\n<loc>/g' | \
+            grep -oP '(?<=<loc>).*?(?=</loc>)' | \
+            sed 's/^[[:space:]]*//;s/[[:space:]]*$//' > urls.txt
+
+          # Count total URLs to be downloaded
+          total_urls=$(wc -l < urls.txt)
+          echo "Total URLs to be downloaded: $total_urls"
+
+          # Download all URLs
+          wget \
+            --adjust-extension \
+            --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
+            --input-file=urls.txt \
+            --no-clobber \
+            --no-parent \
+            --wait=0.001 \
+            --random-wait \
+            --tries=3 \
+            --no-verbose \
+            --force-directories
+
+      - name: Run Broken Link Checks on Website
+        id: lychee
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 60
-          retry_wait_seconds: 3
-          max_attempts: 2
+          retry_wait_seconds: 300
+          max_attempts: 3
           command: |
+            # Count successfully downloaded files
+            downloaded_files=$(find ${{ matrix.website }} -type f | wc -l)
+            echo "Scanning $downloaded_files downloaded pages for broken links..."
+
+            # Create summary.txt with the total page count
+            echo "*Results for $downloaded_files pages in https://${{ matrix.website }}*" > summary.txt
+            echo "" >> summary.txt
+
             rm -rf .lycheecache
             lychee \
             --scheme 'https' \
@@ -73,13 +82,36 @@ jobs:
             --insecure \
             --accept 401,403,429,500,502,999 \
             --exclude-all-private \
-            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com)' \
+            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './**/*.md' \
-            './**/*.html' \
-            './**/*.yml' \
-            './**/*.yaml' \
-            './**/*.py' \
-            './**/*.ipynb'
+            './${{ matrix.website }}/**/*.html' | tee -a summary.txt
+
+            # Add the summary to GitHub step summary
+            cat summary.txt >> $GITHUB_STEP_SUMMARY
+
+            # Prepare the summary for Slack (escape newlines, remove [], remove .html, and escape special characters)
+            ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
+            echo "SUMMARY<<EOF" >> $GITHUB_ENV
+            echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+
+            # Check if lychee found any broken links
+            if grep -q "0 Errors" summary.txt; then
+              echo "No broken links found."
+              exit 0
+            else
+              echo "Broken links found."
+              exit 1
+            fi
+
+      - name: Check for failure and notify
+        # if: always() && steps.lychee.outcome == 'failure' && github.event_name == 'schedule'
+        if: always() && steps.lychee.outcome == 'failure'
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+          payload: |
+            {"text": "GitHub Actions: Errors found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"}
+        env:
+          SLACK_WEBHOOK_URL: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}

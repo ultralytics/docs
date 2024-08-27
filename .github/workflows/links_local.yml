@@ -1,0 +1,85 @@
+# Ultralytics YOLO 🚀, AGPL-3.0 license
+# Continuous Integration (CI) GitHub Actions tests broken link checker using https://github.com/lycheeverse/lychee
+# Ignores the following status codes to reduce false positives:
+#   - 401(Vimeo, 'unauthorized')
+#   - 403(OpenVINO, 'forbidden')
+#   - 429(Instagram, 'too many requests')
+#   - 500(Zenodo, 'cached')
+#   - 502(Zenodo, 'bad gateway')
+#   - 999(LinkedIn, 'unknown status code')
+
+name: Check Broken Repo links
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # runs at 00:00 UTC every day
+  push:
+    branches:
+      - main
+      - gh-pages
+  pull_request:
+    branches:
+      - main
+      - gh-pages
+
+jobs:
+  Links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download and install lychee
+        run: |
+          LYCHEE_URL=$(curl -s https://api.github.com/repos/lycheeverse/lychee/releases/latest | grep "browser_download_url" | grep "x86_64-unknown-linux-gnu.tar.gz" | cut -d '"' -f 4)
+          curl -L $LYCHEE_URL -o lychee.tar.gz
+          tar xzf lychee.tar.gz
+          sudo mv lychee /usr/local/bin
+
+      - name: Test Markdown and HTML links with retry
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 60
+          retry_wait_seconds: 3
+          max_attempts: 2
+          command: |
+            rm -rf .lycheecache
+            lychee \
+            --scheme 'https' \
+            --timeout 60 \
+            --insecure \
+            --accept 401,403,429,500,502,999 \
+            --exclude-all-private \
+            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com)' \
+            --exclude-path '**/ci.yaml' \
+            --github-token ${{ secrets.GITHUB_TOKEN }} \
+            --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
+            './**/*.md' \
+            './**/*.html'
+
+      - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
+        if: github.event_name == 'workflow_dispatch'
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 60
+          retry_wait_seconds: 3
+          max_attempts: 2
+          command: |
+            rm -rf .lycheecache
+            lychee \
+            --scheme 'https' \
+            --timeout 60 \
+            --insecure \
+            --accept 401,403,429,500,502,999 \
+            --exclude-all-private \
+            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com)' \
+            --exclude-path '**/ci.yaml' \
+            --github-token ${{ secrets.GITHUB_TOKEN }} \
+            --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
+            './**/*.md' \
+            './**/*.html' \
+            './**/*.yml' \
+            './**/*.yaml' \
+            './**/*.py' \
+            './**/*.ipynb'
