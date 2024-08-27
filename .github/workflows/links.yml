@@ -83,18 +83,16 @@ jobs:
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './www.ultralytics.com/**/*.html' | tee -a >(cat >> $GITHUB_STEP_SUMMARY)
-                        
-            echo "# Broken Link Check Summary" >> $GITHUB_STEP_SUMMARY
-            echo "## Execution Details" >> $GITHUB_STEP_SUMMARY
-            echo "- **Date:** $(date)" >> $GITHUB_STEP_SUMMARY
-            echo "- **Repository:** ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
-            echo "- **Workflow:** ${{ github.workflow }}" >> $GITHUB_STEP_SUMMARY
-            echo "- **Run ID:** ${{ github.run_id }}" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
+            './www.ultralytics.com/**/*.html' | tee lychee_output.txt
+              
+            # Add the lychee output to GitHub step summary
+            cat lychee_output.txt >> $GITHUB_STEP_SUMMARY
             
-            echo "SUMMARY=$(cat $GITHUB_STEP_SUMMARY)" >> $GITHUB_ENV
-
+            # Escape newlines and special characters for GitHub Actions environment file
+            ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' lychee_output.txt | sed 's/"/\\"/g')
+            echo "SUMMARY<<EOF" >> $GITHUB_ENV
+            echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
 
       - name: Check for failure and notify
         if: always() # This ensures the job runs even if previous jobs fail
