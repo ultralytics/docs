@@ -87,8 +87,8 @@ jobs:
             # Add the lychee output to GitHub step summary
             cat lychee_output.txt >> $GITHUB_STEP_SUMMARY
             
-            # Escape newlines, remove [], and escape special characters for GitHub Actions environment file
-            ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' lychee_output.txt | sed 's/\[//g; s/\]//g; s/"/\\"/g')
+            # Escape newlines, remove [], remove .html, and escape special characters for GitHub Actions environment file
+            ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' lychee_output.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
             echo "SUMMARY<<EOF" >> $GITHUB_ENV
             echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
