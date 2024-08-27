@@ -85,7 +85,9 @@ jobs:
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
             './www.ultralytics.com/**/*.html' | tee lychee_output.txt
             
-            # Add the lychee output to GitHub step summary
+            # Add the total file count and lychee output to GitHub step summary
+            echo "Total pages in www.ultralytics.com checked: $downloaded_files" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
             cat lychee_output.txt >> $GITHUB_STEP_SUMMARY
             
             # Escape newlines, remove [], remove .html, and escape special characters for GitHub Actions environment file
