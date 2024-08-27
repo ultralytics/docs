@@ -70,7 +70,7 @@ jobs:
           echo "Scanning $downloaded_files downloaded pages for broken links..."
 
           # Create summary.txt with the total page count
-          echo "Results for $downloaded_files pages in https://${{ matrix.website }}" > summary.txt
+          echo "*Results for $downloaded_files pages in https://${{ matrix.website }}*" > summary.txt
           echo "" >> summary.txt
 
           rm -rf .lycheecache
@@ -110,6 +110,6 @@ jobs:
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload: |
-            {"text": "GitHub Actions: Broken links found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"}
+            {"text": "GitHub Actions: Errors found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"}
         env:
           SLACK_WEBHOOK_URL: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
