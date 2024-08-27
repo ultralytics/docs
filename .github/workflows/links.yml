@@ -62,8 +62,7 @@ jobs:
           downloaded_files=$(find https://www.ultralytics.com -type f | wc -l)
           echo "Total pages downloaded: $downloaded_files"
 
-          rm -rf www.ultralytics.com/blog
-          # rm -rf www.ultralytics.com/glossary
+          rm -rf www.ultralytics.com/glossary
 
       - name: Run Broken Link Checks on Ultralytics Website
         uses: nick-fields/retry@v3
@@ -84,7 +83,7 @@ jobs:
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
             './www.ultralytics.com/**/*.html' | tee lychee_output.txt
-              
+            
             # Add the lychee output to GitHub step summary
             cat lychee_output.txt >> $GITHUB_STEP_SUMMARY
             
