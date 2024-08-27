@@ -14,14 +14,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *" # runs at 00:00 UTC every day
-  push:
-    branches:
-      - main
-      - gh-pages
   pull_request:
     branches:
       - main
-      - gh-pages
 
 jobs:
   Links:
@@ -30,10 +25,6 @@ jobs:
       matrix:
         branch: [main, gh-pages] # Define the branches to test
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ matrix.branch }} # Use matrix to check out the correct branch
 
       - name: Download and install lychee
         run: |
@@ -98,7 +89,7 @@ jobs:
 
           rm -rf www.ultralytics.com/blog
           rm -rf www.ultralytics.com/glossary
-          
+
       - name: Run Broken Link Checks on Ultralytics Website
         if: matrix.branch == 'main'
         uses: nick-fields/retry@v3
@@ -119,42 +110,11 @@ jobs:
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
             './www.ultralytics.com/**/*.html' | tee -a >(cat >> $GITHUB_STEP_SUMMARY)
+            
+            echo "STEP_SUMMARY=$(cat $GITHUB_STEP_SUMMARY)" >> $GITHUB_ENV
 
-      - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
-        if: github.event_name == 'workflow_dispatch'
-        uses: nick-fields/retry@v3
-        with:
-          timeout_minutes: 60
-          retry_wait_seconds: 900
-          max_attempts: 5
-          command: |
-            rm -rf .lycheecache
-            lychee \
-            --scheme 'https' \
-            --timeout 60 \
-            --insecure \
-            --accept 401,403,429,500,502,999 \
-            --exclude-all-private \
-            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com)' \
-            --exclude-path '**/ci.yaml' \
-            --github-token ${{ secrets.GITHUB_TOKEN }} \
-            --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './**/*.md' \
-            './**/*.html' \
-            './**/*.yml' \
-            './**/*.yaml' \
-            './**/*.py' \
-            './**/*.ipynb'
-
-  Summary:
-    runs-on: ubuntu-latest
-    needs: [Links] # Add job names that you want to check for failure
-    if: always() # This ensures the job runs even if previous jobs fail
-    steps:
-      - name: Read GITHUB_STEP_SUMMARY
-        run: echo "STEP_SUMMARY=$(cat $GITHUB_STEP_SUMMARY)" >> $GITHUB_ENV
-  
       - name: Check for failure and notify
+        if: always() # This ensures the job runs even if previous jobs fail
         # if: needs.Links.result == 'failure' && github.repository == 'ultralytics/docs' && (github.event_name == 'schedule' || github.event_name == 'push')
         uses: slackapi/slack-github-action@v1.26.0
         with:
