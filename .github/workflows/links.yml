@@ -151,11 +151,14 @@ jobs:
     needs: [Links] # Add job names that you want to check for failure
     if: always() # This ensures the job runs even if previous jobs fail
     steps:
+      - name: Read GITHUB_STEP_SUMMARY
+        run: echo "STEP_SUMMARY=$(cat $GITHUB_STEP_SUMMARY)" >> $GITHUB_ENV
+  
       - name: Check for failure and notify
         # if: needs.Links.result == 'failure' && github.repository == 'ultralytics/docs' && (github.event_name == 'schedule' || github.event_name == 'push')
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload: |
-            {"text": "<!channel> GitHub Actions error for ${{ github.workflow }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n*Summary:* ${{ env.GITHUB_STEP_SUMMARY }}"}
+            {"text": "<!channel> GitHub Actions error for ${{ github.workflow }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n*Summary:*\n```\n${{ env.STEP_SUMMARY }}\n```"}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_WEBSITE }}
