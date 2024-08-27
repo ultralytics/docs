@@ -87,7 +87,7 @@ jobs:
             './${{ matrix.website }}/**/*.html' | tee lychee_output.txt
 
             # Add the total file count and lychee output to GitHub step summary
-            echo "Total pages in ${{ matrix.website }} checked: $downloaded_files" >> $GITHUB_STEP_SUMMARY
+            echo "Results for $downloaded_files pages in https://${{ matrix.website }}" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             cat lychee_output.txt >> $GITHUB_STEP_SUMMARY
 
