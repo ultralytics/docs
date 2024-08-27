@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *" # runs at 00:00 UTC every day
-  # pull_request:
+  pull_request:
 
 jobs:
   Links:
@@ -107,7 +107,8 @@ jobs:
             fi
 
       - name: Check for failure and notify
-        if: always() && steps.lychee.outcome == 'failure' && github.event_name == 'schedule'
+        # if: always() && steps.lychee.outcome == 'failure' && github.event_name == 'schedule'
+        if: always() && steps.lychee.outcome == 'failure'
         uses: slackapi/slack-github-action@v1.26.0
         with:
           payload: |
