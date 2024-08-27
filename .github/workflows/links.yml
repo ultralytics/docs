@@ -86,6 +86,14 @@ jobs:
             './www.ultralytics.com/**/*.html' | tee -a >(cat >> $GITHUB_STEP_SUMMARY)
             
             echo "SUMMARY=$(cat $GITHUB_STEP_SUMMARY)" >> $GITHUB_ENV
+            
+            echo "# Broken Link Check Summary" >> $GITHUB_STEP_SUMMARY
+            echo "## Execution Details" >> $GITHUB_STEP_SUMMARY
+            echo "- **Date:** $(date)" >> $GITHUB_STEP_SUMMARY
+            echo "- **Repository:** ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **Workflow:** ${{ github.workflow }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **Run ID:** ${{ github.run_id }}" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
 
       - name: Check for failure and notify
         if: always() # This ensures the job runs even if previous jobs fail
