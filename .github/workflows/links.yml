@@ -31,7 +31,6 @@ jobs:
           sudo mv lychee /usr/local/bin
 
       - name: Download Ultralytics Website
-        if: matrix.branch == 'main'
         run: |
           # Download sitemap.xml
           wget -O sitemap.xml https://www.ultralytics.com/sitemap.xml
@@ -67,7 +66,6 @@ jobs:
           rm -rf www.ultralytics.com/glossary
 
       - name: Run Broken Link Checks on Ultralytics Website
-        if: matrix.branch == 'main'
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 60
