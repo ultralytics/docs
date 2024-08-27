@@ -6393,7 +6393,7 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 <td>
 <div class="doc-md-description">
-<p>Covariance metrixs corresponding to original rotated bounding boxes.</p>
+<p>Covariance matrices corresponding to original rotated bounding boxes.</p>
 </div>
 </td>
 </tr>
@@ -6426,7 +6426,7 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 <a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="sd">        boxes (torch.Tensor): A tensor of shape (N, 5) representing rotated bounding boxes, with xywhr format.</span>
 <a id="__codelineno-0-179" name="__codelineno-0-179"></a>
 <a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-181" name="__codelineno-0-181"></a><span class="sd">        (torch.Tensor): Covariance metrixs corresponding to original rotated bounding boxes.</span>
+<a id="__codelineno-0-181" name="__codelineno-0-181"></a><span class="sd">        (torch.Tensor): Covariance matrices corresponding to original rotated bounding boxes.</span>
 <a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">    """</span>
 <a id="__codelineno-0-183" name="__codelineno-0-183"></a>    <span class="c1"># Gaussian bounding boxes, ignore the center points (the first two columns) because they are not needed here.</span>
 <a id="__codelineno-0-184" name="__codelineno-0-184"></a>    <span class="n">gbbs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">boxes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">12</span><span class="p">,</span> <span class="n">boxes</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">:]),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
