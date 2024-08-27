@@ -67,7 +67,7 @@ jobs:
         run: |
           # Count successfully downloaded files
           downloaded_files=$(find ${{ matrix.website }} -type f | wc -l)
-          echo "Total pages downloaded: $downloaded_files"
+          echo "Scanning $downloaded_files downloaded pages for broken links..."
 
           # Create summary.txt with the total page count
           echo "Results for $downloaded_files pages in https://${{ matrix.website }}" > summary.txt
