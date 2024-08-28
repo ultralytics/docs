@@ -3335,11 +3335,7 @@ executing the corresponding tasks such as training, validation, prediction, expo
 <span class="normal"><a href="#__codelineno-0-834">834</a></span>
 <span class="normal"><a href="#__codelineno-0-835">835</a></span>
 <span class="normal"><a href="#__codelineno-0-836">836</a></span>
-<span class="normal"><a href="#__codelineno-0-837">837</a></span>
-<span class="normal"><a href="#__codelineno-0-838">838</a></span>
-<span class="normal"><a href="#__codelineno-0-839">839</a></span>
-<span class="normal"><a href="#__codelineno-0-840">840</a></span>
-<span class="normal"><a href="#__codelineno-0-841">841</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-677" name="__codelineno-0-677"></a><span class="k">def</span> <span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-837">837</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-677" name="__codelineno-0-677"></a><span class="k">def</span> <span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <a id="__codelineno-0-678" name="__codelineno-0-678"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-679" name="__codelineno-0-679"></a><span class="sd">    Ultralytics entrypoint function for parsing and executing command-line arguments.</span>
 <a id="__codelineno-0-680" name="__codelineno-0-680"></a>
@@ -3458,52 +3454,48 @@ executing the corresponding tasks such as training, validation, prediction, expo
 <a id="__codelineno-0-793" name="__codelineno-0-793"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">FastSAM</span>
 <a id="__codelineno-0-794" name="__codelineno-0-794"></a>
 <a id="__codelineno-0-795" name="__codelineno-0-795"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">FastSAM</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-<a id="__codelineno-0-796" name="__codelineno-0-796"></a>    <span class="k">elif</span> <span class="s2">"sam2"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
-<a id="__codelineno-0-797" name="__codelineno-0-797"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">SAM2</span>
+<a id="__codelineno-0-796" name="__codelineno-0-796"></a>    <span class="k">elif</span> <span class="s2">"sam_"</span> <span class="ow">in</span> <span class="n">stem</span> <span class="ow">or</span> <span class="s2">"sam2_"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
+<a id="__codelineno-0-797" name="__codelineno-0-797"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">SAM</span>
 <a id="__codelineno-0-798" name="__codelineno-0-798"></a>
-<a id="__codelineno-0-799" name="__codelineno-0-799"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">SAM2</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-<a id="__codelineno-0-800" name="__codelineno-0-800"></a>    <span class="k">elif</span> <span class="s2">"sam"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
-<a id="__codelineno-0-801" name="__codelineno-0-801"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">SAM</span>
+<a id="__codelineno-0-799" name="__codelineno-0-799"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-0-800" name="__codelineno-0-800"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-801" name="__codelineno-0-801"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a id="__codelineno-0-802" name="__codelineno-0-802"></a>
-<a id="__codelineno-0-803" name="__codelineno-0-803"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-<a id="__codelineno-0-804" name="__codelineno-0-804"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-805" name="__codelineno-0-805"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-0-803" name="__codelineno-0-803"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">)</span>
+<a id="__codelineno-0-804" name="__codelineno-0-804"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"pretrained"</span><span class="p">),</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-0-805" name="__codelineno-0-805"></a>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">overrides</span><span class="p">[</span><span class="s2">"pretrained"</span><span class="p">])</span>
 <a id="__codelineno-0-806" name="__codelineno-0-806"></a>
-<a id="__codelineno-0-807" name="__codelineno-0-807"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">)</span>
-<a id="__codelineno-0-808" name="__codelineno-0-808"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"pretrained"</span><span class="p">),</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-0-809" name="__codelineno-0-809"></a>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">overrides</span><span class="p">[</span><span class="s2">"pretrained"</span><span class="p">])</span>
-<a id="__codelineno-0-810" name="__codelineno-0-810"></a>
-<a id="__codelineno-0-811" name="__codelineno-0-811"></a>    <span class="c1"># Task Update</span>
-<a id="__codelineno-0-812" name="__codelineno-0-812"></a>    <span class="k">if</span> <span class="n">task</span> <span class="o">!=</span> <span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="p">:</span>
-<a id="__codelineno-0-813" name="__codelineno-0-813"></a>        <span class="k">if</span> <span class="n">task</span><span class="p">:</span>
-<a id="__codelineno-0-814" name="__codelineno-0-814"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<a id="__codelineno-0-815" name="__codelineno-0-815"></a>                <span class="sa">f</span><span class="s2">"WARNING ⚠️ conflicting 'task=</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">' passed with 'task=</span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' model. "</span>
-<a id="__codelineno-0-816" name="__codelineno-0-816"></a>                <span class="sa">f</span><span class="s2">"Ignoring 'task=</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">' and updating to 'task=</span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' to match model."</span>
-<a id="__codelineno-0-817" name="__codelineno-0-817"></a>            <span class="p">)</span>
-<a id="__codelineno-0-818" name="__codelineno-0-818"></a>        <span class="n">task</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">task</span>
-<a id="__codelineno-0-819" name="__codelineno-0-819"></a>
-<a id="__codelineno-0-820" name="__codelineno-0-820"></a>    <span class="c1"># Mode</span>
-<a id="__codelineno-0-821" name="__codelineno-0-821"></a>    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"predict"</span><span class="p">,</span> <span class="s2">"track"</span><span class="p">}</span> <span class="ow">and</span> <span class="s2">"source"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
-<a id="__codelineno-0-822" name="__codelineno-0-822"></a>        <span class="n">overrides</span><span class="p">[</span><span class="s2">"source"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">source</span> <span class="ow">or</span> <span class="n">ASSETS</span>
-<a id="__codelineno-0-823" name="__codelineno-0-823"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'source' argument is missing. Using default 'source=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'source'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
-<a id="__codelineno-0-824" name="__codelineno-0-824"></a>    <span class="k">elif</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"train"</span><span class="p">,</span> <span class="s2">"val"</span><span class="p">}:</span>
-<a id="__codelineno-0-825" name="__codelineno-0-825"></a>        <span class="k">if</span> <span class="s2">"data"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span> <span class="ow">and</span> <span class="s2">"resume"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
-<a id="__codelineno-0-826" name="__codelineno-0-826"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">data</span> <span class="ow">or</span> <span class="n">TASK2DATA</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">task</span> <span class="ow">or</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">task</span><span class="p">,</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-0-827" name="__codelineno-0-827"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'data' argument is missing. Using default 'data=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
-<a id="__codelineno-0-828" name="__codelineno-0-828"></a>    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"export"</span><span class="p">:</span>
-<a id="__codelineno-0-829" name="__codelineno-0-829"></a>        <span class="k">if</span> <span class="s2">"format"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
-<a id="__codelineno-0-830" name="__codelineno-0-830"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"format"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">format</span> <span class="ow">or</span> <span class="s2">"torchscript"</span>
-<a id="__codelineno-0-831" name="__codelineno-0-831"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'format' argument is missing. Using default 'format=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'format'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
-<a id="__codelineno-0-832" name="__codelineno-0-832"></a>
-<a id="__codelineno-0-833" name="__codelineno-0-833"></a>    <span class="c1"># Run command in python</span>
-<a id="__codelineno-0-834" name="__codelineno-0-834"></a>    <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mode</span><span class="p">)(</span><span class="o">**</span><span class="n">overrides</span><span class="p">)</span>  <span class="c1"># default args from model</span>
-<a id="__codelineno-0-835" name="__codelineno-0-835"></a>
-<a id="__codelineno-0-836" name="__codelineno-0-836"></a>    <span class="c1"># Show help</span>
-<a id="__codelineno-0-837" name="__codelineno-0-837"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"💡 Learn more at https://docs.ultralytics.com/modes/</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-838" name="__codelineno-0-838"></a>
-<a id="__codelineno-0-839" name="__codelineno-0-839"></a>    <span class="c1"># Recommend VS Code extension</span>
-<a id="__codelineno-0-840" name="__codelineno-0-840"></a>    <span class="k">if</span> <span class="n">IS_VSCODE</span> <span class="ow">and</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"vscode_msg"</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-841" name="__codelineno-0-841"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">vscode_msg</span><span class="p">())</span>
+<a id="__codelineno-0-807" name="__codelineno-0-807"></a>    <span class="c1"># Task Update</span>
+<a id="__codelineno-0-808" name="__codelineno-0-808"></a>    <span class="k">if</span> <span class="n">task</span> <span class="o">!=</span> <span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="p">:</span>
+<a id="__codelineno-0-809" name="__codelineno-0-809"></a>        <span class="k">if</span> <span class="n">task</span><span class="p">:</span>
+<a id="__codelineno-0-810" name="__codelineno-0-810"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+<a id="__codelineno-0-811" name="__codelineno-0-811"></a>                <span class="sa">f</span><span class="s2">"WARNING ⚠️ conflicting 'task=</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">' passed with 'task=</span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' model. "</span>
+<a id="__codelineno-0-812" name="__codelineno-0-812"></a>                <span class="sa">f</span><span class="s2">"Ignoring 'task=</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">' and updating to 'task=</span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' to match model."</span>
+<a id="__codelineno-0-813" name="__codelineno-0-813"></a>            <span class="p">)</span>
+<a id="__codelineno-0-814" name="__codelineno-0-814"></a>        <span class="n">task</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">task</span>
+<a id="__codelineno-0-815" name="__codelineno-0-815"></a>
+<a id="__codelineno-0-816" name="__codelineno-0-816"></a>    <span class="c1"># Mode</span>
+<a id="__codelineno-0-817" name="__codelineno-0-817"></a>    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"predict"</span><span class="p">,</span> <span class="s2">"track"</span><span class="p">}</span> <span class="ow">and</span> <span class="s2">"source"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
+<a id="__codelineno-0-818" name="__codelineno-0-818"></a>        <span class="n">overrides</span><span class="p">[</span><span class="s2">"source"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">source</span> <span class="ow">or</span> <span class="n">ASSETS</span>
+<a id="__codelineno-0-819" name="__codelineno-0-819"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'source' argument is missing. Using default 'source=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'source'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-820" name="__codelineno-0-820"></a>    <span class="k">elif</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"train"</span><span class="p">,</span> <span class="s2">"val"</span><span class="p">}:</span>
+<a id="__codelineno-0-821" name="__codelineno-0-821"></a>        <span class="k">if</span> <span class="s2">"data"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span> <span class="ow">and</span> <span class="s2">"resume"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
+<a id="__codelineno-0-822" name="__codelineno-0-822"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">data</span> <span class="ow">or</span> <span class="n">TASK2DATA</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">task</span> <span class="ow">or</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">task</span><span class="p">,</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-0-823" name="__codelineno-0-823"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'data' argument is missing. Using default 'data=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-824" name="__codelineno-0-824"></a>    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"export"</span><span class="p">:</span>
+<a id="__codelineno-0-825" name="__codelineno-0-825"></a>        <span class="k">if</span> <span class="s2">"format"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
+<a id="__codelineno-0-826" name="__codelineno-0-826"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"format"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">format</span> <span class="ow">or</span> <span class="s2">"torchscript"</span>
+<a id="__codelineno-0-827" name="__codelineno-0-827"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'format' argument is missing. Using default 'format=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'format'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-828" name="__codelineno-0-828"></a>
+<a id="__codelineno-0-829" name="__codelineno-0-829"></a>    <span class="c1"># Run command in python</span>
+<a id="__codelineno-0-830" name="__codelineno-0-830"></a>    <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mode</span><span class="p">)(</span><span class="o">**</span><span class="n">overrides</span><span class="p">)</span>  <span class="c1"># default args from model</span>
+<a id="__codelineno-0-831" name="__codelineno-0-831"></a>
+<a id="__codelineno-0-832" name="__codelineno-0-832"></a>    <span class="c1"># Show help</span>
+<a id="__codelineno-0-833" name="__codelineno-0-833"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"💡 Learn more at https://docs.ultralytics.com/modes/</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-834" name="__codelineno-0-834"></a>
+<a id="__codelineno-0-835" name="__codelineno-0-835"></a>    <span class="c1"># Recommend VS Code extension</span>
+<a id="__codelineno-0-836" name="__codelineno-0-836"></a>    <span class="k">if</span> <span class="n">IS_VSCODE</span> <span class="ow">and</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"vscode_msg"</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-837" name="__codelineno-0-837"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">vscode_msg</span><span class="p">())</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3537,7 +3529,11 @@ to create a custom configuration file based on the default settings.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-845">845</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-841">841</a></span>
+<span class="normal"><a href="#__codelineno-0-842">842</a></span>
+<span class="normal"><a href="#__codelineno-0-843">843</a></span>
+<span class="normal"><a href="#__codelineno-0-844">844</a></span>
+<span class="normal"><a href="#__codelineno-0-845">845</a></span>
 <span class="normal"><a href="#__codelineno-0-846">846</a></span>
 <span class="normal"><a href="#__codelineno-0-847">847</a></span>
 <span class="normal"><a href="#__codelineno-0-848">848</a></span>
@@ -3559,37 +3555,33 @@ to create a custom configuration file based on the default settings.</p>
 <span class="normal"><a href="#__codelineno-0-864">864</a></span>
 <span class="normal"><a href="#__codelineno-0-865">865</a></span>
 <span class="normal"><a href="#__codelineno-0-866">866</a></span>
-<span class="normal"><a href="#__codelineno-0-867">867</a></span>
-<span class="normal"><a href="#__codelineno-0-868">868</a></span>
-<span class="normal"><a href="#__codelineno-0-869">869</a></span>
-<span class="normal"><a href="#__codelineno-0-870">870</a></span>
-<span class="normal"><a href="#__codelineno-0-871">871</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-845" name="__codelineno-0-845"></a><span class="k">def</span> <span class="nf">copy_default_cfg</span><span class="p">():</span>
-<a id="__codelineno-0-846" name="__codelineno-0-846"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-847" name="__codelineno-0-847"></a><span class="sd">    Copies the default configuration file and creates a new one with '_copy' appended to its name.</span>
+<span class="normal"><a href="#__codelineno-0-867">867</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-841" name="__codelineno-0-841"></a><span class="k">def</span> <span class="nf">copy_default_cfg</span><span class="p">():</span>
+<a id="__codelineno-0-842" name="__codelineno-0-842"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-843" name="__codelineno-0-843"></a><span class="sd">    Copies the default configuration file and creates a new one with '_copy' appended to its name.</span>
+<a id="__codelineno-0-844" name="__codelineno-0-844"></a>
+<a id="__codelineno-0-845" name="__codelineno-0-845"></a><span class="sd">    This function duplicates the existing default configuration file (DEFAULT_CFG_PATH) and saves it</span>
+<a id="__codelineno-0-846" name="__codelineno-0-846"></a><span class="sd">    with '_copy' appended to its name in the current working directory. It provides a convenient way</span>
+<a id="__codelineno-0-847" name="__codelineno-0-847"></a><span class="sd">    to create a custom configuration file based on the default settings.</span>
 <a id="__codelineno-0-848" name="__codelineno-0-848"></a>
-<a id="__codelineno-0-849" name="__codelineno-0-849"></a><span class="sd">    This function duplicates the existing default configuration file (DEFAULT_CFG_PATH) and saves it</span>
-<a id="__codelineno-0-850" name="__codelineno-0-850"></a><span class="sd">    with '_copy' appended to its name in the current working directory. It provides a convenient way</span>
-<a id="__codelineno-0-851" name="__codelineno-0-851"></a><span class="sd">    to create a custom configuration file based on the default settings.</span>
-<a id="__codelineno-0-852" name="__codelineno-0-852"></a>
-<a id="__codelineno-0-853" name="__codelineno-0-853"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-854" name="__codelineno-0-854"></a><span class="sd">        &gt;&gt;&gt; copy_default_cfg()</span>
-<a id="__codelineno-0-855" name="__codelineno-0-855"></a><span class="sd">        # Output: default.yaml copied to /path/to/current/directory/default_copy.yaml</span>
-<a id="__codelineno-0-856" name="__codelineno-0-856"></a><span class="sd">        # Example YOLO command with this new custom cfg:</span>
-<a id="__codelineno-0-857" name="__codelineno-0-857"></a><span class="sd">        #   yolo cfg='/path/to/current/directory/default_copy.yaml' imgsz=320 batch=8</span>
-<a id="__codelineno-0-858" name="__codelineno-0-858"></a>
-<a id="__codelineno-0-859" name="__codelineno-0-859"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-860" name="__codelineno-0-860"></a><span class="sd">        - The new configuration file is created in the current working directory.</span>
-<a id="__codelineno-0-861" name="__codelineno-0-861"></a><span class="sd">        - After copying, the function prints a message with the new file's location and an example</span>
-<a id="__codelineno-0-862" name="__codelineno-0-862"></a><span class="sd">          YOLO command demonstrating how to use the new configuration file.</span>
-<a id="__codelineno-0-863" name="__codelineno-0-863"></a><span class="sd">        - This function is useful for users who want to modify the default configuration without</span>
-<a id="__codelineno-0-864" name="__codelineno-0-864"></a><span class="sd">          altering the original file.</span>
-<a id="__codelineno-0-865" name="__codelineno-0-865"></a><span class="sd">    """</span>
-<a id="__codelineno-0-866" name="__codelineno-0-866"></a>    <span class="n">new_file</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="n">DEFAULT_CFG_PATH</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">"_copy.yaml"</span><span class="p">)</span>
-<a id="__codelineno-0-867" name="__codelineno-0-867"></a>    <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">DEFAULT_CFG_PATH</span><span class="p">,</span> <span class="n">new_file</span><span class="p">)</span>
-<a id="__codelineno-0-868" name="__codelineno-0-868"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-<a id="__codelineno-0-869" name="__codelineno-0-869"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DEFAULT_CFG_PATH</span><span class="si">}</span><span class="s2"> copied to </span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-<a id="__codelineno-0-870" name="__codelineno-0-870"></a>        <span class="sa">f</span><span class="s2">"Example YOLO command with this new custom cfg:</span><span class="se">\n</span><span class="s2">    yolo cfg='</span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="s2">' imgsz=320 batch=8"</span>
-<a id="__codelineno-0-871" name="__codelineno-0-871"></a>    <span class="p">)</span>
+<a id="__codelineno-0-849" name="__codelineno-0-849"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-850" name="__codelineno-0-850"></a><span class="sd">        &gt;&gt;&gt; copy_default_cfg()</span>
+<a id="__codelineno-0-851" name="__codelineno-0-851"></a><span class="sd">        # Output: default.yaml copied to /path/to/current/directory/default_copy.yaml</span>
+<a id="__codelineno-0-852" name="__codelineno-0-852"></a><span class="sd">        # Example YOLO command with this new custom cfg:</span>
+<a id="__codelineno-0-853" name="__codelineno-0-853"></a><span class="sd">        #   yolo cfg='/path/to/current/directory/default_copy.yaml' imgsz=320 batch=8</span>
+<a id="__codelineno-0-854" name="__codelineno-0-854"></a>
+<a id="__codelineno-0-855" name="__codelineno-0-855"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-856" name="__codelineno-0-856"></a><span class="sd">        - The new configuration file is created in the current working directory.</span>
+<a id="__codelineno-0-857" name="__codelineno-0-857"></a><span class="sd">        - After copying, the function prints a message with the new file's location and an example</span>
+<a id="__codelineno-0-858" name="__codelineno-0-858"></a><span class="sd">          YOLO command demonstrating how to use the new configuration file.</span>
+<a id="__codelineno-0-859" name="__codelineno-0-859"></a><span class="sd">        - This function is useful for users who want to modify the default configuration without</span>
+<a id="__codelineno-0-860" name="__codelineno-0-860"></a><span class="sd">          altering the original file.</span>
+<a id="__codelineno-0-861" name="__codelineno-0-861"></a><span class="sd">    """</span>
+<a id="__codelineno-0-862" name="__codelineno-0-862"></a>    <span class="n">new_file</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="n">DEFAULT_CFG_PATH</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">"_copy.yaml"</span><span class="p">)</span>
+<a id="__codelineno-0-863" name="__codelineno-0-863"></a>    <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">DEFAULT_CFG_PATH</span><span class="p">,</span> <span class="n">new_file</span><span class="p">)</span>
+<a id="__codelineno-0-864" name="__codelineno-0-864"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+<a id="__codelineno-0-865" name="__codelineno-0-865"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DEFAULT_CFG_PATH</span><span class="si">}</span><span class="s2"> copied to </span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
+<a id="__codelineno-0-866" name="__codelineno-0-866"></a>        <span class="sa">f</span><span class="s2">"Example YOLO command with this new custom cfg:</span><span class="se">\n</span><span class="s2">    yolo cfg='</span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="s2">' imgsz=320 batch=8"</span>
+<a id="__codelineno-0-867" name="__codelineno-0-867"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
