@@ -1,0 +1,147 @@
+# Ultralytics 🚀 - AGPL-3.0 License https://ultralytics.com/license
+# Ultralytics Actions https://github.com/ultralytics/actions
+# This workflow automatically publishes a new repository tag and release
+
+name: Tag and Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name (e.g., v0.0.0)'
+        required: true
+        type: string
+      publish_tag:
+        description: 'Publish new tag'
+        required: true
+        type: boolean
+        default: true
+      publish_release:
+        description: 'Publish new release'
+        required: true
+        type: boolean
+        default: true
+
+jobs:
+  tag-and-release:
+    if: github.repository == 'ultralytics/docs' && github.actor == 'glenn-jocher'
+    name: Tag and Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Git config
+        run: |
+          git config --global user.name "UltralyticsAssistant"
+          git config --global user.email "web@ultralytics.com"
+
+      - name: Check if tag exists
+        id: check_tag
+        run: |
+          if git rev-parse ${{ github.event.inputs.tag_name }} >/dev/null 2>&1; then
+            echo "Tag ${{ github.event.inputs.tag_name }} already exists"
+            echo "tag_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "Tag ${{ github.event.inputs.tag_name }} does not exist"
+            echo "tag_exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Publish new tag
+        if: github.event.inputs.publish_tag == 'true' && steps.check_tag.outputs.tag_exists == 'false'
+        run: |
+          git tag -a "${{ github.event.inputs.tag_name }}" -m "$(git log -1 --pretty=%B)"
+          git push origin "${{ github.event.inputs.tag_name }}"
+
+      - name: Set up Python environment
+        if: github.event.inputs.publish_release == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          cache: "pip"
+
+      - name: Install dependencies
+        if: github.event.inputs.publish_release == 'true'
+        run: |
+          python -m pip install --upgrade pip wheel
+          pip install openai requests
+
+      - name: Publish new release
+        if: github.event.inputs.publish_release == 'true'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+          CURRENT_TAG: ${{ github.event.inputs.tag_name }}
+        shell: python
+        run: |
+          import openai
+          import os
+          import requests
+          import json
+          import subprocess
+
+          # Retrieve environment variables
+          OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+          GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+          CURRENT_TAG = os.getenv('CURRENT_TAG')
+
+          # Check for required environment variables
+          if not all([OPENAI_API_KEY, GITHUB_TOKEN, CURRENT_TAG]):
+              raise ValueError("One or more required environment variables are missing.")
+
+          repo = os.getenv('GITHUB_REPOSITORY')
+          headers = {"Authorization": f"token {GITHUB_TOKEN}", "Accept": "application/vnd.github.v3.diff"}
+
+          # Get the previous tag
+          tags = subprocess.run(['git', 'tag', '--sort=-creatordate'], check=True, text=True, capture_output=True).stdout.split()
+          previous_tag = next((tag for tag in tags if tag != CURRENT_TAG), None)
+
+          if previous_tag:
+              # Get the diff between the tags
+              url = f"https://api.github.com/repos/{repo}/compare/{previous_tag}...{CURRENT_TAG}"
+              response = requests.get(url, headers=headers)
+              diff = response.text if response.status_code == 200 else f"Failed to get diff: {response.content}"
+          else:
+              diff = "This is the first release."
+
+          # Get summary
+          messages = [
+              {
+                  "role": "system",
+                  "content": "You are an Ultralytics AI assistant skilled in software development and technical communication. Your task is to summarize GitHub releases in a way that is detailed, accurate, and understandable to both expert developers and non-expert users. Focus on highlighting the key changes and their impact in simple and intuitive terms."
+              },
+              {
+                  "role": "user",
+                  "content": f"Summarize the updates made in the '{CURRENT_TAG}' tag, focusing on major changes, their purpose, and potential impact. Keep the summary clear and suitable for a broad audience. Add emojis to enliven the summary. Reply directly with a summary along these example guidelines, though feel free to adjust as appropriate:\n\n"
+                             f"## 🌟 Summary (single-line synopsis)\n"
+                             f"## 📊 Key Changes (bullet points highlighting any major changes)\n"
+                             f"## 🎯 Purpose & Impact (bullet points explaining any benefits and potential impact to users)\n"
+                             f"\n\nHere's the release diff:\n\n{diff[:300000]}",
+              }
+          ]
+          client = openai.OpenAI(api_key=OPENAI_API_KEY)
+          completion = client.chat.completions.create(model="gpt-4-1106-preview", messages=messages)
+          summary = completion.choices[0].message.content.strip()
+
+          # Get the latest commit message
+          commit_message = subprocess.run(['git', 'log', '-1', '--pretty=%B'], check=True, text=True, capture_output=True).stdout.split("\n")[0].strip()
+
+          # Prepare release data
+          release = {
+              'tag_name': CURRENT_TAG,
+              'name': f"{CURRENT_TAG} - {commit_message}",
+              'body': summary,
+              'draft': False,
+              'prerelease': False
+          }
+
+          # Create the release on GitHub
+          release_url = f"https://api.github.com/repos/{repo}/releases"
+          release_response = requests.post(release_url, headers=headers, data=json.dumps(release))
+          if release_response.status_code == 201:
+              print(f'Successfully created release {CURRENT_TAG}')
+          else:
+              print(f'Failed to create release {CURRENT_TAG}: {release_response.content}')
