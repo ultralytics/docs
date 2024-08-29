@@ -51,26 +51,22 @@ jobs:
           fi
 
       - name: Publish new tag
-        if: github.event.inputs.publish_tag == 'true' && steps.check_tag.outputs.tag_exists == 'false'
+        if: steps.check_tag.outputs.tag_exists == 'false'
         run: |
           git tag -a "${{ github.event.inputs.tag_name }}" -m "$(git log -1 --pretty=%B)"
           git push origin "${{ github.event.inputs.tag_name }}"
 
       - name: Set up Python environment
-        if: github.event.inputs.publish_release == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-          cache: "pip"
 
       - name: Install dependencies
-        if: github.event.inputs.publish_release == 'true'
         run: |
           python -m pip install --upgrade pip wheel
           pip install openai requests
 
       - name: Publish new release
-        if: github.event.inputs.publish_release == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
