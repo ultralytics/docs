@@ -1346,7 +1346,12 @@
 <span class="normal"><a href="#__codelineno-0-144">144</a></span>
 <span class="normal"><a href="#__codelineno-0-145">145</a></span>
 <span class="normal"><a href="#__codelineno-0-146">146</a></span>
-<span class="normal"><a href="#__codelineno-0-147">147</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">def</span> <span class="nf">run_ray_tune</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-147">147</a></span>
+<span class="normal"><a href="#__codelineno-0-148">148</a></span>
+<span class="normal"><a href="#__codelineno-0-149">149</a></span>
+<span class="normal"><a href="#__codelineno-0-150">150</a></span>
+<span class="normal"><a href="#__codelineno-0-151">151</a></span>
+<span class="normal"><a href="#__codelineno-0-152">152</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">def</span> <span class="nf">run_ray_tune</span><span class="p">(</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">model</span><span class="p">,</span> <span class="n">space</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">grace_period</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">gpu_per_trial</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="o">**</span><span class="n">train_args</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="p">):</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="sd">"""</span>
@@ -1483,8 +1488,13 @@
 <a id="__codelineno-0-143" name="__codelineno-0-143"></a>    <span class="c1"># Run the hyperparameter search</span>
 <a id="__codelineno-0-144" name="__codelineno-0-144"></a>    <span class="n">tuner</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <a id="__codelineno-0-145" name="__codelineno-0-145"></a>
-<a id="__codelineno-0-146" name="__codelineno-0-146"></a>    <span class="c1"># Return the results of the hyperparameter search</span>
-<a id="__codelineno-0-147" name="__codelineno-0-147"></a>    <span class="k">return</span> <span class="n">tuner</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span>
+<a id="__codelineno-0-146" name="__codelineno-0-146"></a>    <span class="c1"># Get the results of the hyperparameter search</span>
+<a id="__codelineno-0-147" name="__codelineno-0-147"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">tuner</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span>
+<a id="__codelineno-0-148" name="__codelineno-0-148"></a>
+<a id="__codelineno-0-149" name="__codelineno-0-149"></a>    <span class="c1"># Shut down Ray to clean up workers</span>
+<a id="__codelineno-0-150" name="__codelineno-0-150"></a>    <span class="n">ray</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+<a id="__codelineno-0-151" name="__codelineno-0-151"></a>
+<a id="__codelineno-0-152" name="__codelineno-0-152"></a>    <span class="k">return</span> <span class="n">results</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
