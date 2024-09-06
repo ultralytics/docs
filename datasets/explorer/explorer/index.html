@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="VOC Exploration Example" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/explorer/explorer" property="og:url"/><meta content="VOC Exploration Example" property="og:title"/><meta content="" property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/explorer/explorer" property="twitter:url"/><meta content="VOC Exploration Example" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "VOC Exploration Example", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-01-07 00:23:25 +0530", "dateModified": "2024-08-28 12:32:03 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": ""}</script></head>
+<meta content="VOC Exploration Example" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/explorer/explorer" property="og:url"/><meta content="VOC Exploration Example" property="og:title"/><meta content="" property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/explorer/explorer" property="twitter:url"/><meta content="VOC Exploration Example" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "VOC Exploration Example", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-01-07 00:23:25 +0530", "dateModified": "2024-09-06 17:17:33 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": ""}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1345,10 +1345,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">ultralytics</span><span class="p">[</span><span class="n">explorer</span><span class="p">]</span> <span class="n">openai</span>
 <span class="kn">import</span> <span class="nn">ultralytics</span>
+
 <span class="n">ultralytics</span><span class="o">.</span><span class="n">checks</span><span class="p">()</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1">%pip install ultralytics[explorer] openai
 import ultralytics
+
 ultralytics.checks()</div>
 </div>
 </div>
@@ -1503,11 +1505,10 @@ similar.head()</div>
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">6500</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="c1">#exp.plot_similar(idx=[100,101], limit=10) # Can also pass list of idxs or imgs</span>
+<span class="c1"># exp.plot_similar(idx=[100,101], limit=10) # Can also pass list of idxs or imgs</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-5">exp.plot_similar(idx=6500, limit=20)
-#exp.plot_similar(idx=[100,101], limit=10) # Can also pass list of idxs or imgs
-</div>
+# exp.plot_similar(idx=[100,101], limit=10) # Can also pass list of idxs or imgs</div>
 </div>
 </div>
 </div>
@@ -1532,10 +1533,13 @@ similar.head()</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Can also pass any external images</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span>
+    <span class="n">img</span><span class="o">=</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>  <span class="c1"># Can also pass any external images</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">exp.plot_similar(img="https://ultralytics.com/images/bus.jpg", limit=10, labels=False) # Can also pass any external images
-</div>
+<div class="clipboard-copy-txt" id="cell-6">exp.plot_similar(
+    img="https://ultralytics.com/images/bus.jpg", limit=10, labels=False
+)  # Can also pass any external images</div>
 </div>
 </div>
 </div>
@@ -1635,15 +1639,17 @@ Image.fromarray(plt)
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># plot</span>
-<span class="kn">from</span> <span class="nn">ultralytics.data.explorer</span> <span class="kn">import</span> <span class="n">plot_query_result</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="kn">from</span> <span class="nn">ultralytics.data.explorer</span> <span class="kn">import</span> <span class="n">plot_query_result</span>
 
 <span class="n">plt</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">exp</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me 10 images containing exactly 2 persons"</span><span class="p">))</span>
 <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">plt</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-8"># plot
-from ultralytics.data.explorer import plot_query_result
 from PIL import Image
+
+from ultralytics.data.explorer import plot_query_result
 
 plt = plot_query_result(exp.ask_ai("show me 10 images containing exactly 2 persons"))
 Image.fromarray(plt)</div>
@@ -1866,8 +1872,7 @@ table.search(dummy_img_embedding).limit(5).to_pandas()</div>
 <span class="n">pa_table</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">to_arrow</span><span class="p">()</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-13">df = table.to_pandas()
-pa_table = table.to_arrow()
-</div>
+pa_table = table.to_arrow()</div>
 </div>
 </div>
 </div>
@@ -1976,10 +1981,9 @@ embeddings = np.array(embeddings)</div>
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
 
 <span class="c1"># Reduce dimensions using PCA to 3 components for visualization in 3D</span>
 <span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -1987,22 +1991,21 @@ embeddings = np.array(embeddings)</div>
 
 <span class="c1"># Create a 3D scatter plot using Matplotlib's Axes3D</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">"3d"</span><span class="p">)</span>
 
 <span class="c1"># Scatter plot</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'3D Scatter Plot of Reduced 256-Dimensional Data (PCA)'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Component 1'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Component 2'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">'Component 3'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"3D Scatter Plot of Reduced 256-Dimensional Data (PCA)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Component 1"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Component 2"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">"Component 3"</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-16">%matplotlib inline
+import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 
 # Reduce dimensions using PCA to 3 components for visualization in 3D
 pca = PCA(n_components=3)
@@ -2010,14 +2013,14 @@ reduced_data = pca.fit_transform(embeddings)
 
 # Create a 3D scatter plot using Matplotlib's Axes3D
 fig = plt.figure(figsize=(8, 6))
-ax = fig.add_subplot(111, projection='3d')
+ax = fig.add_subplot(111, projection="3d")
 
 # Scatter plot
 ax.scatter(reduced_data[:, 0], reduced_data[:, 1], reduced_data[:, 2], alpha=0.5)
-ax.set_title('3D Scatter Plot of Reduced 256-Dimensional Data (PCA)')
-ax.set_xlabel('Component 1')
-ax.set_ylabel('Component 2')
-ax.set_zlabel('Component 3')
+ax.set_title("3D Scatter Plot of Reduced 256-Dimensional Data (PCA)")
+ax.set_xlabel("Component 1")
+ax.set_ylabel("Component 2")
+ax.set_zlabel("Component 3")
 
 plt.show()</div>
 </div>
@@ -2172,12 +2175,12 @@ sim_idx = exp.similarity_index(max_dist=0.2, top_k=0.01, force=False)</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">sim_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">[</span><span class="s2">"count"</span><span class="p">])</span>
-<span class="n">sim_idx</span><span class="p">[</span><span class="s1">'im_file'</span><span class="p">][</span><span class="n">sim_count</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">sim_idx</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">][</span><span class="n">sim_count</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">]</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-20">import numpy as np
 
 sim_count = np.array(sim_idx["count"])
-sim_idx['im_file'][sim_count &gt; 30]</div>
+sim_idx["im_file"][sim_count &gt; 30]</div>
 </div>
 </div>
 </div>
@@ -2214,9 +2217,9 @@ sim_idx['im_file'][sim_count &gt; 30]</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="p">[</span><span class="mi">7146</span><span class="p">,</span> <span class="mi">14035</span><span class="p">])</span> <span class="c1"># Using avg embeddings of 2 images</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="p">[</span><span class="mi">7146</span><span class="p">,</span> <span class="mi">14035</span><span class="p">])</span>  <span class="c1"># Using avg embeddings of 2 images</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-21">exp.plot_similar(idx=[7146, 14035]) # Using avg embeddings of 2 images</div>
+<div class="clipboard-copy-txt" id="cell-21">exp.plot_similar(idx=[7146, 14035])  # Using avg embeddings of 2 images</div>
 </div>
 </div>
 </div>
@@ -2241,12 +2244,12 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <span class="date-item" title="This page was first created on January 07, 2024">
 <span class="hover-item">📅</span> Created 8 months ago
     </span>
-<span class="date-item" title="This page was last updated on August 28, 2024">
-<span class="hover-item">✏️</span> Updated 9 days ago
+<span class="date-item" title="This page was last updated on September 06, 2024">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (3 changes)">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (4 changes)">
 <img alt="glenn-jocher" class="hover-item" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
