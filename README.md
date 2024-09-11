@@ -32,10 +32,10 @@ To install the ultralytics package in developer mode, ensure you have Git and Py
    cd ultralytics
    ```
 
-3. Install the package in developer mode using pip (or pip3 for Python 3):
+3. Install the package in editable mode for development using pip (or pip3 for Python 3):
 
    ```bash
-   pip install -e '.[dev]'
+   pip install -e .
    ```
 
 - This command installs the ultralytics package along with all development dependencies, allowing you to modify the package code and have the changes immediately reflected in your Python environment.
