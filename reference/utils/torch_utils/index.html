@@ -1625,27 +1625,27 @@ average of everything in the model state_dict (parameters and buffers).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/torch_utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-676">676</a></span>
-<span class="normal"><a href="#__codelineno-0-677">677</a></span>
-<span class="normal"><a href="#__codelineno-0-678">678</a></span>
-<span class="normal"><a href="#__codelineno-0-679">679</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-679">679</a></span>
 <span class="normal"><a href="#__codelineno-0-680">680</a></span>
 <span class="normal"><a href="#__codelineno-0-681">681</a></span>
 <span class="normal"><a href="#__codelineno-0-682">682</a></span>
 <span class="normal"><a href="#__codelineno-0-683">683</a></span>
 <span class="normal"><a href="#__codelineno-0-684">684</a></span>
 <span class="normal"><a href="#__codelineno-0-685">685</a></span>
-<span class="normal"><a href="#__codelineno-0-686">686</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-676" name="__codelineno-0-676"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
-<a id="__codelineno-0-677" name="__codelineno-0-677"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-678" name="__codelineno-0-678"></a><span class="sd">    Initialize early stopping object.</span>
-<a id="__codelineno-0-679" name="__codelineno-0-679"></a>
-<a id="__codelineno-0-680" name="__codelineno-0-680"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-681" name="__codelineno-0-681"></a><span class="sd">        patience (int, optional): Number of epochs to wait after fitness stops improving before stopping.</span>
-<a id="__codelineno-0-682" name="__codelineno-0-682"></a><span class="sd">    """</span>
-<a id="__codelineno-0-683" name="__codelineno-0-683"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">best_fitness</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># i.e. mAP</span>
-<a id="__codelineno-0-684" name="__codelineno-0-684"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-685" name="__codelineno-0-685"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="o">=</span> <span class="n">patience</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>  <span class="c1"># epochs to wait after fitness stops improving to stop</span>
-<a id="__codelineno-0-686" name="__codelineno-0-686"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">possible_stop</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># possible stop may occur next epoch</span>
+<span class="normal"><a href="#__codelineno-0-686">686</a></span>
+<span class="normal"><a href="#__codelineno-0-687">687</a></span>
+<span class="normal"><a href="#__codelineno-0-688">688</a></span>
+<span class="normal"><a href="#__codelineno-0-689">689</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-679" name="__codelineno-0-679"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<a id="__codelineno-0-680" name="__codelineno-0-680"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-681" name="__codelineno-0-681"></a><span class="sd">    Initialize early stopping object.</span>
+<a id="__codelineno-0-682" name="__codelineno-0-682"></a>
+<a id="__codelineno-0-683" name="__codelineno-0-683"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-684" name="__codelineno-0-684"></a><span class="sd">        patience (int, optional): Number of epochs to wait after fitness stops improving before stopping.</span>
+<a id="__codelineno-0-685" name="__codelineno-0-685"></a><span class="sd">    """</span>
+<a id="__codelineno-0-686" name="__codelineno-0-686"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">best_fitness</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># i.e. mAP</span>
+<a id="__codelineno-0-687" name="__codelineno-0-687"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-688" name="__codelineno-0-688"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="o">=</span> <span class="n">patience</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">)</span>  <span class="c1"># epochs to wait after fitness stops improving to stop</span>
+<a id="__codelineno-0-689" name="__codelineno-0-689"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">possible_stop</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># possible stop may occur next epoch</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1721,10 +1721,7 @@ average of everything in the model state_dict (parameters and buffers).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/torch_utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-688">688</a></span>
-<span class="normal"><a href="#__codelineno-0-689">689</a></span>
-<span class="normal"><a href="#__codelineno-0-690">690</a></span>
-<span class="normal"><a href="#__codelineno-0-691">691</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-691">691</a></span>
 <span class="normal"><a href="#__codelineno-0-692">692</a></span>
 <span class="normal"><a href="#__codelineno-0-693">693</a></span>
 <span class="normal"><a href="#__codelineno-0-694">694</a></span>
@@ -1749,35 +1746,38 @@ average of everything in the model state_dict (parameters and buffers).</p>
 <span class="normal"><a href="#__codelineno-0-713">713</a></span>
 <span class="normal"><a href="#__codelineno-0-714">714</a></span>
 <span class="normal"><a href="#__codelineno-0-715">715</a></span>
-<span class="normal"><a href="#__codelineno-0-716">716</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-688" name="__codelineno-0-688"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">fitness</span><span class="p">):</span>
-<a id="__codelineno-0-689" name="__codelineno-0-689"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-690" name="__codelineno-0-690"></a><span class="sd">    Check whether to stop training.</span>
-<a id="__codelineno-0-691" name="__codelineno-0-691"></a>
-<a id="__codelineno-0-692" name="__codelineno-0-692"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-693" name="__codelineno-0-693"></a><span class="sd">        epoch (int): Current epoch of training</span>
-<a id="__codelineno-0-694" name="__codelineno-0-694"></a><span class="sd">        fitness (float): Fitness value of current epoch</span>
-<a id="__codelineno-0-695" name="__codelineno-0-695"></a>
-<a id="__codelineno-0-696" name="__codelineno-0-696"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-697" name="__codelineno-0-697"></a><span class="sd">        (bool): True if training should stop, False otherwise</span>
-<a id="__codelineno-0-698" name="__codelineno-0-698"></a><span class="sd">    """</span>
-<a id="__codelineno-0-699" name="__codelineno-0-699"></a>    <span class="k">if</span> <span class="n">fitness</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># check if fitness=None (happens when val=False)</span>
-<a id="__codelineno-0-700" name="__codelineno-0-700"></a>        <span class="k">return</span> <span class="kc">False</span>
-<a id="__codelineno-0-701" name="__codelineno-0-701"></a>
-<a id="__codelineno-0-702" name="__codelineno-0-702"></a>    <span class="k">if</span> <span class="n">fitness</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_fitness</span><span class="p">:</span>  <span class="c1"># &gt;= 0 to allow for early zero-fitness stage of training</span>
-<a id="__codelineno-0-703" name="__codelineno-0-703"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span> <span class="o">=</span> <span class="n">epoch</span>
-<a id="__codelineno-0-704" name="__codelineno-0-704"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">best_fitness</span> <span class="o">=</span> <span class="n">fitness</span>
-<a id="__codelineno-0-705" name="__codelineno-0-705"></a>    <span class="n">delta</span> <span class="o">=</span> <span class="n">epoch</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span>  <span class="c1"># epochs without improvement</span>
-<a id="__codelineno-0-706" name="__codelineno-0-706"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">possible_stop</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># possible stop may occur next epoch</span>
-<a id="__codelineno-0-707" name="__codelineno-0-707"></a>    <span class="n">stop</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patience</span>  <span class="c1"># stop training if patience exceeded</span>
-<a id="__codelineno-0-708" name="__codelineno-0-708"></a>    <span class="k">if</span> <span class="n">stop</span><span class="p">:</span>
-<a id="__codelineno-0-709" name="__codelineno-0-709"></a>        <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s2">"EarlyStopping: "</span><span class="p">)</span>
-<a id="__codelineno-0-710" name="__codelineno-0-710"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-<a id="__codelineno-0-711" name="__codelineno-0-711"></a>            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Training stopped early as no improvement observed in last </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2"> epochs. "</span>
-<a id="__codelineno-0-712" name="__codelineno-0-712"></a>            <span class="sa">f</span><span class="s2">"Best results observed at epoch </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span><span class="si">}</span><span class="s2">, best model saved as best.pt.</span><span class="se">\n</span><span class="s2">"</span>
-<a id="__codelineno-0-713" name="__codelineno-0-713"></a>            <span class="sa">f</span><span class="s2">"To update EarlyStopping(patience=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2">) pass a new patience value, "</span>
-<a id="__codelineno-0-714" name="__codelineno-0-714"></a>            <span class="sa">f</span><span class="s2">"i.e. `patience=300` or use `patience=0` to disable EarlyStopping."</span>
-<a id="__codelineno-0-715" name="__codelineno-0-715"></a>        <span class="p">)</span>
-<a id="__codelineno-0-716" name="__codelineno-0-716"></a>    <span class="k">return</span> <span class="n">stop</span>
+<span class="normal"><a href="#__codelineno-0-716">716</a></span>
+<span class="normal"><a href="#__codelineno-0-717">717</a></span>
+<span class="normal"><a href="#__codelineno-0-718">718</a></span>
+<span class="normal"><a href="#__codelineno-0-719">719</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-691" name="__codelineno-0-691"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">fitness</span><span class="p">):</span>
+<a id="__codelineno-0-692" name="__codelineno-0-692"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-693" name="__codelineno-0-693"></a><span class="sd">    Check whether to stop training.</span>
+<a id="__codelineno-0-694" name="__codelineno-0-694"></a>
+<a id="__codelineno-0-695" name="__codelineno-0-695"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-696" name="__codelineno-0-696"></a><span class="sd">        epoch (int): Current epoch of training</span>
+<a id="__codelineno-0-697" name="__codelineno-0-697"></a><span class="sd">        fitness (float): Fitness value of current epoch</span>
+<a id="__codelineno-0-698" name="__codelineno-0-698"></a>
+<a id="__codelineno-0-699" name="__codelineno-0-699"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-700" name="__codelineno-0-700"></a><span class="sd">        (bool): True if training should stop, False otherwise</span>
+<a id="__codelineno-0-701" name="__codelineno-0-701"></a><span class="sd">    """</span>
+<a id="__codelineno-0-702" name="__codelineno-0-702"></a>    <span class="k">if</span> <span class="n">fitness</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># check if fitness=None (happens when val=False)</span>
+<a id="__codelineno-0-703" name="__codelineno-0-703"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-0-704" name="__codelineno-0-704"></a>
+<a id="__codelineno-0-705" name="__codelineno-0-705"></a>    <span class="k">if</span> <span class="n">fitness</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_fitness</span><span class="p">:</span>  <span class="c1"># &gt;= 0 to allow for early zero-fitness stage of training</span>
+<a id="__codelineno-0-706" name="__codelineno-0-706"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span> <span class="o">=</span> <span class="n">epoch</span>
+<a id="__codelineno-0-707" name="__codelineno-0-707"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">best_fitness</span> <span class="o">=</span> <span class="n">fitness</span>
+<a id="__codelineno-0-708" name="__codelineno-0-708"></a>    <span class="n">delta</span> <span class="o">=</span> <span class="n">epoch</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span>  <span class="c1"># epochs without improvement</span>
+<a id="__codelineno-0-709" name="__codelineno-0-709"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">possible_stop</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># possible stop may occur next epoch</span>
+<a id="__codelineno-0-710" name="__codelineno-0-710"></a>    <span class="n">stop</span> <span class="o">=</span> <span class="n">delta</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patience</span>  <span class="c1"># stop training if patience exceeded</span>
+<a id="__codelineno-0-711" name="__codelineno-0-711"></a>    <span class="k">if</span> <span class="n">stop</span><span class="p">:</span>
+<a id="__codelineno-0-712" name="__codelineno-0-712"></a>        <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s2">"EarlyStopping: "</span><span class="p">)</span>
+<a id="__codelineno-0-713" name="__codelineno-0-713"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+<a id="__codelineno-0-714" name="__codelineno-0-714"></a>            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Training stopped early as no improvement observed in last </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2"> epochs. "</span>
+<a id="__codelineno-0-715" name="__codelineno-0-715"></a>            <span class="sa">f</span><span class="s2">"Best results observed at epoch </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">best_epoch</span><span class="si">}</span><span class="s2">, best model saved as best.pt.</span><span class="se">\n</span><span class="s2">"</span>
+<a id="__codelineno-0-716" name="__codelineno-0-716"></a>            <span class="sa">f</span><span class="s2">"To update EarlyStopping(patience=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">patience</span><span class="si">}</span><span class="s2">) pass a new patience value, "</span>
+<a id="__codelineno-0-717" name="__codelineno-0-717"></a>            <span class="sa">f</span><span class="s2">"i.e. `patience=300` or use `patience=0` to disable EarlyStopping."</span>
+<a id="__codelineno-0-718" name="__codelineno-0-718"></a>        <span class="p">)</span>
+<a id="__codelineno-0-719" name="__codelineno-0-719"></a>    <span class="k">return</span> <span class="n">stop</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3101,7 +3101,9 @@ devices when using multiple GPUs.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.torch_utils.strip_optimizer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.torch_utils.strip_optimizer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">strip_optimizer</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'best.pt'</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">strip_optimizer</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">f</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"best.pt"</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">updates</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Strip optimizer from 'f' to finalize training, optionally save as 's'.</p>
@@ -3144,6 +3146,20 @@ devices when using multiple GPUs.</p>
 <code>''</code>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td><code>updates</code></td>
+<td>
+<code>dict</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>a dictionary of updates to overlay onto the checkpoint before saving.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -3157,11 +3173,11 @@ devices when using multiple GPUs.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code>None</code>
+<code>dict</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>None</p>
+<p>The combined checkpoint dictionary.</p>
 </div>
 </td>
 </tr>
@@ -3242,67 +3258,73 @@ devices when using multiple GPUs.</p>
 <span class="normal"><a href="#__codelineno-0-593">593</a></span>
 <span class="normal"><a href="#__codelineno-0-594">594</a></span>
 <span class="normal"><a href="#__codelineno-0-595">595</a></span>
-<span class="normal"><a href="#__codelineno-0-596">596</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-536" name="__codelineno-0-536"></a><span class="k">def</span> <span class="nf">strip_optimizer</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"best.pt"</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-596">596</a></span>
+<span class="normal"><a href="#__codelineno-0-597">597</a></span>
+<span class="normal"><a href="#__codelineno-0-598">598</a></span>
+<span class="normal"><a href="#__codelineno-0-599">599</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-536" name="__codelineno-0-536"></a><span class="k">def</span> <span class="nf">strip_optimizer</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"best.pt"</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">updates</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <a id="__codelineno-0-537" name="__codelineno-0-537"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-538" name="__codelineno-0-538"></a><span class="sd">    Strip optimizer from 'f' to finalize training, optionally save as 's'.</span>
 <a id="__codelineno-0-539" name="__codelineno-0-539"></a>
 <a id="__codelineno-0-540" name="__codelineno-0-540"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-541" name="__codelineno-0-541"></a><span class="sd">        f (str): file path to model to strip the optimizer from. Default is 'best.pt'.</span>
 <a id="__codelineno-0-542" name="__codelineno-0-542"></a><span class="sd">        s (str): file path to save the model with stripped optimizer to. If not provided, 'f' will be overwritten.</span>
-<a id="__codelineno-0-543" name="__codelineno-0-543"></a>
-<a id="__codelineno-0-544" name="__codelineno-0-544"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-545" name="__codelineno-0-545"></a><span class="sd">        None</span>
-<a id="__codelineno-0-546" name="__codelineno-0-546"></a>
-<a id="__codelineno-0-547" name="__codelineno-0-547"></a><span class="sd">    Example:</span>
-<a id="__codelineno-0-548" name="__codelineno-0-548"></a><span class="sd">        ```python</span>
-<a id="__codelineno-0-549" name="__codelineno-0-549"></a><span class="sd">        from pathlib import Path</span>
-<a id="__codelineno-0-550" name="__codelineno-0-550"></a><span class="sd">        from ultralytics.utils.torch_utils import strip_optimizer</span>
-<a id="__codelineno-0-551" name="__codelineno-0-551"></a>
-<a id="__codelineno-0-552" name="__codelineno-0-552"></a><span class="sd">        for f in Path("path/to/model/checkpoints").rglob("*.pt"):</span>
-<a id="__codelineno-0-553" name="__codelineno-0-553"></a><span class="sd">            strip_optimizer(f)</span>
-<a id="__codelineno-0-554" name="__codelineno-0-554"></a><span class="sd">        ```</span>
-<a id="__codelineno-0-555" name="__codelineno-0-555"></a>
-<a id="__codelineno-0-556" name="__codelineno-0-556"></a><span class="sd">    Note:</span>
-<a id="__codelineno-0-557" name="__codelineno-0-557"></a><span class="sd">        Use `ultralytics.nn.torch_safe_load` for missing modules with `x = torch_safe_load(f)[0]`</span>
-<a id="__codelineno-0-558" name="__codelineno-0-558"></a><span class="sd">    """</span>
-<a id="__codelineno-0-559" name="__codelineno-0-559"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-560" name="__codelineno-0-560"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">))</span>
-<a id="__codelineno-0-561" name="__codelineno-0-561"></a>        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">dict</span><span class="p">),</span> <span class="s2">"checkpoint is not a Python dictionary"</span>
-<a id="__codelineno-0-562" name="__codelineno-0-562"></a>        <span class="k">assert</span> <span class="s2">"model"</span> <span class="ow">in</span> <span class="n">x</span><span class="p">,</span> <span class="s2">"'model' missing from checkpoint"</span>
-<a id="__codelineno-0-563" name="__codelineno-0-563"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-564" name="__codelineno-0-564"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ Skipping </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">, not a valid Ultralytics model: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-565" name="__codelineno-0-565"></a>        <span class="k">return</span>
-<a id="__codelineno-0-566" name="__codelineno-0-566"></a>
-<a id="__codelineno-0-567" name="__codelineno-0-567"></a>    <span class="n">updates</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-568" name="__codelineno-0-568"></a>        <span class="s2">"date"</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
-<a id="__codelineno-0-569" name="__codelineno-0-569"></a>        <span class="s2">"version"</span><span class="p">:</span> <span class="n">__version__</span><span class="p">,</span>
-<a id="__codelineno-0-570" name="__codelineno-0-570"></a>        <span class="s2">"license"</span><span class="p">:</span> <span class="s2">"AGPL-3.0 License (https://ultralytics.com/license)"</span><span class="p">,</span>
-<a id="__codelineno-0-571" name="__codelineno-0-571"></a>        <span class="s2">"docs"</span><span class="p">:</span> <span class="s2">"https://docs.ultralytics.com"</span><span class="p">,</span>
-<a id="__codelineno-0-572" name="__codelineno-0-572"></a>    <span class="p">}</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a>
-<a id="__codelineno-0-574" name="__codelineno-0-574"></a>    <span class="c1"># Update model</span>
-<a id="__codelineno-0-575" name="__codelineno-0-575"></a>    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ema"</span><span class="p">):</span>
-<a id="__codelineno-0-576" name="__codelineno-0-576"></a>        <span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="s2">"ema"</span><span class="p">]</span>  <span class="c1"># replace model with EMA</span>
-<a id="__codelineno-0-577" name="__codelineno-0-577"></a>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span> <span class="s2">"args"</span><span class="p">):</span>
-<a id="__codelineno-0-578" name="__codelineno-0-578"></a>        <span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>  <span class="c1"># convert from IterableSimpleNamespace to dict</span>
-<a id="__codelineno-0-579" name="__codelineno-0-579"></a>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span> <span class="s2">"criterion"</span><span class="p">):</span>
-<a id="__codelineno-0-580" name="__codelineno-0-580"></a>        <span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">criterion</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># strip loss criterion</span>
-<a id="__codelineno-0-581" name="__codelineno-0-581"></a>    <span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">half</span><span class="p">()</span>  <span class="c1"># to FP16</span>
-<a id="__codelineno-0-582" name="__codelineno-0-582"></a>    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
-<a id="__codelineno-0-583" name="__codelineno-0-583"></a>        <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-584" name="__codelineno-0-584"></a>
-<a id="__codelineno-0-585" name="__codelineno-0-585"></a>    <span class="c1"># Update other keys</span>
-<a id="__codelineno-0-586" name="__codelineno-0-586"></a>    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">DEFAULT_CFG_DICT</span><span class="p">,</span> <span class="o">**</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"train_args"</span><span class="p">,</span> <span class="p">{})}</span>  <span class="c1"># combine args</span>
-<a id="__codelineno-0-587" name="__codelineno-0-587"></a>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s2">"optimizer"</span><span class="p">,</span> <span class="s2">"best_fitness"</span><span class="p">,</span> <span class="s2">"ema"</span><span class="p">,</span> <span class="s2">"updates"</span><span class="p">:</span>  <span class="c1"># keys</span>
-<a id="__codelineno-0-588" name="__codelineno-0-588"></a>        <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-589" name="__codelineno-0-589"></a>    <span class="n">x</span><span class="p">[</span><span class="s2">"epoch"</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<a id="__codelineno-0-590" name="__codelineno-0-590"></a>    <span class="n">x</span><span class="p">[</span><span class="s2">"train_args"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">DEFAULT_CFG_KEYS</span><span class="p">}</span>  <span class="c1"># strip non-default keys</span>
-<a id="__codelineno-0-591" name="__codelineno-0-591"></a>    <span class="c1"># x['model'].args = x['train_args']</span>
-<a id="__codelineno-0-592" name="__codelineno-0-592"></a>
-<a id="__codelineno-0-593" name="__codelineno-0-593"></a>    <span class="c1"># Save</span>
-<a id="__codelineno-0-594" name="__codelineno-0-594"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">({</span><span class="o">**</span><span class="n">updates</span><span class="p">,</span> <span class="o">**</span><span class="n">x</span><span class="p">},</span> <span class="n">s</span> <span class="ow">or</span> <span class="n">f</span><span class="p">,</span> <span class="n">use_dill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># combine dicts (prefer to the right)</span>
-<a id="__codelineno-0-595" name="__codelineno-0-595"></a>    <span class="n">mb</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">s</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e6</span>  <span class="c1"># file size</span>
-<a id="__codelineno-0-596" name="__codelineno-0-596"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Optimizer stripped from </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="sa">f</span><span class="s1">' saved as </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">,'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">''</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">mb</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">MB"</span><span class="p">)</span>
+<a id="__codelineno-0-543" name="__codelineno-0-543"></a><span class="sd">        updates (dict): a dictionary of updates to overlay onto the checkpoint before saving.</span>
+<a id="__codelineno-0-544" name="__codelineno-0-544"></a>
+<a id="__codelineno-0-545" name="__codelineno-0-545"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-546" name="__codelineno-0-546"></a><span class="sd">        (dict): The combined checkpoint dictionary.</span>
+<a id="__codelineno-0-547" name="__codelineno-0-547"></a>
+<a id="__codelineno-0-548" name="__codelineno-0-548"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-549" name="__codelineno-0-549"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-550" name="__codelineno-0-550"></a><span class="sd">        from pathlib import Path</span>
+<a id="__codelineno-0-551" name="__codelineno-0-551"></a><span class="sd">        from ultralytics.utils.torch_utils import strip_optimizer</span>
+<a id="__codelineno-0-552" name="__codelineno-0-552"></a>
+<a id="__codelineno-0-553" name="__codelineno-0-553"></a><span class="sd">        for f in Path("path/to/model/checkpoints").rglob("*.pt"):</span>
+<a id="__codelineno-0-554" name="__codelineno-0-554"></a><span class="sd">            strip_optimizer(f)</span>
+<a id="__codelineno-0-555" name="__codelineno-0-555"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-556" name="__codelineno-0-556"></a>
+<a id="__codelineno-0-557" name="__codelineno-0-557"></a><span class="sd">    Note:</span>
+<a id="__codelineno-0-558" name="__codelineno-0-558"></a><span class="sd">        Use `ultralytics.nn.torch_safe_load` for missing modules with `x = torch_safe_load(f)[0]`</span>
+<a id="__codelineno-0-559" name="__codelineno-0-559"></a><span class="sd">    """</span>
+<a id="__codelineno-0-560" name="__codelineno-0-560"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-561" name="__codelineno-0-561"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">))</span>
+<a id="__codelineno-0-562" name="__codelineno-0-562"></a>        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">dict</span><span class="p">),</span> <span class="s2">"checkpoint is not a Python dictionary"</span>
+<a id="__codelineno-0-563" name="__codelineno-0-563"></a>        <span class="k">assert</span> <span class="s2">"model"</span> <span class="ow">in</span> <span class="n">x</span><span class="p">,</span> <span class="s2">"'model' missing from checkpoint"</span>
+<a id="__codelineno-0-564" name="__codelineno-0-564"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-0-565" name="__codelineno-0-565"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ Skipping </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">, not a valid Ultralytics model: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-566" name="__codelineno-0-566"></a>        <span class="k">return</span> <span class="p">{}</span>
+<a id="__codelineno-0-567" name="__codelineno-0-567"></a>
+<a id="__codelineno-0-568" name="__codelineno-0-568"></a>    <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-569" name="__codelineno-0-569"></a>        <span class="s2">"date"</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+<a id="__codelineno-0-570" name="__codelineno-0-570"></a>        <span class="s2">"version"</span><span class="p">:</span> <span class="n">__version__</span><span class="p">,</span>
+<a id="__codelineno-0-571" name="__codelineno-0-571"></a>        <span class="s2">"license"</span><span class="p">:</span> <span class="s2">"AGPL-3.0 License (https://ultralytics.com/license)"</span><span class="p">,</span>
+<a id="__codelineno-0-572" name="__codelineno-0-572"></a>        <span class="s2">"docs"</span><span class="p">:</span> <span class="s2">"https://docs.ultralytics.com"</span><span class="p">,</span>
+<a id="__codelineno-0-573" name="__codelineno-0-573"></a>    <span class="p">}</span>
+<a id="__codelineno-0-574" name="__codelineno-0-574"></a>
+<a id="__codelineno-0-575" name="__codelineno-0-575"></a>    <span class="c1"># Update model</span>
+<a id="__codelineno-0-576" name="__codelineno-0-576"></a>    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ema"</span><span class="p">):</span>
+<a id="__codelineno-0-577" name="__codelineno-0-577"></a>        <span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="s2">"ema"</span><span class="p">]</span>  <span class="c1"># replace model with EMA</span>
+<a id="__codelineno-0-578" name="__codelineno-0-578"></a>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span> <span class="s2">"args"</span><span class="p">):</span>
+<a id="__codelineno-0-579" name="__codelineno-0-579"></a>        <span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>  <span class="c1"># convert from IterableSimpleNamespace to dict</span>
+<a id="__codelineno-0-580" name="__codelineno-0-580"></a>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span> <span class="s2">"criterion"</span><span class="p">):</span>
+<a id="__codelineno-0-581" name="__codelineno-0-581"></a>        <span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">criterion</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># strip loss criterion</span>
+<a id="__codelineno-0-582" name="__codelineno-0-582"></a>    <span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">half</span><span class="p">()</span>  <span class="c1"># to FP16</span>
+<a id="__codelineno-0-583" name="__codelineno-0-583"></a>    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
+<a id="__codelineno-0-584" name="__codelineno-0-584"></a>        <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-585" name="__codelineno-0-585"></a>
+<a id="__codelineno-0-586" name="__codelineno-0-586"></a>    <span class="c1"># Update other keys</span>
+<a id="__codelineno-0-587" name="__codelineno-0-587"></a>    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">DEFAULT_CFG_DICT</span><span class="p">,</span> <span class="o">**</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"train_args"</span><span class="p">,</span> <span class="p">{})}</span>  <span class="c1"># combine args</span>
+<a id="__codelineno-0-588" name="__codelineno-0-588"></a>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s2">"optimizer"</span><span class="p">,</span> <span class="s2">"best_fitness"</span><span class="p">,</span> <span class="s2">"ema"</span><span class="p">,</span> <span class="s2">"updates"</span><span class="p">:</span>  <span class="c1"># keys</span>
+<a id="__codelineno-0-589" name="__codelineno-0-589"></a>        <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-590" name="__codelineno-0-590"></a>    <span class="n">x</span><span class="p">[</span><span class="s2">"epoch"</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-0-591" name="__codelineno-0-591"></a>    <span class="n">x</span><span class="p">[</span><span class="s2">"train_args"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">DEFAULT_CFG_KEYS</span><span class="p">}</span>  <span class="c1"># strip non-default keys</span>
+<a id="__codelineno-0-592" name="__codelineno-0-592"></a>    <span class="c1"># x['model'].args = x['train_args']</span>
+<a id="__codelineno-0-593" name="__codelineno-0-593"></a>
+<a id="__codelineno-0-594" name="__codelineno-0-594"></a>    <span class="c1"># Save</span>
+<a id="__codelineno-0-595" name="__codelineno-0-595"></a>    <span class="n">combined</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">metadata</span><span class="p">,</span> <span class="o">**</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="p">(</span><span class="n">updates</span> <span class="ow">or</span> <span class="p">{})}</span>
+<a id="__codelineno-0-596" name="__codelineno-0-596"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">combined</span><span class="p">,</span> <span class="n">s</span> <span class="ow">or</span> <span class="n">f</span><span class="p">,</span> <span class="n">use_dill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># combine dicts (prefer to the right)</span>
+<a id="__codelineno-0-597" name="__codelineno-0-597"></a>    <span class="n">mb</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">s</span> <span class="ow">or</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e6</span>  <span class="c1"># file size</span>
+<a id="__codelineno-0-598" name="__codelineno-0-598"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Optimizer stripped from </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="sa">f</span><span class="s1">' saved as </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">,'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">''</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">mb</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">MB"</span><span class="p">)</span>
+<a id="__codelineno-0-599" name="__codelineno-0-599"></a>    <span class="k">return</span> <span class="n">combined</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3318,10 +3340,7 @@ devices when using multiple GPUs.</p>
 <p>This method aims to reduce storage size without altering 'param_groups' as they contain non-tensor data.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/torch_utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-599">599</a></span>
-<span class="normal"><a href="#__codelineno-0-600">600</a></span>
-<span class="normal"><a href="#__codelineno-0-601">601</a></span>
-<span class="normal"><a href="#__codelineno-0-602">602</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-602">602</a></span>
 <span class="normal"><a href="#__codelineno-0-603">603</a></span>
 <span class="normal"><a href="#__codelineno-0-604">604</a></span>
 <span class="normal"><a href="#__codelineno-0-605">605</a></span>
@@ -3329,18 +3348,21 @@ devices when using multiple GPUs.</p>
 <span class="normal"><a href="#__codelineno-0-607">607</a></span>
 <span class="normal"><a href="#__codelineno-0-608">608</a></span>
 <span class="normal"><a href="#__codelineno-0-609">609</a></span>
-<span class="normal"><a href="#__codelineno-0-610">610</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-599" name="__codelineno-0-599"></a><span class="k">def</span> <span class="nf">convert_optimizer_state_dict_to_fp16</span><span class="p">(</span><span class="n">state_dict</span><span class="p">):</span>
-<a id="__codelineno-0-600" name="__codelineno-0-600"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-601" name="__codelineno-0-601"></a><span class="sd">    Converts the state_dict of a given optimizer to FP16, focusing on the 'state' key for tensor conversions.</span>
-<a id="__codelineno-0-602" name="__codelineno-0-602"></a>
-<a id="__codelineno-0-603" name="__codelineno-0-603"></a><span class="sd">    This method aims to reduce storage size without altering 'param_groups' as they contain non-tensor data.</span>
-<a id="__codelineno-0-604" name="__codelineno-0-604"></a><span class="sd">    """</span>
-<a id="__codelineno-0-605" name="__codelineno-0-605"></a>    <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">state_dict</span><span class="p">[</span><span class="s2">"state"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-<a id="__codelineno-0-606" name="__codelineno-0-606"></a>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-607" name="__codelineno-0-607"></a>            <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">"step"</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">is</span> <span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">:</span>
-<a id="__codelineno-0-608" name="__codelineno-0-608"></a>                <span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">half</span><span class="p">()</span>
-<a id="__codelineno-0-609" name="__codelineno-0-609"></a>
-<a id="__codelineno-0-610" name="__codelineno-0-610"></a>    <span class="k">return</span> <span class="n">state_dict</span>
+<span class="normal"><a href="#__codelineno-0-610">610</a></span>
+<span class="normal"><a href="#__codelineno-0-611">611</a></span>
+<span class="normal"><a href="#__codelineno-0-612">612</a></span>
+<span class="normal"><a href="#__codelineno-0-613">613</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-602" name="__codelineno-0-602"></a><span class="k">def</span> <span class="nf">convert_optimizer_state_dict_to_fp16</span><span class="p">(</span><span class="n">state_dict</span><span class="p">):</span>
+<a id="__codelineno-0-603" name="__codelineno-0-603"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-604" name="__codelineno-0-604"></a><span class="sd">    Converts the state_dict of a given optimizer to FP16, focusing on the 'state' key for tensor conversions.</span>
+<a id="__codelineno-0-605" name="__codelineno-0-605"></a>
+<a id="__codelineno-0-606" name="__codelineno-0-606"></a><span class="sd">    This method aims to reduce storage size without altering 'param_groups' as they contain non-tensor data.</span>
+<a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="sd">    """</span>
+<a id="__codelineno-0-608" name="__codelineno-0-608"></a>    <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">state_dict</span><span class="p">[</span><span class="s2">"state"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<a id="__codelineno-0-609" name="__codelineno-0-609"></a>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-0-610" name="__codelineno-0-610"></a>            <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">"step"</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="ow">and</span> <span class="n">v</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">is</span> <span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">:</span>
+<a id="__codelineno-0-611" name="__codelineno-0-611"></a>                <span class="n">state</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">half</span><span class="p">()</span>
+<a id="__codelineno-0-612" name="__codelineno-0-612"></a>
+<a id="__codelineno-0-613" name="__codelineno-0-613"></a>    <span class="k">return</span> <span class="n">state_dict</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3365,10 +3387,7 @@ devices when using multiple GPUs.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/torch_utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-613">613</a></span>
-<span class="normal"><a href="#__codelineno-0-614">614</a></span>
-<span class="normal"><a href="#__codelineno-0-615">615</a></span>
-<span class="normal"><a href="#__codelineno-0-616">616</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-616">616</a></span>
 <span class="normal"><a href="#__codelineno-0-617">617</a></span>
 <span class="normal"><a href="#__codelineno-0-618">618</a></span>
 <span class="normal"><a href="#__codelineno-0-619">619</a></span>
@@ -3422,64 +3441,67 @@ devices when using multiple GPUs.</p>
 <span class="normal"><a href="#__codelineno-0-667">667</a></span>
 <span class="normal"><a href="#__codelineno-0-668">668</a></span>
 <span class="normal"><a href="#__codelineno-0-669">669</a></span>
-<span class="normal"><a href="#__codelineno-0-670">670</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="k">def</span> <span class="nf">profile</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">ops</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="sd">    Ultralytics speed, memory and FLOPs profiler.</span>
-<a id="__codelineno-0-616" name="__codelineno-0-616"></a>
-<a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="sd">    Example:</span>
-<a id="__codelineno-0-618" name="__codelineno-0-618"></a><span class="sd">        ```python</span>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a><span class="sd">        from ultralytics.utils.torch_utils import profile</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a><span class="sd">        input = torch.randn(16, 3, 640, 640)</span>
-<a id="__codelineno-0-622" name="__codelineno-0-622"></a><span class="sd">        m1 = lambda x: x * torch.sigmoid(x)</span>
-<a id="__codelineno-0-623" name="__codelineno-0-623"></a><span class="sd">        m2 = nn.SiLU()</span>
-<a id="__codelineno-0-624" name="__codelineno-0-624"></a><span class="sd">        profile(input, [m1, m2], n=100)  # profile over 100 iterations</span>
-<a id="__codelineno-0-625" name="__codelineno-0-625"></a><span class="sd">        ```</span>
-<a id="__codelineno-0-626" name="__codelineno-0-626"></a><span class="sd">    """</span>
-<a id="__codelineno-0-627" name="__codelineno-0-627"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-628" name="__codelineno-0-628"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">):</span>
-<a id="__codelineno-0-629" name="__codelineno-0-629"></a>        <span class="n">device</span> <span class="o">=</span> <span class="n">select_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-630" name="__codelineno-0-630"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-<a id="__codelineno-0-631" name="__codelineno-0-631"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Params'</span><span class="si">:</span><span class="s2">&gt;12s</span><span class="si">}{</span><span class="s1">'GFLOPs'</span><span class="si">:</span><span class="s2">&gt;12s</span><span class="si">}{</span><span class="s1">'GPU_mem (GB)'</span><span class="si">:</span><span class="s2">&gt;14s</span><span class="si">}{</span><span class="s1">'forward (ms)'</span><span class="si">:</span><span class="s2">&gt;14s</span><span class="si">}{</span><span class="s1">'backward (ms)'</span><span class="si">:</span><span class="s2">&gt;14s</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-632" name="__codelineno-0-632"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'input'</span><span class="si">:</span><span class="s2">&gt;24s</span><span class="si">}{</span><span class="s1">'output'</span><span class="si">:</span><span class="s2">&gt;24s</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-633" name="__codelineno-0-633"></a>    <span class="p">)</span>
-<a id="__codelineno-0-634" name="__codelineno-0-634"></a>
-<a id="__codelineno-0-635" name="__codelineno-0-635"></a>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="nb">input</span><span class="p">]:</span>
-<a id="__codelineno-0-636" name="__codelineno-0-636"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-637" name="__codelineno-0-637"></a>        <span class="n">x</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span>
-<a id="__codelineno-0-638" name="__codelineno-0-638"></a>        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">ops</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ops</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">ops</span><span class="p">]:</span>
-<a id="__codelineno-0-639" name="__codelineno-0-639"></a>            <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s2">"to"</span><span class="p">)</span> <span class="k">else</span> <span class="n">m</span>  <span class="c1"># device</span>
-<a id="__codelineno-0-640" name="__codelineno-0-640"></a>            <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s2">"half"</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">is</span> <span class="n">torch</span><span class="o">.</span><span class="n">float16</span> <span class="k">else</span> <span class="n">m</span>
-<a id="__codelineno-0-641" name="__codelineno-0-641"></a>            <span class="n">tf</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># dt forward, backward</span>
-<a id="__codelineno-0-642" name="__codelineno-0-642"></a>            <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-643" name="__codelineno-0-643"></a>                <span class="n">flops</span> <span class="o">=</span> <span class="n">thop</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mf">1e9</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">thop</span> <span class="k">else</span> <span class="mi">0</span>  <span class="c1"># GFLOPs</span>
-<a id="__codelineno-0-644" name="__codelineno-0-644"></a>            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<a id="__codelineno-0-645" name="__codelineno-0-645"></a>                <span class="n">flops</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-646" name="__codelineno-0-646"></a>
-<a id="__codelineno-0-647" name="__codelineno-0-647"></a>            <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-648" name="__codelineno-0-648"></a>                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<a id="__codelineno-0-649" name="__codelineno-0-649"></a>                    <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_sync</span><span class="p">()</span>
-<a id="__codelineno-0-650" name="__codelineno-0-650"></a>                    <span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-651" name="__codelineno-0-651"></a>                    <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_sync</span><span class="p">()</span>
-<a id="__codelineno-0-652" name="__codelineno-0-652"></a>                    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-653" name="__codelineno-0-653"></a>                        <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">yi</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="k">for</span> <span class="n">yi</span> <span class="ow">in</span> <span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-<a id="__codelineno-0-654" name="__codelineno-0-654"></a>                        <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_sync</span><span class="p">()</span>
-<a id="__codelineno-0-655" name="__codelineno-0-655"></a>                    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># no backward method</span>
-<a id="__codelineno-0-656" name="__codelineno-0-656"></a>                        <span class="c1"># print(e)  # for debug</span>
-<a id="__codelineno-0-657" name="__codelineno-0-657"></a>                        <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">)</span>
-<a id="__codelineno-0-658" name="__codelineno-0-658"></a>                    <span class="n">tf</span> <span class="o">+=</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">n</span>  <span class="c1"># ms per op forward</span>
-<a id="__codelineno-0-659" name="__codelineno-0-659"></a>                    <span class="n">tb</span> <span class="o">+=</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">n</span>  <span class="c1"># ms per op backward</span>
-<a id="__codelineno-0-660" name="__codelineno-0-660"></a>                <span class="n">mem</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">memory_reserved</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e9</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="mi">0</span>  <span class="c1"># (GB)</span>
-<a id="__codelineno-0-661" name="__codelineno-0-661"></a>                <span class="n">s_in</span><span class="p">,</span> <span class="n">s_out</span> <span class="o">=</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="s2">"list"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>  <span class="c1"># shapes</span>
-<a id="__codelineno-0-662" name="__codelineno-0-662"></a>                <span class="n">p</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span>  <span class="c1"># parameters</span>
-<a id="__codelineno-0-663" name="__codelineno-0-663"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">12</span><span class="si">}{</span><span class="n">flops</span><span class="si">:</span><span class="s2">12.4g</span><span class="si">}{</span><span class="n">mem</span><span class="si">:</span><span class="s2">&gt;14.3f</span><span class="si">}{</span><span class="n">tf</span><span class="si">:</span><span class="s2">14.4g</span><span class="si">}{</span><span class="n">tb</span><span class="si">:</span><span class="s2">14.4g</span><span class="si">}{</span><span class="nb">str</span><span class="p">(</span><span class="n">s_in</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;24s</span><span class="si">}{</span><span class="nb">str</span><span class="p">(</span><span class="n">s_out</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;24s</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-664" name="__codelineno-0-664"></a>                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">p</span><span class="p">,</span> <span class="n">flops</span><span class="p">,</span> <span class="n">mem</span><span class="p">,</span> <span class="n">tf</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">s_in</span><span class="p">,</span> <span class="n">s_out</span><span class="p">])</span>
-<a id="__codelineno-0-665" name="__codelineno-0-665"></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-666" name="__codelineno-0-666"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<a id="__codelineno-0-667" name="__codelineno-0-667"></a>                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<a id="__codelineno-0-668" name="__codelineno-0-668"></a>            <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>  <span class="c1"># attempt to free unused memory</span>
-<a id="__codelineno-0-669" name="__codelineno-0-669"></a>            <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">empty_cache</span><span class="p">()</span>
-<a id="__codelineno-0-670" name="__codelineno-0-670"></a>    <span class="k">return</span> <span class="n">results</span>
+<span class="normal"><a href="#__codelineno-0-670">670</a></span>
+<span class="normal"><a href="#__codelineno-0-671">671</a></span>
+<span class="normal"><a href="#__codelineno-0-672">672</a></span>
+<span class="normal"><a href="#__codelineno-0-673">673</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="k">def</span> <span class="nf">profile</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">ops</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-618" name="__codelineno-0-618"></a><span class="sd">    Ultralytics speed, memory and FLOPs profiler.</span>
+<a id="__codelineno-0-619" name="__codelineno-0-619"></a>
+<a id="__codelineno-0-620" name="__codelineno-0-620"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a><span class="sd">        from ultralytics.utils.torch_utils import profile</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a>
+<a id="__codelineno-0-624" name="__codelineno-0-624"></a><span class="sd">        input = torch.randn(16, 3, 640, 640)</span>
+<a id="__codelineno-0-625" name="__codelineno-0-625"></a><span class="sd">        m1 = lambda x: x * torch.sigmoid(x)</span>
+<a id="__codelineno-0-626" name="__codelineno-0-626"></a><span class="sd">        m2 = nn.SiLU()</span>
+<a id="__codelineno-0-627" name="__codelineno-0-627"></a><span class="sd">        profile(input, [m1, m2], n=100)  # profile over 100 iterations</span>
+<a id="__codelineno-0-628" name="__codelineno-0-628"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-629" name="__codelineno-0-629"></a><span class="sd">    """</span>
+<a id="__codelineno-0-630" name="__codelineno-0-630"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-631" name="__codelineno-0-631"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">):</span>
+<a id="__codelineno-0-632" name="__codelineno-0-632"></a>        <span class="n">device</span> <span class="o">=</span> <span class="n">select_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-633" name="__codelineno-0-633"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+<a id="__codelineno-0-634" name="__codelineno-0-634"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Params'</span><span class="si">:</span><span class="s2">&gt;12s</span><span class="si">}{</span><span class="s1">'GFLOPs'</span><span class="si">:</span><span class="s2">&gt;12s</span><span class="si">}{</span><span class="s1">'GPU_mem (GB)'</span><span class="si">:</span><span class="s2">&gt;14s</span><span class="si">}{</span><span class="s1">'forward (ms)'</span><span class="si">:</span><span class="s2">&gt;14s</span><span class="si">}{</span><span class="s1">'backward (ms)'</span><span class="si">:</span><span class="s2">&gt;14s</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-635" name="__codelineno-0-635"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'input'</span><span class="si">:</span><span class="s2">&gt;24s</span><span class="si">}{</span><span class="s1">'output'</span><span class="si">:</span><span class="s2">&gt;24s</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-636" name="__codelineno-0-636"></a>    <span class="p">)</span>
+<a id="__codelineno-0-637" name="__codelineno-0-637"></a>
+<a id="__codelineno-0-638" name="__codelineno-0-638"></a>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="nb">input</span><span class="p">]:</span>
+<a id="__codelineno-0-639" name="__codelineno-0-639"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-640" name="__codelineno-0-640"></a>        <span class="n">x</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-0-641" name="__codelineno-0-641"></a>        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">ops</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ops</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">ops</span><span class="p">]:</span>
+<a id="__codelineno-0-642" name="__codelineno-0-642"></a>            <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s2">"to"</span><span class="p">)</span> <span class="k">else</span> <span class="n">m</span>  <span class="c1"># device</span>
+<a id="__codelineno-0-643" name="__codelineno-0-643"></a>            <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="s2">"half"</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">is</span> <span class="n">torch</span><span class="o">.</span><span class="n">float16</span> <span class="k">else</span> <span class="n">m</span>
+<a id="__codelineno-0-644" name="__codelineno-0-644"></a>            <span class="n">tf</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># dt forward, backward</span>
+<a id="__codelineno-0-645" name="__codelineno-0-645"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-646" name="__codelineno-0-646"></a>                <span class="n">flops</span> <span class="o">=</span> <span class="n">thop</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mf">1e9</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">thop</span> <span class="k">else</span> <span class="mi">0</span>  <span class="c1"># GFLOPs</span>
+<a id="__codelineno-0-647" name="__codelineno-0-647"></a>            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<a id="__codelineno-0-648" name="__codelineno-0-648"></a>                <span class="n">flops</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-649" name="__codelineno-0-649"></a>
+<a id="__codelineno-0-650" name="__codelineno-0-650"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-651" name="__codelineno-0-651"></a>                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-0-652" name="__codelineno-0-652"></a>                    <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_sync</span><span class="p">()</span>
+<a id="__codelineno-0-653" name="__codelineno-0-653"></a>                    <span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-654" name="__codelineno-0-654"></a>                    <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_sync</span><span class="p">()</span>
+<a id="__codelineno-0-655" name="__codelineno-0-655"></a>                    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-656" name="__codelineno-0-656"></a>                        <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">yi</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="k">for</span> <span class="n">yi</span> <span class="ow">in</span> <span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<a id="__codelineno-0-657" name="__codelineno-0-657"></a>                        <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_sync</span><span class="p">()</span>
+<a id="__codelineno-0-658" name="__codelineno-0-658"></a>                    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># no backward method</span>
+<a id="__codelineno-0-659" name="__codelineno-0-659"></a>                        <span class="c1"># print(e)  # for debug</span>
+<a id="__codelineno-0-660" name="__codelineno-0-660"></a>                        <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"nan"</span><span class="p">)</span>
+<a id="__codelineno-0-661" name="__codelineno-0-661"></a>                    <span class="n">tf</span> <span class="o">+=</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">n</span>  <span class="c1"># ms per op forward</span>
+<a id="__codelineno-0-662" name="__codelineno-0-662"></a>                    <span class="n">tb</span> <span class="o">+=</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">n</span>  <span class="c1"># ms per op backward</span>
+<a id="__codelineno-0-663" name="__codelineno-0-663"></a>                <span class="n">mem</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">memory_reserved</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e9</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="mi">0</span>  <span class="c1"># (GB)</span>
+<a id="__codelineno-0-664" name="__codelineno-0-664"></a>                <span class="n">s_in</span><span class="p">,</span> <span class="n">s_out</span> <span class="o">=</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="s2">"list"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>  <span class="c1"># shapes</span>
+<a id="__codelineno-0-665" name="__codelineno-0-665"></a>                <span class="n">p</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span>  <span class="c1"># parameters</span>
+<a id="__codelineno-0-666" name="__codelineno-0-666"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">12</span><span class="si">}{</span><span class="n">flops</span><span class="si">:</span><span class="s2">12.4g</span><span class="si">}{</span><span class="n">mem</span><span class="si">:</span><span class="s2">&gt;14.3f</span><span class="si">}{</span><span class="n">tf</span><span class="si">:</span><span class="s2">14.4g</span><span class="si">}{</span><span class="n">tb</span><span class="si">:</span><span class="s2">14.4g</span><span class="si">}{</span><span class="nb">str</span><span class="p">(</span><span class="n">s_in</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;24s</span><span class="si">}{</span><span class="nb">str</span><span class="p">(</span><span class="n">s_out</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;24s</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-667" name="__codelineno-0-667"></a>                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">p</span><span class="p">,</span> <span class="n">flops</span><span class="p">,</span> <span class="n">mem</span><span class="p">,</span> <span class="n">tf</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">s_in</span><span class="p">,</span> <span class="n">s_out</span><span class="p">])</span>
+<a id="__codelineno-0-668" name="__codelineno-0-668"></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-0-669" name="__codelineno-0-669"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<a id="__codelineno-0-670" name="__codelineno-0-670"></a>                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-0-671" name="__codelineno-0-671"></a>            <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>  <span class="c1"># attempt to free unused memory</span>
+<a id="__codelineno-0-672" name="__codelineno-0-672"></a>            <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">empty_cache</span><span class="p">()</span>
+<a id="__codelineno-0-673" name="__codelineno-0-673"></a>    <span class="k">return</span> <span class="n">results</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
