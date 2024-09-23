@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Architecture Summary" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 architecture, object detection, Ultralytics, YOLO, model structure, data augmentation, training strategies, loss computations, deep learning, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/architecture_description" property="og:url"/><meta content="Architecture Summary" property="og:title"/><meta content="Dive deep into the powerful YOLOv5 architecture by Ultralytics, exploring its model structure, data augmentation techniques, training strategies, and loss computations." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-model-structure.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/architecture_description" property="twitter:url"/><meta content="Architecture Summary" property="twitter:title"/><meta content="Dive deep into the powerful YOLOv5 architecture by Ultralytics, exploring its model structure, data augmentation techniques, training strategies, and loss computations." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-model-structure.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Architecture Summary", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolov5-model-structure.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-08-30 05:52:10 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Dive deep into the powerful YOLOv5 architecture by Ultralytics, exploring its model structure, data augmentation techniques, training strategies, and loss computations."}</script></head>
+<meta content="Architecture Summary" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 architecture, object detection, Ultralytics, YOLO, model structure, data augmentation, training strategies, loss computations, deep learning, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/architecture_description" property="og:url"/><meta content="Architecture Summary" property="og:title"/><meta content="Dive deep into the powerful YOLOv5 architecture by Ultralytics, exploring its model structure, data augmentation techniques, training strategies, and loss computations." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-model-structure.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/architecture_description" property="twitter:url"/><meta content="Architecture Summary" property="twitter:title"/><meta content="Dive deep into the powerful YOLOv5 architecture by Ultralytics, exploring its model structure, data augmentation techniques, training strategies, and loss computations." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-model-structure.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Architecture Summary", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolov5-model-structure.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-09-23 23:48:46 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Dive deep into the powerful YOLOv5 architecture by Ultralytics, exploring its model structure, data augmentation techniques, training strategies, and loss computations."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -973,7 +973,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
 <h1 id="ultralytics-yolov5-architecture">Ultralytics YOLOv5 Architecture</h1>
-<p>YOLOv5 (v6.0/6.1) is a powerful object detection algorithm developed by Ultralytics. This article dives deep into the YOLOv5 architecture, data augmentation strategies, training methodologies, and loss computation techniques. This comprehensive understanding will help improve your practical application of object detection in various fields, including surveillance, autonomous vehicles, and image recognition.</p>
+<p>YOLOv5 (v6.0/6.1) is a powerful object detection algorithm developed by Ultralytics. This article dives deep into the YOLOv5 architecture, <a href="https://www.ultralytics.com/glossary/data-augmentation">data augmentation</a> strategies, training methodologies, and loss computation techniques. This comprehensive understanding will help improve your practical application of object detection in various fields, including surveillance, autonomous vehicles, and <a href="https://www.ultralytics.com/glossary/image-recognition">image recognition</a>.</p>
 <h2 id="1-model-structure">1. Model Structure</h2>
 <p>YOLOv5's architecture consists of three main parts:</p>
 <ul>
@@ -1060,10 +1060,10 @@ result:
 </code></pre></div>
 </details>
 <h2 id="2-data-augmentation-techniques">2. Data Augmentation Techniques</h2>
-<p>YOLOv5 employs various data augmentation techniques to improve the model's ability to generalize and reduce overfitting. These techniques include:</p>
+<p>YOLOv5 employs various data augmentation techniques to improve the model's ability to generalize and reduce <a href="https://www.ultralytics.com/glossary/overfitting">overfitting</a>. These techniques include:</p>
 <ul>
 <li>
-<p><strong>Mosaic Augmentation</strong>: An image processing technique that combines four training images into one in ways that encourage object detection models to better handle various object scales and translations.</p>
+<p><strong>Mosaic Augmentation</strong>: An image processing technique that combines four training images into one in ways that encourage <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> models to better handle various object scales and translations.</p>
 <p><img alt="mosaic" src="https://github.com/ultralytics/docs/releases/download/0/mosaic-augmentation.avif"/></p>
 </li>
 <li>
@@ -1095,9 +1095,9 @@ result:
 <ul>
 <li><strong>Multiscale Training</strong>: The input images are randomly rescaled within a range of 0.5 to 1.5 times their original size during the training process.</li>
 <li><strong>AutoAnchor</strong>: This strategy optimizes the prior anchor boxes to match the statistical characteristics of the ground truth boxes in your custom data.</li>
-<li><strong>Warmup and Cosine LR Scheduler</strong>: A method to adjust the learning rate to enhance model performance.</li>
+<li><strong>Warmup and Cosine LR Scheduler</strong>: A method to adjust the <a href="https://www.ultralytics.com/glossary/learning-rate">learning rate</a> to enhance model performance.</li>
 <li><strong>Exponential Moving Average (EMA)</strong>: A strategy that uses the average of parameters over past steps to stabilize the training process and reduce generalization error.</li>
-<li><strong>Mixed Precision Training</strong>: A method to perform operations in half-precision format, reducing memory usage and enhancing computational speed.</li>
+<li><strong><a href="https://www.ultralytics.com/glossary/mixed-precision">Mixed Precision</a> Training</strong>: A method to perform operations in half-<a href="https://www.ultralytics.com/glossary/precision">precision</a> format, reducing memory usage and enhancing computational speed.</li>
 <li><strong>Hyperparameter Evolution</strong>: A strategy to automatically tune hyperparameters to achieve optimal performance.</li>
 </ul>
 <h2 id="4-additional-features">4. Additional Features</h2>
@@ -1108,7 +1108,7 @@ result:
 <li><strong>Objectness Loss (BCE Loss)</strong>: Another Binary Cross-Entropy loss, calculates the error in detecting whether an object is present in a particular grid cell or not.</li>
 <li><strong>Location Loss (CIoU Loss)</strong>: Complete IoU loss, measures the error in localizing the object within the grid cell.</li>
 </ul>
-<p>The overall loss function is depicted by:</p>
+<p>The overall <a href="https://www.ultralytics.com/glossary/loss-function">loss function</a> is depicted by:</p>
 <p><img alt="loss" src="https://latex.codecogs.com/svg.image?Loss=\lambda_1L_{cls}+\lambda_2L_{obj}+\lambda_3L_{loc}"/></p>
 <h3 id="42-balance-losses">4.2 Balance Losses</h3>
 <p>The objectness losses of the three prediction layers (<code>P3</code>, <code>P4</code>, <code>P5</code>) are weighted differently. The balance weights are <code>[4.0, 1.0, 0.4]</code> respectively. This approach ensures that the predictions at different scales contribute appropriately to the total loss.</p>
@@ -1121,7 +1121,7 @@ result:
 <img alt="b_h" src="https://latex.codecogs.com/svg.image?b_h=p_h\cdot&amp;space;e^{t_h}"/></p>
 <p><img alt="YOLOv5 grid computation" src="https://user-images.githubusercontent.com/31005897/158508027-8bf63c28-8290-467b-8a3e-4ad09235001a.png#pic_center" width="40%"/></p>
 <p>However, in YOLOv5, the formula for predicting the box coordinates has been updated to reduce grid sensitivity and prevent the model from predicting unbounded box dimensions.</p>
-<p>The revised formulas for calculating the predicted bounding box are as follows:</p>
+<p>The revised formulas for calculating the predicted <a href="https://www.ultralytics.com/glossary/bounding-box">bounding box</a> are as follows:</p>
 <p><img alt="bx" src="https://latex.codecogs.com/svg.image?b_x=(2\cdot\sigma(t_x)-0.5)+c_x">
 <img alt="by" src="https://latex.codecogs.com/svg.image?b_y=(2\cdot\sigma(t_y)-0.5)+c_y"/>
 <img alt="bw" src="https://latex.codecogs.com/svg.image?b_w=p_w\cdot(2\cdot\sigma(t_w))^2"/>
@@ -1131,7 +1131,7 @@ result:
 <p>Compare the height and width scaling ratio(relative to anchor) before and after adjustment. The original yolo/darknet box equations have a serious flaw. Width and Height are completely unbounded as they are simply out=exp(in), which is dangerous, as it can lead to runaway gradients, instabilities, NaN losses and ultimately a complete loss of training. <a href="https://github.com/ultralytics/yolov5/issues/471#issuecomment-662009779">refer this issue</a></p>
 <p><img alt="YOLOv5 unbounded scaling" src="https://user-images.githubusercontent.com/31005897/158508089-5ac0c7a3-6358-44b7-863e-a6e45babb842.png#pic_center" width="40%"/></p>
 <h3 id="44-build-targets">4.4 Build Targets</h3>
-<p>The build target process in YOLOv5 is critical for training efficiency and model accuracy. It involves assigning ground truth boxes to the appropriate grid cells in the output map and matching them with the appropriate anchor boxes.</p>
+<p>The build target process in YOLOv5 is critical for training efficiency and model <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>. It involves assigning ground truth boxes to the appropriate grid cells in the output map and matching them with the appropriate anchor boxes.</p>
 <p>This process follows these steps:</p>
 <ul>
 <li>Calculate the ratio of the ground truth box dimensions and the dimensions of each anchor template.</li>
@@ -1168,19 +1168,19 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 10 months ago
     </span>
-<span class="date-item" title="This page was last updated on August 30, 2024">
-<span class="hover-item">✏️</span> Updated 24 days ago
+<span class="date-item" title="This page was last updated on September 23, 2024">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (10 changes)">
+<img alt="glenn-jocher" class="hover-item" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/ambitious-octopus" title="ambitious-octopus (1 change)">
 <img alt="ambitious-octopus" class="hover-item" src="https://avatars.githubusercontent.com/u/3855193?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (9 changes)">
-<img alt="glenn-jocher" class="hover-item" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/sergiuwaxmann" title="sergiuwaxmann (1 change)">
 <img alt="sergiuwaxmann" class="hover-item" src="https://avatars.githubusercontent.com/u/47978446?v=4&amp;s=96"/>

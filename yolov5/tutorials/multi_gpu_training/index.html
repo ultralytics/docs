@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Multi-GPU Training" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, multiple GPUs, machine learning, deep learning, PyTorch, data parallel, distributed data parallel" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/multi_gpu_training" property="og:url"/><meta content="Multi-GPU Training" property="og:title"/><meta content="Learn how to train YOLOv5 on multiple GPUs for optimal performance. Guide covers single and multiple machine setups." property="og:description"/><meta content="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/multi_gpu_training" property="twitter:url"/><meta content="Multi-GPU Training" property="twitter:title"/><meta content="Learn how to train YOLOv5 on multiple GPUs for optimal performance. Guide covers single and multiple machine setups." property="twitter:description"/><meta content="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Multi-GPU Training", "image": ["https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-09-06 04:47:15 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to train YOLOv5 on multiple GPUs for optimal performance. Guide covers single and multiple machine setups."}</script></head>
+<meta content="Multi-GPU Training" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, multiple GPUs, machine learning, deep learning, PyTorch, data parallel, distributed data parallel" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/multi_gpu_training" property="og:url"/><meta content="Multi-GPU Training" property="og:title"/><meta content="Learn how to train YOLOv5 on multiple GPUs for optimal performance. Guide covers single and multiple machine setups." property="og:description"/><meta content="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/multi_gpu_training" property="twitter:url"/><meta content="Multi-GPU Training" property="twitter:title"/><meta content="Learn how to train YOLOv5 on multiple GPUs for optimal performance. Guide covers single and multiple machine setups." property="twitter:description"/><meta content="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Multi-GPU Training", "image": ["https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-09-23 23:48:46 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to train YOLOv5 on multiple GPUs for optimal performance. Guide covers single and multiple machine setups."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1009,7 +1009,7 @@
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># install</span>
 </code></pre></div>
 <p>💡 ProTip! <strong>Docker Image</strong> is recommended for all Multi-GPU trainings. See <a href="../../environments/docker_image_quickstart_tutorial/">Docker Quickstart Guide</a> <a href="https://hub.docker.com/r/ultralytics/yolov5"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"/></a></p>
-<p>💡 ProTip! <code>torch.distributed.run</code> replaces <code>torch.distributed.launch</code> in <strong>PyTorch&gt;=1.9</strong>. See <a href="https://pytorch.org/docs/stable/distributed.html">docs</a> for details.</p>
+<p>💡 ProTip! <code>torch.distributed.run</code> replaces <code>torch.distributed.launch</code> in <strong><a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a>&gt;=1.9</strong>. See <a href="https://pytorch.org/docs/stable/distributed.html">docs</a> for details.</p>
 <h2 id="training">Training</h2>
 <p>Select a pretrained model to start training from. Here we select <a href="https://github.com/ultralytics/yolov5/blob/master/models/yolov5s.yaml">YOLOv5s</a>, the smallest and fastest model available. See our README <a href="https://github.com/ultralytics/yolov5#pretrained-checkpoints">table</a> for a full comparison of all models. We will train this model with Multi-GPU on the <a href="https://github.com/ultralytics/yolov5/blob/master/data/scripts/get_coco.sh">COCO</a> dataset.</p>
 <p align="center"><img alt="YOLOv5 Models" src="https://github.com/ultralytics/docs/releases/download/0/yolov5-model-comparison.avif" width="700"/></p>
@@ -1039,7 +1039,7 @@ You can do so by simply passing `--device` followed by your specific GPUs. For e
 <details>
 <summary>Use SyncBatchNorm (click to expand)</summary>
 
-[SyncBatchNorm](https://pytorch.org/docs/master/generated/torch.nn.SyncBatchNorm.html) could increase accuracy for multiple gpu training, however, it will slow down training by a significant factor. It is **only** available for Multiple GPU DistributedDataParallel training.
+[SyncBatchNorm](https://pytorch.org/docs/master/generated/torch.nn.SyncBatchNorm.html) could increase [accuracy](https://www.ultralytics.com/glossary/accuracy) for multiple gpu training, however, it will slow down training by a significant factor. It is **only** available for Multiple GPU DistributedDataParallel training.
 
 It is best used when the batch-size on **each** GPU is small (&lt;= 8).
 
@@ -1081,7 +1081,7 @@ Training will not start until <b>all </b> `N` machines are connected. Output wil
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>python<span class="w"> </span>-m<span class="w"> </span>torch.distributed.run<span class="w"> </span>--master_port<span class="w"> </span><span class="m">1234</span><span class="w"> </span>--nproc_per_node<span class="w"> </span><span class="m">2</span><span class="w"> </span>...
 </code></pre></div>
 <h2 id="results">Results</h2>
-<p>DDP profiling results on an <a href="../../environments/aws_quickstart_tutorial/">AWS EC2 P4d instance</a> with 8x A100 SXM4-40GB for YOLOv5l for 1 COCO epoch.</p>
+<p>DDP profiling results on an <a href="../../environments/aws_quickstart_tutorial/">AWS EC2 P4d instance</a> with 8x A100 SXM4-40GB for YOLOv5l for 1 COCO <a href="https://www.ultralytics.com/glossary/epoch">epoch</a>.</p>
 <details>
 <summary>Profiling code</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># prepare</span>
@@ -1181,19 +1181,19 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 10 months ago
     </span>
-<span class="date-item" title="This page was last updated on September 06, 2024">
-<span class="hover-item">✏️</span> Updated 18 days ago
+<span class="date-item" title="This page was last updated on September 23, 2024">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (6 changes)">
+<img alt="glenn-jocher" class="hover-item" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (1 change)">
 <img alt="UltralyticsAssistant" class="hover-item" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (5 changes)">
-<img alt="glenn-jocher" class="hover-item" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/Burhan-Q" title="Burhan-Q (1 change)">
 <img alt="Burhan-Q" class="hover-item" src="https://avatars.githubusercontent.com/u/62214284?v=4&amp;s=96"/>
