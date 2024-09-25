@@ -2876,25 +2876,25 @@ during evaluation.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-949">949</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-947">947</a></span>
+<span class="normal"><a href="#__codelineno-0-948">948</a></span>
+<span class="normal"><a href="#__codelineno-0-949">949</a></span>
 <span class="normal"><a href="#__codelineno-0-950">950</a></span>
 <span class="normal"><a href="#__codelineno-0-951">951</a></span>
 <span class="normal"><a href="#__codelineno-0-952">952</a></span>
 <span class="normal"><a href="#__codelineno-0-953">953</a></span>
 <span class="normal"><a href="#__codelineno-0-954">954</a></span>
 <span class="normal"><a href="#__codelineno-0-955">955</a></span>
-<span class="normal"><a href="#__codelineno-0-956">956</a></span>
-<span class="normal"><a href="#__codelineno-0-957">957</a></span>
-<span class="normal"><a href="#__codelineno-0-958">958</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-949" name="__codelineno-0-949"></a><span class="k">def</span> <span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
-<a id="__codelineno-0-950" name="__codelineno-0-950"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-951" name="__codelineno-0-951"></a><span class="sd">    Set image size to make model compatible with different image sizes.</span>
-<a id="__codelineno-0-952" name="__codelineno-0-952"></a>
-<a id="__codelineno-0-953" name="__codelineno-0-953"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-954" name="__codelineno-0-954"></a><span class="sd">        imgsz (Tuple[int, int]): The size of the input image.</span>
-<a id="__codelineno-0-955" name="__codelineno-0-955"></a><span class="sd">    """</span>
-<a id="__codelineno-0-956" name="__codelineno-0-956"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-957" name="__codelineno-0-957"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
-<a id="__codelineno-0-958" name="__codelineno-0-958"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">image_embedding_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">16</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">imgsz</span><span class="p">]</span>  <span class="c1"># fixed ViT patch size of 16</span>
+<span class="normal"><a href="#__codelineno-0-956">956</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-947" name="__codelineno-0-947"></a><span class="k">def</span> <span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
+<a id="__codelineno-0-948" name="__codelineno-0-948"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-949" name="__codelineno-0-949"></a><span class="sd">    Set image size to make model compatible with different image sizes.</span>
+<a id="__codelineno-0-950" name="__codelineno-0-950"></a>
+<a id="__codelineno-0-951" name="__codelineno-0-951"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-952" name="__codelineno-0-952"></a><span class="sd">        imgsz (Tuple[int, int]): The size of the input image.</span>
+<a id="__codelineno-0-953" name="__codelineno-0-953"></a><span class="sd">    """</span>
+<a id="__codelineno-0-954" name="__codelineno-0-954"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-955" name="__codelineno-0-955"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
+<a id="__codelineno-0-956" name="__codelineno-0-956"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">image_embedding_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">16</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">imgsz</span><span class="p">]</span>  <span class="c1"># fixed ViT patch size of 16</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2922,7 +2922,9 @@ during evaluation.</p>
 <p>Performs a single tracking step, updating object masks and memory features based on current frame inputs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-827">827</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-825">825</a></span>
+<span class="normal"><a href="#__codelineno-0-826">826</a></span>
+<span class="normal"><a href="#__codelineno-0-827">827</a></span>
 <span class="normal"><a href="#__codelineno-0-828">828</a></span>
 <span class="normal"><a href="#__codelineno-0-829">829</a></span>
 <span class="normal"><a href="#__codelineno-0-830">830</a></span>
@@ -3014,103 +3016,101 @@ during evaluation.</p>
 <span class="normal"><a href="#__codelineno-0-916">916</a></span>
 <span class="normal"><a href="#__codelineno-0-917">917</a></span>
 <span class="normal"><a href="#__codelineno-0-918">918</a></span>
-<span class="normal"><a href="#__codelineno-0-919">919</a></span>
-<span class="normal"><a href="#__codelineno-0-920">920</a></span>
-<span class="normal"><a href="#__codelineno-0-921">921</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-827" name="__codelineno-0-827"></a><span class="k">def</span> <span class="nf">track_step</span><span class="p">(</span>
-<a id="__codelineno-0-828" name="__codelineno-0-828"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-829" name="__codelineno-0-829"></a>    <span class="n">frame_idx</span><span class="p">,</span>
-<a id="__codelineno-0-830" name="__codelineno-0-830"></a>    <span class="n">is_init_cond_frame</span><span class="p">,</span>
-<a id="__codelineno-0-831" name="__codelineno-0-831"></a>    <span class="n">current_vision_feats</span><span class="p">,</span>
-<a id="__codelineno-0-832" name="__codelineno-0-832"></a>    <span class="n">current_vision_pos_embeds</span><span class="p">,</span>
-<a id="__codelineno-0-833" name="__codelineno-0-833"></a>    <span class="n">feat_sizes</span><span class="p">,</span>
-<a id="__codelineno-0-834" name="__codelineno-0-834"></a>    <span class="n">point_inputs</span><span class="p">,</span>
-<a id="__codelineno-0-835" name="__codelineno-0-835"></a>    <span class="n">mask_inputs</span><span class="p">,</span>
-<a id="__codelineno-0-836" name="__codelineno-0-836"></a>    <span class="n">output_dict</span><span class="p">,</span>
-<a id="__codelineno-0-837" name="__codelineno-0-837"></a>    <span class="n">num_frames</span><span class="p">,</span>
-<a id="__codelineno-0-838" name="__codelineno-0-838"></a>    <span class="n">track_in_reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># tracking in reverse time order (for demo usage)</span>
-<a id="__codelineno-0-839" name="__codelineno-0-839"></a>    <span class="c1"># Whether to run the memory encoder on the predicted masks. Sometimes we might want</span>
-<a id="__codelineno-0-840" name="__codelineno-0-840"></a>    <span class="c1"># to skip the memory encoder with `run_mem_encoder=False`. For example,</span>
-<a id="__codelineno-0-841" name="__codelineno-0-841"></a>    <span class="c1"># in demo we might call `track_step` multiple times for each user click,</span>
-<a id="__codelineno-0-842" name="__codelineno-0-842"></a>    <span class="c1"># and only encode the memory when the user finalizes their clicks. And in ablation</span>
-<a id="__codelineno-0-843" name="__codelineno-0-843"></a>    <span class="c1"># settings like SAM training on static images, we don't need the memory encoder.</span>
-<a id="__codelineno-0-844" name="__codelineno-0-844"></a>    <span class="n">run_mem_encoder</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-845" name="__codelineno-0-845"></a>    <span class="c1"># The previously predicted SAM mask logits (which can be fed together with new clicks in demo).</span>
-<a id="__codelineno-0-846" name="__codelineno-0-846"></a>    <span class="n">prev_sam_mask_logits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-847" name="__codelineno-0-847"></a><span class="p">):</span>
-<a id="__codelineno-0-848" name="__codelineno-0-848"></a><span class="w">    </span><span class="sd">"""Performs a single tracking step, updating object masks and memory features based on current frame inputs."""</span>
-<a id="__codelineno-0-849" name="__codelineno-0-849"></a>    <span class="n">current_out</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"point_inputs"</span><span class="p">:</span> <span class="n">point_inputs</span><span class="p">,</span> <span class="s2">"mask_inputs"</span><span class="p">:</span> <span class="n">mask_inputs</span><span class="p">}</span>
-<a id="__codelineno-0-850" name="__codelineno-0-850"></a>    <span class="c1"># High-resolution feature maps for the SAM head, reshape (HW)BC =&gt; BCHW</span>
-<a id="__codelineno-0-851" name="__codelineno-0-851"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_vision_feats</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-852" name="__codelineno-0-852"></a>        <span class="n">high_res_features</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-0-853" name="__codelineno-0-853"></a>            <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="o">*</span><span class="n">s</span><span class="p">)</span>
-<a id="__codelineno-0-854" name="__codelineno-0-854"></a>            <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">current_vision_feats</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">feat_sizes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-0-855" name="__codelineno-0-855"></a>        <span class="p">]</span>
-<a id="__codelineno-0-856" name="__codelineno-0-856"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-857" name="__codelineno-0-857"></a>        <span class="n">high_res_features</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-858" name="__codelineno-0-858"></a>    <span class="k">if</span> <span class="n">mask_inputs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_mask_input_as_output_without_sam</span><span class="p">:</span>
-<a id="__codelineno-0-859" name="__codelineno-0-859"></a>        <span class="c1"># When use_mask_input_as_output_without_sam=True, we directly output the mask input</span>
-<a id="__codelineno-0-860" name="__codelineno-0-860"></a>        <span class="c1"># (see it as a GT mask) without using a SAM prompt encoder + mask decoder.</span>
-<a id="__codelineno-0-861" name="__codelineno-0-861"></a>        <span class="n">pix_feat</span> <span class="o">=</span> <span class="n">current_vision_feats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-862" name="__codelineno-0-862"></a>        <span class="n">pix_feat</span> <span class="o">=</span> <span class="n">pix_feat</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="o">*</span><span class="n">feat_sizes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-0-863" name="__codelineno-0-863"></a>        <span class="n">sam_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_mask_as_output</span><span class="p">(</span><span class="n">pix_feat</span><span class="p">,</span> <span class="n">high_res_features</span><span class="p">,</span> <span class="n">mask_inputs</span><span class="p">)</span>
-<a id="__codelineno-0-864" name="__codelineno-0-864"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-865" name="__codelineno-0-865"></a>        <span class="c1"># fused the visual feature with previous memory features in the memory bank</span>
-<a id="__codelineno-0-866" name="__codelineno-0-866"></a>        <span class="n">pix_feat_with_mem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_memory_conditioned_features</span><span class="p">(</span>
-<a id="__codelineno-0-867" name="__codelineno-0-867"></a>            <span class="n">frame_idx</span><span class="o">=</span><span class="n">frame_idx</span><span class="p">,</span>
-<a id="__codelineno-0-868" name="__codelineno-0-868"></a>            <span class="n">is_init_cond_frame</span><span class="o">=</span><span class="n">is_init_cond_frame</span><span class="p">,</span>
-<a id="__codelineno-0-869" name="__codelineno-0-869"></a>            <span class="n">current_vision_feats</span><span class="o">=</span><span class="n">current_vision_feats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:],</span>
-<a id="__codelineno-0-870" name="__codelineno-0-870"></a>            <span class="n">current_vision_pos_embeds</span><span class="o">=</span><span class="n">current_vision_pos_embeds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:],</span>
-<a id="__codelineno-0-871" name="__codelineno-0-871"></a>            <span class="n">feat_sizes</span><span class="o">=</span><span class="n">feat_sizes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:],</span>
-<a id="__codelineno-0-872" name="__codelineno-0-872"></a>            <span class="n">output_dict</span><span class="o">=</span><span class="n">output_dict</span><span class="p">,</span>
-<a id="__codelineno-0-873" name="__codelineno-0-873"></a>            <span class="n">num_frames</span><span class="o">=</span><span class="n">num_frames</span><span class="p">,</span>
-<a id="__codelineno-0-874" name="__codelineno-0-874"></a>            <span class="n">track_in_reverse</span><span class="o">=</span><span class="n">track_in_reverse</span><span class="p">,</span>
-<a id="__codelineno-0-875" name="__codelineno-0-875"></a>        <span class="p">)</span>
-<a id="__codelineno-0-876" name="__codelineno-0-876"></a>        <span class="c1"># apply SAM-style segmentation head</span>
-<a id="__codelineno-0-877" name="__codelineno-0-877"></a>        <span class="c1"># here we might feed previously predicted low-res SAM mask logits into the SAM mask decoder,</span>
-<a id="__codelineno-0-878" name="__codelineno-0-878"></a>        <span class="c1"># e.g. in demo where such logits come from earlier interaction instead of correction sampling</span>
-<a id="__codelineno-0-879" name="__codelineno-0-879"></a>        <span class="c1"># (in this case, any `mask_inputs` shouldn't reach here as they are sent to _use_mask_as_output instead)</span>
-<a id="__codelineno-0-880" name="__codelineno-0-880"></a>        <span class="k">if</span> <span class="n">prev_sam_mask_logits</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-881" name="__codelineno-0-881"></a>            <span class="k">assert</span> <span class="n">point_inputs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">mask_inputs</span> <span class="ow">is</span> <span class="kc">None</span>
-<a id="__codelineno-0-882" name="__codelineno-0-882"></a>            <span class="n">mask_inputs</span> <span class="o">=</span> <span class="n">prev_sam_mask_logits</span>
-<a id="__codelineno-0-883" name="__codelineno-0-883"></a>        <span class="n">multimask_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_multimask</span><span class="p">(</span><span class="n">is_init_cond_frame</span><span class="p">,</span> <span class="n">point_inputs</span><span class="p">)</span>
-<a id="__codelineno-0-884" name="__codelineno-0-884"></a>        <span class="n">sam_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_sam_heads</span><span class="p">(</span>
-<a id="__codelineno-0-885" name="__codelineno-0-885"></a>            <span class="n">backbone_features</span><span class="o">=</span><span class="n">pix_feat_with_mem</span><span class="p">,</span>
-<a id="__codelineno-0-886" name="__codelineno-0-886"></a>            <span class="n">point_inputs</span><span class="o">=</span><span class="n">point_inputs</span><span class="p">,</span>
-<a id="__codelineno-0-887" name="__codelineno-0-887"></a>            <span class="n">mask_inputs</span><span class="o">=</span><span class="n">mask_inputs</span><span class="p">,</span>
-<a id="__codelineno-0-888" name="__codelineno-0-888"></a>            <span class="n">high_res_features</span><span class="o">=</span><span class="n">high_res_features</span><span class="p">,</span>
-<a id="__codelineno-0-889" name="__codelineno-0-889"></a>            <span class="n">multimask_output</span><span class="o">=</span><span class="n">multimask_output</span><span class="p">,</span>
-<a id="__codelineno-0-890" name="__codelineno-0-890"></a>        <span class="p">)</span>
-<a id="__codelineno-0-891" name="__codelineno-0-891"></a>    <span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-919">919</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-825" name="__codelineno-0-825"></a><span class="k">def</span> <span class="nf">track_step</span><span class="p">(</span>
+<a id="__codelineno-0-826" name="__codelineno-0-826"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-827" name="__codelineno-0-827"></a>    <span class="n">frame_idx</span><span class="p">,</span>
+<a id="__codelineno-0-828" name="__codelineno-0-828"></a>    <span class="n">is_init_cond_frame</span><span class="p">,</span>
+<a id="__codelineno-0-829" name="__codelineno-0-829"></a>    <span class="n">current_vision_feats</span><span class="p">,</span>
+<a id="__codelineno-0-830" name="__codelineno-0-830"></a>    <span class="n">current_vision_pos_embeds</span><span class="p">,</span>
+<a id="__codelineno-0-831" name="__codelineno-0-831"></a>    <span class="n">feat_sizes</span><span class="p">,</span>
+<a id="__codelineno-0-832" name="__codelineno-0-832"></a>    <span class="n">point_inputs</span><span class="p">,</span>
+<a id="__codelineno-0-833" name="__codelineno-0-833"></a>    <span class="n">mask_inputs</span><span class="p">,</span>
+<a id="__codelineno-0-834" name="__codelineno-0-834"></a>    <span class="n">output_dict</span><span class="p">,</span>
+<a id="__codelineno-0-835" name="__codelineno-0-835"></a>    <span class="n">num_frames</span><span class="p">,</span>
+<a id="__codelineno-0-836" name="__codelineno-0-836"></a>    <span class="n">track_in_reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># tracking in reverse time order (for demo usage)</span>
+<a id="__codelineno-0-837" name="__codelineno-0-837"></a>    <span class="c1"># Whether to run the memory encoder on the predicted masks. Sometimes we might want</span>
+<a id="__codelineno-0-838" name="__codelineno-0-838"></a>    <span class="c1"># to skip the memory encoder with `run_mem_encoder=False`. For example,</span>
+<a id="__codelineno-0-839" name="__codelineno-0-839"></a>    <span class="c1"># in demo we might call `track_step` multiple times for each user click,</span>
+<a id="__codelineno-0-840" name="__codelineno-0-840"></a>    <span class="c1"># and only encode the memory when the user finalizes their clicks. And in ablation</span>
+<a id="__codelineno-0-841" name="__codelineno-0-841"></a>    <span class="c1"># settings like SAM training on static images, we don't need the memory encoder.</span>
+<a id="__codelineno-0-842" name="__codelineno-0-842"></a>    <span class="n">run_mem_encoder</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-843" name="__codelineno-0-843"></a>    <span class="c1"># The previously predicted SAM mask logits (which can be fed together with new clicks in demo).</span>
+<a id="__codelineno-0-844" name="__codelineno-0-844"></a>    <span class="n">prev_sam_mask_logits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-845" name="__codelineno-0-845"></a><span class="p">):</span>
+<a id="__codelineno-0-846" name="__codelineno-0-846"></a><span class="w">    </span><span class="sd">"""Performs a single tracking step, updating object masks and memory features based on current frame inputs."""</span>
+<a id="__codelineno-0-847" name="__codelineno-0-847"></a>    <span class="n">current_out</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"point_inputs"</span><span class="p">:</span> <span class="n">point_inputs</span><span class="p">,</span> <span class="s2">"mask_inputs"</span><span class="p">:</span> <span class="n">mask_inputs</span><span class="p">}</span>
+<a id="__codelineno-0-848" name="__codelineno-0-848"></a>    <span class="c1"># High-resolution feature maps for the SAM head, reshape (HW)BC =&gt; BCHW</span>
+<a id="__codelineno-0-849" name="__codelineno-0-849"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_vision_feats</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-850" name="__codelineno-0-850"></a>        <span class="n">high_res_features</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-0-851" name="__codelineno-0-851"></a>            <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="o">*</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-0-852" name="__codelineno-0-852"></a>            <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">current_vision_feats</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">feat_sizes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-0-853" name="__codelineno-0-853"></a>        <span class="p">]</span>
+<a id="__codelineno-0-854" name="__codelineno-0-854"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-855" name="__codelineno-0-855"></a>        <span class="n">high_res_features</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-856" name="__codelineno-0-856"></a>    <span class="k">if</span> <span class="n">mask_inputs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_mask_input_as_output_without_sam</span><span class="p">:</span>
+<a id="__codelineno-0-857" name="__codelineno-0-857"></a>        <span class="c1"># When use_mask_input_as_output_without_sam=True, we directly output the mask input</span>
+<a id="__codelineno-0-858" name="__codelineno-0-858"></a>        <span class="c1"># (see it as a GT mask) without using a SAM prompt encoder + mask decoder.</span>
+<a id="__codelineno-0-859" name="__codelineno-0-859"></a>        <span class="n">pix_feat</span> <span class="o">=</span> <span class="n">current_vision_feats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-860" name="__codelineno-0-860"></a>        <span class="n">pix_feat</span> <span class="o">=</span> <span class="n">pix_feat</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="o">*</span><span class="n">feat_sizes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-0-861" name="__codelineno-0-861"></a>        <span class="n">sam_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_mask_as_output</span><span class="p">(</span><span class="n">pix_feat</span><span class="p">,</span> <span class="n">high_res_features</span><span class="p">,</span> <span class="n">mask_inputs</span><span class="p">)</span>
+<a id="__codelineno-0-862" name="__codelineno-0-862"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-863" name="__codelineno-0-863"></a>        <span class="c1"># fused the visual feature with previous memory features in the memory bank</span>
+<a id="__codelineno-0-864" name="__codelineno-0-864"></a>        <span class="n">pix_feat_with_mem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_memory_conditioned_features</span><span class="p">(</span>
+<a id="__codelineno-0-865" name="__codelineno-0-865"></a>            <span class="n">frame_idx</span><span class="o">=</span><span class="n">frame_idx</span><span class="p">,</span>
+<a id="__codelineno-0-866" name="__codelineno-0-866"></a>            <span class="n">is_init_cond_frame</span><span class="o">=</span><span class="n">is_init_cond_frame</span><span class="p">,</span>
+<a id="__codelineno-0-867" name="__codelineno-0-867"></a>            <span class="n">current_vision_feats</span><span class="o">=</span><span class="n">current_vision_feats</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:],</span>
+<a id="__codelineno-0-868" name="__codelineno-0-868"></a>            <span class="n">current_vision_pos_embeds</span><span class="o">=</span><span class="n">current_vision_pos_embeds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:],</span>
+<a id="__codelineno-0-869" name="__codelineno-0-869"></a>            <span class="n">feat_sizes</span><span class="o">=</span><span class="n">feat_sizes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:],</span>
+<a id="__codelineno-0-870" name="__codelineno-0-870"></a>            <span class="n">output_dict</span><span class="o">=</span><span class="n">output_dict</span><span class="p">,</span>
+<a id="__codelineno-0-871" name="__codelineno-0-871"></a>            <span class="n">num_frames</span><span class="o">=</span><span class="n">num_frames</span><span class="p">,</span>
+<a id="__codelineno-0-872" name="__codelineno-0-872"></a>            <span class="n">track_in_reverse</span><span class="o">=</span><span class="n">track_in_reverse</span><span class="p">,</span>
+<a id="__codelineno-0-873" name="__codelineno-0-873"></a>        <span class="p">)</span>
+<a id="__codelineno-0-874" name="__codelineno-0-874"></a>        <span class="c1"># apply SAM-style segmentation head</span>
+<a id="__codelineno-0-875" name="__codelineno-0-875"></a>        <span class="c1"># here we might feed previously predicted low-res SAM mask logits into the SAM mask decoder,</span>
+<a id="__codelineno-0-876" name="__codelineno-0-876"></a>        <span class="c1"># e.g. in demo where such logits come from earlier interaction instead of correction sampling</span>
+<a id="__codelineno-0-877" name="__codelineno-0-877"></a>        <span class="c1"># (in this case, any `mask_inputs` shouldn't reach here as they are sent to _use_mask_as_output instead)</span>
+<a id="__codelineno-0-878" name="__codelineno-0-878"></a>        <span class="k">if</span> <span class="n">prev_sam_mask_logits</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-879" name="__codelineno-0-879"></a>            <span class="k">assert</span> <span class="n">point_inputs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">mask_inputs</span> <span class="ow">is</span> <span class="kc">None</span>
+<a id="__codelineno-0-880" name="__codelineno-0-880"></a>            <span class="n">mask_inputs</span> <span class="o">=</span> <span class="n">prev_sam_mask_logits</span>
+<a id="__codelineno-0-881" name="__codelineno-0-881"></a>        <span class="n">multimask_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_multimask</span><span class="p">(</span><span class="n">is_init_cond_frame</span><span class="p">,</span> <span class="n">point_inputs</span><span class="p">)</span>
+<a id="__codelineno-0-882" name="__codelineno-0-882"></a>        <span class="n">sam_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_sam_heads</span><span class="p">(</span>
+<a id="__codelineno-0-883" name="__codelineno-0-883"></a>            <span class="n">backbone_features</span><span class="o">=</span><span class="n">pix_feat_with_mem</span><span class="p">,</span>
+<a id="__codelineno-0-884" name="__codelineno-0-884"></a>            <span class="n">point_inputs</span><span class="o">=</span><span class="n">point_inputs</span><span class="p">,</span>
+<a id="__codelineno-0-885" name="__codelineno-0-885"></a>            <span class="n">mask_inputs</span><span class="o">=</span><span class="n">mask_inputs</span><span class="p">,</span>
+<a id="__codelineno-0-886" name="__codelineno-0-886"></a>            <span class="n">high_res_features</span><span class="o">=</span><span class="n">high_res_features</span><span class="p">,</span>
+<a id="__codelineno-0-887" name="__codelineno-0-887"></a>            <span class="n">multimask_output</span><span class="o">=</span><span class="n">multimask_output</span><span class="p">,</span>
+<a id="__codelineno-0-888" name="__codelineno-0-888"></a>        <span class="p">)</span>
+<a id="__codelineno-0-889" name="__codelineno-0-889"></a>    <span class="p">(</span>
+<a id="__codelineno-0-890" name="__codelineno-0-890"></a>        <span class="n">_</span><span class="p">,</span>
+<a id="__codelineno-0-891" name="__codelineno-0-891"></a>        <span class="n">_</span><span class="p">,</span>
 <a id="__codelineno-0-892" name="__codelineno-0-892"></a>        <span class="n">_</span><span class="p">,</span>
-<a id="__codelineno-0-893" name="__codelineno-0-893"></a>        <span class="n">_</span><span class="p">,</span>
-<a id="__codelineno-0-894" name="__codelineno-0-894"></a>        <span class="n">_</span><span class="p">,</span>
-<a id="__codelineno-0-895" name="__codelineno-0-895"></a>        <span class="n">low_res_masks</span><span class="p">,</span>
-<a id="__codelineno-0-896" name="__codelineno-0-896"></a>        <span class="n">high_res_masks</span><span class="p">,</span>
-<a id="__codelineno-0-897" name="__codelineno-0-897"></a>        <span class="n">obj_ptr</span><span class="p">,</span>
-<a id="__codelineno-0-898" name="__codelineno-0-898"></a>        <span class="n">_</span><span class="p">,</span>
-<a id="__codelineno-0-899" name="__codelineno-0-899"></a>    <span class="p">)</span> <span class="o">=</span> <span class="n">sam_outputs</span>
-<a id="__codelineno-0-900" name="__codelineno-0-900"></a>
-<a id="__codelineno-0-901" name="__codelineno-0-901"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"pred_masks"</span><span class="p">]</span> <span class="o">=</span> <span class="n">low_res_masks</span>
-<a id="__codelineno-0-902" name="__codelineno-0-902"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"pred_masks_high_res"</span><span class="p">]</span> <span class="o">=</span> <span class="n">high_res_masks</span>
-<a id="__codelineno-0-903" name="__codelineno-0-903"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"obj_ptr"</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj_ptr</span>
-<a id="__codelineno-0-904" name="__codelineno-0-904"></a>
-<a id="__codelineno-0-905" name="__codelineno-0-905"></a>    <span class="c1"># Finally run the memory encoder on the predicted mask to encode</span>
-<a id="__codelineno-0-906" name="__codelineno-0-906"></a>    <span class="c1"># it into a new memory feature (that can be used in future frames)</span>
-<a id="__codelineno-0-907" name="__codelineno-0-907"></a>    <span class="k">if</span> <span class="n">run_mem_encoder</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_maskmem</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-908" name="__codelineno-0-908"></a>        <span class="n">high_res_masks_for_mem_enc</span> <span class="o">=</span> <span class="n">high_res_masks</span>
-<a id="__codelineno-0-909" name="__codelineno-0-909"></a>        <span class="n">maskmem_features</span><span class="p">,</span> <span class="n">maskmem_pos_enc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encode_new_memory</span><span class="p">(</span>
-<a id="__codelineno-0-910" name="__codelineno-0-910"></a>            <span class="n">current_vision_feats</span><span class="o">=</span><span class="n">current_vision_feats</span><span class="p">,</span>
-<a id="__codelineno-0-911" name="__codelineno-0-911"></a>            <span class="n">feat_sizes</span><span class="o">=</span><span class="n">feat_sizes</span><span class="p">,</span>
-<a id="__codelineno-0-912" name="__codelineno-0-912"></a>            <span class="n">pred_masks_high_res</span><span class="o">=</span><span class="n">high_res_masks_for_mem_enc</span><span class="p">,</span>
-<a id="__codelineno-0-913" name="__codelineno-0-913"></a>            <span class="n">is_mask_from_pts</span><span class="o">=</span><span class="p">(</span><span class="n">point_inputs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">),</span>
-<a id="__codelineno-0-914" name="__codelineno-0-914"></a>        <span class="p">)</span>
-<a id="__codelineno-0-915" name="__codelineno-0-915"></a>        <span class="n">current_out</span><span class="p">[</span><span class="s2">"maskmem_features"</span><span class="p">]</span> <span class="o">=</span> <span class="n">maskmem_features</span>
-<a id="__codelineno-0-916" name="__codelineno-0-916"></a>        <span class="n">current_out</span><span class="p">[</span><span class="s2">"maskmem_pos_enc"</span><span class="p">]</span> <span class="o">=</span> <span class="n">maskmem_pos_enc</span>
-<a id="__codelineno-0-917" name="__codelineno-0-917"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-918" name="__codelineno-0-918"></a>        <span class="n">current_out</span><span class="p">[</span><span class="s2">"maskmem_features"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-919" name="__codelineno-0-919"></a>        <span class="n">current_out</span><span class="p">[</span><span class="s2">"maskmem_pos_enc"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-920" name="__codelineno-0-920"></a>
-<a id="__codelineno-0-921" name="__codelineno-0-921"></a>    <span class="k">return</span> <span class="n">current_out</span>
+<a id="__codelineno-0-893" name="__codelineno-0-893"></a>        <span class="n">low_res_masks</span><span class="p">,</span>
+<a id="__codelineno-0-894" name="__codelineno-0-894"></a>        <span class="n">high_res_masks</span><span class="p">,</span>
+<a id="__codelineno-0-895" name="__codelineno-0-895"></a>        <span class="n">obj_ptr</span><span class="p">,</span>
+<a id="__codelineno-0-896" name="__codelineno-0-896"></a>        <span class="n">_</span><span class="p">,</span>
+<a id="__codelineno-0-897" name="__codelineno-0-897"></a>    <span class="p">)</span> <span class="o">=</span> <span class="n">sam_outputs</span>
+<a id="__codelineno-0-898" name="__codelineno-0-898"></a>
+<a id="__codelineno-0-899" name="__codelineno-0-899"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"pred_masks"</span><span class="p">]</span> <span class="o">=</span> <span class="n">low_res_masks</span>
+<a id="__codelineno-0-900" name="__codelineno-0-900"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"pred_masks_high_res"</span><span class="p">]</span> <span class="o">=</span> <span class="n">high_res_masks</span>
+<a id="__codelineno-0-901" name="__codelineno-0-901"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"obj_ptr"</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj_ptr</span>
+<a id="__codelineno-0-902" name="__codelineno-0-902"></a>
+<a id="__codelineno-0-903" name="__codelineno-0-903"></a>    <span class="c1"># Finally run the memory encoder on the predicted mask to encode</span>
+<a id="__codelineno-0-904" name="__codelineno-0-904"></a>    <span class="c1"># it into a new memory feature (that can be used in future frames)</span>
+<a id="__codelineno-0-905" name="__codelineno-0-905"></a>    <span class="k">if</span> <span class="n">run_mem_encoder</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_maskmem</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-906" name="__codelineno-0-906"></a>        <span class="n">high_res_masks_for_mem_enc</span> <span class="o">=</span> <span class="n">high_res_masks</span>
+<a id="__codelineno-0-907" name="__codelineno-0-907"></a>        <span class="n">maskmem_features</span><span class="p">,</span> <span class="n">maskmem_pos_enc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encode_new_memory</span><span class="p">(</span>
+<a id="__codelineno-0-908" name="__codelineno-0-908"></a>            <span class="n">current_vision_feats</span><span class="o">=</span><span class="n">current_vision_feats</span><span class="p">,</span>
+<a id="__codelineno-0-909" name="__codelineno-0-909"></a>            <span class="n">feat_sizes</span><span class="o">=</span><span class="n">feat_sizes</span><span class="p">,</span>
+<a id="__codelineno-0-910" name="__codelineno-0-910"></a>            <span class="n">pred_masks_high_res</span><span class="o">=</span><span class="n">high_res_masks_for_mem_enc</span><span class="p">,</span>
+<a id="__codelineno-0-911" name="__codelineno-0-911"></a>            <span class="n">is_mask_from_pts</span><span class="o">=</span><span class="p">(</span><span class="n">point_inputs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">),</span>
+<a id="__codelineno-0-912" name="__codelineno-0-912"></a>        <span class="p">)</span>
+<a id="__codelineno-0-913" name="__codelineno-0-913"></a>        <span class="n">current_out</span><span class="p">[</span><span class="s2">"maskmem_features"</span><span class="p">]</span> <span class="o">=</span> <span class="n">maskmem_features</span>
+<a id="__codelineno-0-914" name="__codelineno-0-914"></a>        <span class="n">current_out</span><span class="p">[</span><span class="s2">"maskmem_pos_enc"</span><span class="p">]</span> <span class="o">=</span> <span class="n">maskmem_pos_enc</span>
+<a id="__codelineno-0-915" name="__codelineno-0-915"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-916" name="__codelineno-0-916"></a>        <span class="n">current_out</span><span class="p">[</span><span class="s2">"maskmem_features"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-917" name="__codelineno-0-917"></a>        <span class="n">current_out</span><span class="p">[</span><span class="s2">"maskmem_pos_enc"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-918" name="__codelineno-0-918"></a>
+<a id="__codelineno-0-919" name="__codelineno-0-919"></a>    <span class="k">return</span> <span class="n">current_out</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3132,7 +3132,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <span class="hover-item">📅</span> Created 10 months ago
     </span>
 <span class="date-item" title="This page was last updated on September 11, 2024">
-<span class="hover-item">✏️</span> Updated 13 days ago
+<span class="hover-item">✏️</span> Updated 14 days ago
     </span>
 </div>
 <div class="authors-container">
