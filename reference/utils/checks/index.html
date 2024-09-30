@@ -3502,7 +3502,7 @@ Torchvision versions.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_amp</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Checks the PyTorch Automatic Mixed Precision (AMP) functionality of a YOLOv8 model. If the checks fail, it means
+<p>Checks the PyTorch Automatic Mixed Precision (AMP) functionality of a YOLO11 model. If the checks fail, it means
 there are anomalies with AMP on the system that may cause NaN losses or zero-mAP results, so AMP will be disabled
 during training.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3523,7 +3523,7 @@ during training.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A YOLOv8 model instance.</p>
+<p>A YOLO11 model instance.</p>
 </div>
 </td>
 <td>
@@ -3537,7 +3537,7 @@ during training.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.checks</span> <span class="kn">import</span> <span class="n">check_amp</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">check_amp</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div>
 </details>
@@ -3556,7 +3556,7 @@ during training.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Returns True if the AMP functionality works correctly with YOLOv8 model, else False.</p>
+<p>Returns True if the AMP functionality works correctly with YOLO11 model, else False.</p>
 </div>
 </td>
 </tr>
@@ -3624,24 +3624,24 @@ during training.</p>
 <span class="normal"><a href="#__codelineno-0-687">687</a></span>
 <span class="normal"><a href="#__codelineno-0-688">688</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-630" name="__codelineno-0-630"></a><span class="k">def</span> <span class="nf">check_amp</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
 <a id="__codelineno-0-631" name="__codelineno-0-631"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-632" name="__codelineno-0-632"></a><span class="sd">    Checks the PyTorch Automatic Mixed Precision (AMP) functionality of a YOLOv8 model. If the checks fail, it means</span>
+<a id="__codelineno-0-632" name="__codelineno-0-632"></a><span class="sd">    Checks the PyTorch Automatic Mixed Precision (AMP) functionality of a YOLO11 model. If the checks fail, it means</span>
 <a id="__codelineno-0-633" name="__codelineno-0-633"></a><span class="sd">    there are anomalies with AMP on the system that may cause NaN losses or zero-mAP results, so AMP will be disabled</span>
 <a id="__codelineno-0-634" name="__codelineno-0-634"></a><span class="sd">    during training.</span>
 <a id="__codelineno-0-635" name="__codelineno-0-635"></a>
 <a id="__codelineno-0-636" name="__codelineno-0-636"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-637" name="__codelineno-0-637"></a><span class="sd">        model (nn.Module): A YOLOv8 model instance.</span>
+<a id="__codelineno-0-637" name="__codelineno-0-637"></a><span class="sd">        model (nn.Module): A YOLO11 model instance.</span>
 <a id="__codelineno-0-638" name="__codelineno-0-638"></a>
 <a id="__codelineno-0-639" name="__codelineno-0-639"></a><span class="sd">    Example:</span>
 <a id="__codelineno-0-640" name="__codelineno-0-640"></a><span class="sd">        ```python</span>
 <a id="__codelineno-0-641" name="__codelineno-0-641"></a><span class="sd">        from ultralytics import YOLO</span>
 <a id="__codelineno-0-642" name="__codelineno-0-642"></a><span class="sd">        from ultralytics.utils.checks import check_amp</span>
 <a id="__codelineno-0-643" name="__codelineno-0-643"></a>
-<a id="__codelineno-0-644" name="__codelineno-0-644"></a><span class="sd">        model = YOLO("yolov8n.pt").model.cuda()</span>
+<a id="__codelineno-0-644" name="__codelineno-0-644"></a><span class="sd">        model = YOLO("yolo11n.pt").model.cuda()</span>
 <a id="__codelineno-0-645" name="__codelineno-0-645"></a><span class="sd">        check_amp(model)</span>
 <a id="__codelineno-0-646" name="__codelineno-0-646"></a><span class="sd">        ```</span>
 <a id="__codelineno-0-647" name="__codelineno-0-647"></a>
 <a id="__codelineno-0-648" name="__codelineno-0-648"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-649" name="__codelineno-0-649"></a><span class="sd">        (bool): Returns True if the AMP functionality works correctly with YOLOv8 model, else False.</span>
+<a id="__codelineno-0-649" name="__codelineno-0-649"></a><span class="sd">        (bool): Returns True if the AMP functionality works correctly with YOLO11 model, else False.</span>
 <a id="__codelineno-0-650" name="__codelineno-0-650"></a><span class="sd">    """</span>
 <a id="__codelineno-0-651" name="__codelineno-0-651"></a>    <span class="kn">from</span> <span class="nn">ultralytics.utils.torch_utils</span> <span class="kn">import</span> <span class="n">autocast</span>
 <a id="__codelineno-0-652" name="__codelineno-0-652"></a>
@@ -3660,19 +3660,19 @@ during training.</p>
 <a id="__codelineno-0-665" name="__codelineno-0-665"></a>
 <a id="__codelineno-0-666" name="__codelineno-0-666"></a>    <span class="n">im</span> <span class="o">=</span> <span class="n">ASSETS</span> <span class="o">/</span> <span class="s2">"bus.jpg"</span>  <span class="c1"># image to check</span>
 <a id="__codelineno-0-667" name="__codelineno-0-667"></a>    <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s2">"AMP: "</span><span class="p">)</span>
-<a id="__codelineno-0-668" name="__codelineno-0-668"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">running Automatic Mixed Precision (AMP) checks with YOLOv8n..."</span><span class="p">)</span>
+<a id="__codelineno-0-668" name="__codelineno-0-668"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">running Automatic Mixed Precision (AMP) checks with YOLO11n..."</span><span class="p">)</span>
 <a id="__codelineno-0-669" name="__codelineno-0-669"></a>    <span class="n">warning_msg</span> <span class="o">=</span> <span class="s2">"Setting 'amp=True'. If you experience zero-mAP or NaN losses you can disable AMP with amp=False."</span>
 <a id="__codelineno-0-670" name="__codelineno-0-670"></a>    <span class="k">try</span><span class="p">:</span>
 <a id="__codelineno-0-671" name="__codelineno-0-671"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a id="__codelineno-0-672" name="__codelineno-0-672"></a>
-<a id="__codelineno-0-673" name="__codelineno-0-673"></a>        <span class="k">assert</span> <span class="n">amp_allclose</span><span class="p">(</span><span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">),</span> <span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-673" name="__codelineno-0-673"></a>        <span class="k">assert</span> <span class="n">amp_allclose</span><span class="p">(</span><span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">),</span> <span class="n">im</span><span class="p">)</span>
 <a id="__codelineno-0-674" name="__codelineno-0-674"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">checks passed ✅"</span><span class="p">)</span>
 <a id="__codelineno-0-675" name="__codelineno-0-675"></a>    <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
-<a id="__codelineno-0-676" name="__codelineno-0-676"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">checks skipped ⚠️, offline and unable to download YOLOv8n. </span><span class="si">{</span><span class="n">warning_msg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-676" name="__codelineno-0-676"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">checks skipped ⚠️, offline and unable to download YOLO11n. </span><span class="si">{</span><span class="n">warning_msg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-677" name="__codelineno-0-677"></a>    <span class="k">except</span> <span class="p">(</span><span class="ne">AttributeError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">):</span>
 <a id="__codelineno-0-678" name="__codelineno-0-678"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
 <a id="__codelineno-0-679" name="__codelineno-0-679"></a>            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">checks skipped ⚠️. "</span>
-<a id="__codelineno-0-680" name="__codelineno-0-680"></a>            <span class="sa">f</span><span class="s2">"Unable to load YOLOv8n due to possible Ultralytics package modifications. </span><span class="si">{</span><span class="n">warning_msg</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-680" name="__codelineno-0-680"></a>            <span class="sa">f</span><span class="s2">"Unable to load YOLO11n due to possible Ultralytics package modifications. </span><span class="si">{</span><span class="n">warning_msg</span><span class="si">}</span><span class="s2">"</span>
 <a id="__codelineno-0-681" name="__codelineno-0-681"></a>        <span class="p">)</span>
 <a id="__codelineno-0-682" name="__codelineno-0-682"></a>    <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
 <a id="__codelineno-0-683" name="__codelineno-0-683"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
