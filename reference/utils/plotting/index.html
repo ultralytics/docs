@@ -2800,7 +2800,7 @@ RGB values.</p>
 <tr class="doc-section-item">
 <td><code>txt_color</code></td>
 <td>
-<code>bgr color</code>
+<code>tuple</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2814,7 +2814,7 @@ RGB values.</p>
 <tr class="doc-section-item">
 <td><code>bg_color</code></td>
 <td>
-<code>bgr color</code>
+<code>tuple</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2877,8 +2877,8 @@ RGB values.</p>
 <a id="__codelineno-0-655" name="__codelineno-0-655"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-656" name="__codelineno-0-656"></a><span class="sd">        im0 (ndarray): inference image</span>
 <a id="__codelineno-0-657" name="__codelineno-0-657"></a><span class="sd">        text (dict): labels dictionary</span>
-<a id="__codelineno-0-658" name="__codelineno-0-658"></a><span class="sd">        txt_color (bgr color): display color for text foreground</span>
-<a id="__codelineno-0-659" name="__codelineno-0-659"></a><span class="sd">        bg_color (bgr color): display color for text background</span>
+<a id="__codelineno-0-658" name="__codelineno-0-658"></a><span class="sd">        txt_color (tuple): display color for text foreground</span>
+<a id="__codelineno-0-659" name="__codelineno-0-659"></a><span class="sd">        bg_color (tuple): display color for text background</span>
 <a id="__codelineno-0-660" name="__codelineno-0-660"></a><span class="sd">        margin (int): gap between text and rectangle for better display</span>
 <a id="__codelineno-0-661" name="__codelineno-0-661"></a><span class="sd">    """</span>
 <a id="__codelineno-0-662" name="__codelineno-0-662"></a>    <span class="n">horizontal_gap</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">im0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.02</span><span class="p">)</span>
@@ -2954,7 +2954,7 @@ RGB values.</p>
 <tr class="doc-section-item">
 <td><code>txt_color</code></td>
 <td>
-<code>bgr color</code>
+<code>tuple</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2968,7 +2968,7 @@ RGB values.</p>
 <tr class="doc-section-item">
 <td><code>bg_color</code></td>
 <td>
-<code>bgr color</code>
+<code>tuple</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3054,8 +3054,8 @@ RGB values.</p>
 <a id="__codelineno-0-631" name="__codelineno-0-631"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-632" name="__codelineno-0-632"></a><span class="sd">        im0 (ndarray): inference image</span>
 <a id="__codelineno-0-633" name="__codelineno-0-633"></a><span class="sd">        text (str): object/class name</span>
-<a id="__codelineno-0-634" name="__codelineno-0-634"></a><span class="sd">        txt_color (bgr color): display color for text foreground</span>
-<a id="__codelineno-0-635" name="__codelineno-0-635"></a><span class="sd">        bg_color (bgr color): display color for text background</span>
+<a id="__codelineno-0-634" name="__codelineno-0-634"></a><span class="sd">        txt_color (tuple): display color for text foreground</span>
+<a id="__codelineno-0-635" name="__codelineno-0-635"></a><span class="sd">        bg_color (tuple): display color for text background</span>
 <a id="__codelineno-0-636" name="__codelineno-0-636"></a><span class="sd">        x_center (float): x position center point for bounding box</span>
 <a id="__codelineno-0-637" name="__codelineno-0-637"></a><span class="sd">        y_center (float): y position center point for bounding box</span>
 <a id="__codelineno-0-638" name="__codelineno-0-638"></a><span class="sd">        margin (int): gap between text and rectangle for better display</span>
@@ -4433,11 +4433,11 @@ Modifies self.im in-place.</p>
 <tr class="doc-section-item">
 <td><code>line_color</code></td>
 <td>
-<code>RGB</code>
+<code>tuple</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Distance line color.</p>
+<p>RGB distance line color.</p>
 </div>
 </td>
 <td>
@@ -4447,11 +4447,11 @@ Modifies self.im in-place.</p>
 <tr class="doc-section-item">
 <td><code>centroid_color</code></td>
 <td>
-<code>RGB</code>
+<code>tuple</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Bounding box centroid color.</p>
+<p>RGB bounding box centroid color.</p>
 </div>
 </td>
 <td>
@@ -4504,8 +4504,8 @@ Modifies self.im in-place.</p>
 <a id="__codelineno-0-836" name="__codelineno-0-836"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-837" name="__codelineno-0-837"></a><span class="sd">        pixels_distance (float): Pixels distance between two bbox centroids.</span>
 <a id="__codelineno-0-838" name="__codelineno-0-838"></a><span class="sd">        centroids (list): Bounding box centroids data.</span>
-<a id="__codelineno-0-839" name="__codelineno-0-839"></a><span class="sd">        line_color (RGB): Distance line color.</span>
-<a id="__codelineno-0-840" name="__codelineno-0-840"></a><span class="sd">        centroid_color (RGB): Bounding box centroid color.</span>
+<a id="__codelineno-0-839" name="__codelineno-0-839"></a><span class="sd">        line_color (tuple): RGB distance line color.</span>
+<a id="__codelineno-0-840" name="__codelineno-0-840"></a><span class="sd">        centroid_color (tuple): RGB bounding box centroid color.</span>
 <a id="__codelineno-0-841" name="__codelineno-0-841"></a><span class="sd">    """</span>
 <a id="__codelineno-0-842" name="__codelineno-0-842"></a>    <span class="c1"># Get the text size</span>
 <a id="__codelineno-0-843" name="__codelineno-0-843"></a>    <span class="p">(</span><span class="n">text_width_m</span><span class="p">,</span> <span class="n">text_height_m</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getTextSize</span><span class="p">(</span>
@@ -4589,11 +4589,11 @@ Modifies self.im in-place.</p>
 <tr class="doc-section-item">
 <td><code>region_color</code></td>
 <td>
-<code>RGB</code>
+<code>tuple</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>queue region color</p>
+<p>RGB queue region color.</p>
 </div>
 </td>
 <td>
@@ -4603,11 +4603,11 @@ Modifies self.im in-place.</p>
 <tr class="doc-section-item">
 <td><code>txt_color</code></td>
 <td>
-<code>RGB</code>
+<code>tuple</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>text display color</p>
+<p>RGB text display color.</p>
 </div>
 </td>
 <td>
@@ -4663,8 +4663,8 @@ Modifies self.im in-place.</p>
 <a id="__codelineno-0-591" name="__codelineno-0-591"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-592" name="__codelineno-0-592"></a><span class="sd">        label (str): queue counts label</span>
 <a id="__codelineno-0-593" name="__codelineno-0-593"></a><span class="sd">        points (tuple): region points for center point calculation to display text</span>
-<a id="__codelineno-0-594" name="__codelineno-0-594"></a><span class="sd">        region_color (RGB): queue region color</span>
-<a id="__codelineno-0-595" name="__codelineno-0-595"></a><span class="sd">        txt_color (RGB): text display color</span>
+<a id="__codelineno-0-594" name="__codelineno-0-594"></a><span class="sd">        region_color (tuple): RGB queue region color.</span>
+<a id="__codelineno-0-595" name="__codelineno-0-595"></a><span class="sd">        txt_color (tuple): RGB text display color.</span>
 <a id="__codelineno-0-596" name="__codelineno-0-596"></a><span class="sd">    """</span>
 <a id="__codelineno-0-597" name="__codelineno-0-597"></a>    <span class="n">x_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">points</span><span class="p">]</span>
 <a id="__codelineno-0-598" name="__codelineno-0-598"></a>    <span class="n">y_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">points</span><span class="p">]</span>
