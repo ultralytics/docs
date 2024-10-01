@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore the most effective ways to assess and refine YOLOv8 models for better performance. Learn about evaluation metrics, fine-tuning processes, and how to customize your model for specific needs." name="description"/>
+<meta content="Explore the most effective ways to assess and refine YOLO11 models for better performance. Learn about evaluation metrics, fine-tuning processes, and how to customize your model for specific needs." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/guides/model-evaluation-insights/" rel="canonical"/>
 <link href="../model-training-tips/" rel="prev"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Insights on Model Evaluation and Fine-Tuning" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Model Evaluation, Machine Learning Model Evaluation, Fine Tuning Machine Learning, Fine Tune Model, Evaluating Models, Model Fine Tuning, How to Fine Tune a Model" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-evaluation-insights" property="og:url"/><meta content="Insights on Model Evaluation and Fine-Tuning" property="og:title"/><meta content="Explore the most effective ways to assess and refine YOLOv8 models for better performance. Learn about evaluation metrics, fine-tuning processes, and how to customize your model for specific needs." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/intersection-over-union-overview.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-evaluation-insights" property="twitter:url"/><meta content="Insights on Model Evaluation and Fine-Tuning" property="twitter:title"/><meta content="Explore the most effective ways to assess and refine YOLOv8 models for better performance. Learn about evaluation metrics, fine-tuning processes, and how to customize your model for specific needs." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/intersection-over-union-overview.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Insights on Model Evaluation and Fine-Tuning", "image": ["https://github.com/ultralytics/docs/releases/download/0/intersection-over-union-overview.avif"], "datePublished": "2024-06-29 21:08:32 +0530", "dateModified": "2024-09-23 23:48:46 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore the most effective ways to assess and refine YOLOv8 models for better performance. Learn about evaluation metrics, fine-tuning processes, and how to customize your model for specific needs.", "mainEntity": [{"@type": "Question", "name": "What are the key metrics for evaluating YOLOv8 model performance?", "acceptedAnswer": {"@type": "Answer", "text": "To evaluate YOLOv8 model performance, important metrics include Confidence Score, Intersection over Union (IoU), and Mean Average Precision (mAP). Confidence Score measures the model's certainty for each detected object class. IoU evaluates how well the predicted bounding box overlaps with the ground truth. Mean Average Precision (mAP) aggregates precision scores across classes, with mAP@.5 and mAP@.5:.95 being two common types for varying IoU thresholds. Learn more about these metrics in our YOLOv8 performance metrics guide."}}, {"@type": "Question", "name": "How can I fine-tune a pre-trained YOLOv8 model for my specific dataset?", "acceptedAnswer": {"@type": "Answer", "text": "Fine-tuning a pre-trained YOLOv8 model involves adjusting its parameters to improve performance on a specific task or dataset. Start by evaluating your model using metrics, then set a higher initial learning rate by adjusting the warmup_epochs parameter to 0 for immediate stability. Use parameters like rect=true for handling varied image sizes effectively. For more detailed guidance, refer to our section on fine-tuning YOLOv8 models."}}, {"@type": "Question", "name": "How can I handle variable image sizes when evaluating my YOLOv8 model?", "acceptedAnswer": {"@type": "Answer", "text": "To handle variable image sizes during evaluation, use the rect=true parameter in YOLOv8, which adjusts the network's stride for each batch based on image sizes. The imgsz parameter sets the maximum dimension for image resizing, defaulting to 640. Adjust imgsz to suit your dataset and GPU memory. For more details, visit our section on handling variable image sizes."}}, {"@type": "Question", "name": "What practical steps can I take to improve mean average precision for my YOLOv8 model?", "acceptedAnswer": {"@type": "Answer", "text": "Improving mean average precision (mAP) for a YOLOv8 model involves several steps:"}}, {"@type": "Question", "name": "How do I access YOLOv8 model evaluation metrics in Python?", "acceptedAnswer": {"@type": "Answer", "text": "You can access YOLOv8 model evaluation metrics using Python with the following steps: Analyzing these metrics helps fine-tune and optimize your YOLOv8 model. For a deeper dive, check out our guide on YOLOv8 metrics."}}]}</script></head>
+<meta content="Insights on Model Evaluation and Fine-Tuning" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Model Evaluation, Machine Learning Model Evaluation, Fine Tuning Machine Learning, Fine Tune Model, Evaluating Models, Model Fine Tuning, How to Fine Tune a Model" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-evaluation-insights" property="og:url"/><meta content="Insights on Model Evaluation and Fine-Tuning" property="og:title"/><meta content="Explore the most effective ways to assess and refine YOLO11 models for better performance. Learn about evaluation metrics, fine-tuning processes, and how to customize your model for specific needs." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/intersection-over-union-overview.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-evaluation-insights" property="twitter:url"/><meta content="Insights on Model Evaluation and Fine-Tuning" property="twitter:title"/><meta content="Explore the most effective ways to assess and refine YOLO11 models for better performance. Learn about evaluation metrics, fine-tuning processes, and how to customize your model for specific needs." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/intersection-over-union-overview.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Insights on Model Evaluation and Fine-Tuning", "image": ["https://github.com/ultralytics/docs/releases/download/0/intersection-over-union-overview.avif"], "datePublished": "2024-06-29 21:08:32 +0530", "dateModified": "2024-10-01 16:58:12 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore the most effective ways to assess and refine YOLO11 models for better performance. Learn about evaluation metrics, fine-tuning processes, and how to customize your model for specific needs.", "mainEntity": [{"@type": "Question", "name": "What are the key metrics for evaluating YOLO11 model performance?", "acceptedAnswer": {"@type": "Answer", "text": "To evaluate YOLO11 model performance, important metrics include Confidence Score, Intersection over Union (IoU), and Mean Average Precision (mAP). Confidence Score measures the model's certainty for each detected object class. IoU evaluates how well the predicted bounding box overlaps with the ground truth. Mean Average Precision (mAP) aggregates precision scores across classes, with mAP@.5 and mAP@.5:.95 being two common types for varying IoU thresholds. Learn more about these metrics in our YOLO11 performance metrics guide."}}, {"@type": "Question", "name": "How can I fine-tune a pre-trained YOLO11 model for my specific dataset?", "acceptedAnswer": {"@type": "Answer", "text": "Fine-tuning a pre-trained YOLO11 model involves adjusting its parameters to improve performance on a specific task or dataset. Start by evaluating your model using metrics, then set a higher initial learning rate by adjusting the warmup_epochs parameter to 0 for immediate stability. Use parameters like rect=true for handling varied image sizes effectively. For more detailed guidance, refer to our section on fine-tuning YOLO11 models."}}, {"@type": "Question", "name": "How can I handle variable image sizes when evaluating my YOLO11 model?", "acceptedAnswer": {"@type": "Answer", "text": "To handle variable image sizes during evaluation, use the rect=true parameter in YOLO11, which adjusts the network's stride for each batch based on image sizes. The imgsz parameter sets the maximum dimension for image resizing, defaulting to 640. Adjust imgsz to suit your dataset and GPU memory. For more details, visit our section on handling variable image sizes."}}, {"@type": "Question", "name": "What practical steps can I take to improve mean average precision for my YOLO11 model?", "acceptedAnswer": {"@type": "Answer", "text": "Improving mean average precision (mAP) for a YOLO11 model involves several steps:"}}, {"@type": "Question", "name": "How do I access YOLO11 model evaluation metrics in Python?", "acceptedAnswer": {"@type": "Answer", "text": "You can access YOLO11 model evaluation metrics using Python with the following steps: Analyzing these metrics helps fine-tune and optimize your YOLO11 model. For a deeper dive, check out our guide on YOLO11 metrics."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -595,12 +595,12 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#evaluating-yolov8-model-performance">
+<a class="md-nav__link" href="#evaluating-yolo11-model-performance">
 <span class="md-ellipsis">
-      Evaluating YOLOv8 Model Performance
+      Evaluating YOLO11 Model Performance
     </span>
 </a>
-<nav aria-label="Evaluating YOLOv8 Model Performance" class="md-nav">
+<nav aria-label="Evaluating YOLO11 Model Performance" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#common-community-questions">
@@ -618,9 +618,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#accessing-yolov8-metrics">
+<a class="md-nav__link" href="#accessing-yolo11-metrics">
 <span class="md-ellipsis">
-      Accessing YOLOv8 Metrics
+      Accessing YOLO11 Metrics
     </span>
 </a>
 </li>
@@ -703,37 +703,37 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-key-metrics-for-evaluating-yolov8-model-performance">
+<a class="md-nav__link" href="#what-are-the-key-metrics-for-evaluating-yolo11-model-performance">
 <span class="md-ellipsis">
-      What are the key metrics for evaluating YOLOv8 model performance?
+      What are the key metrics for evaluating YOLO11 model performance?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-fine-tune-a-pre-trained-yolov8-model-for-my-specific-dataset">
+<a class="md-nav__link" href="#how-can-i-fine-tune-a-pre-trained-yolo11-model-for-my-specific-dataset">
 <span class="md-ellipsis">
-      How can I fine-tune a pre-trained YOLOv8 model for my specific dataset?
+      How can I fine-tune a pre-trained YOLO11 model for my specific dataset?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-handle-variable-image-sizes-when-evaluating-my-yolov8-model">
+<a class="md-nav__link" href="#how-can-i-handle-variable-image-sizes-when-evaluating-my-yolo11-model">
 <span class="md-ellipsis">
-      How can I handle variable image sizes when evaluating my YOLOv8 model?
+      How can I handle variable image sizes when evaluating my YOLO11 model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-practical-steps-can-i-take-to-improve-mean-average-precision-for-my-yolov8-model">
+<a class="md-nav__link" href="#what-practical-steps-can-i-take-to-improve-mean-average-precision-for-my-yolo11-model">
 <span class="md-ellipsis">
-      What practical steps can I take to improve mean average precision for my YOLOv8 model?
+      What practical steps can I take to improve mean average precision for my YOLO11 model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-access-yolov8-model-evaluation-metrics-in-python">
+<a class="md-nav__link" href="#how-do-i-access-yolo11-model-evaluation-metrics-in-python">
 <span class="md-ellipsis">
-      How do I access YOLOv8 model evaluation metrics in Python?
+      How do I access YOLO11 model evaluation metrics in Python?
     </span>
 </a>
 </li>
@@ -939,12 +939,12 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#evaluating-yolov8-model-performance">
+<a class="md-nav__link" href="#evaluating-yolo11-model-performance">
 <span class="md-ellipsis">
-      Evaluating YOLOv8 Model Performance
+      Evaluating YOLO11 Model Performance
     </span>
 </a>
-<nav aria-label="Evaluating YOLOv8 Model Performance" class="md-nav">
+<nav aria-label="Evaluating YOLO11 Model Performance" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#common-community-questions">
@@ -962,9 +962,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#accessing-yolov8-metrics">
+<a class="md-nav__link" href="#accessing-yolo11-metrics">
 <span class="md-ellipsis">
-      Accessing YOLOv8 Metrics
+      Accessing YOLO11 Metrics
     </span>
 </a>
 </li>
@@ -1047,37 +1047,37 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-key-metrics-for-evaluating-yolov8-model-performance">
+<a class="md-nav__link" href="#what-are-the-key-metrics-for-evaluating-yolo11-model-performance">
 <span class="md-ellipsis">
-      What are the key metrics for evaluating YOLOv8 model performance?
+      What are the key metrics for evaluating YOLO11 model performance?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-fine-tune-a-pre-trained-yolov8-model-for-my-specific-dataset">
+<a class="md-nav__link" href="#how-can-i-fine-tune-a-pre-trained-yolo11-model-for-my-specific-dataset">
 <span class="md-ellipsis">
-      How can I fine-tune a pre-trained YOLOv8 model for my specific dataset?
+      How can I fine-tune a pre-trained YOLO11 model for my specific dataset?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-handle-variable-image-sizes-when-evaluating-my-yolov8-model">
+<a class="md-nav__link" href="#how-can-i-handle-variable-image-sizes-when-evaluating-my-yolo11-model">
 <span class="md-ellipsis">
-      How can I handle variable image sizes when evaluating my YOLOv8 model?
+      How can I handle variable image sizes when evaluating my YOLO11 model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-practical-steps-can-i-take-to-improve-mean-average-precision-for-my-yolov8-model">
+<a class="md-nav__link" href="#what-practical-steps-can-i-take-to-improve-mean-average-precision-for-my-yolo11-model">
 <span class="md-ellipsis">
-      What practical steps can I take to improve mean average precision for my YOLOv8 model?
+      What practical steps can I take to improve mean average precision for my YOLO11 model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-access-yolov8-model-evaluation-metrics-in-python">
+<a class="md-nav__link" href="#how-do-i-access-yolo11-model-evaluation-metrics-in-python">
 <span class="md-ellipsis">
-      How do I access YOLOv8 model evaluation metrics in Python?
+      How do I access YOLO11 model evaluation metrics in Python?
     </span>
 </a>
 </li>
@@ -1119,15 +1119,15 @@
 <p align="center">
 <img alt="Mean Average Precision Overview" src="https://github.com/ultralytics/docs/releases/download/0/mean-average-precision-overview.avif" width="100%"/>
 </p>
-<h2 id="evaluating-yolov8-model-performance">Evaluating YOLOv8 Model Performance</h2>
-<p>With respect to YOLOv8, you can use the <a href="../../modes/val/">validation mode</a> to evaluate the model. Also, be sure to take a look at our guide that goes in-depth into <a href="../yolo-performance-metrics/">YOLOv8 performance metrics</a> and how they can be interpreted.</p>
+<h2 id="evaluating-yolo11-model-performance">Evaluating YOLO11 Model Performance</h2>
+<p>With respect to YOLO11, you can use the <a href="../../modes/val/">validation mode</a> to evaluate the model. Also, be sure to take a look at our guide that goes in-depth into <a href="../yolo-performance-metrics/">YOLO11 performance metrics</a> and how they can be interpreted.</p>
 <h3 id="common-community-questions">Common Community Questions</h3>
-<p>When evaluating your YOLOv8 model, you might run into a few hiccups. Based on common community questions, here are some tips to help you get the most out of your YOLOv8 model:</p>
+<p>When evaluating your YOLO11 model, you might run into a few hiccups. Based on common community questions, here are some tips to help you get the most out of your YOLO11 model:</p>
 <h4 id="handling-variable-image-sizes">Handling Variable Image Sizes</h4>
-<p>Evaluating your YOLOv8 model with images of different sizes can help you understand its performance on diverse datasets. Using the <code>rect=true</code> validation parameter, YOLOv8 adjusts the network's stride for each batch based on the image sizes, allowing the model to handle rectangular images without forcing them to a single size.</p>
+<p>Evaluating your YOLO11 model with images of different sizes can help you understand its performance on diverse datasets. Using the <code>rect=true</code> validation parameter, YOLO11 adjusts the network's stride for each batch based on the image sizes, allowing the model to handle rectangular images without forcing them to a single size.</p>
 <p>The <code>imgsz</code> validation parameter sets the maximum dimension for image resizing, which is 640 by default. You can adjust this based on your dataset's maximum dimensions and the GPU memory available. Even with <code>imgsz</code> set, <code>rect=true</code> lets the model manage varying image sizes effectively by dynamically adjusting the stride.</p>
-<h4 id="accessing-yolov8-metrics">Accessing YOLOv8 Metrics</h4>
-<p>If you want to get a deeper understanding of your YOLOv8 model's performance, you can easily access specific evaluation metrics with a few lines of Python code. The code snippet below will let you load your model, run an evaluation, and print out various metrics that show how well your model is doing.</p>
+<h4 id="accessing-yolo11-metrics">Accessing YOLO11 Metrics</h4>
+<p>If you want to get a deeper understanding of your YOLO11 model's performance, you can easily access specific evaluation metrics with a few lines of Python code. The code snippet below will let you load your model, run an evaluation, and print out various metrics that show how well your model is doing.</p>
 <div class="admonition example">
 <p class="admonition-title">Usage</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
@@ -1136,7 +1136,7 @@
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load the model</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Run the evaluation</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">)</span>
@@ -1169,46 +1169,46 @@
 </div>
 </input></div>
 </div>
-<p>The results object also includes speed metrics like preprocess time, inference time, loss, and postprocess time. By analyzing these metrics, you can fine-tune and optimize your YOLOv8 model for better performance, making it more effective for your specific use case.</p>
+<p>The results object also includes speed metrics like preprocess time, inference time, loss, and postprocess time. By analyzing these metrics, you can fine-tune and optimize your YOLO11 model for better performance, making it more effective for your specific use case.</p>
 <h2 id="how-does-fine-tuning-work">How Does Fine-Tuning Work?</h2>
 <p>Fine-tuning involves taking a pre-trained model and adjusting its parameters to improve performance on a specific task or dataset. The process, also known as model retraining, allows the model to better understand and predict outcomes for the specific data it will encounter in real-world applications. You can retrain your model based on your model evaluation to achieve optimal results.</p>
 <h2 id="tips-for-fine-tuning-your-model">Tips for Fine-Tuning Your Model</h2>
 <p>Fine-tuning a model means paying close attention to several vital parameters and techniques to achieve optimal performance. Here are some essential tips to guide you through the process.</p>
 <h3 id="starting-with-a-higher-learning-rate">Starting With a Higher <a href="https://www.ultralytics.com/glossary/learning-rate">Learning Rate</a></h3>
 <p>Usually, during the initial training <a href="https://www.ultralytics.com/glossary/epoch">epochs</a>, the learning rate starts low and gradually increases to stabilize the training process. However, since your model has already learned some features from the previous dataset, starting with a higher learning rate right away can be more beneficial.</p>
-<p>When evaluating your YOLOv8 model, you can set the <code>warmup_epochs</code> validation parameter to <code>warmup_epochs=0</code> to prevent the learning rate from starting too high. By following this process, the training will continue from the provided weights, adjusting to the nuances of your new data.</p>
+<p>When evaluating your YOLO11 model, you can set the <code>warmup_epochs</code> validation parameter to <code>warmup_epochs=0</code> to prevent the learning rate from starting too high. By following this process, the training will continue from the provided weights, adjusting to the nuances of your new data.</p>
 <h3 id="image-tiling-for-small-objects">Image Tiling for Small Objects</h3>
-<p>Image tiling can improve detection accuracy for small objects. By dividing larger images into smaller segments, such as splitting 1280x1280 images into multiple 640x640 segments, you maintain the original resolution, and the model can learn from high-resolution fragments. When using YOLOv8, make sure to adjust your labels for these new segments correctly.</p>
+<p>Image tiling can improve detection accuracy for small objects. By dividing larger images into smaller segments, such as splitting 1280x1280 images into multiple 640x640 segments, you maintain the original resolution, and the model can learn from high-resolution fragments. When using YOLO11, make sure to adjust your labels for these new segments correctly.</p>
 <h2 id="engage-with-the-community">Engage with the Community</h2>
 <p>Sharing your ideas and questions with other <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> enthusiasts can inspire creative solutions to roadblocks in your projects. Here are some excellent ways to learn, troubleshoot, and connect.</p>
 <h3 id="finding-help-and-support">Finding Help and Support</h3>
 <ul>
-<li><strong>GitHub Issues:</strong> Explore the YOLOv8 GitHub repository and use the <a href="https://github.com/ultralytics/ultralytics/issues">Issues tab</a> to ask questions, report bugs, and suggest features. The community and maintainers are available to assist with any issues you encounter.</li>
+<li><strong>GitHub Issues:</strong> Explore the YOLO11 GitHub repository and use the <a href="https://github.com/ultralytics/ultralytics/issues">Issues tab</a> to ask questions, report bugs, and suggest features. The community and maintainers are available to assist with any issues you encounter.</li>
 <li><strong>Ultralytics Discord Server:</strong> Join the <a href="https://discord.com/invite/ultralytics">Ultralytics Discord server</a> to connect with other users and developers, get support, share knowledge, and brainstorm ideas.</li>
 </ul>
 <h3 id="official-documentation">Official Documentation</h3>
 <ul>
-<li><strong>Ultralytics YOLOv8 Documentation:</strong> Check out the <a href="../">official YOLOv8 documentation</a> for comprehensive guides and valuable insights on various computer vision tasks and projects.</li>
+<li><strong>Ultralytics YOLO11 Documentation:</strong> Check out the <a href="../">official YOLO11 documentation</a> for comprehensive guides and valuable insights on various computer vision tasks and projects.</li>
 </ul>
 <h2 id="final-thoughts">Final Thoughts</h2>
 <p>Evaluating and fine-tuning your computer vision model are important steps for successful <a href="https://www.ultralytics.com/glossary/model-deployment">model deployment</a>. These steps help make sure that your model is accurate, efficient, and suited to your overall application. The key to training the best model possible is continuous experimentation and learning. Don't hesitate to tweak parameters, try new techniques, and explore different datasets. Keep experimenting and pushing the boundaries of what's possible!</p>
 <h2 id="faq">FAQ</h2>
-<h3 id="what-are-the-key-metrics-for-evaluating-yolov8-model-performance">What are the key metrics for evaluating YOLOv8 model performance?</h3>
-<p>To evaluate YOLOv8 model performance, important metrics include Confidence Score, Intersection over Union (IoU), and Mean Average Precision (mAP). Confidence Score measures the model's certainty for each detected object class. IoU evaluates how well the predicted bounding box overlaps with the ground truth. Mean Average Precision (mAP) aggregates precision scores across classes, with mAP@.5 and mAP@.5:.95 being two common types for varying IoU thresholds. Learn more about these metrics in our <a href="../yolo-performance-metrics/">YOLOv8 performance metrics guide</a>.</p>
-<h3 id="how-can-i-fine-tune-a-pre-trained-yolov8-model-for-my-specific-dataset">How can I fine-tune a pre-trained YOLOv8 model for my specific dataset?</h3>
-<p>Fine-tuning a pre-trained YOLOv8 model involves adjusting its parameters to improve performance on a specific task or dataset. Start by evaluating your model using metrics, then set a higher initial learning rate by adjusting the <code>warmup_epochs</code> parameter to 0 for immediate stability. Use parameters like <code>rect=true</code> for handling varied image sizes effectively. For more detailed guidance, refer to our section on <a href="#how-does-fine-tuning-work">fine-tuning YOLOv8 models</a>.</p>
-<h3 id="how-can-i-handle-variable-image-sizes-when-evaluating-my-yolov8-model">How can I handle variable image sizes when evaluating my YOLOv8 model?</h3>
-<p>To handle variable image sizes during evaluation, use the <code>rect=true</code> parameter in YOLOv8, which adjusts the network's stride for each batch based on image sizes. The <code>imgsz</code> parameter sets the maximum dimension for image resizing, defaulting to 640. Adjust <code>imgsz</code> to suit your dataset and GPU memory. For more details, visit our <a href="#handling-variable-image-sizes">section on handling variable image sizes</a>.</p>
-<h3 id="what-practical-steps-can-i-take-to-improve-mean-average-precision-for-my-yolov8-model">What practical steps can I take to improve mean average precision for my YOLOv8 model?</h3>
-<p>Improving mean average precision (mAP) for a YOLOv8 model involves several steps:</p>
+<h3 id="what-are-the-key-metrics-for-evaluating-yolo11-model-performance">What are the key metrics for evaluating YOLO11 model performance?</h3>
+<p>To evaluate YOLO11 model performance, important metrics include Confidence Score, Intersection over Union (IoU), and Mean Average Precision (mAP). Confidence Score measures the model's certainty for each detected object class. IoU evaluates how well the predicted bounding box overlaps with the ground truth. Mean Average Precision (mAP) aggregates precision scores across classes, with mAP@.5 and mAP@.5:.95 being two common types for varying IoU thresholds. Learn more about these metrics in our <a href="../yolo-performance-metrics/">YOLO11 performance metrics guide</a>.</p>
+<h3 id="how-can-i-fine-tune-a-pre-trained-yolo11-model-for-my-specific-dataset">How can I fine-tune a pre-trained YOLO11 model for my specific dataset?</h3>
+<p>Fine-tuning a pre-trained YOLO11 model involves adjusting its parameters to improve performance on a specific task or dataset. Start by evaluating your model using metrics, then set a higher initial learning rate by adjusting the <code>warmup_epochs</code> parameter to 0 for immediate stability. Use parameters like <code>rect=true</code> for handling varied image sizes effectively. For more detailed guidance, refer to our section on <a href="#how-does-fine-tuning-work">fine-tuning YOLO11 models</a>.</p>
+<h3 id="how-can-i-handle-variable-image-sizes-when-evaluating-my-yolo11-model">How can I handle variable image sizes when evaluating my YOLO11 model?</h3>
+<p>To handle variable image sizes during evaluation, use the <code>rect=true</code> parameter in YOLO11, which adjusts the network's stride for each batch based on image sizes. The <code>imgsz</code> parameter sets the maximum dimension for image resizing, defaulting to 640. Adjust <code>imgsz</code> to suit your dataset and GPU memory. For more details, visit our <a href="#handling-variable-image-sizes">section on handling variable image sizes</a>.</p>
+<h3 id="what-practical-steps-can-i-take-to-improve-mean-average-precision-for-my-yolo11-model">What practical steps can I take to improve mean average precision for my YOLO11 model?</h3>
+<p>Improving mean average precision (mAP) for a YOLO11 model involves several steps:</p>
 <ol>
 <li><strong>Tuning Hyperparameters</strong>: Experiment with different learning rates, <a href="https://www.ultralytics.com/glossary/batch-size">batch sizes</a>, and image augmentations.</li>
 <li><strong><a href="https://www.ultralytics.com/glossary/data-augmentation">Data Augmentation</a></strong>: Use techniques like Mosaic and MixUp to create diverse training samples.</li>
 <li><strong>Image Tiling</strong>: Split larger images into smaller tiles to improve detection accuracy for small objects.
    Refer to our detailed guide on <a href="#tips-for-fine-tuning-your-model">model fine-tuning</a> for specific strategies.</li>
 </ol>
-<h3 id="how-do-i-access-yolov8-model-evaluation-metrics-in-python">How do I access YOLOv8 model evaluation metrics in Python?</h3>
-<p>You can access YOLOv8 model evaluation metrics using Python with the following steps:</p>
+<h3 id="how-do-i-access-yolo11-model-evaluation-metrics-in-python">How do I access YOLO11 model evaluation metrics in Python?</h3>
+<p>You can access YOLO11 model evaluation metrics using Python with the following steps:</p>
 <div class="admonition example">
 <p class="admonition-title">Usage</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
@@ -1217,7 +1217,7 @@
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load the model</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Run the evaluation</span>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">)</span>
@@ -1232,7 +1232,7 @@
 </div>
 </input></div>
 </div>
-<p>Analyzing these metrics helps fine-tune and optimize your YOLOv8 model. For a deeper dive, check out our guide on <a href="../../modes/val/">YOLOv8 metrics</a>.</p>
+<p>Analyzing these metrics helps fine-tune and optimize your YOLO11 model. For a deeper dive, check out our guide on <a href="../../modes/val/">YOLO11 metrics</a>.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1246,19 +1246,19 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <span class="date-item" title="This page was first created on June 29, 2024">
 <span class="hover-item">📅</span> Created 3 months ago
     </span>
-<span class="date-item" title="This page was last updated on September 23, 2024">
-<span class="hover-item">✏️</span> Updated 7 days ago
+<span class="date-item" title="This page was last updated on October 01, 2024">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
+<img alt="UltralyticsAssistant" class="hover-item" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (2 changes)">
 <img alt="glenn-jocher" class="hover-item" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/MatthewNoyce" title="MatthewNoyce (1 change)">
 <img alt="MatthewNoyce" class="hover-item" src="https://avatars.githubusercontent.com/u/131261051?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (1 change)">
-<img alt="UltralyticsAssistant" class="hover-item" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>

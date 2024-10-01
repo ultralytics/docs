@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Comprehensive guide to troubleshoot common YOLOv8 issues, from installation errors to model training challenges. Enhance your Ultralytics projects with our expert tips." name="description"/>
+<meta content="Comprehensive guide to troubleshoot common YOLO11 issues, from installation errors to model training challenges. Enhance your Ultralytics projects with our expert tips." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/guides/yolo-common-issues/" rel="canonical"/>
 <link href="../" rel="prev"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLO Common Issues" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO, YOLOv8, troubleshooting, installation errors, model training, GPU issues, Ultralytics, AI, computer vision, deep learning, Python, CUDA, PyTorch, debugging" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-common-issues" property="og:url"/><meta content="YOLO Common Issues" property="og:title"/><meta content="Comprehensive guide to troubleshoot common YOLOv8 issues, from installation errors to model training challenges. Enhance your Ultralytics projects with our expert tips." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolo-common-issues.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-common-issues" property="twitter:url"/><meta content="YOLO Common Issues" property="twitter:title"/><meta content="Comprehensive guide to troubleshoot common YOLOv8 issues, from installation errors to model training challenges. Enhance your Ultralytics projects with our expert tips." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolo-common-issues.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "YOLO Common Issues", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolo-common-issues.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-09-23 23:48:46 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Comprehensive guide to troubleshoot common YOLOv8 issues, from installation errors to model training challenges. Enhance your Ultralytics projects with our expert tips.", "mainEntity": [{"@type": "Question", "name": "How do I resolve installation errors with YOLOv8?", "acceptedAnswer": {"@type": "Answer", "text": "Installation errors can often be due to compatibility issues or missing dependencies. Ensure you use Python 3.8 or later and have PyTorch 1.8 or later installed. It's beneficial to use virtual environments to avoid conflicts. For a step-by-step installation guide, follow our official installation guide. If you encounter import errors, try a fresh installation or update the library to the latest version."}}, {"@type": "Question", "name": "Why is my YOLOv8 model training slow on a single GPU?", "acceptedAnswer": {"@type": "Answer", "text": "Training on a single GPU might be slow due to large batch sizes or insufficient memory. To speed up training, use multiple GPUs. Ensure your system has multiple GPUs available and adjust your .yaml configuration file to specify the number of GPUs, e.g., gpus: 4. Increase the batch size accordingly to fully utilize the GPUs without exceeding memory limits. Example command:"}}, {"@type": "Question", "name": "How can I ensure my YOLOv8 model is training on the GPU?", "acceptedAnswer": {"@type": "Answer", "text": "If the 'device' value shows 'null' in the training logs, it generally means the training process is set to automatically use an available GPU. To explicitly assign a specific GPU, set the 'device' value in your .yaml configuration file. For instance: This sets the training process to the first GPU. Consult the nvidia-smi command to confirm your CUDA setup."}}, {"@type": "Question", "name": "How can I monitor and track my YOLOv8 model training progress?", "acceptedAnswer": {"@type": "Answer", "text": "Tracking and visualizing training progress can be efficiently managed through tools like TensorBoard, Comet, and Ultralytics HUB. These tools allow you to log and visualize metrics such as loss, precision, recall, and mAP. Implementing early stopping based on these metrics can also help achieve better training outcomes."}}, {"@type": "Question", "name": "What should I do if YOLOv8 is not recognizing my dataset format?", "acceptedAnswer": {"@type": "Answer", "text": "Ensure your dataset and labels conform to the expected format. Verify that annotations are accurate and of high quality. If you face any issues, refer to the Data Collection and Annotation guide for best practices. For more dataset-specific guidance, check the Datasets section in the documentation."}}]}</script></head>
+<meta content="YOLO Common Issues" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO, YOLO11, troubleshooting, installation errors, model training, GPU issues, Ultralytics, AI, computer vision, deep learning, Python, CUDA, PyTorch, debugging" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-common-issues" property="og:url"/><meta content="YOLO Common Issues" property="og:title"/><meta content="Comprehensive guide to troubleshoot common YOLO11 issues, from installation errors to model training challenges. Enhance your Ultralytics projects with our expert tips." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolo-common-issues.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-common-issues" property="twitter:url"/><meta content="YOLO Common Issues" property="twitter:title"/><meta content="Comprehensive guide to troubleshoot common YOLO11 issues, from installation errors to model training challenges. Enhance your Ultralytics projects with our expert tips." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolo-common-issues.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "YOLO Common Issues", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolo-common-issues.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-10-01 16:58:12 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Comprehensive guide to troubleshoot common YOLO11 issues, from installation errors to model training challenges. Enhance your Ultralytics projects with our expert tips.", "mainEntity": [{"@type": "Question", "name": "How do I resolve installation errors with YOLO11?", "acceptedAnswer": {"@type": "Answer", "text": "Installation errors can often be due to compatibility issues or missing dependencies. Ensure you use Python 3.8 or later and have PyTorch 1.8 or later installed. It's beneficial to use virtual environments to avoid conflicts. For a step-by-step installation guide, follow our official installation guide. If you encounter import errors, try a fresh installation or update the library to the latest version."}}, {"@type": "Question", "name": "Why is my YOLO11 model training slow on a single GPU?", "acceptedAnswer": {"@type": "Answer", "text": "Training on a single GPU might be slow due to large batch sizes or insufficient memory. To speed up training, use multiple GPUs. Ensure your system has multiple GPUs available and adjust your .yaml configuration file to specify the number of GPUs, e.g., gpus: 4. Increase the batch size accordingly to fully utilize the GPUs without exceeding memory limits. Example command:"}}, {"@type": "Question", "name": "How can I ensure my YOLO11 model is training on the GPU?", "acceptedAnswer": {"@type": "Answer", "text": "If the 'device' value shows 'null' in the training logs, it generally means the training process is set to automatically use an available GPU. To explicitly assign a specific GPU, set the 'device' value in your .yaml configuration file. For instance: This sets the training process to the first GPU. Consult the nvidia-smi command to confirm your CUDA setup."}}, {"@type": "Question", "name": "How can I monitor and track my YOLO11 model training progress?", "acceptedAnswer": {"@type": "Answer", "text": "Tracking and visualizing training progress can be efficiently managed through tools like TensorBoard, Comet, and Ultralytics HUB. These tools allow you to log and visualize metrics such as loss, precision, recall, and mAP. Implementing early stopping based on these metrics can also help achieve better training outcomes."}}, {"@type": "Question", "name": "What should I do if YOLO11 is not recognizing my dataset format?", "acceptedAnswer": {"@type": "Answer", "text": "Ensure your dataset and labels conform to the expected format. Verify that annotations are accurate and of high quality. If you face any issues, refer to the Data Collection and Annotation guide for best practices. For more dataset-specific guidance, check the Datasets section in the documentation."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -471,30 +471,30 @@
 <nav aria-label="Issues Related to Model Predictions" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#getting-bounding-box-predictions-with-your-yolov8-custom-model">
+<a class="md-nav__link" href="#getting-bounding-box-predictions-with-your-yolo11-custom-model">
 <span class="md-ellipsis">
-      Getting Bounding Box Predictions With Your YOLOv8 Custom Model
+      Getting Bounding Box Predictions With Your YOLO11 Custom Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#filtering-objects-in-yolov8-predictions">
+<a class="md-nav__link" href="#filtering-objects-in-yolo11-predictions">
 <span class="md-ellipsis">
-      Filtering Objects in YOLOv8 Predictions
+      Filtering Objects in YOLO11 Predictions
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#understanding-precision-metrics-in-yolov8">
+<a class="md-nav__link" href="#understanding-precision-metrics-in-yolo11">
 <span class="md-ellipsis">
-      Understanding Precision Metrics in YOLOv8
+      Understanding Precision Metrics in YOLO11
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#extracting-object-dimensions-in-yolov8">
+<a class="md-nav__link" href="#extracting-object-dimensions-in-yolo11">
 <span class="md-ellipsis">
-      Extracting Object Dimensions in YOLOv8
+      Extracting Object Dimensions in YOLO11
     </span>
 </a>
 </li>
@@ -570,37 +570,37 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-resolve-installation-errors-with-yolov8">
+<a class="md-nav__link" href="#how-do-i-resolve-installation-errors-with-yolo11">
 <span class="md-ellipsis">
-      How do I resolve installation errors with YOLOv8?
+      How do I resolve installation errors with YOLO11?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-is-my-yolov8-model-training-slow-on-a-single-gpu">
+<a class="md-nav__link" href="#why-is-my-yolo11-model-training-slow-on-a-single-gpu">
 <span class="md-ellipsis">
-      Why is my YOLOv8 model training slow on a single GPU?
+      Why is my YOLO11 model training slow on a single GPU?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-ensure-my-yolov8-model-is-training-on-the-gpu">
+<a class="md-nav__link" href="#how-can-i-ensure-my-yolo11-model-is-training-on-the-gpu">
 <span class="md-ellipsis">
-      How can I ensure my YOLOv8 model is training on the GPU?
+      How can I ensure my YOLO11 model is training on the GPU?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-monitor-and-track-my-yolov8-model-training-progress">
+<a class="md-nav__link" href="#how-can-i-monitor-and-track-my-yolo11-model-training-progress">
 <span class="md-ellipsis">
-      How can I monitor and track my YOLOv8 model training progress?
+      How can I monitor and track my YOLO11 model training progress?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-should-i-do-if-yolov8-is-not-recognizing-my-dataset-format">
+<a class="md-nav__link" href="#what-should-i-do-if-yolo11-is-not-recognizing-my-dataset-format">
 <span class="md-ellipsis">
-      What should I do if YOLOv8 is not recognizing my dataset format?
+      What should I do if YOLO11 is not recognizing my dataset format?
     </span>
 </a>
 </li>
@@ -1018,30 +1018,30 @@
 <nav aria-label="Issues Related to Model Predictions" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#getting-bounding-box-predictions-with-your-yolov8-custom-model">
+<a class="md-nav__link" href="#getting-bounding-box-predictions-with-your-yolo11-custom-model">
 <span class="md-ellipsis">
-      Getting Bounding Box Predictions With Your YOLOv8 Custom Model
+      Getting Bounding Box Predictions With Your YOLO11 Custom Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#filtering-objects-in-yolov8-predictions">
+<a class="md-nav__link" href="#filtering-objects-in-yolo11-predictions">
 <span class="md-ellipsis">
-      Filtering Objects in YOLOv8 Predictions
+      Filtering Objects in YOLO11 Predictions
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#understanding-precision-metrics-in-yolov8">
+<a class="md-nav__link" href="#understanding-precision-metrics-in-yolo11">
 <span class="md-ellipsis">
-      Understanding Precision Metrics in YOLOv8
+      Understanding Precision Metrics in YOLO11
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#extracting-object-dimensions-in-yolov8">
+<a class="md-nav__link" href="#extracting-object-dimensions-in-yolo11">
 <span class="md-ellipsis">
-      Extracting Object Dimensions in YOLOv8
+      Extracting Object Dimensions in YOLO11
     </span>
 </a>
 </li>
@@ -1117,37 +1117,37 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-resolve-installation-errors-with-yolov8">
+<a class="md-nav__link" href="#how-do-i-resolve-installation-errors-with-yolo11">
 <span class="md-ellipsis">
-      How do I resolve installation errors with YOLOv8?
+      How do I resolve installation errors with YOLO11?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-is-my-yolov8-model-training-slow-on-a-single-gpu">
+<a class="md-nav__link" href="#why-is-my-yolo11-model-training-slow-on-a-single-gpu">
 <span class="md-ellipsis">
-      Why is my YOLOv8 model training slow on a single GPU?
+      Why is my YOLO11 model training slow on a single GPU?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-ensure-my-yolov8-model-is-training-on-the-gpu">
+<a class="md-nav__link" href="#how-can-i-ensure-my-yolo11-model-is-training-on-the-gpu">
 <span class="md-ellipsis">
-      How can I ensure my YOLOv8 model is training on the GPU?
+      How can I ensure my YOLO11 model is training on the GPU?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-monitor-and-track-my-yolov8-model-training-progress">
+<a class="md-nav__link" href="#how-can-i-monitor-and-track-my-yolo11-model-training-progress">
 <span class="md-ellipsis">
-      How can I monitor and track my YOLOv8 model training progress?
+      How can I monitor and track my YOLO11 model training progress?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-should-i-do-if-yolov8-is-not-recognizing-my-dataset-format">
+<a class="md-nav__link" href="#what-should-i-do-if-yolo11-is-not-recognizing-my-dataset-format">
 <span class="md-ellipsis">
-      What should I do if YOLOv8 is not recognizing my dataset format?
+      What should I do if YOLO11 is not recognizing my dataset format?
     </span>
 </a>
 </li>
@@ -1169,13 +1169,13 @@
 <img alt="YOLO Common Issues Image" src="https://github.com/ultralytics/docs/releases/download/0/yolo-common-issues.avif" width="800"/>
 </p>
 <h2 id="introduction">Introduction</h2>
-<p>This guide serves as a comprehensive aid for troubleshooting common issues encountered while working with YOLOv8 on your Ultralytics projects. Navigating through these issues can be a breeze with the right guidance, ensuring your projects remain on track without unnecessary delays.</p>
+<p>This guide serves as a comprehensive aid for troubleshooting common issues encountered while working with YOLO11 on your Ultralytics projects. Navigating through these issues can be a breeze with the right guidance, ensuring your projects remain on track without unnecessary delays.</p>
 <p align="center">
 <br/>
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" loading="lazy" src="https://www.youtube.com/embed/TG9exsBlkDE" title="YouTube video player" width="720">
 </iframe>
 <br/>
-<strong>Watch:</strong> Ultralytics YOLOv8 Common Issues | Installation Errors, Model Training Issues
+<strong>Watch:</strong> Ultralytics YOLO11 Common Issues | Installation Errors, Model Training Issues
 </p>
 <h2 id="common-issues">Common Issues</h2>
 <h3 id="installation-errors">Installation Errors</h3>
@@ -1197,7 +1197,7 @@
 <p>Additionally, here are some common installation issues users have encountered, along with their respective solutions:</p>
 <ul>
 <li>
-<p>Import Errors or Dependency Issues - If you're getting errors during the import of YOLOv8, or you're having issues related to dependencies, consider the following troubleshooting steps:</p>
+<p>Import Errors or Dependency Issues - If you're getting errors during the import of YOLO11, or you're having issues related to dependencies, consider the following troubleshooting steps:</p>
 <ul>
 <li>
 <p><strong>Fresh Installation</strong>: Sometimes, starting with a fresh installation can resolve unexpected issues. Especially with libraries like Ultralytics, where updates might introduce changes to the file tree structure or functionalities.</p>
@@ -1217,7 +1217,7 @@
 </ul>
 </li>
 <li>
-<p>Running YOLOv8 on GPU - If you're having trouble running YOLOv8 on GPU, consider the following troubleshooting steps:</p>
+<p>Running YOLO11 on GPU - If you're having trouble running YOLO11 on GPU, consider the following troubleshooting steps:</p>
 <ul>
 <li>
 <p><strong>Verify CUDA Compatibility and Installation</strong>: Ensure your GPU is CUDA compatible and that CUDA is correctly installed. Use the <code>nvidia-smi</code> command to check the status of your NVIDIA GPU and CUDA version.</p>
@@ -1232,7 +1232,7 @@
 <p><strong>Update Your Packages</strong>: Outdated packages might not be compatible with your GPU. Keep them updated.</p>
 </li>
 <li>
-<p><strong>Program Configuration</strong>: Check if the program or code specifies GPU usage. In YOLOv8, this might be in the settings or configuration.</p>
+<p><strong>Program Configuration</strong>: Check if the program or code specifies GPU usage. In YOLO11, this might be in the settings or configuration.</p>
 </li>
 </ul>
 </li>
@@ -1281,7 +1281,7 @@
 <p><strong>Issue</strong>: You are looking for recommendations on tools to track training progress.</p>
 <p><strong>Solution</strong>: To track and visualize training progress, you can consider using the following tools:</p>
 <ul>
-<li><a href="https://www.tensorflow.org/tensorboard">TensorBoard</a>: TensorBoard is a popular choice for visualizing training metrics, including loss, <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>, and more. You can integrate it with your YOLOv8 training process.</li>
+<li><a href="https://www.tensorflow.org/tensorboard">TensorBoard</a>: TensorBoard is a popular choice for visualizing training metrics, including loss, <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>, and more. You can integrate it with your YOLO11 training process.</li>
 <li><a href="https://bit.ly/yolov8-readme-comet">Comet</a>: Comet provides an extensive toolkit for experiment tracking and comparison. It allows you to track metrics, hyperparameters, and even model weights. Integration with YOLO models is also straightforward, providing you with a complete overview of your experiment cycle.</li>
 <li><a href="https://hub.ultralytics.com/">Ultralytics HUB</a>: Ultralytics HUB offers a specialized environment for tracking YOLO models, giving you a one-stop platform to manage metrics, datasets, and even collaborate with your team. Given its tailored focus on YOLO, it offers more customized tracking options.</li>
 </ul>
@@ -1342,11 +1342,11 @@
 </ul>
 <h3 id="issues-related-to-model-predictions">Issues Related to Model Predictions</h3>
 <p>This section will address common issues faced during model prediction.</p>
-<h4 id="getting-bounding-box-predictions-with-your-yolov8-custom-model">Getting Bounding Box Predictions With Your YOLOv8 Custom Model</h4>
-<p><strong>Issue</strong>: When running predictions with a custom YOLOv8 model, there are challenges with the format and visualization of the bounding box coordinates.</p>
+<h4 id="getting-bounding-box-predictions-with-your-yolo11-custom-model">Getting Bounding Box Predictions With Your YOLO11 Custom Model</h4>
+<p><strong>Issue</strong>: When running predictions with a custom YOLO11 model, there are challenges with the format and visualization of the bounding box coordinates.</p>
 <p><strong>Solution</strong>:</p>
 <ul>
-<li>Coordinate Format: YOLOv8 provides bounding box coordinates in absolute pixel values. To convert these to relative coordinates (ranging from 0 to 1), you need to divide by the image dimensions. For example, let's say your image size is 640x640. Then you would do the following:</li>
+<li>Coordinate Format: YOLO11 provides bounding box coordinates in absolute pixel values. To convert these to relative coordinates (ranging from 0 to 1), you need to divide by the image dimensions. For example, let's say your image size is 640x640. Then you would do the following:</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Convert absolute coordinates to relative coordinates</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">/</span> <span class="mi">640</span>  <span class="c1"># Divide x-coordinates by image width</span>
@@ -1357,21 +1357,21 @@
 <ul>
 <li>File Name: To obtain the file name of the image you're predicting on, access the image file path directly from the result object within your prediction loop.</li>
 </ul>
-<h4 id="filtering-objects-in-yolov8-predictions">Filtering Objects in YOLOv8 Predictions</h4>
-<p><strong>Issue</strong>: Facing issues with how to filter and display only specific objects in the prediction results when running YOLOv8 using the Ultralytics library.</p>
+<h4 id="filtering-objects-in-yolo11-predictions">Filtering Objects in YOLO11 Predictions</h4>
+<p><strong>Issue</strong>: Facing issues with how to filter and display only specific objects in the prediction results when running YOLO11 using the Ultralytics library.</p>
 <p><strong>Solution</strong>: To detect specific classes use the classes argument to specify the classes you want to include in the output. For instance, to detect only cars (assuming 'cars' have class index 2):</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span>segment<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'path/to/car.mp4'</span><span class="w"> </span><span class="nv">show</span><span class="o">=</span>True<span class="w"> </span><span class="nv">classes</span><span class="o">=</span><span class="m">2</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span>segment<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'path/to/car.mp4'</span><span class="w"> </span><span class="nv">show</span><span class="o">=</span>True<span class="w"> </span><span class="nv">classes</span><span class="o">=</span><span class="m">2</span>
 </code></pre></div>
-<h4 id="understanding-precision-metrics-in-yolov8">Understanding Precision Metrics in YOLOv8</h4>
-<p><strong>Issue</strong>: Confusion regarding the difference between box precision, mask precision, and <a href="https://www.ultralytics.com/glossary/confusion-matrix">confusion matrix</a> precision in YOLOv8.</p>
+<h4 id="understanding-precision-metrics-in-yolo11">Understanding Precision Metrics in YOLO11</h4>
+<p><strong>Issue</strong>: Confusion regarding the difference between box precision, mask precision, and <a href="https://www.ultralytics.com/glossary/confusion-matrix">confusion matrix</a> precision in YOLO11.</p>
 <p><strong>Solution</strong>: Box precision measures the accuracy of predicted bounding boxes compared to the actual ground truth boxes using IoU (Intersection over Union) as the metric. Mask precision assesses the agreement between predicted segmentation masks and ground truth masks in pixel-wise object classification. Confusion matrix precision, on the other hand, focuses on overall classification accuracy across all classes and does not consider the geometric accuracy of predictions. It's important to note that a <a href="https://www.ultralytics.com/glossary/bounding-box">bounding box</a> can be geometrically accurate (true positive) even if the class prediction is wrong, leading to differences between box precision and confusion matrix precision. These metrics evaluate distinct aspects of a model's performance, reflecting the need for different evaluation metrics in various tasks.</p>
-<h4 id="extracting-object-dimensions-in-yolov8">Extracting Object Dimensions in YOLOv8</h4>
-<p><strong>Issue</strong>: Difficulty in retrieving the length and height of detected objects in YOLOv8, especially when multiple objects are detected in an image.</p>
-<p><strong>Solution</strong>: To retrieve the bounding box dimensions, first use the Ultralytics YOLOv8 model to predict objects in an image. Then, extract the width and height information of bounding boxes from the prediction results.</p>
+<h4 id="extracting-object-dimensions-in-yolo11">Extracting Object Dimensions in YOLO11</h4>
+<p><strong>Issue</strong>: Difficulty in retrieving the length and height of detected objects in YOLO11, especially when multiple objects are detected in an image.</p>
+<p><strong>Solution</strong>: To retrieve the bounding box dimensions, first use the Ultralytics YOLO11 model to predict objects in an image. Then, extract the width and height information of bounding boxes from the prediction results.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1"># Load a pre-trained YOLOv8 model</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1"># Load a pre-trained YOLO11 model</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="c1"># Specify the source image</span>
 <a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"https://ultralytics.com/images/bus.jpg"</span>
@@ -1413,32 +1413,32 @@
 </li>
 </ul>
 <h2 id="community-and-support">Community and Support</h2>
-<p>Engaging with a community of like-minded individuals can significantly enhance your experience and success in working with YOLOv8. Below are some channels and resources you may find helpful.</p>
+<p>Engaging with a community of like-minded individuals can significantly enhance your experience and success in working with YOLO11. Below are some channels and resources you may find helpful.</p>
 <h3 id="forums-and-channels-for-getting-help">Forums and Channels for Getting Help</h3>
-<p><strong>GitHub Issues:</strong> The YOLOv8 repository on GitHub has an <a href="https://github.com/ultralytics/ultralytics/issues">Issues tab</a> where you can ask questions, report bugs, and suggest new features. The community and maintainers are active here, and it's a great place to get help with specific problems.</p>
+<p><strong>GitHub Issues:</strong> The YOLO11 repository on GitHub has an <a href="https://github.com/ultralytics/ultralytics/issues">Issues tab</a> where you can ask questions, report bugs, and suggest new features. The community and maintainers are active here, and it's a great place to get help with specific problems.</p>
 <p><strong>Ultralytics Discord Server:</strong> Ultralytics has a <a href="https://discord.com/invite/ultralytics">Discord server</a> where you can interact with other users and the developers.</p>
 <h3 id="official-documentation-and-resources">Official Documentation and Resources</h3>
-<p><strong>Ultralytics YOLOv8 Docs</strong>: The <a href="../../">official documentation</a> provides a comprehensive overview of YOLOv8, along with guides on installation, usage, and troubleshooting.</p>
-<p>These resources should provide a solid foundation for troubleshooting and improving your YOLOv8 projects, as well as connecting with others in the YOLOv8 community.</p>
+<p><strong>Ultralytics YOLO11 Docs</strong>: The <a href="../../">official documentation</a> provides a comprehensive overview of YOLO11, along with guides on installation, usage, and troubleshooting.</p>
+<p>These resources should provide a solid foundation for troubleshooting and improving your YOLO11 projects, as well as connecting with others in the YOLO11 community.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Troubleshooting is an integral part of any development process, and being equipped with the right knowledge can significantly reduce the time and effort spent in resolving issues. This guide aimed to address the most common challenges faced by users of the YOLOv8 model within the Ultralytics ecosystem. By understanding and addressing these common issues, you can ensure smoother project progress and achieve better results with your <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> tasks.</p>
+<p>Troubleshooting is an integral part of any development process, and being equipped with the right knowledge can significantly reduce the time and effort spent in resolving issues. This guide aimed to address the most common challenges faced by users of the YOLO11 model within the Ultralytics ecosystem. By understanding and addressing these common issues, you can ensure smoother project progress and achieve better results with your <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> tasks.</p>
 <p>Remember, the Ultralytics community is a valuable resource. Engaging with fellow developers and experts can provide additional insights and solutions that might not be covered in standard documentation. Always keep learning, experimenting, and sharing your experiences to contribute to the collective knowledge of the community.</p>
 <p>Happy troubleshooting!</p>
 <h2 id="faq">FAQ</h2>
-<h3 id="how-do-i-resolve-installation-errors-with-yolov8">How do I resolve installation errors with YOLOv8?</h3>
+<h3 id="how-do-i-resolve-installation-errors-with-yolo11">How do I resolve installation errors with YOLO11?</h3>
 <p>Installation errors can often be due to compatibility issues or missing dependencies. Ensure you use Python 3.8 or later and have PyTorch 1.8 or later installed. It's beneficial to use virtual environments to avoid conflicts. For a step-by-step installation guide, follow our <a href="../../quickstart/">official installation guide</a>. If you encounter import errors, try a fresh installation or update the library to the latest version.</p>
-<h3 id="why-is-my-yolov8-model-training-slow-on-a-single-gpu">Why is my YOLOv8 model training slow on a single GPU?</h3>
+<h3 id="why-is-my-yolo11-model-training-slow-on-a-single-gpu">Why is my YOLO11 model training slow on a single GPU?</h3>
 <p>Training on a single GPU might be slow due to large batch sizes or insufficient memory. To speed up training, use multiple GPUs. Ensure your system has multiple GPUs available and adjust your <code>.yaml</code> configuration file to specify the number of GPUs, e.g., <code>gpus: 4</code>. Increase the batch size accordingly to fully utilize the GPUs without exceeding memory limits. Example command:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"/path/to/your/data.yaml"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">multi_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="how-can-i-ensure-my-yolov8-model-is-training-on-the-gpu">How can I ensure my YOLOv8 model is training on the GPU?</h3>
+<h3 id="how-can-i-ensure-my-yolo11-model-is-training-on-the-gpu">How can I ensure my YOLO11 model is training on the GPU?</h3>
 <p>If the 'device' value shows 'null' in the training logs, it generally means the training process is set to automatically use an available GPU. To explicitly assign a specific GPU, set the 'device' value in your <code>.yaml</code> configuration file. For instance:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </code></pre></div>
 <p>This sets the training process to the first GPU. Consult the <code>nvidia-smi</code> command to confirm your CUDA setup.</p>
-<h3 id="how-can-i-monitor-and-track-my-yolov8-model-training-progress">How can I monitor and track my YOLOv8 model training progress?</h3>
+<h3 id="how-can-i-monitor-and-track-my-yolo11-model-training-progress">How can I monitor and track my YOLO11 model training progress?</h3>
 <p>Tracking and visualizing training progress can be efficiently managed through tools like <a href="https://www.tensorflow.org/tensorboard">TensorBoard</a>, <a href="https://bit.ly/yolov8-readme-comet">Comet</a>, and <a href="https://hub.ultralytics.com/">Ultralytics HUB</a>. These tools allow you to log and visualize metrics such as loss, <a href="https://www.ultralytics.com/glossary/precision">precision</a>, <a href="https://www.ultralytics.com/glossary/recall">recall</a>, and mAP. Implementing <a href="#continuous-monitoring-parameters">early stopping</a> based on these metrics can also help achieve better training outcomes.</p>
-<h3 id="what-should-i-do-if-yolov8-is-not-recognizing-my-dataset-format">What should I do if YOLOv8 is not recognizing my dataset format?</h3>
+<h3 id="what-should-i-do-if-yolo11-is-not-recognizing-my-dataset-format">What should I do if YOLO11 is not recognizing my dataset format?</h3>
 <p>Ensure your dataset and labels conform to the expected format. Verify that annotations are accurate and of high quality. If you face any issues, refer to the <a href="https://docs.ultralytics.com/guides/data-collection-and-annotation/">Data Collection and Annotation</a> guide for best practices. For more dataset-specific guidance, check the <a href="https://docs.ultralytics.com/datasets/">Datasets</a> section in the documentation.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
@@ -1453,16 +1453,16 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 10 months ago
     </span>
-<span class="date-item" title="This page was last updated on September 23, 2024">
-<span class="hover-item">✏️</span> Updated 7 days ago
+<span class="date-item" title="This page was last updated on October 01, 2024">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
+<img alt="UltralyticsAssistant" class="hover-item" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (7 changes)">
 <img alt="glenn-jocher" class="hover-item" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (1 change)">
-<img alt="UltralyticsAssistant" class="hover-item" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (2 changes)">
 <img alt="RizwanMunawar" class="hover-item" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>

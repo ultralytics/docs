@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to gather, label, and deploy data for custom YOLOv8 models using Roboflow's powerful tools. Optimize your computer vision pipeline effortlessly." name="description"/>
+<meta content="Learn how to gather, label, and deploy data for custom YOLO11 models using Roboflow's powerful tools. Optimize your computer vision pipeline effortlessly." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/integrations/roboflow/" rel="canonical"/>
 <link href="../ray-tune/" rel="prev"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Roboflow" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Roboflow, YOLOv8, data labeling, computer vision, model training, model deployment, dataset management, automated image annotation, AI tools" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/roboflow" property="og:url"/><meta content="Roboflow" property="og:title"/><meta content="Learn how to gather, label, and deploy data for custom YOLOv8 models using Roboflow's powerful tools. Optimize your computer vision pipeline effortlessly." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/roboflow-universe.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/roboflow" property="twitter:url"/><meta content="Roboflow" property="twitter:title"/><meta content="Learn how to gather, label, and deploy data for custom YOLOv8 models using Roboflow's powerful tools. Optimize your computer vision pipeline effortlessly." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/roboflow-universe.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Roboflow", "image": ["https://github.com/ultralytics/docs/releases/download/0/roboflow-universe.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-09-23 23:48:46 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to gather, label, and deploy data for custom YOLOv8 models using Roboflow's powerful tools. Optimize your computer vision pipeline effortlessly.", "mainEntity": [{"@type": "Question", "name": "How do I label data for YOLOv8 models using Roboflow?", "acceptedAnswer": {"@type": "Answer", "text": "Labeling data for YOLOv8 models using Roboflow is straightforward with Roboflow Annotate. First, create a project on Roboflow and upload your images. After uploading, select the batch of images and click \"Start Annotating.\" You can use the B key for bounding boxes or the P key for polygons. For faster annotation, use the SAM-based label assistant by clicking the cursor icon in the sidebar. Detailed steps can be found here."}}, {"@type": "Question", "name": "What services does Roboflow offer for collecting YOLOv8 training data?", "acceptedAnswer": {"@type": "Answer", "text": "Roboflow provides two key services for collecting YOLOv8 training data: Universe and Collect. Universe offers access to over 250,000 vision datasets, while Collect helps you gather images using a webcam and automated prompts."}}, {"@type": "Question", "name": "How can I manage and analyze my YOLOv8 dataset using Roboflow?", "acceptedAnswer": {"@type": "Answer", "text": "Roboflow offers robust dataset management tools, including dataset search, tagging, and Health Check. Use the search feature to find images based on text descriptions or tags. Health Check provides insights into dataset quality, showing class balance, image sizes, and annotation heatmaps. This helps optimize dataset performance before training YOLOv8 models. Detailed information can be found here."}}, {"@type": "Question", "name": "How do I export my YOLOv8 dataset from Roboflow?", "acceptedAnswer": {"@type": "Answer", "text": "To export your YOLOv8 dataset from Roboflow, you need to create a dataset version. Click \"Versions\" in the sidebar, then \"Create New Version\" and apply any desired augmentations. Once the version is generated, click \"Export Dataset\" and choose the YOLOv8 format. Follow this process here."}}, {"@type": "Question", "name": "How can I integrate and deploy YOLOv8 models with Roboflow?", "acceptedAnswer": {"@type": "Answer", "text": "Integrate and deploy YOLOv8 models on Roboflow by uploading your YOLOv8 weights through a few lines of Python code. Use the provided script to authenticate and upload your model, which will create an API for deployment. For details on the script and further instructions, see this section."}}, {"@type": "Question", "name": "What tools does Roboflow provide for evaluating YOLOv8 models?", "acceptedAnswer": {"@type": "Answer", "text": "Roboflow offers model evaluation tools, including a confusion matrix and vector analysis plots. Access these tools from the \"View Detailed Evaluation\" button on your model page. These features help identify model performance issues and find areas for improvement. For more information, refer to this section."}}]}</script></head>
+<meta content="Roboflow" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Roboflow, YOLO11, data labeling, computer vision, model training, model deployment, dataset management, automated image annotation, AI tools" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/roboflow" property="og:url"/><meta content="Roboflow" property="og:title"/><meta content="Learn how to gather, label, and deploy data for custom YOLO11 models using Roboflow's powerful tools. Optimize your computer vision pipeline effortlessly." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/roboflow-universe.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/roboflow" property="twitter:url"/><meta content="Roboflow" property="twitter:title"/><meta content="Learn how to gather, label, and deploy data for custom YOLO11 models using Roboflow's powerful tools. Optimize your computer vision pipeline effortlessly." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/roboflow-universe.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Roboflow", "image": ["https://github.com/ultralytics/docs/releases/download/0/roboflow-universe.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-10-01 16:58:12 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to gather, label, and deploy data for custom YOLO11 models using Roboflow's powerful tools. Optimize your computer vision pipeline effortlessly.", "mainEntity": [{"@type": "Question", "name": "How do I label data for YOLO11 models using Roboflow?", "acceptedAnswer": {"@type": "Answer", "text": "Labeling data for YOLO11 models using Roboflow is straightforward with Roboflow Annotate. First, create a project on Roboflow and upload your images. After uploading, select the batch of images and click \"Start Annotating.\" You can use the B key for bounding boxes or the P key for polygons. For faster annotation, use the SAM-based label assistant by clicking the cursor icon in the sidebar. Detailed steps can be found here."}}, {"@type": "Question", "name": "What services does Roboflow offer for collecting YOLO11 training data?", "acceptedAnswer": {"@type": "Answer", "text": "Roboflow provides two key services for collecting YOLO11 training data: Universe and Collect. Universe offers access to over 250,000 vision datasets, while Collect helps you gather images using a webcam and automated prompts."}}, {"@type": "Question", "name": "How can I manage and analyze my YOLO11 dataset using Roboflow?", "acceptedAnswer": {"@type": "Answer", "text": "Roboflow offers robust dataset management tools, including dataset search, tagging, and Health Check. Use the search feature to find images based on text descriptions or tags. Health Check provides insights into dataset quality, showing class balance, image sizes, and annotation heatmaps. This helps optimize dataset performance before training YOLO11 models. Detailed information can be found here."}}, {"@type": "Question", "name": "How do I export my YOLO11 dataset from Roboflow?", "acceptedAnswer": {"@type": "Answer", "text": "To export your YOLO11 dataset from Roboflow, you need to create a dataset version. Click \"Versions\" in the sidebar, then \"Create New Version\" and apply any desired augmentations. Once the version is generated, click \"Export Dataset\" and choose the YOLO11 format. Follow this process here."}}, {"@type": "Question", "name": "How can I integrate and deploy YOLO11 models with Roboflow?", "acceptedAnswer": {"@type": "Answer", "text": "Integrate and deploy YOLO11 models on Roboflow by uploading your YOLO11 weights through a few lines of Python code. Use the provided script to authenticate and upload your model, which will create an API for deployment. For details on the script and further instructions, see this section."}}, {"@type": "Question", "name": "What tools does Roboflow provide for evaluating YOLO11 models?", "acceptedAnswer": {"@type": "Answer", "text": "Roboflow offers model evaluation tools, including a confusion matrix and vector analysis plots. Access these tools from the \"View Detailed Evaluation\" button on your model page. These features help identify model performance issues and find areas for improvement. For more information, refer to this section."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -494,16 +494,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#upload-convert-and-label-data-for-yolov8-format">
+<a class="md-nav__link" href="#upload-convert-and-label-data-for-yolo11-format">
 <span class="md-ellipsis">
-      Upload, Convert and Label Data for YOLOv8 Format
+      Upload, Convert and Label Data for YOLO11 Format
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-management-for-yolov8">
+<a class="md-nav__link" href="#dataset-management-for-yolo11">
 <span class="md-ellipsis">
-      Dataset Management for YOLOv8
+      Dataset Management for YOLO11
     </span>
 </a>
 </li>
@@ -515,16 +515,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#upload-custom-yolov8-model-weights-for-testing-and-deployment">
+<a class="md-nav__link" href="#upload-custom-yolo11-model-weights-for-testing-and-deployment">
 <span class="md-ellipsis">
-      Upload Custom YOLOv8 Model Weights for Testing and Deployment
+      Upload Custom YOLO11 Model Weights for Testing and Deployment
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-to-evaluate-yolov8-models">
+<a class="md-nav__link" href="#how-to-evaluate-yolo11-models">
 <span class="md-ellipsis">
-      How to Evaluate YOLOv8 Models
+      How to Evaluate YOLO11 Models
     </span>
 </a>
 </li>
@@ -551,44 +551,44 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-label-data-for-yolov8-models-using-roboflow">
+<a class="md-nav__link" href="#how-do-i-label-data-for-yolo11-models-using-roboflow">
 <span class="md-ellipsis">
-      How do I label data for YOLOv8 models using Roboflow?
+      How do I label data for YOLO11 models using Roboflow?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-services-does-roboflow-offer-for-collecting-yolov8-training-data">
+<a class="md-nav__link" href="#what-services-does-roboflow-offer-for-collecting-yolo11-training-data">
 <span class="md-ellipsis">
-      What services does Roboflow offer for collecting YOLOv8 training data?
+      What services does Roboflow offer for collecting YOLO11 training data?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-manage-and-analyze-my-yolov8-dataset-using-roboflow">
+<a class="md-nav__link" href="#how-can-i-manage-and-analyze-my-yolo11-dataset-using-roboflow">
 <span class="md-ellipsis">
-      How can I manage and analyze my YOLOv8 dataset using Roboflow?
+      How can I manage and analyze my YOLO11 dataset using Roboflow?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-export-my-yolov8-dataset-from-roboflow">
+<a class="md-nav__link" href="#how-do-i-export-my-yolo11-dataset-from-roboflow">
 <span class="md-ellipsis">
-      How do I export my YOLOv8 dataset from Roboflow?
+      How do I export my YOLO11 dataset from Roboflow?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-integrate-and-deploy-yolov8-models-with-roboflow">
+<a class="md-nav__link" href="#how-can-i-integrate-and-deploy-yolo11-models-with-roboflow">
 <span class="md-ellipsis">
-      How can I integrate and deploy YOLOv8 models with Roboflow?
+      How can I integrate and deploy YOLO11 models with Roboflow?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-tools-does-roboflow-provide-for-evaluating-yolov8-models">
+<a class="md-nav__link" href="#what-tools-does-roboflow-provide-for-evaluating-yolo11-models">
 <span class="md-ellipsis">
-      What tools does Roboflow provide for evaluating YOLOv8 models?
+      What tools does Roboflow provide for evaluating YOLO11 models?
     </span>
 </a>
 </li>
@@ -738,16 +738,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#upload-convert-and-label-data-for-yolov8-format">
+<a class="md-nav__link" href="#upload-convert-and-label-data-for-yolo11-format">
 <span class="md-ellipsis">
-      Upload, Convert and Label Data for YOLOv8 Format
+      Upload, Convert and Label Data for YOLO11 Format
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-management-for-yolov8">
+<a class="md-nav__link" href="#dataset-management-for-yolo11">
 <span class="md-ellipsis">
-      Dataset Management for YOLOv8
+      Dataset Management for YOLO11
     </span>
 </a>
 </li>
@@ -759,16 +759,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#upload-custom-yolov8-model-weights-for-testing-and-deployment">
+<a class="md-nav__link" href="#upload-custom-yolo11-model-weights-for-testing-and-deployment">
 <span class="md-ellipsis">
-      Upload Custom YOLOv8 Model Weights for Testing and Deployment
+      Upload Custom YOLO11 Model Weights for Testing and Deployment
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-to-evaluate-yolov8-models">
+<a class="md-nav__link" href="#how-to-evaluate-yolo11-models">
 <span class="md-ellipsis">
-      How to Evaluate YOLOv8 Models
+      How to Evaluate YOLO11 Models
     </span>
 </a>
 </li>
@@ -795,44 +795,44 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-label-data-for-yolov8-models-using-roboflow">
+<a class="md-nav__link" href="#how-do-i-label-data-for-yolo11-models-using-roboflow">
 <span class="md-ellipsis">
-      How do I label data for YOLOv8 models using Roboflow?
+      How do I label data for YOLO11 models using Roboflow?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-services-does-roboflow-offer-for-collecting-yolov8-training-data">
+<a class="md-nav__link" href="#what-services-does-roboflow-offer-for-collecting-yolo11-training-data">
 <span class="md-ellipsis">
-      What services does Roboflow offer for collecting YOLOv8 training data?
+      What services does Roboflow offer for collecting YOLO11 training data?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-manage-and-analyze-my-yolov8-dataset-using-roboflow">
+<a class="md-nav__link" href="#how-can-i-manage-and-analyze-my-yolo11-dataset-using-roboflow">
 <span class="md-ellipsis">
-      How can I manage and analyze my YOLOv8 dataset using Roboflow?
+      How can I manage and analyze my YOLO11 dataset using Roboflow?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-export-my-yolov8-dataset-from-roboflow">
+<a class="md-nav__link" href="#how-do-i-export-my-yolo11-dataset-from-roboflow">
 <span class="md-ellipsis">
-      How do I export my YOLOv8 dataset from Roboflow?
+      How do I export my YOLO11 dataset from Roboflow?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-integrate-and-deploy-yolov8-models-with-roboflow">
+<a class="md-nav__link" href="#how-can-i-integrate-and-deploy-yolo11-models-with-roboflow">
 <span class="md-ellipsis">
-      How can I integrate and deploy YOLOv8 models with Roboflow?
+      How can I integrate and deploy YOLO11 models with Roboflow?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-tools-does-roboflow-provide-for-evaluating-yolov8-models">
+<a class="md-nav__link" href="#what-tools-does-roboflow-provide-for-evaluating-yolo11-models">
 <span class="md-ellipsis">
-      What tools does Roboflow provide for evaluating YOLOv8 models?
+      What tools does Roboflow provide for evaluating YOLO11 models?
     </span>
 </a>
 </li>
@@ -860,17 +860,17 @@
 </ul>
 <p>For more details see <a href="https://www.ultralytics.com/license">Ultralytics Licensing</a>.</p>
 </div>
-<p>In this guide, we are going to showcase how to find, label, and organize data for use in training a custom Ultralytics YOLOv8 model. Use the table of contents below to jump directly to a specific section:</p>
+<p>In this guide, we are going to showcase how to find, label, and organize data for use in training a custom Ultralytics YOLO11 model. Use the table of contents below to jump directly to a specific section:</p>
 <ul>
-<li>Gather data for training a custom YOLOv8 model</li>
-<li>Upload, convert and label data for YOLOv8 format</li>
+<li>Gather data for training a custom YOLO11 model</li>
+<li>Upload, convert and label data for YOLO11 format</li>
 <li>Pre-process and augment data for model robustness</li>
-<li>Dataset management for <a href="../../models/yolov8/">YOLOv8</a></li>
+<li>Dataset management for <a href="../../models/yolov8/">YOLO11</a></li>
 <li>Export data in 40+ formats for model training</li>
-<li>Upload custom YOLOv8 model weights for testing and deployment</li>
-<li>Gather Data for Training a Custom YOLOv8 Model</li>
+<li>Upload custom YOLO11 model weights for testing and deployment</li>
+<li>Gather Data for Training a Custom YOLO11 Model</li>
 </ul>
-<p>Roboflow provides two services that can help you collect data for YOLOv8 models: <a href="https://universe.roboflow.com/?ref=ultralytics">Universe</a> and <a href="https://github.com/roboflow/roboflow-collect?ref=ultralytics">Collect</a>.</p>
+<p>Roboflow provides two services that can help you collect data for YOLO11 models: <a href="https://universe.roboflow.com/?ref=ultralytics">Universe</a> and <a href="https://github.com/roboflow/roboflow-collect?ref=ultralytics">Collect</a>.</p>
 <p>Universe is an online repository with over 250,000 vision datasets totalling over 100 million images.</p>
 <p align="center">
 <img alt="Roboflow Universe" src="https://github.com/ultralytics/docs/releases/download/0/roboflow-universe.avif" width="800"/>
@@ -879,15 +879,15 @@
 <p align="center">
 <img alt="Roboflow Universe dataset export" src="https://github.com/ultralytics/docs/releases/download/0/roboflow-universe-dataset-export.avif" width="800"/>
 </p>
-<p>For YOLOv8, select "YOLOv8" as the export format:</p>
+<p>For YOLO11, select "YOLO11" as the export format:</p>
 <p align="center">
 <img alt="Roboflow Universe dataset export" src="https://github.com/ultralytics/docs/releases/download/0/roboflow-universe-dataset-export-1.avif" width="800"/>
 </p>
-<p>Universe also has a page that aggregates all <a href="https://universe.roboflow.com/search?q=model%3Ayolov8&amp;ref=ultralytics">public fine-tuned YOLOv8 models uploaded to Roboflow</a>. You can use this page to explore pre-trained models you can use for testing or <a href="https://docs.roboflow.com/annotate/use-roboflow-annotate/model-assisted-labeling?ref=ultralytics">for automated data labeling</a> or to prototype with <a href="https://github.com/roboflow/inference?ref=ultralytics">Roboflow inference</a>.</p>
+<p>Universe also has a page that aggregates all <a href="https://universe.roboflow.com/search?q=model%3Ayolov8&amp;ref=ultralytics">public fine-tuned YOLO11 models uploaded to Roboflow</a>. You can use this page to explore pre-trained models you can use for testing or <a href="https://docs.roboflow.com/annotate/use-roboflow-annotate/model-assisted-labeling?ref=ultralytics">for automated data labeling</a> or to prototype with <a href="https://github.com/roboflow/inference?ref=ultralytics">Roboflow inference</a>.</p>
 <p>If you want to gather images yourself, try <a href="https://github.com/roboflow/roboflow-collect">Collect</a>, an open source project that allows you to automatically gather images using a webcam on the edge. You can use text or image prompts with Collect to instruct what data should be collected, allowing you to capture only the useful data you need to build your vision model.</p>
-<h2 id="upload-convert-and-label-data-for-yolov8-format">Upload, Convert and Label Data for YOLOv8 Format</h2>
+<h2 id="upload-convert-and-label-data-for-yolo11-format">Upload, Convert and Label Data for YOLO11 Format</h2>
 <p><a href="https://docs.roboflow.com/annotate/use-roboflow-annotate?ref=ultralytics">Roboflow Annotate</a> is an online annotation tool for use in labeling images for <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a>, classification, and segmentation.</p>
-<p>To label data for a YOLOv8 object detection, <a href="https://www.ultralytics.com/glossary/instance-segmentation">instance segmentation</a>, or classification model, first create a project in Roboflow.</p>
+<p>To label data for a YOLO11 object detection, <a href="https://www.ultralytics.com/glossary/instance-segmentation">instance segmentation</a>, or classification model, first create a project in Roboflow.</p>
 <p align="center">
 <img alt="Create a Roboflow project" src="https://github.com/ultralytics/docs/releases/download/0/create-roboflow-project.avif" width="400"/>
 </p>
@@ -912,7 +912,7 @@
 <p align="center">
 <img alt="Adding tags to an image in Roboflow" src="https://github.com/ultralytics/docs/releases/download/0/adding-tags-to-image.avif" width="300"/>
 </p>
-<p>Models hosted on Roboflow can be used with Label Assist, an automated annotation tool that uses your YOLOv8 model to recommend annotations. To use Label Assist, first upload a YOLOv8 model to Roboflow (see instructions later in the guide). Then, click the magic wand icon in the left sidebar and select your model for use in Label Assist.</p>
+<p>Models hosted on Roboflow can be used with Label Assist, an automated annotation tool that uses your YOLO11 model to recommend annotations. To use Label Assist, first upload a YOLO11 model to Roboflow (see instructions later in the guide). Then, click the magic wand icon in the left sidebar and select your model for use in Label Assist.</p>
 <p>Choose a model, then click "Continue" to enable Label Assist:</p>
 <p align="center">
 <img alt="Enabling Label Assist" src="https://github.com/ultralytics/docs/releases/download/0/rf-label-assist.avif" width="800"/>
@@ -921,7 +921,7 @@
 <p align="center">
 <img alt="ALabel Assist recommending an annotation" src="https://github.com/ultralytics/docs/releases/download/0/rf-label-assist.avif" width="800"/>
 </p>
-<h2 id="dataset-management-for-yolov8">Dataset Management for YOLOv8</h2>
+<h2 id="dataset-management-for-yolo11">Dataset Management for YOLO11</h2>
 <p>Roboflow provides a suite of tools for understanding computer vision datasets.</p>
 <p>First, you can use dataset search to find images that meet a semantic text description (i.e. find all images that contain people), or that meet a specified label (i.e. the image is associated with a specific tag). To use dataset search, click "Dataset" in the sidebar. Then, input a search query using the search bar and associated filters at the top of the page.</p>
 <p>For example, the following text query finds images that contain people in a dataset:</p>
@@ -951,10 +951,10 @@
 <p align="center">
 <img alt="Exporting a dataset" src="https://github.com/ultralytics/docs/releases/download/0/exporting-dataset.avif" width="800"/>
 </p>
-<p>You are now ready to train YOLOv8 on a custom dataset. Follow this <a href="https://blog.roboflow.com/how-to-train-yolov8-on-a-custom-dataset/?ref=ultralytics">written guide</a> and <a href="https://www.youtube.com/watch?v=wuZtUMEiKWY">YouTube video</a> for step-by-step instructions or refer to the <a href="../../modes/train/">Ultralytics documentation</a>.</p>
-<h2 id="upload-custom-yolov8-model-weights-for-testing-and-deployment">Upload Custom YOLOv8 Model Weights for Testing and Deployment</h2>
+<p>You are now ready to train YOLO11 on a custom dataset. Follow this <a href="https://blog.roboflow.com/how-to-train-yolov8-on-a-custom-dataset/?ref=ultralytics">written guide</a> and <a href="https://www.youtube.com/watch?v=wuZtUMEiKWY">YouTube video</a> for step-by-step instructions or refer to the <a href="../../modes/train/">Ultralytics documentation</a>.</p>
+<h2 id="upload-custom-yolo11-model-weights-for-testing-and-deployment">Upload Custom YOLO11 Model Weights for Testing and Deployment</h2>
 <p>Roboflow offers an infinitely scalable API for deployed models and SDKs for use with NVIDIA Jetsons, Luxonis OAKs, Raspberry Pis, GPU-based devices, and more.</p>
-<p>You can deploy YOLOv8 models by uploading YOLOv8 weights to Roboflow. You can do this in a few lines of Python code. Create a new Python file and add the following code:</p>
+<p>You can deploy YOLO11 models by uploading YOLO11 weights to Roboflow. You can do this in a few lines of Python code. Create a new Python file and add the following code:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">roboflow</span>  <span class="c1"># install with 'pip install roboflow'</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">roboflow</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
@@ -973,7 +973,7 @@
 <img alt="Running inference on an example image" src="https://github.com/ultralytics/docs/releases/download/0/running-inference-example-image.avif" width="800"/>
 </p>
 <p>You can also use your uploaded model as a <a href="https://docs.roboflow.com/annotate/use-roboflow-annotate/model-assisted-labeling?ref=ultralytics">labeling assistant</a>. This feature uses your trained model to recommend annotations on images uploaded to Roboflow.</p>
-<h2 id="how-to-evaluate-yolov8-models">How to Evaluate YOLOv8 Models</h2>
+<h2 id="how-to-evaluate-yolo11-models">How to Evaluate YOLO11 Models</h2>
 <p>Roboflow provides a range of features for use in evaluating models.</p>
 <p>Once you have uploaded a model to Roboflow, you can access our model evaluation tool, which provides a <a href="https://www.ultralytics.com/glossary/confusion-matrix">confusion matrix</a> showing the performance of your model as well as an interactive vector analysis plot. These features can help you find opportunities to improve your model.</p>
 <p>To access a confusion matrix, go to your model page on the Roboflow dashboard, then click "View Detailed Evaluation":</p>
@@ -996,34 +996,34 @@
 <li>Visualize commonalities between images on which the model performs poorly.</li>
 </ul>
 <h2 id="learning-resources">Learning Resources</h2>
-<p>Want to learn more about using Roboflow for creating YOLOv8 models? The following resources may be helpful in your work.</p>
+<p>Want to learn more about using Roboflow for creating YOLO11 models? The following resources may be helpful in your work.</p>
 <ul>
-<li><a href="https://github.com/roboflow/notebooks/blob/main/notebooks/train-yolov8-object-detection-on-custom-dataset.ipynb">Train YOLOv8 on a Custom Dataset</a>: Follow our interactive notebook that shows you how to train a YOLOv8 model on a custom dataset.</li>
-<li><a href="https://docs.autodistill.com/">Autodistill</a>: Use large foundation vision models to label data for specific models. You can label images for use in training YOLOv8 classification, detection, and segmentation models with Autodistill.</li>
+<li><a href="https://github.com/roboflow/notebooks/blob/main/notebooks/train-yolov8-object-detection-on-custom-dataset.ipynb">Train YOLO11 on a Custom Dataset</a>: Follow our interactive notebook that shows you how to train a YOLO11 model on a custom dataset.</li>
+<li><a href="https://docs.autodistill.com/">Autodistill</a>: Use large foundation vision models to label data for specific models. You can label images for use in training YOLO11 classification, detection, and segmentation models with Autodistill.</li>
 <li><a href="https://supervision.roboflow.com/?ref=ultralytics">Supervision</a>: A Python package with helpful utilities for use in working with computer vision models. You can use supervision to filter detections, compute confusion matrices, and more, all in a few lines of Python code.</li>
-<li><a href="https://blog.roboflow.com/?ref=ultralytics">Roboflow Blog</a>: The Roboflow Blog features over 500 articles on computer vision, covering topics from how to train a YOLOv8 model to annotation best practices.</li>
-<li><a href="https://www.youtube.com/@Roboflow">Roboflow YouTube channel</a>: Browse dozens of in-depth computer vision guides on our YouTube channel, covering topics from training YOLOv8 models to automated image labeling.</li>
+<li><a href="https://blog.roboflow.com/?ref=ultralytics">Roboflow Blog</a>: The Roboflow Blog features over 500 articles on computer vision, covering topics from how to train a YOLO11 model to annotation best practices.</li>
+<li><a href="https://www.youtube.com/@Roboflow">Roboflow YouTube channel</a>: Browse dozens of in-depth computer vision guides on our YouTube channel, covering topics from training YOLO11 models to automated image labeling.</li>
 </ul>
 <h2 id="project-showcase">Project Showcase</h2>
-<p>Below are a few of the many pieces of feedback we have received for using YOLOv8 and Roboflow together to create computer vision models.</p>
+<p>Below are a few of the many pieces of feedback we have received for using YOLO11 and Roboflow together to create computer vision models.</p>
 <p align="center">
 <img alt="Showcase image" src="https://github.com/ultralytics/docs/releases/download/0/rf-showcase-1.avif" width="500"/>
 <img alt="Showcase image" src="https://github.com/ultralytics/docs/releases/download/0/rf-showcase-2.avif" width="500"/>
 <img alt="Showcase image" src="https://github.com/ultralytics/docs/releases/download/0/rf-showcase-3.avif" width="500"/>
 </p>
 <h2 id="faq">FAQ</h2>
-<h3 id="how-do-i-label-data-for-yolov8-models-using-roboflow">How do I label data for YOLOv8 models using Roboflow?</h3>
-<p>Labeling data for YOLOv8 models using Roboflow is straightforward with Roboflow Annotate. First, create a project on Roboflow and upload your images. After uploading, select the batch of images and click "Start Annotating." You can use the <code>B</code> key for bounding boxes or the <code>P</code> key for polygons. For faster annotation, use the SAM-based label assistant by clicking the cursor icon in the sidebar. Detailed steps can be found <a href="#upload-convert-and-label-data-for-yolov8-format">here</a>.</p>
-<h3 id="what-services-does-roboflow-offer-for-collecting-yolov8-training-data">What services does Roboflow offer for collecting YOLOv8 <a href="https://www.ultralytics.com/glossary/training-data">training data</a>?</h3>
-<p>Roboflow provides two key services for collecting YOLOv8 training data: <a href="https://universe.roboflow.com/?ref=ultralytics">Universe</a> and <a href="https://github.com/roboflow/roboflow-collect?ref=ultralytics">Collect</a>. Universe offers access to over 250,000 vision datasets, while Collect helps you gather images using a webcam and automated prompts.</p>
-<h3 id="how-can-i-manage-and-analyze-my-yolov8-dataset-using-roboflow">How can I manage and analyze my YOLOv8 dataset using Roboflow?</h3>
-<p>Roboflow offers robust dataset management tools, including dataset search, tagging, and Health Check. Use the search feature to find images based on text descriptions or tags. Health Check provides insights into dataset quality, showing class balance, image sizes, and annotation heatmaps. This helps optimize dataset performance before training YOLOv8 models. Detailed information can be found <a href="#dataset-management-for-yolov8">here</a>.</p>
-<h3 id="how-do-i-export-my-yolov8-dataset-from-roboflow">How do I export my YOLOv8 dataset from Roboflow?</h3>
-<p>To export your YOLOv8 dataset from Roboflow, you need to create a dataset version. Click "Versions" in the sidebar, then "Create New Version" and apply any desired augmentations. Once the version is generated, click "Export Dataset" and choose the YOLOv8 format. Follow this process <a href="#export-data-in-40-formats-for-model-training">here</a>.</p>
-<h3 id="how-can-i-integrate-and-deploy-yolov8-models-with-roboflow">How can I integrate and deploy YOLOv8 models with Roboflow?</h3>
-<p>Integrate and deploy YOLOv8 models on Roboflow by uploading your YOLOv8 weights through a few lines of Python code. Use the provided script to authenticate and upload your model, which will create an API for deployment. For details on the script and further instructions, see <a href="#upload-custom-yolov8-model-weights-for-testing-and-deployment">this section</a>.</p>
-<h3 id="what-tools-does-roboflow-provide-for-evaluating-yolov8-models">What tools does Roboflow provide for evaluating YOLOv8 models?</h3>
-<p>Roboflow offers model evaluation tools, including a confusion matrix and vector analysis plots. Access these tools from the "View Detailed Evaluation" button on your model page. These features help identify model performance issues and find areas for improvement. For more information, refer to <a href="#how-to-evaluate-yolov8-models">this section</a>.</p>
+<h3 id="how-do-i-label-data-for-yolo11-models-using-roboflow">How do I label data for YOLO11 models using Roboflow?</h3>
+<p>Labeling data for YOLO11 models using Roboflow is straightforward with Roboflow Annotate. First, create a project on Roboflow and upload your images. After uploading, select the batch of images and click "Start Annotating." You can use the <code>B</code> key for bounding boxes or the <code>P</code> key for polygons. For faster annotation, use the SAM-based label assistant by clicking the cursor icon in the sidebar. Detailed steps can be found <a href="#upload-convert-and-label-data-for-yolo11-format">here</a>.</p>
+<h3 id="what-services-does-roboflow-offer-for-collecting-yolo11-training-data">What services does Roboflow offer for collecting YOLO11 <a href="https://www.ultralytics.com/glossary/training-data">training data</a>?</h3>
+<p>Roboflow provides two key services for collecting YOLO11 training data: <a href="https://universe.roboflow.com/?ref=ultralytics">Universe</a> and <a href="https://github.com/roboflow/roboflow-collect?ref=ultralytics">Collect</a>. Universe offers access to over 250,000 vision datasets, while Collect helps you gather images using a webcam and automated prompts.</p>
+<h3 id="how-can-i-manage-and-analyze-my-yolo11-dataset-using-roboflow">How can I manage and analyze my YOLO11 dataset using Roboflow?</h3>
+<p>Roboflow offers robust dataset management tools, including dataset search, tagging, and Health Check. Use the search feature to find images based on text descriptions or tags. Health Check provides insights into dataset quality, showing class balance, image sizes, and annotation heatmaps. This helps optimize dataset performance before training YOLO11 models. Detailed information can be found <a href="#dataset-management-for-yolo11">here</a>.</p>
+<h3 id="how-do-i-export-my-yolo11-dataset-from-roboflow">How do I export my YOLO11 dataset from Roboflow?</h3>
+<p>To export your YOLO11 dataset from Roboflow, you need to create a dataset version. Click "Versions" in the sidebar, then "Create New Version" and apply any desired augmentations. Once the version is generated, click "Export Dataset" and choose the YOLO11 format. Follow this process <a href="#export-data-in-40-formats-for-model-training">here</a>.</p>
+<h3 id="how-can-i-integrate-and-deploy-yolo11-models-with-roboflow">How can I integrate and deploy YOLO11 models with Roboflow?</h3>
+<p>Integrate and deploy YOLO11 models on Roboflow by uploading your YOLO11 weights through a few lines of Python code. Use the provided script to authenticate and upload your model, which will create an API for deployment. For details on the script and further instructions, see <a href="#upload-custom-yolo11-model-weights-for-testing-and-deployment">this section</a>.</p>
+<h3 id="what-tools-does-roboflow-provide-for-evaluating-yolo11-models">What tools does Roboflow provide for evaluating YOLO11 models?</h3>
+<p>Roboflow offers model evaluation tools, including a confusion matrix and vector analysis plots. Access these tools from the "View Detailed Evaluation" button on your model page. These features help identify model performance issues and find areas for improvement. For more information, refer to <a href="#how-to-evaluate-yolo11-models">this section</a>.</p>
 <!-- taken from
 https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
 <br/>
@@ -1037,19 +1037,19 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 10 months ago
     </span>
-<span class="date-item" title="This page was last updated on September 23, 2024">
-<span class="hover-item">✏️</span> Updated 7 days ago
+<span class="date-item" title="This page was last updated on October 01, 2024">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
+<img alt="UltralyticsAssistant" class="hover-item" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (12 changes)">
 <img alt="glenn-jocher" class="hover-item" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/MatthewNoyce" title="MatthewNoyce (1 change)">
 <img alt="MatthewNoyce" class="hover-item" src="https://avatars.githubusercontent.com/u/131261051?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (1 change)">
-<img alt="UltralyticsAssistant" class="hover-item" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
