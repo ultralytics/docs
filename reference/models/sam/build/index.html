@@ -1761,9 +1761,7 @@
 <span class="normal"><a href="#__codelineno-0-210">210</a></span>
 <span class="normal"><a href="#__codelineno-0-211">211</a></span>
 <span class="normal"><a href="#__codelineno-0-212">212</a></span>
-<span class="normal"><a href="#__codelineno-0-213">213</a></span>
-<span class="normal"><a href="#__codelineno-0-214">214</a></span>
-<span class="normal"><a href="#__codelineno-0-215">215</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="k">def</span> <span class="nf">_build_sam</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-213">213</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="k">def</span> <span class="nf">_build_sam</span><span class="p">(</span>
 <a id="__codelineno-0-122" name="__codelineno-0-122"></a>    <span class="n">encoder_embed_dim</span><span class="p">,</span>
 <a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="n">encoder_depth</span><span class="p">,</span>
 <a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="n">encoder_num_heads</span><span class="p">,</span>
@@ -1855,9 +1853,7 @@
 <a id="__codelineno-0-210" name="__codelineno-0-210"></a>            <span class="n">state_dict</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <a id="__codelineno-0-211" name="__codelineno-0-211"></a>        <span class="n">sam</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">state_dict</span><span class="p">)</span>
 <a id="__codelineno-0-212" name="__codelineno-0-212"></a>    <span class="n">sam</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-<a id="__codelineno-0-213" name="__codelineno-0-213"></a>    <span class="c1"># sam.load_state_dict(torch.load(checkpoint), strict=True)</span>
-<a id="__codelineno-0-214" name="__codelineno-0-214"></a>    <span class="c1"># sam.eval()</span>
-<a id="__codelineno-0-215" name="__codelineno-0-215"></a>    <span class="k">return</span> <span class="n">sam</span>
+<a id="__codelineno-0-213" name="__codelineno-0-213"></a>    <span class="k">return</span> <span class="n">sam</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2031,7 +2027,9 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-218">218</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-216">216</a></span>
+<span class="normal"><a href="#__codelineno-0-217">217</a></span>
+<span class="normal"><a href="#__codelineno-0-218">218</a></span>
 <span class="normal"><a href="#__codelineno-0-219">219</a></span>
 <span class="normal"><a href="#__codelineno-0-220">220</a></span>
 <span class="normal"><a href="#__codelineno-0-221">221</a></span>
@@ -2117,97 +2115,95 @@
 <span class="normal"><a href="#__codelineno-0-301">301</a></span>
 <span class="normal"><a href="#__codelineno-0-302">302</a></span>
 <span class="normal"><a href="#__codelineno-0-303">303</a></span>
-<span class="normal"><a href="#__codelineno-0-304">304</a></span>
-<span class="normal"><a href="#__codelineno-0-305">305</a></span>
-<span class="normal"><a href="#__codelineno-0-306">306</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-218" name="__codelineno-0-218"></a><span class="k">def</span> <span class="nf">_build_sam2</span><span class="p">(</span>
-<a id="__codelineno-0-219" name="__codelineno-0-219"></a>    <span class="n">encoder_embed_dim</span><span class="o">=</span><span class="mi">1280</span><span class="p">,</span>
-<a id="__codelineno-0-220" name="__codelineno-0-220"></a>    <span class="n">encoder_stages</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-<a id="__codelineno-0-221" name="__codelineno-0-221"></a>    <span class="n">encoder_num_heads</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-0-222" name="__codelineno-0-222"></a>    <span class="n">encoder_global_att_blocks</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">31</span><span class="p">],</span>
-<a id="__codelineno-0-223" name="__codelineno-0-223"></a>    <span class="n">encoder_backbone_channel_list</span><span class="o">=</span><span class="p">[</span><span class="mi">1152</span><span class="p">,</span> <span class="mi">576</span><span class="p">,</span> <span class="mi">288</span><span class="p">,</span> <span class="mi">144</span><span class="p">],</span>
-<a id="__codelineno-0-224" name="__codelineno-0-224"></a>    <span class="n">encoder_window_spatial_size</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
-<a id="__codelineno-0-225" name="__codelineno-0-225"></a>    <span class="n">encoder_window_spec</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-<a id="__codelineno-0-226" name="__codelineno-0-226"></a>    <span class="n">checkpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-227" name="__codelineno-0-227"></a><span class="p">):</span>
-<a id="__codelineno-0-228" name="__codelineno-0-228"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-229" name="__codelineno-0-229"></a><span class="sd">    Builds and returns a Segment Anything Model 2 (SAM2) with specified architecture parameters.</span>
-<a id="__codelineno-0-230" name="__codelineno-0-230"></a>
-<a id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="sd">        encoder_embed_dim (int): Embedding dimension for the encoder.</span>
-<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">        encoder_stages (List[int]): Number of blocks in each stage of the encoder.</span>
-<a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">        encoder_num_heads (int): Number of attention heads in the encoder.</span>
-<a id="__codelineno-0-235" name="__codelineno-0-235"></a><span class="sd">        encoder_global_att_blocks (List[int]): Indices of global attention blocks in the encoder.</span>
-<a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">        encoder_backbone_channel_list (List[int]): Channel dimensions for each level of the encoder backbone.</span>
-<a id="__codelineno-0-237" name="__codelineno-0-237"></a><span class="sd">        encoder_window_spatial_size (List[int]): Spatial size of the window for position embeddings.</span>
-<a id="__codelineno-0-238" name="__codelineno-0-238"></a><span class="sd">        encoder_window_spec (List[int]): Window specifications for each stage of the encoder.</span>
-<a id="__codelineno-0-239" name="__codelineno-0-239"></a><span class="sd">        checkpoint (str | None): Path to the checkpoint file for loading pre-trained weights.</span>
-<a id="__codelineno-0-240" name="__codelineno-0-240"></a>
-<a id="__codelineno-0-241" name="__codelineno-0-241"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-242" name="__codelineno-0-242"></a><span class="sd">        (SAM2Model): A configured and initialized SAM2 model.</span>
-<a id="__codelineno-0-243" name="__codelineno-0-243"></a>
-<a id="__codelineno-0-244" name="__codelineno-0-244"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-245" name="__codelineno-0-245"></a><span class="sd">        &gt;&gt;&gt; sam2_model = _build_sam2(encoder_embed_dim=96, encoder_stages=[1, 2, 7, 2])</span>
-<a id="__codelineno-0-246" name="__codelineno-0-246"></a><span class="sd">        &gt;&gt;&gt; sam2_model.eval()</span>
-<a id="__codelineno-0-247" name="__codelineno-0-247"></a><span class="sd">    """</span>
-<a id="__codelineno-0-248" name="__codelineno-0-248"></a>    <span class="n">image_encoder</span> <span class="o">=</span> <span class="n">ImageEncoder</span><span class="p">(</span>
-<a id="__codelineno-0-249" name="__codelineno-0-249"></a>        <span class="n">trunk</span><span class="o">=</span><span class="n">Hiera</span><span class="p">(</span>
-<a id="__codelineno-0-250" name="__codelineno-0-250"></a>            <span class="n">embed_dim</span><span class="o">=</span><span class="n">encoder_embed_dim</span><span class="p">,</span>
-<a id="__codelineno-0-251" name="__codelineno-0-251"></a>            <span class="n">num_heads</span><span class="o">=</span><span class="n">encoder_num_heads</span><span class="p">,</span>
-<a id="__codelineno-0-252" name="__codelineno-0-252"></a>            <span class="n">stages</span><span class="o">=</span><span class="n">encoder_stages</span><span class="p">,</span>
-<a id="__codelineno-0-253" name="__codelineno-0-253"></a>            <span class="n">global_att_blocks</span><span class="o">=</span><span class="n">encoder_global_att_blocks</span><span class="p">,</span>
-<a id="__codelineno-0-254" name="__codelineno-0-254"></a>            <span class="n">window_pos_embed_bkg_spatial_size</span><span class="o">=</span><span class="n">encoder_window_spatial_size</span><span class="p">,</span>
-<a id="__codelineno-0-255" name="__codelineno-0-255"></a>            <span class="n">window_spec</span><span class="o">=</span><span class="n">encoder_window_spec</span><span class="p">,</span>
-<a id="__codelineno-0-256" name="__codelineno-0-256"></a>        <span class="p">),</span>
-<a id="__codelineno-0-257" name="__codelineno-0-257"></a>        <span class="n">neck</span><span class="o">=</span><span class="n">FpnNeck</span><span class="p">(</span>
-<a id="__codelineno-0-258" name="__codelineno-0-258"></a>            <span class="n">d_model</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
-<a id="__codelineno-0-259" name="__codelineno-0-259"></a>            <span class="n">backbone_channel_list</span><span class="o">=</span><span class="n">encoder_backbone_channel_list</span><span class="p">,</span>
-<a id="__codelineno-0-260" name="__codelineno-0-260"></a>            <span class="n">fpn_top_down_levels</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<a id="__codelineno-0-261" name="__codelineno-0-261"></a>            <span class="n">fpn_interp_model</span><span class="o">=</span><span class="s2">"nearest"</span><span class="p">,</span>
-<a id="__codelineno-0-262" name="__codelineno-0-262"></a>        <span class="p">),</span>
-<a id="__codelineno-0-263" name="__codelineno-0-263"></a>        <span class="n">scalp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-264" name="__codelineno-0-264"></a>    <span class="p">)</span>
-<a id="__codelineno-0-265" name="__codelineno-0-265"></a>    <span class="n">memory_attention</span> <span class="o">=</span> <span class="n">MemoryAttention</span><span class="p">(</span><span class="n">d_model</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">pos_enc_at_input</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">MemoryAttentionLayer</span><span class="p">())</span>
-<a id="__codelineno-0-266" name="__codelineno-0-266"></a>    <span class="n">memory_encoder</span> <span class="o">=</span> <span class="n">MemoryEncoder</span><span class="p">(</span><span class="n">out_dim</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
-<a id="__codelineno-0-267" name="__codelineno-0-267"></a>
-<a id="__codelineno-0-268" name="__codelineno-0-268"></a>    <span class="n">sam2</span> <span class="o">=</span> <span class="n">SAM2Model</span><span class="p">(</span>
-<a id="__codelineno-0-269" name="__codelineno-0-269"></a>        <span class="n">image_encoder</span><span class="o">=</span><span class="n">image_encoder</span><span class="p">,</span>
-<a id="__codelineno-0-270" name="__codelineno-0-270"></a>        <span class="n">memory_attention</span><span class="o">=</span><span class="n">memory_attention</span><span class="p">,</span>
-<a id="__codelineno-0-271" name="__codelineno-0-271"></a>        <span class="n">memory_encoder</span><span class="o">=</span><span class="n">memory_encoder</span><span class="p">,</span>
-<a id="__codelineno-0-272" name="__codelineno-0-272"></a>        <span class="n">num_maskmem</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
-<a id="__codelineno-0-273" name="__codelineno-0-273"></a>        <span class="n">image_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
-<a id="__codelineno-0-274" name="__codelineno-0-274"></a>        <span class="n">sigmoid_scale_for_mem_enc</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span>
-<a id="__codelineno-0-275" name="__codelineno-0-275"></a>        <span class="n">sigmoid_bias_for_mem_enc</span><span class="o">=-</span><span class="mf">10.0</span><span class="p">,</span>
-<a id="__codelineno-0-276" name="__codelineno-0-276"></a>        <span class="n">use_mask_input_as_output_without_sam</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-277" name="__codelineno-0-277"></a>        <span class="n">directly_add_no_mem_embed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-278" name="__codelineno-0-278"></a>        <span class="n">use_high_res_features_in_sam</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-279" name="__codelineno-0-279"></a>        <span class="n">multimask_output_in_sam</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-280" name="__codelineno-0-280"></a>        <span class="n">iou_prediction_use_sigmoid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-281" name="__codelineno-0-281"></a>        <span class="n">use_obj_ptrs_in_encoder</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-282" name="__codelineno-0-282"></a>        <span class="n">add_tpos_enc_to_obj_ptrs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-283" name="__codelineno-0-283"></a>        <span class="n">only_obj_ptrs_in_the_past_for_eval</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-284" name="__codelineno-0-284"></a>        <span class="n">pred_obj_scores</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-285" name="__codelineno-0-285"></a>        <span class="n">pred_obj_scores_mlp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-286" name="__codelineno-0-286"></a>        <span class="n">fixed_no_obj_ptr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-287" name="__codelineno-0-287"></a>        <span class="n">multimask_output_for_tracking</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-288" name="__codelineno-0-288"></a>        <span class="n">use_multimask_token_for_obj_ptr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-289" name="__codelineno-0-289"></a>        <span class="n">multimask_min_pt_num</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-0-290" name="__codelineno-0-290"></a>        <span class="n">multimask_max_pt_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-291" name="__codelineno-0-291"></a>        <span class="n">use_mlp_for_obj_ptr_proj</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-292" name="__codelineno-0-292"></a>        <span class="n">compile_image_encoder</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-293" name="__codelineno-0-293"></a>        <span class="n">sam_mask_decoder_extra_args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-0-294" name="__codelineno-0-294"></a>            <span class="n">dynamic_multimask_via_stability</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-295" name="__codelineno-0-295"></a>            <span class="n">dynamic_multimask_stability_delta</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
-<a id="__codelineno-0-296" name="__codelineno-0-296"></a>            <span class="n">dynamic_multimask_stability_thresh</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span>
-<a id="__codelineno-0-297" name="__codelineno-0-297"></a>        <span class="p">),</span>
-<a id="__codelineno-0-298" name="__codelineno-0-298"></a>    <span class="p">)</span>
-<a id="__codelineno-0-299" name="__codelineno-0-299"></a>
-<a id="__codelineno-0-300" name="__codelineno-0-300"></a>    <span class="k">if</span> <span class="n">checkpoint</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-301" name="__codelineno-0-301"></a>        <span class="n">checkpoint</span> <span class="o">=</span> <span class="n">attempt_download_asset</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">)</span>
-<a id="__codelineno-0-302" name="__codelineno-0-302"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-0-303" name="__codelineno-0-303"></a>            <span class="n">state_dict</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">"model"</span><span class="p">]</span>
-<a id="__codelineno-0-304" name="__codelineno-0-304"></a>        <span class="n">sam2</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">state_dict</span><span class="p">)</span>
-<a id="__codelineno-0-305" name="__codelineno-0-305"></a>    <span class="n">sam2</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-<a id="__codelineno-0-306" name="__codelineno-0-306"></a>    <span class="k">return</span> <span class="n">sam2</span>
+<span class="normal"><a href="#__codelineno-0-304">304</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-216" name="__codelineno-0-216"></a><span class="k">def</span> <span class="nf">_build_sam2</span><span class="p">(</span>
+<a id="__codelineno-0-217" name="__codelineno-0-217"></a>    <span class="n">encoder_embed_dim</span><span class="o">=</span><span class="mi">1280</span><span class="p">,</span>
+<a id="__codelineno-0-218" name="__codelineno-0-218"></a>    <span class="n">encoder_stages</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<a id="__codelineno-0-219" name="__codelineno-0-219"></a>    <span class="n">encoder_num_heads</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-0-220" name="__codelineno-0-220"></a>    <span class="n">encoder_global_att_blocks</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">31</span><span class="p">],</span>
+<a id="__codelineno-0-221" name="__codelineno-0-221"></a>    <span class="n">encoder_backbone_channel_list</span><span class="o">=</span><span class="p">[</span><span class="mi">1152</span><span class="p">,</span> <span class="mi">576</span><span class="p">,</span> <span class="mi">288</span><span class="p">,</span> <span class="mi">144</span><span class="p">],</span>
+<a id="__codelineno-0-222" name="__codelineno-0-222"></a>    <span class="n">encoder_window_spatial_size</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a>    <span class="n">encoder_window_spec</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+<a id="__codelineno-0-224" name="__codelineno-0-224"></a>    <span class="n">checkpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-225" name="__codelineno-0-225"></a><span class="p">):</span>
+<a id="__codelineno-0-226" name="__codelineno-0-226"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-227" name="__codelineno-0-227"></a><span class="sd">    Builds and returns a Segment Anything Model 2 (SAM2) with specified architecture parameters.</span>
+<a id="__codelineno-0-228" name="__codelineno-0-228"></a>
+<a id="__codelineno-0-229" name="__codelineno-0-229"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-230" name="__codelineno-0-230"></a><span class="sd">        encoder_embed_dim (int): Embedding dimension for the encoder.</span>
+<a id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="sd">        encoder_stages (List[int]): Number of blocks in each stage of the encoder.</span>
+<a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="sd">        encoder_num_heads (int): Number of attention heads in the encoder.</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">        encoder_global_att_blocks (List[int]): Indices of global attention blocks in the encoder.</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">        encoder_backbone_channel_list (List[int]): Channel dimensions for each level of the encoder backbone.</span>
+<a id="__codelineno-0-235" name="__codelineno-0-235"></a><span class="sd">        encoder_window_spatial_size (List[int]): Spatial size of the window for position embeddings.</span>
+<a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">        encoder_window_spec (List[int]): Window specifications for each stage of the encoder.</span>
+<a id="__codelineno-0-237" name="__codelineno-0-237"></a><span class="sd">        checkpoint (str | None): Path to the checkpoint file for loading pre-trained weights.</span>
+<a id="__codelineno-0-238" name="__codelineno-0-238"></a>
+<a id="__codelineno-0-239" name="__codelineno-0-239"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-240" name="__codelineno-0-240"></a><span class="sd">        (SAM2Model): A configured and initialized SAM2 model.</span>
+<a id="__codelineno-0-241" name="__codelineno-0-241"></a>
+<a id="__codelineno-0-242" name="__codelineno-0-242"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a><span class="sd">        &gt;&gt;&gt; sam2_model = _build_sam2(encoder_embed_dim=96, encoder_stages=[1, 2, 7, 2])</span>
+<a id="__codelineno-0-244" name="__codelineno-0-244"></a><span class="sd">        &gt;&gt;&gt; sam2_model.eval()</span>
+<a id="__codelineno-0-245" name="__codelineno-0-245"></a><span class="sd">    """</span>
+<a id="__codelineno-0-246" name="__codelineno-0-246"></a>    <span class="n">image_encoder</span> <span class="o">=</span> <span class="n">ImageEncoder</span><span class="p">(</span>
+<a id="__codelineno-0-247" name="__codelineno-0-247"></a>        <span class="n">trunk</span><span class="o">=</span><span class="n">Hiera</span><span class="p">(</span>
+<a id="__codelineno-0-248" name="__codelineno-0-248"></a>            <span class="n">embed_dim</span><span class="o">=</span><span class="n">encoder_embed_dim</span><span class="p">,</span>
+<a id="__codelineno-0-249" name="__codelineno-0-249"></a>            <span class="n">num_heads</span><span class="o">=</span><span class="n">encoder_num_heads</span><span class="p">,</span>
+<a id="__codelineno-0-250" name="__codelineno-0-250"></a>            <span class="n">stages</span><span class="o">=</span><span class="n">encoder_stages</span><span class="p">,</span>
+<a id="__codelineno-0-251" name="__codelineno-0-251"></a>            <span class="n">global_att_blocks</span><span class="o">=</span><span class="n">encoder_global_att_blocks</span><span class="p">,</span>
+<a id="__codelineno-0-252" name="__codelineno-0-252"></a>            <span class="n">window_pos_embed_bkg_spatial_size</span><span class="o">=</span><span class="n">encoder_window_spatial_size</span><span class="p">,</span>
+<a id="__codelineno-0-253" name="__codelineno-0-253"></a>            <span class="n">window_spec</span><span class="o">=</span><span class="n">encoder_window_spec</span><span class="p">,</span>
+<a id="__codelineno-0-254" name="__codelineno-0-254"></a>        <span class="p">),</span>
+<a id="__codelineno-0-255" name="__codelineno-0-255"></a>        <span class="n">neck</span><span class="o">=</span><span class="n">FpnNeck</span><span class="p">(</span>
+<a id="__codelineno-0-256" name="__codelineno-0-256"></a>            <span class="n">d_model</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+<a id="__codelineno-0-257" name="__codelineno-0-257"></a>            <span class="n">backbone_channel_list</span><span class="o">=</span><span class="n">encoder_backbone_channel_list</span><span class="p">,</span>
+<a id="__codelineno-0-258" name="__codelineno-0-258"></a>            <span class="n">fpn_top_down_levels</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a id="__codelineno-0-259" name="__codelineno-0-259"></a>            <span class="n">fpn_interp_model</span><span class="o">=</span><span class="s2">"nearest"</span><span class="p">,</span>
+<a id="__codelineno-0-260" name="__codelineno-0-260"></a>        <span class="p">),</span>
+<a id="__codelineno-0-261" name="__codelineno-0-261"></a>        <span class="n">scalp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-262" name="__codelineno-0-262"></a>    <span class="p">)</span>
+<a id="__codelineno-0-263" name="__codelineno-0-263"></a>    <span class="n">memory_attention</span> <span class="o">=</span> <span class="n">MemoryAttention</span><span class="p">(</span><span class="n">d_model</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">pos_enc_at_input</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">MemoryAttentionLayer</span><span class="p">())</span>
+<a id="__codelineno-0-264" name="__codelineno-0-264"></a>    <span class="n">memory_encoder</span> <span class="o">=</span> <span class="n">MemoryEncoder</span><span class="p">(</span><span class="n">out_dim</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<a id="__codelineno-0-265" name="__codelineno-0-265"></a>
+<a id="__codelineno-0-266" name="__codelineno-0-266"></a>    <span class="n">sam2</span> <span class="o">=</span> <span class="n">SAM2Model</span><span class="p">(</span>
+<a id="__codelineno-0-267" name="__codelineno-0-267"></a>        <span class="n">image_encoder</span><span class="o">=</span><span class="n">image_encoder</span><span class="p">,</span>
+<a id="__codelineno-0-268" name="__codelineno-0-268"></a>        <span class="n">memory_attention</span><span class="o">=</span><span class="n">memory_attention</span><span class="p">,</span>
+<a id="__codelineno-0-269" name="__codelineno-0-269"></a>        <span class="n">memory_encoder</span><span class="o">=</span><span class="n">memory_encoder</span><span class="p">,</span>
+<a id="__codelineno-0-270" name="__codelineno-0-270"></a>        <span class="n">num_maskmem</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+<a id="__codelineno-0-271" name="__codelineno-0-271"></a>        <span class="n">image_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+<a id="__codelineno-0-272" name="__codelineno-0-272"></a>        <span class="n">sigmoid_scale_for_mem_enc</span><span class="o">=</span><span class="mf">20.0</span><span class="p">,</span>
+<a id="__codelineno-0-273" name="__codelineno-0-273"></a>        <span class="n">sigmoid_bias_for_mem_enc</span><span class="o">=-</span><span class="mf">10.0</span><span class="p">,</span>
+<a id="__codelineno-0-274" name="__codelineno-0-274"></a>        <span class="n">use_mask_input_as_output_without_sam</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-275" name="__codelineno-0-275"></a>        <span class="n">directly_add_no_mem_embed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-276" name="__codelineno-0-276"></a>        <span class="n">use_high_res_features_in_sam</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-277" name="__codelineno-0-277"></a>        <span class="n">multimask_output_in_sam</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-278" name="__codelineno-0-278"></a>        <span class="n">iou_prediction_use_sigmoid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-279" name="__codelineno-0-279"></a>        <span class="n">use_obj_ptrs_in_encoder</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-280" name="__codelineno-0-280"></a>        <span class="n">add_tpos_enc_to_obj_ptrs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-281" name="__codelineno-0-281"></a>        <span class="n">only_obj_ptrs_in_the_past_for_eval</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-282" name="__codelineno-0-282"></a>        <span class="n">pred_obj_scores</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-283" name="__codelineno-0-283"></a>        <span class="n">pred_obj_scores_mlp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a>        <span class="n">fixed_no_obj_ptr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-285" name="__codelineno-0-285"></a>        <span class="n">multimask_output_for_tracking</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-286" name="__codelineno-0-286"></a>        <span class="n">use_multimask_token_for_obj_ptr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-287" name="__codelineno-0-287"></a>        <span class="n">multimask_min_pt_num</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-288" name="__codelineno-0-288"></a>        <span class="n">multimask_max_pt_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-289" name="__codelineno-0-289"></a>        <span class="n">use_mlp_for_obj_ptr_proj</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-290" name="__codelineno-0-290"></a>        <span class="n">compile_image_encoder</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-291" name="__codelineno-0-291"></a>        <span class="n">sam_mask_decoder_extra_args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-0-292" name="__codelineno-0-292"></a>            <span class="n">dynamic_multimask_via_stability</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-293" name="__codelineno-0-293"></a>            <span class="n">dynamic_multimask_stability_delta</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+<a id="__codelineno-0-294" name="__codelineno-0-294"></a>            <span class="n">dynamic_multimask_stability_thresh</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span>
+<a id="__codelineno-0-295" name="__codelineno-0-295"></a>        <span class="p">),</span>
+<a id="__codelineno-0-296" name="__codelineno-0-296"></a>    <span class="p">)</span>
+<a id="__codelineno-0-297" name="__codelineno-0-297"></a>
+<a id="__codelineno-0-298" name="__codelineno-0-298"></a>    <span class="k">if</span> <span class="n">checkpoint</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-299" name="__codelineno-0-299"></a>        <span class="n">checkpoint</span> <span class="o">=</span> <span class="n">attempt_download_asset</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">)</span>
+<a id="__codelineno-0-300" name="__codelineno-0-300"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-0-301" name="__codelineno-0-301"></a>            <span class="n">state_dict</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">"model"</span><span class="p">]</span>
+<a id="__codelineno-0-302" name="__codelineno-0-302"></a>        <span class="n">sam2</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">state_dict</span><span class="p">)</span>
+<a id="__codelineno-0-303" name="__codelineno-0-303"></a>    <span class="n">sam2</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<a id="__codelineno-0-304" name="__codelineno-0-304"></a>    <span class="k">return</span> <span class="n">sam2</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2301,7 +2297,9 @@
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-321">321</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-319">319</a></span>
+<span class="normal"><a href="#__codelineno-0-320">320</a></span>
+<span class="normal"><a href="#__codelineno-0-321">321</a></span>
 <span class="normal"><a href="#__codelineno-0-322">322</a></span>
 <span class="normal"><a href="#__codelineno-0-323">323</a></span>
 <span class="normal"><a href="#__codelineno-0-324">324</a></span>
@@ -2330,40 +2328,38 @@
 <span class="normal"><a href="#__codelineno-0-347">347</a></span>
 <span class="normal"><a href="#__codelineno-0-348">348</a></span>
 <span class="normal"><a href="#__codelineno-0-349">349</a></span>
-<span class="normal"><a href="#__codelineno-0-350">350</a></span>
-<span class="normal"><a href="#__codelineno-0-351">351</a></span>
-<span class="normal"><a href="#__codelineno-0-352">352</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="k">def</span> <span class="nf">build_sam</span><span class="p">(</span><span class="n">ckpt</span><span class="o">=</span><span class="s2">"sam_b.pt"</span><span class="p">):</span>
-<a id="__codelineno-0-322" name="__codelineno-0-322"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-323" name="__codelineno-0-323"></a><span class="sd">    Builds and returns a Segment Anything Model (SAM) based on the provided checkpoint.</span>
-<a id="__codelineno-0-324" name="__codelineno-0-324"></a>
-<a id="__codelineno-0-325" name="__codelineno-0-325"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-326" name="__codelineno-0-326"></a><span class="sd">        ckpt (str | Path): Path to the checkpoint file or name of a pre-defined SAM model.</span>
-<a id="__codelineno-0-327" name="__codelineno-0-327"></a>
-<a id="__codelineno-0-328" name="__codelineno-0-328"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-329" name="__codelineno-0-329"></a><span class="sd">        (SAMModel | SAM2Model): A configured and initialized SAM or SAM2 model instance.</span>
-<a id="__codelineno-0-330" name="__codelineno-0-330"></a>
-<a id="__codelineno-0-331" name="__codelineno-0-331"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-332" name="__codelineno-0-332"></a><span class="sd">        FileNotFoundError: If the provided checkpoint is not a supported SAM model.</span>
-<a id="__codelineno-0-333" name="__codelineno-0-333"></a>
-<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-335" name="__codelineno-0-335"></a><span class="sd">        &gt;&gt;&gt; sam_model = build_sam("sam_b.pt")</span>
-<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">        &gt;&gt;&gt; sam_model = build_sam("path/to/custom_checkpoint.pt")</span>
-<a id="__codelineno-0-337" name="__codelineno-0-337"></a>
-<a id="__codelineno-0-338" name="__codelineno-0-338"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="sd">        Supported pre-defined models include:</span>
-<a id="__codelineno-0-340" name="__codelineno-0-340"></a><span class="sd">        - SAM: 'sam_h.pt', 'sam_l.pt', 'sam_b.pt', 'mobile_sam.pt'</span>
-<a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="sd">        - SAM2: 'sam2_t.pt', 'sam2_s.pt', 'sam2_b.pt', 'sam2_l.pt'</span>
-<a id="__codelineno-0-342" name="__codelineno-0-342"></a><span class="sd">    """</span>
-<a id="__codelineno-0-343" name="__codelineno-0-343"></a>    <span class="n">model_builder</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-344" name="__codelineno-0-344"></a>    <span class="n">ckpt</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ckpt</span><span class="p">)</span>  <span class="c1"># to allow Path ckpt types</span>
-<a id="__codelineno-0-345" name="__codelineno-0-345"></a>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">sam_model_map</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<a id="__codelineno-0-346" name="__codelineno-0-346"></a>        <span class="k">if</span> <span class="n">ckpt</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-<a id="__codelineno-0-347" name="__codelineno-0-347"></a>            <span class="n">model_builder</span> <span class="o">=</span> <span class="n">sam_model_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-<a id="__codelineno-0-348" name="__codelineno-0-348"></a>
-<a id="__codelineno-0-349" name="__codelineno-0-349"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">model_builder</span><span class="p">:</span>
-<a id="__codelineno-0-350" name="__codelineno-0-350"></a>        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ckpt</span><span class="si">}</span><span class="s2"> is not a supported SAM model. Available models are: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">sam_model_map</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-351" name="__codelineno-0-351"></a>
-<a id="__codelineno-0-352" name="__codelineno-0-352"></a>    <span class="k">return</span> <span class="n">model_builder</span><span class="p">(</span><span class="n">ckpt</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-350">350</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="k">def</span> <span class="nf">build_sam</span><span class="p">(</span><span class="n">ckpt</span><span class="o">=</span><span class="s2">"sam_b.pt"</span><span class="p">):</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">    Builds and returns a Segment Anything Model (SAM) based on the provided checkpoint.</span>
+<a id="__codelineno-0-322" name="__codelineno-0-322"></a>
+<a id="__codelineno-0-323" name="__codelineno-0-323"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a><span class="sd">        ckpt (str | Path): Path to the checkpoint file or name of a pre-defined SAM model.</span>
+<a id="__codelineno-0-325" name="__codelineno-0-325"></a>
+<a id="__codelineno-0-326" name="__codelineno-0-326"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-327" name="__codelineno-0-327"></a><span class="sd">        (SAMModel | SAM2Model): A configured and initialized SAM or SAM2 model instance.</span>
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a>
+<a id="__codelineno-0-329" name="__codelineno-0-329"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-330" name="__codelineno-0-330"></a><span class="sd">        FileNotFoundError: If the provided checkpoint is not a supported SAM model.</span>
+<a id="__codelineno-0-331" name="__codelineno-0-331"></a>
+<a id="__codelineno-0-332" name="__codelineno-0-332"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="sd">        &gt;&gt;&gt; sam_model = build_sam("sam_b.pt")</span>
+<a id="__codelineno-0-334" name="__codelineno-0-334"></a><span class="sd">        &gt;&gt;&gt; sam_model = build_sam("path/to/custom_checkpoint.pt")</span>
+<a id="__codelineno-0-335" name="__codelineno-0-335"></a>
+<a id="__codelineno-0-336" name="__codelineno-0-336"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-337" name="__codelineno-0-337"></a><span class="sd">        Supported pre-defined models include:</span>
+<a id="__codelineno-0-338" name="__codelineno-0-338"></a><span class="sd">        - SAM: 'sam_h.pt', 'sam_l.pt', 'sam_b.pt', 'mobile_sam.pt'</span>
+<a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="sd">        - SAM2: 'sam2_t.pt', 'sam2_s.pt', 'sam2_b.pt', 'sam2_l.pt'</span>
+<a id="__codelineno-0-340" name="__codelineno-0-340"></a><span class="sd">    """</span>
+<a id="__codelineno-0-341" name="__codelineno-0-341"></a>    <span class="n">model_builder</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-342" name="__codelineno-0-342"></a>    <span class="n">ckpt</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ckpt</span><span class="p">)</span>  <span class="c1"># to allow Path ckpt types</span>
+<a id="__codelineno-0-343" name="__codelineno-0-343"></a>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">sam_model_map</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-0-344" name="__codelineno-0-344"></a>        <span class="k">if</span> <span class="n">ckpt</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+<a id="__codelineno-0-345" name="__codelineno-0-345"></a>            <span class="n">model_builder</span> <span class="o">=</span> <span class="n">sam_model_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<a id="__codelineno-0-346" name="__codelineno-0-346"></a>
+<a id="__codelineno-0-347" name="__codelineno-0-347"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">model_builder</span><span class="p">:</span>
+<a id="__codelineno-0-348" name="__codelineno-0-348"></a>        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ckpt</span><span class="si">}</span><span class="s2"> is not a supported SAM model. Available models are: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">sam_model_map</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-349" name="__codelineno-0-349"></a>
+<a id="__codelineno-0-350" name="__codelineno-0-350"></a>    <span class="k">return</span> <span class="n">model_builder</span><span class="p">(</span><span class="n">ckpt</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
