@@ -1318,7 +1318,7 @@
 <td><code>stream_buffer</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>Determines the frame processing strategy for video streams. If <code>False</code> processing only the most recent frame, minimizing latency (optimized for real-time applications). If `True' processes all frames in order, ensuring no frames are skipped.</td>
+<td>Determines whether to queue incoming frames for video streams. If <code>False</code>, old frames get dropped to accomodate new frames (optimized for real-time applications). If `True', queues new frames in a buffer, ensuring no frames get skipped, but will cause latency if inference FPS is lower than stream FPS.</td>
 </tr>
 <tr>
 <td><code>visualize</code></td>
