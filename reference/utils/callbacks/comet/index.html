@@ -1504,14 +1504,14 @@
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">_get_comet_model_name</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Returns the model name for Comet from the environment variable 'COMET_MODEL_NAME' or defaults to 'YOLOv8'.</p>
+<p>Returns the model name for Comet from the environment variable COMET_MODEL_NAME or defaults to 'Ultralytics'.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-33">33</a></span>
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">def</span> <span class="nf">_get_comet_model_name</span><span class="p">():</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">    </span><span class="sd">"""Returns the model name for Comet from the environment variable 'COMET_MODEL_NAME' or defaults to 'YOLOv8'."""</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"COMET_MODEL_NAME"</span><span class="p">,</span> <span class="s2">"YOLOv8"</span><span class="p">)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">    </span><span class="sd">"""Returns the model name for Comet from the environment variable COMET_MODEL_NAME or defaults to 'Ultralytics'."""</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"COMET_MODEL_NAME"</span><span class="p">,</span> <span class="s2">"Ultralytics"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1743,7 +1743,7 @@
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>YOLOv8 resizes images during training and the label values are normalized based on this resized shape.</p>
+<p>YOLO resizes images during training and the label values are normalized based on this resized shape.</p>
 <p>This function rescales the bounding box labels to the original image shape.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
@@ -1767,7 +1767,7 @@
 <span class="normal"><a href="#__codelineno-0-128">128</a></span>
 <span class="normal"><a href="#__codelineno-0-129">129</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="k">def</span> <span class="nf">_scale_bounding_box_to_original_image_shape</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">resized_image_shape</span><span class="p">,</span> <span class="n">original_image_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="p">):</span>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">    YOLOv8 resizes images during training and the label values are normalized based on this resized shape.</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">    YOLO resizes images during training and the label values are normalized based on this resized shape.</span>
 <a id="__codelineno-0-114" name="__codelineno-0-114"></a>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="sd">    This function rescales the bounding box labels to the original image shape.</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="sd">    """</span>
