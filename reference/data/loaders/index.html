@@ -2738,14 +2738,16 @@ downstream processing.</p>
 <span class="normal"><a href="#__codelineno-0-412">412</a></span>
 <span class="normal"><a href="#__codelineno-0-413">413</a></span>
 <span class="normal"><a href="#__codelineno-0-414">414</a></span>
-<span class="normal"><a href="#__codelineno-0-415">415</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-408" name="__codelineno-0-408"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-415">415</a></span>
+<span class="normal"><a href="#__codelineno-0-416">416</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-408" name="__codelineno-0-408"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
 <a id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="w">    </span><span class="sd">"""Initialize PIL and Numpy Dataloader."""</span>
 <a id="__codelineno-0-410" name="__codelineno-0-410"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
 <a id="__codelineno-0-411" name="__codelineno-0-411"></a>        <span class="n">im0</span> <span class="o">=</span> <span class="p">[</span><span class="n">im0</span><span class="p">]</span>
-<a id="__codelineno-0-412" name="__codelineno-0-412"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="s2">"filename"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"image</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">im0</span><span class="p">)]</span>
-<a id="__codelineno-0-413" name="__codelineno-0-413"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">im0</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_single_check</span><span class="p">(</span><span class="n">im</span><span class="p">)</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">im0</span><span class="p">]</span>
-<a id="__codelineno-0-414" name="__codelineno-0-414"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s2">"image"</span>
-<a id="__codelineno-0-415" name="__codelineno-0-415"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">bs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">)</span>
+<a id="__codelineno-0-412" name="__codelineno-0-412"></a>    <span class="c1"># use `image{i}.jpg` when Image.filename returns an empty path.</span>
+<a id="__codelineno-0-413" name="__codelineno-0-413"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="s2">"filename"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span> <span class="ow">or</span> <span class="sa">f</span><span class="s2">"image</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.jpg"</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">im0</span><span class="p">)]</span>
+<a id="__codelineno-0-414" name="__codelineno-0-414"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">im0</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_single_check</span><span class="p">(</span><span class="n">im</span><span class="p">)</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">im0</span><span class="p">]</span>
+<a id="__codelineno-0-415" name="__codelineno-0-415"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s2">"image"</span>
+<a id="__codelineno-0-416" name="__codelineno-0-416"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">bs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2759,13 +2761,13 @@ downstream processing.</p>
 <p>Enables iteration for class LoadPilAndNumpy.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-439">439</a></span>
-<span class="normal"><a href="#__codelineno-0-440">440</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-440">440</a></span>
 <span class="normal"><a href="#__codelineno-0-441">441</a></span>
-<span class="normal"><a href="#__codelineno-0-442">442</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-440" name="__codelineno-0-440"></a><span class="w">    </span><span class="sd">"""Enables iteration for class LoadPilAndNumpy."""</span>
-<a id="__codelineno-0-441" name="__codelineno-0-441"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-442" name="__codelineno-0-442"></a>    <span class="k">return</span> <span class="bp">self</span>
+<span class="normal"><a href="#__codelineno-0-442">442</a></span>
+<span class="normal"><a href="#__codelineno-0-443">443</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-440" name="__codelineno-0-440"></a><span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-441" name="__codelineno-0-441"></a><span class="w">    </span><span class="sd">"""Enables iteration for class LoadPilAndNumpy."""</span>
+<a id="__codelineno-0-442" name="__codelineno-0-442"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-443" name="__codelineno-0-443"></a>    <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2780,11 +2782,11 @@ downstream processing.</p>
 <p>Returns the length of the 'im0' attribute.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-428">428</a></span>
-<span class="normal"><a href="#__codelineno-0-429">429</a></span>
-<span class="normal"><a href="#__codelineno-0-430">430</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-428" name="__codelineno-0-428"></a><span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-429" name="__codelineno-0-429"></a><span class="w">    </span><span class="sd">"""Returns the length of the 'im0' attribute."""</span>
-<a id="__codelineno-0-430" name="__codelineno-0-430"></a>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-429">429</a></span>
+<span class="normal"><a href="#__codelineno-0-430">430</a></span>
+<span class="normal"><a href="#__codelineno-0-431">431</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-429" name="__codelineno-0-429"></a><span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-430" name="__codelineno-0-430"></a><span class="w">    </span><span class="sd">"""Returns the length of the 'im0' attribute."""</span>
+<a id="__codelineno-0-431" name="__codelineno-0-431"></a>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2799,17 +2801,17 @@ downstream processing.</p>
 <p>Returns batch paths, images, processed images, None, ''.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-432">432</a></span>
-<span class="normal"><a href="#__codelineno-0-433">433</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-433">433</a></span>
 <span class="normal"><a href="#__codelineno-0-434">434</a></span>
 <span class="normal"><a href="#__codelineno-0-435">435</a></span>
 <span class="normal"><a href="#__codelineno-0-436">436</a></span>
-<span class="normal"><a href="#__codelineno-0-437">437</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-432" name="__codelineno-0-432"></a><span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="w">    </span><span class="sd">"""Returns batch paths, images, processed images, None, ''."""</span>
-<a id="__codelineno-0-434" name="__codelineno-0-434"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># loop only once as it's batch inference</span>
-<a id="__codelineno-0-435" name="__codelineno-0-435"></a>        <span class="k">raise</span> <span class="ne">StopIteration</span>
-<a id="__codelineno-0-436" name="__codelineno-0-436"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-0-437" name="__codelineno-0-437"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">,</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span>
+<span class="normal"><a href="#__codelineno-0-437">437</a></span>
+<span class="normal"><a href="#__codelineno-0-438">438</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-434" name="__codelineno-0-434"></a><span class="w">    </span><span class="sd">"""Returns batch paths, images, processed images, None, ''."""</span>
+<a id="__codelineno-0-435" name="__codelineno-0-435"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># loop only once as it's batch inference</span>
+<a id="__codelineno-0-436" name="__codelineno-0-436"></a>        <span class="k">raise</span> <span class="ne">StopIteration</span>
+<a id="__codelineno-0-437" name="__codelineno-0-437"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-438" name="__codelineno-0-438"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">,</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2914,17 +2916,17 @@ downstream processing.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-462">462</a></span>
-<span class="normal"><a href="#__codelineno-0-463">463</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-463">463</a></span>
 <span class="normal"><a href="#__codelineno-0-464">464</a></span>
 <span class="normal"><a href="#__codelineno-0-465">465</a></span>
 <span class="normal"><a href="#__codelineno-0-466">466</a></span>
-<span class="normal"><a href="#__codelineno-0-467">467</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-462" name="__codelineno-0-462"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-463" name="__codelineno-0-463"></a><span class="w">    </span><span class="sd">"""Initialize Tensor Dataloader."""</span>
-<a id="__codelineno-0-464" name="__codelineno-0-464"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">im0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_single_check</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a id="__codelineno-0-465" name="__codelineno-0-465"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">bs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-466" name="__codelineno-0-466"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s2">"image"</span>
-<a id="__codelineno-0-467" name="__codelineno-0-467"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="s2">"filename"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"image</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">im0</span><span class="p">)]</span>
+<span class="normal"><a href="#__codelineno-0-467">467</a></span>
+<span class="normal"><a href="#__codelineno-0-468">468</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-463" name="__codelineno-0-463"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-464" name="__codelineno-0-464"></a><span class="w">    </span><span class="sd">"""Initialize Tensor Dataloader."""</span>
+<a id="__codelineno-0-465" name="__codelineno-0-465"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">im0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_single_check</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<a id="__codelineno-0-466" name="__codelineno-0-466"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">bs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-467" name="__codelineno-0-467"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s2">"image"</span>
+<a id="__codelineno-0-468" name="__codelineno-0-468"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="s2">"filename"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"image</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">im0</span><span class="p">)]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2938,13 +2940,13 @@ downstream processing.</p>
 <p>Returns an iterator object.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-492">492</a></span>
-<span class="normal"><a href="#__codelineno-0-493">493</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-493">493</a></span>
 <span class="normal"><a href="#__codelineno-0-494">494</a></span>
-<span class="normal"><a href="#__codelineno-0-495">495</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-492" name="__codelineno-0-492"></a><span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-493" name="__codelineno-0-493"></a><span class="w">    </span><span class="sd">"""Returns an iterator object."""</span>
-<a id="__codelineno-0-494" name="__codelineno-0-494"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-495" name="__codelineno-0-495"></a>    <span class="k">return</span> <span class="bp">self</span>
+<span class="normal"><a href="#__codelineno-0-495">495</a></span>
+<span class="normal"><a href="#__codelineno-0-496">496</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-493" name="__codelineno-0-493"></a><span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-494" name="__codelineno-0-494"></a><span class="w">    </span><span class="sd">"""Returns an iterator object."""</span>
+<a id="__codelineno-0-495" name="__codelineno-0-495"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-496" name="__codelineno-0-496"></a>    <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2959,11 +2961,11 @@ downstream processing.</p>
 <p>Returns the batch size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-504">504</a></span>
-<span class="normal"><a href="#__codelineno-0-505">505</a></span>
-<span class="normal"><a href="#__codelineno-0-506">506</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-504" name="__codelineno-0-504"></a><span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-505" name="__codelineno-0-505"></a><span class="w">    </span><span class="sd">"""Returns the batch size."""</span>
-<a id="__codelineno-0-506" name="__codelineno-0-506"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-505">505</a></span>
+<span class="normal"><a href="#__codelineno-0-506">506</a></span>
+<span class="normal"><a href="#__codelineno-0-507">507</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-505" name="__codelineno-0-505"></a><span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-506" name="__codelineno-0-506"></a><span class="w">    </span><span class="sd">"""Returns the batch size."""</span>
+<a id="__codelineno-0-507" name="__codelineno-0-507"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2978,17 +2980,17 @@ downstream processing.</p>
 <p>Return next item in the iterator.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-497">497</a></span>
-<span class="normal"><a href="#__codelineno-0-498">498</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-498">498</a></span>
 <span class="normal"><a href="#__codelineno-0-499">499</a></span>
 <span class="normal"><a href="#__codelineno-0-500">500</a></span>
 <span class="normal"><a href="#__codelineno-0-501">501</a></span>
-<span class="normal"><a href="#__codelineno-0-502">502</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-497" name="__codelineno-0-497"></a><span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-498" name="__codelineno-0-498"></a><span class="w">    </span><span class="sd">"""Return next item in the iterator."""</span>
-<a id="__codelineno-0-499" name="__codelineno-0-499"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-500" name="__codelineno-0-500"></a>        <span class="k">raise</span> <span class="ne">StopIteration</span>
-<a id="__codelineno-0-501" name="__codelineno-0-501"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-0-502" name="__codelineno-0-502"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">,</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span>
+<span class="normal"><a href="#__codelineno-0-502">502</a></span>
+<span class="normal"><a href="#__codelineno-0-503">503</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-498" name="__codelineno-0-498"></a><span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-499" name="__codelineno-0-499"></a><span class="w">    </span><span class="sd">"""Return next item in the iterator."""</span>
+<a id="__codelineno-0-500" name="__codelineno-0-500"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-501" name="__codelineno-0-501"></a>        <span class="k">raise</span> <span class="ne">StopIteration</span>
+<a id="__codelineno-0-502" name="__codelineno-0-502"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-503" name="__codelineno-0-503"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">,</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3006,8 +3008,7 @@ downstream processing.</p>
 <p>Merges a list of source of different types into a list of numpy arrays or PIL images.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-509">509</a></span>
-<span class="normal"><a href="#__codelineno-0-510">510</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-510">510</a></span>
 <span class="normal"><a href="#__codelineno-0-511">511</a></span>
 <span class="normal"><a href="#__codelineno-0-512">512</a></span>
 <span class="normal"><a href="#__codelineno-0-513">513</a></span>
@@ -3020,21 +3021,22 @@ downstream processing.</p>
 <span class="normal"><a href="#__codelineno-0-520">520</a></span>
 <span class="normal"><a href="#__codelineno-0-521">521</a></span>
 <span class="normal"><a href="#__codelineno-0-522">522</a></span>
-<span class="normal"><a href="#__codelineno-0-523">523</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-509" name="__codelineno-0-509"></a><span class="k">def</span> <span class="nf">autocast_list</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
-<a id="__codelineno-0-510" name="__codelineno-0-510"></a><span class="w">    </span><span class="sd">"""Merges a list of source of different types into a list of numpy arrays or PIL images."""</span>
-<a id="__codelineno-0-511" name="__codelineno-0-511"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-512" name="__codelineno-0-512"></a>    <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
-<a id="__codelineno-0-513" name="__codelineno-0-513"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">)):</span>  <span class="c1"># filename or uri</span>
-<a id="__codelineno-0-514" name="__codelineno-0-514"></a>            <span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">raw</span> <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">im</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"http"</span><span class="p">)</span> <span class="k">else</span> <span class="n">im</span><span class="p">))</span>
-<a id="__codelineno-0-515" name="__codelineno-0-515"></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>  <span class="c1"># PIL or np Image</span>
-<a id="__codelineno-0-516" name="__codelineno-0-516"></a>            <span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-517" name="__codelineno-0-517"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-518" name="__codelineno-0-518"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<a id="__codelineno-0-519" name="__codelineno-0-519"></a>                <span class="sa">f</span><span class="s2">"type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">im</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> is not a supported Ultralytics prediction source type. </span><span class="se">\n</span><span class="s2">"</span>
-<a id="__codelineno-0-520" name="__codelineno-0-520"></a>                <span class="sa">f</span><span class="s2">"See https://docs.ultralytics.com/modes/predict for supported source types."</span>
-<a id="__codelineno-0-521" name="__codelineno-0-521"></a>            <span class="p">)</span>
-<a id="__codelineno-0-522" name="__codelineno-0-522"></a>
-<a id="__codelineno-0-523" name="__codelineno-0-523"></a>    <span class="k">return</span> <span class="n">files</span>
+<span class="normal"><a href="#__codelineno-0-523">523</a></span>
+<span class="normal"><a href="#__codelineno-0-524">524</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-510" name="__codelineno-0-510"></a><span class="k">def</span> <span class="nf">autocast_list</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
+<a id="__codelineno-0-511" name="__codelineno-0-511"></a><span class="w">    </span><span class="sd">"""Merges a list of source of different types into a list of numpy arrays or PIL images."""</span>
+<a id="__codelineno-0-512" name="__codelineno-0-512"></a>    <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-513" name="__codelineno-0-513"></a>    <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
+<a id="__codelineno-0-514" name="__codelineno-0-514"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">)):</span>  <span class="c1"># filename or uri</span>
+<a id="__codelineno-0-515" name="__codelineno-0-515"></a>            <span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">raw</span> <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">im</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"http"</span><span class="p">)</span> <span class="k">else</span> <span class="n">im</span><span class="p">))</span>
+<a id="__codelineno-0-516" name="__codelineno-0-516"></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>  <span class="c1"># PIL or np Image</span>
+<a id="__codelineno-0-517" name="__codelineno-0-517"></a>            <span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-518" name="__codelineno-0-518"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-519" name="__codelineno-0-519"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<a id="__codelineno-0-520" name="__codelineno-0-520"></a>                <span class="sa">f</span><span class="s2">"type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">im</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> is not a supported Ultralytics prediction source type. </span><span class="se">\n</span><span class="s2">"</span>
+<a id="__codelineno-0-521" name="__codelineno-0-521"></a>                <span class="sa">f</span><span class="s2">"See https://docs.ultralytics.com/modes/predict for supported source types."</span>
+<a id="__codelineno-0-522" name="__codelineno-0-522"></a>            <span class="p">)</span>
+<a id="__codelineno-0-523" name="__codelineno-0-523"></a>
+<a id="__codelineno-0-524" name="__codelineno-0-524"></a>    <span class="k">return</span> <span class="n">files</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3118,8 +3120,7 @@ URL of this video stream.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-526">526</a></span>
-<span class="normal"><a href="#__codelineno-0-527">527</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-527">527</a></span>
 <span class="normal"><a href="#__codelineno-0-528">528</a></span>
 <span class="normal"><a href="#__codelineno-0-529">529</a></span>
 <span class="normal"><a href="#__codelineno-0-530">530</a></span>
@@ -3165,54 +3166,55 @@ URL of this video stream.</p>
 <span class="normal"><a href="#__codelineno-0-570">570</a></span>
 <span class="normal"><a href="#__codelineno-0-571">571</a></span>
 <span class="normal"><a href="#__codelineno-0-572">572</a></span>
-<span class="normal"><a href="#__codelineno-0-573">573</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-526" name="__codelineno-0-526"></a><span class="k">def</span> <span class="nf">get_best_youtube_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"pytube"</span><span class="p">):</span>
-<a id="__codelineno-0-527" name="__codelineno-0-527"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-528" name="__codelineno-0-528"></a><span class="sd">    Retrieves the URL of the best quality MP4 video stream from a given YouTube video.</span>
-<a id="__codelineno-0-529" name="__codelineno-0-529"></a>
-<a id="__codelineno-0-530" name="__codelineno-0-530"></a><span class="sd">    This function uses the specified method to extract the video info from YouTube. It supports the following methods:</span>
-<a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="sd">    - "pytube": Uses the pytube library to fetch the video streams.</span>
-<a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="sd">    - "pafy": Uses the pafy library to fetch the video streams.</span>
-<a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="sd">    - "yt-dlp": Uses the yt-dlp library to fetch the video streams.</span>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a>
-<a id="__codelineno-0-535" name="__codelineno-0-535"></a><span class="sd">    The function then finds the highest quality MP4 format that has a video codec but no audio codec, and returns the</span>
-<a id="__codelineno-0-536" name="__codelineno-0-536"></a><span class="sd">    URL of this video stream.</span>
-<a id="__codelineno-0-537" name="__codelineno-0-537"></a>
-<a id="__codelineno-0-538" name="__codelineno-0-538"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-539" name="__codelineno-0-539"></a><span class="sd">        url (str): The URL of the YouTube video.</span>
-<a id="__codelineno-0-540" name="__codelineno-0-540"></a><span class="sd">        method (str): The method to use for extracting video info. Default is "pytube". Other options are "pafy" and</span>
-<a id="__codelineno-0-541" name="__codelineno-0-541"></a><span class="sd">            "yt-dlp".</span>
-<a id="__codelineno-0-542" name="__codelineno-0-542"></a>
-<a id="__codelineno-0-543" name="__codelineno-0-543"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-544" name="__codelineno-0-544"></a><span class="sd">        (str): The URL of the best quality MP4 video stream, or None if no suitable stream is found.</span>
-<a id="__codelineno-0-545" name="__codelineno-0-545"></a><span class="sd">    """</span>
-<a id="__codelineno-0-546" name="__codelineno-0-546"></a>    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"pytube"</span><span class="p">:</span>
-<a id="__codelineno-0-547" name="__codelineno-0-547"></a>        <span class="c1"># Switched from pytube to pytubefix to resolve https://github.com/pytube/pytube/issues/1954</span>
-<a id="__codelineno-0-548" name="__codelineno-0-548"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"pytubefix&gt;=6.5.2"</span><span class="p">)</span>
-<a id="__codelineno-0-549" name="__codelineno-0-549"></a>        <span class="kn">from</span> <span class="nn">pytubefix</span> <span class="kn">import</span> <span class="n">YouTube</span>
-<a id="__codelineno-0-550" name="__codelineno-0-550"></a>
-<a id="__codelineno-0-551" name="__codelineno-0-551"></a>        <span class="n">streams</span> <span class="o">=</span> <span class="n">YouTube</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">streams</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">file_extension</span><span class="o">=</span><span class="s2">"mp4"</span><span class="p">,</span> <span class="n">only_video</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-552" name="__codelineno-0-552"></a>        <span class="n">streams</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">streams</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">resolution</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># sort streams by resolution</span>
-<a id="__codelineno-0-553" name="__codelineno-0-553"></a>        <span class="k">for</span> <span class="n">stream</span> <span class="ow">in</span> <span class="n">streams</span><span class="p">:</span>
-<a id="__codelineno-0-554" name="__codelineno-0-554"></a>            <span class="k">if</span> <span class="n">stream</span><span class="o">.</span><span class="n">resolution</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">stream</span><span class="o">.</span><span class="n">resolution</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">1080</span><span class="p">:</span>  <span class="c1"># check if resolution is at least 1080p</span>
-<a id="__codelineno-0-555" name="__codelineno-0-555"></a>                <span class="k">return</span> <span class="n">stream</span><span class="o">.</span><span class="n">url</span>
-<a id="__codelineno-0-556" name="__codelineno-0-556"></a>
-<a id="__codelineno-0-557" name="__codelineno-0-557"></a>    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"pafy"</span><span class="p">:</span>
-<a id="__codelineno-0-558" name="__codelineno-0-558"></a>        <span class="n">check_requirements</span><span class="p">((</span><span class="s2">"pafy"</span><span class="p">,</span> <span class="s2">"youtube_dl==2020.12.2"</span><span class="p">))</span>
-<a id="__codelineno-0-559" name="__codelineno-0-559"></a>        <span class="kn">import</span> <span class="nn">pafy</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-560" name="__codelineno-0-560"></a>
-<a id="__codelineno-0-561" name="__codelineno-0-561"></a>        <span class="k">return</span> <span class="n">pafy</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">getbestvideo</span><span class="p">(</span><span class="n">preftype</span><span class="o">=</span><span class="s2">"mp4"</span><span class="p">)</span><span class="o">.</span><span class="n">url</span>
-<a id="__codelineno-0-562" name="__codelineno-0-562"></a>
-<a id="__codelineno-0-563" name="__codelineno-0-563"></a>    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"yt-dlp"</span><span class="p">:</span>
-<a id="__codelineno-0-564" name="__codelineno-0-564"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"yt-dlp"</span><span class="p">)</span>
-<a id="__codelineno-0-565" name="__codelineno-0-565"></a>        <span class="kn">import</span> <span class="nn">yt_dlp</span>
-<a id="__codelineno-0-566" name="__codelineno-0-566"></a>
-<a id="__codelineno-0-567" name="__codelineno-0-567"></a>        <span class="k">with</span> <span class="n">yt_dlp</span><span class="o">.</span><span class="n">YoutubeDL</span><span class="p">({</span><span class="s2">"quiet"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span> <span class="k">as</span> <span class="n">ydl</span><span class="p">:</span>
-<a id="__codelineno-0-568" name="__codelineno-0-568"></a>            <span class="n">info_dict</span> <span class="o">=</span> <span class="n">ydl</span><span class="o">.</span><span class="n">extract_info</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># extract info</span>
-<a id="__codelineno-0-569" name="__codelineno-0-569"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">info_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"formats"</span><span class="p">,</span> <span class="p">[])):</span>  <span class="c1"># reversed because best is usually last</span>
-<a id="__codelineno-0-570" name="__codelineno-0-570"></a>            <span class="c1"># Find a format with video codec, no audio, *.mp4 extension at least 1920x1080 size</span>
-<a id="__codelineno-0-571" name="__codelineno-0-571"></a>            <span class="n">good_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"width"</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1920</span> <span class="ow">or</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"height"</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1080</span>
-<a id="__codelineno-0-572" name="__codelineno-0-572"></a>            <span class="k">if</span> <span class="n">good_size</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"vcodec"</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"none"</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"acodec"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"none"</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"ext"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"mp4"</span><span class="p">:</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a>                <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"url"</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-573">573</a></span>
+<span class="normal"><a href="#__codelineno-0-574">574</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-527" name="__codelineno-0-527"></a><span class="k">def</span> <span class="nf">get_best_youtube_url</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"pytube"</span><span class="p">):</span>
+<a id="__codelineno-0-528" name="__codelineno-0-528"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-529" name="__codelineno-0-529"></a><span class="sd">    Retrieves the URL of the best quality MP4 video stream from a given YouTube video.</span>
+<a id="__codelineno-0-530" name="__codelineno-0-530"></a>
+<a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="sd">    This function uses the specified method to extract the video info from YouTube. It supports the following methods:</span>
+<a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="sd">    - "pytube": Uses the pytube library to fetch the video streams.</span>
+<a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="sd">    - "pafy": Uses the pafy library to fetch the video streams.</span>
+<a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">    - "yt-dlp": Uses the yt-dlp library to fetch the video streams.</span>
+<a id="__codelineno-0-535" name="__codelineno-0-535"></a>
+<a id="__codelineno-0-536" name="__codelineno-0-536"></a><span class="sd">    The function then finds the highest quality MP4 format that has a video codec but no audio codec, and returns the</span>
+<a id="__codelineno-0-537" name="__codelineno-0-537"></a><span class="sd">    URL of this video stream.</span>
+<a id="__codelineno-0-538" name="__codelineno-0-538"></a>
+<a id="__codelineno-0-539" name="__codelineno-0-539"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-540" name="__codelineno-0-540"></a><span class="sd">        url (str): The URL of the YouTube video.</span>
+<a id="__codelineno-0-541" name="__codelineno-0-541"></a><span class="sd">        method (str): The method to use for extracting video info. Default is "pytube". Other options are "pafy" and</span>
+<a id="__codelineno-0-542" name="__codelineno-0-542"></a><span class="sd">            "yt-dlp".</span>
+<a id="__codelineno-0-543" name="__codelineno-0-543"></a>
+<a id="__codelineno-0-544" name="__codelineno-0-544"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-545" name="__codelineno-0-545"></a><span class="sd">        (str): The URL of the best quality MP4 video stream, or None if no suitable stream is found.</span>
+<a id="__codelineno-0-546" name="__codelineno-0-546"></a><span class="sd">    """</span>
+<a id="__codelineno-0-547" name="__codelineno-0-547"></a>    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"pytube"</span><span class="p">:</span>
+<a id="__codelineno-0-548" name="__codelineno-0-548"></a>        <span class="c1"># Switched from pytube to pytubefix to resolve https://github.com/pytube/pytube/issues/1954</span>
+<a id="__codelineno-0-549" name="__codelineno-0-549"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"pytubefix&gt;=6.5.2"</span><span class="p">)</span>
+<a id="__codelineno-0-550" name="__codelineno-0-550"></a>        <span class="kn">from</span> <span class="nn">pytubefix</span> <span class="kn">import</span> <span class="n">YouTube</span>
+<a id="__codelineno-0-551" name="__codelineno-0-551"></a>
+<a id="__codelineno-0-552" name="__codelineno-0-552"></a>        <span class="n">streams</span> <span class="o">=</span> <span class="n">YouTube</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">streams</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">file_extension</span><span class="o">=</span><span class="s2">"mp4"</span><span class="p">,</span> <span class="n">only_video</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-553" name="__codelineno-0-553"></a>        <span class="n">streams</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">streams</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">resolution</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># sort streams by resolution</span>
+<a id="__codelineno-0-554" name="__codelineno-0-554"></a>        <span class="k">for</span> <span class="n">stream</span> <span class="ow">in</span> <span class="n">streams</span><span class="p">:</span>
+<a id="__codelineno-0-555" name="__codelineno-0-555"></a>            <span class="k">if</span> <span class="n">stream</span><span class="o">.</span><span class="n">resolution</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">stream</span><span class="o">.</span><span class="n">resolution</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">1080</span><span class="p">:</span>  <span class="c1"># check if resolution is at least 1080p</span>
+<a id="__codelineno-0-556" name="__codelineno-0-556"></a>                <span class="k">return</span> <span class="n">stream</span><span class="o">.</span><span class="n">url</span>
+<a id="__codelineno-0-557" name="__codelineno-0-557"></a>
+<a id="__codelineno-0-558" name="__codelineno-0-558"></a>    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"pafy"</span><span class="p">:</span>
+<a id="__codelineno-0-559" name="__codelineno-0-559"></a>        <span class="n">check_requirements</span><span class="p">((</span><span class="s2">"pafy"</span><span class="p">,</span> <span class="s2">"youtube_dl==2020.12.2"</span><span class="p">))</span>
+<a id="__codelineno-0-560" name="__codelineno-0-560"></a>        <span class="kn">import</span> <span class="nn">pafy</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-561" name="__codelineno-0-561"></a>
+<a id="__codelineno-0-562" name="__codelineno-0-562"></a>        <span class="k">return</span> <span class="n">pafy</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">getbestvideo</span><span class="p">(</span><span class="n">preftype</span><span class="o">=</span><span class="s2">"mp4"</span><span class="p">)</span><span class="o">.</span><span class="n">url</span>
+<a id="__codelineno-0-563" name="__codelineno-0-563"></a>
+<a id="__codelineno-0-564" name="__codelineno-0-564"></a>    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"yt-dlp"</span><span class="p">:</span>
+<a id="__codelineno-0-565" name="__codelineno-0-565"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"yt-dlp"</span><span class="p">)</span>
+<a id="__codelineno-0-566" name="__codelineno-0-566"></a>        <span class="kn">import</span> <span class="nn">yt_dlp</span>
+<a id="__codelineno-0-567" name="__codelineno-0-567"></a>
+<a id="__codelineno-0-568" name="__codelineno-0-568"></a>        <span class="k">with</span> <span class="n">yt_dlp</span><span class="o">.</span><span class="n">YoutubeDL</span><span class="p">({</span><span class="s2">"quiet"</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span> <span class="k">as</span> <span class="n">ydl</span><span class="p">:</span>
+<a id="__codelineno-0-569" name="__codelineno-0-569"></a>            <span class="n">info_dict</span> <span class="o">=</span> <span class="n">ydl</span><span class="o">.</span><span class="n">extract_info</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># extract info</span>
+<a id="__codelineno-0-570" name="__codelineno-0-570"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">info_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"formats"</span><span class="p">,</span> <span class="p">[])):</span>  <span class="c1"># reversed because best is usually last</span>
+<a id="__codelineno-0-571" name="__codelineno-0-571"></a>            <span class="c1"># Find a format with video codec, no audio, *.mp4 extension at least 1920x1080 size</span>
+<a id="__codelineno-0-572" name="__codelineno-0-572"></a>            <span class="n">good_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"width"</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1920</span> <span class="ow">or</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"height"</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1080</span>
+<a id="__codelineno-0-573" name="__codelineno-0-573"></a>            <span class="k">if</span> <span class="n">good_size</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"vcodec"</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"none"</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"acodec"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"none"</span> <span class="ow">and</span> <span class="n">f</span><span class="p">[</span><span class="s2">"ext"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"mp4"</span><span class="p">:</span>
+<a id="__codelineno-0-574" name="__codelineno-0-574"></a>                <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"url"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
