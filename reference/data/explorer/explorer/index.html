@@ -1300,7 +1300,7 @@
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.data.dataset.YOLODataset" href="../../dataset/#ultralytics.data.dataset.YOLODataset">YOLODataset</a></code></p>
+              Bases: <code>YOLODataset</code></p>
 <p>Extends YOLODataset for advanced data exploration and manipulation in model training workflows.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/explorer/explorer.py</code></summary>
@@ -1399,11 +1399,7 @@
 <h2 class="doc doc-heading" id="ultralytics.data.explorer.explorer.Explorer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.data.explorer.explorer.Explorer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">Explorer</span><span class="p">(</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"coco128.yaml"</span><span class="p">,</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"yolov8n.pt"</span><span class="p">,</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">USER_CONFIG_DIR</span> <span class="o">/</span> <span class="s2">"explorer"</span><span class="p">,</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">Explorer</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="c1">#39;coco128.yaml&amp;#39;, model: str = &amp;#39;yolov8n.pt&amp;#39;, uri: str = USER_CONFIG_DIR / &amp;#39;explorer&amp;#39;)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Utility class for image embedding, table creation, and similarity querying using LanceDB and YOLO models.</p>
@@ -1475,7 +1471,9 @@
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>query</code></td>
+<td>
+<code>query</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -1501,7 +1499,7 @@
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="pandas.DataFrame">DataFrame</span></code>
+<code>DataFrame</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1575,7 +1573,7 @@
 <h3 class="doc doc-heading" id="ultralytics.data.explorer.explorer.Explorer.create_embeddings_table">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">create_embeddings_table</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">create_embeddings_table</span><span class="p">(</span><span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">split</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'train'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">create_embeddings_table</span><span class="p">(</span><span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">split</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">&amp;</span><span class="c1">#39;train&amp;#39;) -&gt; None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Create LanceDB table containing the embeddings of the images in the dataset. The table will be reused if it
@@ -1592,7 +1590,9 @@ already exists. Pass force=True to overwrite the existing table.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>force</code></td>
+<td>
+<code>force</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -1606,7 +1606,9 @@ already exists. Pass force=True to overwrite the existing table.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>split</code></td>
+<td>
+<code>split</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -1738,12 +1740,7 @@ already exists. Pass force=True to overwrite the existing table.</p>
 <h3 class="doc doc-heading" id="ultralytics.data.explorer.explorer.Explorer.get_similar">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_similar</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">get_similar</span><span class="p">(</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">idx</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">return_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"pandas"</span><span class="p">,</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">get_similar</span><span class="p">(</span><span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">idx</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">return_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">&amp;</span><span class="c1">#39;pandas&amp;#39;) -&gt; Any</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Query the table for similar images. Accepts a single image or a list of images.</p>
@@ -1759,7 +1756,9 @@ already exists. Pass force=True to overwrite the existing table.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>img</code></td>
+<td>
+<code>img</code>
+</td>
 <td>
 <code>str or list</code>
 </td>
@@ -1773,7 +1772,9 @@ already exists. Pass force=True to overwrite the existing table.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>idx</code></td>
+<td>
+<code>idx</code>
+</td>
 <td>
 <code>int or list</code>
 </td>
@@ -1787,7 +1788,9 @@ already exists. Pass force=True to overwrite the existing table.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>limit</code></td>
+<td>
+<code>limit</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -1801,7 +1804,9 @@ already exists. Pass force=True to overwrite the existing table.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>return_type</code></td>
+<td>
+<code>return_type</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -1827,7 +1832,7 @@ already exists. Pass force=True to overwrite the existing table.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="pandas.DataFrame">DataFrame</span></code>
+<code>DataFrame</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1942,7 +1947,9 @@ already exists. Pass force=True to overwrite the existing table.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>img</code></td>
+<td>
+<code>img</code>
+</td>
 <td>
 <code>str or list</code>
 </td>
@@ -1956,7 +1963,9 @@ already exists. Pass force=True to overwrite the existing table.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>idx</code></td>
+<td>
+<code>idx</code>
+</td>
 <td>
 <code>int or list</code>
 </td>
@@ -1970,7 +1979,9 @@ already exists. Pass force=True to overwrite the existing table.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>labels</code></td>
+<td>
+<code>labels</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -1984,7 +1995,9 @@ already exists. Pass force=True to overwrite the existing table.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>limit</code></td>
+<td>
+<code>limit</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -2010,7 +2023,7 @@ already exists. Pass force=True to overwrite the existing table.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="PIL.Image">Image</span></code>
+<code>Image</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2119,7 +2132,9 @@ max_dist or closer to the image in the embedding space at a given index.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>max_dist</code></td>
+<td>
+<code>max_dist</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -2133,7 +2148,9 @@ max_dist or closer to the image in the embedding space at a given index.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>top_k</code></td>
+<td>
+<code>top_k</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -2148,7 +2165,9 @@ running vector search. Defaults to 0.01.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>force</code></td>
+<td>
+<code>force</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -2174,7 +2193,7 @@ running vector search. Defaults to 0.01.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="PIL.Image">Image</span></code>
+<code>Image</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2305,7 +2324,9 @@ running vector search. Defaults to 0.01.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>query</code></td>
+<td>
+<code>query</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -2319,7 +2340,9 @@ running vector search. Defaults to 0.01.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>labels</code></td>
+<td>
+<code>labels</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -2345,7 +2368,7 @@ running vector search. Defaults to 0.01.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="PIL.Image">Image</span></code>
+<code>Image</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2441,7 +2464,9 @@ running vector search. Defaults to 0.01.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>imgs</code></td>
+<td>
+<code>imgs</code>
+</td>
 <td>
 <code>str or list</code>
 </td>
@@ -2455,7 +2480,9 @@ running vector search. Defaults to 0.01.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>limit</code></td>
+<td>
+<code>limit</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -2481,7 +2508,7 @@ running vector search. Defaults to 0.01.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="pyarrow.Table">Table</span></code>
+<code>Table</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2590,7 +2617,9 @@ are max_dist or closer to the image in the embedding space at a given index.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>max_dist</code></td>
+<td>
+<code>max_dist</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -2604,7 +2633,9 @@ are max_dist or closer to the image in the embedding space at a given index.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>top_k</code></td>
+<td>
+<code>top_k</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -2619,7 +2650,9 @@ are max_dist or closer to the image in the embedding space at a given index.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>force</code></td>
+<td>
+<code>force</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -2645,7 +2678,7 @@ are max_dist or closer to the image in the embedding space at a given index.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="pandas.DataFrame">DataFrame</span></code>
+<code>DataFrame</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2788,7 +2821,7 @@ and columns include indices of similar images and their respective distances.</p
 <h3 class="doc doc-heading" id="ultralytics.data.explorer.explorer.Explorer.sql_query">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">sql_query</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">return_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'pandas'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">return_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">&amp;</span><span class="c1">#39;pandas&amp;#39;) -&gt; Union[Any, None]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Run a SQL-Like query on the table. Utilizes LanceDB predicate pushdown.</p>
@@ -2804,7 +2837,9 @@ and columns include indices of similar images and their respective distances.</p
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>query</code></td>
+<td>
+<code>query</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -2818,7 +2853,9 @@ and columns include indices of similar images and their respective distances.</p
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>return_type</code></td>
+<td>
+<code>return_type</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -2844,7 +2881,7 @@ and columns include indices of similar images and their respective distances.</p
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="pyarrow.Table">Table</span></code>
+<code>Table</code>
 </td>
 <td>
 <div class="doc-md-description">

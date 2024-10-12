@@ -2313,7 +2313,7 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.ConfusionMatrix">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.ConfusionMatrix</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">ConfusionMatrix</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">iou_thres</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">ConfusionMatrix</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">iou_thres</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">task</span><span class="o">=&amp;</span><span class="c1">#39;detect&amp;#39;)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>A class for calculating and updating a confusion matrix for object detection and classification tasks.</p>
@@ -2341,7 +2341,7 @@
 <tr class="doc-section-item">
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.ConfusionMatrix.matrix" title="ultralytics.utils.metrics.ConfusionMatrix.matrix">matrix</a></code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code>ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2425,7 +2425,7 @@
 <h3 class="doc doc-heading" id="ultralytics.utils.metrics.ConfusionMatrix.plot">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">plot</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">plot</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">plot</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=&amp;</span><span class="c1">#39;&amp;#39;, names=(), on_plot=None)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Plot the confusion matrix using seaborn and save it to a file.</p>
@@ -2441,7 +2441,9 @@
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>normalize</code></td>
+<td>
+<code>normalize</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -2455,7 +2457,9 @@
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>save_dir</code></td>
+<td>
+<code>save_dir</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -2469,7 +2473,9 @@
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>names</code></td>
+<td>
+<code>names</code>
+</td>
 <td>
 <code>tuple</code>
 </td>
@@ -2483,7 +2489,9 @@
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>on_plot</code></td>
+<td>
+<code>on_plot</code>
+</td>
 <td>
 <code>func</code>
 </td>
@@ -2634,7 +2642,9 @@
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>detections</code></td>
+<td>
+<code>detections</code>
+</td>
 <td>
 <code>Array[N, 6] | Array[N, 7]</code>
 </td>
@@ -2650,7 +2660,9 @@
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>gt_bboxes</code></td>
+<td>
+<code>gt_bboxes</code>
+</td>
 <td>
 <code>Array[M, 4] | Array[N, 5]</code>
 </td>
@@ -2664,7 +2676,9 @@
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>gt_cls</code></td>
+<td>
+<code>gt_cls</code>
+</td>
 <td>
 <code>Array[M]</code>
 </td>
@@ -2820,9 +2834,11 @@
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>preds</code></td>
 <td>
-<code>Array[N, min(<span title="ultralytics.utils.metrics.ConfusionMatrix.nc">nc</span>, 5)]</code>
+<code>preds</code>
+</td>
+<td>
+<code>Array[N, min(nc, 5)]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2834,7 +2850,9 @@
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>targets</code></td>
+<td>
+<code>targets</code>
+</td>
 <td>
 <code>Array[N, 1]</code>
 </td>
@@ -2912,7 +2930,7 @@
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" title="ultralytics.utils.SimpleClass">SimpleClass</a></code></p>
+              Bases: <code>SimpleClass</code></p>
 <p>Class for computing evaluation metrics for YOLOv8 model.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -3141,7 +3159,7 @@
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code>(<span title="numpy.ndarray">ndarray</span>, list)</code>
+<code>(ndarray, list)</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3175,7 +3193,7 @@
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code>(<span title="numpy.ndarray">ndarray</span>, list)</code>
+<code>(ndarray, list)</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3475,7 +3493,9 @@
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>results</code></td>
+<td>
+<code>results</code>
+</td>
 <td>
 <code>tuple</code>
 </td>
@@ -3568,11 +3588,11 @@ on the values provided in the <code>results</code> tuple.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.DetMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.DetMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">DetMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{})</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">DetMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;.&amp;#39;), plot=False, on_plot=None, names={})</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" title="ultralytics.utils.SimpleClass">SimpleClass</a></code></p>
+              Bases: <code>SimpleClass</code></p>
 <p>Utility class for computing detection metrics such as precision, recall, and mean average precision (mAP) of an
 object detection model.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3587,9 +3607,11 @@ object detection model.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>save_dir</code></td>
 <td>
-<code><span title="pathlib.Path">Path</span></code>
+<code>save_dir</code>
+</td>
+<td>
+<code>Path</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3597,11 +3619,13 @@ object detection model.</p>
 </div>
 </td>
 <td>
-<code><span title="pathlib.Path">Path</span>('.')</code>
+<code>Path('.')</code>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>plot</code></td>
+<td>
+<code>plot</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -3615,7 +3639,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>on_plot</code></td>
+<td>
+<code>on_plot</code>
+</td>
 <td>
 <code>func</code>
 </td>
@@ -3629,7 +3655,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>names</code></td>
+<td>
+<code>names</code>
+</td>
 <td>
 <code>dict of str</code>
 </td>
@@ -3657,7 +3685,7 @@ object detection model.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.DetMetrics.save_dir">save_dir</span></code></td>
 <td>
-<code><span title="pathlib.Path">Path</span></code>
+<code>Path</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3701,7 +3729,7 @@ object detection model.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.DetMetrics.box">box</span></code></td>
 <td>
-<code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.Metric" title="ultralytics.utils.metrics.Metric">Metric</a></code>
+<code>Metric</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4012,11 +4040,11 @@ object detection model.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.SegmentMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.SegmentMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">SegmentMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">SegmentMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;.&amp;#39;), plot=False, on_plot=None, names=())</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" title="ultralytics.utils.SimpleClass">SimpleClass</a></code></p>
+              Bases: <code>SimpleClass</code></p>
 <p>Calculates and aggregates detection and segmentation metrics over a given set of classes.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
@@ -4030,9 +4058,11 @@ object detection model.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>save_dir</code></td>
 <td>
-<code><span title="pathlib.Path">Path</span></code>
+<code>save_dir</code>
+</td>
+<td>
+<code>Path</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4040,11 +4070,13 @@ object detection model.</p>
 </div>
 </td>
 <td>
-<code><span title="pathlib.Path">Path</span>('.')</code>
+<code>Path('.')</code>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>plot</code></td>
+<td>
+<code>plot</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -4058,7 +4090,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>on_plot</code></td>
+<td>
+<code>on_plot</code>
+</td>
 <td>
 <code>func</code>
 </td>
@@ -4072,7 +4106,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>names</code></td>
+<td>
+<code>names</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -4100,7 +4136,7 @@ object detection model.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.SegmentMetrics.save_dir">save_dir</span></code></td>
 <td>
-<code><span title="pathlib.Path">Path</span></code>
+<code>Path</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4144,7 +4180,7 @@ object detection model.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.SegmentMetrics.box">box</span></code></td>
 <td>
-<code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.Metric" title="ultralytics.utils.metrics.Metric">Metric</a></code>
+<code>Metric</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4155,7 +4191,7 @@ object detection model.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.SegmentMetrics.seg">seg</span></code></td>
 <td>
-<code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.Metric" title="ultralytics.utils.metrics.Metric">Metric</a></code>
+<code>Metric</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4416,7 +4452,9 @@ object detection model.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>tp</code></td>
+<td>
+<code>tp</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -4430,7 +4468,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>tp_m</code></td>
+<td>
+<code>tp_m</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -4444,7 +4484,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>conf</code></td>
+<td>
+<code>conf</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -4458,7 +4500,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>pred_cls</code></td>
+<td>
+<code>pred_cls</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -4472,7 +4516,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>target_cls</code></td>
+<td>
+<code>target_cls</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -4573,11 +4619,11 @@ object detection model.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.PoseMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.PoseMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">PoseMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">PoseMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;.&amp;#39;), plot=False, on_plot=None, names=())</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.SegmentMetrics" title="ultralytics.utils.metrics.SegmentMetrics">SegmentMetrics</a></code></p>
+              Bases: <code>SegmentMetrics</code></p>
 <p>Calculates and aggregates detection and pose metrics over a given set of classes.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
@@ -4591,9 +4637,11 @@ object detection model.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>save_dir</code></td>
 <td>
-<code><span title="pathlib.Path">Path</span></code>
+<code>save_dir</code>
+</td>
+<td>
+<code>Path</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4601,11 +4649,13 @@ object detection model.</p>
 </div>
 </td>
 <td>
-<code><span title="pathlib.Path">Path</span>('.')</code>
+<code>Path('.')</code>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>plot</code></td>
+<td>
+<code>plot</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -4619,7 +4669,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>on_plot</code></td>
+<td>
+<code>on_plot</code>
+</td>
 <td>
 <code>func</code>
 </td>
@@ -4633,7 +4685,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>names</code></td>
+<td>
+<code>names</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -4661,7 +4715,7 @@ object detection model.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.PoseMetrics.save_dir">save_dir</span></code></td>
 <td>
-<code><span title="pathlib.Path">Path</span></code>
+<code>Path</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4705,7 +4759,7 @@ object detection model.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.PoseMetrics.box">box</span></code></td>
 <td>
-<code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.Metric" title="ultralytics.utils.metrics.Metric">Metric</a></code>
+<code>Metric</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4716,7 +4770,7 @@ object detection model.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.PoseMetrics.pose">pose</span></code></td>
 <td>
-<code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.Metric" title="ultralytics.utils.metrics.Metric">Metric</a></code>
+<code>Metric</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4953,7 +5007,9 @@ object detection model.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>tp</code></td>
+<td>
+<code>tp</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -4967,7 +5023,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>tp_p</code></td>
+<td>
+<code>tp_p</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -4981,7 +5039,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>conf</code></td>
+<td>
+<code>conf</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -4995,7 +5055,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>pred_cls</code></td>
+<td>
+<code>pred_cls</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -5009,7 +5071,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>target_cls</code></td>
+<td>
+<code>target_cls</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -5114,7 +5178,7 @@ object detection model.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" title="ultralytics.utils.SimpleClass">SimpleClass</a></code></p>
+              Bases: <code>SimpleClass</code></p>
 <p>Class for computing classification metrics including top-1 and top-5 accuracy.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -5173,7 +5237,7 @@ object detection model.</p>
 <tr class="doc-section-item">
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.ClassifyMetrics.results_dict" title="ultralytics.utils.metrics.ClassifyMetrics.results_dict">results_dict</a></code></td>
 <td>
-<code>Dict[str, <span title="typing.Union">Union</span>[float, str]]</code>
+<code>Dict[str, Union[float, str]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5326,11 +5390,11 @@ object detection model.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.OBBMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.OBBMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">OBBMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">OBBMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;.&amp;#39;), plot=False, on_plot=None, names=())</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" title="ultralytics.utils.SimpleClass">SimpleClass</a></code></p>
+              Bases: <code>SimpleClass</code></p>
 <p>Metrics for evaluating oriented bounding box (OBB) detection, see <a href="https://arxiv.org/pdf/2106.06072.pdf">https://arxiv.org/pdf/2106.06072.pdf</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
@@ -5545,9 +5609,11 @@ object detection model.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>box1</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code>box1</code>
+</td>
+<td>
+<code>ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5559,9 +5625,11 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>box2</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code>box2</code>
+</td>
+<td>
+<code>ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5573,7 +5641,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>iou</code></td>
+<td>
+<code>iou</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -5587,7 +5657,9 @@ object detection model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>eps</code></td>
+<td>
+<code>eps</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -5613,7 +5685,7 @@ object detection model.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code>ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5709,9 +5781,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>box1</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>box1</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5723,9 +5797,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>box2</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>box2</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5737,7 +5813,9 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>eps</code></td>
+<td>
+<code>eps</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -5763,7 +5841,7 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5838,9 +5916,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>box1</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>box1</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5852,9 +5932,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>box2</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>box2</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5866,7 +5948,9 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>xywh</code></td>
+<td>
+<code>xywh</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -5881,7 +5965,9 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>GIoU</code></td>
+<td>
+<code>GIoU</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -5895,7 +5981,9 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>DIoU</code></td>
+<td>
+<code>DIoU</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -5909,7 +5997,9 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>CIoU</code></td>
+<td>
+<code>CIoU</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -5923,7 +6013,9 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>eps</code></td>
+<td>
+<code>eps</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -5949,7 +6041,7 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6096,9 +6188,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>mask1</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>mask1</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6111,9 +6205,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>mask2</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>mask2</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6126,7 +6222,9 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>eps</code></td>
+<td>
+<code>eps</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -6152,7 +6250,7 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6221,9 +6319,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>kpt1</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>kpt1</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6235,9 +6335,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>kpt2</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>kpt2</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6249,9 +6351,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>area</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>area</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6263,7 +6367,9 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>sigma</code></td>
+<td>
+<code>sigma</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -6277,7 +6383,9 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>eps</code></td>
+<td>
+<code>eps</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -6303,7 +6411,7 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6378,9 +6486,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>boxes</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>boxes</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6404,7 +6514,7 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6476,9 +6586,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>obb1</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>obb1</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6490,9 +6602,11 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>obb2</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>obb2</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6504,7 +6618,9 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>CIoU</code></td>
+<td>
+<code>CIoU</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -6518,7 +6634,9 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>eps</code></td>
+<td>
+<code>eps</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -6544,7 +6662,7 @@ Based on <a href="https://github.com/pytorch/vision/blob/master/torchvision/ops/
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6672,9 +6790,11 @@ If CIoU is True, returns CIoU instead of IoU.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>obb1</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span> | <span title="numpy.ndarray">ndarray</span></code>
+<code>obb1</code>
+</td>
+<td>
+<code>Tensor | ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6686,9 +6806,11 @@ If CIoU is True, returns CIoU instead of IoU.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>obb2</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span> | <span title="numpy.ndarray">ndarray</span></code>
+<code>obb2</code>
+</td>
+<td>
+<code>Tensor | ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6700,7 +6822,9 @@ If CIoU is True, returns CIoU instead of IoU.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>eps</code></td>
+<td>
+<code>eps</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -6726,7 +6850,7 @@ If CIoU is True, returns CIoU instead of IoU.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6827,7 +6951,9 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>eps</code></td>
+<td>
+<code>eps</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -6925,9 +7051,7 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.plot_pr_curve">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.metrics.plot_pr_curve</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">plot_pr_curve</span><span class="p">(</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"pr_curve.png"</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">{},</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">plot_pr_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;pr_curve.png&amp;#39;), names={}, on_plot=None)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Plots a precision-recall curve.</p>
@@ -6986,15 +7110,7 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.plot_mc_curve">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.metrics.plot_mc_curve</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">plot_mc_curve</span><span class="p">(</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">px</span><span class="p">,</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">py</span><span class="p">,</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"mc_curve.png"</span><span class="p">),</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">names</span><span class="o">=</span><span class="p">{},</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Confidence"</span><span class="p">,</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Metric"</span><span class="p">,</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">plot_mc_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;mc_curve.png&amp;#39;), names={}, xlabel=&amp;#39;Confidence&amp;#39;, ylabel=&amp;#39;Metric&amp;#39;, on_plot=None)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Plots a metric-confidence curve.</p>
@@ -7069,7 +7185,9 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>recall</code></td>
+<td>
+<code>recall</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -7083,7 +7201,9 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>precision</code></td>
+<td>
+<code>precision</code>
+</td>
 <td>
 <code>list</code>
 </td>
@@ -7119,7 +7239,7 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </tr>
 <tr class="doc-section-item">
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code>ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7129,7 +7249,7 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </tr>
 <tr class="doc-section-item">
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code>ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7208,18 +7328,7 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.ap_per_class">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.metrics.ap_per_class</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">ap_per_class</span><span class="p">(</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">tp</span><span class="p">,</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">conf</span><span class="p">,</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">pred_cls</span><span class="p">,</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">target_cls</span><span class="p">,</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(),</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">names</span><span class="o">=</span><span class="p">{},</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">eps</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">,</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">ap_per_class</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(),</span> <span class="n">names</span><span class="o">=</span><span class="p">{},</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=&amp;</span><span class="c1">#39;&amp;#39;)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Computes the average precision per class for object detection evaluation.</p>
@@ -7235,9 +7344,11 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>tp</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code>tp</code>
+</td>
+<td>
+<code>ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7249,9 +7360,11 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>conf</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code>conf</code>
+</td>
+<td>
+<code>ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7263,9 +7376,11 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>pred_cls</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code>pred_cls</code>
+</td>
+<td>
+<code>ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7277,9 +7392,11 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>target_cls</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code>target_cls</code>
+</td>
+<td>
+<code>ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7291,7 +7408,9 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>plot</code></td>
+<td>
+<code>plot</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -7305,7 +7424,9 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>on_plot</code></td>
+<td>
+<code>on_plot</code>
+</td>
 <td>
 <code>func</code>
 </td>
@@ -7319,9 +7440,11 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>save_dir</code></td>
 <td>
-<code><span title="pathlib.Path">Path</span></code>
+<code>save_dir</code>
+</td>
+<td>
+<code>Path</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7329,11 +7452,13 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </div>
 </td>
 <td>
-<code><span title="pathlib.Path">Path</span>()</code>
+<code>Path()</code>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>names</code></td>
+<td>
+<code>names</code>
+</td>
 <td>
 <code>dict</code>
 </td>
@@ -7347,7 +7472,9 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>eps</code></td>
+<td>
+<code>eps</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -7361,7 +7488,9 @@ For implementation details, refer to <a href="https://github.com/ultralytics/yol
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>prefix</code></td>
+<td>
+<code>prefix</code>
+</td>
 <td>
 <code>str</code>
 </td>

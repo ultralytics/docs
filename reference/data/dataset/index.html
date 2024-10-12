@@ -1401,11 +1401,11 @@
 <h2 class="doc doc-heading" id="ultralytics.data.dataset.YOLODataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.data.dataset.YOLODataset</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">YOLODataset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">YOLODataset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="o">=&amp;</span><span class="c1">#39;detect&amp;#39;, **kwargs)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.data.base.BaseDataset" href="../base/#ultralytics.data.base.BaseDataset">BaseDataset</a></code></p>
+              Bases: <code>BaseDataset</code></p>
 <p>Dataset class for loading object detection and/or segmentation labels in YOLO format.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
@@ -1419,7 +1419,9 @@
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>data</code></td>
+<td>
+<code>data</code>
+</td>
 <td>
 <code>dict</code>
 </td>
@@ -1433,7 +1435,9 @@
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>task</code></td>
+<td>
+<code>task</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -1459,7 +1463,7 @@
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.utils.data.Dataset">Dataset</span></code>
+<code>Dataset</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1550,7 +1554,7 @@
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.YOLODataset.cache_labels">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">cache_labels</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">cache_labels</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'./labels.cache'</span><span class="p">))</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">cache_labels</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;./labels.cache&amp;#39;))</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Cache dataset labels, check images and read shapes.</p>
@@ -1566,9 +1570,11 @@
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>path</code></td>
 <td>
-<code><span title="pathlib.Path">Path</span></code>
+<code>path</code>
+</td>
+<td>
+<code>Path</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1576,7 +1582,7 @@
 </div>
 </td>
 <td>
-<code><span title="pathlib.Path">Path</span>('./labels.cache')</code>
+<code>Path('./labels.cache')</code>
 </td>
 </tr>
 </tbody>
@@ -1982,11 +1988,11 @@ Can also support classification and semantic segmentation by adding or removing 
 <h2 class="doc doc-heading" id="ultralytics.data.dataset.YOLOMultiModalDataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.data.dataset.YOLOMultiModalDataset</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">YOLOMultiModalDataset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">YOLOMultiModalDataset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="o">=&amp;</span><span class="c1">#39;detect&amp;#39;, **kwargs)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.data.dataset.YOLODataset" href="#ultralytics.data.dataset.YOLODataset">YOLODataset</a></code></p>
+              Bases: <code>YOLODataset</code></p>
 <p>Dataset class for loading object detection and/or segmentation labels in YOLO format.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
@@ -2000,7 +2006,9 @@ Can also support classification and semantic segmentation by adding or removing 
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>data</code></td>
+<td>
+<code>data</code>
+</td>
 <td>
 <code>dict</code>
 </td>
@@ -2014,7 +2022,9 @@ Can also support classification and semantic segmentation by adding or removing 
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>task</code></td>
+<td>
+<code>task</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -2040,7 +2050,7 @@ Can also support classification and semantic segmentation by adding or removing 
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.utils.data.Dataset">Dataset</span></code>
+<code>Dataset</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2119,11 +2129,11 @@ Can also support classification and semantic segmentation by adding or removing 
 <h2 class="doc doc-heading" id="ultralytics.data.dataset.GroundingDataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.data.dataset.GroundingDataset</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">GroundingDataset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">,</span> <span class="n">json_file</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">GroundingDataset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">task</span><span class="o">=&amp;</span><span class="c1">#39;detect&amp;#39;, json_file, **kwargs)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.data.dataset.YOLODataset" href="#ultralytics.data.dataset.YOLODataset">YOLODataset</a></code></p>
+              Bases: <code>YOLODataset</code></p>
 <p>Handles object detection tasks by loading annotations from a specified JSON file, supporting YOLO format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
@@ -2309,7 +2319,7 @@ Can also support classification and semantic segmentation by adding or removing 
 </h2>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><span title="torch.utils.data.ConcatDataset">ConcatDataset</span></code></p>
+              Bases: <code>ConcatDataset</code></p>
 <p>Dataset as a concatenation of multiple datasets.</p>
 <p>This class is useful to assemble different existing datasets.</p>
 <div class="doc doc-children">
@@ -2348,7 +2358,7 @@ Can also support classification and semantic segmentation by adding or removing 
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.data.base.BaseDataset" href="../base/#ultralytics.data.base.BaseDataset">BaseDataset</a></code></p>
+              Bases: <code>BaseDataset</code></p>
 <p>Semantic Segmentation Dataset.</p>
 <p>This class is responsible for handling datasets used for semantic segmentation tasks. It inherits functionalities
 from the BaseDataset class.</p>
@@ -2374,7 +2384,7 @@ semantic segmentation tasks.</p>
 <h2 class="doc doc-heading" id="ultralytics.data.dataset.ClassificationDataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.data.dataset.ClassificationDataset</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">ClassificationDataset</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">ClassificationDataset</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=&amp;</span><span class="c1">#39;&amp;#39;)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Extends torchvision ImageFolder to support YOLO classification tasks, offering functionalities like image
@@ -2452,7 +2462,9 @@ to ensure data integrity and consistency.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>root</code></td>
+<td>
+<code>root</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -2466,7 +2478,9 @@ to ensure data integrity and consistency.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>args</code></td>
+<td>
+<code>args</code>
+</td>
 <td>
 <code>Namespace</code>
 </td>
@@ -2483,7 +2497,9 @@ of data to use), <code>scale</code>, <code>fliplr</code>, <code>flipud</code>, <
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>augment</code></td>
+<td>
+<code>augment</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -2497,7 +2513,9 @@ of data to use), <code>scale</code>, <code>fliplr</code>, <code>flipud</code>, <
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>prefix</code></td>
+<td>
+<code>prefix</code>
+</td>
 <td>
 <code>str</code>
 </td>

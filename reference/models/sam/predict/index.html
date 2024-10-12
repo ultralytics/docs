@@ -1412,7 +1412,7 @@
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.engine.predictor.BasePredictor" href="../../../engine/predictor/#ultralytics.engine.predictor.BasePredictor">BasePredictor</a></code></p>
+              Bases: <code>BasePredictor</code></p>
 <p>Predictor class for SAM, enabling real-time image segmentation with promptable capabilities.</p>
 <p>This class extends BasePredictor and implements the Segment Anything Model (SAM) for advanced image
 segmentation tasks. It supports various input prompts like points, bounding boxes, and masks for
@@ -1441,7 +1441,7 @@ fine-grained control over segmentation results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.Predictor.model">model</span></code></td>
 <td>
-<code><span title="torch.nn.Module">Module</span></code>
+<code>Module</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1452,7 +1452,7 @@ fine-grained control over segmentation results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.Predictor.device">device</span></code></td>
 <td>
-<code><span title="torch.device">device</span></code>
+<code>device</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1463,7 +1463,7 @@ fine-grained control over segmentation results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.Predictor.im">im</span></code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1474,7 +1474,7 @@ fine-grained control over segmentation results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.Predictor.features">features</span></code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1507,7 +1507,7 @@ fine-grained control over segmentation results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.Predictor.mean">mean</span></code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1518,7 +1518,7 @@ fine-grained control over segmentation results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.Predictor.std">std</span></code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1673,7 +1673,9 @@ for optimal results.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>cfg</code></td>
+<td>
+<code>cfg</code>
+</td>
 <td>
 <code>Dict</code>
 </td>
@@ -1683,11 +1685,13 @@ for optimal results.</p>
 </div>
 </td>
 <td>
-<code><span title="ultralytics.utils.DEFAULT_CFG">DEFAULT_CFG</span></code>
+<code>DEFAULT_CFG</code>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>overrides</code></td>
+<td>
+<code>overrides</code>
+</td>
 <td>
 <code>Dict | None</code>
 </td>
@@ -1701,7 +1705,9 @@ for optimal results.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>_callbacks</code></td>
+<td>
+<code>_callbacks</code>
+</td>
 <td>
 <code>Dict | None</code>
 </td>
@@ -1813,9 +1819,11 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>im</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>im</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1827,7 +1835,9 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>crop_n_layers</code></td>
+<td>
+<code>crop_n_layers</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -1841,7 +1851,9 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>crop_overlap_ratio</code></td>
+<td>
+<code>crop_overlap_ratio</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -1855,7 +1867,9 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>crop_downscale_factor</code></td>
+<td>
+<code>crop_downscale_factor</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -1869,9 +1883,11 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>point_grids</code></td>
 <td>
-<code>List[<span title="numpy.ndarray">ndarray</span>] | None</code>
+<code>point_grids</code>
+</td>
+<td>
+<code>List[ndarray] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1883,7 +1899,9 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>points_stride</code></td>
+<td>
+<code>points_stride</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -1897,7 +1915,9 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>points_batch_size</code></td>
+<td>
+<code>points_batch_size</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -1911,7 +1931,9 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>conf_thres</code></td>
+<td>
+<code>conf_thres</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -1925,7 +1947,9 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>stability_score_thresh</code></td>
+<td>
+<code>stability_score_thresh</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -1939,7 +1963,9 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>stability_score_offset</code></td>
+<td>
+<code>stability_score_offset</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -1953,7 +1979,9 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>crop_nms_thresh</code></td>
+<td>
+<code>crop_nms_thresh</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -1979,7 +2007,7 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code>Tuple[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code>Tuple[Tensor, Tensor, Tensor]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2303,9 +2331,11 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>im</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>im</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2317,9 +2347,11 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>bboxes</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | List | None</code>
+<code>bboxes</code>
+</td>
+<td>
+<code>ndarray | List | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2331,9 +2363,11 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>points</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | List | None</code>
+<code>points</code>
+</td>
+<td>
+<code>ndarray | List | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2345,9 +2379,11 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>labels</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | List | None</code>
+<code>labels</code>
+</td>
+<td>
+<code>ndarray | List | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2359,9 +2395,11 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>masks</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | None</code>
+<code>masks</code>
+</td>
+<td>
+<code>ndarray | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2373,7 +2411,9 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>multimask_output</code></td>
+<td>
+<code>multimask_output</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -2387,7 +2427,9 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>*args</code></td>
+<td>
+<code>*args</code>
+</td>
 <td>
 <code>Any</code>
 </td>
@@ -2401,7 +2443,9 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Any</code>
 </td>
@@ -2551,9 +2595,11 @@ predictions. It leverages SAM's advanced architecture for real-time, promptable 
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>preds</code></td>
 <td>
-<code>Tuple[<span title="torch.Tensor">Tensor</span>]</code>
+<code>preds</code>
+</td>
+<td>
+<code>Tuple[Tensor]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2568,9 +2614,11 @@ predictions. It leverages SAM's advanced architecture for real-time, promptable 
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>img</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>img</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2582,9 +2630,11 @@ predictions. It leverages SAM's advanced architecture for real-time, promptable 
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>orig_imgs</code></td>
 <td>
-<code>List[<span title="numpy.ndarray">ndarray</span>] | <span title="torch.Tensor">Tensor</span></code>
+<code>orig_imgs</code>
+</td>
+<td>
+<code>List[ndarray] | Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2608,7 +2658,7 @@ predictions. It leverages SAM's advanced architecture for real-time, promptable 
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code>List[<a class="autorefs autorefs-internal" title="ultralytics.engine.results.Results" href="../../../engine/results/#ultralytics.engine.results.Results">Results</a>]</code>
+<code>List[Results]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2751,9 +2801,11 @@ Currently, batched inference is not supported; hence the list length should be 1
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>im</code></td>
 <td>
-<code>List[<span title="numpy.ndarray">ndarray</span>]</code>
+<code>im</code>
+</td>
+<td>
+<code>List[ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2777,7 +2829,7 @@ Currently, batched inference is not supported; hence the list length should be 1
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code>List[<span title="numpy.ndarray">ndarray</span>]</code>
+<code>List[ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2894,9 +2946,11 @@ torch.Tensor and list of np.ndarray as input formats.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>im</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span> | List[<span title="numpy.ndarray">ndarray</span>]</code>
+<code>im</code>
+</td>
+<td>
+<code>Tensor | List[ndarray]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2920,7 +2974,7 @@ torch.Tensor and list of np.ndarray as input formats.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3033,9 +3087,11 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>im</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>im</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3047,9 +3103,11 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>bboxes</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | List | None</code>
+<code>bboxes</code>
+</td>
+<td>
+<code>ndarray | List | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3061,9 +3119,11 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>points</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | List | None</code>
+<code>points</code>
+</td>
+<td>
+<code>ndarray | List | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3075,9 +3135,11 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>labels</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | List | None</code>
+<code>labels</code>
+</td>
+<td>
+<code>ndarray | List | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3089,9 +3151,11 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>masks</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | None</code>
+<code>masks</code>
+</td>
+<td>
+<code>ndarray | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3103,7 +3167,9 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>multimask_output</code></td>
+<td>
+<code>multimask_output</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -3309,9 +3375,11 @@ Suppression (NMS) to eliminate any newly created duplicate boxes.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>masks</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>masks</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3324,7 +3392,9 @@ masks, H is height, and W is width.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>min_area</code></td>
+<td>
+<code>min_area</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -3339,7 +3409,9 @@ this will be removed.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>nms_thresh</code></td>
+<td>
+<code>nms_thresh</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -3537,9 +3609,11 @@ ensures that only one image is set at a time and extracts image features for sub
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>image</code></td>
 <td>
-<code>str | <span title="numpy.ndarray">ndarray</span></code>
+<code>image</code>
+</td>
+<td>
+<code>str | ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3696,9 +3770,11 @@ parameters for image normalization and other Ultralytics compatibility settings.
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>model</code></td>
 <td>
-<code><span title="torch.nn.Module">Module</span></code>
+<code>model</code>
+</td>
+<td>
+<code>Module</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3710,7 +3786,9 @@ parameters for image normalization and other Ultralytics compatibility settings.
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>verbose</code></td>
+<td>
+<code>verbose</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -3816,7 +3894,9 @@ various input types such as image files, directories, video files, and other com
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>source</code></td>
+<td>
+<code>source</code>
+</td>
 <td>
 <code>str | Path | None</code>
 </td>
@@ -3910,7 +3990,7 @@ directory path, URL, or other supported source types.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.models.sam.predict.Predictor" href="#ultralytics.models.sam.predict.Predictor">Predictor</a></code></p>
+              Bases: <code>Predictor</code></p>
 <p>SAM2Predictor class for advanced image segmentation using Segment Anything Model 2 architecture.</p>
 <p>This class extends the base Predictor class to implement SAM2-specific functionality for image
 segmentation tasks. It provides methods for model initialization, feature extraction, and
@@ -3939,7 +4019,7 @@ prompt-based inference.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.SAM2Predictor.model">model</span></code></td>
 <td>
-<code><span title="torch.nn.Module">Module</span></code>
+<code>Module</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3950,7 +4030,7 @@ prompt-based inference.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.SAM2Predictor.device">device</span></code></td>
 <td>
-<code><span title="torch.device">device</span></code>
+<code>device</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3961,7 +4041,7 @@ prompt-based inference.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.SAM2Predictor.features">features</span></code></td>
 <td>
-<code>Dict[str, <span title="torch.Tensor">Tensor</span>]</code>
+<code>Dict[str, Tensor]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4058,7 +4138,9 @@ for optimal results.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>cfg</code></td>
+<td>
+<code>cfg</code>
+</td>
 <td>
 <code>Dict</code>
 </td>
@@ -4068,11 +4150,13 @@ for optimal results.</p>
 </div>
 </td>
 <td>
-<code><span title="ultralytics.utils.DEFAULT_CFG">DEFAULT_CFG</span></code>
+<code>DEFAULT_CFG</code>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>overrides</code></td>
+<td>
+<code>overrides</code>
+</td>
 <td>
 <code>Dict | None</code>
 </td>
@@ -4086,7 +4170,9 @@ for optimal results.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>_callbacks</code></td>
+<td>
+<code>_callbacks</code>
+</td>
 <td>
 <code>Dict | None</code>
 </td>
@@ -4261,9 +4347,11 @@ multi-object prediction scenarios.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>im</code></td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code>im</code>
+</td>
+<td>
+<code>Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4275,9 +4363,11 @@ multi-object prediction scenarios.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>bboxes</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | List[List[float]] | None</code>
+<code>bboxes</code>
+</td>
+<td>
+<code>ndarray | List[List[float]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4289,9 +4379,11 @@ multi-object prediction scenarios.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>points</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | List[List[float]] | None</code>
+<code>points</code>
+</td>
+<td>
+<code>ndarray | List[List[float]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4303,9 +4395,11 @@ multi-object prediction scenarios.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>labels</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | List[int] | None</code>
+<code>labels</code>
+</td>
+<td>
+<code>ndarray | List[int] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4317,9 +4411,11 @@ multi-object prediction scenarios.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>masks</code></td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | None</code>
+<code>masks</code>
+</td>
+<td>
+<code>ndarray | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4331,7 +4427,9 @@ multi-object prediction scenarios.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>multimask_output</code></td>
+<td>
+<code>multimask_output</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -4345,7 +4443,9 @@ multi-object prediction scenarios.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>img_idx</code></td>
+<td>
+<code>img_idx</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -4630,9 +4730,11 @@ and preprocesses the image for feature extraction. It supports setting only one 
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>image</code></td>
 <td>
-<code>str | <span title="numpy.ndarray">ndarray</span></code>
+<code>image</code>
+</td>
+<td>
+<code>str | ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">

@@ -1411,15 +1411,11 @@
 <h2 class="doc doc-heading" id="ultralytics.engine.model.Model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.engine.model.Model</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">Model</span><span class="p">(</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">Model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="c1">#39;yolo11n.pt&amp;#39;, task: str = None, verbose: bool = False)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><span title="ultralytics.nn.tasks.nn.Module">Module</span></code></p>
+              Bases: <code>Module</code></p>
 <p>A base class for implementing YOLO models, unifying APIs across different model types.</p>
 <p>This class provides a common interface for various operations related to YOLO models, such as training,
 validation, prediction, exporting, and benchmarking. It handles different types of models, including those
@@ -1459,7 +1455,7 @@ loaded from local files, Ultralytics HUB, or Triton Server.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.model.Model.model">model</span></code></td>
 <td>
-<code><span title="ultralytics.nn.tasks.nn.Module">Module</span></code>
+<code>Module</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1536,7 +1532,7 @@ loaded from local files, Ultralytics HUB, or Triton Server.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.model.Model.session">session</span></code></td>
 <td>
-<code><a class="autorefs autorefs-internal" title="ultralytics.hub.HUBTrainingSession" href="../../hub/session/#ultralytics.hub.session.HUBTrainingSession">HUBTrainingSession</a></code>
+<code>HUBTrainingSession</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1763,9 +1759,11 @@ prediction, or export.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>model</code></td>
 <td>
-<code><span title="typing.Union">Union</span>[str, <span title="pathlib.Path">Path</span>]</code>
+<code>model</code>
+</td>
+<td>
+<code>Union[str, Path]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1778,7 +1776,9 @@ model name from Ultralytics HUB, or a Triton Server model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>task</code></td>
+<td>
+<code>task</code>
+</td>
 <td>
 <code>str | None</code>
 </td>
@@ -1792,7 +1792,9 @@ model name from Ultralytics HUB, or a Triton Server model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>verbose</code></td>
+<td>
+<code>verbose</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -2010,7 +2012,7 @@ applicable only to models that are instances of nn.Module.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.device">device</span></code>
+<code>device</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2258,9 +2260,11 @@ directly with the required arguments.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>source</code></td>
 <td>
-<code>str | <span title="pathlib.Path">Path</span> | int | <span title="PIL.Image">Image</span> | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span> | <span title="typing.List">List</span> | Tuple</code>
+<code>source</code>
+</td>
+<td>
+<code>str | Path | int | Image | ndarray | Tensor | List | Tuple</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2274,7 +2278,9 @@ tensor, or a list/tuple of these.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>stream</code></td>
+<td>
+<code>stream</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -2288,7 +2294,9 @@ tensor, or a list/tuple of these.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Any</code>
 </td>
@@ -2314,7 +2322,7 @@ tensor, or a list/tuple of these.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.List">List</span>[<a class="autorefs autorefs-internal" title="ultralytics.engine.results.Results" href="../results/#ultralytics.engine.results.Results">Results</a>]</code>
+<code>List[Results]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2419,7 +2427,9 @@ behavior of the model at various stages of its lifecycle.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>event</code></td>
+<td>
+<code>event</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -2434,7 +2444,9 @@ by the Ultralytics framework.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>func</code></td>
+<td>
+<code>func</code>
+</td>
 <td>
 <code>Callable</code>
 </td>
@@ -2557,7 +2569,9 @@ defaults, and any additional user-provided keyword arguments.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Any</code>
 </td>
@@ -2751,7 +2765,9 @@ registered callbacks for that event.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>event</code></td>
+<td>
+<code>event</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -2869,9 +2885,11 @@ source. It allows customization of the embedding process through various keyword
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>source</code></td>
 <td>
-<code>str | <span title="pathlib.Path">Path</span> | int | <span title="typing.List">List</span> | Tuple | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>
+<code>source</code>
+</td>
+<td>
+<code>str | Path | int | List | Tuple | ndarray | Tensor</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2884,7 +2902,9 @@ generating embeddings. Can be a file path, URL, PIL image, numpy array, etc.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>stream</code></td>
+<td>
+<code>stream</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -2898,7 +2918,9 @@ generating embeddings. Can be a file path, URL, PIL image, numpy array, etc.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Any</code>
 </td>
@@ -2924,7 +2946,7 @@ generating embeddings. Can be a file path, URL, PIL image, numpy array, etc.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code>List[Tensor]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3055,7 +3077,9 @@ defaults, and any additional arguments provided.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Dict</code>
 </td>
@@ -3355,7 +3379,9 @@ passed. It can control the verbosity of the output and return the information as
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>detailed</code></td>
+<td>
+<code>detailed</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -3369,7 +3395,9 @@ passed. It can control the verbosity of the output and return the information as
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>verbose</code></td>
+<td>
+<code>verbose</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -3395,7 +3423,7 @@ passed. It can control the verbosity of the output and return the information as
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.List">List</span>[str]</code>
+<code>List[str]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3512,7 +3540,9 @@ identifier.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>model</code></td>
+<td>
+<code>model</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -3626,7 +3656,9 @@ parsing its components using urllib.parse.urlsplit().</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>model</code></td>
+<td>
+<code>model</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -3725,7 +3757,7 @@ parsing its components using urllib.parse.urlsplit().</p>
 <h3 class="doc doc-heading" id="ultralytics.engine.model.Model.load">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">load</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">load</span><span class="p">(</span><span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'yolo11n.pt'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">load</span><span class="p">(</span><span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="c1">#39;yolo11n.pt&amp;#39;) -&gt; Model</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Loads parameters from the specified weights file into the model.</p>
@@ -3743,9 +3775,11 @@ name and shape and transfers them to the model.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>weights</code></td>
 <td>
-<code><span title="typing.Union">Union</span>[str, <span title="pathlib.Path">Path</span>]</code>
+<code>weights</code>
+</td>
+<td>
+<code>Union[str, Path]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3769,7 +3803,7 @@ name and shape and transfers them to the model.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><a class="autorefs autorefs-internal" title="ultralytics.engine.model.Model" href="#ultralytics.engine.model.Model">Model</a></code>
+<code>Model</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3894,9 +3928,11 @@ types of image sources and can operate in a streaming mode.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>source</code></td>
 <td>
-<code>str | <span title="pathlib.Path">Path</span> | int | <span title="PIL.Image">Image</span> | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span> | <span title="typing.List">List</span> | Tuple</code>
+<code>source</code>
+</td>
+<td>
+<code>str | Path | int | Image | ndarray | Tensor | List | Tuple</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3910,7 +3946,9 @@ images, numpy arrays, and torch tensors.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>stream</code></td>
+<td>
+<code>stream</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -3924,7 +3962,9 @@ images, numpy arrays, and torch tensors.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>predictor</code></td>
+<td>
+<code>predictor</code>
+</td>
 <td>
 <code>BasePredictor | None</code>
 </td>
@@ -3939,7 +3979,9 @@ If None, the method uses a default predictor.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Any</code>
 </td>
@@ -3965,7 +4007,7 @@ If None, the method uses a default predictor.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.List">List</span>[<a class="autorefs autorefs-internal" title="ultralytics.engine.results.Results" href="../results/#ultralytics.engine.results.Results">Results</a>]</code>
+<code>List[Results]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4207,7 +4249,7 @@ enabling them to be updated during training.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><a class="autorefs autorefs-internal" title="ultralytics.engine.model.Model" href="#ultralytics.engine.model.Model">Model</a></code>
+<code>Model</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4301,7 +4343,7 @@ enabling them to be updated during training.</p>
 <h3 class="doc doc-heading" id="ultralytics.engine.model.Model.save">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">save</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">save</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'saved_model.pt'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">save</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="c1">#39;saved_model.pt&amp;#39;) -&gt; None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Saves the current model state to a file.</p>
@@ -4319,9 +4361,11 @@ the date, Ultralytics version, license information, and a link to the documentat
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>filename</code></td>
 <td>
-<code><span title="typing.Union">Union</span>[str, <span title="pathlib.Path">Path</span>]</code>
+<code>filename</code>
+</td>
+<td>
+<code>Union[str, Path]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4454,9 +4498,11 @@ The method registers trackers if not already present and can persist them betwee
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>source</code></td>
 <td>
-<code><span title="typing.Union">Union</span>[str, <span title="pathlib.Path">Path</span>, int, <span title="typing.List">List</span>, Tuple, <span title="numpy.ndarray">ndarray</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code>source</code>
+</td>
+<td>
+<code>Union[str, Path, int, List, Tuple, ndarray, Tensor]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4469,7 +4515,9 @@ tracking. Can be a file path, URL, or video stream.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>stream</code></td>
+<td>
+<code>stream</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -4483,7 +4531,9 @@ tracking. Can be a file path, URL, or video stream.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>persist</code></td>
+<td>
+<code>persist</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -4497,7 +4547,9 @@ tracking. Can be a file path, URL, or video stream.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Any</code>
 </td>
@@ -4523,7 +4575,7 @@ tracking. Can be a file path, URL, or video stream.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.List">List</span>[<a class="autorefs autorefs-internal" title="ultralytics.engine.results.Results" href="../results/#ultralytics.engine.results.Results">Results</a>]</code>
+<code>List[Results]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4691,7 +4743,9 @@ configurations, method-specific defaults, and user-provided arguments to configu
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>trainer</code></td>
+<td>
+<code>trainer</code>
+</td>
 <td>
 <code>BaseTrainer | None</code>
 </td>
@@ -4705,7 +4759,9 @@ configurations, method-specific defaults, and user-provided arguments to configu
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Any</code>
 </td>
@@ -4972,7 +5028,9 @@ custom arguments to configure the tuning process.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>use_ray</code></td>
+<td>
+<code>use_ray</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -4986,7 +5044,9 @@ custom arguments to configure the tuning process.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>iterations</code></td>
+<td>
+<code>iterations</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -5000,9 +5060,11 @@ custom arguments to configure the tuning process.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>*args</code></td>
 <td>
-<code><span title="typing.List">List</span></code>
+<code>*args</code>
+</td>
+<td>
+<code>List</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5014,7 +5076,9 @@ custom arguments to configure the tuning process.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Dict</code>
 </td>
@@ -5190,9 +5254,11 @@ configurations, method-specific defaults, and user-provided arguments to configu
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>validator</code></td>
 <td>
-<code><a class="autorefs autorefs-internal" title="ultralytics.engine.validator.BaseValidator" href="../validator/#ultralytics.engine.validator.BaseValidator">BaseValidator</a> | None</code>
+<code>validator</code>
+</td>
+<td>
+<code>BaseValidator | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5205,7 +5271,9 @@ validating the model.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Any</code>
 </td>
@@ -5231,7 +5299,7 @@ validating the model.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><a class="autorefs autorefs-internal" title="ultralytics.utils.metrics.DetMetrics" href="../../utils/metrics/#ultralytics.utils.metrics.DetMetrics">DetMetrics</a></code>
+<code>DetMetrics</code>
 </td>
 <td>
 <div class="doc-md-description">

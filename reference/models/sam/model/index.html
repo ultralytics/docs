@@ -1190,11 +1190,11 @@
 <h2 class="doc doc-heading" id="ultralytics.models.sam.model.SAM">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.sam.model.SAM</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">SAM</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">'sam_b.pt'</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">SAM</span><span class="p">(</span><span class="n">model</span><span class="o">=&amp;</span><span class="c1">#39;sam_b.pt&amp;#39;)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="ultralytics.engine.model.Model" href="../../../engine/model/#ultralytics.engine.model.Model">Model</a></code></p>
+              Bases: <code>Model</code></p>
 <p>SAM (Segment Anything Model) interface class for real-time image segmentation tasks.</p>
 <p>This class provides an interface to the Segment Anything Model (SAM) from Ultralytics, designed for
 promptable segmentation with versatility in image analysis. It supports various prompts such as bounding
@@ -1212,7 +1212,7 @@ boxes, points, or labels, and features zero-shot performance capabilities.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.model.SAM.model">model</span></code></td>
 <td>
-<code><span title="torch.nn.Module">Module</span></code>
+<code>Module</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1289,7 +1289,9 @@ boxes, points, or labels, and features zero-shot performance capabilities.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>model</code></td>
+<td>
+<code>model</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -1391,7 +1393,7 @@ boxes, points, or labels, and features zero-shot performance capabilities.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code>Dict[str, Type[<a class="autorefs autorefs-internal" title="ultralytics.models.sam.predict.Predictor" href="../predict/#ultralytics.models.sam.predict.Predictor">Predictor</a>]]</code>
+<code>Dict[str, Type[Predictor]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1434,9 +1436,11 @@ for segmentation tasks.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>source</code></td>
 <td>
-<code>str | <span title="PIL.Image">Image</span> | <span title="numpy.ndarray">ndarray</span> | None</code>
+<code>source</code>
+</td>
+<td>
+<code>str | Image | ndarray | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1449,7 +1453,9 @@ object, or a numpy.ndarray object.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>stream</code></td>
+<td>
+<code>stream</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -1463,7 +1469,9 @@ object, or a numpy.ndarray object.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>bboxes</code></td>
+<td>
+<code>bboxes</code>
+</td>
 <td>
 <code>List[List[float]] | None</code>
 </td>
@@ -1477,7 +1485,9 @@ object, or a numpy.ndarray object.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>points</code></td>
+<td>
+<code>points</code>
+</td>
 <td>
 <code>List[List[float]] | None</code>
 </td>
@@ -1491,7 +1501,9 @@ object, or a numpy.ndarray object.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>labels</code></td>
+<td>
+<code>labels</code>
+</td>
 <td>
 <code>List[int] | None</code>
 </td>
@@ -1505,7 +1517,9 @@ object, or a numpy.ndarray object.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Any</code>
 </td>
@@ -1623,7 +1637,9 @@ parameters, and computational requirements.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>detailed</code></td>
+<td>
+<code>detailed</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -1637,7 +1653,9 @@ parameters, and computational requirements.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>verbose</code></td>
+<td>
+<code>verbose</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -1743,9 +1761,11 @@ parameters, and computational requirements.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>source</code></td>
 <td>
-<code>str | <span title="PIL.Image">Image</span> | <span title="numpy.ndarray">ndarray</span></code>
+<code>source</code>
+</td>
+<td>
+<code>str | Image | ndarray</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1758,7 +1778,9 @@ a numpy.ndarray object.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>stream</code></td>
+<td>
+<code>stream</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -1772,7 +1794,9 @@ a numpy.ndarray object.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>bboxes</code></td>
+<td>
+<code>bboxes</code>
+</td>
 <td>
 <code>List[List[float]] | None</code>
 </td>
@@ -1786,7 +1810,9 @@ a numpy.ndarray object.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>points</code></td>
+<td>
+<code>points</code>
+</td>
 <td>
 <code>List[List[float]] | None</code>
 </td>
@@ -1800,7 +1826,9 @@ a numpy.ndarray object.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>labels</code></td>
+<td>
+<code>labels</code>
+</td>
 <td>
 <code>List[int] | None</code>
 </td>
@@ -1814,7 +1842,9 @@ a numpy.ndarray object.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>**kwargs</code></td>
+<td>
+<code>**kwargs</code>
+</td>
 <td>
 <code>Any</code>
 </td>

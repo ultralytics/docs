@@ -1597,7 +1597,7 @@ average of everything in the model state_dict (parameters and buffers).</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.torch_utils.ModelEMA.update_attr">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">update_attr</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">update_attr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="p">(),</span> <span class="n">exclude</span><span class="o">=</span><span class="p">(</span><span class="s1">'process_group'</span><span class="p">,</span> <span class="s1">'reducer'</span><span class="p">))</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">update_attr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="p">(),</span> <span class="n">exclude</span><span class="o">=</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;process_group&amp;#39;, &amp;#39;reducer&amp;#39;))</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Updates attributes and saves stripped model with optimizer removed.</p>
@@ -1637,7 +1637,9 @@ average of everything in the model state_dict (parameters and buffers).</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>patience</code></td>
+<td>
+<code>patience</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -1698,7 +1700,9 @@ average of everything in the model state_dict (parameters and buffers).</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>epoch</code></td>
+<td>
+<code>epoch</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -1712,7 +1716,9 @@ average of everything in the model state_dict (parameters and buffers).</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>fitness</code></td>
+<td>
+<code>fitness</code>
+</td>
 <td>
 <code>float</code>
 </td>
@@ -1886,7 +1892,7 @@ average of everything in the model state_dict (parameters and buffers).</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.torch_utils.autocast">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.torch_utils.autocast</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">autocast</span><span class="p">(</span><span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'cuda'</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">autocast</span><span class="p">(</span><span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">&amp;</span><span class="c1">#39;cuda&amp;#39;)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Get the appropriate autocast context manager based on PyTorch version and AMP setting.</p>
@@ -1904,7 +1910,9 @@ older and newer versions of PyTorch. It handles the differences in the autocast 
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>enabled</code></td>
+<td>
+<code>enabled</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -1918,7 +1926,9 @@ older and newer versions of PyTorch. It handles the differences in the autocast 
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>device</code></td>
+<td>
+<code>device</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -1944,7 +1954,7 @@ older and newer versions of PyTorch. It handles the differences in the autocast 
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.amp.autocast">autocast</span></code>
+<code>autocast</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2099,7 +2109,7 @@ older and newer versions of PyTorch. It handles the differences in the autocast 
 <h2 class="doc doc-heading" id="ultralytics.utils.torch_utils.select_device">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.torch_utils.select_device</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">select_device</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">select_device</span><span class="p">(</span><span class="n">device</span><span class="o">=&amp;</span><span class="c1">#39;&amp;#39;, batch=0, newline=False, verbose=True)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Selects the appropriate PyTorch device based on the provided arguments.</p>
@@ -2118,9 +2128,11 @@ exception if the requested device(s) are not available.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>device</code></td>
 <td>
-<code>str | <span title="torch.device">device</span></code>
+<code>device</code>
+</td>
+<td>
+<code>str | device</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2134,7 +2146,9 @@ the first available GPU, or CPU if no GPU is available.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>batch</code></td>
+<td>
+<code>batch</code>
+</td>
 <td>
 <code>int</code>
 </td>
@@ -2148,7 +2162,9 @@ the first available GPU, or CPU if no GPU is available.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>newline</code></td>
+<td>
+<code>newline</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -2162,7 +2178,9 @@ the first available GPU, or CPU if no GPU is available.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>verbose</code></td>
+<td>
+<code>verbose</code>
+</td>
 <td>
 <code>bool</code>
 </td>
@@ -2188,7 +2206,7 @@ the first available GPU, or CPU if no GPU is available.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="torch.device">device</span></code>
+<code>device</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3161,9 +3179,7 @@ devices when using multiple GPUs.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.torch_utils.strip_optimizer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.torch_utils.strip_optimizer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">strip_optimizer</span><span class="p">(</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">f</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"best.pt"</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">updates</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">strip_optimizer</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="c1">#39;best.pt&amp;#39;, s: str = &amp;#39;&amp;#39;, updates: dict = None) -&gt; dict</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Strip optimizer from 'f' to finalize training, optionally save as 's'.</p>
@@ -3179,7 +3195,9 @@ devices when using multiple GPUs.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>f</code></td>
+<td>
+<code>f</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -3193,7 +3211,9 @@ devices when using multiple GPUs.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>s</code></td>
+<td>
+<code>s</code>
+</td>
 <td>
 <code>str</code>
 </td>
@@ -3207,7 +3227,9 @@ devices when using multiple GPUs.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code>updates</code></td>
+<td>
+<code>updates</code>
+</td>
 <td>
 <code>dict</code>
 </td>
