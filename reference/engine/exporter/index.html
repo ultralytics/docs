@@ -1917,11 +1917,11 @@
 <p>Appends the given callback.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1175">1175</a></span>
-<span class="normal"><a href="#__codelineno-0-1176">1176</a></span>
-<span class="normal"><a href="#__codelineno-0-1177">1177</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1175" name="__codelineno-0-1175"></a><span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
-<a id="__codelineno-0-1176" name="__codelineno-0-1176"></a><span class="w">    </span><span class="sd">"""Appends the given callback."""</span>
-<a id="__codelineno-0-1177" name="__codelineno-0-1177"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1183">1183</a></span>
+<span class="normal"><a href="#__codelineno-0-1184">1184</a></span>
+<span class="normal"><a href="#__codelineno-0-1185">1185</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1183" name="__codelineno-0-1183"></a><span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+<a id="__codelineno-0-1184" name="__codelineno-0-1184"></a><span class="w">    </span><span class="sd">"""Appends the given callback."""</span>
+<a id="__codelineno-0-1185" name="__codelineno-0-1185"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2129,7 +2129,15 @@
 <span class="normal"><a href="#__codelineno-0-964">964</a></span>
 <span class="normal"><a href="#__codelineno-0-965">965</a></span>
 <span class="normal"><a href="#__codelineno-0-966">966</a></span>
-<span class="normal"><a href="#__codelineno-0-967">967</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-939" name="__codelineno-0-939"></a><span class="nd">@try_export</span>
+<span class="normal"><a href="#__codelineno-0-967">967</a></span>
+<span class="normal"><a href="#__codelineno-0-968">968</a></span>
+<span class="normal"><a href="#__codelineno-0-969">969</a></span>
+<span class="normal"><a href="#__codelineno-0-970">970</a></span>
+<span class="normal"><a href="#__codelineno-0-971">971</a></span>
+<span class="normal"><a href="#__codelineno-0-972">972</a></span>
+<span class="normal"><a href="#__codelineno-0-973">973</a></span>
+<span class="normal"><a href="#__codelineno-0-974">974</a></span>
+<span class="normal"><a href="#__codelineno-0-975">975</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-939" name="__codelineno-0-939"></a><span class="nd">@try_export</span>
 <a id="__codelineno-0-940" name="__codelineno-0-940"></a><span class="k">def</span> <span class="nf">export_edgetpu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tflite_model</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"Edge TPU:"</span><span class="p">)):</span>
 <a id="__codelineno-0-941" name="__codelineno-0-941"></a><span class="w">    </span><span class="sd">"""YOLO Edge TPU export https://coral.ai/docs/edgetpu/models-intro/."""</span>
 <a id="__codelineno-0-942" name="__codelineno-0-942"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> WARNING ⚠️ Edge TPU known bug https://github.com/ultralytics/ultralytics/issues/1185"</span><span class="p">)</span>
@@ -2153,11 +2161,19 @@
 <a id="__codelineno-0-960" name="__codelineno-0-960"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with Edge TPU compiler </span><span class="si">{</span><span class="n">ver</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
 <a id="__codelineno-0-961" name="__codelineno-0-961"></a>    <span class="n">f</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">tflite_model</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".tflite"</span><span class="p">,</span> <span class="s2">"_edgetpu.tflite"</span><span class="p">)</span>  <span class="c1"># Edge TPU model</span>
 <a id="__codelineno-0-962" name="__codelineno-0-962"></a>
-<a id="__codelineno-0-963" name="__codelineno-0-963"></a>    <span class="n">cmd</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'edgetpu_compiler -s -d -k 10 --out_dir "</span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s1">" "</span><span class="si">{</span><span class="n">tflite_model</span><span class="si">}</span><span class="s1">"'</span>
-<a id="__codelineno-0-964" name="__codelineno-0-964"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> running '</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
-<a id="__codelineno-0-965" name="__codelineno-0-965"></a>    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-966" name="__codelineno-0-966"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_add_tflite_metadata</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<a id="__codelineno-0-967" name="__codelineno-0-967"></a>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
+<a id="__codelineno-0-963" name="__codelineno-0-963"></a>    <span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-964" name="__codelineno-0-964"></a>        <span class="s2">"edgetpu_compiler "</span>
+<a id="__codelineno-0-965" name="__codelineno-0-965"></a>        <span class="sa">f</span><span class="s1">'--out_dir "</span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s1">" '</span>
+<a id="__codelineno-0-966" name="__codelineno-0-966"></a>        <span class="s2">"--show_operations "</span>
+<a id="__codelineno-0-967" name="__codelineno-0-967"></a>        <span class="s2">"--search_delegate "</span>
+<a id="__codelineno-0-968" name="__codelineno-0-968"></a>        <span class="s2">"--delegate_search_step 3 "</span>
+<a id="__codelineno-0-969" name="__codelineno-0-969"></a>        <span class="s2">"--timeout_sec 180 "</span>
+<a id="__codelineno-0-970" name="__codelineno-0-970"></a>        <span class="sa">f</span><span class="s1">'"</span><span class="si">{</span><span class="n">tflite_model</span><span class="si">}</span><span class="s1">"'</span>
+<a id="__codelineno-0-971" name="__codelineno-0-971"></a>    <span class="p">)</span>
+<a id="__codelineno-0-972" name="__codelineno-0-972"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> running '</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+<a id="__codelineno-0-973" name="__codelineno-0-973"></a>    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-974" name="__codelineno-0-974"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_add_tflite_metadata</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<a id="__codelineno-0-975" name="__codelineno-0-975"></a>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3149,15 +3165,7 @@
 <p>YOLO TensorFlow.js export.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-969"> 969</a></span>
-<span class="normal"><a href="#__codelineno-0-970"> 970</a></span>
-<span class="normal"><a href="#__codelineno-0-971"> 971</a></span>
-<span class="normal"><a href="#__codelineno-0-972"> 972</a></span>
-<span class="normal"><a href="#__codelineno-0-973"> 973</a></span>
-<span class="normal"><a href="#__codelineno-0-974"> 974</a></span>
-<span class="normal"><a href="#__codelineno-0-975"> 975</a></span>
-<span class="normal"><a href="#__codelineno-0-976"> 976</a></span>
-<span class="normal"><a href="#__codelineno-0-977"> 977</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-977"> 977</a></span>
 <span class="normal"><a href="#__codelineno-0-978"> 978</a></span>
 <span class="normal"><a href="#__codelineno-0-979"> 979</a></span>
 <span class="normal"><a href="#__codelineno-0-980"> 980</a></span>
@@ -3183,41 +3191,49 @@
 <span class="normal"><a href="#__codelineno-0-1000">1000</a></span>
 <span class="normal"><a href="#__codelineno-0-1001">1001</a></span>
 <span class="normal"><a href="#__codelineno-0-1002">1002</a></span>
-<span class="normal"><a href="#__codelineno-0-1003">1003</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-969" name="__codelineno-0-969"></a><span class="nd">@try_export</span>
-<a id="__codelineno-0-970" name="__codelineno-0-970"></a><span class="k">def</span> <span class="nf">export_tfjs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorFlow.js:"</span><span class="p">)):</span>
-<a id="__codelineno-0-971" name="__codelineno-0-971"></a><span class="w">    </span><span class="sd">"""YOLO TensorFlow.js export."""</span>
-<a id="__codelineno-0-972" name="__codelineno-0-972"></a>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"tensorflowjs"</span><span class="p">)</span>
-<a id="__codelineno-0-973" name="__codelineno-0-973"></a>    <span class="k">if</span> <span class="n">ARM64</span><span class="p">:</span>
-<a id="__codelineno-0-974" name="__codelineno-0-974"></a>        <span class="c1"># Fix error: `np.object` was a deprecated alias for the builtin `object` when exporting to TF.js on ARM64</span>
-<a id="__codelineno-0-975" name="__codelineno-0-975"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"numpy==1.23.5"</span><span class="p">)</span>
-<a id="__codelineno-0-976" name="__codelineno-0-976"></a>    <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<a id="__codelineno-0-977" name="__codelineno-0-977"></a>    <span class="kn">import</span> <span class="nn">tensorflowjs</span> <span class="k">as</span> <span class="nn">tfjs</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-978" name="__codelineno-0-978"></a>
-<a id="__codelineno-0-979" name="__codelineno-0-979"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with tensorflowjs </span><span class="si">{</span><span class="n">tfjs</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
-<a id="__codelineno-0-980" name="__codelineno-0-980"></a>    <span class="n">f</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">suffix</span><span class="p">,</span> <span class="s2">"_web_model"</span><span class="p">)</span>  <span class="c1"># js dir</span>
-<a id="__codelineno-0-981" name="__codelineno-0-981"></a>    <span class="n">f_pb</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".pb"</span><span class="p">))</span>  <span class="c1"># *.pb path</span>
-<a id="__codelineno-0-982" name="__codelineno-0-982"></a>
-<a id="__codelineno-0-983" name="__codelineno-0-983"></a>    <span class="n">gd</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span><span class="o">.</span><span class="n">as_graph_def</span><span class="p">()</span>  <span class="c1"># TF GraphDef</span>
-<a id="__codelineno-0-984" name="__codelineno-0-984"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f_pb</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-<a id="__codelineno-0-985" name="__codelineno-0-985"></a>        <span class="n">gd</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-<a id="__codelineno-0-986" name="__codelineno-0-986"></a>    <span class="n">outputs</span> <span class="o">=</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gd_outputs</span><span class="p">(</span><span class="n">gd</span><span class="p">))</span>
-<a id="__codelineno-0-987" name="__codelineno-0-987"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> output node names: </span><span class="si">{</span><span class="n">outputs</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-988" name="__codelineno-0-988"></a>
-<a id="__codelineno-0-989" name="__codelineno-0-989"></a>    <span class="n">quantization</span> <span class="o">=</span> <span class="s2">"--quantize_float16"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">half</span> <span class="k">else</span> <span class="s2">"--quantize_uint8"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">int8</span> <span class="k">else</span> <span class="s2">""</span>
-<a id="__codelineno-0-990" name="__codelineno-0-990"></a>    <span class="k">with</span> <span class="n">spaces_in_path</span><span class="p">(</span><span class="n">f_pb</span><span class="p">)</span> <span class="k">as</span> <span class="n">fpb_</span><span class="p">,</span> <span class="n">spaces_in_path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_</span><span class="p">:</span>  <span class="c1"># exporter can not handle spaces in path</span>
-<a id="__codelineno-0-991" name="__codelineno-0-991"></a>        <span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-992" name="__codelineno-0-992"></a>            <span class="s2">"tensorflowjs_converter "</span>
-<a id="__codelineno-0-993" name="__codelineno-0-993"></a>            <span class="sa">f</span><span class="s1">'--input_format=tf_frozen_model </span><span class="si">{</span><span class="n">quantization</span><span class="si">}</span><span class="s1"> --output_node_names=</span><span class="si">{</span><span class="n">outputs</span><span class="si">}</span><span class="s1"> "</span><span class="si">{</span><span class="n">fpb_</span><span class="si">}</span><span class="s1">" "</span><span class="si">{</span><span class="n">f_</span><span class="si">}</span><span class="s1">"'</span>
-<a id="__codelineno-0-994" name="__codelineno-0-994"></a>        <span class="p">)</span>
-<a id="__codelineno-0-995" name="__codelineno-0-995"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> running '</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
-<a id="__codelineno-0-996" name="__codelineno-0-996"></a>        <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-997" name="__codelineno-0-997"></a>
-<a id="__codelineno-0-998" name="__codelineno-0-998"></a>    <span class="k">if</span> <span class="s2">" "</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-0-999" name="__codelineno-0-999"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> WARNING ⚠️ your model may not work correctly with spaces in path '</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
-<a id="__codelineno-0-1000" name="__codelineno-0-1000"></a>
-<a id="__codelineno-0-1001" name="__codelineno-0-1001"></a>    <span class="c1"># Add metadata</span>
-<a id="__codelineno-0-1002" name="__codelineno-0-1002"></a>    <span class="n">yaml_save</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"metadata.yaml"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>  <span class="c1"># add metadata.yaml</span>
-<a id="__codelineno-0-1003" name="__codelineno-0-1003"></a>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
+<span class="normal"><a href="#__codelineno-0-1003">1003</a></span>
+<span class="normal"><a href="#__codelineno-0-1004">1004</a></span>
+<span class="normal"><a href="#__codelineno-0-1005">1005</a></span>
+<span class="normal"><a href="#__codelineno-0-1006">1006</a></span>
+<span class="normal"><a href="#__codelineno-0-1007">1007</a></span>
+<span class="normal"><a href="#__codelineno-0-1008">1008</a></span>
+<span class="normal"><a href="#__codelineno-0-1009">1009</a></span>
+<span class="normal"><a href="#__codelineno-0-1010">1010</a></span>
+<span class="normal"><a href="#__codelineno-0-1011">1011</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-977" name="__codelineno-0-977"></a><span class="nd">@try_export</span>
+<a id="__codelineno-0-978" name="__codelineno-0-978"></a><span class="k">def</span> <span class="nf">export_tfjs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorFlow.js:"</span><span class="p">)):</span>
+<a id="__codelineno-0-979" name="__codelineno-0-979"></a><span class="w">    </span><span class="sd">"""YOLO TensorFlow.js export."""</span>
+<a id="__codelineno-0-980" name="__codelineno-0-980"></a>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"tensorflowjs"</span><span class="p">)</span>
+<a id="__codelineno-0-981" name="__codelineno-0-981"></a>    <span class="k">if</span> <span class="n">ARM64</span><span class="p">:</span>
+<a id="__codelineno-0-982" name="__codelineno-0-982"></a>        <span class="c1"># Fix error: `np.object` was a deprecated alias for the builtin `object` when exporting to TF.js on ARM64</span>
+<a id="__codelineno-0-983" name="__codelineno-0-983"></a>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"numpy==1.23.5"</span><span class="p">)</span>
+<a id="__codelineno-0-984" name="__codelineno-0-984"></a>    <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<a id="__codelineno-0-985" name="__codelineno-0-985"></a>    <span class="kn">import</span> <span class="nn">tensorflowjs</span> <span class="k">as</span> <span class="nn">tfjs</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-986" name="__codelineno-0-986"></a>
+<a id="__codelineno-0-987" name="__codelineno-0-987"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with tensorflowjs </span><span class="si">{</span><span class="n">tfjs</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
+<a id="__codelineno-0-988" name="__codelineno-0-988"></a>    <span class="n">f</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">suffix</span><span class="p">,</span> <span class="s2">"_web_model"</span><span class="p">)</span>  <span class="c1"># js dir</span>
+<a id="__codelineno-0-989" name="__codelineno-0-989"></a>    <span class="n">f_pb</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".pb"</span><span class="p">))</span>  <span class="c1"># *.pb path</span>
+<a id="__codelineno-0-990" name="__codelineno-0-990"></a>
+<a id="__codelineno-0-991" name="__codelineno-0-991"></a>    <span class="n">gd</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span><span class="o">.</span><span class="n">as_graph_def</span><span class="p">()</span>  <span class="c1"># TF GraphDef</span>
+<a id="__codelineno-0-992" name="__codelineno-0-992"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f_pb</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-0-993" name="__codelineno-0-993"></a>        <span class="n">gd</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<a id="__codelineno-0-994" name="__codelineno-0-994"></a>    <span class="n">outputs</span> <span class="o">=</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gd_outputs</span><span class="p">(</span><span class="n">gd</span><span class="p">))</span>
+<a id="__codelineno-0-995" name="__codelineno-0-995"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> output node names: </span><span class="si">{</span><span class="n">outputs</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-996" name="__codelineno-0-996"></a>
+<a id="__codelineno-0-997" name="__codelineno-0-997"></a>    <span class="n">quantization</span> <span class="o">=</span> <span class="s2">"--quantize_float16"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">half</span> <span class="k">else</span> <span class="s2">"--quantize_uint8"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">int8</span> <span class="k">else</span> <span class="s2">""</span>
+<a id="__codelineno-0-998" name="__codelineno-0-998"></a>    <span class="k">with</span> <span class="n">spaces_in_path</span><span class="p">(</span><span class="n">f_pb</span><span class="p">)</span> <span class="k">as</span> <span class="n">fpb_</span><span class="p">,</span> <span class="n">spaces_in_path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_</span><span class="p">:</span>  <span class="c1"># exporter can not handle spaces in path</span>
+<a id="__codelineno-0-999" name="__codelineno-0-999"></a>        <span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-1000" name="__codelineno-0-1000"></a>            <span class="s2">"tensorflowjs_converter "</span>
+<a id="__codelineno-0-1001" name="__codelineno-0-1001"></a>            <span class="sa">f</span><span class="s1">'--input_format=tf_frozen_model </span><span class="si">{</span><span class="n">quantization</span><span class="si">}</span><span class="s1"> --output_node_names=</span><span class="si">{</span><span class="n">outputs</span><span class="si">}</span><span class="s1"> "</span><span class="si">{</span><span class="n">fpb_</span><span class="si">}</span><span class="s1">" "</span><span class="si">{</span><span class="n">f_</span><span class="si">}</span><span class="s1">"'</span>
+<a id="__codelineno-0-1002" name="__codelineno-0-1002"></a>        <span class="p">)</span>
+<a id="__codelineno-0-1003" name="__codelineno-0-1003"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> running '</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+<a id="__codelineno-0-1004" name="__codelineno-0-1004"></a>        <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-1005" name="__codelineno-0-1005"></a>
+<a id="__codelineno-0-1006" name="__codelineno-0-1006"></a>    <span class="k">if</span> <span class="s2">" "</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-0-1007" name="__codelineno-0-1007"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> WARNING ⚠️ your model may not work correctly with spaces in path '</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-1008" name="__codelineno-0-1008"></a>
+<a id="__codelineno-0-1009" name="__codelineno-0-1009"></a>    <span class="c1"># Add metadata</span>
+<a id="__codelineno-0-1010" name="__codelineno-0-1010"></a>    <span class="n">yaml_save</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"metadata.yaml"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>  <span class="c1"># add metadata.yaml</span>
+<a id="__codelineno-0-1011" name="__codelineno-0-1011"></a>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3369,13 +3385,13 @@
 <p>Execute all callbacks for a given event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1179">1179</a></span>
-<span class="normal"><a href="#__codelineno-0-1180">1180</a></span>
-<span class="normal"><a href="#__codelineno-0-1181">1181</a></span>
-<span class="normal"><a href="#__codelineno-0-1182">1182</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1179" name="__codelineno-0-1179"></a><span class="k">def</span> <span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-0-1180" name="__codelineno-0-1180"></a><span class="w">    </span><span class="sd">"""Execute all callbacks for a given event."""</span>
-<a id="__codelineno-0-1181" name="__codelineno-0-1181"></a>    <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="p">[]):</span>
-<a id="__codelineno-0-1182" name="__codelineno-0-1182"></a>        <span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1187">1187</a></span>
+<span class="normal"><a href="#__codelineno-0-1188">1188</a></span>
+<span class="normal"><a href="#__codelineno-0-1189">1189</a></span>
+<span class="normal"><a href="#__codelineno-0-1190">1190</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1187" name="__codelineno-0-1187"></a><span class="k">def</span> <span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-0-1188" name="__codelineno-0-1188"></a><span class="w">    </span><span class="sd">"""Execute all callbacks for a given event."""</span>
+<a id="__codelineno-0-1189" name="__codelineno-0-1189"></a>    <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="p">[]):</span>
+<a id="__codelineno-0-1190" name="__codelineno-0-1190"></a>        <span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3395,25 +3411,25 @@
 <p>Wrap an Ultralytics YOLO model for Apple iOS CoreML export.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1188">1188</a></span>
-<span class="normal"><a href="#__codelineno-0-1189">1189</a></span>
-<span class="normal"><a href="#__codelineno-0-1190">1190</a></span>
-<span class="normal"><a href="#__codelineno-0-1191">1191</a></span>
-<span class="normal"><a href="#__codelineno-0-1192">1192</a></span>
-<span class="normal"><a href="#__codelineno-0-1193">1193</a></span>
-<span class="normal"><a href="#__codelineno-0-1194">1194</a></span>
-<span class="normal"><a href="#__codelineno-0-1195">1195</a></span>
-<span class="normal"><a href="#__codelineno-0-1196">1196</a></span>
-<span class="normal"><a href="#__codelineno-0-1197">1197</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1188" name="__codelineno-0-1188"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
-<a id="__codelineno-0-1189" name="__codelineno-0-1189"></a><span class="w">    </span><span class="sd">"""Initialize the IOSDetectModel class with a YOLO model and example image."""</span>
-<a id="__codelineno-0-1190" name="__codelineno-0-1190"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-1191" name="__codelineno-0-1191"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># batch, channel, height, width</span>
-<a id="__codelineno-0-1192" name="__codelineno-0-1192"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
-<a id="__codelineno-0-1193" name="__codelineno-0-1193"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>  <span class="c1"># number of classes</span>
-<a id="__codelineno-0-1194" name="__codelineno-0-1194"></a>    <span class="k">if</span> <span class="n">w</span> <span class="o">==</span> <span class="n">h</span><span class="p">:</span>
-<a id="__codelineno-0-1195" name="__codelineno-0-1195"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">w</span>  <span class="c1"># scalar</span>
-<a id="__codelineno-0-1196" name="__codelineno-0-1196"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-1197" name="__codelineno-0-1197"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">w</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">w</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span><span class="p">])</span>  <span class="c1"># broadcast (slower, smaller)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1196">1196</a></span>
+<span class="normal"><a href="#__codelineno-0-1197">1197</a></span>
+<span class="normal"><a href="#__codelineno-0-1198">1198</a></span>
+<span class="normal"><a href="#__codelineno-0-1199">1199</a></span>
+<span class="normal"><a href="#__codelineno-0-1200">1200</a></span>
+<span class="normal"><a href="#__codelineno-0-1201">1201</a></span>
+<span class="normal"><a href="#__codelineno-0-1202">1202</a></span>
+<span class="normal"><a href="#__codelineno-0-1203">1203</a></span>
+<span class="normal"><a href="#__codelineno-0-1204">1204</a></span>
+<span class="normal"><a href="#__codelineno-0-1205">1205</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1196" name="__codelineno-0-1196"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<a id="__codelineno-0-1197" name="__codelineno-0-1197"></a><span class="w">    </span><span class="sd">"""Initialize the IOSDetectModel class with a YOLO model and example image."""</span>
+<a id="__codelineno-0-1198" name="__codelineno-0-1198"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-1199" name="__codelineno-0-1199"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># batch, channel, height, width</span>
+<a id="__codelineno-0-1200" name="__codelineno-0-1200"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+<a id="__codelineno-0-1201" name="__codelineno-0-1201"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>  <span class="c1"># number of classes</span>
+<a id="__codelineno-0-1202" name="__codelineno-0-1202"></a>    <span class="k">if</span> <span class="n">w</span> <span class="o">==</span> <span class="n">h</span><span class="p">:</span>
+<a id="__codelineno-0-1203" name="__codelineno-0-1203"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">w</span>  <span class="c1"># scalar</span>
+<a id="__codelineno-0-1204" name="__codelineno-0-1204"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-1205" name="__codelineno-0-1205"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">w</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">w</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">h</span><span class="p">])</span>  <span class="c1"># broadcast (slower, smaller)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -3427,13 +3443,13 @@
 <p>Normalize predictions of object detection model with input size-dependent factors.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1199">1199</a></span>
-<span class="normal"><a href="#__codelineno-0-1200">1200</a></span>
-<span class="normal"><a href="#__codelineno-0-1201">1201</a></span>
-<span class="normal"><a href="#__codelineno-0-1202">1202</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1199" name="__codelineno-0-1199"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a id="__codelineno-0-1200" name="__codelineno-0-1200"></a><span class="w">    </span><span class="sd">"""Normalize predictions of object detection model with input size-dependent factors."""</span>
-<a id="__codelineno-0-1201" name="__codelineno-0-1201"></a>    <span class="n">xywh</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-1202" name="__codelineno-0-1202"></a>    <span class="k">return</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">xywh</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span>  <span class="c1"># confidence (3780, 80), coordinates (3780, 4)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1207">1207</a></span>
+<span class="normal"><a href="#__codelineno-0-1208">1208</a></span>
+<span class="normal"><a href="#__codelineno-0-1209">1209</a></span>
+<span class="normal"><a href="#__codelineno-0-1210">1210</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1207" name="__codelineno-0-1207"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-0-1208" name="__codelineno-0-1208"></a><span class="w">    </span><span class="sd">"""Normalize predictions of object detection model with input size-dependent factors."""</span>
+<a id="__codelineno-0-1209" name="__codelineno-0-1209"></a>    <span class="n">xywh</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-1210" name="__codelineno-0-1210"></a>    <span class="k">return</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">xywh</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span>  <span class="c1"># confidence (3780, 80), coordinates (3780, 4)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
