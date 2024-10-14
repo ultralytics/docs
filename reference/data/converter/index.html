@@ -1640,7 +1640,14 @@ For details see <a href="https://tech.amikelive.com/node-718/what-object-categor
 <h2 class="doc doc-heading" id="ultralytics.data.converter.convert_coco">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.data.converter.convert_coco</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=&amp;</span><span class="c1">#39;../coco/annotations/&amp;#39;, save_dir=&amp;#39;coco_converted/&amp;#39;, use_segments=False, use_keypoints=False, cls91to80=True, lvis=False)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">convert_coco</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">labels_dir</span><span class="o">=</span><span class="s2">"../coco/annotations/"</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">save_dir</span><span class="o">=</span><span class="s2">"coco_converted/"</span><span class="p">,</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">use_segments</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">use_keypoints</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">cls91to80</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">lvis</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Converts COCO dataset annotations to a YOLO annotation format  suitable for training YOLO models.</p>
@@ -2786,7 +2793,7 @@ This function connects these coordinates with a thin line to merge all segments 
 <h2 class="doc doc-heading" id="ultralytics.data.converter.yolo_bbox2segment">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.data.converter.yolo_bbox2segment</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">yolo_bbox2segment</span><span class="p">(</span><span class="n">im_dir</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=&amp;</span><span class="c1">#39;sam_b.pt&amp;#39;)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">yolo_bbox2segment</span><span class="p">(</span><span class="n">im_dir</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s1">'sam_b.pt'</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Converts existing object detection dataset (bounding boxes) to segmentation dataset or oriented bounding box (OBB)

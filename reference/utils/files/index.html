@@ -1516,7 +1516,7 @@ file/directory back to its original location.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.files.increment_path">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.files.increment_path</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">increment_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=&amp;</span><span class="c1">#39;&amp;#39;, mkdir=False)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">increment_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">mkdir</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Increments a file or directory path, i.e., runs/exp --&gt; runs/exp{sep}2, runs/exp{sep}3, ... etc.</p>
@@ -1814,7 +1814,7 @@ directory if it does not already exist.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.files.get_latest_run">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.files.get_latest_run</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">get_latest_run</span><span class="p">(</span><span class="n">search_dir</span><span class="o">=&amp;</span><span class="c1">#39;.&amp;#39;)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">get_latest_run</span><span class="p">(</span><span class="n">search_dir</span><span class="o">=</span><span class="s1">'.'</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Returns the path to the most recent 'last.pt' file in the specified directory for resuming training.</p>
@@ -1835,7 +1835,9 @@ directory if it does not already exist.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.files.update_models">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.files.update_models</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">update_models</span><span class="p">(</span><span class="n">model_names</span><span class="o">=</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;yolo11n.pt&amp;#39;), source_dir=Path(&amp;#39;.&amp;#39;), update_names=False)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">update_models</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">model_names</span><span class="o">=</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">),</span> <span class="n">source_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">update_names</span><span class="o">=</span><span class="kc">False</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Updates and re-saves specified YOLO models in an 'updated_models' subdirectory.</p>

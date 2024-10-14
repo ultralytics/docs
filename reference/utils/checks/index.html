@@ -1409,7 +1409,7 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.parse_requirements">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.parse_requirements</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">parse_requirements</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="o">&amp;</span><span class="c1">#39;requirements.txt&amp;#39;, package=&amp;#39;&amp;#39;)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">parse_requirements</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">'requirements.txt'</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Parse a requirements.txt file, ignoring lines that start with '#' and any text after '#'.</p>
@@ -1561,7 +1561,7 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.parse_version">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.parse_version</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">parse_version</span><span class="p">(</span><span class="n">version</span><span class="o">=&amp;</span><span class="c1">#39;0.0.0&amp;#39;) -&gt; tuple</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">parse_version</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s1">'0.0.0'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Convert a version string to a tuple of integers, ignoring any extra non-numeric string attached to the version. This
@@ -1982,7 +1982,14 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_version">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_version</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_version</span><span class="p">(</span><span class="n">current</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">&amp;</span><span class="c1">#39;0.0.0&amp;#39;, required: str = &amp;#39;0.0.0&amp;#39;, name: str = &amp;#39;version&amp;#39;, hard: bool = False, verbose: bool = False, msg: str = &amp;#39;&amp;#39;) -&gt; bool</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_version</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">current</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"0.0.0"</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">required</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"0.0.0"</span><span class="p">,</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"version"</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">hard</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Check current version against the required version or range.</p>
@@ -2316,7 +2323,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_latest_pypi_version">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_latest_pypi_version</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_latest_pypi_version</span><span class="p">(</span><span class="n">package_name</span><span class="o">=&amp;</span><span class="c1">#39;ultralytics&amp;#39;)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_latest_pypi_version</span><span class="p">(</span><span class="n">package_name</span><span class="o">=</span><span class="s1">'ultralytics'</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Returns the latest version of a PyPI package without downloading or installing it.</p>
@@ -2489,7 +2496,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_font">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_font</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_font</span><span class="p">(</span><span class="n">font</span><span class="o">=&amp;</span><span class="c1">#39;Arial.ttf&amp;#39;)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_font</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="s1">'Arial.ttf'</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Find font locally or download to user's configuration directory if it does not already exist.</p>
@@ -2610,7 +2617,9 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_python">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_python</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_python</span><span class="p">(</span><span class="n">minimum</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">&amp;</span><span class="c1">#39;3.8.0&amp;#39;, hard: bool = True, verbose: bool = True) -&gt; bool</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_python</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">minimum</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"3.8.0"</span><span class="p">,</span> <span class="n">hard</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Check current python version against the required minimum version.</p>
@@ -2731,7 +2740,12 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_requirements">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_requirements</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_requirements</span><span class="p">(</span><span class="n">requirements</span><span class="o">=</span><span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="o">&amp;</span><span class="c1">#39;requirements.txt&amp;#39;, exclude=(), install=True, cmds=&amp;#39;&amp;#39;)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_requirements</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">requirements</span><span class="o">=</span><span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"requirements.txt"</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">exclude</span><span class="o">=</span><span class="p">(),</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">install</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">cmds</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Check if installed dependencies meet YOLOv8 requirements and attempt to auto-update if needed.</p>
@@ -3062,7 +3076,7 @@ Torchvision versions.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_suffix">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_suffix</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_suffix</span><span class="p">(</span><span class="n">file</span><span class="o">=&amp;</span><span class="c1">#39;yolo11n.pt&amp;#39;, suffix=&amp;#39;.pt&amp;#39;, msg=&amp;#39;&amp;#39;)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_suffix</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">'yolo11n.pt'</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s1">'.pt'</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Check file(s) for acceptable suffix.</p>
@@ -3140,7 +3154,7 @@ Torchvision versions.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_model_file_from_stem">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_model_file_from_stem</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_model_file_from_stem</span><span class="p">(</span><span class="n">model</span><span class="o">=&amp;</span><span class="c1">#39;yolov8n&amp;#39;)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_model_file_from_stem</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s1">'yolov8n'</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Return a model filename from a valid model stem.</p>
@@ -3165,7 +3179,7 @@ Torchvision versions.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_file">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_file</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=&amp;</span><span class="c1">#39;&amp;#39;, download=True, download_dir=&amp;#39;.&amp;#39;, hard=True)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="s1">'.'</span><span class="p">,</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Search/download file (if necessary) and return path.</p>
@@ -3230,7 +3244,7 @@ Torchvision versions.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_yaml">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_yaml</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_yaml</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;.yaml&amp;#39;, &amp;#39;.yml&amp;#39;), hard=True)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_yaml</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="p">(</span><span class="s1">'.yaml'</span><span class="p">,</span> <span class="s1">'.yml'</span><span class="p">),</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Search/download YAML file (if necessary) and return path, checking suffix.</p>
@@ -3401,7 +3415,7 @@ Torchvision versions.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_yolo">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_yolo</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_yolo</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=&amp;</span><span class="c1">#39;&amp;#39;)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_yolo</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Return a human-readable YOLO software and hardware summary.</p>
