@@ -11,9 +11,9 @@
 <link href="../callbacks/wb/" rel="prev"/>
 <link href="../dist/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.5.40" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.41" name="generator"/>
 <title>checks - Ultralytics YOLO Docs</title>
-<link href="../../../assets/stylesheets/main.8c3ca2c6.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -2410,7 +2410,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <a id="__codelineno-0-277" name="__codelineno-0-277"></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"https://pypi.org/pypi/</span><span class="si">{</span><span class="n">package_name</span><span class="si">}</span><span class="s2">/json"</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <a id="__codelineno-0-278" name="__codelineno-0-278"></a>        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
 <a id="__codelineno-0-279" name="__codelineno-0-279"></a>            <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">"info"</span><span class="p">][</span><span class="s2">"version"</span><span class="p">]</span>
-<a id="__codelineno-0-280" name="__codelineno-0-280"></a>    <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa E722</span>
+<a id="__codelineno-0-280" name="__codelineno-0-280"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
 <a id="__codelineno-0-281" name="__codelineno-0-281"></a>        <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2485,7 +2485,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <a id="__codelineno-0-299" name="__codelineno-0-299"></a>                    <span class="sa">f</span><span class="s2">"Update with 'pip install -U ultralytics'"</span>
 <a id="__codelineno-0-300" name="__codelineno-0-300"></a>                <span class="p">)</span>
 <a id="__codelineno-0-301" name="__codelineno-0-301"></a>                <span class="k">return</span> <span class="kc">True</span>
-<a id="__codelineno-0-302" name="__codelineno-0-302"></a>        <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa E722</span>
+<a id="__codelineno-0-302" name="__codelineno-0-302"></a>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
 <a id="__codelineno-0-303" name="__codelineno-0-303"></a>            <span class="k">pass</span>
 <a id="__codelineno-0-304" name="__codelineno-0-304"></a>    <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
@@ -3814,7 +3814,7 @@ during training.</p>
 <a id="__codelineno-0-715" name="__codelineno-0-715"></a><span class="w">    </span><span class="sd">"""Return human-readable git description, i.e. v5.0-5-g3e25f1e https://git-scm.com/docs/git-describe."""</span>
 <a id="__codelineno-0-716" name="__codelineno-0-716"></a>    <span class="k">try</span><span class="p">:</span>
 <a id="__codelineno-0-717" name="__codelineno-0-717"></a>        <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="sa">f</span><span class="s2">"git -C </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> describe --tags --long --always"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-718" name="__codelineno-0-718"></a>    <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa E722</span>
+<a id="__codelineno-0-718" name="__codelineno-0-718"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
 <a id="__codelineno-0-719" name="__codelineno-0-719"></a>        <span class="k">return</span> <span class="s2">""</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -4118,7 +4118,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+<script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 </body>
 </html>

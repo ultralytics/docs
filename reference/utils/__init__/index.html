@@ -11,9 +11,9 @@
 <link href="../../trackers/utils/matching/" rel="prev"/>
 <link href="../autobatch/" rel="next"/>
 <link href="../../../assets/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.5.40" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.41" name="generator"/>
 <title>__init__ - Ultralytics YOLO Docs</title>
-<link href="../../../assets/stylesheets/main.8c3ca2c6.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -4012,7 +4012,7 @@ is_raspberrypi().</p>
 <a id="__codelineno-0-526" name="__codelineno-0-526"></a>    <span class="k">try</span><span class="p">:</span>
 <a id="__codelineno-0-527" name="__codelineno-0-527"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/proc/device-tree/model"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <a id="__codelineno-0-528" name="__codelineno-0-528"></a>            <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a id="__codelineno-0-529" name="__codelineno-0-529"></a>    <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa E722</span>
+<a id="__codelineno-0-529" name="__codelineno-0-529"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
 <a id="__codelineno-0-530" name="__codelineno-0-530"></a>        <span class="k">return</span> <span class="s2">""</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -4278,7 +4278,7 @@ is_raspberrypi().</p>
 <a id="__codelineno-0-584" name="__codelineno-0-584"></a>    <span class="k">try</span><span class="p">:</span>
 <a id="__codelineno-0-585" name="__codelineno-0-585"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/proc/self/cgroup"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <a id="__codelineno-0-586" name="__codelineno-0-586"></a>            <span class="k">return</span> <span class="s2">"docker"</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a id="__codelineno-0-587" name="__codelineno-0-587"></a>    <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa E722</span>
+<a id="__codelineno-0-587" name="__codelineno-0-587"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
 <a id="__codelineno-0-588" name="__codelineno-0-588"></a>        <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -4447,7 +4447,7 @@ information.</p>
 <a id="__codelineno-0-623" name="__codelineno-0-623"></a>        <span class="k">for</span> <span class="n">dns</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"1.1.1.1"</span><span class="p">,</span> <span class="s2">"8.8.8.8"</span><span class="p">):</span>  <span class="c1"># check Cloudflare and Google DNS</span>
 <a id="__codelineno-0-624" name="__codelineno-0-624"></a>            <span class="n">socket</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="p">(</span><span class="n">dns</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <a id="__codelineno-0-625" name="__codelineno-0-625"></a>            <span class="k">return</span> <span class="kc">True</span>
-<a id="__codelineno-0-626" name="__codelineno-0-626"></a>    <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa E722</span>
+<a id="__codelineno-0-626" name="__codelineno-0-626"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
 <a id="__codelineno-0-627" name="__codelineno-0-627"></a>        <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -5948,7 +5948,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+<script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 </body>
 </html>
