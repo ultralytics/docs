@@ -2262,10 +2262,12 @@ messages for mismatched keys.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">merge_equals_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Merges arguments around isolated '=' in a list of strings, handling three cases:
-1. ['arg', '=', 'val'] becomes ['arg=val'],
-2. ['arg=', 'val'] becomes ['arg=val'],
-3. ['arg', '=val'] becomes ['arg=val'].</p>
+<p>Merges arguments around isolated '=' in a list of strings and joins fragments with brackets.</p>
+<p>This function handles the following cases:
+1. ['arg', '=', 'val'] becomes ['arg=val']
+2. ['arg=', 'val'] becomes ['arg=val']
+3. ['arg', '=val'] becomes ['arg=val']
+4. Joins fragments with brackets, e.g., ['imgsz=[3,', '640,', '640]'] becomes ['imgsz=[3,640,640]']</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2286,7 +2288,7 @@ messages for mismatched keys.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A list of strings where each element represents an argument.</p>
+<p>A list of strings where each element represents an argument or fragment.</p>
 </div>
 </td>
 <td>
@@ -2310,16 +2312,16 @@ messages for mismatched keys.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A list of strings where the arguments around isolated '=' are merged.</p>
+<p>List[str]: A list of strings where the arguments around isolated '=' are merged and fragments with brackets are joined.</p>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"arg1"</span><span class="p">,</span> <span class="s2">"="</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">,</span> <span class="s2">"arg2="</span><span class="p">,</span> <span class="s2">"value2"</span><span class="p">,</span> <span class="s2">"arg3"</span><span class="p">,</span> <span class="s2">"=value3"</span><span class="p">]</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">merge_equals_args</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">['arg1=value', 'arg2=value2', 'arg3=value3']</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"arg1"</span><span class="p">,</span> <span class="s2">"="</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">,</span> <span class="s2">"arg2="</span><span class="p">,</span> <span class="s2">"value2"</span><span class="p">,</span> <span class="s2">"arg3"</span><span class="p">,</span> <span class="s2">"=value3"</span><span class="p">,</span> <span class="s2">"imgsz=[3,"</span><span class="p">,</span> <span class="s2">"640,"</span><span class="p">,</span> <span class="s2">"640]"</span><span class="p">]</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">merge_and_join_args</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="go">['arg1=value', 'arg2=value2', 'arg3=value3', 'imgsz=[3,640,640]']</span>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
@@ -2353,37 +2355,89 @@ messages for mismatched keys.</p>
 <span class="normal"><a href="#__codelineno-0-466">466</a></span>
 <span class="normal"><a href="#__codelineno-0-467">467</a></span>
 <span class="normal"><a href="#__codelineno-0-468">468</a></span>
-<span class="normal"><a href="#__codelineno-0-469">469</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="k">def</span> <span class="nf">merge_equals_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="normal"><a href="#__codelineno-0-469">469</a></span>
+<span class="normal"><a href="#__codelineno-0-470">470</a></span>
+<span class="normal"><a href="#__codelineno-0-471">471</a></span>
+<span class="normal"><a href="#__codelineno-0-472">472</a></span>
+<span class="normal"><a href="#__codelineno-0-473">473</a></span>
+<span class="normal"><a href="#__codelineno-0-474">474</a></span>
+<span class="normal"><a href="#__codelineno-0-475">475</a></span>
+<span class="normal"><a href="#__codelineno-0-476">476</a></span>
+<span class="normal"><a href="#__codelineno-0-477">477</a></span>
+<span class="normal"><a href="#__codelineno-0-478">478</a></span>
+<span class="normal"><a href="#__codelineno-0-479">479</a></span>
+<span class="normal"><a href="#__codelineno-0-480">480</a></span>
+<span class="normal"><a href="#__codelineno-0-481">481</a></span>
+<span class="normal"><a href="#__codelineno-0-482">482</a></span>
+<span class="normal"><a href="#__codelineno-0-483">483</a></span>
+<span class="normal"><a href="#__codelineno-0-484">484</a></span>
+<span class="normal"><a href="#__codelineno-0-485">485</a></span>
+<span class="normal"><a href="#__codelineno-0-486">486</a></span>
+<span class="normal"><a href="#__codelineno-0-487">487</a></span>
+<span class="normal"><a href="#__codelineno-0-488">488</a></span>
+<span class="normal"><a href="#__codelineno-0-489">489</a></span>
+<span class="normal"><a href="#__codelineno-0-490">490</a></span>
+<span class="normal"><a href="#__codelineno-0-491">491</a></span>
+<span class="normal"><a href="#__codelineno-0-492">492</a></span>
+<span class="normal"><a href="#__codelineno-0-493">493</a></span>
+<span class="normal"><a href="#__codelineno-0-494">494</a></span>
+<span class="normal"><a href="#__codelineno-0-495">495</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="k">def</span> <span class="nf">merge_equals_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <a id="__codelineno-0-440" name="__codelineno-0-440"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-441" name="__codelineno-0-441"></a><span class="sd">    Merges arguments around isolated '=' in a list of strings, handling three cases:</span>
-<a id="__codelineno-0-442" name="__codelineno-0-442"></a><span class="sd">    1. ['arg', '=', 'val'] becomes ['arg=val'],</span>
-<a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="sd">    2. ['arg=', 'val'] becomes ['arg=val'],</span>
-<a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="sd">    3. ['arg', '=val'] becomes ['arg=val'].</span>
-<a id="__codelineno-0-445" name="__codelineno-0-445"></a>
-<a id="__codelineno-0-446" name="__codelineno-0-446"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="sd">        args (List[str]): A list of strings where each element represents an argument.</span>
+<a id="__codelineno-0-441" name="__codelineno-0-441"></a><span class="sd">    Merges arguments around isolated '=' in a list of strings and joins fragments with brackets.</span>
+<a id="__codelineno-0-442" name="__codelineno-0-442"></a>
+<a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="sd">    This function handles the following cases:</span>
+<a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="sd">    1. ['arg', '=', 'val'] becomes ['arg=val']</span>
+<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="sd">    2. ['arg=', 'val'] becomes ['arg=val']</span>
+<a id="__codelineno-0-446" name="__codelineno-0-446"></a><span class="sd">    3. ['arg', '=val'] becomes ['arg=val']</span>
+<a id="__codelineno-0-447" name="__codelineno-0-447"></a><span class="sd">    4. Joins fragments with brackets, e.g., ['imgsz=[3,', '640,', '640]'] becomes ['imgsz=[3,640,640]']</span>
 <a id="__codelineno-0-448" name="__codelineno-0-448"></a>
-<a id="__codelineno-0-449" name="__codelineno-0-449"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-450" name="__codelineno-0-450"></a><span class="sd">        (List[str]): A list of strings where the arguments around isolated '=' are merged.</span>
+<a id="__codelineno-0-449" name="__codelineno-0-449"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-450" name="__codelineno-0-450"></a><span class="sd">        args (List[str]): A list of strings where each element represents an argument or fragment.</span>
 <a id="__codelineno-0-451" name="__codelineno-0-451"></a>
-<a id="__codelineno-0-452" name="__codelineno-0-452"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-453" name="__codelineno-0-453"></a><span class="sd">        &gt;&gt;&gt; args = ["arg1", "=", "value", "arg2=", "value2", "arg3", "=value3"]</span>
-<a id="__codelineno-0-454" name="__codelineno-0-454"></a><span class="sd">        &gt;&gt;&gt; merge_equals_args(args)</span>
-<a id="__codelineno-0-455" name="__codelineno-0-455"></a><span class="sd">        ['arg1=value', 'arg2=value2', 'arg3=value3']</span>
-<a id="__codelineno-0-456" name="__codelineno-0-456"></a><span class="sd">    """</span>
-<a id="__codelineno-0-457" name="__codelineno-0-457"></a>    <span class="n">new_args</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-458" name="__codelineno-0-458"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-<a id="__codelineno-0-459" name="__codelineno-0-459"></a>        <span class="k">if</span> <span class="n">arg</span> <span class="o">==</span> <span class="s2">"="</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># merge ['arg', '=', 'val']</span>
-<a id="__codelineno-0-460" name="__codelineno-0-460"></a>            <span class="n">new_args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"=</span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-461" name="__codelineno-0-461"></a>            <span class="k">del</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-462" name="__codelineno-0-462"></a>        <span class="k">elif</span> <span class="n">arg</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"="</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s2">"="</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>  <span class="c1"># merge ['arg=', 'val']</span>
-<a id="__codelineno-0-463" name="__codelineno-0-463"></a>            <span class="n">new_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">arg</span><span class="si">}{</span><span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-464" name="__codelineno-0-464"></a>            <span class="k">del</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-465" name="__codelineno-0-465"></a>        <span class="k">elif</span> <span class="n">arg</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"="</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># merge ['arg', '=val']</span>
-<a id="__codelineno-0-466" name="__codelineno-0-466"></a>            <span class="n">new_args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">arg</span>
-<a id="__codelineno-0-467" name="__codelineno-0-467"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-468" name="__codelineno-0-468"></a>            <span class="n">new_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-<a id="__codelineno-0-469" name="__codelineno-0-469"></a>    <span class="k">return</span> <span class="n">new_args</span>
+<a id="__codelineno-0-452" name="__codelineno-0-452"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-453" name="__codelineno-0-453"></a><span class="sd">        List[str]: A list of strings where the arguments around isolated '=' are merged and fragments with brackets are joined.</span>
+<a id="__codelineno-0-454" name="__codelineno-0-454"></a>
+<a id="__codelineno-0-455" name="__codelineno-0-455"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-456" name="__codelineno-0-456"></a><span class="sd">        &gt;&gt;&gt; args = ["arg1", "=", "value", "arg2=", "value2", "arg3", "=value3", "imgsz=[3,", "640,", "640]"]</span>
+<a id="__codelineno-0-457" name="__codelineno-0-457"></a><span class="sd">        &gt;&gt;&gt; merge_and_join_args(args)</span>
+<a id="__codelineno-0-458" name="__codelineno-0-458"></a><span class="sd">        ['arg1=value', 'arg2=value2', 'arg3=value3', 'imgsz=[3,640,640]']</span>
+<a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="sd">    """</span>
+<a id="__codelineno-0-460" name="__codelineno-0-460"></a>    <span class="n">new_args</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-461" name="__codelineno-0-461"></a>    <span class="n">current</span> <span class="o">=</span> <span class="s2">""</span>
+<a id="__codelineno-0-462" name="__codelineno-0-462"></a>    <span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-463" name="__codelineno-0-463"></a>
+<a id="__codelineno-0-464" name="__codelineno-0-464"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-465" name="__codelineno-0-465"></a>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<a id="__codelineno-0-466" name="__codelineno-0-466"></a>        <span class="n">arg</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-0-467" name="__codelineno-0-467"></a>
+<a id="__codelineno-0-468" name="__codelineno-0-468"></a>        <span class="c1"># Handle equals sign merging</span>
+<a id="__codelineno-0-469" name="__codelineno-0-469"></a>        <span class="k">if</span> <span class="n">arg</span> <span class="o">==</span> <span class="s2">"="</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># merge ['arg', '=', 'val']</span>
+<a id="__codelineno-0-470" name="__codelineno-0-470"></a>            <span class="n">new_args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"=</span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-471" name="__codelineno-0-471"></a>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span>
+<a id="__codelineno-0-472" name="__codelineno-0-472"></a>            <span class="k">continue</span>
+<a id="__codelineno-0-473" name="__codelineno-0-473"></a>        <span class="k">elif</span> <span class="n">arg</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"="</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s2">"="</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]:</span>  <span class="c1"># merge ['arg=', 'val']</span>
+<a id="__codelineno-0-474" name="__codelineno-0-474"></a>            <span class="n">new_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">arg</span><span class="si">}{</span><span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-475" name="__codelineno-0-475"></a>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span>
+<a id="__codelineno-0-476" name="__codelineno-0-476"></a>            <span class="k">continue</span>
+<a id="__codelineno-0-477" name="__codelineno-0-477"></a>        <span class="k">elif</span> <span class="n">arg</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"="</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># merge ['arg', '=val']</span>
+<a id="__codelineno-0-478" name="__codelineno-0-478"></a>            <span class="n">new_args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">arg</span>
+<a id="__codelineno-0-479" name="__codelineno-0-479"></a>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-480" name="__codelineno-0-480"></a>            <span class="k">continue</span>
+<a id="__codelineno-0-481" name="__codelineno-0-481"></a>
+<a id="__codelineno-0-482" name="__codelineno-0-482"></a>        <span class="c1"># Handle bracket joining</span>
+<a id="__codelineno-0-483" name="__codelineno-0-483"></a>        <span class="n">depth</span> <span class="o">+=</span> <span class="n">arg</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"["</span><span class="p">)</span> <span class="o">-</span> <span class="n">arg</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"]"</span><span class="p">)</span>
+<a id="__codelineno-0-484" name="__codelineno-0-484"></a>        <span class="n">current</span> <span class="o">+=</span> <span class="n">arg</span>
+<a id="__codelineno-0-485" name="__codelineno-0-485"></a>        <span class="k">if</span> <span class="n">depth</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-486" name="__codelineno-0-486"></a>            <span class="n">new_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+<a id="__codelineno-0-487" name="__codelineno-0-487"></a>            <span class="n">current</span> <span class="o">=</span> <span class="s2">""</span>
+<a id="__codelineno-0-488" name="__codelineno-0-488"></a>
+<a id="__codelineno-0-489" name="__codelineno-0-489"></a>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-490" name="__codelineno-0-490"></a>
+<a id="__codelineno-0-491" name="__codelineno-0-491"></a>    <span class="c1"># Append any remaining current string</span>
+<a id="__codelineno-0-492" name="__codelineno-0-492"></a>    <span class="k">if</span> <span class="n">current</span><span class="p">:</span>
+<a id="__codelineno-0-493" name="__codelineno-0-493"></a>        <span class="n">new_args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+<a id="__codelineno-0-494" name="__codelineno-0-494"></a>
+<a id="__codelineno-0-495" name="__codelineno-0-495"></a>    <span class="k">return</span> <span class="n">new_args</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2441,65 +2495,65 @@ or 'logout'. For 'login', an optional second argument can be the API key.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-472">472</a></span>
-<span class="normal"><a href="#__codelineno-0-473">473</a></span>
-<span class="normal"><a href="#__codelineno-0-474">474</a></span>
-<span class="normal"><a href="#__codelineno-0-475">475</a></span>
-<span class="normal"><a href="#__codelineno-0-476">476</a></span>
-<span class="normal"><a href="#__codelineno-0-477">477</a></span>
-<span class="normal"><a href="#__codelineno-0-478">478</a></span>
-<span class="normal"><a href="#__codelineno-0-479">479</a></span>
-<span class="normal"><a href="#__codelineno-0-480">480</a></span>
-<span class="normal"><a href="#__codelineno-0-481">481</a></span>
-<span class="normal"><a href="#__codelineno-0-482">482</a></span>
-<span class="normal"><a href="#__codelineno-0-483">483</a></span>
-<span class="normal"><a href="#__codelineno-0-484">484</a></span>
-<span class="normal"><a href="#__codelineno-0-485">485</a></span>
-<span class="normal"><a href="#__codelineno-0-486">486</a></span>
-<span class="normal"><a href="#__codelineno-0-487">487</a></span>
-<span class="normal"><a href="#__codelineno-0-488">488</a></span>
-<span class="normal"><a href="#__codelineno-0-489">489</a></span>
-<span class="normal"><a href="#__codelineno-0-490">490</a></span>
-<span class="normal"><a href="#__codelineno-0-491">491</a></span>
-<span class="normal"><a href="#__codelineno-0-492">492</a></span>
-<span class="normal"><a href="#__codelineno-0-493">493</a></span>
-<span class="normal"><a href="#__codelineno-0-494">494</a></span>
-<span class="normal"><a href="#__codelineno-0-495">495</a></span>
-<span class="normal"><a href="#__codelineno-0-496">496</a></span>
-<span class="normal"><a href="#__codelineno-0-497">497</a></span>
-<span class="normal"><a href="#__codelineno-0-498">498</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-498">498</a></span>
 <span class="normal"><a href="#__codelineno-0-499">499</a></span>
 <span class="normal"><a href="#__codelineno-0-500">500</a></span>
-<span class="normal"><a href="#__codelineno-0-501">501</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-472" name="__codelineno-0-472"></a><span class="k">def</span> <span class="nf">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-473" name="__codelineno-0-473"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-474" name="__codelineno-0-474"></a><span class="sd">    Handles Ultralytics HUB command-line interface (CLI) commands for authentication.</span>
-<a id="__codelineno-0-475" name="__codelineno-0-475"></a>
-<a id="__codelineno-0-476" name="__codelineno-0-476"></a><span class="sd">    This function processes Ultralytics HUB CLI commands such as login and logout. It should be called when executing a</span>
-<a id="__codelineno-0-477" name="__codelineno-0-477"></a><span class="sd">    script with arguments related to HUB authentication.</span>
-<a id="__codelineno-0-478" name="__codelineno-0-478"></a>
-<a id="__codelineno-0-479" name="__codelineno-0-479"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-480" name="__codelineno-0-480"></a><span class="sd">        args (List[str]): A list of command line arguments. The first argument should be either 'login'</span>
-<a id="__codelineno-0-481" name="__codelineno-0-481"></a><span class="sd">            or 'logout'. For 'login', an optional second argument can be the API key.</span>
-<a id="__codelineno-0-482" name="__codelineno-0-482"></a>
-<a id="__codelineno-0-483" name="__codelineno-0-483"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-484" name="__codelineno-0-484"></a><span class="sd">        ```bash</span>
-<a id="__codelineno-0-485" name="__codelineno-0-485"></a><span class="sd">        yolo hub login YOUR_API_KEY</span>
-<a id="__codelineno-0-486" name="__codelineno-0-486"></a><span class="sd">        ```</span>
-<a id="__codelineno-0-487" name="__codelineno-0-487"></a>
-<a id="__codelineno-0-488" name="__codelineno-0-488"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-489" name="__codelineno-0-489"></a><span class="sd">        - The function imports the 'hub' module from ultralytics to perform login and logout operations.</span>
-<a id="__codelineno-0-490" name="__codelineno-0-490"></a><span class="sd">        - For the 'login' command, if no API key is provided, an empty string is passed to the login function.</span>
-<a id="__codelineno-0-491" name="__codelineno-0-491"></a><span class="sd">        - The 'logout' command does not require any additional arguments.</span>
-<a id="__codelineno-0-492" name="__codelineno-0-492"></a><span class="sd">    """</span>
-<a id="__codelineno-0-493" name="__codelineno-0-493"></a>    <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">hub</span>
-<a id="__codelineno-0-494" name="__codelineno-0-494"></a>
-<a id="__codelineno-0-495" name="__codelineno-0-495"></a>    <span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"login"</span><span class="p">:</span>
-<a id="__codelineno-0-496" name="__codelineno-0-496"></a>        <span class="n">key</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">""</span>
-<a id="__codelineno-0-497" name="__codelineno-0-497"></a>        <span class="c1"># Log in to Ultralytics HUB using the provided API key</span>
-<a id="__codelineno-0-498" name="__codelineno-0-498"></a>        <span class="n">hub</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<a id="__codelineno-0-499" name="__codelineno-0-499"></a>    <span class="k">elif</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"logout"</span><span class="p">:</span>
-<a id="__codelineno-0-500" name="__codelineno-0-500"></a>        <span class="c1"># Log out from Ultralytics HUB</span>
-<a id="__codelineno-0-501" name="__codelineno-0-501"></a>        <span class="n">hub</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-501">501</a></span>
+<span class="normal"><a href="#__codelineno-0-502">502</a></span>
+<span class="normal"><a href="#__codelineno-0-503">503</a></span>
+<span class="normal"><a href="#__codelineno-0-504">504</a></span>
+<span class="normal"><a href="#__codelineno-0-505">505</a></span>
+<span class="normal"><a href="#__codelineno-0-506">506</a></span>
+<span class="normal"><a href="#__codelineno-0-507">507</a></span>
+<span class="normal"><a href="#__codelineno-0-508">508</a></span>
+<span class="normal"><a href="#__codelineno-0-509">509</a></span>
+<span class="normal"><a href="#__codelineno-0-510">510</a></span>
+<span class="normal"><a href="#__codelineno-0-511">511</a></span>
+<span class="normal"><a href="#__codelineno-0-512">512</a></span>
+<span class="normal"><a href="#__codelineno-0-513">513</a></span>
+<span class="normal"><a href="#__codelineno-0-514">514</a></span>
+<span class="normal"><a href="#__codelineno-0-515">515</a></span>
+<span class="normal"><a href="#__codelineno-0-516">516</a></span>
+<span class="normal"><a href="#__codelineno-0-517">517</a></span>
+<span class="normal"><a href="#__codelineno-0-518">518</a></span>
+<span class="normal"><a href="#__codelineno-0-519">519</a></span>
+<span class="normal"><a href="#__codelineno-0-520">520</a></span>
+<span class="normal"><a href="#__codelineno-0-521">521</a></span>
+<span class="normal"><a href="#__codelineno-0-522">522</a></span>
+<span class="normal"><a href="#__codelineno-0-523">523</a></span>
+<span class="normal"><a href="#__codelineno-0-524">524</a></span>
+<span class="normal"><a href="#__codelineno-0-525">525</a></span>
+<span class="normal"><a href="#__codelineno-0-526">526</a></span>
+<span class="normal"><a href="#__codelineno-0-527">527</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-498" name="__codelineno-0-498"></a><span class="k">def</span> <span class="nf">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-499" name="__codelineno-0-499"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="sd">    Handles Ultralytics HUB command-line interface (CLI) commands for authentication.</span>
+<a id="__codelineno-0-501" name="__codelineno-0-501"></a>
+<a id="__codelineno-0-502" name="__codelineno-0-502"></a><span class="sd">    This function processes Ultralytics HUB CLI commands such as login and logout. It should be called when executing a</span>
+<a id="__codelineno-0-503" name="__codelineno-0-503"></a><span class="sd">    script with arguments related to HUB authentication.</span>
+<a id="__codelineno-0-504" name="__codelineno-0-504"></a>
+<a id="__codelineno-0-505" name="__codelineno-0-505"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-506" name="__codelineno-0-506"></a><span class="sd">        args (List[str]): A list of command line arguments. The first argument should be either 'login'</span>
+<a id="__codelineno-0-507" name="__codelineno-0-507"></a><span class="sd">            or 'logout'. For 'login', an optional second argument can be the API key.</span>
+<a id="__codelineno-0-508" name="__codelineno-0-508"></a>
+<a id="__codelineno-0-509" name="__codelineno-0-509"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-510" name="__codelineno-0-510"></a><span class="sd">        ```bash</span>
+<a id="__codelineno-0-511" name="__codelineno-0-511"></a><span class="sd">        yolo hub login YOUR_API_KEY</span>
+<a id="__codelineno-0-512" name="__codelineno-0-512"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-513" name="__codelineno-0-513"></a>
+<a id="__codelineno-0-514" name="__codelineno-0-514"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-515" name="__codelineno-0-515"></a><span class="sd">        - The function imports the 'hub' module from ultralytics to perform login and logout operations.</span>
+<a id="__codelineno-0-516" name="__codelineno-0-516"></a><span class="sd">        - For the 'login' command, if no API key is provided, an empty string is passed to the login function.</span>
+<a id="__codelineno-0-517" name="__codelineno-0-517"></a><span class="sd">        - The 'logout' command does not require any additional arguments.</span>
+<a id="__codelineno-0-518" name="__codelineno-0-518"></a><span class="sd">    """</span>
+<a id="__codelineno-0-519" name="__codelineno-0-519"></a>    <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">hub</span>
+<a id="__codelineno-0-520" name="__codelineno-0-520"></a>
+<a id="__codelineno-0-521" name="__codelineno-0-521"></a>    <span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"login"</span><span class="p">:</span>
+<a id="__codelineno-0-522" name="__codelineno-0-522"></a>        <span class="n">key</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">""</span>
+<a id="__codelineno-0-523" name="__codelineno-0-523"></a>        <span class="c1"># Log in to Ultralytics HUB using the provided API key</span>
+<a id="__codelineno-0-524" name="__codelineno-0-524"></a>        <span class="n">hub</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-0-525" name="__codelineno-0-525"></a>    <span class="k">elif</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"logout"</span><span class="p">:</span>
+<a id="__codelineno-0-526" name="__codelineno-0-526"></a>        <span class="c1"># Log out from Ultralytics HUB</span>
+<a id="__codelineno-0-527" name="__codelineno-0-527"></a>        <span class="n">hub</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2561,33 +2615,7 @@ called when executing a script with arguments related to YOLO settings managemen
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-504">504</a></span>
-<span class="normal"><a href="#__codelineno-0-505">505</a></span>
-<span class="normal"><a href="#__codelineno-0-506">506</a></span>
-<span class="normal"><a href="#__codelineno-0-507">507</a></span>
-<span class="normal"><a href="#__codelineno-0-508">508</a></span>
-<span class="normal"><a href="#__codelineno-0-509">509</a></span>
-<span class="normal"><a href="#__codelineno-0-510">510</a></span>
-<span class="normal"><a href="#__codelineno-0-511">511</a></span>
-<span class="normal"><a href="#__codelineno-0-512">512</a></span>
-<span class="normal"><a href="#__codelineno-0-513">513</a></span>
-<span class="normal"><a href="#__codelineno-0-514">514</a></span>
-<span class="normal"><a href="#__codelineno-0-515">515</a></span>
-<span class="normal"><a href="#__codelineno-0-516">516</a></span>
-<span class="normal"><a href="#__codelineno-0-517">517</a></span>
-<span class="normal"><a href="#__codelineno-0-518">518</a></span>
-<span class="normal"><a href="#__codelineno-0-519">519</a></span>
-<span class="normal"><a href="#__codelineno-0-520">520</a></span>
-<span class="normal"><a href="#__codelineno-0-521">521</a></span>
-<span class="normal"><a href="#__codelineno-0-522">522</a></span>
-<span class="normal"><a href="#__codelineno-0-523">523</a></span>
-<span class="normal"><a href="#__codelineno-0-524">524</a></span>
-<span class="normal"><a href="#__codelineno-0-525">525</a></span>
-<span class="normal"><a href="#__codelineno-0-526">526</a></span>
-<span class="normal"><a href="#__codelineno-0-527">527</a></span>
-<span class="normal"><a href="#__codelineno-0-528">528</a></span>
-<span class="normal"><a href="#__codelineno-0-529">529</a></span>
-<span class="normal"><a href="#__codelineno-0-530">530</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-530">530</a></span>
 <span class="normal"><a href="#__codelineno-0-531">531</a></span>
 <span class="normal"><a href="#__codelineno-0-532">532</a></span>
 <span class="normal"><a href="#__codelineno-0-533">533</a></span>
@@ -2599,45 +2627,71 @@ called when executing a script with arguments related to YOLO settings managemen
 <span class="normal"><a href="#__codelineno-0-539">539</a></span>
 <span class="normal"><a href="#__codelineno-0-540">540</a></span>
 <span class="normal"><a href="#__codelineno-0-541">541</a></span>
-<span class="normal"><a href="#__codelineno-0-542">542</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-504" name="__codelineno-0-504"></a><span class="k">def</span> <span class="nf">handle_yolo_settings</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-505" name="__codelineno-0-505"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-506" name="__codelineno-0-506"></a><span class="sd">    Handles YOLO settings command-line interface (CLI) commands.</span>
-<a id="__codelineno-0-507" name="__codelineno-0-507"></a>
-<a id="__codelineno-0-508" name="__codelineno-0-508"></a><span class="sd">    This function processes YOLO settings CLI commands such as reset and updating individual settings. It should be</span>
-<a id="__codelineno-0-509" name="__codelineno-0-509"></a><span class="sd">    called when executing a script with arguments related to YOLO settings management.</span>
-<a id="__codelineno-0-510" name="__codelineno-0-510"></a>
-<a id="__codelineno-0-511" name="__codelineno-0-511"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-512" name="__codelineno-0-512"></a><span class="sd">        args (List[str]): A list of command line arguments for YOLO settings management.</span>
-<a id="__codelineno-0-513" name="__codelineno-0-513"></a>
-<a id="__codelineno-0-514" name="__codelineno-0-514"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-515" name="__codelineno-0-515"></a><span class="sd">        &gt;&gt;&gt; handle_yolo_settings(["reset"])  # Reset YOLO settings</span>
-<a id="__codelineno-0-516" name="__codelineno-0-516"></a><span class="sd">        &gt;&gt;&gt; handle_yolo_settings(["default_cfg_path=yolo11n.yaml"])  # Update a specific setting</span>
-<a id="__codelineno-0-517" name="__codelineno-0-517"></a>
-<a id="__codelineno-0-518" name="__codelineno-0-518"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-519" name="__codelineno-0-519"></a><span class="sd">        - If no arguments are provided, the function will display the current settings.</span>
-<a id="__codelineno-0-520" name="__codelineno-0-520"></a><span class="sd">        - The 'reset' command will delete the existing settings file and create new default settings.</span>
-<a id="__codelineno-0-521" name="__codelineno-0-521"></a><span class="sd">        - Other arguments are treated as key-value pairs to update specific settings.</span>
-<a id="__codelineno-0-522" name="__codelineno-0-522"></a><span class="sd">        - The function will check for alignment between the provided settings and the existing ones.</span>
-<a id="__codelineno-0-523" name="__codelineno-0-523"></a><span class="sd">        - After processing, the updated settings will be displayed.</span>
-<a id="__codelineno-0-524" name="__codelineno-0-524"></a><span class="sd">        - For more information on handling YOLO settings, visit:</span>
-<a id="__codelineno-0-525" name="__codelineno-0-525"></a><span class="sd">          https://docs.ultralytics.com/quickstart/#ultralytics-settings</span>
-<a id="__codelineno-0-526" name="__codelineno-0-526"></a><span class="sd">    """</span>
-<a id="__codelineno-0-527" name="__codelineno-0-527"></a>    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://docs.ultralytics.com/quickstart/#ultralytics-settings"</span>  <span class="c1"># help URL</span>
-<a id="__codelineno-0-528" name="__codelineno-0-528"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-529" name="__codelineno-0-529"></a>        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-<a id="__codelineno-0-530" name="__codelineno-0-530"></a>            <span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"reset"</span><span class="p">:</span>
-<a id="__codelineno-0-531" name="__codelineno-0-531"></a>                <span class="n">SETTINGS_FILE</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>  <span class="c1"># delete the settings file</span>
-<a id="__codelineno-0-532" name="__codelineno-0-532"></a>                <span class="n">SETTINGS</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>  <span class="c1"># create new settings</span>
-<a id="__codelineno-0-533" name="__codelineno-0-533"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Settings reset successfully"</span><span class="p">)</span>  <span class="c1"># inform the user that settings have been reset</span>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a>            <span class="k">else</span><span class="p">:</span>  <span class="c1"># save a new setting</span>
-<a id="__codelineno-0-535" name="__codelineno-0-535"></a>                <span class="n">new</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">parse_key_value_pair</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
-<a id="__codelineno-0-536" name="__codelineno-0-536"></a>                <span class="n">check_dict_alignment</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
-<a id="__codelineno-0-537" name="__codelineno-0-537"></a>                <span class="n">SETTINGS</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
-<a id="__codelineno-0-538" name="__codelineno-0-538"></a>
-<a id="__codelineno-0-539" name="__codelineno-0-539"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">)</span>  <span class="c1"># print the current settings</span>
-<a id="__codelineno-0-540" name="__codelineno-0-540"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"💡 Learn more about Ultralytics Settings at </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-541" name="__codelineno-0-541"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-542" name="__codelineno-0-542"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ settings error: '</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">'. Please see </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> for help."</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-542">542</a></span>
+<span class="normal"><a href="#__codelineno-0-543">543</a></span>
+<span class="normal"><a href="#__codelineno-0-544">544</a></span>
+<span class="normal"><a href="#__codelineno-0-545">545</a></span>
+<span class="normal"><a href="#__codelineno-0-546">546</a></span>
+<span class="normal"><a href="#__codelineno-0-547">547</a></span>
+<span class="normal"><a href="#__codelineno-0-548">548</a></span>
+<span class="normal"><a href="#__codelineno-0-549">549</a></span>
+<span class="normal"><a href="#__codelineno-0-550">550</a></span>
+<span class="normal"><a href="#__codelineno-0-551">551</a></span>
+<span class="normal"><a href="#__codelineno-0-552">552</a></span>
+<span class="normal"><a href="#__codelineno-0-553">553</a></span>
+<span class="normal"><a href="#__codelineno-0-554">554</a></span>
+<span class="normal"><a href="#__codelineno-0-555">555</a></span>
+<span class="normal"><a href="#__codelineno-0-556">556</a></span>
+<span class="normal"><a href="#__codelineno-0-557">557</a></span>
+<span class="normal"><a href="#__codelineno-0-558">558</a></span>
+<span class="normal"><a href="#__codelineno-0-559">559</a></span>
+<span class="normal"><a href="#__codelineno-0-560">560</a></span>
+<span class="normal"><a href="#__codelineno-0-561">561</a></span>
+<span class="normal"><a href="#__codelineno-0-562">562</a></span>
+<span class="normal"><a href="#__codelineno-0-563">563</a></span>
+<span class="normal"><a href="#__codelineno-0-564">564</a></span>
+<span class="normal"><a href="#__codelineno-0-565">565</a></span>
+<span class="normal"><a href="#__codelineno-0-566">566</a></span>
+<span class="normal"><a href="#__codelineno-0-567">567</a></span>
+<span class="normal"><a href="#__codelineno-0-568">568</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-530" name="__codelineno-0-530"></a><span class="k">def</span> <span class="nf">handle_yolo_settings</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="sd">    Handles YOLO settings command-line interface (CLI) commands.</span>
+<a id="__codelineno-0-533" name="__codelineno-0-533"></a>
+<a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">    This function processes YOLO settings CLI commands such as reset and updating individual settings. It should be</span>
+<a id="__codelineno-0-535" name="__codelineno-0-535"></a><span class="sd">    called when executing a script with arguments related to YOLO settings management.</span>
+<a id="__codelineno-0-536" name="__codelineno-0-536"></a>
+<a id="__codelineno-0-537" name="__codelineno-0-537"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-538" name="__codelineno-0-538"></a><span class="sd">        args (List[str]): A list of command line arguments for YOLO settings management.</span>
+<a id="__codelineno-0-539" name="__codelineno-0-539"></a>
+<a id="__codelineno-0-540" name="__codelineno-0-540"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-541" name="__codelineno-0-541"></a><span class="sd">        &gt;&gt;&gt; handle_yolo_settings(["reset"])  # Reset YOLO settings</span>
+<a id="__codelineno-0-542" name="__codelineno-0-542"></a><span class="sd">        &gt;&gt;&gt; handle_yolo_settings(["default_cfg_path=yolo11n.yaml"])  # Update a specific setting</span>
+<a id="__codelineno-0-543" name="__codelineno-0-543"></a>
+<a id="__codelineno-0-544" name="__codelineno-0-544"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-545" name="__codelineno-0-545"></a><span class="sd">        - If no arguments are provided, the function will display the current settings.</span>
+<a id="__codelineno-0-546" name="__codelineno-0-546"></a><span class="sd">        - The 'reset' command will delete the existing settings file and create new default settings.</span>
+<a id="__codelineno-0-547" name="__codelineno-0-547"></a><span class="sd">        - Other arguments are treated as key-value pairs to update specific settings.</span>
+<a id="__codelineno-0-548" name="__codelineno-0-548"></a><span class="sd">        - The function will check for alignment between the provided settings and the existing ones.</span>
+<a id="__codelineno-0-549" name="__codelineno-0-549"></a><span class="sd">        - After processing, the updated settings will be displayed.</span>
+<a id="__codelineno-0-550" name="__codelineno-0-550"></a><span class="sd">        - For more information on handling YOLO settings, visit:</span>
+<a id="__codelineno-0-551" name="__codelineno-0-551"></a><span class="sd">          https://docs.ultralytics.com/quickstart/#ultralytics-settings</span>
+<a id="__codelineno-0-552" name="__codelineno-0-552"></a><span class="sd">    """</span>
+<a id="__codelineno-0-553" name="__codelineno-0-553"></a>    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://docs.ultralytics.com/quickstart/#ultralytics-settings"</span>  <span class="c1"># help URL</span>
+<a id="__codelineno-0-554" name="__codelineno-0-554"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-555" name="__codelineno-0-555"></a>        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<a id="__codelineno-0-556" name="__codelineno-0-556"></a>            <span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"reset"</span><span class="p">:</span>
+<a id="__codelineno-0-557" name="__codelineno-0-557"></a>                <span class="n">SETTINGS_FILE</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>  <span class="c1"># delete the settings file</span>
+<a id="__codelineno-0-558" name="__codelineno-0-558"></a>                <span class="n">SETTINGS</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>  <span class="c1"># create new settings</span>
+<a id="__codelineno-0-559" name="__codelineno-0-559"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Settings reset successfully"</span><span class="p">)</span>  <span class="c1"># inform the user that settings have been reset</span>
+<a id="__codelineno-0-560" name="__codelineno-0-560"></a>            <span class="k">else</span><span class="p">:</span>  <span class="c1"># save a new setting</span>
+<a id="__codelineno-0-561" name="__codelineno-0-561"></a>                <span class="n">new</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">parse_key_value_pair</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
+<a id="__codelineno-0-562" name="__codelineno-0-562"></a>                <span class="n">check_dict_alignment</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+<a id="__codelineno-0-563" name="__codelineno-0-563"></a>                <span class="n">SETTINGS</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+<a id="__codelineno-0-564" name="__codelineno-0-564"></a>
+<a id="__codelineno-0-565" name="__codelineno-0-565"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">)</span>  <span class="c1"># print the current settings</span>
+<a id="__codelineno-0-566" name="__codelineno-0-566"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"💡 Learn more about Ultralytics Settings at </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-567" name="__codelineno-0-567"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-0-568" name="__codelineno-0-568"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ settings error: '</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">'. Please see </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> for help."</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2665,41 +2719,41 @@ Ultralytics models. It checks for the required Streamlit package and launches th
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-545">545</a></span>
-<span class="normal"><a href="#__codelineno-0-546">546</a></span>
-<span class="normal"><a href="#__codelineno-0-547">547</a></span>
-<span class="normal"><a href="#__codelineno-0-548">548</a></span>
-<span class="normal"><a href="#__codelineno-0-549">549</a></span>
-<span class="normal"><a href="#__codelineno-0-550">550</a></span>
-<span class="normal"><a href="#__codelineno-0-551">551</a></span>
-<span class="normal"><a href="#__codelineno-0-552">552</a></span>
-<span class="normal"><a href="#__codelineno-0-553">553</a></span>
-<span class="normal"><a href="#__codelineno-0-554">554</a></span>
-<span class="normal"><a href="#__codelineno-0-555">555</a></span>
-<span class="normal"><a href="#__codelineno-0-556">556</a></span>
-<span class="normal"><a href="#__codelineno-0-557">557</a></span>
-<span class="normal"><a href="#__codelineno-0-558">558</a></span>
-<span class="normal"><a href="#__codelineno-0-559">559</a></span>
-<span class="normal"><a href="#__codelineno-0-560">560</a></span>
-<span class="normal"><a href="#__codelineno-0-561">561</a></span>
-<span class="normal"><a href="#__codelineno-0-562">562</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-545" name="__codelineno-0-545"></a><span class="k">def</span> <span class="nf">handle_streamlit_inference</span><span class="p">():</span>
-<a id="__codelineno-0-546" name="__codelineno-0-546"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-547" name="__codelineno-0-547"></a><span class="sd">    Open the Ultralytics Live Inference Streamlit app for real-time object detection.</span>
-<a id="__codelineno-0-548" name="__codelineno-0-548"></a>
-<a id="__codelineno-0-549" name="__codelineno-0-549"></a><span class="sd">    This function initializes and runs a Streamlit application designed for performing live object detection using</span>
-<a id="__codelineno-0-550" name="__codelineno-0-550"></a><span class="sd">    Ultralytics models. It checks for the required Streamlit package and launches the app.</span>
-<a id="__codelineno-0-551" name="__codelineno-0-551"></a>
-<a id="__codelineno-0-552" name="__codelineno-0-552"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-553" name="__codelineno-0-553"></a><span class="sd">        &gt;&gt;&gt; handle_streamlit_inference()</span>
-<a id="__codelineno-0-554" name="__codelineno-0-554"></a>
-<a id="__codelineno-0-555" name="__codelineno-0-555"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-556" name="__codelineno-0-556"></a><span class="sd">        - Requires Streamlit version 1.29.0 or higher.</span>
-<a id="__codelineno-0-557" name="__codelineno-0-557"></a><span class="sd">        - The app is launched using the 'streamlit run' command.</span>
-<a id="__codelineno-0-558" name="__codelineno-0-558"></a><span class="sd">        - The Streamlit app file is located in the Ultralytics package directory.</span>
-<a id="__codelineno-0-559" name="__codelineno-0-559"></a><span class="sd">    """</span>
-<a id="__codelineno-0-560" name="__codelineno-0-560"></a>    <span class="n">checks</span><span class="o">.</span><span class="n">check_requirements</span><span class="p">(</span><span class="s2">"streamlit&gt;=1.29.0"</span><span class="p">)</span>
-<a id="__codelineno-0-561" name="__codelineno-0-561"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"💡 Loading Ultralytics Live Inference app..."</span><span class="p">)</span>
-<a id="__codelineno-0-562" name="__codelineno-0-562"></a>    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">"streamlit"</span><span class="p">,</span> <span class="s2">"run"</span><span class="p">,</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"solutions/streamlit_inference.py"</span><span class="p">,</span> <span class="s2">"--server.headless"</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">])</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-571">571</a></span>
+<span class="normal"><a href="#__codelineno-0-572">572</a></span>
+<span class="normal"><a href="#__codelineno-0-573">573</a></span>
+<span class="normal"><a href="#__codelineno-0-574">574</a></span>
+<span class="normal"><a href="#__codelineno-0-575">575</a></span>
+<span class="normal"><a href="#__codelineno-0-576">576</a></span>
+<span class="normal"><a href="#__codelineno-0-577">577</a></span>
+<span class="normal"><a href="#__codelineno-0-578">578</a></span>
+<span class="normal"><a href="#__codelineno-0-579">579</a></span>
+<span class="normal"><a href="#__codelineno-0-580">580</a></span>
+<span class="normal"><a href="#__codelineno-0-581">581</a></span>
+<span class="normal"><a href="#__codelineno-0-582">582</a></span>
+<span class="normal"><a href="#__codelineno-0-583">583</a></span>
+<span class="normal"><a href="#__codelineno-0-584">584</a></span>
+<span class="normal"><a href="#__codelineno-0-585">585</a></span>
+<span class="normal"><a href="#__codelineno-0-586">586</a></span>
+<span class="normal"><a href="#__codelineno-0-587">587</a></span>
+<span class="normal"><a href="#__codelineno-0-588">588</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-571" name="__codelineno-0-571"></a><span class="k">def</span> <span class="nf">handle_streamlit_inference</span><span class="p">():</span>
+<a id="__codelineno-0-572" name="__codelineno-0-572"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-573" name="__codelineno-0-573"></a><span class="sd">    Open the Ultralytics Live Inference Streamlit app for real-time object detection.</span>
+<a id="__codelineno-0-574" name="__codelineno-0-574"></a>
+<a id="__codelineno-0-575" name="__codelineno-0-575"></a><span class="sd">    This function initializes and runs a Streamlit application designed for performing live object detection using</span>
+<a id="__codelineno-0-576" name="__codelineno-0-576"></a><span class="sd">    Ultralytics models. It checks for the required Streamlit package and launches the app.</span>
+<a id="__codelineno-0-577" name="__codelineno-0-577"></a>
+<a id="__codelineno-0-578" name="__codelineno-0-578"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-579" name="__codelineno-0-579"></a><span class="sd">        &gt;&gt;&gt; handle_streamlit_inference()</span>
+<a id="__codelineno-0-580" name="__codelineno-0-580"></a>
+<a id="__codelineno-0-581" name="__codelineno-0-581"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-582" name="__codelineno-0-582"></a><span class="sd">        - Requires Streamlit version 1.29.0 or higher.</span>
+<a id="__codelineno-0-583" name="__codelineno-0-583"></a><span class="sd">        - The app is launched using the 'streamlit run' command.</span>
+<a id="__codelineno-0-584" name="__codelineno-0-584"></a><span class="sd">        - The Streamlit app file is located in the Ultralytics package directory.</span>
+<a id="__codelineno-0-585" name="__codelineno-0-585"></a><span class="sd">    """</span>
+<a id="__codelineno-0-586" name="__codelineno-0-586"></a>    <span class="n">checks</span><span class="o">.</span><span class="n">check_requirements</span><span class="p">(</span><span class="s2">"streamlit&gt;=1.29.0"</span><span class="p">)</span>
+<a id="__codelineno-0-587" name="__codelineno-0-587"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"💡 Loading Ultralytics Live Inference app..."</span><span class="p">)</span>
+<a id="__codelineno-0-588" name="__codelineno-0-588"></a>    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">"streamlit"</span><span class="p">,</span> <span class="s2">"run"</span><span class="p">,</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"solutions/streamlit_inference.py"</span><span class="p">,</span> <span class="s2">"--server.headless"</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">])</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2804,71 +2858,71 @@ Ultralytics models. It checks for the required Streamlit package and launches th
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-565">565</a></span>
-<span class="normal"><a href="#__codelineno-0-566">566</a></span>
-<span class="normal"><a href="#__codelineno-0-567">567</a></span>
-<span class="normal"><a href="#__codelineno-0-568">568</a></span>
-<span class="normal"><a href="#__codelineno-0-569">569</a></span>
-<span class="normal"><a href="#__codelineno-0-570">570</a></span>
-<span class="normal"><a href="#__codelineno-0-571">571</a></span>
-<span class="normal"><a href="#__codelineno-0-572">572</a></span>
-<span class="normal"><a href="#__codelineno-0-573">573</a></span>
-<span class="normal"><a href="#__codelineno-0-574">574</a></span>
-<span class="normal"><a href="#__codelineno-0-575">575</a></span>
-<span class="normal"><a href="#__codelineno-0-576">576</a></span>
-<span class="normal"><a href="#__codelineno-0-577">577</a></span>
-<span class="normal"><a href="#__codelineno-0-578">578</a></span>
-<span class="normal"><a href="#__codelineno-0-579">579</a></span>
-<span class="normal"><a href="#__codelineno-0-580">580</a></span>
-<span class="normal"><a href="#__codelineno-0-581">581</a></span>
-<span class="normal"><a href="#__codelineno-0-582">582</a></span>
-<span class="normal"><a href="#__codelineno-0-583">583</a></span>
-<span class="normal"><a href="#__codelineno-0-584">584</a></span>
-<span class="normal"><a href="#__codelineno-0-585">585</a></span>
-<span class="normal"><a href="#__codelineno-0-586">586</a></span>
-<span class="normal"><a href="#__codelineno-0-587">587</a></span>
-<span class="normal"><a href="#__codelineno-0-588">588</a></span>
-<span class="normal"><a href="#__codelineno-0-589">589</a></span>
-<span class="normal"><a href="#__codelineno-0-590">590</a></span>
-<span class="normal"><a href="#__codelineno-0-591">591</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-591">591</a></span>
 <span class="normal"><a href="#__codelineno-0-592">592</a></span>
 <span class="normal"><a href="#__codelineno-0-593">593</a></span>
 <span class="normal"><a href="#__codelineno-0-594">594</a></span>
 <span class="normal"><a href="#__codelineno-0-595">595</a></span>
 <span class="normal"><a href="#__codelineno-0-596">596</a></span>
-<span class="normal"><a href="#__codelineno-0-597">597</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-565" name="__codelineno-0-565"></a><span class="k">def</span> <span class="nf">parse_key_value_pair</span><span class="p">(</span><span class="n">pair</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"key=value"</span><span class="p">):</span>
-<a id="__codelineno-0-566" name="__codelineno-0-566"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-567" name="__codelineno-0-567"></a><span class="sd">    Parses a key-value pair string into separate key and value components.</span>
-<a id="__codelineno-0-568" name="__codelineno-0-568"></a>
-<a id="__codelineno-0-569" name="__codelineno-0-569"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-570" name="__codelineno-0-570"></a><span class="sd">        pair (str): A string containing a key-value pair in the format "key=value".</span>
-<a id="__codelineno-0-571" name="__codelineno-0-571"></a>
-<a id="__codelineno-0-572" name="__codelineno-0-572"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a><span class="sd">        (tuple): A tuple containing two elements:</span>
-<a id="__codelineno-0-574" name="__codelineno-0-574"></a><span class="sd">            - key (str): The parsed key.</span>
-<a id="__codelineno-0-575" name="__codelineno-0-575"></a><span class="sd">            - value (str): The parsed value.</span>
-<a id="__codelineno-0-576" name="__codelineno-0-576"></a>
-<a id="__codelineno-0-577" name="__codelineno-0-577"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-578" name="__codelineno-0-578"></a><span class="sd">        AssertionError: If the value is missing or empty.</span>
-<a id="__codelineno-0-579" name="__codelineno-0-579"></a>
-<a id="__codelineno-0-580" name="__codelineno-0-580"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-581" name="__codelineno-0-581"></a><span class="sd">        &gt;&gt;&gt; key, value = parse_key_value_pair("model=yolo11n.pt")</span>
-<a id="__codelineno-0-582" name="__codelineno-0-582"></a><span class="sd">        &gt;&gt;&gt; print(f"Key: {key}, Value: {value}")</span>
-<a id="__codelineno-0-583" name="__codelineno-0-583"></a><span class="sd">        Key: model, Value: yolo11n.pt</span>
-<a id="__codelineno-0-584" name="__codelineno-0-584"></a>
-<a id="__codelineno-0-585" name="__codelineno-0-585"></a><span class="sd">        &gt;&gt;&gt; key, value = parse_key_value_pair("epochs=100")</span>
-<a id="__codelineno-0-586" name="__codelineno-0-586"></a><span class="sd">        &gt;&gt;&gt; print(f"Key: {key}, Value: {value}")</span>
-<a id="__codelineno-0-587" name="__codelineno-0-587"></a><span class="sd">        Key: epochs, Value: 100</span>
-<a id="__codelineno-0-588" name="__codelineno-0-588"></a>
-<a id="__codelineno-0-589" name="__codelineno-0-589"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-590" name="__codelineno-0-590"></a><span class="sd">        - The function splits the input string on the first '=' character.</span>
-<a id="__codelineno-0-591" name="__codelineno-0-591"></a><span class="sd">        - Leading and trailing whitespace is removed from both key and value.</span>
-<a id="__codelineno-0-592" name="__codelineno-0-592"></a><span class="sd">        - An assertion error is raised if the value is empty after stripping.</span>
-<a id="__codelineno-0-593" name="__codelineno-0-593"></a><span class="sd">    """</span>
-<a id="__codelineno-0-594" name="__codelineno-0-594"></a>    <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">pair</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"="</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># split on first '=' sign</span>
-<a id="__codelineno-0-595" name="__codelineno-0-595"></a>    <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">v</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># remove spaces</span>
-<a id="__codelineno-0-596" name="__codelineno-0-596"></a>    <span class="k">assert</span> <span class="n">v</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"missing '</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">' value"</span>
-<a id="__codelineno-0-597" name="__codelineno-0-597"></a>    <span class="k">return</span> <span class="n">k</span><span class="p">,</span> <span class="n">smart_value</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-597">597</a></span>
+<span class="normal"><a href="#__codelineno-0-598">598</a></span>
+<span class="normal"><a href="#__codelineno-0-599">599</a></span>
+<span class="normal"><a href="#__codelineno-0-600">600</a></span>
+<span class="normal"><a href="#__codelineno-0-601">601</a></span>
+<span class="normal"><a href="#__codelineno-0-602">602</a></span>
+<span class="normal"><a href="#__codelineno-0-603">603</a></span>
+<span class="normal"><a href="#__codelineno-0-604">604</a></span>
+<span class="normal"><a href="#__codelineno-0-605">605</a></span>
+<span class="normal"><a href="#__codelineno-0-606">606</a></span>
+<span class="normal"><a href="#__codelineno-0-607">607</a></span>
+<span class="normal"><a href="#__codelineno-0-608">608</a></span>
+<span class="normal"><a href="#__codelineno-0-609">609</a></span>
+<span class="normal"><a href="#__codelineno-0-610">610</a></span>
+<span class="normal"><a href="#__codelineno-0-611">611</a></span>
+<span class="normal"><a href="#__codelineno-0-612">612</a></span>
+<span class="normal"><a href="#__codelineno-0-613">613</a></span>
+<span class="normal"><a href="#__codelineno-0-614">614</a></span>
+<span class="normal"><a href="#__codelineno-0-615">615</a></span>
+<span class="normal"><a href="#__codelineno-0-616">616</a></span>
+<span class="normal"><a href="#__codelineno-0-617">617</a></span>
+<span class="normal"><a href="#__codelineno-0-618">618</a></span>
+<span class="normal"><a href="#__codelineno-0-619">619</a></span>
+<span class="normal"><a href="#__codelineno-0-620">620</a></span>
+<span class="normal"><a href="#__codelineno-0-621">621</a></span>
+<span class="normal"><a href="#__codelineno-0-622">622</a></span>
+<span class="normal"><a href="#__codelineno-0-623">623</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-591" name="__codelineno-0-591"></a><span class="k">def</span> <span class="nf">parse_key_value_pair</span><span class="p">(</span><span class="n">pair</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"key=value"</span><span class="p">):</span>
+<a id="__codelineno-0-592" name="__codelineno-0-592"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-593" name="__codelineno-0-593"></a><span class="sd">    Parses a key-value pair string into separate key and value components.</span>
+<a id="__codelineno-0-594" name="__codelineno-0-594"></a>
+<a id="__codelineno-0-595" name="__codelineno-0-595"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-596" name="__codelineno-0-596"></a><span class="sd">        pair (str): A string containing a key-value pair in the format "key=value".</span>
+<a id="__codelineno-0-597" name="__codelineno-0-597"></a>
+<a id="__codelineno-0-598" name="__codelineno-0-598"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-599" name="__codelineno-0-599"></a><span class="sd">        (tuple): A tuple containing two elements:</span>
+<a id="__codelineno-0-600" name="__codelineno-0-600"></a><span class="sd">            - key (str): The parsed key.</span>
+<a id="__codelineno-0-601" name="__codelineno-0-601"></a><span class="sd">            - value (str): The parsed value.</span>
+<a id="__codelineno-0-602" name="__codelineno-0-602"></a>
+<a id="__codelineno-0-603" name="__codelineno-0-603"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-604" name="__codelineno-0-604"></a><span class="sd">        AssertionError: If the value is missing or empty.</span>
+<a id="__codelineno-0-605" name="__codelineno-0-605"></a>
+<a id="__codelineno-0-606" name="__codelineno-0-606"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="sd">        &gt;&gt;&gt; key, value = parse_key_value_pair("model=yolo11n.pt")</span>
+<a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="sd">        &gt;&gt;&gt; print(f"Key: {key}, Value: {value}")</span>
+<a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">        Key: model, Value: yolo11n.pt</span>
+<a id="__codelineno-0-610" name="__codelineno-0-610"></a>
+<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">        &gt;&gt;&gt; key, value = parse_key_value_pair("epochs=100")</span>
+<a id="__codelineno-0-612" name="__codelineno-0-612"></a><span class="sd">        &gt;&gt;&gt; print(f"Key: {key}, Value: {value}")</span>
+<a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="sd">        Key: epochs, Value: 100</span>
+<a id="__codelineno-0-614" name="__codelineno-0-614"></a>
+<a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="sd">        - The function splits the input string on the first '=' character.</span>
+<a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="sd">        - Leading and trailing whitespace is removed from both key and value.</span>
+<a id="__codelineno-0-618" name="__codelineno-0-618"></a><span class="sd">        - An assertion error is raised if the value is empty after stripping.</span>
+<a id="__codelineno-0-619" name="__codelineno-0-619"></a><span class="sd">    """</span>
+<a id="__codelineno-0-620" name="__codelineno-0-620"></a>    <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">pair</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"="</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># split on first '=' sign</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a>    <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">v</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># remove spaces</span>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a>    <span class="k">assert</span> <span class="n">v</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"missing '</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">' value"</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a>    <span class="k">return</span> <span class="n">k</span><span class="p">,</span> <span class="n">smart_value</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2956,33 +3010,7 @@ is applicable.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-600">600</a></span>
-<span class="normal"><a href="#__codelineno-0-601">601</a></span>
-<span class="normal"><a href="#__codelineno-0-602">602</a></span>
-<span class="normal"><a href="#__codelineno-0-603">603</a></span>
-<span class="normal"><a href="#__codelineno-0-604">604</a></span>
-<span class="normal"><a href="#__codelineno-0-605">605</a></span>
-<span class="normal"><a href="#__codelineno-0-606">606</a></span>
-<span class="normal"><a href="#__codelineno-0-607">607</a></span>
-<span class="normal"><a href="#__codelineno-0-608">608</a></span>
-<span class="normal"><a href="#__codelineno-0-609">609</a></span>
-<span class="normal"><a href="#__codelineno-0-610">610</a></span>
-<span class="normal"><a href="#__codelineno-0-611">611</a></span>
-<span class="normal"><a href="#__codelineno-0-612">612</a></span>
-<span class="normal"><a href="#__codelineno-0-613">613</a></span>
-<span class="normal"><a href="#__codelineno-0-614">614</a></span>
-<span class="normal"><a href="#__codelineno-0-615">615</a></span>
-<span class="normal"><a href="#__codelineno-0-616">616</a></span>
-<span class="normal"><a href="#__codelineno-0-617">617</a></span>
-<span class="normal"><a href="#__codelineno-0-618">618</a></span>
-<span class="normal"><a href="#__codelineno-0-619">619</a></span>
-<span class="normal"><a href="#__codelineno-0-620">620</a></span>
-<span class="normal"><a href="#__codelineno-0-621">621</a></span>
-<span class="normal"><a href="#__codelineno-0-622">622</a></span>
-<span class="normal"><a href="#__codelineno-0-623">623</a></span>
-<span class="normal"><a href="#__codelineno-0-624">624</a></span>
-<span class="normal"><a href="#__codelineno-0-625">625</a></span>
-<span class="normal"><a href="#__codelineno-0-626">626</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-626">626</a></span>
 <span class="normal"><a href="#__codelineno-0-627">627</a></span>
 <span class="normal"><a href="#__codelineno-0-628">628</a></span>
 <span class="normal"><a href="#__codelineno-0-629">629</a></span>
@@ -2998,49 +3026,75 @@ is applicable.</p>
 <span class="normal"><a href="#__codelineno-0-639">639</a></span>
 <span class="normal"><a href="#__codelineno-0-640">640</a></span>
 <span class="normal"><a href="#__codelineno-0-641">641</a></span>
-<span class="normal"><a href="#__codelineno-0-642">642</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-600" name="__codelineno-0-600"></a><span class="k">def</span> <span class="nf">smart_value</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-<a id="__codelineno-0-601" name="__codelineno-0-601"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-602" name="__codelineno-0-602"></a><span class="sd">    Converts a string representation of a value to its appropriate Python type.</span>
-<a id="__codelineno-0-603" name="__codelineno-0-603"></a>
-<a id="__codelineno-0-604" name="__codelineno-0-604"></a><span class="sd">    This function attempts to convert a given string into a Python object of the most appropriate type. It handles</span>
-<a id="__codelineno-0-605" name="__codelineno-0-605"></a><span class="sd">    conversions to None, bool, int, float, and other types that can be evaluated safely.</span>
-<a id="__codelineno-0-606" name="__codelineno-0-606"></a>
-<a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="sd">        v (str): The string representation of the value to be converted.</span>
-<a id="__codelineno-0-609" name="__codelineno-0-609"></a>
-<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">        (Any): The converted value. The type can be None, bool, int, float, or the original string if no conversion</span>
-<a id="__codelineno-0-612" name="__codelineno-0-612"></a><span class="sd">            is applicable.</span>
-<a id="__codelineno-0-613" name="__codelineno-0-613"></a>
-<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="sd">        &gt;&gt;&gt; smart_value("42")</span>
-<a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="sd">        42</span>
-<a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="sd">        &gt;&gt;&gt; smart_value("3.14")</span>
-<a id="__codelineno-0-618" name="__codelineno-0-618"></a><span class="sd">        3.14</span>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a><span class="sd">        &gt;&gt;&gt; smart_value("True")</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a><span class="sd">        True</span>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a><span class="sd">        &gt;&gt;&gt; smart_value("None")</span>
-<a id="__codelineno-0-622" name="__codelineno-0-622"></a><span class="sd">        None</span>
-<a id="__codelineno-0-623" name="__codelineno-0-623"></a><span class="sd">        &gt;&gt;&gt; smart_value("some_string")</span>
-<a id="__codelineno-0-624" name="__codelineno-0-624"></a><span class="sd">        'some_string'</span>
-<a id="__codelineno-0-625" name="__codelineno-0-625"></a>
-<a id="__codelineno-0-626" name="__codelineno-0-626"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-627" name="__codelineno-0-627"></a><span class="sd">        - The function uses a case-insensitive comparison for boolean and None values.</span>
-<a id="__codelineno-0-628" name="__codelineno-0-628"></a><span class="sd">        - For other types, it attempts to use Python's eval() function, which can be unsafe if used on untrusted input.</span>
-<a id="__codelineno-0-629" name="__codelineno-0-629"></a><span class="sd">        - If no conversion is possible, the original string is returned.</span>
-<a id="__codelineno-0-630" name="__codelineno-0-630"></a><span class="sd">    """</span>
-<a id="__codelineno-0-631" name="__codelineno-0-631"></a>    <span class="n">v_lower</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-0-632" name="__codelineno-0-632"></a>    <span class="k">if</span> <span class="n">v_lower</span> <span class="o">==</span> <span class="s2">"none"</span><span class="p">:</span>
-<a id="__codelineno-0-633" name="__codelineno-0-633"></a>        <span class="k">return</span> <span class="kc">None</span>
-<a id="__codelineno-0-634" name="__codelineno-0-634"></a>    <span class="k">elif</span> <span class="n">v_lower</span> <span class="o">==</span> <span class="s2">"true"</span><span class="p">:</span>
-<a id="__codelineno-0-635" name="__codelineno-0-635"></a>        <span class="k">return</span> <span class="kc">True</span>
-<a id="__codelineno-0-636" name="__codelineno-0-636"></a>    <span class="k">elif</span> <span class="n">v_lower</span> <span class="o">==</span> <span class="s2">"false"</span><span class="p">:</span>
-<a id="__codelineno-0-637" name="__codelineno-0-637"></a>        <span class="k">return</span> <span class="kc">False</span>
-<a id="__codelineno-0-638" name="__codelineno-0-638"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-639" name="__codelineno-0-639"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-640" name="__codelineno-0-640"></a>            <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<a id="__codelineno-0-641" name="__codelineno-0-641"></a>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<a id="__codelineno-0-642" name="__codelineno-0-642"></a>            <span class="k">return</span> <span class="n">v</span>
+<span class="normal"><a href="#__codelineno-0-642">642</a></span>
+<span class="normal"><a href="#__codelineno-0-643">643</a></span>
+<span class="normal"><a href="#__codelineno-0-644">644</a></span>
+<span class="normal"><a href="#__codelineno-0-645">645</a></span>
+<span class="normal"><a href="#__codelineno-0-646">646</a></span>
+<span class="normal"><a href="#__codelineno-0-647">647</a></span>
+<span class="normal"><a href="#__codelineno-0-648">648</a></span>
+<span class="normal"><a href="#__codelineno-0-649">649</a></span>
+<span class="normal"><a href="#__codelineno-0-650">650</a></span>
+<span class="normal"><a href="#__codelineno-0-651">651</a></span>
+<span class="normal"><a href="#__codelineno-0-652">652</a></span>
+<span class="normal"><a href="#__codelineno-0-653">653</a></span>
+<span class="normal"><a href="#__codelineno-0-654">654</a></span>
+<span class="normal"><a href="#__codelineno-0-655">655</a></span>
+<span class="normal"><a href="#__codelineno-0-656">656</a></span>
+<span class="normal"><a href="#__codelineno-0-657">657</a></span>
+<span class="normal"><a href="#__codelineno-0-658">658</a></span>
+<span class="normal"><a href="#__codelineno-0-659">659</a></span>
+<span class="normal"><a href="#__codelineno-0-660">660</a></span>
+<span class="normal"><a href="#__codelineno-0-661">661</a></span>
+<span class="normal"><a href="#__codelineno-0-662">662</a></span>
+<span class="normal"><a href="#__codelineno-0-663">663</a></span>
+<span class="normal"><a href="#__codelineno-0-664">664</a></span>
+<span class="normal"><a href="#__codelineno-0-665">665</a></span>
+<span class="normal"><a href="#__codelineno-0-666">666</a></span>
+<span class="normal"><a href="#__codelineno-0-667">667</a></span>
+<span class="normal"><a href="#__codelineno-0-668">668</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-626" name="__codelineno-0-626"></a><span class="k">def</span> <span class="nf">smart_value</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<a id="__codelineno-0-627" name="__codelineno-0-627"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-628" name="__codelineno-0-628"></a><span class="sd">    Converts a string representation of a value to its appropriate Python type.</span>
+<a id="__codelineno-0-629" name="__codelineno-0-629"></a>
+<a id="__codelineno-0-630" name="__codelineno-0-630"></a><span class="sd">    This function attempts to convert a given string into a Python object of the most appropriate type. It handles</span>
+<a id="__codelineno-0-631" name="__codelineno-0-631"></a><span class="sd">    conversions to None, bool, int, float, and other types that can be evaluated safely.</span>
+<a id="__codelineno-0-632" name="__codelineno-0-632"></a>
+<a id="__codelineno-0-633" name="__codelineno-0-633"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-634" name="__codelineno-0-634"></a><span class="sd">        v (str): The string representation of the value to be converted.</span>
+<a id="__codelineno-0-635" name="__codelineno-0-635"></a>
+<a id="__codelineno-0-636" name="__codelineno-0-636"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-637" name="__codelineno-0-637"></a><span class="sd">        (Any): The converted value. The type can be None, bool, int, float, or the original string if no conversion</span>
+<a id="__codelineno-0-638" name="__codelineno-0-638"></a><span class="sd">            is applicable.</span>
+<a id="__codelineno-0-639" name="__codelineno-0-639"></a>
+<a id="__codelineno-0-640" name="__codelineno-0-640"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-641" name="__codelineno-0-641"></a><span class="sd">        &gt;&gt;&gt; smart_value("42")</span>
+<a id="__codelineno-0-642" name="__codelineno-0-642"></a><span class="sd">        42</span>
+<a id="__codelineno-0-643" name="__codelineno-0-643"></a><span class="sd">        &gt;&gt;&gt; smart_value("3.14")</span>
+<a id="__codelineno-0-644" name="__codelineno-0-644"></a><span class="sd">        3.14</span>
+<a id="__codelineno-0-645" name="__codelineno-0-645"></a><span class="sd">        &gt;&gt;&gt; smart_value("True")</span>
+<a id="__codelineno-0-646" name="__codelineno-0-646"></a><span class="sd">        True</span>
+<a id="__codelineno-0-647" name="__codelineno-0-647"></a><span class="sd">        &gt;&gt;&gt; smart_value("None")</span>
+<a id="__codelineno-0-648" name="__codelineno-0-648"></a><span class="sd">        None</span>
+<a id="__codelineno-0-649" name="__codelineno-0-649"></a><span class="sd">        &gt;&gt;&gt; smart_value("some_string")</span>
+<a id="__codelineno-0-650" name="__codelineno-0-650"></a><span class="sd">        'some_string'</span>
+<a id="__codelineno-0-651" name="__codelineno-0-651"></a>
+<a id="__codelineno-0-652" name="__codelineno-0-652"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-653" name="__codelineno-0-653"></a><span class="sd">        - The function uses a case-insensitive comparison for boolean and None values.</span>
+<a id="__codelineno-0-654" name="__codelineno-0-654"></a><span class="sd">        - For other types, it attempts to use Python's eval() function, which can be unsafe if used on untrusted input.</span>
+<a id="__codelineno-0-655" name="__codelineno-0-655"></a><span class="sd">        - If no conversion is possible, the original string is returned.</span>
+<a id="__codelineno-0-656" name="__codelineno-0-656"></a><span class="sd">    """</span>
+<a id="__codelineno-0-657" name="__codelineno-0-657"></a>    <span class="n">v_lower</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-0-658" name="__codelineno-0-658"></a>    <span class="k">if</span> <span class="n">v_lower</span> <span class="o">==</span> <span class="s2">"none"</span><span class="p">:</span>
+<a id="__codelineno-0-659" name="__codelineno-0-659"></a>        <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-0-660" name="__codelineno-0-660"></a>    <span class="k">elif</span> <span class="n">v_lower</span> <span class="o">==</span> <span class="s2">"true"</span><span class="p">:</span>
+<a id="__codelineno-0-661" name="__codelineno-0-661"></a>        <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-0-662" name="__codelineno-0-662"></a>    <span class="k">elif</span> <span class="n">v_lower</span> <span class="o">==</span> <span class="s2">"false"</span><span class="p">:</span>
+<a id="__codelineno-0-663" name="__codelineno-0-663"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-0-664" name="__codelineno-0-664"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-665" name="__codelineno-0-665"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-666" name="__codelineno-0-666"></a>            <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<a id="__codelineno-0-667" name="__codelineno-0-667"></a>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<a id="__codelineno-0-668" name="__codelineno-0-668"></a>            <span class="k">return</span> <span class="n">v</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3104,33 +3158,7 @@ executing the corresponding tasks such as training, validation, prediction, expo
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-645">645</a></span>
-<span class="normal"><a href="#__codelineno-0-646">646</a></span>
-<span class="normal"><a href="#__codelineno-0-647">647</a></span>
-<span class="normal"><a href="#__codelineno-0-648">648</a></span>
-<span class="normal"><a href="#__codelineno-0-649">649</a></span>
-<span class="normal"><a href="#__codelineno-0-650">650</a></span>
-<span class="normal"><a href="#__codelineno-0-651">651</a></span>
-<span class="normal"><a href="#__codelineno-0-652">652</a></span>
-<span class="normal"><a href="#__codelineno-0-653">653</a></span>
-<span class="normal"><a href="#__codelineno-0-654">654</a></span>
-<span class="normal"><a href="#__codelineno-0-655">655</a></span>
-<span class="normal"><a href="#__codelineno-0-656">656</a></span>
-<span class="normal"><a href="#__codelineno-0-657">657</a></span>
-<span class="normal"><a href="#__codelineno-0-658">658</a></span>
-<span class="normal"><a href="#__codelineno-0-659">659</a></span>
-<span class="normal"><a href="#__codelineno-0-660">660</a></span>
-<span class="normal"><a href="#__codelineno-0-661">661</a></span>
-<span class="normal"><a href="#__codelineno-0-662">662</a></span>
-<span class="normal"><a href="#__codelineno-0-663">663</a></span>
-<span class="normal"><a href="#__codelineno-0-664">664</a></span>
-<span class="normal"><a href="#__codelineno-0-665">665</a></span>
-<span class="normal"><a href="#__codelineno-0-666">666</a></span>
-<span class="normal"><a href="#__codelineno-0-667">667</a></span>
-<span class="normal"><a href="#__codelineno-0-668">668</a></span>
-<span class="normal"><a href="#__codelineno-0-669">669</a></span>
-<span class="normal"><a href="#__codelineno-0-670">670</a></span>
-<span class="normal"><a href="#__codelineno-0-671">671</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-671">671</a></span>
 <span class="normal"><a href="#__codelineno-0-672">672</a></span>
 <span class="normal"><a href="#__codelineno-0-673">673</a></span>
 <span class="normal"><a href="#__codelineno-0-674">674</a></span>
@@ -3264,167 +3292,193 @@ executing the corresponding tasks such as training, validation, prediction, expo
 <span class="normal"><a href="#__codelineno-0-802">802</a></span>
 <span class="normal"><a href="#__codelineno-0-803">803</a></span>
 <span class="normal"><a href="#__codelineno-0-804">804</a></span>
-<span class="normal"><a href="#__codelineno-0-805">805</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-645" name="__codelineno-0-645"></a><span class="k">def</span> <span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
-<a id="__codelineno-0-646" name="__codelineno-0-646"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-647" name="__codelineno-0-647"></a><span class="sd">    Ultralytics entrypoint function for parsing and executing command-line arguments.</span>
-<a id="__codelineno-0-648" name="__codelineno-0-648"></a>
-<a id="__codelineno-0-649" name="__codelineno-0-649"></a><span class="sd">    This function serves as the main entry point for the Ultralytics CLI, parsing command-line arguments and</span>
-<a id="__codelineno-0-650" name="__codelineno-0-650"></a><span class="sd">    executing the corresponding tasks such as training, validation, prediction, exporting models, and more.</span>
-<a id="__codelineno-0-651" name="__codelineno-0-651"></a>
-<a id="__codelineno-0-652" name="__codelineno-0-652"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-653" name="__codelineno-0-653"></a><span class="sd">        debug (str): Space-separated string of command-line arguments for debugging purposes.</span>
-<a id="__codelineno-0-654" name="__codelineno-0-654"></a>
-<a id="__codelineno-0-655" name="__codelineno-0-655"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-656" name="__codelineno-0-656"></a><span class="sd">        Train a detection model for 10 epochs with an initial learning_rate of 0.01:</span>
-<a id="__codelineno-0-657" name="__codelineno-0-657"></a><span class="sd">        &gt;&gt;&gt; entrypoint("train data=coco8.yaml model=yolo11n.pt epochs=10 lr0=0.01")</span>
-<a id="__codelineno-0-658" name="__codelineno-0-658"></a>
-<a id="__codelineno-0-659" name="__codelineno-0-659"></a><span class="sd">        Predict a YouTube video using a pretrained segmentation model at image size 320:</span>
-<a id="__codelineno-0-660" name="__codelineno-0-660"></a><span class="sd">        &gt;&gt;&gt; entrypoint("predict model=yolo11n-seg.pt source='https://youtu.be/LNwODJXcvt4' imgsz=320")</span>
-<a id="__codelineno-0-661" name="__codelineno-0-661"></a>
-<a id="__codelineno-0-662" name="__codelineno-0-662"></a><span class="sd">        Validate a pretrained detection model at batch-size 1 and image size 640:</span>
-<a id="__codelineno-0-663" name="__codelineno-0-663"></a><span class="sd">        &gt;&gt;&gt; entrypoint("val model=yolo11n.pt data=coco8.yaml batch=1 imgsz=640")</span>
-<a id="__codelineno-0-664" name="__codelineno-0-664"></a>
-<a id="__codelineno-0-665" name="__codelineno-0-665"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-666" name="__codelineno-0-666"></a><span class="sd">        - If no arguments are passed, the function will display the usage help message.</span>
-<a id="__codelineno-0-667" name="__codelineno-0-667"></a><span class="sd">        - For a list of all available commands and their arguments, see the provided help messages and the</span>
-<a id="__codelineno-0-668" name="__codelineno-0-668"></a><span class="sd">          Ultralytics documentation at https://docs.ultralytics.com.</span>
-<a id="__codelineno-0-669" name="__codelineno-0-669"></a><span class="sd">    """</span>
-<a id="__codelineno-0-670" name="__codelineno-0-670"></a>    <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">debug</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span> <span class="k">if</span> <span class="n">debug</span> <span class="k">else</span> <span class="n">ARGV</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
-<a id="__codelineno-0-671" name="__codelineno-0-671"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="p">:</span>  <span class="c1"># no arguments passed</span>
-<a id="__codelineno-0-672" name="__codelineno-0-672"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">CLI_HELP_MSG</span><span class="p">)</span>
-<a id="__codelineno-0-673" name="__codelineno-0-673"></a>        <span class="k">return</span>
+<span class="normal"><a href="#__codelineno-0-805">805</a></span>
+<span class="normal"><a href="#__codelineno-0-806">806</a></span>
+<span class="normal"><a href="#__codelineno-0-807">807</a></span>
+<span class="normal"><a href="#__codelineno-0-808">808</a></span>
+<span class="normal"><a href="#__codelineno-0-809">809</a></span>
+<span class="normal"><a href="#__codelineno-0-810">810</a></span>
+<span class="normal"><a href="#__codelineno-0-811">811</a></span>
+<span class="normal"><a href="#__codelineno-0-812">812</a></span>
+<span class="normal"><a href="#__codelineno-0-813">813</a></span>
+<span class="normal"><a href="#__codelineno-0-814">814</a></span>
+<span class="normal"><a href="#__codelineno-0-815">815</a></span>
+<span class="normal"><a href="#__codelineno-0-816">816</a></span>
+<span class="normal"><a href="#__codelineno-0-817">817</a></span>
+<span class="normal"><a href="#__codelineno-0-818">818</a></span>
+<span class="normal"><a href="#__codelineno-0-819">819</a></span>
+<span class="normal"><a href="#__codelineno-0-820">820</a></span>
+<span class="normal"><a href="#__codelineno-0-821">821</a></span>
+<span class="normal"><a href="#__codelineno-0-822">822</a></span>
+<span class="normal"><a href="#__codelineno-0-823">823</a></span>
+<span class="normal"><a href="#__codelineno-0-824">824</a></span>
+<span class="normal"><a href="#__codelineno-0-825">825</a></span>
+<span class="normal"><a href="#__codelineno-0-826">826</a></span>
+<span class="normal"><a href="#__codelineno-0-827">827</a></span>
+<span class="normal"><a href="#__codelineno-0-828">828</a></span>
+<span class="normal"><a href="#__codelineno-0-829">829</a></span>
+<span class="normal"><a href="#__codelineno-0-830">830</a></span>
+<span class="normal"><a href="#__codelineno-0-831">831</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-671" name="__codelineno-0-671"></a><span class="k">def</span> <span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<a id="__codelineno-0-672" name="__codelineno-0-672"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-673" name="__codelineno-0-673"></a><span class="sd">    Ultralytics entrypoint function for parsing and executing command-line arguments.</span>
 <a id="__codelineno-0-674" name="__codelineno-0-674"></a>
-<a id="__codelineno-0-675" name="__codelineno-0-675"></a>    <span class="n">special</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-676" name="__codelineno-0-676"></a>        <span class="s2">"help"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">CLI_HELP_MSG</span><span class="p">),</span>
-<a id="__codelineno-0-677" name="__codelineno-0-677"></a>        <span class="s2">"checks"</span><span class="p">:</span> <span class="n">checks</span><span class="o">.</span><span class="n">collect_system_info</span><span class="p">,</span>
-<a id="__codelineno-0-678" name="__codelineno-0-678"></a>        <span class="s2">"version"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">__version__</span><span class="p">),</span>
-<a id="__codelineno-0-679" name="__codelineno-0-679"></a>        <span class="s2">"settings"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">handle_yolo_settings</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span>
-<a id="__codelineno-0-680" name="__codelineno-0-680"></a>        <span class="s2">"cfg"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">yaml_print</span><span class="p">(</span><span class="n">DEFAULT_CFG_PATH</span><span class="p">),</span>
-<a id="__codelineno-0-681" name="__codelineno-0-681"></a>        <span class="s2">"hub"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span>
-<a id="__codelineno-0-682" name="__codelineno-0-682"></a>        <span class="s2">"login"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">),</span>
-<a id="__codelineno-0-683" name="__codelineno-0-683"></a>        <span class="s2">"logout"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">),</span>
-<a id="__codelineno-0-684" name="__codelineno-0-684"></a>        <span class="s2">"copy-cfg"</span><span class="p">:</span> <span class="n">copy_default_cfg</span><span class="p">,</span>
-<a id="__codelineno-0-685" name="__codelineno-0-685"></a>        <span class="s2">"streamlit-predict"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">handle_streamlit_inference</span><span class="p">(),</span>
-<a id="__codelineno-0-686" name="__codelineno-0-686"></a>    <span class="p">}</span>
-<a id="__codelineno-0-687" name="__codelineno-0-687"></a>    <span class="n">full_args_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">DEFAULT_CFG_DICT</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">TASKS</span><span class="p">},</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">MODES</span><span class="p">},</span> <span class="o">**</span><span class="n">special</span><span class="p">}</span>
-<a id="__codelineno-0-688" name="__codelineno-0-688"></a>
-<a id="__codelineno-0-689" name="__codelineno-0-689"></a>    <span class="c1"># Define common misuses of special commands, i.e. -h, -help, --help</span>
-<a id="__codelineno-0-690" name="__codelineno-0-690"></a>    <span class="n">special</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>  <span class="c1"># singular</span>
-<a id="__codelineno-0-691" name="__codelineno-0-691"></a>    <span class="n">special</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">k</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">k</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"s"</span><span class="p">)})</span>  <span class="c1"># singular</span>
-<a id="__codelineno-0-692" name="__codelineno-0-692"></a>    <span class="n">special</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">special</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="sa">f</span><span class="s2">"-</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="p">{</span><span class="sa">f</span><span class="s2">"--</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special</span><span class="o">.</span><span class="n">items</span><span class="p">()}}</span>
-<a id="__codelineno-0-693" name="__codelineno-0-693"></a>
-<a id="__codelineno-0-694" name="__codelineno-0-694"></a>    <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># basic overrides, i.e. imgsz=320</span>
-<a id="__codelineno-0-695" name="__codelineno-0-695"></a>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">merge_equals_args</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>  <span class="c1"># merge spaces around '=' sign</span>
-<a id="__codelineno-0-696" name="__codelineno-0-696"></a>        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"--"</span><span class="p">):</span>
-<a id="__codelineno-0-697" name="__codelineno-0-697"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ argument '</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">' does not require leading dashes '--', updating to '</span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
-<a id="__codelineno-0-698" name="__codelineno-0-698"></a>            <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-0-699" name="__codelineno-0-699"></a>        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">","</span><span class="p">):</span>
-<a id="__codelineno-0-700" name="__codelineno-0-700"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ argument '</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">' does not require trailing comma ',', updating to '</span><span class="si">{</span><span class="n">a</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
-<a id="__codelineno-0-701" name="__codelineno-0-701"></a>            <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-702" name="__codelineno-0-702"></a>        <span class="k">if</span> <span class="s2">"="</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-<a id="__codelineno-0-703" name="__codelineno-0-703"></a>            <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-704" name="__codelineno-0-704"></a>                <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">parse_key_value_pair</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<a id="__codelineno-0-705" name="__codelineno-0-705"></a>                <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">"cfg"</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># custom.yaml passed</span>
-<a id="__codelineno-0-706" name="__codelineno-0-706"></a>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Overriding </span><span class="si">{</span><span class="n">DEFAULT_CFG_PATH</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-707" name="__codelineno-0-707"></a>                    <span class="n">overrides</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">val</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">yaml_load</span><span class="p">(</span><span class="n">checks</span><span class="o">.</span><span class="n">check_yaml</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">"cfg"</span><span class="p">}</span>
-<a id="__codelineno-0-708" name="__codelineno-0-708"></a>                <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-709" name="__codelineno-0-709"></a>                    <span class="n">overrides</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
-<a id="__codelineno-0-710" name="__codelineno-0-710"></a>            <span class="k">except</span> <span class="p">(</span><span class="ne">NameError</span><span class="p">,</span> <span class="ne">SyntaxError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="ne">AssertionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-711" name="__codelineno-0-711"></a>                <span class="n">check_dict_alignment</span><span class="p">(</span><span class="n">full_args_dict</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="s2">""</span><span class="p">},</span> <span class="n">e</span><span class="p">)</span>
-<a id="__codelineno-0-712" name="__codelineno-0-712"></a>
-<a id="__codelineno-0-713" name="__codelineno-0-713"></a>        <span class="k">elif</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">TASKS</span><span class="p">:</span>
-<a id="__codelineno-0-714" name="__codelineno-0-714"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"task"</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
-<a id="__codelineno-0-715" name="__codelineno-0-715"></a>        <span class="k">elif</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">MODES</span><span class="p">:</span>
-<a id="__codelineno-0-716" name="__codelineno-0-716"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"mode"</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
-<a id="__codelineno-0-717" name="__codelineno-0-717"></a>        <span class="k">elif</span> <span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">special</span><span class="p">:</span>
-<a id="__codelineno-0-718" name="__codelineno-0-718"></a>            <span class="n">special</span><span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()]()</span>
-<a id="__codelineno-0-719" name="__codelineno-0-719"></a>            <span class="k">return</span>
-<a id="__codelineno-0-720" name="__codelineno-0-720"></a>        <span class="k">elif</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">DEFAULT_CFG_DICT</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">DEFAULT_CFG_DICT</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="nb">bool</span><span class="p">):</span>
-<a id="__codelineno-0-721" name="__codelineno-0-721"></a>            <span class="n">overrides</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># auto-True for default bool args, i.e. 'yolo show' sets show=True</span>
-<a id="__codelineno-0-722" name="__codelineno-0-722"></a>        <span class="k">elif</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">DEFAULT_CFG_DICT</span><span class="p">:</span>
-<a id="__codelineno-0-723" name="__codelineno-0-723"></a>            <span class="k">raise</span> <span class="ne">SyntaxError</span><span class="p">(</span>
-<a id="__codelineno-0-724" name="__codelineno-0-724"></a>                <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'red'</span><span class="p">,</span><span class="w"> </span><span class="s1">'bold'</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="si">}</span><span class="s2">' is a valid YOLO argument but is missing an '=' sign "</span>
-<a id="__codelineno-0-725" name="__codelineno-0-725"></a>                <span class="sa">f</span><span class="s2">"to set its value, i.e. try '</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">DEFAULT_CFG_DICT</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="si">}</span><span class="s2">'</span><span class="se">\n</span><span class="si">{</span><span class="n">CLI_HELP_MSG</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-726" name="__codelineno-0-726"></a>            <span class="p">)</span>
-<a id="__codelineno-0-727" name="__codelineno-0-727"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-728" name="__codelineno-0-728"></a>            <span class="n">check_dict_alignment</span><span class="p">(</span><span class="n">full_args_dict</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="s2">""</span><span class="p">})</span>
-<a id="__codelineno-0-729" name="__codelineno-0-729"></a>
-<a id="__codelineno-0-730" name="__codelineno-0-730"></a>    <span class="c1"># Check keys</span>
-<a id="__codelineno-0-731" name="__codelineno-0-731"></a>    <span class="n">check_dict_alignment</span><span class="p">(</span><span class="n">full_args_dict</span><span class="p">,</span> <span class="n">overrides</span><span class="p">)</span>
-<a id="__codelineno-0-732" name="__codelineno-0-732"></a>
-<a id="__codelineno-0-733" name="__codelineno-0-733"></a>    <span class="c1"># Mode</span>
-<a id="__codelineno-0-734" name="__codelineno-0-734"></a>    <span class="n">mode</span> <span class="o">=</span> <span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"mode"</span><span class="p">)</span>
-<a id="__codelineno-0-735" name="__codelineno-0-735"></a>    <span class="k">if</span> <span class="n">mode</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-736" name="__codelineno-0-736"></a>        <span class="n">mode</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">mode</span> <span class="ow">or</span> <span class="s2">"predict"</span>
-<a id="__codelineno-0-737" name="__codelineno-0-737"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'mode' argument is missing. Valid modes are </span><span class="si">{</span><span class="n">MODES</span><span class="si">}</span><span class="s2">. Using default 'mode=</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
-<a id="__codelineno-0-738" name="__codelineno-0-738"></a>    <span class="k">elif</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MODES</span><span class="p">:</span>
-<a id="__codelineno-0-739" name="__codelineno-0-739"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid 'mode=</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">'. Valid modes are </span><span class="si">{</span><span class="n">MODES</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="si">{</span><span class="n">CLI_HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-740" name="__codelineno-0-740"></a>
-<a id="__codelineno-0-741" name="__codelineno-0-741"></a>    <span class="c1"># Task</span>
-<a id="__codelineno-0-742" name="__codelineno-0-742"></a>    <span class="n">task</span> <span class="o">=</span> <span class="n">overrides</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"task"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<a id="__codelineno-0-743" name="__codelineno-0-743"></a>    <span class="k">if</span> <span class="n">task</span><span class="p">:</span>
-<a id="__codelineno-0-744" name="__codelineno-0-744"></a>        <span class="k">if</span> <span class="n">task</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">TASKS</span><span class="p">:</span>
-<a id="__codelineno-0-745" name="__codelineno-0-745"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid 'task=</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">'. Valid tasks are </span><span class="si">{</span><span class="n">TASKS</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="si">{</span><span class="n">CLI_HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-746" name="__codelineno-0-746"></a>        <span class="k">if</span> <span class="s2">"model"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
-<a id="__codelineno-0-747" name="__codelineno-0-747"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">TASK2MODEL</span><span class="p">[</span><span class="n">task</span><span class="p">]</span>
-<a id="__codelineno-0-748" name="__codelineno-0-748"></a>
-<a id="__codelineno-0-749" name="__codelineno-0-749"></a>    <span class="c1"># Model</span>
-<a id="__codelineno-0-750" name="__codelineno-0-750"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">overrides</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"model"</span><span class="p">,</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
-<a id="__codelineno-0-751" name="__codelineno-0-751"></a>    <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-752" name="__codelineno-0-752"></a>        <span class="n">model</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span>
-<a id="__codelineno-0-753" name="__codelineno-0-753"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'model' argument is missing. Using default 'model=</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
-<a id="__codelineno-0-754" name="__codelineno-0-754"></a>    <span class="n">overrides</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
-<a id="__codelineno-0-755" name="__codelineno-0-755"></a>    <span class="n">stem</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-0-756" name="__codelineno-0-756"></a>    <span class="k">if</span> <span class="s2">"rtdetr"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>  <span class="c1"># guess architecture</span>
-<a id="__codelineno-0-757" name="__codelineno-0-757"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">RTDETR</span>
+<a id="__codelineno-0-675" name="__codelineno-0-675"></a><span class="sd">    This function serves as the main entry point for the Ultralytics CLI, parsing command-line arguments and</span>
+<a id="__codelineno-0-676" name="__codelineno-0-676"></a><span class="sd">    executing the corresponding tasks such as training, validation, prediction, exporting models, and more.</span>
+<a id="__codelineno-0-677" name="__codelineno-0-677"></a>
+<a id="__codelineno-0-678" name="__codelineno-0-678"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-679" name="__codelineno-0-679"></a><span class="sd">        debug (str): Space-separated string of command-line arguments for debugging purposes.</span>
+<a id="__codelineno-0-680" name="__codelineno-0-680"></a>
+<a id="__codelineno-0-681" name="__codelineno-0-681"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-682" name="__codelineno-0-682"></a><span class="sd">        Train a detection model for 10 epochs with an initial learning_rate of 0.01:</span>
+<a id="__codelineno-0-683" name="__codelineno-0-683"></a><span class="sd">        &gt;&gt;&gt; entrypoint("train data=coco8.yaml model=yolo11n.pt epochs=10 lr0=0.01")</span>
+<a id="__codelineno-0-684" name="__codelineno-0-684"></a>
+<a id="__codelineno-0-685" name="__codelineno-0-685"></a><span class="sd">        Predict a YouTube video using a pretrained segmentation model at image size 320:</span>
+<a id="__codelineno-0-686" name="__codelineno-0-686"></a><span class="sd">        &gt;&gt;&gt; entrypoint("predict model=yolo11n-seg.pt source='https://youtu.be/LNwODJXcvt4' imgsz=320")</span>
+<a id="__codelineno-0-687" name="__codelineno-0-687"></a>
+<a id="__codelineno-0-688" name="__codelineno-0-688"></a><span class="sd">        Validate a pretrained detection model at batch-size 1 and image size 640:</span>
+<a id="__codelineno-0-689" name="__codelineno-0-689"></a><span class="sd">        &gt;&gt;&gt; entrypoint("val model=yolo11n.pt data=coco8.yaml batch=1 imgsz=640")</span>
+<a id="__codelineno-0-690" name="__codelineno-0-690"></a>
+<a id="__codelineno-0-691" name="__codelineno-0-691"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-692" name="__codelineno-0-692"></a><span class="sd">        - If no arguments are passed, the function will display the usage help message.</span>
+<a id="__codelineno-0-693" name="__codelineno-0-693"></a><span class="sd">        - For a list of all available commands and their arguments, see the provided help messages and the</span>
+<a id="__codelineno-0-694" name="__codelineno-0-694"></a><span class="sd">          Ultralytics documentation at https://docs.ultralytics.com.</span>
+<a id="__codelineno-0-695" name="__codelineno-0-695"></a><span class="sd">    """</span>
+<a id="__codelineno-0-696" name="__codelineno-0-696"></a>    <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">debug</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span> <span class="k">if</span> <span class="n">debug</span> <span class="k">else</span> <span class="n">ARGV</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+<a id="__codelineno-0-697" name="__codelineno-0-697"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="p">:</span>  <span class="c1"># no arguments passed</span>
+<a id="__codelineno-0-698" name="__codelineno-0-698"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">CLI_HELP_MSG</span><span class="p">)</span>
+<a id="__codelineno-0-699" name="__codelineno-0-699"></a>        <span class="k">return</span>
+<a id="__codelineno-0-700" name="__codelineno-0-700"></a>
+<a id="__codelineno-0-701" name="__codelineno-0-701"></a>    <span class="n">special</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-702" name="__codelineno-0-702"></a>        <span class="s2">"help"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">CLI_HELP_MSG</span><span class="p">),</span>
+<a id="__codelineno-0-703" name="__codelineno-0-703"></a>        <span class="s2">"checks"</span><span class="p">:</span> <span class="n">checks</span><span class="o">.</span><span class="n">collect_system_info</span><span class="p">,</span>
+<a id="__codelineno-0-704" name="__codelineno-0-704"></a>        <span class="s2">"version"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">__version__</span><span class="p">),</span>
+<a id="__codelineno-0-705" name="__codelineno-0-705"></a>        <span class="s2">"settings"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">handle_yolo_settings</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span>
+<a id="__codelineno-0-706" name="__codelineno-0-706"></a>        <span class="s2">"cfg"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">yaml_print</span><span class="p">(</span><span class="n">DEFAULT_CFG_PATH</span><span class="p">),</span>
+<a id="__codelineno-0-707" name="__codelineno-0-707"></a>        <span class="s2">"hub"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span>
+<a id="__codelineno-0-708" name="__codelineno-0-708"></a>        <span class="s2">"login"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">),</span>
+<a id="__codelineno-0-709" name="__codelineno-0-709"></a>        <span class="s2">"logout"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">),</span>
+<a id="__codelineno-0-710" name="__codelineno-0-710"></a>        <span class="s2">"copy-cfg"</span><span class="p">:</span> <span class="n">copy_default_cfg</span><span class="p">,</span>
+<a id="__codelineno-0-711" name="__codelineno-0-711"></a>        <span class="s2">"streamlit-predict"</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">handle_streamlit_inference</span><span class="p">(),</span>
+<a id="__codelineno-0-712" name="__codelineno-0-712"></a>    <span class="p">}</span>
+<a id="__codelineno-0-713" name="__codelineno-0-713"></a>    <span class="n">full_args_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">DEFAULT_CFG_DICT</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">TASKS</span><span class="p">},</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">MODES</span><span class="p">},</span> <span class="o">**</span><span class="n">special</span><span class="p">}</span>
+<a id="__codelineno-0-714" name="__codelineno-0-714"></a>
+<a id="__codelineno-0-715" name="__codelineno-0-715"></a>    <span class="c1"># Define common misuses of special commands, i.e. -h, -help, --help</span>
+<a id="__codelineno-0-716" name="__codelineno-0-716"></a>    <span class="n">special</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>  <span class="c1"># singular</span>
+<a id="__codelineno-0-717" name="__codelineno-0-717"></a>    <span class="n">special</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">k</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">k</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"s"</span><span class="p">)})</span>  <span class="c1"># singular</span>
+<a id="__codelineno-0-718" name="__codelineno-0-718"></a>    <span class="n">special</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">special</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="sa">f</span><span class="s2">"-</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="p">{</span><span class="sa">f</span><span class="s2">"--</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">special</span><span class="o">.</span><span class="n">items</span><span class="p">()}}</span>
+<a id="__codelineno-0-719" name="__codelineno-0-719"></a>
+<a id="__codelineno-0-720" name="__codelineno-0-720"></a>    <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># basic overrides, i.e. imgsz=320</span>
+<a id="__codelineno-0-721" name="__codelineno-0-721"></a>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">merge_equals_args</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>  <span class="c1"># merge spaces around '=' sign</span>
+<a id="__codelineno-0-722" name="__codelineno-0-722"></a>        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"--"</span><span class="p">):</span>
+<a id="__codelineno-0-723" name="__codelineno-0-723"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ argument '</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">' does not require leading dashes '--', updating to '</span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-724" name="__codelineno-0-724"></a>            <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<a id="__codelineno-0-725" name="__codelineno-0-725"></a>        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">","</span><span class="p">):</span>
+<a id="__codelineno-0-726" name="__codelineno-0-726"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ argument '</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">' does not require trailing comma ',', updating to '</span><span class="si">{</span><span class="n">a</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-727" name="__codelineno-0-727"></a>            <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-728" name="__codelineno-0-728"></a>        <span class="k">if</span> <span class="s2">"="</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+<a id="__codelineno-0-729" name="__codelineno-0-729"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-730" name="__codelineno-0-730"></a>                <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">parse_key_value_pair</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="__codelineno-0-731" name="__codelineno-0-731"></a>                <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s2">"cfg"</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># custom.yaml passed</span>
+<a id="__codelineno-0-732" name="__codelineno-0-732"></a>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Overriding </span><span class="si">{</span><span class="n">DEFAULT_CFG_PATH</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-733" name="__codelineno-0-733"></a>                    <span class="n">overrides</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">val</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">yaml_load</span><span class="p">(</span><span class="n">checks</span><span class="o">.</span><span class="n">check_yaml</span><span class="p">(</span><span class="n">v</span><span class="p">))</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">"cfg"</span><span class="p">}</span>
+<a id="__codelineno-0-734" name="__codelineno-0-734"></a>                <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-735" name="__codelineno-0-735"></a>                    <span class="n">overrides</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+<a id="__codelineno-0-736" name="__codelineno-0-736"></a>            <span class="k">except</span> <span class="p">(</span><span class="ne">NameError</span><span class="p">,</span> <span class="ne">SyntaxError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="ne">AssertionError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-0-737" name="__codelineno-0-737"></a>                <span class="n">check_dict_alignment</span><span class="p">(</span><span class="n">full_args_dict</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="s2">""</span><span class="p">},</span> <span class="n">e</span><span class="p">)</span>
+<a id="__codelineno-0-738" name="__codelineno-0-738"></a>
+<a id="__codelineno-0-739" name="__codelineno-0-739"></a>        <span class="k">elif</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">TASKS</span><span class="p">:</span>
+<a id="__codelineno-0-740" name="__codelineno-0-740"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"task"</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
+<a id="__codelineno-0-741" name="__codelineno-0-741"></a>        <span class="k">elif</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">MODES</span><span class="p">:</span>
+<a id="__codelineno-0-742" name="__codelineno-0-742"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"mode"</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
+<a id="__codelineno-0-743" name="__codelineno-0-743"></a>        <span class="k">elif</span> <span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">special</span><span class="p">:</span>
+<a id="__codelineno-0-744" name="__codelineno-0-744"></a>            <span class="n">special</span><span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">lower</span><span class="p">()]()</span>
+<a id="__codelineno-0-745" name="__codelineno-0-745"></a>            <span class="k">return</span>
+<a id="__codelineno-0-746" name="__codelineno-0-746"></a>        <span class="k">elif</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">DEFAULT_CFG_DICT</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">DEFAULT_CFG_DICT</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="nb">bool</span><span class="p">):</span>
+<a id="__codelineno-0-747" name="__codelineno-0-747"></a>            <span class="n">overrides</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># auto-True for default bool args, i.e. 'yolo show' sets show=True</span>
+<a id="__codelineno-0-748" name="__codelineno-0-748"></a>        <span class="k">elif</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">DEFAULT_CFG_DICT</span><span class="p">:</span>
+<a id="__codelineno-0-749" name="__codelineno-0-749"></a>            <span class="k">raise</span> <span class="ne">SyntaxError</span><span class="p">(</span>
+<a id="__codelineno-0-750" name="__codelineno-0-750"></a>                <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'red'</span><span class="p">,</span><span class="w"> </span><span class="s1">'bold'</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="si">}</span><span class="s2">' is a valid YOLO argument but is missing an '=' sign "</span>
+<a id="__codelineno-0-751" name="__codelineno-0-751"></a>                <span class="sa">f</span><span class="s2">"to set its value, i.e. try '</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">DEFAULT_CFG_DICT</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="si">}</span><span class="s2">'</span><span class="se">\n</span><span class="si">{</span><span class="n">CLI_HELP_MSG</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-752" name="__codelineno-0-752"></a>            <span class="p">)</span>
+<a id="__codelineno-0-753" name="__codelineno-0-753"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-754" name="__codelineno-0-754"></a>            <span class="n">check_dict_alignment</span><span class="p">(</span><span class="n">full_args_dict</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="s2">""</span><span class="p">})</span>
+<a id="__codelineno-0-755" name="__codelineno-0-755"></a>
+<a id="__codelineno-0-756" name="__codelineno-0-756"></a>    <span class="c1"># Check keys</span>
+<a id="__codelineno-0-757" name="__codelineno-0-757"></a>    <span class="n">check_dict_alignment</span><span class="p">(</span><span class="n">full_args_dict</span><span class="p">,</span> <span class="n">overrides</span><span class="p">)</span>
 <a id="__codelineno-0-758" name="__codelineno-0-758"></a>
-<a id="__codelineno-0-759" name="__codelineno-0-759"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">RTDETR</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>  <span class="c1"># no task argument</span>
-<a id="__codelineno-0-760" name="__codelineno-0-760"></a>    <span class="k">elif</span> <span class="s2">"fastsam"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
-<a id="__codelineno-0-761" name="__codelineno-0-761"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">FastSAM</span>
-<a id="__codelineno-0-762" name="__codelineno-0-762"></a>
-<a id="__codelineno-0-763" name="__codelineno-0-763"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">FastSAM</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-<a id="__codelineno-0-764" name="__codelineno-0-764"></a>    <span class="k">elif</span> <span class="s2">"sam_"</span> <span class="ow">in</span> <span class="n">stem</span> <span class="ow">or</span> <span class="s2">"sam2_"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
-<a id="__codelineno-0-765" name="__codelineno-0-765"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">SAM</span>
+<a id="__codelineno-0-759" name="__codelineno-0-759"></a>    <span class="c1"># Mode</span>
+<a id="__codelineno-0-760" name="__codelineno-0-760"></a>    <span class="n">mode</span> <span class="o">=</span> <span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"mode"</span><span class="p">)</span>
+<a id="__codelineno-0-761" name="__codelineno-0-761"></a>    <span class="k">if</span> <span class="n">mode</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-762" name="__codelineno-0-762"></a>        <span class="n">mode</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">mode</span> <span class="ow">or</span> <span class="s2">"predict"</span>
+<a id="__codelineno-0-763" name="__codelineno-0-763"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'mode' argument is missing. Valid modes are </span><span class="si">{</span><span class="n">MODES</span><span class="si">}</span><span class="s2">. Using default 'mode=</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-764" name="__codelineno-0-764"></a>    <span class="k">elif</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">MODES</span><span class="p">:</span>
+<a id="__codelineno-0-765" name="__codelineno-0-765"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid 'mode=</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">'. Valid modes are </span><span class="si">{</span><span class="n">MODES</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="si">{</span><span class="n">CLI_HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-766" name="__codelineno-0-766"></a>
-<a id="__codelineno-0-767" name="__codelineno-0-767"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-<a id="__codelineno-0-768" name="__codelineno-0-768"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-769" name="__codelineno-0-769"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-0-770" name="__codelineno-0-770"></a>
-<a id="__codelineno-0-771" name="__codelineno-0-771"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">)</span>
-<a id="__codelineno-0-772" name="__codelineno-0-772"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"pretrained"</span><span class="p">),</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-0-773" name="__codelineno-0-773"></a>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">overrides</span><span class="p">[</span><span class="s2">"pretrained"</span><span class="p">])</span>
+<a id="__codelineno-0-767" name="__codelineno-0-767"></a>    <span class="c1"># Task</span>
+<a id="__codelineno-0-768" name="__codelineno-0-768"></a>    <span class="n">task</span> <span class="o">=</span> <span class="n">overrides</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"task"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-0-769" name="__codelineno-0-769"></a>    <span class="k">if</span> <span class="n">task</span><span class="p">:</span>
+<a id="__codelineno-0-770" name="__codelineno-0-770"></a>        <span class="k">if</span> <span class="n">task</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">TASKS</span><span class="p">:</span>
+<a id="__codelineno-0-771" name="__codelineno-0-771"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid 'task=</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">'. Valid tasks are </span><span class="si">{</span><span class="n">TASKS</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="si">{</span><span class="n">CLI_HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-772" name="__codelineno-0-772"></a>        <span class="k">if</span> <span class="s2">"model"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
+<a id="__codelineno-0-773" name="__codelineno-0-773"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">TASK2MODEL</span><span class="p">[</span><span class="n">task</span><span class="p">]</span>
 <a id="__codelineno-0-774" name="__codelineno-0-774"></a>
-<a id="__codelineno-0-775" name="__codelineno-0-775"></a>    <span class="c1"># Task Update</span>
-<a id="__codelineno-0-776" name="__codelineno-0-776"></a>    <span class="k">if</span> <span class="n">task</span> <span class="o">!=</span> <span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="p">:</span>
-<a id="__codelineno-0-777" name="__codelineno-0-777"></a>        <span class="k">if</span> <span class="n">task</span><span class="p">:</span>
-<a id="__codelineno-0-778" name="__codelineno-0-778"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<a id="__codelineno-0-779" name="__codelineno-0-779"></a>                <span class="sa">f</span><span class="s2">"WARNING ⚠️ conflicting 'task=</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">' passed with 'task=</span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' model. "</span>
-<a id="__codelineno-0-780" name="__codelineno-0-780"></a>                <span class="sa">f</span><span class="s2">"Ignoring 'task=</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">' and updating to 'task=</span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' to match model."</span>
-<a id="__codelineno-0-781" name="__codelineno-0-781"></a>            <span class="p">)</span>
-<a id="__codelineno-0-782" name="__codelineno-0-782"></a>        <span class="n">task</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">task</span>
-<a id="__codelineno-0-783" name="__codelineno-0-783"></a>
-<a id="__codelineno-0-784" name="__codelineno-0-784"></a>    <span class="c1"># Mode</span>
-<a id="__codelineno-0-785" name="__codelineno-0-785"></a>    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"predict"</span><span class="p">,</span> <span class="s2">"track"</span><span class="p">}</span> <span class="ow">and</span> <span class="s2">"source"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
-<a id="__codelineno-0-786" name="__codelineno-0-786"></a>        <span class="n">overrides</span><span class="p">[</span><span class="s2">"source"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">source</span> <span class="ow">or</span> <span class="n">ASSETS</span>
-<a id="__codelineno-0-787" name="__codelineno-0-787"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'source' argument is missing. Using default 'source=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'source'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
-<a id="__codelineno-0-788" name="__codelineno-0-788"></a>    <span class="k">elif</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"train"</span><span class="p">,</span> <span class="s2">"val"</span><span class="p">}:</span>
-<a id="__codelineno-0-789" name="__codelineno-0-789"></a>        <span class="k">if</span> <span class="s2">"data"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span> <span class="ow">and</span> <span class="s2">"resume"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
-<a id="__codelineno-0-790" name="__codelineno-0-790"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">data</span> <span class="ow">or</span> <span class="n">TASK2DATA</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">task</span> <span class="ow">or</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">task</span><span class="p">,</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-0-791" name="__codelineno-0-791"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'data' argument is missing. Using default 'data=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
-<a id="__codelineno-0-792" name="__codelineno-0-792"></a>    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"export"</span><span class="p">:</span>
-<a id="__codelineno-0-793" name="__codelineno-0-793"></a>        <span class="k">if</span> <span class="s2">"format"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
-<a id="__codelineno-0-794" name="__codelineno-0-794"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"format"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">format</span> <span class="ow">or</span> <span class="s2">"torchscript"</span>
-<a id="__codelineno-0-795" name="__codelineno-0-795"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'format' argument is missing. Using default 'format=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'format'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-775" name="__codelineno-0-775"></a>    <span class="c1"># Model</span>
+<a id="__codelineno-0-776" name="__codelineno-0-776"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">overrides</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"model"</span><span class="p">,</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-0-777" name="__codelineno-0-777"></a>    <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-778" name="__codelineno-0-778"></a>        <span class="n">model</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span>
+<a id="__codelineno-0-779" name="__codelineno-0-779"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'model' argument is missing. Using default 'model=</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-780" name="__codelineno-0-780"></a>    <span class="n">overrides</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
+<a id="__codelineno-0-781" name="__codelineno-0-781"></a>    <span class="n">stem</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-0-782" name="__codelineno-0-782"></a>    <span class="k">if</span> <span class="s2">"rtdetr"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>  <span class="c1"># guess architecture</span>
+<a id="__codelineno-0-783" name="__codelineno-0-783"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">RTDETR</span>
+<a id="__codelineno-0-784" name="__codelineno-0-784"></a>
+<a id="__codelineno-0-785" name="__codelineno-0-785"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">RTDETR</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>  <span class="c1"># no task argument</span>
+<a id="__codelineno-0-786" name="__codelineno-0-786"></a>    <span class="k">elif</span> <span class="s2">"fastsam"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
+<a id="__codelineno-0-787" name="__codelineno-0-787"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">FastSAM</span>
+<a id="__codelineno-0-788" name="__codelineno-0-788"></a>
+<a id="__codelineno-0-789" name="__codelineno-0-789"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">FastSAM</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-0-790" name="__codelineno-0-790"></a>    <span class="k">elif</span> <span class="s2">"sam_"</span> <span class="ow">in</span> <span class="n">stem</span> <span class="ow">or</span> <span class="s2">"sam2_"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
+<a id="__codelineno-0-791" name="__codelineno-0-791"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">SAM</span>
+<a id="__codelineno-0-792" name="__codelineno-0-792"></a>
+<a id="__codelineno-0-793" name="__codelineno-0-793"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-0-794" name="__codelineno-0-794"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-795" name="__codelineno-0-795"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
 <a id="__codelineno-0-796" name="__codelineno-0-796"></a>
-<a id="__codelineno-0-797" name="__codelineno-0-797"></a>    <span class="c1"># Run command in python</span>
-<a id="__codelineno-0-798" name="__codelineno-0-798"></a>    <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mode</span><span class="p">)(</span><span class="o">**</span><span class="n">overrides</span><span class="p">)</span>  <span class="c1"># default args from model</span>
-<a id="__codelineno-0-799" name="__codelineno-0-799"></a>
-<a id="__codelineno-0-800" name="__codelineno-0-800"></a>    <span class="c1"># Show help</span>
-<a id="__codelineno-0-801" name="__codelineno-0-801"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"💡 Learn more at https://docs.ultralytics.com/modes/</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-802" name="__codelineno-0-802"></a>
-<a id="__codelineno-0-803" name="__codelineno-0-803"></a>    <span class="c1"># Recommend VS Code extension</span>
-<a id="__codelineno-0-804" name="__codelineno-0-804"></a>    <span class="k">if</span> <span class="n">IS_VSCODE</span> <span class="ow">and</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"vscode_msg"</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-805" name="__codelineno-0-805"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">vscode_msg</span><span class="p">())</span>
+<a id="__codelineno-0-797" name="__codelineno-0-797"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">)</span>
+<a id="__codelineno-0-798" name="__codelineno-0-798"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"pretrained"</span><span class="p">),</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-0-799" name="__codelineno-0-799"></a>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">overrides</span><span class="p">[</span><span class="s2">"pretrained"</span><span class="p">])</span>
+<a id="__codelineno-0-800" name="__codelineno-0-800"></a>
+<a id="__codelineno-0-801" name="__codelineno-0-801"></a>    <span class="c1"># Task Update</span>
+<a id="__codelineno-0-802" name="__codelineno-0-802"></a>    <span class="k">if</span> <span class="n">task</span> <span class="o">!=</span> <span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="p">:</span>
+<a id="__codelineno-0-803" name="__codelineno-0-803"></a>        <span class="k">if</span> <span class="n">task</span><span class="p">:</span>
+<a id="__codelineno-0-804" name="__codelineno-0-804"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+<a id="__codelineno-0-805" name="__codelineno-0-805"></a>                <span class="sa">f</span><span class="s2">"WARNING ⚠️ conflicting 'task=</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">' passed with 'task=</span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' model. "</span>
+<a id="__codelineno-0-806" name="__codelineno-0-806"></a>                <span class="sa">f</span><span class="s2">"Ignoring 'task=</span><span class="si">{</span><span class="n">task</span><span class="si">}</span><span class="s2">' and updating to 'task=</span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2">' to match model."</span>
+<a id="__codelineno-0-807" name="__codelineno-0-807"></a>            <span class="p">)</span>
+<a id="__codelineno-0-808" name="__codelineno-0-808"></a>        <span class="n">task</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">task</span>
+<a id="__codelineno-0-809" name="__codelineno-0-809"></a>
+<a id="__codelineno-0-810" name="__codelineno-0-810"></a>    <span class="c1"># Mode</span>
+<a id="__codelineno-0-811" name="__codelineno-0-811"></a>    <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"predict"</span><span class="p">,</span> <span class="s2">"track"</span><span class="p">}</span> <span class="ow">and</span> <span class="s2">"source"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
+<a id="__codelineno-0-812" name="__codelineno-0-812"></a>        <span class="n">overrides</span><span class="p">[</span><span class="s2">"source"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">source</span> <span class="ow">or</span> <span class="n">ASSETS</span>
+<a id="__codelineno-0-813" name="__codelineno-0-813"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'source' argument is missing. Using default 'source=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'source'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-814" name="__codelineno-0-814"></a>    <span class="k">elif</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"train"</span><span class="p">,</span> <span class="s2">"val"</span><span class="p">}:</span>
+<a id="__codelineno-0-815" name="__codelineno-0-815"></a>        <span class="k">if</span> <span class="s2">"data"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span> <span class="ow">and</span> <span class="s2">"resume"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
+<a id="__codelineno-0-816" name="__codelineno-0-816"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">data</span> <span class="ow">or</span> <span class="n">TASK2DATA</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">task</span> <span class="ow">or</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">task</span><span class="p">,</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-0-817" name="__codelineno-0-817"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'data' argument is missing. Using default 'data=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-818" name="__codelineno-0-818"></a>    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"export"</span><span class="p">:</span>
+<a id="__codelineno-0-819" name="__codelineno-0-819"></a>        <span class="k">if</span> <span class="s2">"format"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">overrides</span><span class="p">:</span>
+<a id="__codelineno-0-820" name="__codelineno-0-820"></a>            <span class="n">overrides</span><span class="p">[</span><span class="s2">"format"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">format</span> <span class="ow">or</span> <span class="s2">"torchscript"</span>
+<a id="__codelineno-0-821" name="__codelineno-0-821"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ 'format' argument is missing. Using default 'format=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'format'</span><span class="p">]</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-822" name="__codelineno-0-822"></a>
+<a id="__codelineno-0-823" name="__codelineno-0-823"></a>    <span class="c1"># Run command in python</span>
+<a id="__codelineno-0-824" name="__codelineno-0-824"></a>    <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mode</span><span class="p">)(</span><span class="o">**</span><span class="n">overrides</span><span class="p">)</span>  <span class="c1"># default args from model</span>
+<a id="__codelineno-0-825" name="__codelineno-0-825"></a>
+<a id="__codelineno-0-826" name="__codelineno-0-826"></a>    <span class="c1"># Show help</span>
+<a id="__codelineno-0-827" name="__codelineno-0-827"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"💡 Learn more at https://docs.ultralytics.com/modes/</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-828" name="__codelineno-0-828"></a>
+<a id="__codelineno-0-829" name="__codelineno-0-829"></a>    <span class="c1"># Recommend VS Code extension</span>
+<a id="__codelineno-0-830" name="__codelineno-0-830"></a>    <span class="k">if</span> <span class="n">IS_VSCODE</span> <span class="ow">and</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"vscode_msg"</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-831" name="__codelineno-0-831"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">vscode_msg</span><span class="p">())</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3458,59 +3512,59 @@ to create a custom configuration file based on the default settings.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-809">809</a></span>
-<span class="normal"><a href="#__codelineno-0-810">810</a></span>
-<span class="normal"><a href="#__codelineno-0-811">811</a></span>
-<span class="normal"><a href="#__codelineno-0-812">812</a></span>
-<span class="normal"><a href="#__codelineno-0-813">813</a></span>
-<span class="normal"><a href="#__codelineno-0-814">814</a></span>
-<span class="normal"><a href="#__codelineno-0-815">815</a></span>
-<span class="normal"><a href="#__codelineno-0-816">816</a></span>
-<span class="normal"><a href="#__codelineno-0-817">817</a></span>
-<span class="normal"><a href="#__codelineno-0-818">818</a></span>
-<span class="normal"><a href="#__codelineno-0-819">819</a></span>
-<span class="normal"><a href="#__codelineno-0-820">820</a></span>
-<span class="normal"><a href="#__codelineno-0-821">821</a></span>
-<span class="normal"><a href="#__codelineno-0-822">822</a></span>
-<span class="normal"><a href="#__codelineno-0-823">823</a></span>
-<span class="normal"><a href="#__codelineno-0-824">824</a></span>
-<span class="normal"><a href="#__codelineno-0-825">825</a></span>
-<span class="normal"><a href="#__codelineno-0-826">826</a></span>
-<span class="normal"><a href="#__codelineno-0-827">827</a></span>
-<span class="normal"><a href="#__codelineno-0-828">828</a></span>
-<span class="normal"><a href="#__codelineno-0-829">829</a></span>
-<span class="normal"><a href="#__codelineno-0-830">830</a></span>
-<span class="normal"><a href="#__codelineno-0-831">831</a></span>
-<span class="normal"><a href="#__codelineno-0-832">832</a></span>
-<span class="normal"><a href="#__codelineno-0-833">833</a></span>
-<span class="normal"><a href="#__codelineno-0-834">834</a></span>
-<span class="normal"><a href="#__codelineno-0-835">835</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-809" name="__codelineno-0-809"></a><span class="k">def</span> <span class="nf">copy_default_cfg</span><span class="p">():</span>
-<a id="__codelineno-0-810" name="__codelineno-0-810"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-811" name="__codelineno-0-811"></a><span class="sd">    Copies the default configuration file and creates a new one with '_copy' appended to its name.</span>
-<a id="__codelineno-0-812" name="__codelineno-0-812"></a>
-<a id="__codelineno-0-813" name="__codelineno-0-813"></a><span class="sd">    This function duplicates the existing default configuration file (DEFAULT_CFG_PATH) and saves it</span>
-<a id="__codelineno-0-814" name="__codelineno-0-814"></a><span class="sd">    with '_copy' appended to its name in the current working directory. It provides a convenient way</span>
-<a id="__codelineno-0-815" name="__codelineno-0-815"></a><span class="sd">    to create a custom configuration file based on the default settings.</span>
-<a id="__codelineno-0-816" name="__codelineno-0-816"></a>
-<a id="__codelineno-0-817" name="__codelineno-0-817"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-818" name="__codelineno-0-818"></a><span class="sd">        &gt;&gt;&gt; copy_default_cfg()</span>
-<a id="__codelineno-0-819" name="__codelineno-0-819"></a><span class="sd">        # Output: default.yaml copied to /path/to/current/directory/default_copy.yaml</span>
-<a id="__codelineno-0-820" name="__codelineno-0-820"></a><span class="sd">        # Example YOLO command with this new custom cfg:</span>
-<a id="__codelineno-0-821" name="__codelineno-0-821"></a><span class="sd">        #   yolo cfg='/path/to/current/directory/default_copy.yaml' imgsz=320 batch=8</span>
-<a id="__codelineno-0-822" name="__codelineno-0-822"></a>
-<a id="__codelineno-0-823" name="__codelineno-0-823"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-824" name="__codelineno-0-824"></a><span class="sd">        - The new configuration file is created in the current working directory.</span>
-<a id="__codelineno-0-825" name="__codelineno-0-825"></a><span class="sd">        - After copying, the function prints a message with the new file's location and an example</span>
-<a id="__codelineno-0-826" name="__codelineno-0-826"></a><span class="sd">          YOLO command demonstrating how to use the new configuration file.</span>
-<a id="__codelineno-0-827" name="__codelineno-0-827"></a><span class="sd">        - This function is useful for users who want to modify the default configuration without</span>
-<a id="__codelineno-0-828" name="__codelineno-0-828"></a><span class="sd">          altering the original file.</span>
-<a id="__codelineno-0-829" name="__codelineno-0-829"></a><span class="sd">    """</span>
-<a id="__codelineno-0-830" name="__codelineno-0-830"></a>    <span class="n">new_file</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="n">DEFAULT_CFG_PATH</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">"_copy.yaml"</span><span class="p">)</span>
-<a id="__codelineno-0-831" name="__codelineno-0-831"></a>    <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">DEFAULT_CFG_PATH</span><span class="p">,</span> <span class="n">new_file</span><span class="p">)</span>
-<a id="__codelineno-0-832" name="__codelineno-0-832"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-<a id="__codelineno-0-833" name="__codelineno-0-833"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DEFAULT_CFG_PATH</span><span class="si">}</span><span class="s2"> copied to </span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-<a id="__codelineno-0-834" name="__codelineno-0-834"></a>        <span class="sa">f</span><span class="s2">"Example YOLO command with this new custom cfg:</span><span class="se">\n</span><span class="s2">    yolo cfg='</span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="s2">' imgsz=320 batch=8"</span>
-<a id="__codelineno-0-835" name="__codelineno-0-835"></a>    <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-835">835</a></span>
+<span class="normal"><a href="#__codelineno-0-836">836</a></span>
+<span class="normal"><a href="#__codelineno-0-837">837</a></span>
+<span class="normal"><a href="#__codelineno-0-838">838</a></span>
+<span class="normal"><a href="#__codelineno-0-839">839</a></span>
+<span class="normal"><a href="#__codelineno-0-840">840</a></span>
+<span class="normal"><a href="#__codelineno-0-841">841</a></span>
+<span class="normal"><a href="#__codelineno-0-842">842</a></span>
+<span class="normal"><a href="#__codelineno-0-843">843</a></span>
+<span class="normal"><a href="#__codelineno-0-844">844</a></span>
+<span class="normal"><a href="#__codelineno-0-845">845</a></span>
+<span class="normal"><a href="#__codelineno-0-846">846</a></span>
+<span class="normal"><a href="#__codelineno-0-847">847</a></span>
+<span class="normal"><a href="#__codelineno-0-848">848</a></span>
+<span class="normal"><a href="#__codelineno-0-849">849</a></span>
+<span class="normal"><a href="#__codelineno-0-850">850</a></span>
+<span class="normal"><a href="#__codelineno-0-851">851</a></span>
+<span class="normal"><a href="#__codelineno-0-852">852</a></span>
+<span class="normal"><a href="#__codelineno-0-853">853</a></span>
+<span class="normal"><a href="#__codelineno-0-854">854</a></span>
+<span class="normal"><a href="#__codelineno-0-855">855</a></span>
+<span class="normal"><a href="#__codelineno-0-856">856</a></span>
+<span class="normal"><a href="#__codelineno-0-857">857</a></span>
+<span class="normal"><a href="#__codelineno-0-858">858</a></span>
+<span class="normal"><a href="#__codelineno-0-859">859</a></span>
+<span class="normal"><a href="#__codelineno-0-860">860</a></span>
+<span class="normal"><a href="#__codelineno-0-861">861</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-835" name="__codelineno-0-835"></a><span class="k">def</span> <span class="nf">copy_default_cfg</span><span class="p">():</span>
+<a id="__codelineno-0-836" name="__codelineno-0-836"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-837" name="__codelineno-0-837"></a><span class="sd">    Copies the default configuration file and creates a new one with '_copy' appended to its name.</span>
+<a id="__codelineno-0-838" name="__codelineno-0-838"></a>
+<a id="__codelineno-0-839" name="__codelineno-0-839"></a><span class="sd">    This function duplicates the existing default configuration file (DEFAULT_CFG_PATH) and saves it</span>
+<a id="__codelineno-0-840" name="__codelineno-0-840"></a><span class="sd">    with '_copy' appended to its name in the current working directory. It provides a convenient way</span>
+<a id="__codelineno-0-841" name="__codelineno-0-841"></a><span class="sd">    to create a custom configuration file based on the default settings.</span>
+<a id="__codelineno-0-842" name="__codelineno-0-842"></a>
+<a id="__codelineno-0-843" name="__codelineno-0-843"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-844" name="__codelineno-0-844"></a><span class="sd">        &gt;&gt;&gt; copy_default_cfg()</span>
+<a id="__codelineno-0-845" name="__codelineno-0-845"></a><span class="sd">        # Output: default.yaml copied to /path/to/current/directory/default_copy.yaml</span>
+<a id="__codelineno-0-846" name="__codelineno-0-846"></a><span class="sd">        # Example YOLO command with this new custom cfg:</span>
+<a id="__codelineno-0-847" name="__codelineno-0-847"></a><span class="sd">        #   yolo cfg='/path/to/current/directory/default_copy.yaml' imgsz=320 batch=8</span>
+<a id="__codelineno-0-848" name="__codelineno-0-848"></a>
+<a id="__codelineno-0-849" name="__codelineno-0-849"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-850" name="__codelineno-0-850"></a><span class="sd">        - The new configuration file is created in the current working directory.</span>
+<a id="__codelineno-0-851" name="__codelineno-0-851"></a><span class="sd">        - After copying, the function prints a message with the new file's location and an example</span>
+<a id="__codelineno-0-852" name="__codelineno-0-852"></a><span class="sd">          YOLO command demonstrating how to use the new configuration file.</span>
+<a id="__codelineno-0-853" name="__codelineno-0-853"></a><span class="sd">        - This function is useful for users who want to modify the default configuration without</span>
+<a id="__codelineno-0-854" name="__codelineno-0-854"></a><span class="sd">          altering the original file.</span>
+<a id="__codelineno-0-855" name="__codelineno-0-855"></a><span class="sd">    """</span>
+<a id="__codelineno-0-856" name="__codelineno-0-856"></a>    <span class="n">new_file</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="n">DEFAULT_CFG_PATH</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">"_copy.yaml"</span><span class="p">)</span>
+<a id="__codelineno-0-857" name="__codelineno-0-857"></a>    <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">DEFAULT_CFG_PATH</span><span class="p">,</span> <span class="n">new_file</span><span class="p">)</span>
+<a id="__codelineno-0-858" name="__codelineno-0-858"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+<a id="__codelineno-0-859" name="__codelineno-0-859"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">DEFAULT_CFG_PATH</span><span class="si">}</span><span class="s2"> copied to </span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
+<a id="__codelineno-0-860" name="__codelineno-0-860"></a>        <span class="sa">f</span><span class="s2">"Example YOLO command with this new custom cfg:</span><span class="se">\n</span><span class="s2">    yolo cfg='</span><span class="si">{</span><span class="n">new_file</span><span class="si">}</span><span class="s2">' imgsz=320 batch=8"</span>
+<a id="__codelineno-0-861" name="__codelineno-0-861"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
