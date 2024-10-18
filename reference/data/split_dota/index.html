@@ -801,6 +801,13 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/solutions/">
+<span class="md-ellipsis">
+    solutions
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../solutions/ai_gym/">
 <span class="md-ellipsis">
     ai_gym
@@ -1264,7 +1271,10 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split_dota.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
 <span class="normal"><a href="#__codelineno-0-21">21</a></span>
 <span class="normal"><a href="#__codelineno-0-22">22</a></span>
 <span class="normal"><a href="#__codelineno-0-23">23</a></span>
@@ -1305,22 +1315,25 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span class="normal"><a href="#__codelineno-0-58">58</a></span>
 <span class="normal"><a href="#__codelineno-0-59">59</a></span>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
-<span class="normal"><a href="#__codelineno-0-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="k">def</span> <span class="nf">bbox_iof</span><span class="p">(</span><span class="n">polygon1</span><span class="p">,</span> <span class="n">bbox2</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    Calculate Intersection over Foreground (IoF) between polygons and bounding boxes.</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">        polygon1 (np.ndarray): Polygon coordinates, shape (n, 8).</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        bbox2 (np.ndarray): Bounding boxes, shape (n, 4).</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        eps (float, optional): Small value to prevent division by zero. Defaults to 1e-6.</span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="k">def</span> <span class="nf">bbox_iof</span><span class="p">(</span><span class="n">polygon1</span><span class="p">,</span> <span class="n">bbox2</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    Calculate Intersection over Foreground (IoF) between polygons and bounding boxes.</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        polygon1 (np.ndarray): Polygon coordinates, shape (n, 8).</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        bbox2 (np.ndarray): Bounding boxes, shape (n, 4).</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        eps (float, optional): Small value to prevent division by zero. Defaults to 1e-6.</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        (np.ndarray): IoF scores, shape (n, 1) or (n, m) if bbox2 is (m, 4).</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        (np.ndarray): IoF scores, shape (n, 1) or (n, m) if bbox2 is (m, 4).</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    Note:</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">        Polygon format: [x1, y1, x2, y2, x3, y3, x4, y4].</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        Bounding box format: [x_min, y_min, x_max, y_max].</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    """</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    Note:</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        Polygon format: [x1, y1, x2, y2, x3, y3, x4, y4].</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        Bounding box format: [x_min, y_min, x_max, y_max].</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    """</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"shapely"</span><span class="p">)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
 <a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="n">polygon1</span> <span class="o">=</span> <span class="n">polygon1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="n">lt_point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">polygon1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># left-top</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a>    <span class="n">rb_point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">polygon1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># right-bottom</span>
