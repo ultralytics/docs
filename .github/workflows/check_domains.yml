@@ -8,6 +8,7 @@ on:
     # Runs every day at 05:00 UTC
     - cron: "0 5 * * *"
   workflow_dispatch:
+
 jobs:
   Test:
     runs-on: ubuntu-latest
@@ -51,7 +52,7 @@ jobs:
         shell: python
         run: |
           import requests
-          
+
           def check_domain_redirection(domain, prefix, max_attempts=3):
               """Check if the given domain redirects correctly, with up to 3 retries."""
               valid_destinations = ["ultralytics.com", "yolo11.com"]
