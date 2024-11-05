@@ -1,6 +1,5 @@
 # Ultralytics YOLO 🚀, AGPL-3.0 license
-# Action to download Ultralytics website and docs
-
+# Action to download Ultralytics website and docs in parallel
 name: Download Websites
 
 on:
@@ -14,28 +13,23 @@ on:
 jobs:
   Download:
     runs-on: ubuntu-latest
-    continue-on-error: true # continue all steps if any fail
+    continue-on-error: true
+    strategy:
+      matrix:
+        url:
+          - https://www.ultralytics.com/
+          - https://docs.ultralytics.com/
+      fail-fast: false
+    
     steps:
-      - name: Download Ultralytics Website
+      - name: Download ${{ matrix.url }}
         run: |
-          mkdir ultralytics_website
-          wget -P ultralytics_website \
+          mkdir website
+          wget -P website \
             --recursive \
             --no-parent \
             --adjust-extension \
             --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.avif*,*.txt" \
             --wait=0.5 \
             --random-wait \
-            https://www.ultralytics.com/
-
-      - name: Download Ultralytics Docs
-        run: |
-          mkdir ultralytics_docs
-          wget -P ultralytics_docs \
-            --recursive \
-            --no-parent \
-            --adjust-extension \
-            --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.avif*,*.txt" \
-            --wait=0.5 \
-            --random-wait \
-            https://docs.ultralytics.com/
+            ${{ matrix.url }}
