@@ -79,6 +79,7 @@ jobs:
             --scheme 'https' \
             --timeout 60 \
             --insecure \
+            --base "https://${{ matrix.website }}" \
             --accept 401,403,429,500,502,999 \
             --exclude-all-private \
             --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
