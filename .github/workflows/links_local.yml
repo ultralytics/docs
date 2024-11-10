@@ -38,7 +38,7 @@ jobs:
           sudo mv lychee /usr/local/bin
 
       - name: Test Markdown and HTML links with retry
-        uses: ultralytics/actions/retry@dev
+        uses: ultralytics/actions/retry@main
         with:
           timeout_minutes: 60
           retry_delay_seconds: 3
@@ -60,7 +60,7 @@ jobs:
 
       - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
         if: github.event_name == 'workflow_dispatch'
-        uses: ultralytics/actions/retry@dev
+        uses: ultralytics/actions/retry@main
         with:
           timeout_minutes: 60
           retry_delay_seconds: 3
