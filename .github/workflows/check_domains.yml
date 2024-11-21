@@ -81,6 +81,7 @@ jobs:
                       response = requests.get(url, allow_redirects=True, timeout=10)
                       response.raise_for_status()
 
+                      # Check if the final URL contains any of the valid destinations
                       if any(dest in response.url for dest in valid_destinations) and response.status_code == 200:
                           print("Success ✅")
                           return True
