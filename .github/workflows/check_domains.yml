@@ -64,21 +64,23 @@ jobs:
         shell: python
         run: |
           import requests
-
+          import time
+          
           def check_domain_redirection(domain, prefix, max_attempts=3):
-              """Check if the given domain redirects correctly, with up to 3 retries."""
+              """Check if the given domain redirects correctly, with delays between retries."""
               valid_destinations = ["ultralytics.com", "yolo11.com"]
               url = f"https://{prefix}{domain}"
               print(f"\nChecking {url}")
               
               for attempt in range(max_attempts):
                   try:
-                      response = requests.get(url, allow_redirects=True)
+                      if attempt > 0:
+                          time.sleep(2)  # Simple 2-second delay between retries
+                          
+                      response = requests.get(url, allow_redirects=True, timeout=10)
                       response.raise_for_status()
-                      final_url = response.url
                       
-                      # Check if the final URL contains any of the valid destinations
-                      if any(dest in final_url for dest in valid_destinations) and response.status_code == 200:
+                      if any(dest in response.url for dest in valid_destinations) and response.status_code == 200:
                           print("Success ✅")
                           return True
                           
@@ -89,7 +91,7 @@ jobs:
                           return False
                           
               return False
-              
+          
           success = check_domain_redirection('${{ matrix.domain }}', '${{ matrix.prefix }}')
           if not success:
               raise Exception(f"Domain check failed for ${{ matrix.domain }} with prefix '${{ matrix.prefix }}'")
