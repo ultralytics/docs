@@ -2917,7 +2917,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 </td>
 <td>
 <div class="doc-md-description">
-<p>the bounding boxes to clip</p>
+<p>The bounding boxes to clip.</p>
 </div>
 </td>
 <td>
@@ -2933,7 +2933,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 </td>
 <td>
 <div class="doc-md-description">
-<p>the shape of the image</p>
+<p>The shape of the image.</p>
 </div>
 </td>
 <td>
@@ -2957,7 +2957,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 </td>
 <td>
 <div class="doc-md-description">
-<p>Clipped boxes</p>
+<p>The clipped boxes.</p>
 </div>
 </td>
 </tr>
@@ -2989,11 +2989,11 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <a id="__codelineno-0-317" name="__codelineno-0-317"></a><span class="sd">    Takes a list of bounding boxes and a shape (height, width) and clips the bounding boxes to the shape.</span>
 <a id="__codelineno-0-318" name="__codelineno-0-318"></a>
 <a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-320" name="__codelineno-0-320"></a><span class="sd">        boxes (torch.Tensor): the bounding boxes to clip</span>
-<a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">        shape (tuple): the shape of the image</span>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a><span class="sd">        boxes (torch.Tensor): The bounding boxes to clip.</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">        shape (tuple): The shape of the image.</span>
 <a id="__codelineno-0-322" name="__codelineno-0-322"></a>
 <a id="__codelineno-0-323" name="__codelineno-0-323"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-324" name="__codelineno-0-324"></a><span class="sd">        (torch.Tensor | numpy.ndarray): Clipped boxes</span>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a><span class="sd">        (torch.Tensor | numpy.ndarray): The clipped boxes.</span>
 <a id="__codelineno-0-325" name="__codelineno-0-325"></a><span class="sd">    """</span>
 <a id="__codelineno-0-326" name="__codelineno-0-326"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>  <span class="c1"># faster individually (WARNING: inplace .clamp_() Apple MPS bug)</span>
 <a id="__codelineno-0-327" name="__codelineno-0-327"></a>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># x1</span>
@@ -3151,7 +3151,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 </td>
 <td>
 <div class="doc-md-description">
-<p>resized and padded masks/images, [h, w, num]/[h, w, 3].</p>
+<p>Resized and padded masks/images, [h, w, num]/[h, w, 3].</p>
 </div>
 </td>
 <td>
@@ -3167,7 +3167,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 </td>
 <td>
 <div class="doc-md-description">
-<p>the original image shape</p>
+<p>The original image shape.</p>
 </div>
 </td>
 <td>
@@ -3183,7 +3183,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 </td>
 <td>
 <div class="doc-md-description">
-<p>the ratio of the padding to the original image.</p>
+<p>The ratio of the padding to the original image.</p>
 </div>
 </td>
 <td>
@@ -3252,9 +3252,9 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <a id="__codelineno-0-359" name="__codelineno-0-359"></a><span class="sd">    Takes a mask, and resizes it to the original image size.</span>
 <a id="__codelineno-0-360" name="__codelineno-0-360"></a>
 <a id="__codelineno-0-361" name="__codelineno-0-361"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-362" name="__codelineno-0-362"></a><span class="sd">        masks (np.ndarray): resized and padded masks/images, [h, w, num]/[h, w, 3].</span>
-<a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="sd">        im0_shape (tuple): the original image shape</span>
-<a id="__codelineno-0-364" name="__codelineno-0-364"></a><span class="sd">        ratio_pad (tuple): the ratio of the padding to the original image.</span>
+<a id="__codelineno-0-362" name="__codelineno-0-362"></a><span class="sd">        masks (np.ndarray): Resized and padded masks/images, [h, w, num]/[h, w, 3].</span>
+<a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="sd">        im0_shape (tuple): The original image shape.</span>
+<a id="__codelineno-0-364" name="__codelineno-0-364"></a><span class="sd">        ratio_pad (tuple): The ratio of the padding to the original image.</span>
 <a id="__codelineno-0-365" name="__codelineno-0-365"></a>
 <a id="__codelineno-0-366" name="__codelineno-0-366"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-367" name="__codelineno-0-367"></a><span class="sd">        masks (np.ndarray): The masks that are being returned with shape [h, w, num].</span>
@@ -4960,7 +4960,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </td>
 <td>
 <div class="doc-md-description">
-<p>[n, mask_dim], n is number of masks after nms</p>
+<p>[n, mask_dim], n is number of masks after nms.</p>
 </div>
 </td>
 <td>
@@ -4976,7 +4976,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </td>
 <td>
 <div class="doc-md-description">
-<p>[n, 4], n is number of masks after nms</p>
+<p>[n, 4], n is number of masks after nms.</p>
 </div>
 </td>
 <td>
@@ -4992,7 +4992,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </td>
 <td>
 <div class="doc-md-description">
-<p>the size of the input image (h,w)</p>
+<p>The size of the input image (h,w).</p>
 </div>
 </td>
 <td>
@@ -5016,7 +5016,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </td>
 <td>
 <div class="doc-md-description">
-<p>The returned masks with dimensions [h, w, n]</p>
+<p>The returned masks with dimensions [h, w, n].</p>
 </div>
 </td>
 </tr>
@@ -5047,12 +5047,12 @@ are the height and width of the input image. The mask is applied to the bounding
 <a id="__codelineno-0-692" name="__codelineno-0-692"></a>
 <a id="__codelineno-0-693" name="__codelineno-0-693"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-694" name="__codelineno-0-694"></a><span class="sd">        protos (torch.Tensor): [mask_dim, mask_h, mask_w]</span>
-<a id="__codelineno-0-695" name="__codelineno-0-695"></a><span class="sd">        masks_in (torch.Tensor): [n, mask_dim], n is number of masks after nms</span>
-<a id="__codelineno-0-696" name="__codelineno-0-696"></a><span class="sd">        bboxes (torch.Tensor): [n, 4], n is number of masks after nms</span>
-<a id="__codelineno-0-697" name="__codelineno-0-697"></a><span class="sd">        shape (tuple): the size of the input image (h,w)</span>
+<a id="__codelineno-0-695" name="__codelineno-0-695"></a><span class="sd">        masks_in (torch.Tensor): [n, mask_dim], n is number of masks after nms.</span>
+<a id="__codelineno-0-696" name="__codelineno-0-696"></a><span class="sd">        bboxes (torch.Tensor): [n, 4], n is number of masks after nms.</span>
+<a id="__codelineno-0-697" name="__codelineno-0-697"></a><span class="sd">        shape (tuple): The size of the input image (h,w).</span>
 <a id="__codelineno-0-698" name="__codelineno-0-698"></a>
 <a id="__codelineno-0-699" name="__codelineno-0-699"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-700" name="__codelineno-0-700"></a><span class="sd">        masks (torch.Tensor): The returned masks with dimensions [h, w, n]</span>
+<a id="__codelineno-0-700" name="__codelineno-0-700"></a><span class="sd">        masks (torch.Tensor): The returned masks with dimensions [h, w, n].</span>
 <a id="__codelineno-0-701" name="__codelineno-0-701"></a><span class="sd">    """</span>
 <a id="__codelineno-0-702" name="__codelineno-0-702"></a>    <span class="n">c</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span> <span class="o">=</span> <span class="n">protos</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># CHW</span>
 <a id="__codelineno-0-703" name="__codelineno-0-703"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">masks_in</span> <span class="o">@</span> <span class="n">protos</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span><span class="p">)</span>
