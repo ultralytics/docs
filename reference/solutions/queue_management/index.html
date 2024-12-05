@@ -1220,26 +1220,29 @@ region in video frames.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">queue_manager</span> <span class="o">=</span> <span class="n">QueueManager</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"video.mp4"</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">video_stream</span><span class="p">:</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">... </span>    <span class="n">processed_frame</span> <span class="o">=</span> <span class="n">queue_manager</span><span class="o">.</span><span class="n">process_queue</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">... </span>    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"Queue Management"</span><span class="p">,</span> <span class="n">processed_frame</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"Path/to/video/file.mp4"</span><span class="p">)</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">queue_manager</span> <span class="o">=</span> <span class="n">QueueManager</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">&gt;&gt;&gt; </span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="gp">&gt;&gt;&gt; </span>        <span class="k">break</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="gp">&gt;&gt;&gt; </span>    <span class="n">out</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">process_queue</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/queue_management.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-39">39</a></span>
 <span class="normal"><a href="#__codelineno-0-40">40</a></span>
 <span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">    </span><span class="sd">"""Initializes the QueueManager with parameters for tracking and counting objects in a video stream."""</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">initialize_region</span><span class="p">()</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">counts</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Queue counts Information</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">rect_color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>  <span class="c1"># Rectangle color</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">region_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">)</span>  <span class="c1"># Store region length for further usage</span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="sd">"""Initializes the QueueManager with parameters for tracking and counting objects in a video stream."""</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">initialize_region</span><span class="p">()</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">counts</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Queue counts Information</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">rect_color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>  <span class="c1"># Rectangle color</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">region_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">)</span>  <span class="c1"># Store region length for further usage</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1320,10 +1323,7 @@ region in video frames.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/queue_management.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-44"> 44</a></span>
-<span class="normal"><a href="#__codelineno-0-45"> 45</a></span>
-<span class="normal"><a href="#__codelineno-0-46"> 46</a></span>
-<span class="normal"><a href="#__codelineno-0-47"> 47</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-47"> 47</a></span>
 <span class="normal"><a href="#__codelineno-0-48"> 48</a></span>
 <span class="normal"><a href="#__codelineno-0-49"> 49</a></span>
 <span class="normal"><a href="#__codelineno-0-50"> 50</a></span>
@@ -1385,72 +1385,75 @@ region in video frames.</p>
 <span class="normal"><a href="#__codelineno-0-106">106</a></span>
 <span class="normal"><a href="#__codelineno-0-107">107</a></span>
 <span class="normal"><a href="#__codelineno-0-108">108</a></span>
-<span class="normal"><a href="#__codelineno-0-109">109</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="k">def</span> <span class="nf">process_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    Processes the queue management for a single frame of video.</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        im0 (numpy.ndarray): Input image for processing, typically a frame from a video stream.</span>
+<span class="normal"><a href="#__codelineno-0-109">109</a></span>
+<span class="normal"><a href="#__codelineno-0-110">110</a></span>
+<span class="normal"><a href="#__codelineno-0-111">111</a></span>
+<span class="normal"><a href="#__codelineno-0-112">112</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="k">def</span> <span class="nf">process_queue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    Processes the queue management for a single frame of video.</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        (numpy.ndarray): Processed image with annotations, bounding boxes, and queue counts.</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        im0 (numpy.ndarray): Input image for processing, typically a frame from a video stream.</span>
 <a id="__codelineno-0-53" name="__codelineno-0-53"></a>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    This method performs the following steps:</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">    1. Resets the queue count for the current frame.</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    2. Initializes an Annotator object for drawing on the image.</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    3. Extracts tracks from the image.</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    4. Draws the counting region on the image.</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    5. For each detected object:</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">       - Draws bounding boxes and labels.</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">       - Stores tracking history.</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">       - Draws centroids and tracks.</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">       - Checks if the object is inside the counting region and updates the count.</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    6. Displays the queue count on the image.</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    7. Displays the processed output.</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">        &gt;&gt;&gt; queue_manager = QueueManager()</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        &gt;&gt;&gt; frame = cv2.imread("frame.jpg")</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        &gt;&gt;&gt; processed_frame = queue_manager.process_queue(frame)</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    """</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">counts</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Reset counts every frame</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span> <span class="o">=</span> <span class="n">Annotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>  <span class="c1"># Initialize annotator</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span><span class="o">.</span><span class="n">draw_region</span><span class="p">(</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="n">reg_pts</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rect_color</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">*</span> <span class="mi">2</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="p">)</span>  <span class="c1"># Draw region</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">):</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>        <span class="c1"># Draw bounding box and counting region</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span><span class="o">.</span><span class="n">box_label</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">cls</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">store_tracking_history</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">)</span>  <span class="c1"># Store track history</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="c1"># Draw tracks of objects</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span><span class="o">.</span><span class="n">draw_centroid_and_tracks</span><span class="p">(</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">track_id</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span> <span class="n">track_thickness</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>        <span class="p">)</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>        <span class="c1"># Cache frequently accessed attributes</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>        <span class="n">track_history</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_history</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="p">[])</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">        (numpy.ndarray): Processed image with annotations, bounding boxes, and queue counts.</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    This method performs the following steps:</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    1. Resets the queue count for the current frame.</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    2. Initializes an Annotator object for drawing on the image.</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    3. Extracts tracks from the image.</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    4. Draws the counting region on the image.</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    5. For each detected object:</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">       - Draws bounding boxes and labels.</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">       - Stores tracking history.</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">       - Draws centroids and tracks.</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">       - Checks if the object is inside the counting region and updates the count.</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    6. Displays the queue count on the image.</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">    7. Displays the processed output.</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        &gt;&gt;&gt; queue_manager = QueueManager()</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        &gt;&gt;&gt; frame = cv2.imread("frame.jpg")</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        &gt;&gt;&gt; processed_frame = queue_manager.process_queue(frame)</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    """</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">counts</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Reset counts every frame</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span> <span class="o">=</span> <span class="n">Annotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>  <span class="c1"># Initialize annotator</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span><span class="o">.</span><span class="n">draw_region</span><span class="p">(</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>        <span class="n">reg_pts</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rect_color</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">*</span> <span class="mi">2</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="p">)</span>  <span class="c1"># Draw region</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">):</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>        <span class="c1"># Draw bounding box and counting region</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span><span class="o">.</span><span class="n">box_label</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">cls</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">store_tracking_history</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">)</span>  <span class="c1"># Store track history</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>        <span class="c1"># Draw tracks of objects</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span><span class="o">.</span><span class="n">draw_centroid_and_tracks</span><span class="p">(</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">track_id</span><span class="p">),</span> <span class="kc">True</span><span class="p">),</span> <span class="n">track_thickness</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>        <span class="p">)</span>
 <a id="__codelineno-0-92" name="__codelineno-0-92"></a>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="c1"># store previous position of track and check if the object is inside the counting region</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>        <span class="n">prev_position</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">track_history</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>            <span class="n">prev_position</span> <span class="o">=</span> <span class="n">track_history</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">region_length</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">prev_position</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">r_s</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])):</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">counts</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="c1"># Display queue counts</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span><span class="o">.</span><span class="n">queue_counts_display</span><span class="p">(</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>        <span class="sa">f</span><span class="s2">"Queue Counts : </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>        <span class="n">points</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>        <span class="n">region_color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rect_color</span><span class="p">,</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="p">)</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">display_output</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># display output with base class function</span>
-<a id="__codelineno-0-108" name="__codelineno-0-108"></a>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="k">return</span> <span class="n">im0</span>  <span class="c1"># return output image for more usage</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="c1"># Cache frequently accessed attributes</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a>        <span class="n">track_history</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_history</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="p">[])</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a>        <span class="c1"># store previous position of track and check if the object is inside the counting region</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="n">prev_position</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">track_history</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>            <span class="n">prev_position</span> <span class="o">=</span> <span class="n">track_history</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">region_length</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">prev_position</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">r_s</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])):</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">counts</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>    <span class="c1"># Display queue counts</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span><span class="o">.</span><span class="n">queue_counts_display</span><span class="p">(</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="sa">f</span><span class="s2">"Queue Counts : </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">counts</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>        <span class="n">points</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>        <span class="n">region_color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">rect_color</span><span class="p">,</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a>        <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="p">)</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">display_output</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># display output with base class function</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="k">return</span> <span class="n">im0</span>  <span class="c1"># return output image for more usage</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
