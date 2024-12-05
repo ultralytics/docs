@@ -4595,7 +4595,8 @@ be in radians from 0 to pi/2.</p>
 <span class="normal"><a href="#__codelineno-0-630">630</a></span>
 <span class="normal"><a href="#__codelineno-0-631">631</a></span>
 <span class="normal"><a href="#__codelineno-0-632">632</a></span>
-<span class="normal"><a href="#__codelineno-0-633">633</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="k">def</span> <span class="nf">resample_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-633">633</a></span>
+<span class="normal"><a href="#__codelineno-0-634">634</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="k">def</span> <span class="nf">resample_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="sd">    Inputs a list of segments (n,2) and returns a list of segments (n,2) up-sampled to n points each.</span>
 <a id="__codelineno-0-618" name="__codelineno-0-618"></a>
@@ -4608,12 +4609,13 @@ be in radians from 0 to pi/2.</p>
 <a id="__codelineno-0-625" name="__codelineno-0-625"></a><span class="sd">    """</span>
 <a id="__codelineno-0-626" name="__codelineno-0-626"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
 <a id="__codelineno-0-627" name="__codelineno-0-627"></a>        <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-628" name="__codelineno-0-628"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-0-628" name="__codelineno-0-628"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="k">else</span> <span class="n">n</span><span class="p">)</span>
 <a id="__codelineno-0-629" name="__codelineno-0-629"></a>        <span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
-<a id="__codelineno-0-630" name="__codelineno-0-630"></a>        <span class="n">segments</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-631" name="__codelineno-0-631"></a>            <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">s</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<a id="__codelineno-0-632" name="__codelineno-0-632"></a>        <span class="p">)</span>  <span class="c1"># segment xy</span>
-<a id="__codelineno-0-633" name="__codelineno-0-633"></a>    <span class="k">return</span> <span class="n">segments</span>
+<a id="__codelineno-0-630" name="__codelineno-0-630"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">),</span> <span class="n">xp</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="k">else</span> <span class="n">x</span>
+<a id="__codelineno-0-631" name="__codelineno-0-631"></a>        <span class="n">segments</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-632" name="__codelineno-0-632"></a>            <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">s</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<a id="__codelineno-0-633" name="__codelineno-0-633"></a>        <span class="p">)</span>  <span class="c1"># segment xy</span>
+<a id="__codelineno-0-634" name="__codelineno-0-634"></a>    <span class="k">return</span> <span class="n">segments</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4694,8 +4696,7 @@ be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-636">636</a></span>
-<span class="normal"><a href="#__codelineno-0-637">637</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-637">637</a></span>
 <span class="normal"><a href="#__codelineno-0-638">638</a></span>
 <span class="normal"><a href="#__codelineno-0-639">639</a></span>
 <span class="normal"><a href="#__codelineno-0-640">640</a></span>
@@ -4710,23 +4711,24 @@ be in radians from 0 to pi/2.</p>
 <span class="normal"><a href="#__codelineno-0-649">649</a></span>
 <span class="normal"><a href="#__codelineno-0-650">650</a></span>
 <span class="normal"><a href="#__codelineno-0-651">651</a></span>
-<span class="normal"><a href="#__codelineno-0-652">652</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-636" name="__codelineno-0-636"></a><span class="k">def</span> <span class="nf">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="p">):</span>
-<a id="__codelineno-0-637" name="__codelineno-0-637"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-638" name="__codelineno-0-638"></a><span class="sd">    It takes a mask and a bounding box, and returns a mask that is cropped to the bounding box.</span>
-<a id="__codelineno-0-639" name="__codelineno-0-639"></a>
-<a id="__codelineno-0-640" name="__codelineno-0-640"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-641" name="__codelineno-0-641"></a><span class="sd">        masks (torch.Tensor): [n, h, w] tensor of masks</span>
-<a id="__codelineno-0-642" name="__codelineno-0-642"></a><span class="sd">        boxes (torch.Tensor): [n, 4] tensor of bbox coordinates in relative point form</span>
-<a id="__codelineno-0-643" name="__codelineno-0-643"></a>
-<a id="__codelineno-0-644" name="__codelineno-0-644"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-645" name="__codelineno-0-645"></a><span class="sd">        (torch.Tensor): The masks are being cropped to the bounding box.</span>
-<a id="__codelineno-0-646" name="__codelineno-0-646"></a><span class="sd">    """</span>
-<a id="__codelineno-0-647" name="__codelineno-0-647"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span>
-<a id="__codelineno-0-648" name="__codelineno-0-648"></a>    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">boxes</span><span class="p">[:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># x1 shape(n,1,1)</span>
-<a id="__codelineno-0-649" name="__codelineno-0-649"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x1</span><span class="o">.</span><span class="n">dtype</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># rows shape(1,1,w)</span>
-<a id="__codelineno-0-650" name="__codelineno-0-650"></a>    <span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x1</span><span class="o">.</span><span class="n">dtype</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]</span>  <span class="c1"># cols shape(1,h,1)</span>
-<a id="__codelineno-0-651" name="__codelineno-0-651"></a>
-<a id="__codelineno-0-652" name="__codelineno-0-652"></a>    <span class="k">return</span> <span class="n">masks</span> <span class="o">*</span> <span class="p">((</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="n">x1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="n">x2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="n">y1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">&lt;</span> <span class="n">y2</span><span class="p">))</span>
+<span class="normal"><a href="#__codelineno-0-652">652</a></span>
+<span class="normal"><a href="#__codelineno-0-653">653</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-637" name="__codelineno-0-637"></a><span class="k">def</span> <span class="nf">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="p">):</span>
+<a id="__codelineno-0-638" name="__codelineno-0-638"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-639" name="__codelineno-0-639"></a><span class="sd">    It takes a mask and a bounding box, and returns a mask that is cropped to the bounding box.</span>
+<a id="__codelineno-0-640" name="__codelineno-0-640"></a>
+<a id="__codelineno-0-641" name="__codelineno-0-641"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-642" name="__codelineno-0-642"></a><span class="sd">        masks (torch.Tensor): [n, h, w] tensor of masks</span>
+<a id="__codelineno-0-643" name="__codelineno-0-643"></a><span class="sd">        boxes (torch.Tensor): [n, 4] tensor of bbox coordinates in relative point form</span>
+<a id="__codelineno-0-644" name="__codelineno-0-644"></a>
+<a id="__codelineno-0-645" name="__codelineno-0-645"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-646" name="__codelineno-0-646"></a><span class="sd">        (torch.Tensor): The masks are being cropped to the bounding box.</span>
+<a id="__codelineno-0-647" name="__codelineno-0-647"></a><span class="sd">    """</span>
+<a id="__codelineno-0-648" name="__codelineno-0-648"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-0-649" name="__codelineno-0-649"></a>    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="n">boxes</span><span class="p">[:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># x1 shape(n,1,1)</span>
+<a id="__codelineno-0-650" name="__codelineno-0-650"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x1</span><span class="o">.</span><span class="n">dtype</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># rows shape(1,1,w)</span>
+<a id="__codelineno-0-651" name="__codelineno-0-651"></a>    <span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x1</span><span class="o">.</span><span class="n">dtype</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]</span>  <span class="c1"># cols shape(1,h,1)</span>
+<a id="__codelineno-0-652" name="__codelineno-0-652"></a>
+<a id="__codelineno-0-653" name="__codelineno-0-653"></a>    <span class="k">return</span> <span class="n">masks</span> <span class="o">*</span> <span class="p">((</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="n">x1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="n">x2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="n">y1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span> <span class="o">&lt;</span> <span class="n">y2</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4856,8 +4858,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-655">655</a></span>
-<span class="normal"><a href="#__codelineno-0-656">656</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-656">656</a></span>
 <span class="normal"><a href="#__codelineno-0-657">657</a></span>
 <span class="normal"><a href="#__codelineno-0-658">658</a></span>
 <span class="normal"><a href="#__codelineno-0-659">659</a></span>
@@ -4886,37 +4887,38 @@ are the height and width of the input image. The mask is applied to the bounding
 <span class="normal"><a href="#__codelineno-0-682">682</a></span>
 <span class="normal"><a href="#__codelineno-0-683">683</a></span>
 <span class="normal"><a href="#__codelineno-0-684">684</a></span>
-<span class="normal"><a href="#__codelineno-0-685">685</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-655" name="__codelineno-0-655"></a><span class="k">def</span> <span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<a id="__codelineno-0-656" name="__codelineno-0-656"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-657" name="__codelineno-0-657"></a><span class="sd">    Apply masks to bounding boxes using the output of the mask head.</span>
-<a id="__codelineno-0-658" name="__codelineno-0-658"></a>
-<a id="__codelineno-0-659" name="__codelineno-0-659"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-660" name="__codelineno-0-660"></a><span class="sd">        protos (torch.Tensor): A tensor of shape [mask_dim, mask_h, mask_w].</span>
-<a id="__codelineno-0-661" name="__codelineno-0-661"></a><span class="sd">        masks_in (torch.Tensor): A tensor of shape [n, mask_dim], where n is the number of masks after NMS.</span>
-<a id="__codelineno-0-662" name="__codelineno-0-662"></a><span class="sd">        bboxes (torch.Tensor): A tensor of shape [n, 4], where n is the number of masks after NMS.</span>
-<a id="__codelineno-0-663" name="__codelineno-0-663"></a><span class="sd">        shape (tuple): A tuple of integers representing the size of the input image in the format (h, w).</span>
-<a id="__codelineno-0-664" name="__codelineno-0-664"></a><span class="sd">        upsample (bool): A flag to indicate whether to upsample the mask to the original image size. Default is False.</span>
-<a id="__codelineno-0-665" name="__codelineno-0-665"></a>
-<a id="__codelineno-0-666" name="__codelineno-0-666"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-667" name="__codelineno-0-667"></a><span class="sd">        (torch.Tensor): A binary mask tensor of shape [n, h, w], where n is the number of masks after NMS, and h and w</span>
-<a id="__codelineno-0-668" name="__codelineno-0-668"></a><span class="sd">            are the height and width of the input image. The mask is applied to the bounding boxes.</span>
-<a id="__codelineno-0-669" name="__codelineno-0-669"></a><span class="sd">    """</span>
-<a id="__codelineno-0-670" name="__codelineno-0-670"></a>    <span class="n">c</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span> <span class="o">=</span> <span class="n">protos</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># CHW</span>
-<a id="__codelineno-0-671" name="__codelineno-0-671"></a>    <span class="n">ih</span><span class="p">,</span> <span class="n">iw</span> <span class="o">=</span> <span class="n">shape</span>
-<a id="__codelineno-0-672" name="__codelineno-0-672"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">masks_in</span> <span class="o">@</span> <span class="n">protos</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span><span class="p">)</span>  <span class="c1"># CHW</span>
-<a id="__codelineno-0-673" name="__codelineno-0-673"></a>    <span class="n">width_ratio</span> <span class="o">=</span> <span class="n">mw</span> <span class="o">/</span> <span class="n">iw</span>
-<a id="__codelineno-0-674" name="__codelineno-0-674"></a>    <span class="n">height_ratio</span> <span class="o">=</span> <span class="n">mh</span> <span class="o">/</span> <span class="n">ih</span>
-<a id="__codelineno-0-675" name="__codelineno-0-675"></a>
-<a id="__codelineno-0-676" name="__codelineno-0-676"></a>    <span class="n">downsampled_bboxes</span> <span class="o">=</span> <span class="n">bboxes</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
-<a id="__codelineno-0-677" name="__codelineno-0-677"></a>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="n">width_ratio</span>
-<a id="__codelineno-0-678" name="__codelineno-0-678"></a>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="n">width_ratio</span>
-<a id="__codelineno-0-679" name="__codelineno-0-679"></a>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="n">height_ratio</span>
-<a id="__codelineno-0-680" name="__codelineno-0-680"></a>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="n">height_ratio</span>
-<a id="__codelineno-0-681" name="__codelineno-0-681"></a>
-<a id="__codelineno-0-682" name="__codelineno-0-682"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">downsampled_bboxes</span><span class="p">)</span>  <span class="c1"># CHW</span>
-<a id="__codelineno-0-683" name="__codelineno-0-683"></a>    <span class="k">if</span> <span class="n">upsample</span><span class="p">:</span>
-<a id="__codelineno-0-684" name="__codelineno-0-684"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">masks</span><span class="p">[</span><span class="kc">None</span><span class="p">],</span> <span class="n">shape</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bilinear"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># CHW</span>
-<a id="__codelineno-0-685" name="__codelineno-0-685"></a>    <span class="k">return</span> <span class="n">masks</span><span class="o">.</span><span class="n">gt_</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-685">685</a></span>
+<span class="normal"><a href="#__codelineno-0-686">686</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-656" name="__codelineno-0-656"></a><span class="k">def</span> <span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-0-657" name="__codelineno-0-657"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-658" name="__codelineno-0-658"></a><span class="sd">    Apply masks to bounding boxes using the output of the mask head.</span>
+<a id="__codelineno-0-659" name="__codelineno-0-659"></a>
+<a id="__codelineno-0-660" name="__codelineno-0-660"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-661" name="__codelineno-0-661"></a><span class="sd">        protos (torch.Tensor): A tensor of shape [mask_dim, mask_h, mask_w].</span>
+<a id="__codelineno-0-662" name="__codelineno-0-662"></a><span class="sd">        masks_in (torch.Tensor): A tensor of shape [n, mask_dim], where n is the number of masks after NMS.</span>
+<a id="__codelineno-0-663" name="__codelineno-0-663"></a><span class="sd">        bboxes (torch.Tensor): A tensor of shape [n, 4], where n is the number of masks after NMS.</span>
+<a id="__codelineno-0-664" name="__codelineno-0-664"></a><span class="sd">        shape (tuple): A tuple of integers representing the size of the input image in the format (h, w).</span>
+<a id="__codelineno-0-665" name="__codelineno-0-665"></a><span class="sd">        upsample (bool): A flag to indicate whether to upsample the mask to the original image size. Default is False.</span>
+<a id="__codelineno-0-666" name="__codelineno-0-666"></a>
+<a id="__codelineno-0-667" name="__codelineno-0-667"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-668" name="__codelineno-0-668"></a><span class="sd">        (torch.Tensor): A binary mask tensor of shape [n, h, w], where n is the number of masks after NMS, and h and w</span>
+<a id="__codelineno-0-669" name="__codelineno-0-669"></a><span class="sd">            are the height and width of the input image. The mask is applied to the bounding boxes.</span>
+<a id="__codelineno-0-670" name="__codelineno-0-670"></a><span class="sd">    """</span>
+<a id="__codelineno-0-671" name="__codelineno-0-671"></a>    <span class="n">c</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span> <span class="o">=</span> <span class="n">protos</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># CHW</span>
+<a id="__codelineno-0-672" name="__codelineno-0-672"></a>    <span class="n">ih</span><span class="p">,</span> <span class="n">iw</span> <span class="o">=</span> <span class="n">shape</span>
+<a id="__codelineno-0-673" name="__codelineno-0-673"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">masks_in</span> <span class="o">@</span> <span class="n">protos</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span><span class="p">)</span>  <span class="c1"># CHW</span>
+<a id="__codelineno-0-674" name="__codelineno-0-674"></a>    <span class="n">width_ratio</span> <span class="o">=</span> <span class="n">mw</span> <span class="o">/</span> <span class="n">iw</span>
+<a id="__codelineno-0-675" name="__codelineno-0-675"></a>    <span class="n">height_ratio</span> <span class="o">=</span> <span class="n">mh</span> <span class="o">/</span> <span class="n">ih</span>
+<a id="__codelineno-0-676" name="__codelineno-0-676"></a>
+<a id="__codelineno-0-677" name="__codelineno-0-677"></a>    <span class="n">downsampled_bboxes</span> <span class="o">=</span> <span class="n">bboxes</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+<a id="__codelineno-0-678" name="__codelineno-0-678"></a>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="n">width_ratio</span>
+<a id="__codelineno-0-679" name="__codelineno-0-679"></a>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="n">width_ratio</span>
+<a id="__codelineno-0-680" name="__codelineno-0-680"></a>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="n">height_ratio</span>
+<a id="__codelineno-0-681" name="__codelineno-0-681"></a>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="n">height_ratio</span>
+<a id="__codelineno-0-682" name="__codelineno-0-682"></a>
+<a id="__codelineno-0-683" name="__codelineno-0-683"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">downsampled_bboxes</span><span class="p">)</span>  <span class="c1"># CHW</span>
+<a id="__codelineno-0-684" name="__codelineno-0-684"></a>    <span class="k">if</span> <span class="n">upsample</span><span class="p">:</span>
+<a id="__codelineno-0-685" name="__codelineno-0-685"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">masks</span><span class="p">[</span><span class="kc">None</span><span class="p">],</span> <span class="n">shape</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bilinear"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># CHW</span>
+<a id="__codelineno-0-686" name="__codelineno-0-686"></a>    <span class="k">return</span> <span class="n">masks</span><span class="o">.</span><span class="n">gt_</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5029,8 +5031,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-688">688</a></span>
-<span class="normal"><a href="#__codelineno-0-689">689</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-689">689</a></span>
 <span class="normal"><a href="#__codelineno-0-690">690</a></span>
 <span class="normal"><a href="#__codelineno-0-691">691</a></span>
 <span class="normal"><a href="#__codelineno-0-692">692</a></span>
@@ -5046,24 +5047,25 @@ are the height and width of the input image. The mask is applied to the bounding
 <span class="normal"><a href="#__codelineno-0-702">702</a></span>
 <span class="normal"><a href="#__codelineno-0-703">703</a></span>
 <span class="normal"><a href="#__codelineno-0-704">704</a></span>
-<span class="normal"><a href="#__codelineno-0-705">705</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-688" name="__codelineno-0-688"></a><span class="k">def</span> <span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
-<a id="__codelineno-0-689" name="__codelineno-0-689"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-690" name="__codelineno-0-690"></a><span class="sd">    It takes the output of the mask head, and crops it after upsampling to the bounding boxes.</span>
-<a id="__codelineno-0-691" name="__codelineno-0-691"></a>
-<a id="__codelineno-0-692" name="__codelineno-0-692"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-693" name="__codelineno-0-693"></a><span class="sd">        protos (torch.Tensor): [mask_dim, mask_h, mask_w]</span>
-<a id="__codelineno-0-694" name="__codelineno-0-694"></a><span class="sd">        masks_in (torch.Tensor): [n, mask_dim], n is number of masks after nms.</span>
-<a id="__codelineno-0-695" name="__codelineno-0-695"></a><span class="sd">        bboxes (torch.Tensor): [n, 4], n is number of masks after nms.</span>
-<a id="__codelineno-0-696" name="__codelineno-0-696"></a><span class="sd">        shape (tuple): The size of the input image (h,w).</span>
-<a id="__codelineno-0-697" name="__codelineno-0-697"></a>
-<a id="__codelineno-0-698" name="__codelineno-0-698"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-699" name="__codelineno-0-699"></a><span class="sd">        masks (torch.Tensor): The returned masks with dimensions [h, w, n].</span>
-<a id="__codelineno-0-700" name="__codelineno-0-700"></a><span class="sd">    """</span>
-<a id="__codelineno-0-701" name="__codelineno-0-701"></a>    <span class="n">c</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span> <span class="o">=</span> <span class="n">protos</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># CHW</span>
-<a id="__codelineno-0-702" name="__codelineno-0-702"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">masks_in</span> <span class="o">@</span> <span class="n">protos</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span><span class="p">)</span>
-<a id="__codelineno-0-703" name="__codelineno-0-703"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">[</span><span class="kc">None</span><span class="p">],</span> <span class="n">shape</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># CHW</span>
-<a id="__codelineno-0-704" name="__codelineno-0-704"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">)</span>  <span class="c1"># CHW</span>
-<a id="__codelineno-0-705" name="__codelineno-0-705"></a>    <span class="k">return</span> <span class="n">masks</span><span class="o">.</span><span class="n">gt_</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-705">705</a></span>
+<span class="normal"><a href="#__codelineno-0-706">706</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-689" name="__codelineno-0-689"></a><span class="k">def</span> <span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<a id="__codelineno-0-690" name="__codelineno-0-690"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-691" name="__codelineno-0-691"></a><span class="sd">    It takes the output of the mask head, and crops it after upsampling to the bounding boxes.</span>
+<a id="__codelineno-0-692" name="__codelineno-0-692"></a>
+<a id="__codelineno-0-693" name="__codelineno-0-693"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-694" name="__codelineno-0-694"></a><span class="sd">        protos (torch.Tensor): [mask_dim, mask_h, mask_w]</span>
+<a id="__codelineno-0-695" name="__codelineno-0-695"></a><span class="sd">        masks_in (torch.Tensor): [n, mask_dim], n is number of masks after nms.</span>
+<a id="__codelineno-0-696" name="__codelineno-0-696"></a><span class="sd">        bboxes (torch.Tensor): [n, 4], n is number of masks after nms.</span>
+<a id="__codelineno-0-697" name="__codelineno-0-697"></a><span class="sd">        shape (tuple): The size of the input image (h,w).</span>
+<a id="__codelineno-0-698" name="__codelineno-0-698"></a>
+<a id="__codelineno-0-699" name="__codelineno-0-699"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-700" name="__codelineno-0-700"></a><span class="sd">        masks (torch.Tensor): The returned masks with dimensions [h, w, n].</span>
+<a id="__codelineno-0-701" name="__codelineno-0-701"></a><span class="sd">    """</span>
+<a id="__codelineno-0-702" name="__codelineno-0-702"></a>    <span class="n">c</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span> <span class="o">=</span> <span class="n">protos</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># CHW</span>
+<a id="__codelineno-0-703" name="__codelineno-0-703"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">masks_in</span> <span class="o">@</span> <span class="n">protos</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span><span class="p">)</span>
+<a id="__codelineno-0-704" name="__codelineno-0-704"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">[</span><span class="kc">None</span><span class="p">],</span> <span class="n">shape</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># CHW</span>
+<a id="__codelineno-0-705" name="__codelineno-0-705"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">)</span>  <span class="c1"># CHW</span>
+<a id="__codelineno-0-706" name="__codelineno-0-706"></a>    <span class="k">return</span> <span class="n">masks</span><span class="o">.</span><span class="n">gt_</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5140,8 +5142,7 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-708">708</a></span>
-<span class="normal"><a href="#__codelineno-0-709">709</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-709">709</a></span>
 <span class="normal"><a href="#__codelineno-0-710">710</a></span>
 <span class="normal"><a href="#__codelineno-0-711">711</a></span>
 <span class="normal"><a href="#__codelineno-0-712">712</a></span>
@@ -5161,28 +5162,29 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-726">726</a></span>
 <span class="normal"><a href="#__codelineno-0-727">727</a></span>
 <span class="normal"><a href="#__codelineno-0-728">728</a></span>
-<span class="normal"><a href="#__codelineno-0-729">729</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-708" name="__codelineno-0-708"></a><span class="k">def</span> <span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-709" name="__codelineno-0-709"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-710" name="__codelineno-0-710"></a><span class="sd">    Rescale segment masks to shape.</span>
-<a id="__codelineno-0-711" name="__codelineno-0-711"></a>
-<a id="__codelineno-0-712" name="__codelineno-0-712"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-713" name="__codelineno-0-713"></a><span class="sd">        masks (torch.Tensor): (N, C, H, W).</span>
-<a id="__codelineno-0-714" name="__codelineno-0-714"></a><span class="sd">        shape (tuple): Height and width.</span>
-<a id="__codelineno-0-715" name="__codelineno-0-715"></a><span class="sd">        padding (bool): If True, assuming the boxes is based on image augmented by yolo style. If False then do regular</span>
-<a id="__codelineno-0-716" name="__codelineno-0-716"></a><span class="sd">            rescaling.</span>
-<a id="__codelineno-0-717" name="__codelineno-0-717"></a><span class="sd">    """</span>
-<a id="__codelineno-0-718" name="__codelineno-0-718"></a>    <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-0-719" name="__codelineno-0-719"></a>    <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">mh</span> <span class="o">/</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mw</span> <span class="o">/</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># gain  = old / new</span>
-<a id="__codelineno-0-720" name="__codelineno-0-720"></a>    <span class="n">pad</span> <span class="o">=</span> <span class="p">[</span><span class="n">mw</span> <span class="o">-</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">,</span> <span class="n">mh</span> <span class="o">-</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">]</span>  <span class="c1"># wh padding</span>
-<a id="__codelineno-0-721" name="__codelineno-0-721"></a>    <span class="k">if</span> <span class="n">padding</span><span class="p">:</span>
-<a id="__codelineno-0-722" name="__codelineno-0-722"></a>        <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="mi">2</span>
-<a id="__codelineno-0-723" name="__codelineno-0-723"></a>        <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="mi">2</span>
-<a id="__codelineno-0-724" name="__codelineno-0-724"></a>    <span class="n">top</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="k">if</span> <span class="n">padding</span> <span class="k">else</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># y, x</span>
-<a id="__codelineno-0-725" name="__codelineno-0-725"></a>    <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mh</span> <span class="o">-</span> <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">mw</span> <span class="o">-</span> <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-<a id="__codelineno-0-726" name="__codelineno-0-726"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">top</span><span class="p">:</span><span class="n">bottom</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span><span class="n">right</span><span class="p">]</span>
-<a id="__codelineno-0-727" name="__codelineno-0-727"></a>
-<a id="__codelineno-0-728" name="__codelineno-0-728"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bilinear"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># NCHW</span>
-<a id="__codelineno-0-729" name="__codelineno-0-729"></a>    <span class="k">return</span> <span class="n">masks</span>
+<span class="normal"><a href="#__codelineno-0-729">729</a></span>
+<span class="normal"><a href="#__codelineno-0-730">730</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-709" name="__codelineno-0-709"></a><span class="k">def</span> <span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-710" name="__codelineno-0-710"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-711" name="__codelineno-0-711"></a><span class="sd">    Rescale segment masks to shape.</span>
+<a id="__codelineno-0-712" name="__codelineno-0-712"></a>
+<a id="__codelineno-0-713" name="__codelineno-0-713"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-714" name="__codelineno-0-714"></a><span class="sd">        masks (torch.Tensor): (N, C, H, W).</span>
+<a id="__codelineno-0-715" name="__codelineno-0-715"></a><span class="sd">        shape (tuple): Height and width.</span>
+<a id="__codelineno-0-716" name="__codelineno-0-716"></a><span class="sd">        padding (bool): If True, assuming the boxes is based on image augmented by yolo style. If False then do regular</span>
+<a id="__codelineno-0-717" name="__codelineno-0-717"></a><span class="sd">            rescaling.</span>
+<a id="__codelineno-0-718" name="__codelineno-0-718"></a><span class="sd">    """</span>
+<a id="__codelineno-0-719" name="__codelineno-0-719"></a>    <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<a id="__codelineno-0-720" name="__codelineno-0-720"></a>    <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">mh</span> <span class="o">/</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mw</span> <span class="o">/</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># gain  = old / new</span>
+<a id="__codelineno-0-721" name="__codelineno-0-721"></a>    <span class="n">pad</span> <span class="o">=</span> <span class="p">[</span><span class="n">mw</span> <span class="o">-</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">,</span> <span class="n">mh</span> <span class="o">-</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">]</span>  <span class="c1"># wh padding</span>
+<a id="__codelineno-0-722" name="__codelineno-0-722"></a>    <span class="k">if</span> <span class="n">padding</span><span class="p">:</span>
+<a id="__codelineno-0-723" name="__codelineno-0-723"></a>        <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="mi">2</span>
+<a id="__codelineno-0-724" name="__codelineno-0-724"></a>        <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="mi">2</span>
+<a id="__codelineno-0-725" name="__codelineno-0-725"></a>    <span class="n">top</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="k">if</span> <span class="n">padding</span> <span class="k">else</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># y, x</span>
+<a id="__codelineno-0-726" name="__codelineno-0-726"></a>    <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mh</span> <span class="o">-</span> <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">mw</span> <span class="o">-</span> <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<a id="__codelineno-0-727" name="__codelineno-0-727"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">top</span><span class="p">:</span><span class="n">bottom</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span><span class="n">right</span><span class="p">]</span>
+<a id="__codelineno-0-728" name="__codelineno-0-728"></a>
+<a id="__codelineno-0-729" name="__codelineno-0-729"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bilinear"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># NCHW</span>
+<a id="__codelineno-0-730" name="__codelineno-0-730"></a>    <span class="k">return</span> <span class="n">masks</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5335,8 +5337,7 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-732">732</a></span>
-<span class="normal"><a href="#__codelineno-0-733">733</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-733">733</a></span>
 <span class="normal"><a href="#__codelineno-0-734">734</a></span>
 <span class="normal"><a href="#__codelineno-0-735">735</a></span>
 <span class="normal"><a href="#__codelineno-0-736">736</a></span>
@@ -5367,39 +5368,40 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-761">761</a></span>
 <span class="normal"><a href="#__codelineno-0-762">762</a></span>
 <span class="normal"><a href="#__codelineno-0-763">763</a></span>
-<span class="normal"><a href="#__codelineno-0-764">764</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-732" name="__codelineno-0-732"></a><span class="k">def</span> <span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-733" name="__codelineno-0-733"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-734" name="__codelineno-0-734"></a><span class="sd">    Rescale segment coordinates (xy) from img1_shape to img0_shape.</span>
-<a id="__codelineno-0-735" name="__codelineno-0-735"></a>
-<a id="__codelineno-0-736" name="__codelineno-0-736"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-737" name="__codelineno-0-737"></a><span class="sd">        img1_shape (tuple): The shape of the image that the coords are from.</span>
-<a id="__codelineno-0-738" name="__codelineno-0-738"></a><span class="sd">        coords (torch.Tensor): the coords to be scaled of shape n,2.</span>
-<a id="__codelineno-0-739" name="__codelineno-0-739"></a><span class="sd">        img0_shape (tuple): the shape of the image that the segmentation is being applied to.</span>
-<a id="__codelineno-0-740" name="__codelineno-0-740"></a><span class="sd">        ratio_pad (tuple): the ratio of the image size to the padded image size.</span>
-<a id="__codelineno-0-741" name="__codelineno-0-741"></a><span class="sd">        normalize (bool): If True, the coordinates will be normalized to the range [0, 1]. Defaults to False.</span>
-<a id="__codelineno-0-742" name="__codelineno-0-742"></a><span class="sd">        padding (bool): If True, assuming the boxes is based on image augmented by yolo style. If False then do regular</span>
-<a id="__codelineno-0-743" name="__codelineno-0-743"></a><span class="sd">            rescaling.</span>
-<a id="__codelineno-0-744" name="__codelineno-0-744"></a>
-<a id="__codelineno-0-745" name="__codelineno-0-745"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-746" name="__codelineno-0-746"></a><span class="sd">        coords (torch.Tensor): The scaled coordinates.</span>
-<a id="__codelineno-0-747" name="__codelineno-0-747"></a><span class="sd">    """</span>
-<a id="__codelineno-0-748" name="__codelineno-0-748"></a>    <span class="k">if</span> <span class="n">ratio_pad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># calculate from img0_shape</span>
-<a id="__codelineno-0-749" name="__codelineno-0-749"></a>        <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># gain  = old / new</span>
-<a id="__codelineno-0-750" name="__codelineno-0-750"></a>        <span class="n">pad</span> <span class="o">=</span> <span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># wh padding</span>
-<a id="__codelineno-0-751" name="__codelineno-0-751"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-752" name="__codelineno-0-752"></a>        <span class="n">gain</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-753" name="__codelineno-0-753"></a>        <span class="n">pad</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-754" name="__codelineno-0-754"></a>
-<a id="__codelineno-0-755" name="__codelineno-0-755"></a>    <span class="k">if</span> <span class="n">padding</span><span class="p">:</span>
-<a id="__codelineno-0-756" name="__codelineno-0-756"></a>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># x padding</span>
-<a id="__codelineno-0-757" name="__codelineno-0-757"></a>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># y padding</span>
-<a id="__codelineno-0-758" name="__codelineno-0-758"></a>    <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="n">gain</span>
-<a id="__codelineno-0-759" name="__codelineno-0-759"></a>    <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="n">gain</span>
-<a id="__codelineno-0-760" name="__codelineno-0-760"></a>    <span class="n">coords</span> <span class="o">=</span> <span class="n">clip_coords</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">)</span>
-<a id="__codelineno-0-761" name="__codelineno-0-761"></a>    <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
-<a id="__codelineno-0-762" name="__codelineno-0-762"></a>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># width</span>
-<a id="__codelineno-0-763" name="__codelineno-0-763"></a>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># height</span>
-<a id="__codelineno-0-764" name="__codelineno-0-764"></a>    <span class="k">return</span> <span class="n">coords</span>
+<span class="normal"><a href="#__codelineno-0-764">764</a></span>
+<span class="normal"><a href="#__codelineno-0-765">765</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-733" name="__codelineno-0-733"></a><span class="k">def</span> <span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-0-734" name="__codelineno-0-734"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-735" name="__codelineno-0-735"></a><span class="sd">    Rescale segment coordinates (xy) from img1_shape to img0_shape.</span>
+<a id="__codelineno-0-736" name="__codelineno-0-736"></a>
+<a id="__codelineno-0-737" name="__codelineno-0-737"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-738" name="__codelineno-0-738"></a><span class="sd">        img1_shape (tuple): The shape of the image that the coords are from.</span>
+<a id="__codelineno-0-739" name="__codelineno-0-739"></a><span class="sd">        coords (torch.Tensor): the coords to be scaled of shape n,2.</span>
+<a id="__codelineno-0-740" name="__codelineno-0-740"></a><span class="sd">        img0_shape (tuple): the shape of the image that the segmentation is being applied to.</span>
+<a id="__codelineno-0-741" name="__codelineno-0-741"></a><span class="sd">        ratio_pad (tuple): the ratio of the image size to the padded image size.</span>
+<a id="__codelineno-0-742" name="__codelineno-0-742"></a><span class="sd">        normalize (bool): If True, the coordinates will be normalized to the range [0, 1]. Defaults to False.</span>
+<a id="__codelineno-0-743" name="__codelineno-0-743"></a><span class="sd">        padding (bool): If True, assuming the boxes is based on image augmented by yolo style. If False then do regular</span>
+<a id="__codelineno-0-744" name="__codelineno-0-744"></a><span class="sd">            rescaling.</span>
+<a id="__codelineno-0-745" name="__codelineno-0-745"></a>
+<a id="__codelineno-0-746" name="__codelineno-0-746"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-747" name="__codelineno-0-747"></a><span class="sd">        coords (torch.Tensor): The scaled coordinates.</span>
+<a id="__codelineno-0-748" name="__codelineno-0-748"></a><span class="sd">    """</span>
+<a id="__codelineno-0-749" name="__codelineno-0-749"></a>    <span class="k">if</span> <span class="n">ratio_pad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># calculate from img0_shape</span>
+<a id="__codelineno-0-750" name="__codelineno-0-750"></a>        <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># gain  = old / new</span>
+<a id="__codelineno-0-751" name="__codelineno-0-751"></a>        <span class="n">pad</span> <span class="o">=</span> <span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># wh padding</span>
+<a id="__codelineno-0-752" name="__codelineno-0-752"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-753" name="__codelineno-0-753"></a>        <span class="n">gain</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-754" name="__codelineno-0-754"></a>        <span class="n">pad</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-755" name="__codelineno-0-755"></a>
+<a id="__codelineno-0-756" name="__codelineno-0-756"></a>    <span class="k">if</span> <span class="n">padding</span><span class="p">:</span>
+<a id="__codelineno-0-757" name="__codelineno-0-757"></a>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># x padding</span>
+<a id="__codelineno-0-758" name="__codelineno-0-758"></a>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># y padding</span>
+<a id="__codelineno-0-759" name="__codelineno-0-759"></a>    <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="n">gain</span>
+<a id="__codelineno-0-760" name="__codelineno-0-760"></a>    <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="n">gain</span>
+<a id="__codelineno-0-761" name="__codelineno-0-761"></a>    <span class="n">coords</span> <span class="o">=</span> <span class="n">clip_coords</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">)</span>
+<a id="__codelineno-0-762" name="__codelineno-0-762"></a>    <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
+<a id="__codelineno-0-763" name="__codelineno-0-763"></a>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># width</span>
+<a id="__codelineno-0-764" name="__codelineno-0-764"></a>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># height</span>
+<a id="__codelineno-0-765" name="__codelineno-0-765"></a>    <span class="k">return</span> <span class="n">coords</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5464,8 +5466,7 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-767">767</a></span>
-<span class="normal"><a href="#__codelineno-0-768">768</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-768">768</a></span>
 <span class="normal"><a href="#__codelineno-0-769">769</a></span>
 <span class="normal"><a href="#__codelineno-0-770">770</a></span>
 <span class="normal"><a href="#__codelineno-0-771">771</a></span>
@@ -5479,22 +5480,23 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-779">779</a></span>
 <span class="normal"><a href="#__codelineno-0-780">780</a></span>
 <span class="normal"><a href="#__codelineno-0-781">781</a></span>
-<span class="normal"><a href="#__codelineno-0-782">782</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-767" name="__codelineno-0-767"></a><span class="k">def</span> <span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
-<a id="__codelineno-0-768" name="__codelineno-0-768"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-769" name="__codelineno-0-769"></a><span class="sd">    Regularize rotated boxes in range [0, pi/2].</span>
-<a id="__codelineno-0-770" name="__codelineno-0-770"></a>
-<a id="__codelineno-0-771" name="__codelineno-0-771"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-772" name="__codelineno-0-772"></a><span class="sd">        rboxes (torch.Tensor): Input boxes of shape(N, 5) in xywhr format.</span>
-<a id="__codelineno-0-773" name="__codelineno-0-773"></a>
-<a id="__codelineno-0-774" name="__codelineno-0-774"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-775" name="__codelineno-0-775"></a><span class="sd">        (torch.Tensor): The regularized boxes.</span>
-<a id="__codelineno-0-776" name="__codelineno-0-776"></a><span class="sd">    """</span>
-<a id="__codelineno-0-777" name="__codelineno-0-777"></a>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">rboxes</span><span class="o">.</span><span class="n">unbind</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-778" name="__codelineno-0-778"></a>    <span class="c1"># Swap edge and angle if h &gt;= w</span>
-<a id="__codelineno-0-779" name="__codelineno-0-779"></a>    <span class="n">w_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
-<a id="__codelineno-0-780" name="__codelineno-0-780"></a>    <span class="n">h_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-<a id="__codelineno-0-781" name="__codelineno-0-781"></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
-<a id="__codelineno-0-782" name="__codelineno-0-782"></a>    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w_</span><span class="p">,</span> <span class="n">h_</span><span class="p">,</span> <span class="n">t</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># regularized boxes</span>
+<span class="normal"><a href="#__codelineno-0-782">782</a></span>
+<span class="normal"><a href="#__codelineno-0-783">783</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-768" name="__codelineno-0-768"></a><span class="k">def</span> <span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
+<a id="__codelineno-0-769" name="__codelineno-0-769"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-770" name="__codelineno-0-770"></a><span class="sd">    Regularize rotated boxes in range [0, pi/2].</span>
+<a id="__codelineno-0-771" name="__codelineno-0-771"></a>
+<a id="__codelineno-0-772" name="__codelineno-0-772"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-773" name="__codelineno-0-773"></a><span class="sd">        rboxes (torch.Tensor): Input boxes of shape(N, 5) in xywhr format.</span>
+<a id="__codelineno-0-774" name="__codelineno-0-774"></a>
+<a id="__codelineno-0-775" name="__codelineno-0-775"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-776" name="__codelineno-0-776"></a><span class="sd">        (torch.Tensor): The regularized boxes.</span>
+<a id="__codelineno-0-777" name="__codelineno-0-777"></a><span class="sd">    """</span>
+<a id="__codelineno-0-778" name="__codelineno-0-778"></a>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">rboxes</span><span class="o">.</span><span class="n">unbind</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-779" name="__codelineno-0-779"></a>    <span class="c1"># Swap edge and angle if h &gt;= w</span>
+<a id="__codelineno-0-780" name="__codelineno-0-780"></a>    <span class="n">w_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+<a id="__codelineno-0-781" name="__codelineno-0-781"></a>    <span class="n">h_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<a id="__codelineno-0-782" name="__codelineno-0-782"></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">w</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+<a id="__codelineno-0-783" name="__codelineno-0-783"></a>    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w_</span><span class="p">,</span> <span class="n">h_</span><span class="p">,</span> <span class="n">t</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># regularized boxes</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5575,8 +5577,7 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-785">785</a></span>
-<span class="normal"><a href="#__codelineno-0-786">786</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-786">786</a></span>
 <span class="normal"><a href="#__codelineno-0-787">787</a></span>
 <span class="normal"><a href="#__codelineno-0-788">788</a></span>
 <span class="normal"><a href="#__codelineno-0-789">789</a></span>
@@ -5603,35 +5604,36 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-810">810</a></span>
 <span class="normal"><a href="#__codelineno-0-811">811</a></span>
 <span class="normal"><a href="#__codelineno-0-812">812</a></span>
-<span class="normal"><a href="#__codelineno-0-813">813</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-785" name="__codelineno-0-785"></a><span class="k">def</span> <span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">"all"</span><span class="p">):</span>
-<a id="__codelineno-0-786" name="__codelineno-0-786"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-787" name="__codelineno-0-787"></a><span class="sd">    It takes a list of masks(n,h,w) and returns a list of segments(n,xy).</span>
-<a id="__codelineno-0-788" name="__codelineno-0-788"></a>
-<a id="__codelineno-0-789" name="__codelineno-0-789"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-790" name="__codelineno-0-790"></a><span class="sd">        masks (torch.Tensor): the output of the model, which is a tensor of shape (batch_size, 160, 160)</span>
-<a id="__codelineno-0-791" name="__codelineno-0-791"></a><span class="sd">        strategy (str): 'all' or 'largest'. Defaults to all</span>
-<a id="__codelineno-0-792" name="__codelineno-0-792"></a>
-<a id="__codelineno-0-793" name="__codelineno-0-793"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-794" name="__codelineno-0-794"></a><span class="sd">        segments (List): list of segment masks</span>
-<a id="__codelineno-0-795" name="__codelineno-0-795"></a><span class="sd">    """</span>
-<a id="__codelineno-0-796" name="__codelineno-0-796"></a>    <span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">merge_multi_segment</span>
-<a id="__codelineno-0-797" name="__codelineno-0-797"></a>
-<a id="__codelineno-0-798" name="__codelineno-0-798"></a>    <span class="n">segments</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-799" name="__codelineno-0-799"></a>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">masks</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"uint8"</span><span class="p">):</span>
-<a id="__codelineno-0-800" name="__codelineno-0-800"></a>        <span class="n">c</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">RETR_EXTERNAL</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CHAIN_APPROX_SIMPLE</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-801" name="__codelineno-0-801"></a>        <span class="k">if</span> <span class="n">c</span><span class="p">:</span>
-<a id="__codelineno-0-802" name="__codelineno-0-802"></a>            <span class="k">if</span> <span class="n">strategy</span> <span class="o">==</span> <span class="s2">"all"</span><span class="p">:</span>  <span class="c1"># merge and concatenate all segments</span>
-<a id="__codelineno-0-803" name="__codelineno-0-803"></a>                <span class="n">c</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-804" name="__codelineno-0-804"></a>                    <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">merge_multi_segment</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]))</span>
-<a id="__codelineno-0-805" name="__codelineno-0-805"></a>                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
-<a id="__codelineno-0-806" name="__codelineno-0-806"></a>                    <span class="k">else</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-807" name="__codelineno-0-807"></a>                <span class="p">)</span>
-<a id="__codelineno-0-808" name="__codelineno-0-808"></a>            <span class="k">elif</span> <span class="n">strategy</span> <span class="o">==</span> <span class="s2">"largest"</span><span class="p">:</span>  <span class="c1"># select largest segment</span>
-<a id="__codelineno-0-809" name="__codelineno-0-809"></a>                <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">c</span><span class="p">])</span><span class="o">.</span><span class="n">argmax</span><span class="p">()])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-810" name="__codelineno-0-810"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-811" name="__codelineno-0-811"></a>            <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># no segments found</span>
-<a id="__codelineno-0-812" name="__codelineno-0-812"></a>        <span class="n">segments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">))</span>
-<a id="__codelineno-0-813" name="__codelineno-0-813"></a>    <span class="k">return</span> <span class="n">segments</span>
+<span class="normal"><a href="#__codelineno-0-813">813</a></span>
+<span class="normal"><a href="#__codelineno-0-814">814</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-786" name="__codelineno-0-786"></a><span class="k">def</span> <span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">"all"</span><span class="p">):</span>
+<a id="__codelineno-0-787" name="__codelineno-0-787"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-788" name="__codelineno-0-788"></a><span class="sd">    It takes a list of masks(n,h,w) and returns a list of segments(n,xy).</span>
+<a id="__codelineno-0-789" name="__codelineno-0-789"></a>
+<a id="__codelineno-0-790" name="__codelineno-0-790"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-791" name="__codelineno-0-791"></a><span class="sd">        masks (torch.Tensor): the output of the model, which is a tensor of shape (batch_size, 160, 160)</span>
+<a id="__codelineno-0-792" name="__codelineno-0-792"></a><span class="sd">        strategy (str): 'all' or 'largest'. Defaults to all</span>
+<a id="__codelineno-0-793" name="__codelineno-0-793"></a>
+<a id="__codelineno-0-794" name="__codelineno-0-794"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-795" name="__codelineno-0-795"></a><span class="sd">        segments (List): list of segment masks</span>
+<a id="__codelineno-0-796" name="__codelineno-0-796"></a><span class="sd">    """</span>
+<a id="__codelineno-0-797" name="__codelineno-0-797"></a>    <span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">merge_multi_segment</span>
+<a id="__codelineno-0-798" name="__codelineno-0-798"></a>
+<a id="__codelineno-0-799" name="__codelineno-0-799"></a>    <span class="n">segments</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-800" name="__codelineno-0-800"></a>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">masks</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"uint8"</span><span class="p">):</span>
+<a id="__codelineno-0-801" name="__codelineno-0-801"></a>        <span class="n">c</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">RETR_EXTERNAL</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CHAIN_APPROX_SIMPLE</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-802" name="__codelineno-0-802"></a>        <span class="k">if</span> <span class="n">c</span><span class="p">:</span>
+<a id="__codelineno-0-803" name="__codelineno-0-803"></a>            <span class="k">if</span> <span class="n">strategy</span> <span class="o">==</span> <span class="s2">"all"</span><span class="p">:</span>  <span class="c1"># merge and concatenate all segments</span>
+<a id="__codelineno-0-804" name="__codelineno-0-804"></a>                <span class="n">c</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-805" name="__codelineno-0-805"></a>                    <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">merge_multi_segment</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]))</span>
+<a id="__codelineno-0-806" name="__codelineno-0-806"></a>                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<a id="__codelineno-0-807" name="__codelineno-0-807"></a>                    <span class="k">else</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-808" name="__codelineno-0-808"></a>                <span class="p">)</span>
+<a id="__codelineno-0-809" name="__codelineno-0-809"></a>            <span class="k">elif</span> <span class="n">strategy</span> <span class="o">==</span> <span class="s2">"largest"</span><span class="p">:</span>  <span class="c1"># select largest segment</span>
+<a id="__codelineno-0-810" name="__codelineno-0-810"></a>                <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">c</span><span class="p">])</span><span class="o">.</span><span class="n">argmax</span><span class="p">()])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-811" name="__codelineno-0-811"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-812" name="__codelineno-0-812"></a>            <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># no segments found</span>
+<a id="__codelineno-0-813" name="__codelineno-0-813"></a>        <span class="n">segments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">))</span>
+<a id="__codelineno-0-814" name="__codelineno-0-814"></a>    <span class="k">return</span> <span class="n">segments</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5696,8 +5698,7 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-816">816</a></span>
-<span class="normal"><a href="#__codelineno-0-817">817</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-817">817</a></span>
 <span class="normal"><a href="#__codelineno-0-818">818</a></span>
 <span class="normal"><a href="#__codelineno-0-819">819</a></span>
 <span class="normal"><a href="#__codelineno-0-820">820</a></span>
@@ -5706,17 +5707,18 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-823">823</a></span>
 <span class="normal"><a href="#__codelineno-0-824">824</a></span>
 <span class="normal"><a href="#__codelineno-0-825">825</a></span>
-<span class="normal"><a href="#__codelineno-0-826">826</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-816" name="__codelineno-0-816"></a><span class="k">def</span> <span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<a id="__codelineno-0-817" name="__codelineno-0-817"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-818" name="__codelineno-0-818"></a><span class="sd">    Convert a batch of FP32 torch tensors (0.0-1.0) to a NumPy uint8 array (0-255), changing from BCHW to BHWC layout.</span>
-<a id="__codelineno-0-819" name="__codelineno-0-819"></a>
-<a id="__codelineno-0-820" name="__codelineno-0-820"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-821" name="__codelineno-0-821"></a><span class="sd">        batch (torch.Tensor): Input tensor batch of shape (Batch, Channels, Height, Width) and dtype torch.float32.</span>
-<a id="__codelineno-0-822" name="__codelineno-0-822"></a>
-<a id="__codelineno-0-823" name="__codelineno-0-823"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-824" name="__codelineno-0-824"></a><span class="sd">        (np.ndarray): Output NumPy array batch of shape (Batch, Height, Width, Channels) and dtype uint8.</span>
-<a id="__codelineno-0-825" name="__codelineno-0-825"></a><span class="sd">    """</span>
-<a id="__codelineno-0-826" name="__codelineno-0-826"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">batch</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-826">826</a></span>
+<span class="normal"><a href="#__codelineno-0-827">827</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-817" name="__codelineno-0-817"></a><span class="k">def</span> <span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<a id="__codelineno-0-818" name="__codelineno-0-818"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-819" name="__codelineno-0-819"></a><span class="sd">    Convert a batch of FP32 torch tensors (0.0-1.0) to a NumPy uint8 array (0-255), changing from BCHW to BHWC layout.</span>
+<a id="__codelineno-0-820" name="__codelineno-0-820"></a>
+<a id="__codelineno-0-821" name="__codelineno-0-821"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-822" name="__codelineno-0-822"></a><span class="sd">        batch (torch.Tensor): Input tensor batch of shape (Batch, Channels, Height, Width) and dtype torch.float32.</span>
+<a id="__codelineno-0-823" name="__codelineno-0-823"></a>
+<a id="__codelineno-0-824" name="__codelineno-0-824"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-825" name="__codelineno-0-825"></a><span class="sd">        (np.ndarray): Output NumPy array batch of shape (Batch, Height, Width, Channels) and dtype uint8.</span>
+<a id="__codelineno-0-826" name="__codelineno-0-826"></a><span class="sd">    """</span>
+<a id="__codelineno-0-827" name="__codelineno-0-827"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">batch</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5781,8 +5783,7 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-829">829</a></span>
-<span class="normal"><a href="#__codelineno-0-830">830</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-830">830</a></span>
 <span class="normal"><a href="#__codelineno-0-831">831</a></span>
 <span class="normal"><a href="#__codelineno-0-832">832</a></span>
 <span class="normal"><a href="#__codelineno-0-833">833</a></span>
@@ -5791,17 +5792,18 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-836">836</a></span>
 <span class="normal"><a href="#__codelineno-0-837">837</a></span>
 <span class="normal"><a href="#__codelineno-0-838">838</a></span>
-<span class="normal"><a href="#__codelineno-0-839">839</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-829" name="__codelineno-0-829"></a><span class="k">def</span> <span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-<a id="__codelineno-0-830" name="__codelineno-0-830"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-831" name="__codelineno-0-831"></a><span class="sd">    Cleans a string by replacing special characters with '_' character.</span>
-<a id="__codelineno-0-832" name="__codelineno-0-832"></a>
-<a id="__codelineno-0-833" name="__codelineno-0-833"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-834" name="__codelineno-0-834"></a><span class="sd">        s (str): a string needing special characters replaced</span>
-<a id="__codelineno-0-835" name="__codelineno-0-835"></a>
-<a id="__codelineno-0-836" name="__codelineno-0-836"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-837" name="__codelineno-0-837"></a><span class="sd">        (str): a string with special characters replaced by an underscore _</span>
-<a id="__codelineno-0-838" name="__codelineno-0-838"></a><span class="sd">    """</span>
-<a id="__codelineno-0-839" name="__codelineno-0-839"></a>    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[|@#!¡·$€%&amp;()=?¿^*;:,¨´&gt;&lt;+]"</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="s2">"_"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-839">839</a></span>
+<span class="normal"><a href="#__codelineno-0-840">840</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-830" name="__codelineno-0-830"></a><span class="k">def</span> <span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<a id="__codelineno-0-831" name="__codelineno-0-831"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-832" name="__codelineno-0-832"></a><span class="sd">    Cleans a string by replacing special characters with '_' character.</span>
+<a id="__codelineno-0-833" name="__codelineno-0-833"></a>
+<a id="__codelineno-0-834" name="__codelineno-0-834"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-835" name="__codelineno-0-835"></a><span class="sd">        s (str): a string needing special characters replaced</span>
+<a id="__codelineno-0-836" name="__codelineno-0-836"></a>
+<a id="__codelineno-0-837" name="__codelineno-0-837"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-838" name="__codelineno-0-838"></a><span class="sd">        (str): a string with special characters replaced by an underscore _</span>
+<a id="__codelineno-0-839" name="__codelineno-0-839"></a><span class="sd">    """</span>
+<a id="__codelineno-0-840" name="__codelineno-0-840"></a>    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="s2">"[|@#!¡·$€%&amp;()=?¿^*;:,¨´&gt;&lt;+]"</span><span class="p">,</span> <span class="n">repl</span><span class="o">=</span><span class="s2">"_"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
