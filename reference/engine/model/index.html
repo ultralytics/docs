@@ -11,7 +11,7 @@
 <link href="../exporter/" rel="prev"/>
 <link href="../predictor/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.5.48" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.49" name="generator"/>
 <title>model - Ultralytics YOLO Docs</title>
 <link href="../../../assets/stylesheets/main.6f8fc17f.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -1972,7 +1972,7 @@ operations.</p>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># reuse predictor</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># model object</span>
 <a id="__codelineno-0-117" name="__codelineno-0-117"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># trainer object</span>
-<a id="__codelineno-0-118" name="__codelineno-0-118"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">ckpt</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># if loaded from *.pt</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">ckpt</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># if loaded from *.pt</span>
 <a id="__codelineno-0-119" name="__codelineno-0-119"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">cfg</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># if loaded from *.yaml</span>
 <a id="__codelineno-0-120" name="__codelineno-0-120"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">ckpt_path</span> <span class="o">=</span> <span class="kc">None</span>
 <a id="__codelineno-0-121" name="__codelineno-0-121"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># overrides for trainer object</span>
@@ -5232,7 +5232,7 @@ patience (int): Epochs to wait for no observable improvement for early stopping 
 <a id="__codelineno-0-807" name="__codelineno-0-807"></a>    <span class="c1"># Update model and cfg after training</span>
 <a id="__codelineno-0-808" name="__codelineno-0-808"></a>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
 <a id="__codelineno-0-809" name="__codelineno-0-809"></a>        <span class="n">ckpt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
-<a id="__codelineno-0-810" name="__codelineno-0-810"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">attempt_load_one_weight</span><span class="p">(</span><span class="n">ckpt</span><span class="p">)</span>
+<a id="__codelineno-0-810" name="__codelineno-0-810"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ckpt</span> <span class="o">=</span> <span class="n">attempt_load_one_weight</span><span class="p">(</span><span class="n">ckpt</span><span class="p">)</span>
 <a id="__codelineno-0-811" name="__codelineno-0-811"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">overrides</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span>
 <a id="__codelineno-0-812" name="__codelineno-0-812"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="p">,</span> <span class="s2">"metrics"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># TODO: no metrics returned by DDP</span>
 <a id="__codelineno-0-813" name="__codelineno-0-813"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span>
@@ -5763,7 +5763,7 @@ validating the model.</p>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+<script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 </body>
