@@ -5552,11 +5552,11 @@ Default is (3, 6, 12, 24).</p>
 <p>Performs the forward pass through the TinyViT model, extracting features from the input image.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-989">989</a></span>
-<span class="normal"><a href="#__codelineno-0-990">990</a></span>
-<span class="normal"><a href="#__codelineno-0-991">991</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-989" name="__codelineno-0-989"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a id="__codelineno-0-990" name="__codelineno-0-990"></a><span class="w">    </span><span class="sd">"""Performs the forward pass through the TinyViT model, extracting features from the input image."""</span>
-<a id="__codelineno-0-991" name="__codelineno-0-991"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward_features</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-990">990</a></span>
+<span class="normal"><a href="#__codelineno-0-991">991</a></span>
+<span class="normal"><a href="#__codelineno-0-992">992</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-990" name="__codelineno-0-990"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-0-991" name="__codelineno-0-991"></a><span class="w">    </span><span class="sd">"""Performs the forward pass through the TinyViT model, extracting features from the input image."""</span>
+<a id="__codelineno-0-992" name="__codelineno-0-992"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward_features</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5571,8 +5571,7 @@ Default is (3, 6, 12, 24).</p>
 <p>Processes input through feature extraction layers, returning spatial features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-974">974</a></span>
-<span class="normal"><a href="#__codelineno-0-975">975</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-975">975</a></span>
 <span class="normal"><a href="#__codelineno-0-976">976</a></span>
 <span class="normal"><a href="#__codelineno-0-977">977</a></span>
 <span class="normal"><a href="#__codelineno-0-978">978</a></span>
@@ -5584,20 +5583,21 @@ Default is (3, 6, 12, 24).</p>
 <span class="normal"><a href="#__codelineno-0-984">984</a></span>
 <span class="normal"><a href="#__codelineno-0-985">985</a></span>
 <span class="normal"><a href="#__codelineno-0-986">986</a></span>
-<span class="normal"><a href="#__codelineno-0-987">987</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-974" name="__codelineno-0-974"></a><span class="k">def</span> <span class="nf">forward_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a id="__codelineno-0-975" name="__codelineno-0-975"></a><span class="w">    </span><span class="sd">"""Processes input through feature extraction layers, returning spatial features."""</span>
-<a id="__codelineno-0-976" name="__codelineno-0-976"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patch_embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># x input is (N, C, H, W)</span>
-<a id="__codelineno-0-977" name="__codelineno-0-977"></a>
-<a id="__codelineno-0-978" name="__codelineno-0-978"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-979" name="__codelineno-0-979"></a>    <span class="n">start_i</span> <span class="o">=</span> <span class="mi">1</span>
-<a id="__codelineno-0-980" name="__codelineno-0-980"></a>
-<a id="__codelineno-0-981" name="__codelineno-0-981"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start_i</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">)):</span>
-<a id="__codelineno-0-982" name="__codelineno-0-982"></a>        <span class="n">layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<a id="__codelineno-0-983" name="__codelineno-0-983"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-984" name="__codelineno-0-984"></a>    <span class="n">batch</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
-<a id="__codelineno-0-985" name="__codelineno-0-985"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">patches_resolution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">patches_resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,</span> <span class="n">channel</span><span class="p">)</span>
-<a id="__codelineno-0-986" name="__codelineno-0-986"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-987" name="__codelineno-0-987"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">neck</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-987">987</a></span>
+<span class="normal"><a href="#__codelineno-0-988">988</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-975" name="__codelineno-0-975"></a><span class="k">def</span> <span class="nf">forward_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-0-976" name="__codelineno-0-976"></a><span class="w">    </span><span class="sd">"""Processes input through feature extraction layers, returning spatial features."""</span>
+<a id="__codelineno-0-977" name="__codelineno-0-977"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patch_embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># x input is (N, C, H, W)</span>
+<a id="__codelineno-0-978" name="__codelineno-0-978"></a>
+<a id="__codelineno-0-979" name="__codelineno-0-979"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-980" name="__codelineno-0-980"></a>    <span class="n">start_i</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-0-981" name="__codelineno-0-981"></a>
+<a id="__codelineno-0-982" name="__codelineno-0-982"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start_i</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">)):</span>
+<a id="__codelineno-0-983" name="__codelineno-0-983"></a>        <span class="n">layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-0-984" name="__codelineno-0-984"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-985" name="__codelineno-0-985"></a>    <span class="n">batch</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-0-986" name="__codelineno-0-986"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">patches_resolution</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">patches_resolution</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,</span> <span class="n">channel</span><span class="p">)</span>
+<a id="__codelineno-0-987" name="__codelineno-0-987"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-988" name="__codelineno-0-988"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">neck</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5612,13 +5612,13 @@ Default is (3, 6, 12, 24).</p>
 <p>Returns a set of keywords for parameters that should not use weight decay.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-969">969</a></span>
-<span class="normal"><a href="#__codelineno-0-970">970</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-970">970</a></span>
 <span class="normal"><a href="#__codelineno-0-971">971</a></span>
-<span class="normal"><a href="#__codelineno-0-972">972</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-969" name="__codelineno-0-969"></a><span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">ignore</span>
-<a id="__codelineno-0-970" name="__codelineno-0-970"></a><span class="k">def</span> <span class="nf">no_weight_decay_keywords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-971" name="__codelineno-0-971"></a><span class="w">    </span><span class="sd">"""Returns a set of keywords for parameters that should not use weight decay."""</span>
-<a id="__codelineno-0-972" name="__codelineno-0-972"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">"attention_biases"</span><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-0-972">972</a></span>
+<span class="normal"><a href="#__codelineno-0-973">973</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-970" name="__codelineno-0-970"></a><span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">ignore</span>
+<a id="__codelineno-0-971" name="__codelineno-0-971"></a><span class="k">def</span> <span class="nf">no_weight_decay_keywords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-972" name="__codelineno-0-972"></a><span class="w">    </span><span class="sd">"""Returns a set of keywords for parameters that should not use weight decay."""</span>
+<a id="__codelineno-0-973" name="__codelineno-0-973"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">"attention_biases"</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5662,8 +5662,7 @@ Default is (3, 6, 12, 24).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-993"> 993</a></span>
-<span class="normal"><a href="#__codelineno-0-994"> 994</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-994"> 994</a></span>
 <span class="normal"><a href="#__codelineno-0-995"> 995</a></span>
 <span class="normal"><a href="#__codelineno-0-996"> 996</a></span>
 <span class="normal"><a href="#__codelineno-0-997"> 997</a></span>
@@ -5681,26 +5680,27 @@ Default is (3, 6, 12, 24).</p>
 <span class="normal"><a href="#__codelineno-0-1009">1009</a></span>
 <span class="normal"><a href="#__codelineno-0-1010">1010</a></span>
 <span class="normal"><a href="#__codelineno-0-1011">1011</a></span>
-<span class="normal"><a href="#__codelineno-0-1012">1012</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-993" name="__codelineno-0-993"></a><span class="k">def</span> <span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">]):</span>
-<a id="__codelineno-0-994" name="__codelineno-0-994"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-995" name="__codelineno-0-995"></a><span class="sd">    Set image size to make model compatible with different image sizes.</span>
-<a id="__codelineno-0-996" name="__codelineno-0-996"></a>
-<a id="__codelineno-0-997" name="__codelineno-0-997"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-998" name="__codelineno-0-998"></a><span class="sd">        imgsz (Tuple[int, int]): The size of the input image.</span>
-<a id="__codelineno-0-999" name="__codelineno-0-999"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1000" name="__codelineno-0-1000"></a>    <span class="n">imgsz</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="o">//</span> <span class="mi">4</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">imgsz</span><span class="p">]</span>
-<a id="__codelineno-0-1001" name="__codelineno-0-1001"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">patches_resolution</span> <span class="o">=</span> <span class="n">imgsz</span>
-<a id="__codelineno-0-1002" name="__codelineno-0-1002"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">):</span>
-<a id="__codelineno-0-1003" name="__codelineno-0-1003"></a>        <span class="n">input_resolution</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-1004" name="__codelineno-0-1004"></a>            <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">i</span><span class="p">)),</span>
-<a id="__codelineno-0-1005" name="__codelineno-0-1005"></a>            <span class="n">imgsz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">i</span><span class="p">)),</span>
-<a id="__codelineno-0-1006" name="__codelineno-0-1006"></a>        <span class="p">)</span>
-<a id="__codelineno-0-1007" name="__codelineno-0-1007"></a>        <span class="n">layer</span><span class="o">.</span><span class="n">input_resolution</span> <span class="o">=</span> <span class="n">input_resolution</span>
-<a id="__codelineno-0-1008" name="__codelineno-0-1008"></a>        <span class="k">if</span> <span class="n">layer</span><span class="o">.</span><span class="n">downsample</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1009" name="__codelineno-0-1009"></a>            <span class="n">layer</span><span class="o">.</span><span class="n">downsample</span><span class="o">.</span><span class="n">input_resolution</span> <span class="o">=</span> <span class="n">input_resolution</span>
-<a id="__codelineno-0-1010" name="__codelineno-0-1010"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">BasicLayer</span><span class="p">):</span>
-<a id="__codelineno-0-1011" name="__codelineno-0-1011"></a>            <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
-<a id="__codelineno-0-1012" name="__codelineno-0-1012"></a>                <span class="n">b</span><span class="o">.</span><span class="n">input_resolution</span> <span class="o">=</span> <span class="n">input_resolution</span>
+<span class="normal"><a href="#__codelineno-0-1012">1012</a></span>
+<span class="normal"><a href="#__codelineno-0-1013">1013</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-994" name="__codelineno-0-994"></a><span class="k">def</span> <span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">]):</span>
+<a id="__codelineno-0-995" name="__codelineno-0-995"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-996" name="__codelineno-0-996"></a><span class="sd">    Set image size to make model compatible with different image sizes.</span>
+<a id="__codelineno-0-997" name="__codelineno-0-997"></a>
+<a id="__codelineno-0-998" name="__codelineno-0-998"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-999" name="__codelineno-0-999"></a><span class="sd">        imgsz (Tuple[int, int]): The size of the input image.</span>
+<a id="__codelineno-0-1000" name="__codelineno-0-1000"></a><span class="sd">    """</span>
+<a id="__codelineno-0-1001" name="__codelineno-0-1001"></a>    <span class="n">imgsz</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="o">//</span> <span class="mi">4</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">imgsz</span><span class="p">]</span>
+<a id="__codelineno-0-1002" name="__codelineno-0-1002"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">patches_resolution</span> <span class="o">=</span> <span class="n">imgsz</span>
+<a id="__codelineno-0-1003" name="__codelineno-0-1003"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">):</span>
+<a id="__codelineno-0-1004" name="__codelineno-0-1004"></a>        <span class="n">input_resolution</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-1005" name="__codelineno-0-1005"></a>            <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">i</span><span class="p">)),</span>
+<a id="__codelineno-0-1006" name="__codelineno-0-1006"></a>            <span class="n">imgsz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">i</span><span class="p">)),</span>
+<a id="__codelineno-0-1007" name="__codelineno-0-1007"></a>        <span class="p">)</span>
+<a id="__codelineno-0-1008" name="__codelineno-0-1008"></a>        <span class="n">layer</span><span class="o">.</span><span class="n">input_resolution</span> <span class="o">=</span> <span class="n">input_resolution</span>
+<a id="__codelineno-0-1009" name="__codelineno-0-1009"></a>        <span class="k">if</span> <span class="n">layer</span><span class="o">.</span><span class="n">downsample</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1010" name="__codelineno-0-1010"></a>            <span class="n">layer</span><span class="o">.</span><span class="n">downsample</span><span class="o">.</span><span class="n">input_resolution</span> <span class="o">=</span> <span class="n">input_resolution</span>
+<a id="__codelineno-0-1011" name="__codelineno-0-1011"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">BasicLayer</span><span class="p">):</span>
+<a id="__codelineno-0-1012" name="__codelineno-0-1012"></a>            <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">layer</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
+<a id="__codelineno-0-1013" name="__codelineno-0-1013"></a>                <span class="n">b</span><span class="o">.</span><span class="n">input_resolution</span> <span class="o">=</span> <span class="n">input_resolution</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

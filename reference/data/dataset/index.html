@@ -1564,7 +1564,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>Path where to save the cache file. Default is Path('./labels.cache').</p>
+<p>Path where to save the cache file. Default is Path("./labels.cache").</p>
 </div>
 </td>
 <td>
@@ -1666,7 +1666,7 @@
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">    Cache dataset labels, check images and read shapes.</span>
 <a id="__codelineno-0-69" name="__codelineno-0-69"></a>
 <a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        path (Path): Path where to save the cache file. Default is Path('./labels.cache').</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        path (Path): Path where to save the cache file. Default is Path("./labels.cache").</span>
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">        (dict): labels.</span>
@@ -1959,7 +1959,7 @@ Can also support classification and semantic segmentation by adding or removing 
 <a id="__codelineno-0-219" name="__codelineno-0-219"></a>    <span class="n">segment_resamples</span> <span class="o">=</span> <span class="mi">100</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_obb</span> <span class="k">else</span> <span class="mi">1000</span>
 <a id="__codelineno-0-220" name="__codelineno-0-220"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">segments</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 <a id="__codelineno-0-221" name="__codelineno-0-221"></a>        <span class="c1"># make sure segments interpolate correctly if original length is greater than segment_resamples</span>
-<a id="__codelineno-0-222" name="__codelineno-0-222"></a>        <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">])</span>
+<a id="__codelineno-0-222" name="__codelineno-0-222"></a>        <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">)</span>
 <a id="__codelineno-0-223" name="__codelineno-0-223"></a>        <span class="n">segment_resamples</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">segment_resamples</span> <span class="o">&lt;</span> <span class="n">max_len</span> <span class="k">else</span> <span class="n">segment_resamples</span>
 <a id="__codelineno-0-224" name="__codelineno-0-224"></a>        <span class="c1"># list[np.array(segment_resamples, 2)] * num_samples</span>
 <a id="__codelineno-0-225" name="__codelineno-0-225"></a>        <span class="n">segments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">resample_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">segment_resamples</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>

@@ -2541,9 +2541,7 @@ the module dictionary. Otherwise, it delegates the attribute lookup to the under
 <span class="normal"><a href="#__codelineno-0-1170">1170</a></span>
 <span class="normal"><a href="#__codelineno-0-1171">1171</a></span>
 <span class="normal"><a href="#__codelineno-0-1172">1172</a></span>
-<span class="normal"><a href="#__codelineno-0-1173">1173</a></span>
-<span class="normal"><a href="#__codelineno-0-1174">1174</a></span>
-<span class="normal"><a href="#__codelineno-0-1175">1175</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1151" name="__codelineno-0-1151"></a><span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-1173">1173</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1151" name="__codelineno-0-1151"></a><span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <a id="__codelineno-0-1152" name="__codelineno-0-1152"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-1153" name="__codelineno-0-1153"></a><span class="sd">    Enables accessing model attributes directly through the Model class.</span>
 <a id="__codelineno-0-1154" name="__codelineno-0-1154"></a>
@@ -2565,9 +2563,7 @@ the module dictionary. Otherwise, it delegates the attribute lookup to the under
 <a id="__codelineno-0-1170" name="__codelineno-0-1170"></a><span class="sd">        &gt;&gt;&gt; print(model.stride)</span>
 <a id="__codelineno-0-1171" name="__codelineno-0-1171"></a><span class="sd">        &gt;&gt;&gt; print(model.task)</span>
 <a id="__codelineno-0-1172" name="__codelineno-0-1172"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1173" name="__codelineno-0-1173"></a>    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"model"</span><span class="p">:</span>
-<a id="__codelineno-0-1174" name="__codelineno-0-1174"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modules</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span>
-<a id="__codelineno-0-1175" name="__codelineno-0-1175"></a>    <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<a id="__codelineno-0-1173" name="__codelineno-0-1173"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modules</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"model"</span> <span class="k">else</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
