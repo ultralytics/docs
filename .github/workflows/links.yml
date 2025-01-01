@@ -82,14 +82,17 @@ jobs:
             --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
             --exclude-path '**/ci.yaml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
-            --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
+            --header "User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0" \
+            --header "Accept=*" \
+            --header "Accept-Language=*" \
+            --header "Accept-Encoding=*" \
             './${{ matrix.website }}/**/*.html' | tee -a summary.txt
 
             # Add the summary to GitHub step summary
             cat summary.txt >> $GITHUB_STEP_SUMMARY
 
             # Prepare the summary for Slack (escape newlines, remove [], remove .html, and escape special characters)
-            ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
+            ESCAPED_SUMMARY=$(awk '!/^\[TIMEOUT\]/ {printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
             echo "SUMMARY<<EOF" >> $GITHUB_ENV
             echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
