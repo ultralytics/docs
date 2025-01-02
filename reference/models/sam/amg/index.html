@@ -1538,7 +1538,7 @@ high and low values.</p>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Generates crop boxes of varying sizes for multi-scale image processing, with layered overlapping regions.</p>
+<p>Generates crop boxes of varying sizes for multiscale image processing, with layered overlapping regions.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-76"> 76</a></span>
@@ -1576,7 +1576,7 @@ high and low values.</p>
 <span class="normal"><a href="#__codelineno-0-108">108</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="k">def</span> <span class="nf">generate_crop_boxes</span><span class="p">(</span>
 <a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="n">im_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">n_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">overlap_ratio</span><span class="p">:</span> <span class="nb">float</span>
 <a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="w">    </span><span class="sd">"""Generates crop boxes of varying sizes for multi-scale image processing, with layered overlapping regions."""</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="w">    </span><span class="sd">"""Generates crop boxes of varying sizes for multiscale image processing, with layered overlapping regions."""</span>
 <a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="n">crop_boxes</span><span class="p">,</span> <span class="n">layer_idxs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 <a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="n">im_h</span><span class="p">,</span> <span class="n">im_w</span> <span class="o">=</span> <span class="n">im_size</span>
 <a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="n">short_side</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">im_h</span><span class="p">,</span> <span class="n">im_w</span><span class="p">)</span>

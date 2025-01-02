@@ -3524,10 +3524,10 @@ the positional awareness of the attention mechanism.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
-<p>Implements multi-scale self-attention with optional query pooling for efficient feature extraction.</p>
-<p>This class provides a flexible implementation of multi-scale attention, allowing for optional
+<p>Implements multiscale self-attention with optional query pooling for efficient feature extraction.</p>
+<p>This class provides a flexible implementation of multiscale attention, allowing for optional
 downsampling of query features through pooling. It's designed to enhance the model's ability to
-capture multi-scale information in visual tasks.</p>
+capture multiscale information in visual tasks.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -3630,7 +3630,7 @@ capture multi-scale information in visual tasks.</p>
 <td><code><a class="autorefs autorefs-internal" title="ultralytics.models.sam.modules.blocks.MultiScaleAttention.forward" href="#ultralytics.models.sam.modules.blocks.MultiScaleAttention.forward">forward</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Applies multi-scale attention to the input tensor.</p>
+<p>Applies multiscale attention to the input tensor.</p>
 </div>
 </td>
 </tr>
@@ -3673,7 +3673,7 @@ capture multi-scale information in visual tasks.</p>
 <a id="__codelineno-0-537" name="__codelineno-0-537"></a>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <a id="__codelineno-0-538" name="__codelineno-0-538"></a>    <span class="n">q_pool</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-539" name="__codelineno-0-539"></a><span class="p">):</span>
-<a id="__codelineno-0-540" name="__codelineno-0-540"></a><span class="w">    </span><span class="sd">"""Initializes multi-scale attention with optional query pooling for efficient feature extraction."""</span>
+<a id="__codelineno-0-540" name="__codelineno-0-540"></a><span class="w">    </span><span class="sd">"""Initializes multiscale attention with optional query pooling for efficient feature extraction."""</span>
 <a id="__codelineno-0-541" name="__codelineno-0-541"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <a id="__codelineno-0-542" name="__codelineno-0-542"></a>
 <a id="__codelineno-0-543" name="__codelineno-0-543"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span>
@@ -3696,7 +3696,7 @@ capture multi-scale information in visual tasks.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">forward</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Applies multi-scale attention with optional query pooling to extract multi-scale features.</p>
+<p>Applies multiscale attention with optional query pooling to extract multiscale features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-554">554</a></span>
@@ -3726,7 +3726,7 @@ capture multi-scale information in visual tasks.</p>
 <span class="normal"><a href="#__codelineno-0-578">578</a></span>
 <span class="normal"><a href="#__codelineno-0-579">579</a></span>
 <span class="normal"><a href="#__codelineno-0-580">580</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-554" name="__codelineno-0-554"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-<a id="__codelineno-0-555" name="__codelineno-0-555"></a><span class="w">    </span><span class="sd">"""Applies multi-scale attention with optional query pooling to extract multi-scale features."""</span>
+<a id="__codelineno-0-555" name="__codelineno-0-555"></a><span class="w">    </span><span class="sd">"""Applies multiscale attention with optional query pooling to extract multiscale features."""</span>
 <a id="__codelineno-0-556" name="__codelineno-0-556"></a>    <span class="n">B</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
 <a id="__codelineno-0-557" name="__codelineno-0-557"></a>    <span class="c1"># qkv with shape (B, H * W, 3, nHead, C)</span>
 <a id="__codelineno-0-558" name="__codelineno-0-558"></a>    <span class="n">qkv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">qkv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">H</span> <span class="o">*</span> <span class="n">W</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -3778,8 +3778,8 @@ capture multi-scale information in visual tasks.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
-<p>A multi-scale attention block with window partitioning and query pooling for efficient vision transformers.</p>
-<p>This class implements a multi-scale attention mechanism with optional window partitioning and downsampling,
+<p>A multiscale attention block with window partitioning and query pooling for efficient vision transformers.</p>
+<p>This class implements a multiscale attention mechanism with optional window partitioning and downsampling,
 designed for use in vision transformer architectures.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -3927,7 +3927,7 @@ designed for use in vision transformer architectures.</p>
 <td><code><a class="autorefs autorefs-internal" title="ultralytics.models.sam.modules.blocks.MultiScaleBlock.forward" href="#ultralytics.models.sam.modules.blocks.MultiScaleBlock.forward">forward</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Processes input tensor through the multi-scale block.</p>
+<p>Processes input tensor through the multiscale block.</p>
 </div>
 </td>
 </tr>
@@ -4000,7 +4000,7 @@ designed for use in vision transformer architectures.</p>
 <a id="__codelineno-0-623" name="__codelineno-0-623"></a>    <span class="n">act_layer</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <a id="__codelineno-0-624" name="__codelineno-0-624"></a>    <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 <a id="__codelineno-0-625" name="__codelineno-0-625"></a><span class="p">):</span>
-<a id="__codelineno-0-626" name="__codelineno-0-626"></a><span class="w">    </span><span class="sd">"""Initializes a multi-scale attention block with window partitioning and optional query pooling."""</span>
+<a id="__codelineno-0-626" name="__codelineno-0-626"></a><span class="w">    </span><span class="sd">"""Initializes a multiscale attention block with window partitioning and optional query pooling."""</span>
 <a id="__codelineno-0-627" name="__codelineno-0-627"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <a id="__codelineno-0-628" name="__codelineno-0-628"></a>
 <a id="__codelineno-0-629" name="__codelineno-0-629"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">norm_layer</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -4045,7 +4045,7 @@ designed for use in vision transformer architectures.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">forward</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Processes input through multi-scale attention and MLP, with optional windowing and downsampling.</p>
+<p>Processes input through multiscale attention and MLP, with optional windowing and downsampling.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-662">662</a></span>
@@ -4082,7 +4082,7 @@ designed for use in vision transformer architectures.</p>
 <span class="normal"><a href="#__codelineno-0-693">693</a></span>
 <span class="normal"><a href="#__codelineno-0-694">694</a></span>
 <span class="normal"><a href="#__codelineno-0-695">695</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-662" name="__codelineno-0-662"></a><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-<a id="__codelineno-0-663" name="__codelineno-0-663"></a><span class="w">    </span><span class="sd">"""Processes input through multi-scale attention and MLP, with optional windowing and downsampling."""</span>
+<a id="__codelineno-0-663" name="__codelineno-0-663"></a><span class="w">    </span><span class="sd">"""Processes input through multiscale attention and MLP, with optional windowing and downsampling."""</span>
 <a id="__codelineno-0-664" name="__codelineno-0-664"></a>    <span class="n">shortcut</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># B, H, W, C</span>
 <a id="__codelineno-0-665" name="__codelineno-0-665"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <a id="__codelineno-0-666" name="__codelineno-0-666"></a>

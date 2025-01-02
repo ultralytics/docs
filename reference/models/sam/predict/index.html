@@ -5593,7 +5593,8 @@ based on the provided prompts and the existing state.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1196">1196</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1195">1195</a></span>
+<span class="normal"><a href="#__codelineno-0-1196">1196</a></span>
 <span class="normal"><a href="#__codelineno-0-1197">1197</a></span>
 <span class="normal"><a href="#__codelineno-0-1198">1198</a></span>
 <span class="normal"><a href="#__codelineno-0-1199">1199</a></span>
@@ -5617,33 +5618,32 @@ based on the provided prompts and the existing state.</p>
 <span class="normal"><a href="#__codelineno-0-1217">1217</a></span>
 <span class="normal"><a href="#__codelineno-0-1218">1218</a></span>
 <span class="normal"><a href="#__codelineno-0-1219">1219</a></span>
-<span class="normal"><a href="#__codelineno-0-1220">1220</a></span>
-<span class="normal"><a href="#__codelineno-0-1221">1221</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1196" name="__codelineno-0-1196"></a><span class="k">def</span> <span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-1197" name="__codelineno-0-1197"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-1198" name="__codelineno-0-1198"></a><span class="sd">    Extracts and processes image features using SAM2's image encoder for subsequent segmentation tasks.</span>
-<a id="__codelineno-0-1199" name="__codelineno-0-1199"></a>
-<a id="__codelineno-0-1200" name="__codelineno-0-1200"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-1201" name="__codelineno-0-1201"></a><span class="sd">        im (torch.Tensor): The input image tensor.</span>
-<a id="__codelineno-0-1202" name="__codelineno-0-1202"></a><span class="sd">        batch (int, optional): The batch size for expanding features if there are multiple prompts. Defaults to 1.</span>
-<a id="__codelineno-0-1203" name="__codelineno-0-1203"></a>
-<a id="__codelineno-0-1204" name="__codelineno-0-1204"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-1205" name="__codelineno-0-1205"></a><span class="sd">        vis_feats (torch.Tensor): The visual features extracted from the image.</span>
-<a id="__codelineno-0-1206" name="__codelineno-0-1206"></a><span class="sd">        vis_pos_embed (torch.Tensor): The positional embeddings for the visual features.</span>
-<a id="__codelineno-0-1207" name="__codelineno-0-1207"></a><span class="sd">        feat_sizes (List(Tuple[int])): A list containing the sizes of the extracted features.</span>
-<a id="__codelineno-0-1208" name="__codelineno-0-1208"></a>
-<a id="__codelineno-0-1209" name="__codelineno-0-1209"></a><span class="sd">    Note:</span>
-<a id="__codelineno-0-1210" name="__codelineno-0-1210"></a><span class="sd">        - If `batch` is greater than 1, the features are expanded to fit the batch size.</span>
-<a id="__codelineno-0-1211" name="__codelineno-0-1211"></a><span class="sd">        - The method leverages the model's `_prepare_backbone_features` method to prepare the backbone features.</span>
-<a id="__codelineno-0-1212" name="__codelineno-0-1212"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1213" name="__codelineno-0-1213"></a>    <span class="n">backbone_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">forward_image</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-1214" name="__codelineno-0-1214"></a>    <span class="k">if</span> <span class="n">batch</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># expand features if there's more than one prompt</span>
-<a id="__codelineno-0-1215" name="__codelineno-0-1215"></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">feat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">]):</span>
-<a id="__codelineno-0-1216" name="__codelineno-0-1216"></a>            <span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">feat</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-1217" name="__codelineno-0-1217"></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">backbone_out</span><span class="p">[</span><span class="s2">"vision_pos_enc"</span><span class="p">]):</span>
-<a id="__codelineno-0-1218" name="__codelineno-0-1218"></a>            <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-1219" name="__codelineno-0-1219"></a>            <span class="n">backbone_out</span><span class="p">[</span><span class="s2">"vision_pos_enc"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos</span>
-<a id="__codelineno-0-1220" name="__codelineno-0-1220"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">vis_feats</span><span class="p">,</span> <span class="n">vis_pos_embed</span><span class="p">,</span> <span class="n">feat_sizes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_prepare_backbone_features</span><span class="p">(</span><span class="n">backbone_out</span><span class="p">)</span>
-<a id="__codelineno-0-1221" name="__codelineno-0-1221"></a>    <span class="k">return</span> <span class="n">vis_feats</span><span class="p">,</span> <span class="n">vis_pos_embed</span><span class="p">,</span> <span class="n">feat_sizes</span>
+<span class="normal"><a href="#__codelineno-0-1220">1220</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1195" name="__codelineno-0-1195"></a><span class="k">def</span> <span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-1196" name="__codelineno-0-1196"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-1197" name="__codelineno-0-1197"></a><span class="sd">    Extracts and processes image features using SAM2's image encoder for subsequent segmentation tasks.</span>
+<a id="__codelineno-0-1198" name="__codelineno-0-1198"></a>
+<a id="__codelineno-0-1199" name="__codelineno-0-1199"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1200" name="__codelineno-0-1200"></a><span class="sd">        im (torch.Tensor): The input image tensor.</span>
+<a id="__codelineno-0-1201" name="__codelineno-0-1201"></a><span class="sd">        batch (int, optional): The batch size for expanding features if there are multiple prompts. Defaults to 1.</span>
+<a id="__codelineno-0-1202" name="__codelineno-0-1202"></a>
+<a id="__codelineno-0-1203" name="__codelineno-0-1203"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-1204" name="__codelineno-0-1204"></a><span class="sd">        vis_feats (torch.Tensor): The visual features extracted from the image.</span>
+<a id="__codelineno-0-1205" name="__codelineno-0-1205"></a><span class="sd">        vis_pos_embed (torch.Tensor): The positional embeddings for the visual features.</span>
+<a id="__codelineno-0-1206" name="__codelineno-0-1206"></a><span class="sd">        feat_sizes (List(Tuple[int])): A list containing the sizes of the extracted features.</span>
+<a id="__codelineno-0-1207" name="__codelineno-0-1207"></a>
+<a id="__codelineno-0-1208" name="__codelineno-0-1208"></a><span class="sd">    Note:</span>
+<a id="__codelineno-0-1209" name="__codelineno-0-1209"></a><span class="sd">        - If `batch` is greater than 1, the features are expanded to fit the batch size.</span>
+<a id="__codelineno-0-1210" name="__codelineno-0-1210"></a><span class="sd">        - The method leverages the model's `_prepare_backbone_features` method to prepare the backbone features.</span>
+<a id="__codelineno-0-1211" name="__codelineno-0-1211"></a><span class="sd">    """</span>
+<a id="__codelineno-0-1212" name="__codelineno-0-1212"></a>    <span class="n">backbone_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">forward_image</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-1213" name="__codelineno-0-1213"></a>    <span class="k">if</span> <span class="n">batch</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># expand features if there's more than one prompt</span>
+<a id="__codelineno-0-1214" name="__codelineno-0-1214"></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">feat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">]):</span>
+<a id="__codelineno-0-1215" name="__codelineno-0-1215"></a>            <span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">feat</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-1216" name="__codelineno-0-1216"></a>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">backbone_out</span><span class="p">[</span><span class="s2">"vision_pos_enc"</span><span class="p">]):</span>
+<a id="__codelineno-0-1217" name="__codelineno-0-1217"></a>            <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-1218" name="__codelineno-0-1218"></a>            <span class="n">backbone_out</span><span class="p">[</span><span class="s2">"vision_pos_enc"</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos</span>
+<a id="__codelineno-0-1219" name="__codelineno-0-1219"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">vis_feats</span><span class="p">,</span> <span class="n">vis_pos_embed</span><span class="p">,</span> <span class="n">feat_sizes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_prepare_backbone_features</span><span class="p">(</span><span class="n">backbone_out</span><span class="p">)</span>
+<a id="__codelineno-0-1220" name="__codelineno-0-1220"></a>    <span class="k">return</span> <span class="n">vis_feats</span><span class="p">,</span> <span class="n">vis_pos_embed</span><span class="p">,</span> <span class="n">feat_sizes</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -6055,8 +6055,7 @@ inputs, outputs, and other metadata relevant to the tracking process.</p>
 <span class="normal"><a href="#__codelineno-0-1190">1190</a></span>
 <span class="normal"><a href="#__codelineno-0-1191">1191</a></span>
 <span class="normal"><a href="#__codelineno-0-1192">1192</a></span>
-<span class="normal"><a href="#__codelineno-0-1193">1193</a></span>
-<span class="normal"><a href="#__codelineno-0-1194">1194</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1147" name="__codelineno-0-1147"></a><span class="nd">@staticmethod</span>
+<span class="normal"><a href="#__codelineno-0-1193">1193</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1147" name="__codelineno-0-1147"></a><span class="nd">@staticmethod</span>
 <a id="__codelineno-0-1148" name="__codelineno-0-1148"></a><span class="k">def</span> <span class="nf">init_state</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
 <a id="__codelineno-0-1149" name="__codelineno-0-1149"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-1150" name="__codelineno-0-1150"></a><span class="sd">    Initialize an inference state for the predictor.</span>
@@ -6073,37 +6072,36 @@ inputs, outputs, and other metadata relevant to the tracking process.</p>
 <a id="__codelineno-0-1161" name="__codelineno-0-1161"></a>    <span class="k">assert</span> <span class="n">predictor</span><span class="o">.</span><span class="n">dataset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 <a id="__codelineno-0-1162" name="__codelineno-0-1162"></a>    <span class="k">assert</span> <span class="n">predictor</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"video"</span>
 <a id="__codelineno-0-1163" name="__codelineno-0-1163"></a>
-<a id="__codelineno-0-1164" name="__codelineno-0-1164"></a>    <span class="n">inference_state</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-1165" name="__codelineno-0-1165"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"num_frames"</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">frames</span>
-<a id="__codelineno-0-1166" name="__codelineno-0-1166"></a>    <span class="c1"># inputs on each frame</span>
-<a id="__codelineno-0-1167" name="__codelineno-0-1167"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"point_inputs_per_obj"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-1168" name="__codelineno-0-1168"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"mask_inputs_per_obj"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-1169" name="__codelineno-0-1169"></a>    <span class="c1"># values that don't change across frames (so we only need to hold one copy of them)</span>
-<a id="__codelineno-0-1170" name="__codelineno-0-1170"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"constants"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-1171" name="__codelineno-0-1171"></a>    <span class="c1"># mapping between client-side object id and model-side object index</span>
-<a id="__codelineno-0-1172" name="__codelineno-0-1172"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"obj_id_to_idx"</span><span class="p">]</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
-<a id="__codelineno-0-1173" name="__codelineno-0-1173"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"obj_idx_to_id"</span><span class="p">]</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
-<a id="__codelineno-0-1174" name="__codelineno-0-1174"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"obj_ids"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-1175" name="__codelineno-0-1175"></a>    <span class="c1"># A storage to hold the model's tracking results and states on each frame</span>
-<a id="__codelineno-0-1176" name="__codelineno-0-1176"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"output_dict"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-1177" name="__codelineno-0-1177"></a>        <span class="s2">"cond_frame_outputs"</span><span class="p">:</span> <span class="p">{},</span>  <span class="c1"># dict containing {frame_idx: &lt;out&gt;}</span>
-<a id="__codelineno-0-1178" name="__codelineno-0-1178"></a>        <span class="s2">"non_cond_frame_outputs"</span><span class="p">:</span> <span class="p">{},</span>  <span class="c1"># dict containing {frame_idx: &lt;out&gt;}</span>
-<a id="__codelineno-0-1179" name="__codelineno-0-1179"></a>    <span class="p">}</span>
-<a id="__codelineno-0-1180" name="__codelineno-0-1180"></a>    <span class="c1"># Slice (view) of each object tracking results, sharing the same memory with "output_dict"</span>
-<a id="__codelineno-0-1181" name="__codelineno-0-1181"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"output_dict_per_obj"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-1182" name="__codelineno-0-1182"></a>    <span class="c1"># A temporary storage to hold new outputs when user interact with a frame</span>
-<a id="__codelineno-0-1183" name="__codelineno-0-1183"></a>    <span class="c1"># to add clicks or mask (it's merged into "output_dict" before propagation starts)</span>
-<a id="__codelineno-0-1184" name="__codelineno-0-1184"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"temp_output_dict_per_obj"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-1185" name="__codelineno-0-1185"></a>    <span class="c1"># Frames that already holds consolidated outputs from click or mask inputs</span>
-<a id="__codelineno-0-1186" name="__codelineno-0-1186"></a>    <span class="c1"># (we directly use their consolidated outputs during tracking)</span>
-<a id="__codelineno-0-1187" name="__codelineno-0-1187"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"consolidated_frame_inds"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-1188" name="__codelineno-0-1188"></a>        <span class="s2">"cond_frame_outputs"</span><span class="p">:</span> <span class="nb">set</span><span class="p">(),</span>  <span class="c1"># set containing frame indices</span>
-<a id="__codelineno-0-1189" name="__codelineno-0-1189"></a>        <span class="s2">"non_cond_frame_outputs"</span><span class="p">:</span> <span class="nb">set</span><span class="p">(),</span>  <span class="c1"># set containing frame indices</span>
-<a id="__codelineno-0-1190" name="__codelineno-0-1190"></a>    <span class="p">}</span>
-<a id="__codelineno-0-1191" name="__codelineno-0-1191"></a>    <span class="c1"># metadata for each tracking frame (e.g. which direction it's tracked)</span>
-<a id="__codelineno-0-1192" name="__codelineno-0-1192"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"tracking_has_started"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-1193" name="__codelineno-0-1193"></a>    <span class="n">inference_state</span><span class="p">[</span><span class="s2">"frames_already_tracked"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-1194" name="__codelineno-0-1194"></a>    <span class="n">predictor</span><span class="o">.</span><span class="n">inference_state</span> <span class="o">=</span> <span class="n">inference_state</span>
+<a id="__codelineno-0-1164" name="__codelineno-0-1164"></a>    <span class="n">inference_state</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-1165" name="__codelineno-0-1165"></a>        <span class="s2">"num_frames"</span><span class="p">:</span> <span class="n">predictor</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">frames</span><span class="p">,</span>
+<a id="__codelineno-0-1166" name="__codelineno-0-1166"></a>        <span class="s2">"point_inputs_per_obj"</span><span class="p">:</span> <span class="p">{},</span>  <span class="c1"># inputs points on each frame</span>
+<a id="__codelineno-0-1167" name="__codelineno-0-1167"></a>        <span class="s2">"mask_inputs_per_obj"</span><span class="p">:</span> <span class="p">{},</span>  <span class="c1"># inputs mask on each frame</span>
+<a id="__codelineno-0-1168" name="__codelineno-0-1168"></a>        <span class="s2">"constants"</span><span class="p">:</span> <span class="p">{},</span>  <span class="c1"># values that don't change across frames (so we only need to hold one copy of them)</span>
+<a id="__codelineno-0-1169" name="__codelineno-0-1169"></a>        <span class="c1"># mapping between client-side object id and model-side object index</span>
+<a id="__codelineno-0-1170" name="__codelineno-0-1170"></a>        <span class="s2">"obj_id_to_idx"</span><span class="p">:</span> <span class="n">OrderedDict</span><span class="p">(),</span>
+<a id="__codelineno-0-1171" name="__codelineno-0-1171"></a>        <span class="s2">"obj_idx_to_id"</span><span class="p">:</span> <span class="n">OrderedDict</span><span class="p">(),</span>
+<a id="__codelineno-0-1172" name="__codelineno-0-1172"></a>        <span class="s2">"obj_ids"</span><span class="p">:</span> <span class="p">[],</span>
+<a id="__codelineno-0-1173" name="__codelineno-0-1173"></a>        <span class="c1"># A storage to hold the model's tracking results and states on each frame</span>
+<a id="__codelineno-0-1174" name="__codelineno-0-1174"></a>        <span class="s2">"output_dict"</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-1175" name="__codelineno-0-1175"></a>            <span class="s2">"cond_frame_outputs"</span><span class="p">:</span> <span class="p">{},</span>  <span class="c1"># dict containing {frame_idx: &lt;out&gt;}</span>
+<a id="__codelineno-0-1176" name="__codelineno-0-1176"></a>            <span class="s2">"non_cond_frame_outputs"</span><span class="p">:</span> <span class="p">{},</span>  <span class="c1"># dict containing {frame_idx: &lt;out&gt;}</span>
+<a id="__codelineno-0-1177" name="__codelineno-0-1177"></a>        <span class="p">},</span>
+<a id="__codelineno-0-1178" name="__codelineno-0-1178"></a>        <span class="c1"># Slice (view) of each object tracking results, sharing the same memory with "output_dict"</span>
+<a id="__codelineno-0-1179" name="__codelineno-0-1179"></a>        <span class="s2">"output_dict_per_obj"</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-0-1180" name="__codelineno-0-1180"></a>        <span class="c1"># A temporary storage to hold new outputs when user interact with a frame</span>
+<a id="__codelineno-0-1181" name="__codelineno-0-1181"></a>        <span class="c1"># to add clicks or mask (it's merged into "output_dict" before propagation starts)</span>
+<a id="__codelineno-0-1182" name="__codelineno-0-1182"></a>        <span class="s2">"temp_output_dict_per_obj"</span><span class="p">:</span> <span class="p">{},</span>
+<a id="__codelineno-0-1183" name="__codelineno-0-1183"></a>        <span class="c1"># Frames that already holds consolidated outputs from click or mask inputs</span>
+<a id="__codelineno-0-1184" name="__codelineno-0-1184"></a>        <span class="c1"># (we directly use their consolidated outputs during tracking)</span>
+<a id="__codelineno-0-1185" name="__codelineno-0-1185"></a>        <span class="s2">"consolidated_frame_inds"</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-1186" name="__codelineno-0-1186"></a>            <span class="s2">"cond_frame_outputs"</span><span class="p">:</span> <span class="nb">set</span><span class="p">(),</span>  <span class="c1"># set containing frame indices</span>
+<a id="__codelineno-0-1187" name="__codelineno-0-1187"></a>            <span class="s2">"non_cond_frame_outputs"</span><span class="p">:</span> <span class="nb">set</span><span class="p">(),</span>  <span class="c1"># set containing frame indices</span>
+<a id="__codelineno-0-1188" name="__codelineno-0-1188"></a>        <span class="p">},</span>
+<a id="__codelineno-0-1189" name="__codelineno-0-1189"></a>        <span class="c1"># metadata for each tracking frame (e.g. which direction it's tracked)</span>
+<a id="__codelineno-0-1190" name="__codelineno-0-1190"></a>        <span class="s2">"tracking_has_started"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-1191" name="__codelineno-0-1191"></a>        <span class="s2">"frames_already_tracked"</span><span class="p">:</span> <span class="p">[],</span>
+<a id="__codelineno-0-1192" name="__codelineno-0-1192"></a>    <span class="p">}</span>
+<a id="__codelineno-0-1193" name="__codelineno-0-1193"></a>    <span class="n">predictor</span><span class="o">.</span><span class="n">inference_state</span> <span class="o">=</span> <span class="n">inference_state</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -6368,7 +6366,7 @@ with the provided inputs.</p>
 <a id="__codelineno-0-1096" name="__codelineno-0-1096"></a>    <span class="c1"># to `propagate_in_video_preflight`).</span>
 <a id="__codelineno-0-1097" name="__codelineno-0-1097"></a>    <span class="n">consolidated_frame_inds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference_state</span><span class="p">[</span><span class="s2">"consolidated_frame_inds"</span><span class="p">]</span>
 <a id="__codelineno-0-1098" name="__codelineno-0-1098"></a>    <span class="k">for</span> <span class="n">is_cond</span> <span class="ow">in</span> <span class="p">{</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">}:</span>
-<a id="__codelineno-0-1099" name="__codelineno-0-1099"></a>        <span class="c1"># Separately consolidate conditioning and non-conditioning temp outptus</span>
+<a id="__codelineno-0-1099" name="__codelineno-0-1099"></a>        <span class="c1"># Separately consolidate conditioning and non-conditioning temp outputs</span>
 <a id="__codelineno-0-1100" name="__codelineno-0-1100"></a>        <span class="n">storage_key</span> <span class="o">=</span> <span class="s2">"cond_frame_outputs"</span> <span class="k">if</span> <span class="n">is_cond</span> <span class="k">else</span> <span class="s2">"non_cond_frame_outputs"</span>
 <a id="__codelineno-0-1101" name="__codelineno-0-1101"></a>        <span class="c1"># Find all the frames that contain temporary outputs for any objects</span>
 <a id="__codelineno-0-1102" name="__codelineno-0-1102"></a>        <span class="c1"># (these should be the frames that have just received clicks for mask inputs</span>
