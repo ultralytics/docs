@@ -1001,8 +1001,8 @@
 <h3 id="analyzing-results">Analyzing Results</h3>
 <p>After your YOLO11 training sessions are complete, you can leverage DVCLive's powerful visualization tools for in-depth analysis of the results. DVCLive's integration ensures that all training metrics are systematically logged, facilitating a comprehensive evaluation of your model's performance.</p>
 <p>To start the analysis, you can extract the experiment data using DVC's API and process it with Pandas for easier handling and visualization:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">dvc.api</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">dvc.api</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Define the columns of interest</span>
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Experiment"</span><span class="p">,</span> <span class="s2">"epochs"</span><span class="p">,</span> <span class="s2">"imgsz"</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">,</span> <span class="s2">"metrics.mAP50-95(B)"</span><span class="p">]</span>
@@ -1020,7 +1020,7 @@
 <p>The output of the code snippet above provides a clear tabular view of the different experiments conducted with YOLO11 models. Each row represents a different training run, detailing the experiment's name, the number of epochs, image size (imgsz), the specific model used, and the mAP50-95(B) metric. This metric is crucial for evaluating the model's <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>, with higher values indicating better performance.</p>
 <h4 id="visualizing-results-with-plotly">Visualizing Results with Plotly</h4>
 <p>For a more interactive and visual analysis of your experiment results, you can use Plotly's parallel coordinates plot. This type of plot is particularly useful for understanding the relationships and trade-offs between different parameters and metrics.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">plotly.express</span> <span class="kn">import</span> <span class="n">parallel_coordinates</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="kn">import</span> <span class="n">parallel_coordinates</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Create a parallel coordinates plot</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">parallel_coordinates</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"metrics.mAP50-95(B)"</span><span class="p">)</span>
@@ -1040,7 +1040,7 @@
 </p>
 <h3 id="displaying-dvc-plots">Displaying DVC Plots</h3>
 <p>If you are using a Jupyter Notebook and you want to display the generated DVC plots, you can use the IPython display functionality.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Display the DVC plots as HTML</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">HTML</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"./dvc_plots/index.html"</span><span class="p">)</span>
@@ -1095,8 +1095,8 @@
 <p>For further details, refer to our guide on <a href="../../modes/train/">YOLO11 Model Training</a> and <a href="../../guides/yolo-performance-metrics/">YOLO Performance Metrics</a> to maximize your experiment tracking efficiency.</p>
 <h3 id="how-can-dvclive-improve-my-results-analysis-for-yolo11-training-sessions">How can DVCLive improve my results analysis for YOLO11 training sessions?</h3>
 <p>After completing your YOLO11 training sessions, DVCLive helps in visualizing and analyzing the results effectively. Example code for loading and displaying experiment data:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">import</span> <span class="nn">dvc.api</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">dvc.api</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="c1"># Define columns of interest</span>
 <a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Experiment"</span><span class="p">,</span> <span class="s2">"epochs"</span><span class="p">,</span> <span class="s2">"imgsz"</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">,</span> <span class="s2">"metrics.mAP50-95(B)"</span><span class="p">]</span>
@@ -1112,7 +1112,7 @@
 <a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </code></pre></div>
 <p>To visualize results interactively, use Plotly's parallel coordinates plot:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">plotly.express</span> <span class="kn">import</span> <span class="n">parallel_coordinates</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="kn">import</span> <span class="n">parallel_coordinates</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
 <a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">parallel_coordinates</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"metrics.mAP50-95(B)"</span><span class="p">)</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1141,7 +1141,7 @@
 </input></div>
 </div>
 <p>To display these plots in a Jupyter Notebook, use:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
 <a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="c1"># Display plots as HTML</span>
 <a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">HTML</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"./dvc_plots/index.html"</span><span class="p">)</span>

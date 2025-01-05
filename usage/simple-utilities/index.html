@@ -1230,7 +1230,7 @@
 <h2 id="data">Data</h2>
 <h3 id="auto-labeling-annotations">Auto Labeling / Annotations</h3>
 <p>Dataset annotation is a very resource intensive and time-consuming process. If you have a YOLO <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> model trained on a reasonable amount of data, you can use it and <a href="../../models/sam/">SAM</a> to auto-annotate additional data (segmentation format).</p>
-<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.annotator</span> <span class="kn">import</span> <span class="n">auto_annotate</span>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.annotator</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_annotate</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">auto_annotate</span><span class="p">(</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">data</span><span class="o">=</span><span class="s2">"path/to/new/data"</span><span class="p">,</span>
@@ -1247,7 +1247,7 @@
 </ul>
 <h3 id="visualize-dataset-annotations">Visualize Dataset Annotations</h3>
 <p>This function visualizes YOLO annotations on an image before training, helping to identify and correct any wrong annotations that could lead to incorrect detection results. It draws bounding boxes, labels objects with class names, and adjusts text color based on the background's luminance for better readability.</p>
-<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.utils</span> <span class="kn">import</span> <span class="n">visualize_image_annotations</span>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">visualize_image_annotations</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">label_map</span> <span class="o">=</span> <span class="p">{</span>  <span class="c1"># Define the label map with all annotated class labels.</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="mi">0</span><span class="p">:</span> <span class="s2">"person"</span><span class="p">,</span>
@@ -1266,7 +1266,7 @@
 <p>Use to convert a dataset of segmentation mask images to the <a href="../../models/yolo11/"><code>YOLO</code></a> segmentation format.
 This function takes the directory containing the binary format mask images and converts them into YOLO segmentation format.</p>
 <p>The converted masks will be saved in the specified output directory.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">convert_segment_masks_to_yolo_seg</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_segment_masks_to_yolo_seg</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># The classes here is the total classes in the dataset.</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># for COCO dataset we have 80 classes.</span>
@@ -1274,7 +1274,7 @@ This function takes the directory containing the binary format mask images and c
 </code></pre></div>
 <h3 id="convert-coco-into-yolo-format">Convert COCO into YOLO Format</h3>
 <p>Use to convert COCO JSON annotations into proper YOLO format. For object detection (bounding box) datasets, <code>use_segments</code> and <code>use_keypoints</code> should both be <code>False</code></p>
-<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">convert_coco</span>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">convert_coco</span><span class="p">(</span>  <span class="c1"># (1)!</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="s2">"../datasets/coco/annotations/"</span><span class="p">,</span>
@@ -1288,9 +1288,9 @@ This function takes the directory containing the binary format mask images and c
 </ol>
 <p>For additional information about the <code>convert_coco</code> function, <a href="../../reference/data/converter/#ultralytics.data.converter.convert_coco">visit the reference page</a></p>
 <h3 id="get-bounding-box-dimensions">Get <a href="https://www.ultralytics.com/glossary/bounding-box">Bounding Box</a> Dimensions</h3>
-<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.plotting</span> <span class="kn">import</span> <span class="n">Annotator</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotator</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">'yolo11n.pt'</span><span class="p">)</span>  <span class="c1"># Load pretrain or fine-tune model</span>
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
@@ -1320,7 +1320,7 @@ This function takes the directory containing the binary format mask images and c
 <a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>    ├─ ..
 <a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>    └─ NNN.txt
 </code></pre></div>
-<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">yolo_bbox2segment</span>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">yolo_bbox2segment</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">yolo_bbox2segment</span><span class="p">(</span>  <span class="c1"># (1)!</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span class="n">im_dir</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span>
@@ -1334,9 +1334,9 @@ This function takes the directory containing the binary format mask images and c
 <p><a href="../../reference/data/converter/#ultralytics.data.converter.yolo_bbox2segment">Visit the <code>yolo_bbox2segment</code> reference page</a> for more information regarding the function.</p>
 <h3 id="convert-segments-to-bounding-boxes">Convert Segments to Bounding Boxes</h3>
 <p>If you have a dataset that uses the <a href="../../datasets/segment/">segmentation dataset format</a> you can easily convert these into up-right (or horizontal) bounding boxes (<code>x y w h</code> format) with this function.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.ops</span> <span class="kn">import</span> <span class="n">segments2boxes</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.ops</span><span class="w"> </span><span class="kn">import</span> <span class="n">segments2boxes</span>
 <a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>
 <a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">segments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
 <a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="p">[</span>
@@ -1356,9 +1356,9 @@ This function takes the directory containing the binary format mask images and c
 <h2 id="utilities">Utilities</h2>
 <h3 id="image-compression">Image Compression</h3>
 <p>Compresses a single image file to reduced size while preserving its aspect ratio and quality. If the input image is smaller than the maximum dimension, it will not be resized.</p>
-<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="kn">from</span> <span class="nn">ultralytics.data.utils</span> <span class="kn">import</span> <span class="n">compress_one_image</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">compress_one_image</span>
 <a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>
 <a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"path/to/dataset"</span><span class="p">)</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*.jpg"</span><span class="p">):</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>    <span class="n">compress_one_image</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># (1)!</span>
@@ -1368,7 +1368,7 @@ This function takes the directory containing the binary format mask images and c
 </ol>
 <h3 id="auto-split-dataset">Auto-split Dataset</h3>
 <p>Automatically split a dataset into <code>train</code>/<code>val</code>/<code>test</code> splits and save the resulting splits into <code>autosplit_*.txt</code> files. This function will use random sampling, which is not included when using <a href="../../modes/train/#train-settings"><code>fraction</code> argument for training</a>.</p>
-<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.utils</span> <span class="kn">import</span> <span class="n">autosplit</span>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">autosplit</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">autosplit</span><span class="p">(</span>  <span class="c1"># (1)!</span>
 <a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="n">path</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span>
@@ -1386,9 +1386,9 @@ This function takes the directory containing the binary format mask images and c
 <p class="admonition-title">Warning</p>
 <p><code>N</code> <b><u>must always</u></b> be even.</p>
 </div>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="kn">from</span> <span class="nn">ultralytics.data.utils</span> <span class="kn">import</span> <span class="n">polygon2mask</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">polygon2mask</span>
 <a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>
 <a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="n">imgsz</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">810</span><span class="p">)</span>
 <a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="n">polygon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">805</span><span class="p">,</span> <span class="mi">392</span><span class="p">,</span> <span class="mi">797</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">808</span><span class="p">,</span> <span class="mi">714</span><span class="p">,</span> <span class="mi">808</span><span class="p">,</span> <span class="mi">392</span><span class="p">])</span>  <span class="c1"># (238, 2)</span>
@@ -1403,9 +1403,9 @@ This function takes the directory containing the binary format mask images and c
 <h2 id="bounding-boxes">Bounding Boxes</h2>
 <h3 id="bounding-box-horizontal-instances">Bounding Box (horizontal) Instances</h3>
 <p>To manage bounding box data, the <code>Bboxes</code> class will help to convert between box coordinate formatting, scale box dimensions, calculate areas, include offsets, and more!</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.instance</span> <span class="kn">import</span> <span class="n">Bboxes</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.instance</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bboxes</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>
 <a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="n">boxes</span> <span class="o">=</span> <span class="n">Bboxes</span><span class="p">(</span>
 <a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>    <span class="n">bboxes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -1442,10 +1442,10 @@ This function takes the directory containing the binary format mask images and c
 </div>
 <h3 id="scaling-boxes">Scaling Boxes</h3>
 <p>When scaling and image up or down, corresponding bounding box coordinates can be appropriately scaled to match using <code>ultralytics.utils.ops.scale_boxes</code>.</p>
-<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cv</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.ops</span> <span class="kn">import</span> <span class="n">scale_boxes</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.ops</span><span class="w"> </span><span class="kn">import</span> <span class="n">scale_boxes</span>
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>
 <a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="n">image</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">)</span>
 <a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span>
@@ -1488,9 +1488,9 @@ This function takes the directory containing the binary format mask images and c
 <h3 id="bounding-box-format-conversions">Bounding Box Format Conversions</h3>
 <h4 id="xyxy-xywh">XYXY → XYWH</h4>
 <p>Convert bounding box coordinates from (x1, y1, x2, y2) format to (x, y, width, height) format where (x1, y1) is the top-left corner and (x2, y2) is the bottom-right corner.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.ops</span> <span class="kn">import</span> <span class="n">xyxy2xywh</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.ops</span><span class="w"> </span><span class="kn">import</span> <span class="n">xyxy2xywh</span>
 <a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>
 <a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">xyxy_boxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
 <a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="p">[</span>
@@ -1515,7 +1515,7 @@ This function takes the directory containing the binary format mask images and c
 <a href="#__codelineno-13-25" id="__codelineno-13-25" name="__codelineno-13-25"></a><span class="c1"># )</span>
 </code></pre></div>
 <h3 id="all-bounding-box-conversions">All Bounding Box Conversions</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.ops</span> <span class="kn">import</span> <span class="p">(</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.ops</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 <a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>    <span class="n">ltwh2xywh</span><span class="p">,</span>
 <a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>    <span class="n">ltwh2xyxy</span><span class="p">,</span>
 <a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a>    <span class="n">xywh2ltwh</span><span class="p">,</span>  <span class="c1"># xywh → top-left corner, w, h</span>
@@ -1540,10 +1540,10 @@ This function takes the directory containing the binary format mask images and c
 <div class="tabbed-block"></div>
 </div>
 </input></div>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
 <a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
-<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.plotting</span> <span class="kn">import</span> <span class="n">Annotator</span><span class="p">,</span> <span class="n">colors</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotator</span><span class="p">,</span> <span class="n">colors</span>
 <a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>
 <a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="c1"># User defined video path and model file</span>
 <a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"Path/to/video/file.mp4"</span><span class="p">)</span>
@@ -1565,7 +1565,7 @@ This function takes the directory containing the binary format mask images and c
 <a href="#__codelineno-15-23" id="__codelineno-15-23" name="__codelineno-15-23"></a><span class="n">window_name</span> <span class="o">=</span> <span class="s2">"Ultralytics Sweep Annotator"</span>
 <a href="#__codelineno-15-24" id="__codelineno-15-24" name="__codelineno-15-24"></a>
 <a href="#__codelineno-15-25" id="__codelineno-15-25" name="__codelineno-15-25"></a>
-<a href="#__codelineno-15-26" id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="k">def</span> <span class="nf">drag_line</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>  <span class="c1"># Mouse callback for dragging line.</span>
+<a href="#__codelineno-15-26" id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="k">def</span><span class="w"> </span><span class="nf">drag_line</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">param</span><span class="p">):</span>  <span class="c1"># Mouse callback for dragging line.</span>
 <a href="#__codelineno-15-27" id="__codelineno-15-27" name="__codelineno-15-27"></a>    <span class="k">global</span> <span class="n">line_x</span><span class="p">,</span> <span class="n">dragging</span>
 <a href="#__codelineno-15-28" id="__codelineno-15-28" name="__codelineno-15-28"></a>    <span class="k">if</span> <span class="n">event</span> <span class="o">==</span> <span class="n">cv2</span><span class="o">.</span><span class="n">EVENT_LBUTTONDOWN</span> <span class="ow">or</span> <span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">cv2</span><span class="o">.</span><span class="n">EVENT_FLAG_LBUTTON</span><span class="p">):</span>
 <a href="#__codelineno-15-29" id="__codelineno-15-29" name="__codelineno-15-29"></a>        <span class="n">line_x</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">))</span>
@@ -1619,10 +1619,10 @@ This function takes the directory containing the binary format mask images and c
 </code></pre></div>
 </div>
 <h4 id="horizontal-bounding-boxes">Horizontal Bounding Boxes</h4>
-<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
-<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="annotate highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cv</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>
-<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.plotting</span> <span class="kn">import</span> <span class="n">Annotator</span><span class="p">,</span> <span class="n">colors</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotator</span><span class="p">,</span> <span class="n">colors</span>
 <a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>
 <a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="n">names</span> <span class="o">=</span> <span class="p">{</span>  <span class="c1"># (1)!</span>
 <a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a>    <span class="mi">0</span><span class="p">:</span> <span class="s2">"person"</span><span class="p">,</span>
@@ -1661,10 +1661,10 @@ This function takes the directory containing the binary format mask images and c
 <li>Names can be used from <code>model.names</code> when <a href="../../modes/predict/#working-with-results">working with detection results</a></li>
 </ol>
 <h4 id="oriented-bounding-boxes-obb">Oriented Bounding Boxes (OBB)</h4>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
-<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cv</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>
-<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.plotting</span> <span class="kn">import</span> <span class="n">Annotator</span><span class="p">,</span> <span class="n">colors</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotator</span><span class="p">,</span> <span class="n">colors</span>
 <a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>
 <a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="n">obb_names</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">:</span> <span class="s2">"small vehicle"</span><span class="p">}</span>
 <a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="n">obb_image</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"datasets/dota8/images/train/P1142__1024__0___824.jpg"</span><span class="p">)</span>
@@ -1703,10 +1703,10 @@ This function takes the directory containing the binary format mask images and c
 <br/>
 <strong>Watch:</strong> In-Depth Guide to Text &amp; Circle Annotations with Python Live Demos | Ultralytics Annotations 🚀
 </p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
 <a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>
-<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.plotting</span> <span class="kn">import</span> <span class="n">Annotator</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotator</span>
 <a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>
 <a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11s.pt"</span><span class="p">)</span>
 <a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="n">names</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">names</span>
@@ -1739,10 +1739,10 @@ This function takes the directory containing the binary format mask images and c
 <a href="#__codelineno-18-34" id="__codelineno-18-34" name="__codelineno-18-34"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 <h4 id="bounding-boxes-text-annotation-text-label">Bounding Boxes Text Annotation <a href="https://docs.ultralytics.com/reference/utils/plotting/#ultralytics.utils.plotting.Annotator.text_label">Text Label</a></h4>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kn">import</span> <span class="nn">cv2</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
 <a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
-<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.plotting</span> <span class="kn">import</span> <span class="n">Annotator</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">Annotator</span>
 <a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>
 <a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11s.pt"</span><span class="p">)</span>
 <a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="n">names</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">names</span>
@@ -1778,7 +1778,7 @@ This function takes the directory containing the binary format mask images and c
 <h2 id="miscellaneous">Miscellaneous</h2>
 <h3 id="code-profiling">Code Profiling</h3>
 <p>Check duration for code to run/process either using <code>with</code> or as a decorator.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.ops</span> <span class="kn">import</span> <span class="n">Profile</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.ops</span><span class="w"> </span><span class="kn">import</span> <span class="n">Profile</span>
 <a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
 <a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="k">with</span> <span class="n">Profile</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="s2">"cuda:0"</span><span class="p">)</span> <span class="k">as</span> <span class="n">dt</span><span class="p">:</span>
 <a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a>    <span class="k">pass</span>  <span class="c1"># operation to measure</span>
@@ -1788,7 +1788,7 @@ This function takes the directory containing the binary format mask images and c
 </code></pre></div>
 <h3 id="ultralytics-supported-formats">Ultralytics Supported Formats</h3>
 <p>Want or need to use the formats of <a href="../../modes/predict/#image-and-video-formats">images or videos types supported</a> by Ultralytics programmatically? Use these constants if you need.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.utils</span> <span class="kn">import</span> <span class="n">IMG_FORMATS</span><span class="p">,</span> <span class="n">VID_FORMATS</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">IMG_FORMATS</span><span class="p">,</span> <span class="n">VID_FORMATS</span>
 <a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>
 <a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">IMG_FORMATS</span><span class="p">)</span>
 <a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="c1"># {'tiff', 'pfm', 'bmp', 'mpo', 'dng', 'jpeg', 'png', 'webp', 'tif', 'jpg'}</span>
@@ -1798,7 +1798,7 @@ This function takes the directory containing the binary format mask images and c
 </code></pre></div>
 <h3 id="make-divisible">Make Divisible</h3>
 <p>Calculates the nearest whole number to <code>x</code> to make evenly divisible when divided by <code>y</code>.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.ops</span> <span class="kn">import</span> <span class="n">make_divisible</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.ops</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_divisible</span>
 <a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>
 <a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="n">make_divisible</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="c1"># &gt;&gt;&gt; 9</span>
@@ -1810,7 +1810,7 @@ This function takes the directory containing the binary format mask images and c
 <p>The Ultralytics package includes a variety of utilities designed to streamline and optimize machine learning workflows. Key utilities include <a href="../../reference/data/annotator/#ultralytics.data.annotator.auto_annotate">auto-annotation</a> for labeling datasets, converting COCO to YOLO format with <a href="../../reference/data/converter/#ultralytics.data.converter.convert_coco">convert_coco</a>, compressing images, and dataset auto-splitting. These tools aim to reduce manual effort, ensure consistency, and enhance data processing efficiency.</p>
 <h3 id="how-can-i-use-ultralytics-to-auto-label-my-dataset">How can I use Ultralytics to auto-label my dataset?</h3>
 <p>If you have a pre-trained Ultralytics YOLO object detection model, you can use it with the <a href="../../models/sam/">SAM</a> model to auto-annotate your dataset in segmentation format. Here's an example:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.annotator</span> <span class="kn">import</span> <span class="n">auto_annotate</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.annotator</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_annotate</span>
 <a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>
 <a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="n">auto_annotate</span><span class="p">(</span>
 <a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a>    <span class="n">data</span><span class="o">=</span><span class="s2">"path/to/new/data"</span><span class="p">,</span>
@@ -1823,7 +1823,7 @@ This function takes the directory containing the binary format mask images and c
 <p>For more details, check the <a href="../../reference/data/annotator/#ultralytics.data.annotator.auto_annotate">auto_annotate reference section</a>.</p>
 <h3 id="how-do-i-convert-coco-dataset-annotations-to-yolo-format-in-ultralytics">How do I convert COCO dataset annotations to YOLO format in Ultralytics?</h3>
 <p>To convert COCO JSON annotations into YOLO format for object detection, you can use the <code>convert_coco</code> utility. Here's a sample code snippet:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">convert_coco</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
 <a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>
 <a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="n">convert_coco</span><span class="p">(</span>
 <a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a>    <span class="s2">"../datasets/coco/annotations/"</span><span class="p">,</span>
@@ -1837,7 +1837,7 @@ This function takes the directory containing the binary format mask images and c
 <p>The <a href="../../datasets/explorer/">YOLO Explorer</a> is a powerful tool introduced in the <code>8.1.0</code> update to enhance dataset understanding. It allows you to use text queries to find object instances in your dataset, making it easier to analyze and manage your data. This tool provides valuable insights into dataset composition and distribution, helping to improve model training and performance.</p>
 <h3 id="how-can-i-convert-bounding-boxes-to-segments-in-ultralytics">How can I convert bounding boxes to segments in Ultralytics?</h3>
 <p>To convert existing bounding box data (in <code>x y w h</code> format) to segments, you can use the <code>yolo_bbox2segment</code> function. Ensure your files are organized with separate directories for images and labels.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">yolo_bbox2segment</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">yolo_bbox2segment</span>
 <a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a>
 <a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="n">yolo_bbox2segment</span><span class="p">(</span>
 <a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a>    <span class="n">im_dir</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span>
@@ -1852,7 +1852,7 @@ This function takes the directory containing the binary format mask images and c
 <span class="hover-item">📅</span> Created 10 months ago
     </span>
 <span class="date-item" title="This page was last updated on January 03, 2025">
-<span class="hover-item">✏️</span> Updated 0 days ago
+<span class="hover-item">✏️</span> Updated 2 days ago
     </span>
 </div>
 <div class="authors-container">

@@ -968,7 +968,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Load a model</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
@@ -1005,7 +1005,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">convert_coco</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
 <a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
@@ -1024,7 +1024,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.annotator</span> <span class="kn">import</span> <span class="n">auto_annotate</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.annotator</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_annotate</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">auto_annotate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span> <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolo11x.pt"</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
 </code></pre></div>
@@ -1081,7 +1081,7 @@
 <p>Ultralytics YOLO supports several dataset formats for instance segmentation, with the primary format being its own Ultralytics YOLO format. Each image in your dataset needs a corresponding text file with object information segmented into multiple rows (one row per object), listing the class index and normalized bounding coordinates. For more detailed instructions on the YOLO dataset format, visit the <a href="#instance-segmentation-datasets-overview">Instance Segmentation Datasets Overview</a>.</p>
 <h3 id="how-can-i-convert-coco-dataset-annotations-to-the-yolo-format">How can I convert COCO dataset annotations to the YOLO format?</h3>
 <p>Converting COCO format annotations to YOLO format is straightforward using Ultralytics tools. You can use the <code>convert_coco</code> function from the <code>ultralytics.data.converter</code> module:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">convert_coco</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
 <a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
@@ -1101,7 +1101,7 @@
 <p>Ensure you update the paths and class names according to your dataset. For more information, check the <a href="#dataset-yaml-format">Dataset YAML Format</a> section.</p>
 <h3 id="what-is-the-auto-annotation-feature-in-ultralytics-yolo">What is the auto-annotation feature in Ultralytics YOLO?</h3>
 <p>Auto-annotation in Ultralytics YOLO allows you to generate segmentation annotations for your dataset using a pre-trained detection model. This significantly reduces the need for manual labeling. You can use the <code>auto_annotate</code> function as follows:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.annotator</span> <span class="kn">import</span> <span class="n">auto_annotate</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.annotator</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_annotate</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">auto_annotate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span> <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolo11x.pt"</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
 </code></pre></div>

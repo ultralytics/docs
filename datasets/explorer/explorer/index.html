@@ -915,9 +915,9 @@
 </code></pre></div>
 <p><img alt="Ask ai image 1" src="https://github.com/ultralytics/docs/releases/download/0/ask-ai-nlp-image-1.avif"/></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># plot</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="kn">from</span> <span class="nn">ultralytics.data.explorer</span> <span class="kn">import</span> <span class="n">plot_query_result</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.explorer</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_query_result</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>
 <a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="n">plt</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">exp</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me 10 images containing exactly 2 persons"</span><span class="p">))</span>
 <a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">plt</span><span class="p">)</span>
@@ -968,7 +968,7 @@
 </code></pre></div>
 <h3 id="work-with-embeddings">Work with Embeddings</h3>
 <p>You can access the raw embedding from lancedb Table and analyse it. The image embeddings are stored in column <code>vector</code></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
 <a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">embeddings</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()[</span><span class="s2">"vector"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
@@ -976,8 +976,8 @@
 <h3 id="scatterplot">Scatterplot</h3>
 <p>One of the preliminary steps in analysing embeddings is by plotting them in 2D space via dimensionality reduction. Let's try an example</p>
 <p><img alt="Scatterplot Example" src="https://github.com/ultralytics/docs/releases/download/0/scatterplot-sql-queries.avif"/></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>  <span class="c1"># pip install scikit-learn</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>  <span class="c1"># pip install scikit-learn</span>
 <a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>
 <a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="c1"># Reduce dimensions using PCA to 3 components for visualization in 3D</span>
 <a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -1016,7 +1016,7 @@
 <a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">sim_idx</span>
 </code></pre></div>
 <p>Let's create a query to see what data points have similarity count of more than 30 and plot images similar to them.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>
 <a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">sim_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">[</span><span class="s2">"count"</span><span class="p">])</span>
 <a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">sim_idx</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">][</span><span class="n">sim_count</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">]</span>
@@ -1028,10 +1028,10 @@
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on December 30, 2024">
-<span class="hover-item">📅</span> Created 4 days ago
+<span class="hover-item">📅</span> Created 6 days ago
     </span>
 <span class="date-item" title="This page was last updated on January 03, 2025">
-<span class="hover-item">✏️</span> Updated 0 days ago
+<span class="hover-item">✏️</span> Updated 2 days ago
     </span>
 </div>
 <div class="authors-container">

@@ -1559,7 +1559,7 @@
 <p>YOLOv8 Profile class. Use as a decorator with @Profile() or as a context manager with 'with Profile():'.</p>
 <details class="example" open="">
 <summary>Example</summary>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.ops</span> <span class="kn">import</span> <span class="n">Profile</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.ops</span><span class="w"> </span><span class="kn">import</span> <span class="n">Profile</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">with</span> <span class="n">Profile</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span> <span class="k">as</span> <span class="n">dt</span><span class="p">:</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="k">pass</span>  <span class="c1"># slow operation here</span>
@@ -1624,7 +1624,7 @@
 <span class="normal"><a href="#__codelineno-0-39">39</a></span>
 <span class="normal"><a href="#__codelineno-0-40">40</a></span>
 <span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Initialize the Profile class.</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>
@@ -1651,7 +1651,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-44">44</a></span>
 <span class="normal"><a href="#__codelineno-0-45">45</a></span>
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">    </span><span class="sd">"""Start timing."""</span>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">return</span> <span class="bp">self</span>
@@ -1672,7 +1672,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-49">49</a></span>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>  <span class="c1"># noqa</span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>  <span class="c1"># noqa</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">    </span><span class="sd">"""Stop timing."""</span>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>  <span class="c1"># delta-time</span>
 <a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>  <span class="c1"># accumulate dt</span>
@@ -1692,7 +1692,7 @@
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-54">54</a></span>
 <span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">    </span><span class="sd">"""Returns a human-readable string representing the accumulated elapsed time in the profiler."""</span>
 <a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"Elapsed time is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="si">}</span><span class="s2"> s"</span>
 </code></pre></div></td></tr></table></div>
@@ -1713,7 +1713,7 @@
 <span class="normal"><a href="#__codelineno-0-59">59</a></span>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
 <span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="k">def</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">    </span><span class="sd">"""Get current time."""</span>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">:</span>
 <a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
@@ -1841,7 +1841,7 @@
 <span class="normal"><a href="#__codelineno-0-86">86</a></span>
 <span class="normal"><a href="#__codelineno-0-87">87</a></span>
 <span class="normal"><a href="#__codelineno-0-88">88</a></span>
-<span class="normal"><a href="#__codelineno-0-89">89</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="k">def</span> <span class="nf">segment2box</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">640</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-89">89</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="k">def</span><span class="w"> </span><span class="nf">segment2box</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">640</span><span class="p">):</span>
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Convert 1 segment label to 1 box label, applying inside-image constraint, i.e. (xy1, xy2, ...) to (xyxy).</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>
@@ -2050,7 +2050,7 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-124">124</a></span>
 <span class="normal"><a href="#__codelineno-0-125">125</a></span>
 <span class="normal"><a href="#__codelineno-0-126">126</a></span>
-<span class="normal"><a href="#__codelineno-0-127">127</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="k">def</span> <span class="nf">scale_boxes</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-127">127</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="k">def</span><span class="w"> </span><span class="nf">scale_boxes</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">    Rescales bounding boxes (in the format of xyxy by default) from the shape of the image they were originally</span>
 <a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="sd">    specified in (img1_shape) to the shape of a different image (img0_shape).</span>
@@ -2179,7 +2179,7 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-140">140</a></span>
 <span class="normal"><a href="#__codelineno-0-141">141</a></span>
 <span class="normal"><a href="#__codelineno-0-142">142</a></span>
-<span class="normal"><a href="#__codelineno-0-143">143</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="k">def</span> <span class="nf">make_divisible</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-143">143</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="k">def</span><span class="w"> </span><span class="nf">make_divisible</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
 <a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="sd">    Returns the nearest number that is divisible by the given divisor.</span>
 <a id="__codelineno-0-133" name="__codelineno-0-133"></a>
@@ -2307,7 +2307,7 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-161">161</a></span>
 <span class="normal"><a href="#__codelineno-0-162">162</a></span>
 <span class="normal"><a href="#__codelineno-0-163">163</a></span>
-<span class="normal"><a href="#__codelineno-0-164">164</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-146" name="__codelineno-0-146"></a><span class="k">def</span> <span class="nf">nms_rotated</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.45</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-164">164</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-146" name="__codelineno-0-146"></a><span class="k">def</span><span class="w"> </span><span class="nf">nms_rotated</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.45</span><span class="p">):</span>
 <a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="sd">    NMS for oriented bounding boxes using probiou and fast-nms.</span>
 <a id="__codelineno-0-149" name="__codelineno-0-149"></a>
@@ -2771,7 +2771,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <span class="normal"><a href="#__codelineno-0-313">313</a></span>
 <span class="normal"><a href="#__codelineno-0-314">314</a></span>
 <span class="normal"><a href="#__codelineno-0-315">315</a></span>
-<span class="normal"><a href="#__codelineno-0-316">316</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-167" name="__codelineno-0-167"></a><span class="k">def</span> <span class="nf">non_max_suppression</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-316">316</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-167" name="__codelineno-0-167"></a><span class="k">def</span><span class="w"> </span><span class="nf">non_max_suppression</span><span class="p">(</span>
 <a id="__codelineno-0-168" name="__codelineno-0-168"></a>    <span class="n">prediction</span><span class="p">,</span>
 <a id="__codelineno-0-169" name="__codelineno-0-169"></a>    <span class="n">conf_thres</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
 <a id="__codelineno-0-170" name="__codelineno-0-170"></a>    <span class="n">iou_thres</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span>
@@ -2818,7 +2818,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <a id="__codelineno-0-211" name="__codelineno-0-211"></a><span class="sd">            shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns</span>
 <a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="sd">            (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</span>
 <a id="__codelineno-0-213" name="__codelineno-0-213"></a><span class="sd">    """</span>
-<a id="__codelineno-0-214" name="__codelineno-0-214"></a>    <span class="kn">import</span> <span class="nn">torchvision</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
+<a id="__codelineno-0-214" name="__codelineno-0-214"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
 <a id="__codelineno-0-215" name="__codelineno-0-215"></a>
 <a id="__codelineno-0-216" name="__codelineno-0-216"></a>    <span class="c1"># Checks</span>
 <a id="__codelineno-0-217" name="__codelineno-0-217"></a>    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">conf_thres</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Invalid Confidence threshold </span><span class="si">{</span><span class="n">conf_thres</span><span class="si">}</span><span class="s2">, valid values are between 0.0 and 1.0"</span>
@@ -3020,7 +3020,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <span class="normal"><a href="#__codelineno-0-335">335</a></span>
 <span class="normal"><a href="#__codelineno-0-336">336</a></span>
 <span class="normal"><a href="#__codelineno-0-337">337</a></span>
-<span class="normal"><a href="#__codelineno-0-338">338</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="k">def</span> <span class="nf">clip_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-338">338</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-319" name="__codelineno-0-319"></a><span class="k">def</span><span class="w"> </span><span class="nf">clip_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <a id="__codelineno-0-320" name="__codelineno-0-320"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-321" name="__codelineno-0-321"></a><span class="sd">    Takes a list of bounding boxes and a shape (height, width) and clips the bounding boxes to the shape.</span>
 <a id="__codelineno-0-322" name="__codelineno-0-322"></a>
@@ -3137,7 +3137,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <span class="normal"><a href="#__codelineno-0-355">355</a></span>
 <span class="normal"><a href="#__codelineno-0-356">356</a></span>
 <span class="normal"><a href="#__codelineno-0-357">357</a></span>
-<span class="normal"><a href="#__codelineno-0-358">358</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="k">def</span> <span class="nf">clip_coords</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-358">358</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="k">def</span><span class="w"> </span><span class="nf">clip_coords</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <a id="__codelineno-0-342" name="__codelineno-0-342"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-343" name="__codelineno-0-343"></a><span class="sd">    Clip line coordinates to the image boundaries.</span>
 <a id="__codelineno-0-344" name="__codelineno-0-344"></a>
@@ -3283,7 +3283,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <span class="normal"><a href="#__codelineno-0-390">390</a></span>
 <span class="normal"><a href="#__codelineno-0-391">391</a></span>
 <span class="normal"><a href="#__codelineno-0-392">392</a></span>
-<span class="normal"><a href="#__codelineno-0-393">393</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-361" name="__codelineno-0-361"></a><span class="k">def</span> <span class="nf">scale_image</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">im0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-393">393</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-361" name="__codelineno-0-361"></a><span class="k">def</span><span class="w"> </span><span class="nf">scale_image</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">im0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-362" name="__codelineno-0-362"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="sd">    Takes a mask, and resizes it to the original image size.</span>
 <a id="__codelineno-0-364" name="__codelineno-0-364"></a>
@@ -3398,7 +3398,7 @@ top-left corner and (x2, y2) is the bottom-right corner.</p>
 <span class="normal"><a href="#__codelineno-0-410">410</a></span>
 <span class="normal"><a href="#__codelineno-0-411">411</a></span>
 <span class="normal"><a href="#__codelineno-0-412">412</a></span>
-<span class="normal"><a href="#__codelineno-0-413">413</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="k">def</span> <span class="nf">xyxy2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-413">413</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-398" name="__codelineno-0-398"></a><span class="sd">    Convert bounding box coordinates from (x1, y1, x2, y2) format to (x, y, width, height) format where (x1, y1) is the</span>
 <a id="__codelineno-0-399" name="__codelineno-0-399"></a><span class="sd">    top-left corner and (x2, y2) is the bottom-right corner.</span>
@@ -3498,7 +3498,7 @@ top-left corner and (x2, y2) is the bottom-right corner. Note: ops per 2 channel
 <span class="normal"><a href="#__codelineno-0-430">430</a></span>
 <span class="normal"><a href="#__codelineno-0-431">431</a></span>
 <span class="normal"><a href="#__codelineno-0-432">432</a></span>
-<span class="normal"><a href="#__codelineno-0-433">433</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="k">def</span> <span class="nf">xywh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-433">433</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="k">def</span><span class="w"> </span><span class="nf">xywh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-417" name="__codelineno-0-417"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-418" name="__codelineno-0-418"></a><span class="sd">    Convert bounding box coordinates from (x, y, width, height) format to (x1, y1, x2, y2) format where (x1, y1) is the</span>
 <a id="__codelineno-0-419" name="__codelineno-0-419"></a><span class="sd">    top-left corner and (x2, y2) is the bottom-right corner. Note: ops per 2 channels faster than per channel.</span>
@@ -3646,7 +3646,7 @@ top-left corner and (x2, y2) is the bottom-right corner. Note: ops per 2 channel
 <span class="normal"><a href="#__codelineno-0-453">453</a></span>
 <span class="normal"><a href="#__codelineno-0-454">454</a></span>
 <span class="normal"><a href="#__codelineno-0-455">455</a></span>
-<span class="normal"><a href="#__codelineno-0-456">456</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="k">def</span> <span class="nf">xywhn2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">padw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">padh</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-456">456</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="k">def</span><span class="w"> </span><span class="nf">xywhn2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">padw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">padh</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <a id="__codelineno-0-437" name="__codelineno-0-437"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-438" name="__codelineno-0-438"></a><span class="sd">    Convert normalized bounding box coordinates to pixel coordinates.</span>
 <a id="__codelineno-0-439" name="__codelineno-0-439"></a>
@@ -3819,7 +3819,7 @@ width and height are normalized to image dimensions.</p>
 <span class="normal"><a href="#__codelineno-0-479">479</a></span>
 <span class="normal"><a href="#__codelineno-0-480">480</a></span>
 <span class="normal"><a href="#__codelineno-0-481">481</a></span>
-<span class="normal"><a href="#__codelineno-0-482">482</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="k">def</span> <span class="nf">xyxy2xywhn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-482">482</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywhn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
 <a id="__codelineno-0-460" name="__codelineno-0-460"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-461" name="__codelineno-0-461"></a><span class="sd">    Convert bounding box coordinates from (x1, y1, x2, y2) format to (x, y, width, height, normalized) format. x, y,</span>
 <a id="__codelineno-0-462" name="__codelineno-0-462"></a><span class="sd">    width and height are normalized to image dimensions.</span>
@@ -3920,7 +3920,7 @@ width and height are normalized to image dimensions.</p>
 <span class="normal"><a href="#__codelineno-0-495">495</a></span>
 <span class="normal"><a href="#__codelineno-0-496">496</a></span>
 <span class="normal"><a href="#__codelineno-0-497">497</a></span>
-<span class="normal"><a href="#__codelineno-0-498">498</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-485" name="__codelineno-0-485"></a><span class="k">def</span> <span class="nf">xywh2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-498">498</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-485" name="__codelineno-0-485"></a><span class="k">def</span><span class="w"> </span><span class="nf">xywh2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-486" name="__codelineno-0-486"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-487" name="__codelineno-0-487"></a><span class="sd">    Convert the bounding box format from [x, y, w, h] to [x1, y1, w, h], where x1, y1 are the top-left coordinates.</span>
 <a id="__codelineno-0-488" name="__codelineno-0-488"></a>
@@ -4011,7 +4011,7 @@ width and height are normalized to image dimensions.</p>
 <span class="normal"><a href="#__codelineno-0-511">511</a></span>
 <span class="normal"><a href="#__codelineno-0-512">512</a></span>
 <span class="normal"><a href="#__codelineno-0-513">513</a></span>
-<span class="normal"><a href="#__codelineno-0-514">514</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="k">def</span> <span class="nf">xyxy2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-514">514</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-502" name="__codelineno-0-502"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-503" name="__codelineno-0-503"></a><span class="sd">    Convert nx4 bounding boxes from [x1, y1, x2, y2] to [x1, y1, w, h], where xy1=top-left, xy2=bottom-right.</span>
 <a id="__codelineno-0-504" name="__codelineno-0-504"></a>
@@ -4102,7 +4102,7 @@ width and height are normalized to image dimensions.</p>
 <span class="normal"><a href="#__codelineno-0-527">527</a></span>
 <span class="normal"><a href="#__codelineno-0-528">528</a></span>
 <span class="normal"><a href="#__codelineno-0-529">529</a></span>
-<span class="normal"><a href="#__codelineno-0-530">530</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-517" name="__codelineno-0-517"></a><span class="k">def</span> <span class="nf">ltwh2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-530">530</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-517" name="__codelineno-0-517"></a><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-518" name="__codelineno-0-518"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-519" name="__codelineno-0-519"></a><span class="sd">    Convert nx4 boxes from [x1, y1, w, h] to [x, y, w, h] where xy1=top-left, xy=center.</span>
 <a id="__codelineno-0-520" name="__codelineno-0-520"></a>
@@ -4201,7 +4201,7 @@ returned in radians from 0 to pi/2.</p>
 <span class="normal"><a href="#__codelineno-0-550">550</a></span>
 <span class="normal"><a href="#__codelineno-0-551">551</a></span>
 <span class="normal"><a href="#__codelineno-0-552">552</a></span>
-<span class="normal"><a href="#__codelineno-0-553">553</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="k">def</span> <span class="nf">xyxyxyxy2xywhr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-553">553</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-533" name="__codelineno-0-533"></a><span class="k">def</span><span class="w"> </span><span class="nf">xyxyxyxy2xywhr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-535" name="__codelineno-0-535"></a><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xy1, xy2, xy3, xy4] to [xywh, rotation]. Rotation values are</span>
 <a id="__codelineno-0-536" name="__codelineno-0-536"></a><span class="sd">    returned in radians from 0 to pi/2.</span>
@@ -4315,7 +4315,7 @@ be in radians from 0 to pi/2.</p>
 <span class="normal"><a href="#__codelineno-0-581">581</a></span>
 <span class="normal"><a href="#__codelineno-0-582">582</a></span>
 <span class="normal"><a href="#__codelineno-0-583">583</a></span>
-<span class="normal"><a href="#__codelineno-0-584">584</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-556" name="__codelineno-0-556"></a><span class="k">def</span> <span class="nf">xywhr2xyxyxyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-584">584</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-556" name="__codelineno-0-556"></a><span class="k">def</span><span class="w"> </span><span class="nf">xywhr2xyxyxyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-557" name="__codelineno-0-557"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-558" name="__codelineno-0-558"></a><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xywh, rotation] to [xy1, xy2, xy3, xy4]. Rotation values should</span>
 <a id="__codelineno-0-559" name="__codelineno-0-559"></a><span class="sd">    be in radians from 0 to pi/2.</span>
@@ -4421,7 +4421,7 @@ be in radians from 0 to pi/2.</p>
 <span class="normal"><a href="#__codelineno-0-597">597</a></span>
 <span class="normal"><a href="#__codelineno-0-598">598</a></span>
 <span class="normal"><a href="#__codelineno-0-599">599</a></span>
-<span class="normal"><a href="#__codelineno-0-600">600</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-587" name="__codelineno-0-587"></a><span class="k">def</span> <span class="nf">ltwh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-600">600</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-587" name="__codelineno-0-587"></a><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-588" name="__codelineno-0-588"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-589" name="__codelineno-0-589"></a><span class="sd">    It converts the bounding box from [x1, y1, w, h] to [x1, y1, x2, y2] where xy1=top-left, xy2=bottom-right.</span>
 <a id="__codelineno-0-590" name="__codelineno-0-590"></a>
@@ -4513,7 +4513,7 @@ be in radians from 0 to pi/2.</p>
 <span class="normal"><a href="#__codelineno-0-614">614</a></span>
 <span class="normal"><a href="#__codelineno-0-615">615</a></span>
 <span class="normal"><a href="#__codelineno-0-616">616</a></span>
-<span class="normal"><a href="#__codelineno-0-617">617</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-603" name="__codelineno-0-603"></a><span class="k">def</span> <span class="nf">segments2boxes</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-617">617</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-603" name="__codelineno-0-603"></a><span class="k">def</span><span class="w"> </span><span class="nf">segments2boxes</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
 <a id="__codelineno-0-604" name="__codelineno-0-604"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-605" name="__codelineno-0-605"></a><span class="sd">    It converts segment labels to box labels, i.e. (cls, xy1, xy2, ...) to (cls, xywh).</span>
 <a id="__codelineno-0-606" name="__codelineno-0-606"></a>
@@ -4629,7 +4629,7 @@ be in radians from 0 to pi/2.</p>
 <span class="normal"><a href="#__codelineno-0-638">638</a></span>
 <span class="normal"><a href="#__codelineno-0-639">639</a></span>
 <span class="normal"><a href="#__codelineno-0-640">640</a></span>
-<span class="normal"><a href="#__codelineno-0-641">641</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-620" name="__codelineno-0-620"></a><span class="k">def</span> <span class="nf">resample_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-641">641</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-620" name="__codelineno-0-620"></a><span class="k">def</span><span class="w"> </span><span class="nf">resample_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <a id="__codelineno-0-621" name="__codelineno-0-621"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-622" name="__codelineno-0-622"></a><span class="sd">    Inputs a list of segments (n,2) and returns a list of segments (n,2) up-sampled to n points each.</span>
 <a id="__codelineno-0-623" name="__codelineno-0-623"></a>
@@ -4747,7 +4747,7 @@ be in radians from 0 to pi/2.</p>
 <span class="normal"><a href="#__codelineno-0-657">657</a></span>
 <span class="normal"><a href="#__codelineno-0-658">658</a></span>
 <span class="normal"><a href="#__codelineno-0-659">659</a></span>
-<span class="normal"><a href="#__codelineno-0-660">660</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-644" name="__codelineno-0-644"></a><span class="k">def</span> <span class="nf">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-660">660</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-644" name="__codelineno-0-644"></a><span class="k">def</span><span class="w"> </span><span class="nf">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="p">):</span>
 <a id="__codelineno-0-645" name="__codelineno-0-645"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-646" name="__codelineno-0-646"></a><span class="sd">    It takes a mask and a bounding box, and returns a mask that is cropped to the bounding box.</span>
 <a id="__codelineno-0-647" name="__codelineno-0-647"></a>
@@ -4923,7 +4923,7 @@ are the height and width of the input image. The mask is applied to the bounding
 <span class="normal"><a href="#__codelineno-0-690">690</a></span>
 <span class="normal"><a href="#__codelineno-0-691">691</a></span>
 <span class="normal"><a href="#__codelineno-0-692">692</a></span>
-<span class="normal"><a href="#__codelineno-0-693">693</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-663" name="__codelineno-0-663"></a><span class="k">def</span> <span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-693">693</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-663" name="__codelineno-0-663"></a><span class="k">def</span><span class="w"> </span><span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <a id="__codelineno-0-664" name="__codelineno-0-664"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-665" name="__codelineno-0-665"></a><span class="sd">    Apply masks to bounding boxes using the output of the mask head.</span>
 <a id="__codelineno-0-666" name="__codelineno-0-666"></a>
@@ -5083,7 +5083,7 @@ are the height and width of the input image. The mask is applied to the bounding
 <span class="normal"><a href="#__codelineno-0-710">710</a></span>
 <span class="normal"><a href="#__codelineno-0-711">711</a></span>
 <span class="normal"><a href="#__codelineno-0-712">712</a></span>
-<span class="normal"><a href="#__codelineno-0-713">713</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-696" name="__codelineno-0-696"></a><span class="k">def</span> <span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-713">713</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-696" name="__codelineno-0-696"></a><span class="k">def</span><span class="w"> </span><span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <a id="__codelineno-0-697" name="__codelineno-0-697"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-698" name="__codelineno-0-698"></a><span class="sd">    It takes the output of the mask head, and crops it after upsampling to the bounding boxes.</span>
 <a id="__codelineno-0-699" name="__codelineno-0-699"></a>
@@ -5198,7 +5198,7 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-734">734</a></span>
 <span class="normal"><a href="#__codelineno-0-735">735</a></span>
 <span class="normal"><a href="#__codelineno-0-736">736</a></span>
-<span class="normal"><a href="#__codelineno-0-737">737</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-716" name="__codelineno-0-716"></a><span class="k">def</span> <span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-737">737</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-716" name="__codelineno-0-716"></a><span class="k">def</span><span class="w"> </span><span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <a id="__codelineno-0-717" name="__codelineno-0-717"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-718" name="__codelineno-0-718"></a><span class="sd">    Rescale segment masks to shape.</span>
 <a id="__codelineno-0-719" name="__codelineno-0-719"></a>
@@ -5404,7 +5404,7 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-769">769</a></span>
 <span class="normal"><a href="#__codelineno-0-770">770</a></span>
 <span class="normal"><a href="#__codelineno-0-771">771</a></span>
-<span class="normal"><a href="#__codelineno-0-772">772</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-740" name="__codelineno-0-740"></a><span class="k">def</span> <span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-772">772</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-740" name="__codelineno-0-740"></a><span class="k">def</span><span class="w"> </span><span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <a id="__codelineno-0-741" name="__codelineno-0-741"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-742" name="__codelineno-0-742"></a><span class="sd">    Rescale segment coordinates (xy) from img1_shape to img0_shape.</span>
 <a id="__codelineno-0-743" name="__codelineno-0-743"></a>
@@ -5516,7 +5516,7 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-787">787</a></span>
 <span class="normal"><a href="#__codelineno-0-788">788</a></span>
 <span class="normal"><a href="#__codelineno-0-789">789</a></span>
-<span class="normal"><a href="#__codelineno-0-790">790</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-775" name="__codelineno-0-775"></a><span class="k">def</span> <span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-790">790</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-775" name="__codelineno-0-775"></a><span class="k">def</span><span class="w"> </span><span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
 <a id="__codelineno-0-776" name="__codelineno-0-776"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-777" name="__codelineno-0-777"></a><span class="sd">    Regularize rotated boxes in range [0, pi/2].</span>
 <a id="__codelineno-0-778" name="__codelineno-0-778"></a>
@@ -5640,7 +5640,7 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-818">818</a></span>
 <span class="normal"><a href="#__codelineno-0-819">819</a></span>
 <span class="normal"><a href="#__codelineno-0-820">820</a></span>
-<span class="normal"><a href="#__codelineno-0-821">821</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-793" name="__codelineno-0-793"></a><span class="k">def</span> <span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">"all"</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-821">821</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-793" name="__codelineno-0-793"></a><span class="k">def</span><span class="w"> </span><span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">"all"</span><span class="p">):</span>
 <a id="__codelineno-0-794" name="__codelineno-0-794"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-795" name="__codelineno-0-795"></a><span class="sd">    It takes a list of masks(n,h,w) and returns a list of segments(n,xy).</span>
 <a id="__codelineno-0-796" name="__codelineno-0-796"></a>
@@ -5651,7 +5651,7 @@ rescaling.</p>
 <a id="__codelineno-0-801" name="__codelineno-0-801"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-802" name="__codelineno-0-802"></a><span class="sd">        segments (List): list of segment masks</span>
 <a id="__codelineno-0-803" name="__codelineno-0-803"></a><span class="sd">    """</span>
-<a id="__codelineno-0-804" name="__codelineno-0-804"></a>    <span class="kn">from</span> <span class="nn">ultralytics.data.converter</span> <span class="kn">import</span> <span class="n">merge_multi_segment</span>
+<a id="__codelineno-0-804" name="__codelineno-0-804"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">merge_multi_segment</span>
 <a id="__codelineno-0-805" name="__codelineno-0-805"></a>
 <a id="__codelineno-0-806" name="__codelineno-0-806"></a>    <span class="n">segments</span> <span class="o">=</span> <span class="p">[]</span>
 <a id="__codelineno-0-807" name="__codelineno-0-807"></a>    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">masks</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"uint8"</span><span class="p">):</span>
@@ -5743,7 +5743,7 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-831">831</a></span>
 <span class="normal"><a href="#__codelineno-0-832">832</a></span>
 <span class="normal"><a href="#__codelineno-0-833">833</a></span>
-<span class="normal"><a href="#__codelineno-0-834">834</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-824" name="__codelineno-0-824"></a><span class="k">def</span> <span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-834">834</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-824" name="__codelineno-0-824"></a><span class="k">def</span><span class="w"> </span><span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <a id="__codelineno-0-825" name="__codelineno-0-825"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-826" name="__codelineno-0-826"></a><span class="sd">    Convert a batch of FP32 torch tensors (0.0-1.0) to a NumPy uint8 array (0-255), changing from BCHW to BHWC layout.</span>
 <a id="__codelineno-0-827" name="__codelineno-0-827"></a>
@@ -5828,7 +5828,7 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-844">844</a></span>
 <span class="normal"><a href="#__codelineno-0-845">845</a></span>
 <span class="normal"><a href="#__codelineno-0-846">846</a></span>
-<span class="normal"><a href="#__codelineno-0-847">847</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-837" name="__codelineno-0-837"></a><span class="k">def</span> <span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-847">847</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-837" name="__codelineno-0-837"></a><span class="k">def</span><span class="w"> </span><span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 <a id="__codelineno-0-838" name="__codelineno-0-838"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-839" name="__codelineno-0-839"></a><span class="sd">    Cleans a string by replacing special characters with '_' character.</span>
 <a id="__codelineno-0-840" name="__codelineno-0-840"></a>
@@ -5857,7 +5857,7 @@ rescaling.</p>
 <span class="normal"><a href="#__codelineno-0-851">851</a></span>
 <span class="normal"><a href="#__codelineno-0-852">852</a></span>
 <span class="normal"><a href="#__codelineno-0-853">853</a></span>
-<span class="normal"><a href="#__codelineno-0-854">854</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-850" name="__codelineno-0-850"></a><span class="k">def</span> <span class="nf">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-854">854</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-850" name="__codelineno-0-850"></a><span class="k">def</span><span class="w"> </span><span class="nf">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-851" name="__codelineno-0-851"></a><span class="w">    </span><span class="sd">"""Creates empty torch.Tensor or np.ndarray with same shape as input and float32 dtype."""</span>
 <a id="__codelineno-0-852" name="__codelineno-0-852"></a>    <span class="k">return</span> <span class="p">(</span>
 <a id="__codelineno-0-853" name="__codelineno-0-853"></a>        <span class="n">torch</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
@@ -5872,7 +5872,7 @@ rescaling.</p>
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on December 06, 2024">
-<span class="hover-item">✏️</span> Updated 28 days ago
+<span class="hover-item">✏️</span> Updated 1 month ago
     </span>
 </div>
 <div class="authors-container">

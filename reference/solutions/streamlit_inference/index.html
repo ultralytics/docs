@@ -1386,7 +1386,7 @@ uploading video files, and performing real-time inference.</p>
 <span class="normal"><a href="#__codelineno-0-68">68</a></span>
 <span class="normal"><a href="#__codelineno-0-69">69</a></span>
 <span class="normal"><a href="#__codelineno-0-70">70</a></span>
-<span class="normal"><a href="#__codelineno-0-71">71</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-71">71</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    Initializes the Inference class, checking Streamlit requirements and setting up the model path.</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>
@@ -1394,7 +1394,7 @@ uploading video files, and performing real-time inference.</p>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        **kwargs (Any): Additional keyword arguments for model configuration.</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    """</span>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"streamlit&gt;=1.29.0"</span><span class="p">)</span>  <span class="c1"># scope imports for faster ultralytics package load speeds</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">streamlit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
 <a id="__codelineno-0-53" name="__codelineno-0-53"></a>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">st</span> <span class="o">=</span> <span class="n">st</span>  <span class="c1"># Reference to the Streamlit class instance</span>
 <a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Placeholder for video or webcam source details</span>
@@ -1445,7 +1445,7 @@ uploading video files, and performing real-time inference.</p>
 <span class="normal"><a href="#__codelineno-0-141">141</a></span>
 <span class="normal"><a href="#__codelineno-0-142">142</a></span>
 <span class="normal"><a href="#__codelineno-0-143">143</a></span>
-<span class="normal"><a href="#__codelineno-0-144">144</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="k">def</span> <span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-144">144</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="w">    </span><span class="sd">"""Configures the model and loads selected classes for inference."""</span>
 <a id="__codelineno-0-128" name="__codelineno-0-128"></a>    <span class="c1"># Add dropdown menu for model selection</span>
 <a id="__codelineno-0-129" name="__codelineno-0-129"></a>    <span class="n">available_models</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"yolo"</span><span class="p">,</span> <span class="s2">"YOLO"</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">GITHUB_ASSETS_STEMS</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"yolo11"</span><span class="p">)]</span>
@@ -1513,7 +1513,7 @@ uploading video files, and performing real-time inference.</p>
 <span class="normal"><a href="#__codelineno-0-178">178</a></span>
 <span class="normal"><a href="#__codelineno-0-179">179</a></span>
 <span class="normal"><a href="#__codelineno-0-180">180</a></span>
-<span class="normal"><a href="#__codelineno-0-181">181</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-146" name="__codelineno-0-146"></a><span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-181">181</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-146" name="__codelineno-0-146"></a><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="w">    </span><span class="sd">"""Performs real-time object detection inference."""</span>
 <a id="__codelineno-0-148" name="__codelineno-0-148"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">web_ui</span><span class="p">()</span>  <span class="c1"># Initialize the web interface</span>
 <a id="__codelineno-0-149" name="__codelineno-0-149"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sidebar</span><span class="p">()</span>  <span class="c1"># Create the sidebar</span>
@@ -1582,7 +1582,7 @@ uploading video files, and performing real-time inference.</p>
 <span class="normal"><a href="#__codelineno-0-108">108</a></span>
 <span class="normal"><a href="#__codelineno-0-109">109</a></span>
 <span class="normal"><a href="#__codelineno-0-110">110</a></span>
-<span class="normal"><a href="#__codelineno-0-111">111</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="k">def</span> <span class="nf">sidebar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-111">111</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="k">def</span><span class="w"> </span><span class="nf">sidebar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="w">    </span><span class="sd">"""Configures the Streamlit sidebar for model and inference settings."""</span>
 <a id="__codelineno-0-94" name="__codelineno-0-94"></a>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="p">:</span>  <span class="c1"># Add Ultralytics LOGO</span>
 <a id="__codelineno-0-95" name="__codelineno-0-95"></a>        <span class="n">logo</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Original.svg"</span>
@@ -1627,7 +1627,7 @@ uploading video files, and performing real-time inference.</p>
 <span class="normal"><a href="#__codelineno-0-121">121</a></span>
 <span class="normal"><a href="#__codelineno-0-122">122</a></span>
 <span class="normal"><a href="#__codelineno-0-123">123</a></span>
-<span class="normal"><a href="#__codelineno-0-124">124</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="k">def</span> <span class="nf">source_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-124">124</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="k">def</span><span class="w"> </span><span class="nf">source_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="w">    </span><span class="sd">"""Handles video file uploads through the Streamlit interface."""</span>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">vid_file_name</span> <span class="o">=</span> <span class="s2">""</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s2">"video"</span><span class="p">:</span>
@@ -1670,7 +1670,7 @@ uploading video files, and performing real-time inference.</p>
 <span class="normal"><a href="#__codelineno-0-87">87</a></span>
 <span class="normal"><a href="#__codelineno-0-88">88</a></span>
 <span class="normal"><a href="#__codelineno-0-89">89</a></span>
-<span class="normal"><a href="#__codelineno-0-90">90</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="k">def</span> <span class="nf">web_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-90">90</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="k">def</span><span class="w"> </span><span class="nf">web_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="w">    </span><span class="sd">"""Sets up the Streamlit web interface with custom HTML elements."""</span>
 <a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="n">menu_style_cfg</span> <span class="o">=</span> <span class="s2">"""&lt;style&gt;MainMenu {visibility: hidden;}&lt;/style&gt;"""</span>  <span class="c1"># Hide main menu style</span>
 <a id="__codelineno-0-76" name="__codelineno-0-76"></a>
@@ -1701,7 +1701,7 @@ uploading video files, and performing real-time inference.</p>
 <span class="hover-item">📅</span> Created 6 months ago
     </span>
 <span class="date-item" title="This page was last updated on December 24, 2024">
-<span class="hover-item">✏️</span> Updated 10 days ago
+<span class="hover-item">✏️</span> Updated 12 days ago
     </span>
 </div>
 <div class="authors-container">

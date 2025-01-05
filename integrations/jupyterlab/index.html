@@ -968,7 +968,7 @@
 </li>
 <li>
 <p>Import the YOLO model and load a pretrained model:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 </code></pre></div>
@@ -1003,21 +1003,21 @@
 <ol>
 <li>
 <p>Use the autobatch feature to determine the optimal batch size:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.autobatch</span> <span class="kn">import</span> <span class="n">autobatch</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.autobatch</span><span class="w"> </span><span class="kn">import</span> <span class="n">autobatch</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">optimal_batch_size</span> <span class="o">=</span> <span class="n">autobatch</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
 <p>Implement <a href="../../guides/hyperparameter-tuning/">hyperparameter tuning</a> using libraries like Ray Tune:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.tuner</span> <span class="kn">import</span> <span class="n">run_ray_tune</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.tuner</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_ray_tune</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
 <a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">best_results</span> <span class="o">=</span> <span class="n">run_ray_tune</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"path/to/data.yaml"</span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
 <p>Visualize and analyze model metrics using JupyterLab's plotting capabilities:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">ultralytics.utils.plotting</span> <span class="kn">import</span> <span class="n">plot_results</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_results</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
 <a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">plot_results</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">results_dict</span><span class="p">)</span>
 </code></pre></div>

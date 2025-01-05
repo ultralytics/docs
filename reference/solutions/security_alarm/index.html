@@ -1210,7 +1210,7 @@ exceeded for total detections, and annotate the output frame for visualization.<
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
 <span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">    </span><span class="sd">"""Initializes the SecurityAlarm class with parameters for real-time object monitoring."""</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">email_sent</span> <span class="o">=</span> <span class="kc">False</span>
@@ -1320,7 +1320,7 @@ and logs in using the provided credentials.</p>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
 <span class="normal"><a href="#__codelineno-0-61">61</a></span>
 <span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">to_email</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="k">def</span><span class="w"> </span><span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">to_email</span><span class="p">):</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    Authenticates the email server for sending alert notifications.</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>
@@ -1336,7 +1336,7 @@ and logs in using the provided credentials.</p>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">        &gt;&gt;&gt; alarm = SecurityAlarm()</span>
 <a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">        &gt;&gt;&gt; alarm.authenticate("sender@example.com", "password123", "recipient@example.com")</span>
 <a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">    """</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="kn">import</span> <span class="nn">smtplib</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">smtplib</span>
 <a id="__codelineno-0-58" name="__codelineno-0-58"></a>
 <a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s2">"smtp.gmail.com: 587"</span><span class="p">)</span>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">starttls</span><span class="p">()</span>
@@ -1449,7 +1449,7 @@ surpasses the specified threshold and an alert has not already been sent.</p>
 <span class="normal"><a href="#__codelineno-0-141">141</a></span>
 <span class="normal"><a href="#__codelineno-0-142">142</a></span>
 <span class="normal"><a href="#__codelineno-0-143">143</a></span>
-<span class="normal"><a href="#__codelineno-0-144">144</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="k">def</span> <span class="nf">monitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-144">144</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="k">def</span><span class="w"> </span><span class="nf">monitor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
 <a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="sd">    Monitors the frame, processes object detections, and triggers alerts if thresholds are exceeded.</span>
 <a id="__codelineno-0-113" name="__codelineno-0-113"></a>
@@ -1593,7 +1593,7 @@ details about the detection, and sends it to the specified recipient.</p>
 <span class="normal"><a href="#__codelineno-0-105">105</a></span>
 <span class="normal"><a href="#__codelineno-0-106">106</a></span>
 <span class="normal"><a href="#__codelineno-0-107">107</a></span>
-<span class="normal"><a href="#__codelineno-0-108">108</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="k">def</span> <span class="nf">send_email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">records</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-108">108</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="k">def</span><span class="w"> </span><span class="nf">send_email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">records</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Sends an email notification with an image attachment indicating the number of objects detected.</span>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>
@@ -1609,11 +1609,11 @@ details about the detection, and sends it to the specified recipient.</p>
 <a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">        &gt;&gt;&gt; frame = cv2.imread("path/to/image.jpg")</span>
 <a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">        &gt;&gt;&gt; alarm.send_email(frame, records=10)</span>
 <a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">    """</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="kn">from</span> <span class="nn">email.mime.image</span> <span class="kn">import</span> <span class="n">MIMEImage</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">email.mime.image</span><span class="w"> </span><span class="kn">import</span> <span class="n">MIMEImage</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">email.mime.multipart</span><span class="w"> </span><span class="kn">import</span> <span class="n">MIMEMultipart</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">email.mime.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">MIMEText</span>
 <a id="__codelineno-0-84" name="__codelineno-0-84"></a>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="kn">import</span> <span class="nn">cv2</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
 <a id="__codelineno-0-86" name="__codelineno-0-86"></a>
 <a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="n">img_bytes</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imencode</span><span class="p">(</span><span class="s2">".jpg"</span><span class="p">,</span> <span class="n">im0</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span>  <span class="c1"># Encode the image as JPEG</span>
 <a id="__codelineno-0-88" name="__codelineno-0-88"></a>
@@ -1647,10 +1647,10 @@ details about the detection, and sends it to the specified recipient.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on December 17, 2024">
-<span class="hover-item">📅</span> Created 16 days ago
+<span class="hover-item">📅</span> Created 18 days ago
     </span>
 <span class="date-item" title="This page was last updated on December 17, 2024">
-<span class="hover-item">✏️</span> Updated 16 days ago
+<span class="hover-item">✏️</span> Updated 18 days ago
     </span>
 </div>
 <div class="authors-container">

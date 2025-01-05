@@ -1210,7 +1210,7 @@
 <summary>Source code in <code>ultralytics/utils/callbacks/mlflow.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-42">42</a></span>
 <span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="k">def</span> <span class="nf">sanitize_dict</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="k">def</span><span class="w"> </span><span class="nf">sanitize_dict</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">    </span><span class="sd">"""Sanitize dictionary keys by removing parentheses and converting values to floats."""</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"("</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">")"</span><span class="p">,</span> <span class="s2">""</span><span class="p">):</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 </code></pre></div></td></tr></table></div>
@@ -1310,7 +1310,7 @@ MLFLOW_KEEP_RUN_ACTIVE: Boolean indicating whether to keep the MLflow run active
 <span class="normal"><a href="#__codelineno-0-84">84</a></span>
 <span class="normal"><a href="#__codelineno-0-85">85</a></span>
 <span class="normal"><a href="#__codelineno-0-86">86</a></span>
-<span class="normal"><a href="#__codelineno-0-87">87</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="k">def</span> <span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-87">87</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    Log training parameters to MLflow at the end of the pretraining routine.</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>
@@ -1374,7 +1374,7 @@ MLFLOW_KEEP_RUN_ACTIVE: Boolean indicating whether to keep the MLflow run active
 <span class="normal"><a href="#__codelineno-0-96">96</a></span>
 <span class="normal"><a href="#__codelineno-0-97">97</a></span>
 <span class="normal"><a href="#__codelineno-0-98">98</a></span>
-<span class="normal"><a href="#__codelineno-0-99">99</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="k">def</span> <span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-99">99</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="w">    </span><span class="sd">"""Log training metrics at the end of each train epoch to MLflow."""</span>
 <a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="k">if</span> <span class="n">mlflow</span><span class="p">:</span>
 <a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span>
@@ -1401,7 +1401,7 @@ MLFLOW_KEEP_RUN_ACTIVE: Boolean indicating whether to keep the MLflow run active
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-102">102</a></span>
 <span class="normal"><a href="#__codelineno-0-103">103</a></span>
 <span class="normal"><a href="#__codelineno-0-104">104</a></span>
-<span class="normal"><a href="#__codelineno-0-105">105</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="k">def</span> <span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-105">105</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="w">    </span><span class="sd">"""Log training metrics at the end of each fit epoch to MLflow."""</span>
 <a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="k">if</span> <span class="n">mlflow</span><span class="p">:</span>
 <a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="n">sanitize_dict</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
@@ -1436,7 +1436,7 @@ MLFLOW_KEEP_RUN_ACTIVE: Boolean indicating whether to keep the MLflow run active
 <span class="normal"><a href="#__codelineno-0-122">122</a></span>
 <span class="normal"><a href="#__codelineno-0-123">123</a></span>
 <span class="normal"><a href="#__codelineno-0-124">124</a></span>
-<span class="normal"><a href="#__codelineno-0-125">125</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="k">def</span> <span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-125">125</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="w">    </span><span class="sd">"""Log model artifacts at the end of the training."""</span>
 <a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">mlflow</span><span class="p">:</span>
 <a id="__codelineno-0-111" name="__codelineno-0-111"></a>        <span class="k">return</span>

@@ -898,7 +898,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a YOLO11 model from a pre-trained weights file</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
@@ -1115,6 +1115,12 @@
 <td>Enables rectangular training, optimizing batch composition for minimal padding. Can improve efficiency and speed but may affect model accuracy.</td>
 </tr>
 <tr>
+<td><code>multi_scale</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Enables multi-scale training by increasing/decreasing <code>imgsz</code> by upto a factor of <code>0.5</code> during training. Trains the model to be more accurate with multiple <code>imgsz</code> during inference.</td>
+</tr>
+<tr>
 <td><code>cos_lr</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
@@ -1238,7 +1244,7 @@
 <td><code>overlap_mask</code></td>
 <td><code>bool</code></td>
 <td><code>True</code></td>
-<td>Determines whether object masks should be merged into a single mask for training, or kept separate for each object. In case of overlap, the smaller mask is overlayed on top of the larger mask during merge.</td>
+<td>Determines whether object masks should be merged into a single mask for training, or kept separate for each object. In case of overlap, the smaller mask is overlaid on top of the larger mask during merge.</td>
 </tr>
 <tr>
 <td><code>mask_ratio</code></td>

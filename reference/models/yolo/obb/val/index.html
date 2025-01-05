@@ -1263,7 +1263,7 @@
 <p>A class extending the DetectionValidator class for validation based on an Oriented Bounding Box (OBB) model.</p>
 <details class="example" open="">
 <summary>Example</summary>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics.models.yolo.obb</span> <span class="kn">import</span> <span class="n">OBBValidator</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.obb</span><span class="w"> </span><span class="kn">import</span> <span class="n">OBBValidator</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolov8n-obb.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"dota8.yaml"</span><span class="p">)</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">validator</span> <span class="o">=</span> <span class="n">OBBValidator</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
@@ -1276,7 +1276,7 @@
 <span class="normal"><a href="#__codelineno-0-28">28</a></span>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
 <span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">    </span><span class="sd">"""Initialize OBBValidator and set task to 'obb', metrics to OBBMetrics."""</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">pbar</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"obb"</span>
@@ -1350,12 +1350,12 @@
 <span class="normal"><a href="#__codelineno-0-200">200</a></span>
 <span class="normal"><a href="#__codelineno-0-201">201</a></span>
 <span class="normal"><a href="#__codelineno-0-202">202</a></span>
-<span class="normal"><a href="#__codelineno-0-203">203</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="k">def</span> <span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-203">203</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
 <a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="w">    </span><span class="sd">"""Evaluates YOLO output in JSON format and returns performance statistics."""</span>
 <a id="__codelineno-0-149" name="__codelineno-0-149"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_json</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_dota</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jdict</span><span class="p">):</span>
-<a id="__codelineno-0-150" name="__codelineno-0-150"></a>        <span class="kn">import</span> <span class="nn">json</span>
-<a id="__codelineno-0-151" name="__codelineno-0-151"></a>        <span class="kn">import</span> <span class="nn">re</span>
-<a id="__codelineno-0-152" name="__codelineno-0-152"></a>        <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<a id="__codelineno-0-150" name="__codelineno-0-150"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-0-151" name="__codelineno-0-151"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<a id="__codelineno-0-152" name="__codelineno-0-152"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
 <a id="__codelineno-0-153" name="__codelineno-0-153"></a>
 <a id="__codelineno-0-154" name="__codelineno-0-154"></a>        <span class="n">pred_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"predictions.json"</span>  <span class="c1"># predictions</span>
 <a id="__codelineno-0-155" name="__codelineno-0-155"></a>        <span class="n">pred_txt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"predictions_txt"</span>  <span class="c1"># predictions</span>
@@ -1425,7 +1425,7 @@
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">def</span> <span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">def</span><span class="w"> </span><span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">    </span><span class="sd">"""Initialize evaluation metrics for YOLO."""</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">init_metrics</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">split</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>  <span class="c1"># validation path</span>
@@ -1453,7 +1453,7 @@
 <span class="normal"><a href="#__codelineno-0-109">109</a></span>
 <span class="normal"><a href="#__codelineno-0-110">110</a></span>
 <span class="normal"><a href="#__codelineno-0-111">111</a></span>
-<span class="normal"><a href="#__codelineno-0-112">112</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="k">def</span> <span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-112">112</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
 <a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="w">    </span><span class="sd">"""Plots predicted bounding boxes on input images and saves the result."""</span>
 <a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="n">plot_images</span><span class="p">(</span>
 <a id="__codelineno-0-106" name="__codelineno-0-106"></a>        <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">],</span>
@@ -1489,7 +1489,7 @@
 <span class="normal"><a href="#__codelineno-0-48">48</a></span>
 <span class="normal"><a href="#__codelineno-0-49">49</a></span>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="k">def</span> <span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">):</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="sd">"""Apply Non-maximum suppression to prediction outputs."""</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">non_max_suppression</span><span class="p">(</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="n">preds</span><span class="p">,</span>
@@ -1531,7 +1531,7 @@
 <span class="normal"><a href="#__codelineno-0-126">126</a></span>
 <span class="normal"><a href="#__codelineno-0-127">127</a></span>
 <span class="normal"><a href="#__codelineno-0-128">128</a></span>
-<span class="normal"><a href="#__codelineno-0-129">129</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="k">def</span> <span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-129">129</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="w">    </span><span class="sd">"""Serialize YOLO predictions to COCO json format."""</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a>    <span class="n">stem</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
 <a id="__codelineno-0-117" name="__codelineno-0-117"></a>    <span class="n">image_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">stem</span><span class="p">)</span> <span class="k">if</span> <span class="n">stem</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span> <span class="k">else</span> <span class="n">stem</span>
@@ -1575,11 +1575,11 @@
 <span class="normal"><a href="#__codelineno-0-142">142</a></span>
 <span class="normal"><a href="#__codelineno-0-143">143</a></span>
 <span class="normal"><a href="#__codelineno-0-144">144</a></span>
-<span class="normal"><a href="#__codelineno-0-145">145</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="k">def</span> <span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">,</span> <span class="n">save_conf</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-145">145</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">,</span> <span class="n">save_conf</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="w">    </span><span class="sd">"""Save YOLO detections to a txt file in normalized coordinates in a specific format."""</span>
-<a id="__codelineno-0-133" name="__codelineno-0-133"></a>    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a id="__codelineno-0-134" name="__codelineno-0-134"></a>
-<a id="__codelineno-0-135" name="__codelineno-0-135"></a>    <span class="kn">from</span> <span class="nn">ultralytics.engine.results</span> <span class="kn">import</span> <span class="n">Results</span>
+<a id="__codelineno-0-135" name="__codelineno-0-135"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.engine.results</span><span class="w"> </span><span class="kn">import</span> <span class="n">Results</span>
 <a id="__codelineno-0-136" name="__codelineno-0-136"></a>
 <a id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="n">rboxes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">predn</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">predn</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-0-138" name="__codelineno-0-138"></a>    <span class="c1"># xywh, r, conf, cls</span>
@@ -1600,7 +1600,7 @@
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on January 05, 2024">
-<span class="hover-item">📅</span> Created 12 months ago
+<span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on September 11, 2024">
 <span class="hover-item">✏️</span> Updated 3 months ago

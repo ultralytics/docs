@@ -1396,7 +1396,7 @@
 <summary>Example</summary>
 <p>Download *.zip files from <a href="https://github.com/ultralytics/hub/tree/main/example_datasets">https://github.com/ultralytics/hub/tree/main/example_datasets</a>
     i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip">https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip</a> for coco8.zip.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.utils</span> <span class="kn">import</span> <span class="n">HUBDatasetStats</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBDatasetStats</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">stats</span> <span class="o">=</span> <span class="n">HUBDatasetStats</span><span class="p">(</span><span class="s2">"path/to/coco8.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>  <span class="c1"># detect dataset</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">stats</span> <span class="o">=</span> <span class="n">HUBDatasetStats</span><span class="p">(</span><span class="s2">"path/to/coco8-seg.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"segment"</span><span class="p">)</span>  <span class="c1"># segment dataset</span>
@@ -1435,7 +1435,7 @@
 <span class="normal"><a href="#__codelineno-0-522">522</a></span>
 <span class="normal"><a href="#__codelineno-0-523">523</a></span>
 <span class="normal"><a href="#__codelineno-0-524">524</a></span>
-<span class="normal"><a href="#__codelineno-0-525">525</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="n">autodownload</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-525">525</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="n">autodownload</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="w">    </span><span class="sd">"""Initialize class."""</span>
 <a id="__codelineno-0-502" name="__codelineno-0-502"></a>    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 <a id="__codelineno-0-503" name="__codelineno-0-503"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Starting HUB dataset checks for </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">...."</span><span class="p">)</span>
@@ -1455,7 +1455,7 @@
 <a id="__codelineno-0-517" name="__codelineno-0-517"></a>            <span class="n">data</span> <span class="o">=</span> <span class="n">check_det_dataset</span><span class="p">(</span><span class="n">yaml_path</span><span class="p">,</span> <span class="n">autodownload</span><span class="p">)</span>  <span class="c1"># dict</span>
 <a id="__codelineno-0-518" name="__codelineno-0-518"></a>            <span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_dir</span>  <span class="c1"># YAML path should be set to '' (relative) or parent (absolute)</span>
 <a id="__codelineno-0-519" name="__codelineno-0-519"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-520" name="__codelineno-0-520"></a>            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"error/HUB/dataset_stats/init"</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<a id="__codelineno-0-520" name="__codelineno-0-520"></a>            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"error/HUB/dataset_stats/init"</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 <a id="__codelineno-0-521" name="__codelineno-0-521"></a>
 <a id="__codelineno-0-522" name="__codelineno-0-522"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">hub_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span><span class="si">}</span><span class="s1">-hub'</span><span class="p">)</span>
 <a id="__codelineno-0-523" name="__codelineno-0-523"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">im_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hub_dir</span> <span class="o">/</span> <span class="s2">"images"</span>
@@ -1546,10 +1546,10 @@
 <span class="normal"><a href="#__codelineno-0-611">611</a></span>
 <span class="normal"><a href="#__codelineno-0-612">612</a></span>
 <span class="normal"><a href="#__codelineno-0-613">613</a></span>
-<span class="normal"><a href="#__codelineno-0-614">614</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-542" name="__codelineno-0-542"></a><span class="k">def</span> <span class="nf">get_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-614">614</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-542" name="__codelineno-0-542"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <a id="__codelineno-0-543" name="__codelineno-0-543"></a><span class="w">    </span><span class="sd">"""Return dataset JSON for Ultralytics HUB."""</span>
 <a id="__codelineno-0-544" name="__codelineno-0-544"></a>
-<a id="__codelineno-0-545" name="__codelineno-0-545"></a>    <span class="k">def</span> <span class="nf">_round</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+<a id="__codelineno-0-545" name="__codelineno-0-545"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_round</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
 <a id="__codelineno-0-546" name="__codelineno-0-546"></a><span class="w">        </span><span class="sd">"""Update labels to integer class and 4 decimal place floats."""</span>
 <a id="__codelineno-0-547" name="__codelineno-0-547"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"detect"</span><span class="p">:</span>
 <a id="__codelineno-0-548" name="__codelineno-0-548"></a>            <span class="n">coordinates</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">]</span>
@@ -1576,7 +1576,7 @@
 <a id="__codelineno-0-569" name="__codelineno-0-569"></a>
 <a id="__codelineno-0-570" name="__codelineno-0-570"></a>        <span class="c1"># Get dataset statistics</span>
 <a id="__codelineno-0-571" name="__codelineno-0-571"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"classify"</span><span class="p">:</span>
-<a id="__codelineno-0-572" name="__codelineno-0-572"></a>            <span class="kn">from</span> <span class="nn">torchvision.datasets</span> <span class="kn">import</span> <span class="n">ImageFolder</span>
+<a id="__codelineno-0-572" name="__codelineno-0-572"></a>            <span class="kn">from</span><span class="w"> </span><span class="nn">torchvision.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImageFolder</span>
 <a id="__codelineno-0-573" name="__codelineno-0-573"></a>
 <a id="__codelineno-0-574" name="__codelineno-0-574"></a>            <span class="n">dataset</span> <span class="o">=</span> <span class="n">ImageFolder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">split</span><span class="p">])</span>
 <a id="__codelineno-0-575" name="__codelineno-0-575"></a>
@@ -1590,7 +1590,7 @@
 <a id="__codelineno-0-583" name="__codelineno-0-583"></a>                <span class="s2">"labels"</span><span class="p">:</span> <span class="p">[{</span><span class="n">Path</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">v</span><span class="p">}</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">imgs</span><span class="p">],</span>
 <a id="__codelineno-0-584" name="__codelineno-0-584"></a>            <span class="p">}</span>
 <a id="__codelineno-0-585" name="__codelineno-0-585"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-586" name="__codelineno-0-586"></a>            <span class="kn">from</span> <span class="nn">ultralytics.data</span> <span class="kn">import</span> <span class="n">YOLODataset</span>
+<a id="__codelineno-0-586" name="__codelineno-0-586"></a>            <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLODataset</span>
 <a id="__codelineno-0-587" name="__codelineno-0-587"></a>
 <a id="__codelineno-0-588" name="__codelineno-0-588"></a>            <span class="n">dataset</span> <span class="o">=</span> <span class="n">YOLODataset</span><span class="p">(</span><span class="n">img_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">split</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span><span class="p">)</span>
 <a id="__codelineno-0-589" name="__codelineno-0-589"></a>            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -1646,9 +1646,9 @@
 <span class="normal"><a href="#__codelineno-0-626">626</a></span>
 <span class="normal"><a href="#__codelineno-0-627">627</a></span>
 <span class="normal"><a href="#__codelineno-0-628">628</a></span>
-<span class="normal"><a href="#__codelineno-0-629">629</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="k">def</span> <span class="nf">process_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-629">629</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="k">def</span><span class="w"> </span><span class="nf">process_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="w">    </span><span class="sd">"""Compress images for Ultralytics HUB."""</span>
-<a id="__codelineno-0-618" name="__codelineno-0-618"></a>    <span class="kn">from</span> <span class="nn">ultralytics.data</span> <span class="kn">import</span> <span class="n">YOLODataset</span>  <span class="c1"># ClassificationDataset</span>
+<a id="__codelineno-0-618" name="__codelineno-0-618"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLODataset</span>  <span class="c1"># ClassificationDataset</span>
 <a id="__codelineno-0-619" name="__codelineno-0-619"></a>
 <a id="__codelineno-0-620" name="__codelineno-0-620"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">im_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># makes dataset-hub/images/</span>
 <a id="__codelineno-0-621" name="__codelineno-0-621"></a>    <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="s2">"train"</span><span class="p">,</span> <span class="s2">"val"</span><span class="p">,</span> <span class="s2">"test"</span><span class="p">:</span>
@@ -1680,7 +1680,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-44">44</a></span>
 <span class="normal"><a href="#__codelineno-0-45">45</a></span>
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="k">def</span> <span class="nf">img2label_paths</span><span class="p">(</span><span class="n">img_paths</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="k">def</span><span class="w"> </span><span class="nf">img2label_paths</span><span class="p">(</span><span class="n">img_paths</span><span class="p">):</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">    </span><span class="sd">"""Define label paths as a function of image paths."""</span>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="n">sa</span><span class="p">,</span> <span class="n">sb</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">images</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">labels</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># /images/, /labels/ substrings</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">sb</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="n">sa</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">".txt"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">img_paths</span><span class="p">]</span>
@@ -1703,7 +1703,7 @@
 <span class="normal"><a href="#__codelineno-0-52">52</a></span>
 <span class="normal"><a href="#__codelineno-0-53">53</a></span>
 <span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="k">def</span> <span class="nf">get_hash</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_hash</span><span class="p">(</span><span class="n">paths</span><span class="p">):</span>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">    </span><span class="sd">"""Returns a single hash value of a list of paths (files or dirs)."""</span>
 <a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">size</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paths</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>  <span class="c1"># sizes</span>
 <a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="n">h</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">size</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>  <span class="c1"># hash sizes</span>
@@ -1735,7 +1735,7 @@
 <span class="normal"><a href="#__codelineno-0-67">67</a></span>
 <span class="normal"><a href="#__codelineno-0-68">68</a></span>
 <span class="normal"><a href="#__codelineno-0-69">69</a></span>
-<span class="normal"><a href="#__codelineno-0-70">70</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="k">def</span> <span class="nf">exif_size</span><span class="p">(</span><span class="n">img</span><span class="p">:</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-70">70</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="k">def</span><span class="w"> </span><span class="nf">exif_size</span><span class="p">(</span><span class="n">img</span><span class="p">:</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
 <a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">    </span><span class="sd">"""Returns exif-corrected PIL size."""</span>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="n">s</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>  <span class="c1"># (width, height)</span>
 <a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="k">if</span> <span class="n">img</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="s2">"JPEG"</span><span class="p">:</span>  <span class="c1"># only support JPEG images</span>
@@ -1784,7 +1784,7 @@
 <span class="normal"><a href="#__codelineno-0-92">92</a></span>
 <span class="normal"><a href="#__codelineno-0-93">93</a></span>
 <span class="normal"><a href="#__codelineno-0-94">94</a></span>
-<span class="normal"><a href="#__codelineno-0-95">95</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="k">def</span> <span class="nf">verify_image</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-95">95</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="k">def</span><span class="w"> </span><span class="nf">verify_image</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="w">    </span><span class="sd">"""Verify one image."""</span>
 <a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="p">(</span><span class="n">im_file</span><span class="p">,</span> <span class="bp">cls</span><span class="p">),</span> <span class="n">prefix</span> <span class="o">=</span> <span class="n">args</span>
 <a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="c1"># Number (found, corrupt), message</span>
@@ -1890,7 +1890,7 @@
 <span class="normal"><a href="#__codelineno-0-164">164</a></span>
 <span class="normal"><a href="#__codelineno-0-165">165</a></span>
 <span class="normal"><a href="#__codelineno-0-166">166</a></span>
-<span class="normal"><a href="#__codelineno-0-167">167</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="k">def</span> <span class="nf">verify_image_label</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-167">167</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="k">def</span><span class="w"> </span><span class="nf">verify_image_label</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
 <a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="w">    </span><span class="sd">"""Verify one image-label pair."""</span>
 <a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="n">im_file</span><span class="p">,</span> <span class="n">lb_file</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">keypoint</span><span class="p">,</span> <span class="n">num_cls</span><span class="p">,</span> <span class="n">nkpt</span><span class="p">,</span> <span class="n">ndim</span> <span class="o">=</span> <span class="n">args</span>
 <a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="c1"># Number (missing, found, empty, corrupt), message, segments, keypoints</span>
@@ -2101,7 +2101,7 @@ visualize_image_annotations("path/to/image.jpg", "path/to/annotations.txt", labe
 <span class="normal"><a href="#__codelineno-0-213">213</a></span>
 <span class="normal"><a href="#__codelineno-0-214">214</a></span>
 <span class="normal"><a href="#__codelineno-0-215">215</a></span>
-<span class="normal"><a href="#__codelineno-0-216">216</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-170" name="__codelineno-0-170"></a><span class="k">def</span> <span class="nf">visualize_image_annotations</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">txt_path</span><span class="p">,</span> <span class="n">label_map</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-216">216</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-170" name="__codelineno-0-170"></a><span class="k">def</span><span class="w"> </span><span class="nf">visualize_image_annotations</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">txt_path</span><span class="p">,</span> <span class="n">label_map</span><span class="p">):</span>
 <a id="__codelineno-0-171" name="__codelineno-0-171"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-172" name="__codelineno-0-172"></a><span class="sd">    Visualizes YOLO annotations (bounding boxes and class labels) on an image.</span>
 <a id="__codelineno-0-173" name="__codelineno-0-173"></a>
@@ -2124,9 +2124,9 @@ visualize_image_annotations("path/to/image.jpg", "path/to/annotations.txt", labe
 <a id="__codelineno-0-190" name="__codelineno-0-190"></a><span class="sd">        &gt;&gt;&gt; label_map = {0: "cat", 1: "dog", 2: "bird"}  # It should include all annotated classes details</span>
 <a id="__codelineno-0-191" name="__codelineno-0-191"></a><span class="sd">        &gt;&gt;&gt; visualize_image_annotations("path/to/image.jpg", "path/to/annotations.txt", label_map)</span>
 <a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="sd">    """</span>
-<a id="__codelineno-0-193" name="__codelineno-0-193"></a>    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<a id="__codelineno-0-193" name="__codelineno-0-193"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <a id="__codelineno-0-194" name="__codelineno-0-194"></a>
-<a id="__codelineno-0-195" name="__codelineno-0-195"></a>    <span class="kn">from</span> <span class="nn">ultralytics.utils.plotting</span> <span class="kn">import</span> <span class="n">colors</span>
+<a id="__codelineno-0-195" name="__codelineno-0-195"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">colors</span>
 <a id="__codelineno-0-196" name="__codelineno-0-196"></a>
 <a id="__codelineno-0-197" name="__codelineno-0-197"></a>    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_path</span><span class="p">))</span>
 <a id="__codelineno-0-198" name="__codelineno-0-198"></a>    <span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
@@ -2281,7 +2281,7 @@ visualize_image_annotations("path/to/image.jpg", "path/to/annotations.txt", labe
 <span class="normal"><a href="#__codelineno-0-236">236</a></span>
 <span class="normal"><a href="#__codelineno-0-237">237</a></span>
 <span class="normal"><a href="#__codelineno-0-238">238</a></span>
-<span class="normal"><a href="#__codelineno-0-239">239</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-219" name="__codelineno-0-219"></a><span class="k">def</span> <span class="nf">polygon2mask</span><span class="p">(</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">polygons</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">downsample_ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-239">239</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-219" name="__codelineno-0-219"></a><span class="k">def</span><span class="w"> </span><span class="nf">polygon2mask</span><span class="p">(</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">polygons</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">downsample_ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <a id="__codelineno-0-220" name="__codelineno-0-220"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-221" name="__codelineno-0-221"></a><span class="sd">    Convert a list of polygons to a binary mask of the specified image size.</span>
 <a id="__codelineno-0-222" name="__codelineno-0-222"></a>
@@ -2429,7 +2429,7 @@ visualize_image_annotations("path/to/image.jpg", "path/to/annotations.txt", labe
 <span class="normal"><a href="#__codelineno-0-253">253</a></span>
 <span class="normal"><a href="#__codelineno-0-254">254</a></span>
 <span class="normal"><a href="#__codelineno-0-255">255</a></span>
-<span class="normal"><a href="#__codelineno-0-256">256</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-242" name="__codelineno-0-242"></a><span class="k">def</span> <span class="nf">polygons2masks</span><span class="p">(</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">polygons</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">downsample_ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-256">256</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-242" name="__codelineno-0-242"></a><span class="k">def</span><span class="w"> </span><span class="nf">polygons2masks</span><span class="p">(</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">polygons</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">downsample_ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <a id="__codelineno-0-243" name="__codelineno-0-243"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-244" name="__codelineno-0-244"></a><span class="sd">    Convert a list of polygons to a set of binary masks of the specified image size.</span>
 <a id="__codelineno-0-245" name="__codelineno-0-245"></a>
@@ -2477,7 +2477,7 @@ visualize_image_annotations("path/to/image.jpg", "path/to/annotations.txt", labe
 <span class="normal"><a href="#__codelineno-0-275">275</a></span>
 <span class="normal"><a href="#__codelineno-0-276">276</a></span>
 <span class="normal"><a href="#__codelineno-0-277">277</a></span>
-<span class="normal"><a href="#__codelineno-0-278">278</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-259" name="__codelineno-0-259"></a><span class="k">def</span> <span class="nf">polygons2masks_overlap</span><span class="p">(</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">downsample_ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-278">278</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-259" name="__codelineno-0-259"></a><span class="k">def</span><span class="w"> </span><span class="nf">polygons2masks_overlap</span><span class="p">(</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">downsample_ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <a id="__codelineno-0-260" name="__codelineno-0-260"></a><span class="w">    </span><span class="sd">"""Return a (640, 640) overlap mask."""</span>
 <a id="__codelineno-0-261" name="__codelineno-0-261"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
 <a id="__codelineno-0-262" name="__codelineno-0-262"></a>        <span class="p">(</span><span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="n">downsample_ratio</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="n">downsample_ratio</span><span class="p">),</span>
@@ -2583,7 +2583,7 @@ is raised if no YAML file is found or if multiple YAML files are found.</p>
 <span class="normal"><a href="#__codelineno-0-297">297</a></span>
 <span class="normal"><a href="#__codelineno-0-298">298</a></span>
 <span class="normal"><a href="#__codelineno-0-299">299</a></span>
-<span class="normal"><a href="#__codelineno-0-300">300</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-281" name="__codelineno-0-281"></a><span class="k">def</span> <span class="nf">find_dataset_yaml</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-300">300</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-281" name="__codelineno-0-281"></a><span class="k">def</span><span class="w"> </span><span class="nf">find_dataset_yaml</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <a id="__codelineno-0-282" name="__codelineno-0-282"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-283" name="__codelineno-0-283"></a><span class="sd">    Find and return the YAML file associated with a Detect, Segment or Pose dataset.</span>
 <a id="__codelineno-0-284" name="__codelineno-0-284"></a>
@@ -2776,7 +2776,7 @@ resolves paths related to the dataset.</p>
 <span class="normal"><a href="#__codelineno-0-390">390</a></span>
 <span class="normal"><a href="#__codelineno-0-391">391</a></span>
 <span class="normal"><a href="#__codelineno-0-392">392</a></span>
-<span class="normal"><a href="#__codelineno-0-393">393</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="k">def</span> <span class="nf">check_det_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">autodownload</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-393">393</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-303" name="__codelineno-0-303"></a><span class="k">def</span><span class="w"> </span><span class="nf">check_det_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">autodownload</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <a id="__codelineno-0-304" name="__codelineno-0-304"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-305" name="__codelineno-0-305"></a><span class="sd">    Download, verify, and/or unzip a dataset if not found locally.</span>
 <a id="__codelineno-0-306" name="__codelineno-0-306"></a>
@@ -3029,7 +3029,7 @@ If the dataset is not found locally, it attempts to download the dataset from th
 <span class="normal"><a href="#__codelineno-0-468">468</a></span>
 <span class="normal"><a href="#__codelineno-0-469">469</a></span>
 <span class="normal"><a href="#__codelineno-0-470">470</a></span>
-<span class="normal"><a href="#__codelineno-0-471">471</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="k">def</span> <span class="nf">check_cls_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-471">471</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="k">def</span><span class="w"> </span><span class="nf">check_cls_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-398" name="__codelineno-0-398"></a><span class="sd">    Checks a classification dataset such as Imagenet.</span>
 <a id="__codelineno-0-399" name="__codelineno-0-399"></a>
@@ -3198,8 +3198,8 @@ resized.</p>
 </table>
 <details class="example" open="">
 <summary>Example</summary>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">ultralytics.data.utils</span> <span class="kn">import</span> <span class="n">compress_one_image</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">compress_one_image</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"path/to/dataset"</span><span class="p">)</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*.jpg"</span><span class="p">):</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">compress_one_image</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
@@ -3241,7 +3241,7 @@ resized.</p>
 <span class="normal"><a href="#__codelineno-0-663">663</a></span>
 <span class="normal"><a href="#__codelineno-0-664">664</a></span>
 <span class="normal"><a href="#__codelineno-0-665">665</a></span>
-<span class="normal"><a href="#__codelineno-0-666">666</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-632" name="__codelineno-0-632"></a><span class="k">def</span> <span class="nf">compress_one_image</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">f_new</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_dim</span><span class="o">=</span><span class="mi">1920</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-666">666</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-632" name="__codelineno-0-632"></a><span class="k">def</span><span class="w"> </span><span class="nf">compress_one_image</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">f_new</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_dim</span><span class="o">=</span><span class="mi">1920</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
 <a id="__codelineno-0-633" name="__codelineno-0-633"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-634" name="__codelineno-0-634"></a><span class="sd">    Compresses a single image file to reduced size while preserving its aspect ratio and quality using either the Python</span>
 <a id="__codelineno-0-635" name="__codelineno-0-635"></a><span class="sd">    Imaging Library (PIL) or OpenCV library. If the input image is smaller than the maximum dimension, it will not be</span>
@@ -3355,7 +3355,7 @@ resized.</p>
 </table>
 <details class="example" open="">
 <summary>Example</summary>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">ultralytics.data.utils</span> <span class="kn">import</span> <span class="n">autosplit</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">autosplit</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">autosplit</span><span class="p">()</span>
 </code></pre></div>
@@ -3393,7 +3393,7 @@ resized.</p>
 <span class="normal"><a href="#__codelineno-0-697">697</a></span>
 <span class="normal"><a href="#__codelineno-0-698">698</a></span>
 <span class="normal"><a href="#__codelineno-0-699">699</a></span>
-<span class="normal"><a href="#__codelineno-0-700">700</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-669" name="__codelineno-0-669"></a><span class="k">def</span> <span class="nf">autosplit</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">DATASETS_DIR</span> <span class="o">/</span> <span class="s2">"coco8/images"</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">annotated_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-700">700</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-669" name="__codelineno-0-669"></a><span class="k">def</span><span class="w"> </span><span class="nf">autosplit</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">DATASETS_DIR</span> <span class="o">/</span> <span class="s2">"coco8/images"</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">annotated_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <a id="__codelineno-0-670" name="__codelineno-0-670"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-671" name="__codelineno-0-671"></a><span class="sd">    Automatically split a dataset into train/val/test splits and save the resulting splits into autosplit_*.txt files.</span>
 <a id="__codelineno-0-672" name="__codelineno-0-672"></a>
@@ -3446,9 +3446,9 @@ resized.</p>
 <span class="normal"><a href="#__codelineno-0-707">707</a></span>
 <span class="normal"><a href="#__codelineno-0-708">708</a></span>
 <span class="normal"><a href="#__codelineno-0-709">709</a></span>
-<span class="normal"><a href="#__codelineno-0-710">710</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-703" name="__codelineno-0-703"></a><span class="k">def</span> <span class="nf">load_dataset_cache_file</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-710">710</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-703" name="__codelineno-0-703"></a><span class="k">def</span><span class="w"> </span><span class="nf">load_dataset_cache_file</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
 <a id="__codelineno-0-704" name="__codelineno-0-704"></a><span class="w">    </span><span class="sd">"""Load an Ultralytics *.cache dictionary from path."""</span>
-<a id="__codelineno-0-705" name="__codelineno-0-705"></a>    <span class="kn">import</span> <span class="nn">gc</span>
+<a id="__codelineno-0-705" name="__codelineno-0-705"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">gc</span>
 <a id="__codelineno-0-706" name="__codelineno-0-706"></a>
 <a id="__codelineno-0-707" name="__codelineno-0-707"></a>    <span class="n">gc</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>  <span class="c1"># reduce pickle load time https://github.com/ultralytics/ultralytics/pull/1585</span>
 <a id="__codelineno-0-708" name="__codelineno-0-708"></a>    <span class="n">cache</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>  <span class="c1"># load dict</span>
@@ -3478,7 +3478,7 @@ resized.</p>
 <span class="normal"><a href="#__codelineno-0-720">720</a></span>
 <span class="normal"><a href="#__codelineno-0-721">721</a></span>
 <span class="normal"><a href="#__codelineno-0-722">722</a></span>
-<span class="normal"><a href="#__codelineno-0-723">723</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-713" name="__codelineno-0-713"></a><span class="k">def</span> <span class="nf">save_dataset_cache_file</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-723">723</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-713" name="__codelineno-0-713"></a><span class="k">def</span><span class="w"> </span><span class="nf">save_dataset_cache_file</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
 <a id="__codelineno-0-714" name="__codelineno-0-714"></a><span class="w">    </span><span class="sd">"""Save an Ultralytics dataset *.cache dictionary x to path."""</span>
 <a id="__codelineno-0-715" name="__codelineno-0-715"></a>    <span class="n">x</span><span class="p">[</span><span class="s2">"version"</span><span class="p">]</span> <span class="o">=</span> <span class="n">version</span>  <span class="c1"># add cache version</span>
 <a id="__codelineno-0-716" name="__codelineno-0-716"></a>    <span class="k">if</span> <span class="n">is_dir_writeable</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="p">):</span>
@@ -3499,7 +3499,7 @@ resized.</p>
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on January 03, 2025">
-<span class="hover-item">✏️</span> Updated 0 days ago
+<span class="hover-item">✏️</span> Updated 2 days ago
     </span>
 </div>
 <div class="authors-container">

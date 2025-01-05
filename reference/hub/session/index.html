@@ -1359,7 +1359,7 @@ It can be a URL string or a model key with specific format.</p>
 <span class="normal"><a href="#__codelineno-0-74">74</a></span>
 <span class="normal"><a href="#__codelineno-0-75">75</a></span>
 <span class="normal"><a href="#__codelineno-0-76">76</a></span>
-<span class="normal"><a href="#__codelineno-0-77">77</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-77">77</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Initialize the HUBTrainingSession with the provided model identifier.</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>
@@ -1372,7 +1372,7 @@ It can be a URL string or a model key with specific format.</p>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">        ConnectionError: If connecting with global API key is not supported.</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        ModuleNotFoundError: If hub-sdk package is not installed.</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    """</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="kn">from</span> <span class="nn">hub_sdk</span> <span class="kn">import</span> <span class="n">HUBClient</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"metrics"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">"ckpt"</span><span class="p">:</span> <span class="mi">900</span><span class="p">,</span> <span class="s2">"heartbeat"</span><span class="p">:</span> <span class="mi">300</span><span class="p">}</span>  <span class="c1"># rate limits (seconds)</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics_queue</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># holds metrics for each epoch until upload</span>
@@ -1452,7 +1452,7 @@ It can be a URL string or a model key with specific format.</p>
 <span class="normal"><a href="#__codelineno-0-141">141</a></span>
 <span class="normal"><a href="#__codelineno-0-142">142</a></span>
 <span class="normal"><a href="#__codelineno-0-143">143</a></span>
-<span class="normal"><a href="#__codelineno-0-144">144</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_args</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-144">144</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="k">def</span><span class="w"> </span><span class="nf">create_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_args</span><span class="p">):</span>
 <a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="w">    </span><span class="sd">"""Initializes a HUB training session with the specified model identifier."""</span>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
 <a id="__codelineno-0-113" name="__codelineno-0-113"></a>        <span class="s2">"config"</span><span class="p">:</span> <span class="p">{</span>
@@ -1516,7 +1516,7 @@ It can be a URL string or a model key with specific format.</p>
 <span class="normal"><a href="#__codelineno-0-88">88</a></span>
 <span class="normal"><a href="#__codelineno-0-89">89</a></span>
 <span class="normal"><a href="#__codelineno-0-90">90</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="nd">@classmethod</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="k">def</span> <span class="nf">create_session</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="k">def</span><span class="w"> </span><span class="nf">create_session</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="w">    </span><span class="sd">"""Class method to create an authenticated HUBTrainingSession or return None."""</span>
 <a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="k">try</span><span class="p">:</span>
 <a id="__codelineno-0-83" name="__codelineno-0-83"></a>        <span class="n">session</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
@@ -1557,7 +1557,7 @@ It can be a URL string or a model key with specific format.</p>
 <span class="normal"><a href="#__codelineno-0-105">105</a></span>
 <span class="normal"><a href="#__codelineno-0-106">106</a></span>
 <span class="normal"><a href="#__codelineno-0-107">107</a></span>
-<span class="normal"><a href="#__codelineno-0-108">108</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="k">def</span> <span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-108">108</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="k">def</span><span class="w"> </span><span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">):</span>
 <a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="w">    </span><span class="sd">"""Loads an existing model from Ultralytics HUB using the provided model identifier."""</span>
 <a id="__codelineno-0-94" name="__codelineno-0-94"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
 <a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>  <span class="c1"># then model does not exist</span>
@@ -1662,7 +1662,7 @@ It can be a URL string or a model key with specific format.</p>
 <span class="normal"><a href="#__codelineno-0-270">270</a></span>
 <span class="normal"><a href="#__codelineno-0-271">271</a></span>
 <span class="normal"><a href="#__codelineno-0-272">272</a></span>
-<span class="normal"><a href="#__codelineno-0-273">273</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="k">def</span> <span class="nf">request_queue</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-273">273</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="k">def</span><span class="w"> </span><span class="nf">request_queue</span><span class="p">(</span>
 <a id="__codelineno-0-210" name="__codelineno-0-210"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-211" name="__codelineno-0-211"></a>    <span class="n">request_func</span><span class="p">,</span>
 <a id="__codelineno-0-212" name="__codelineno-0-212"></a>    <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
@@ -1676,7 +1676,7 @@ It can be a URL string or a model key with specific format.</p>
 <a id="__codelineno-0-220" name="__codelineno-0-220"></a><span class="p">):</span>
 <a id="__codelineno-0-221" name="__codelineno-0-221"></a><span class="w">    </span><span class="sd">"""Attempts to execute `request_func` with retries, timeout handling, optional threading, and progress."""</span>
 <a id="__codelineno-0-222" name="__codelineno-0-222"></a>
-<a id="__codelineno-0-223" name="__codelineno-0-223"></a>    <span class="k">def</span> <span class="nf">retry_request</span><span class="p">():</span>
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">retry_request</span><span class="p">():</span>
 <a id="__codelineno-0-224" name="__codelineno-0-224"></a><span class="w">        </span><span class="sd">"""Attempts to call `request_func` with retries, timeout, and optional threading."""</span>
 <a id="__codelineno-0-225" name="__codelineno-0-225"></a>        <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># Record the start time for the timeout</span>
 <a id="__codelineno-0-226" name="__codelineno-0-226"></a>        <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1743,7 +1743,7 @@ It can be a URL string or a model key with specific format.</p>
 <summary>Source code in <code>ultralytics/hub/session.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-311">311</a></span>
 <span class="normal"><a href="#__codelineno-0-312">312</a></span>
-<span class="normal"><a href="#__codelineno-0-313">313</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="k">def</span> <span class="nf">upload_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-313">313</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-311" name="__codelineno-0-311"></a><span class="k">def</span><span class="w"> </span><span class="nf">upload_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-312" name="__codelineno-0-312"></a><span class="w">    </span><span class="sd">"""Upload model metrics to Ultralytics HUB."""</span>
 <a id="__codelineno-0-313" name="__codelineno-0-313"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics_queue</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1904,7 +1904,7 @@ It can be a URL string or a model key with specific format.</p>
 <span class="normal"><a href="#__codelineno-0-357">357</a></span>
 <span class="normal"><a href="#__codelineno-0-358">358</a></span>
 <span class="normal"><a href="#__codelineno-0-359">359</a></span>
-<span class="normal"><a href="#__codelineno-0-360">360</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="k">def</span> <span class="nf">upload_model</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-360">360</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-315" name="__codelineno-0-315"></a><span class="k">def</span><span class="w"> </span><span class="nf">upload_model</span><span class="p">(</span>
 <a id="__codelineno-0-316" name="__codelineno-0-316"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-317" name="__codelineno-0-317"></a>    <span class="n">epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <a id="__codelineno-0-318" name="__codelineno-0-318"></a>    <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>

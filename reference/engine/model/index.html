@@ -1754,7 +1754,7 @@ loaded from local files, Ultralytics HUB, or Triton Server.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"image.jpg"</span><span class="p">)</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -1943,7 +1943,7 @@ operations.</p>
 <span class="normal"><a href="#__codelineno-0-146">146</a></span>
 <span class="normal"><a href="#__codelineno-0-147">147</a></span>
 <span class="normal"><a href="#__codelineno-0-148">148</a></span>
-<span class="normal"><a href="#__codelineno-0-149">149</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-149">149</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
 <a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2396,7 +2396,7 @@ Results object.</p>
 <span class="normal"><a href="#__codelineno-0-177">177</a></span>
 <span class="normal"><a href="#__codelineno-0-178">178</a></span>
 <span class="normal"><a href="#__codelineno-0-179">179</a></span>
-<span class="normal"><a href="#__codelineno-0-180">180</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-151" name="__codelineno-0-151"></a><span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-180">180</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-151" name="__codelineno-0-151"></a><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
 <a id="__codelineno-0-152" name="__codelineno-0-152"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-153" name="__codelineno-0-153"></a>    <span class="n">source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-154" name="__codelineno-0-154"></a>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2541,7 +2541,7 @@ the module dictionary. Otherwise, it delegates the attribute lookup to the under
 <span class="normal"><a href="#__codelineno-0-1170">1170</a></span>
 <span class="normal"><a href="#__codelineno-0-1171">1171</a></span>
 <span class="normal"><a href="#__codelineno-0-1172">1172</a></span>
-<span class="normal"><a href="#__codelineno-0-1173">1173</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1151" name="__codelineno-0-1151"></a><span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-1173">1173</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1151" name="__codelineno-0-1151"></a><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <a id="__codelineno-0-1152" name="__codelineno-0-1152"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-1153" name="__codelineno-0-1153"></a><span class="sd">    Enables accessing model attributes directly through the Model class.</span>
 <a id="__codelineno-0-1154" name="__codelineno-0-1154"></a>
@@ -2648,7 +2648,7 @@ specified event occurs.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Training is starting!"</span><span class="p">)</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_start"</span><span class="p">,</span> <span class="n">on_train_start</span><span class="p">)</span>
@@ -2680,7 +2680,7 @@ specified event occurs.</p>
 <span class="normal"><a href="#__codelineno-0-983">983</a></span>
 <span class="normal"><a href="#__codelineno-0-984">984</a></span>
 <span class="normal"><a href="#__codelineno-0-985">985</a></span>
-<span class="normal"><a href="#__codelineno-0-986">986</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-962" name="__codelineno-0-962"></a><span class="k">def</span> <span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-986">986</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-962" name="__codelineno-0-962"></a><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-963" name="__codelineno-0-963"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-964" name="__codelineno-0-964"></a><span class="sd">    Adds a callback function for a specified event.</span>
 <a id="__codelineno-0-965" name="__codelineno-0-965"></a>
@@ -2854,7 +2854,7 @@ different export formats.</p>
 <span class="normal"><a href="#__codelineno-0-687">687</a></span>
 <span class="normal"><a href="#__codelineno-0-688">688</a></span>
 <span class="normal"><a href="#__codelineno-0-689">689</a></span>
-<span class="normal"><a href="#__codelineno-0-690">690</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-643" name="__codelineno-0-643"></a><span class="k">def</span> <span class="nf">benchmark</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-690">690</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-643" name="__codelineno-0-643"></a><span class="k">def</span><span class="w"> </span><span class="nf">benchmark</span><span class="p">(</span>
 <a id="__codelineno-0-644" name="__codelineno-0-644"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-645" name="__codelineno-0-645"></a>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
 <a id="__codelineno-0-646" name="__codelineno-0-646"></a><span class="p">):</span>
@@ -2889,7 +2889,7 @@ different export formats.</p>
 <a id="__codelineno-0-675" name="__codelineno-0-675"></a><span class="sd">        &gt;&gt;&gt; print(results)</span>
 <a id="__codelineno-0-676" name="__codelineno-0-676"></a><span class="sd">    """</span>
 <a id="__codelineno-0-677" name="__codelineno-0-677"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
-<a id="__codelineno-0-678" name="__codelineno-0-678"></a>    <span class="kn">from</span> <span class="nn">ultralytics.utils.benchmarks</span> <span class="kn">import</span> <span class="n">benchmark</span>
+<a id="__codelineno-0-678" name="__codelineno-0-678"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.benchmarks</span><span class="w"> </span><span class="kn">import</span> <span class="n">benchmark</span>
 <a id="__codelineno-0-679" name="__codelineno-0-679"></a>
 <a id="__codelineno-0-680" name="__codelineno-0-680"></a>    <span class="n">custom</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"verbose"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>  <span class="c1"># method defaults</span>
 <a id="__codelineno-0-681" name="__codelineno-0-681"></a>    <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">DEFAULT_CFG_DICT</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"benchmark"</span><span class="p">}</span>
@@ -2992,7 +2992,7 @@ recognized by the Ultralytics callback system.</p>
 <span class="normal"><a href="#__codelineno-0-1011">1011</a></span>
 <span class="normal"><a href="#__codelineno-0-1012">1012</a></span>
 <span class="normal"><a href="#__codelineno-0-1013">1013</a></span>
-<span class="normal"><a href="#__codelineno-0-1014">1014</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-988" name="__codelineno-0-988"></a><span class="k">def</span> <span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-1014">1014</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-988" name="__codelineno-0-988"></a><span class="k">def</span><span class="w"> </span><span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-989" name="__codelineno-0-989"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-990" name="__codelineno-0-990"></a><span class="sd">    Clears all callback functions registered for a specified event.</span>
 <a id="__codelineno-0-991" name="__codelineno-0-991"></a>
@@ -3181,7 +3181,7 @@ generating embeddings. Can be a file path, URL, PIL image, numpy array, etc.</p>
 <span class="normal"><a href="#__codelineno-0-494">494</a></span>
 <span class="normal"><a href="#__codelineno-0-495">495</a></span>
 <span class="normal"><a href="#__codelineno-0-496">496</a></span>
-<span class="normal"><a href="#__codelineno-0-497">497</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-465" name="__codelineno-0-465"></a><span class="k">def</span> <span class="nf">embed</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-497">497</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-465" name="__codelineno-0-465"></a><span class="k">def</span><span class="w"> </span><span class="nf">embed</span><span class="p">(</span>
 <a id="__codelineno-0-466" name="__codelineno-0-466"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-467" name="__codelineno-0-467"></a>    <span class="n">source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-468" name="__codelineno-0-468"></a>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -3273,7 +3273,7 @@ model.eval()</p>
 <span class="normal"><a href="#__codelineno-0-1146">1146</a></span>
 <span class="normal"><a href="#__codelineno-0-1147">1147</a></span>
 <span class="normal"><a href="#__codelineno-0-1148">1148</a></span>
-<span class="normal"><a href="#__codelineno-0-1149">1149</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1134" name="__codelineno-0-1134"></a><span class="k">def</span> <span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-1149">1149</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1134" name="__codelineno-0-1134"></a><span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-1135" name="__codelineno-0-1135"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-1136" name="__codelineno-0-1136"></a><span class="sd">    Sets the model to evaluation mode.</span>
 <a id="__codelineno-0-1137" name="__codelineno-0-1137"></a>
@@ -3456,7 +3456,7 @@ simplify (bool): Simplify ONNX model.</p>
 <span class="normal"><a href="#__codelineno-0-735">735</a></span>
 <span class="normal"><a href="#__codelineno-0-736">736</a></span>
 <span class="normal"><a href="#__codelineno-0-737">737</a></span>
-<span class="normal"><a href="#__codelineno-0-738">738</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-692" name="__codelineno-0-692"></a><span class="k">def</span> <span class="nf">export</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-738">738</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-692" name="__codelineno-0-692"></a><span class="k">def</span><span class="w"> </span><span class="nf">export</span><span class="p">(</span>
 <a id="__codelineno-0-693" name="__codelineno-0-693"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-694" name="__codelineno-0-694"></a>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
 <a id="__codelineno-0-695" name="__codelineno-0-695"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -3492,7 +3492,7 @@ simplify (bool): Simplify ONNX model.</p>
 <a id="__codelineno-0-725" name="__codelineno-0-725"></a><span class="sd">        'path/to/exported/model.onnx'</span>
 <a id="__codelineno-0-726" name="__codelineno-0-726"></a><span class="sd">    """</span>
 <a id="__codelineno-0-727" name="__codelineno-0-727"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
-<a id="__codelineno-0-728" name="__codelineno-0-728"></a>    <span class="kn">from</span> <span class="nn">.exporter</span> <span class="kn">import</span> <span class="n">Exporter</span>
+<a id="__codelineno-0-728" name="__codelineno-0-728"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">.exporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">Exporter</span>
 <a id="__codelineno-0-729" name="__codelineno-0-729"></a>
 <a id="__codelineno-0-730" name="__codelineno-0-730"></a>    <span class="n">custom</span> <span class="o">=</span> <span class="p">{</span>
 <a id="__codelineno-0-731" name="__codelineno-0-731"></a>        <span class="s2">"imgsz"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">"imgsz"</span><span class="p">],</span>
@@ -3570,7 +3570,7 @@ performs both convolution and normalization in one step.</p>
 <span class="normal"><a href="#__codelineno-0-460">460</a></span>
 <span class="normal"><a href="#__codelineno-0-461">461</a></span>
 <span class="normal"><a href="#__codelineno-0-462">462</a></span>
-<span class="normal"><a href="#__codelineno-0-463">463</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-442" name="__codelineno-0-442"></a><span class="k">def</span> <span class="nf">fuse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-463">463</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-442" name="__codelineno-0-442"></a><span class="k">def</span><span class="w"> </span><span class="nf">fuse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="sd">    Fuses Conv2d and BatchNorm2d layers in the model for optimized inference.</span>
 <a id="__codelineno-0-445" name="__codelineno-0-445"></a>
@@ -3725,7 +3725,7 @@ model summary, layer details, and parameter counts. Empty if verbose is True.</p
 <span class="normal"><a href="#__codelineno-0-437">437</a></span>
 <span class="normal"><a href="#__codelineno-0-438">438</a></span>
 <span class="normal"><a href="#__codelineno-0-439">439</a></span>
-<span class="normal"><a href="#__codelineno-0-440">440</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-440">440</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <a id="__codelineno-0-417" name="__codelineno-0-417"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-418" name="__codelineno-0-418"></a><span class="sd">    Logs or returns model information.</span>
 <a id="__codelineno-0-419" name="__codelineno-0-419"></a>
@@ -3846,7 +3846,7 @@ identifier.</p>
 <span class="normal"><a href="#__codelineno-0-225">225</a></span>
 <span class="normal"><a href="#__codelineno-0-226">226</a></span>
 <span class="normal"><a href="#__codelineno-0-227">227</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="nd">@staticmethod</span>
-<a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="k">def</span> <span class="nf">is_hub_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_hub_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-210" name="__codelineno-0-210"></a><span class="sd">    Check if the provided model is an Ultralytics HUB model.</span>
 <a id="__codelineno-0-211" name="__codelineno-0-211"></a>
@@ -3965,7 +3965,7 @@ parsing its components using urllib.parse.urlsplit().</p>
 <span class="normal"><a href="#__codelineno-0-203">203</a></span>
 <span class="normal"><a href="#__codelineno-0-204">204</a></span>
 <span class="normal"><a href="#__codelineno-0-205">205</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="nd">@staticmethod</span>
-<a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="k">def</span> <span class="nf">is_triton_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_triton_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="sd">    Checks if the given model string is a Triton Server URL.</span>
 <a id="__codelineno-0-186" name="__codelineno-0-186"></a>
@@ -3984,7 +3984,7 @@ parsing its components using urllib.parse.urlsplit().</p>
 <a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">        &gt;&gt;&gt; Model.is_triton_model("yolo11n.pt")</span>
 <a id="__codelineno-0-200" name="__codelineno-0-200"></a><span class="sd">        False</span>
 <a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="sd">    """</span>
-<a id="__codelineno-0-202" name="__codelineno-0-202"></a>    <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlsplit</span>
+<a id="__codelineno-0-202" name="__codelineno-0-202"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlsplit</span>
 <a id="__codelineno-0-203" name="__codelineno-0-203"></a>
 <a id="__codelineno-0-204" name="__codelineno-0-204"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">urlsplit</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <a id="__codelineno-0-205" name="__codelineno-0-205"></a>    <span class="k">return</span> <span class="n">url</span><span class="o">.</span><span class="n">netloc</span> <span class="ow">and</span> <span class="n">url</span><span class="o">.</span><span class="n">path</span> <span class="ow">and</span> <span class="n">url</span><span class="o">.</span><span class="n">scheme</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"http"</span><span class="p">,</span> <span class="s2">"grpc"</span><span class="p">}</span>
@@ -4106,7 +4106,7 @@ name and shape and transfers them to the model.</p>
 <span class="normal"><a href="#__codelineno-0-379">379</a></span>
 <span class="normal"><a href="#__codelineno-0-380">380</a></span>
 <span class="normal"><a href="#__codelineno-0-381">381</a></span>
-<span class="normal"><a href="#__codelineno-0-382">382</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Model"</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-382">382</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-356" name="__codelineno-0-356"></a><span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Model"</span><span class="p">:</span>
 <a id="__codelineno-0-357" name="__codelineno-0-357"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-358" name="__codelineno-0-358"></a><span class="sd">    Loads parameters from the specified weights file into the model.</span>
 <a id="__codelineno-0-359" name="__codelineno-0-359"></a>
@@ -4332,7 +4332,7 @@ Results object.</p>
 <span class="normal"><a href="#__codelineno-0-555">555</a></span>
 <span class="normal"><a href="#__codelineno-0-556">556</a></span>
 <span class="normal"><a href="#__codelineno-0-557">557</a></span>
-<span class="normal"><a href="#__codelineno-0-558">558</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-499" name="__codelineno-0-499"></a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-558">558</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-499" name="__codelineno-0-499"></a><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
 <a id="__codelineno-0-500" name="__codelineno-0-500"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-501" name="__codelineno-0-501"></a>    <span class="n">source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-502" name="__codelineno-0-502"></a>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -4440,7 +4440,7 @@ modifications, ensuring consistent behavior across different runs or experiments
 <span class="normal"><a href="#__codelineno-0-1034">1034</a></span>
 <span class="normal"><a href="#__codelineno-0-1035">1035</a></span>
 <span class="normal"><a href="#__codelineno-0-1036">1036</a></span>
-<span class="normal"><a href="#__codelineno-0-1037">1037</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1016" name="__codelineno-0-1016"></a><span class="k">def</span> <span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-1037">1037</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1016" name="__codelineno-0-1016"></a><span class="k">def</span><span class="w"> </span><span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-1017" name="__codelineno-0-1017"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-1018" name="__codelineno-0-1018"></a><span class="sd">    Resets all callbacks to their default functions.</span>
 <a id="__codelineno-0-1019" name="__codelineno-0-1019"></a>
@@ -4549,7 +4549,7 @@ enabling them to be updated during training.</p>
 <span class="normal"><a href="#__codelineno-0-351">351</a></span>
 <span class="normal"><a href="#__codelineno-0-352">352</a></span>
 <span class="normal"><a href="#__codelineno-0-353">353</a></span>
-<span class="normal"><a href="#__codelineno-0-354">354</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-330" name="__codelineno-0-330"></a><span class="k">def</span> <span class="nf">reset_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Model"</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-354">354</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-330" name="__codelineno-0-330"></a><span class="k">def</span><span class="w"> </span><span class="nf">reset_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Model"</span><span class="p">:</span>
 <a id="__codelineno-0-331" name="__codelineno-0-331"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-332" name="__codelineno-0-332"></a><span class="sd">    Resets the model's weights to their initial state.</span>
 <a id="__codelineno-0-333" name="__codelineno-0-333"></a>
@@ -4674,7 +4674,7 @@ the date, Ultralytics version, license information, and a link to the documentat
 <span class="normal"><a href="#__codelineno-0-411">411</a></span>
 <span class="normal"><a href="#__codelineno-0-412">412</a></span>
 <span class="normal"><a href="#__codelineno-0-413">413</a></span>
-<span class="normal"><a href="#__codelineno-0-414">414</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"saved_model.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-414">414</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"saved_model.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-385" name="__codelineno-0-385"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-386" name="__codelineno-0-386"></a><span class="sd">    Saves the current model state to a file.</span>
 <a id="__codelineno-0-387" name="__codelineno-0-387"></a>
@@ -4692,10 +4692,10 @@ the date, Ultralytics version, license information, and a link to the documentat
 <a id="__codelineno-0-399" name="__codelineno-0-399"></a><span class="sd">        &gt;&gt;&gt; model.save("my_model.pt")</span>
 <a id="__codelineno-0-400" name="__codelineno-0-400"></a><span class="sd">    """</span>
 <a id="__codelineno-0-401" name="__codelineno-0-401"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
-<a id="__codelineno-0-402" name="__codelineno-0-402"></a>    <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-<a id="__codelineno-0-403" name="__codelineno-0-403"></a>    <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<a id="__codelineno-0-402" name="__codelineno-0-402"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+<a id="__codelineno-0-403" name="__codelineno-0-403"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 <a id="__codelineno-0-404" name="__codelineno-0-404"></a>
-<a id="__codelineno-0-405" name="__codelineno-0-405"></a>    <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">__version__</span>
+<a id="__codelineno-0-405" name="__codelineno-0-405"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span>
 <a id="__codelineno-0-406" name="__codelineno-0-406"></a>
 <a id="__codelineno-0-407" name="__codelineno-0-407"></a>    <span class="n">updates</span> <span class="o">=</span> <span class="p">{</span>
 <a id="__codelineno-0-408" name="__codelineno-0-408"></a>        <span class="s2">"model"</span><span class="p">:</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
@@ -4906,7 +4906,7 @@ tracking. Can be a file path, URL, or video stream.</p>
 <span class="normal"><a href="#__codelineno-0-602">602</a></span>
 <span class="normal"><a href="#__codelineno-0-603">603</a></span>
 <span class="normal"><a href="#__codelineno-0-604">604</a></span>
-<span class="normal"><a href="#__codelineno-0-605">605</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-560" name="__codelineno-0-560"></a><span class="k">def</span> <span class="nf">track</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-605">605</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-560" name="__codelineno-0-560"></a><span class="k">def</span><span class="w"> </span><span class="nf">track</span><span class="p">(</span>
 <a id="__codelineno-0-561" name="__codelineno-0-561"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-562" name="__codelineno-0-562"></a>    <span class="n">source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-563" name="__codelineno-0-563"></a>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -4945,7 +4945,7 @@ tracking. Can be a file path, URL, or video stream.</p>
 <a id="__codelineno-0-596" name="__codelineno-0-596"></a><span class="sd">        - Batch size is set to 1 for tracking in videos.</span>
 <a id="__codelineno-0-597" name="__codelineno-0-597"></a><span class="sd">    """</span>
 <a id="__codelineno-0-598" name="__codelineno-0-598"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">,</span> <span class="s2">"trackers"</span><span class="p">):</span>
-<a id="__codelineno-0-599" name="__codelineno-0-599"></a>        <span class="kn">from</span> <span class="nn">ultralytics.trackers</span> <span class="kn">import</span> <span class="n">register_tracker</span>
+<a id="__codelineno-0-599" name="__codelineno-0-599"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.trackers</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_tracker</span>
 <a id="__codelineno-0-600" name="__codelineno-0-600"></a>
 <a id="__codelineno-0-601" name="__codelineno-0-601"></a>        <span class="n">register_tracker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">persist</span><span class="p">)</span>
 <a id="__codelineno-0-602" name="__codelineno-0-602"></a>    <span class="n">kwargs</span><span class="p">[</span><span class="s2">"conf"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"conf"</span><span class="p">)</span> <span class="ow">or</span> <span class="mf">0.1</span>  <span class="c1"># ByteTrack-based method needs low confidence predictions as input</span>
@@ -5165,7 +5165,7 @@ patience (int): Epochs to wait for no observable improvement for early stopping 
 <span class="normal"><a href="#__codelineno-0-810">810</a></span>
 <span class="normal"><a href="#__codelineno-0-811">811</a></span>
 <span class="normal"><a href="#__codelineno-0-812">812</a></span>
-<span class="normal"><a href="#__codelineno-0-813">813</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-740" name="__codelineno-0-740"></a><span class="k">def</span> <span class="nf">train</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-813">813</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-740" name="__codelineno-0-740"></a><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span>
 <a id="__codelineno-0-741" name="__codelineno-0-741"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-742" name="__codelineno-0-742"></a>    <span class="n">trainer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-743" name="__codelineno-0-743"></a>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
@@ -5423,7 +5423,7 @@ custom arguments to configure the tuning process.</p>
 <span class="normal"><a href="#__codelineno-0-854">854</a></span>
 <span class="normal"><a href="#__codelineno-0-855">855</a></span>
 <span class="normal"><a href="#__codelineno-0-856">856</a></span>
-<span class="normal"><a href="#__codelineno-0-857">857</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-815" name="__codelineno-0-815"></a><span class="k">def</span> <span class="nf">tune</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-857">857</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-815" name="__codelineno-0-815"></a><span class="k">def</span><span class="w"> </span><span class="nf">tune</span><span class="p">(</span>
 <a id="__codelineno-0-816" name="__codelineno-0-816"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-817" name="__codelineno-0-817"></a>    <span class="n">use_ray</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <a id="__codelineno-0-818" name="__codelineno-0-818"></a>    <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
@@ -5457,11 +5457,11 @@ custom arguments to configure the tuning process.</p>
 <a id="__codelineno-0-846" name="__codelineno-0-846"></a><span class="sd">    """</span>
 <a id="__codelineno-0-847" name="__codelineno-0-847"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_check_is_pytorch_model</span><span class="p">()</span>
 <a id="__codelineno-0-848" name="__codelineno-0-848"></a>    <span class="k">if</span> <span class="n">use_ray</span><span class="p">:</span>
-<a id="__codelineno-0-849" name="__codelineno-0-849"></a>        <span class="kn">from</span> <span class="nn">ultralytics.utils.tuner</span> <span class="kn">import</span> <span class="n">run_ray_tune</span>
+<a id="__codelineno-0-849" name="__codelineno-0-849"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.tuner</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_ray_tune</span>
 <a id="__codelineno-0-850" name="__codelineno-0-850"></a>
 <a id="__codelineno-0-851" name="__codelineno-0-851"></a>        <span class="k">return</span> <span class="n">run_ray_tune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_samples</span><span class="o">=</span><span class="n">iterations</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <a id="__codelineno-0-852" name="__codelineno-0-852"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-853" name="__codelineno-0-853"></a>        <span class="kn">from</span> <span class="nn">.tuner</span> <span class="kn">import</span> <span class="n">Tuner</span>
+<a id="__codelineno-0-853" name="__codelineno-0-853"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">.tuner</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuner</span>
 <a id="__codelineno-0-854" name="__codelineno-0-854"></a>
 <a id="__codelineno-0-855" name="__codelineno-0-855"></a>        <span class="n">custom</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># method defaults</span>
 <a id="__codelineno-0-856" name="__codelineno-0-856"></a>        <span class="n">args</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">overrides</span><span class="p">,</span> <span class="o">**</span><span class="n">custom</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"train"</span><span class="p">}</span>  <span class="c1"># highest priority args on the right</span>
@@ -5610,7 +5610,7 @@ validating the model.</p>
 <span class="normal"><a href="#__codelineno-0-638">638</a></span>
 <span class="normal"><a href="#__codelineno-0-639">639</a></span>
 <span class="normal"><a href="#__codelineno-0-640">640</a></span>
-<span class="normal"><a href="#__codelineno-0-641">641</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="k">def</span> <span class="nf">val</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-641">641</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="k">def</span><span class="w"> </span><span class="nf">val</span><span class="p">(</span>
 <a id="__codelineno-0-608" name="__codelineno-0-608"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-609" name="__codelineno-0-609"></a>    <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-610" name="__codelineno-0-610"></a>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>

@@ -1309,7 +1309,7 @@ a string, a dictionary, or a SimpleNamespace object.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config_dict</span> <span class="o">=</span> <span class="n">cfg2dict</span><span class="p">(</span><span class="s2">"config.yaml"</span><span class="p">)</span>
 </code></pre></div>
 <p>Convert a SimpleNamespace to a dictionary:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config_sn</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">param1</span><span class="o">=</span><span class="s2">"value1"</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="s2">"value2"</span><span class="p">)</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config_dict</span> <span class="o">=</span> <span class="n">cfg2dict</span><span class="p">(</span><span class="n">config_sn</span><span class="p">)</span>
 </code></pre></div>
@@ -1358,7 +1358,7 @@ a string, a dictionary, or a SimpleNamespace object.</p>
 <span class="normal"><a href="#__codelineno-0-262">262</a></span>
 <span class="normal"><a href="#__codelineno-0-263">263</a></span>
 <span class="normal"><a href="#__codelineno-0-264">264</a></span>
-<span class="normal"><a href="#__codelineno-0-265">265</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="k">def</span> <span class="nf">cfg2dict</span><span class="p">(</span><span class="n">cfg</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-265">265</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="k">def</span><span class="w"> </span><span class="nf">cfg2dict</span><span class="p">(</span><span class="n">cfg</span><span class="p">):</span>
 <a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-235" name="__codelineno-0-235"></a><span class="sd">    Converts a configuration object to a dictionary.</span>
 <a id="__codelineno-0-236" name="__codelineno-0-236"></a>
@@ -1474,7 +1474,7 @@ SimpleNamespace object.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">ultralytics.cfg</span> <span class="kn">import</span> <span class="n">get_cfg</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.cfg</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_cfg</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">()</span>  <span class="c1"># Load default configuration</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="s2">"path/to/config.yaml"</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="s2">"epochs"</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">"batch_size"</span><span class="p">:</span> <span class="mi">16</span><span class="p">})</span>
 </code></pre></div>
@@ -1534,7 +1534,7 @@ SimpleNamespace object.</p>
 <span class="normal"><a href="#__codelineno-0-310">310</a></span>
 <span class="normal"><a href="#__codelineno-0-311">311</a></span>
 <span class="normal"><a href="#__codelineno-0-312">312</a></span>
-<span class="normal"><a href="#__codelineno-0-313">313</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-268" name="__codelineno-0-268"></a><span class="k">def</span> <span class="nf">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">SimpleNamespace</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG_DICT</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-313">313</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-268" name="__codelineno-0-268"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">SimpleNamespace</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CFG_DICT</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-269" name="__codelineno-0-269"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-270" name="__codelineno-0-270"></a><span class="sd">    Load and merge configuration data from a file or dictionary, with optional overrides.</span>
 <a id="__codelineno-0-271" name="__codelineno-0-271"></a>
@@ -1720,7 +1720,7 @@ CFG_FRACTION_KEYS, CFG_INT_KEYS, and CFG_BOOL_KEYS.</p>
 <span class="normal"><a href="#__codelineno-0-372">372</a></span>
 <span class="normal"><a href="#__codelineno-0-373">373</a></span>
 <span class="normal"><a href="#__codelineno-0-374">374</a></span>
-<span class="normal"><a href="#__codelineno-0-375">375</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-316" name="__codelineno-0-316"></a><span class="k">def</span> <span class="nf">check_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-375">375</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-316" name="__codelineno-0-316"></a><span class="k">def</span><span class="w"> </span><span class="nf">check_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <a id="__codelineno-0-317" name="__codelineno-0-317"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-318" name="__codelineno-0-318"></a><span class="sd">    Checks configuration argument types and values for the Ultralytics library.</span>
 <a id="__codelineno-0-319" name="__codelineno-0-319"></a>
@@ -1861,7 +1861,7 @@ or the 'args.mode'.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">"my_project"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">get_save_dir</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span>
@@ -1898,7 +1898,7 @@ or the 'args.mode'.</p>
 <span class="normal"><a href="#__codelineno-0-404">404</a></span>
 <span class="normal"><a href="#__codelineno-0-405">405</a></span>
 <span class="normal"><a href="#__codelineno-0-406">406</a></span>
-<span class="normal"><a href="#__codelineno-0-407">407</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="k">def</span> <span class="nf">get_save_dir</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-407">407</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-378" name="__codelineno-0-378"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_save_dir</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-379" name="__codelineno-0-379"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-380" name="__codelineno-0-380"></a><span class="sd">    Returns the directory path for saving outputs, derived from arguments or default settings.</span>
 <a id="__codelineno-0-381" name="__codelineno-0-381"></a>
@@ -1921,7 +1921,7 @@ or the 'args.mode'.</p>
 <a id="__codelineno-0-398" name="__codelineno-0-398"></a>    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s2">"save_dir"</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-399" name="__codelineno-0-399"></a>        <span class="n">save_dir</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">save_dir</span>
 <a id="__codelineno-0-400" name="__codelineno-0-400"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-401" name="__codelineno-0-401"></a>        <span class="kn">from</span> <span class="nn">ultralytics.utils.files</span> <span class="kn">import</span> <span class="n">increment_path</span>
+<a id="__codelineno-0-401" name="__codelineno-0-401"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.files</span><span class="w"> </span><span class="kn">import</span> <span class="n">increment_path</span>
 <a id="__codelineno-0-402" name="__codelineno-0-402"></a>
 <a id="__codelineno-0-403" name="__codelineno-0-403"></a>        <span class="n">project</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">project</span> <span class="ow">or</span> <span class="p">(</span><span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"tests/tmp/runs"</span> <span class="k">if</span> <span class="n">TESTS_RUNNING</span> <span class="k">else</span> <span class="n">RUNS_DIR</span><span class="p">)</span> <span class="o">/</span> <span class="n">args</span><span class="o">.</span><span class="n">task</span>
 <a id="__codelineno-0-404" name="__codelineno-0-404"></a>        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">mode</span><span class="si">}</span><span class="s2">"</span>
@@ -2018,7 +2018,7 @@ equivalents. It also handles value conversions where necessary, such as invertin
 <span class="normal"><a href="#__codelineno-0-442">442</a></span>
 <span class="normal"><a href="#__codelineno-0-443">443</a></span>
 <span class="normal"><a href="#__codelineno-0-444">444</a></span>
-<span class="normal"><a href="#__codelineno-0-445">445</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-410" name="__codelineno-0-410"></a><span class="k">def</span> <span class="nf">_handle_deprecation</span><span class="p">(</span><span class="n">custom</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-445">445</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-410" name="__codelineno-0-410"></a><span class="k">def</span><span class="w"> </span><span class="nf">_handle_deprecation</span><span class="p">(</span><span class="n">custom</span><span class="p">):</span>
 <a id="__codelineno-0-411" name="__codelineno-0-411"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-412" name="__codelineno-0-412"></a><span class="sd">    Handles deprecated configuration keys by mapping them to current equivalents with deprecation warnings.</span>
 <a id="__codelineno-0-413" name="__codelineno-0-413"></a>
@@ -2205,7 +2205,7 @@ messages for mismatched keys.</p>
 <span class="normal"><a href="#__codelineno-0-483">483</a></span>
 <span class="normal"><a href="#__codelineno-0-484">484</a></span>
 <span class="normal"><a href="#__codelineno-0-485">485</a></span>
-<span class="normal"><a href="#__codelineno-0-486">486</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="k">def</span> <span class="nf">check_dict_alignment</span><span class="p">(</span><span class="n">base</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">custom</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-486">486</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="k">def</span><span class="w"> </span><span class="nf">check_dict_alignment</span><span class="p">(</span><span class="n">base</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">custom</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-449" name="__codelineno-0-449"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-450" name="__codelineno-0-450"></a><span class="sd">    Checks alignment between custom and base configuration dictionaries, handling deprecated keys and providing error</span>
 <a id="__codelineno-0-451" name="__codelineno-0-451"></a><span class="sd">    messages for mismatched keys.</span>
@@ -2235,7 +2235,7 @@ messages for mismatched keys.</p>
 <a id="__codelineno-0-475" name="__codelineno-0-475"></a>    <span class="n">base_keys</span><span class="p">,</span> <span class="n">custom_keys</span> <span class="o">=</span> <span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">custom</span><span class="p">))</span>
 <a id="__codelineno-0-476" name="__codelineno-0-476"></a>    <span class="n">mismatched</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">custom_keys</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">base_keys</span><span class="p">]</span>
 <a id="__codelineno-0-477" name="__codelineno-0-477"></a>    <span class="k">if</span> <span class="n">mismatched</span><span class="p">:</span>
-<a id="__codelineno-0-478" name="__codelineno-0-478"></a>        <span class="kn">from</span> <span class="nn">difflib</span> <span class="kn">import</span> <span class="n">get_close_matches</span>
+<a id="__codelineno-0-478" name="__codelineno-0-478"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">difflib</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_close_matches</span>
 <a id="__codelineno-0-479" name="__codelineno-0-479"></a>
 <a id="__codelineno-0-480" name="__codelineno-0-480"></a>        <span class="n">string</span> <span class="o">=</span> <span class="s2">""</span>
 <a id="__codelineno-0-481" name="__codelineno-0-481"></a>        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mismatched</span><span class="p">:</span>
@@ -2243,7 +2243,7 @@ messages for mismatched keys.</p>
 <a id="__codelineno-0-483" name="__codelineno-0-483"></a>            <span class="n">matches</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">base</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">base</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">]</span>
 <a id="__codelineno-0-484" name="__codelineno-0-484"></a>            <span class="n">match_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Similar arguments are i.e. </span><span class="si">{</span><span class="n">matches</span><span class="si">}</span><span class="s2">."</span> <span class="k">if</span> <span class="n">matches</span> <span class="k">else</span> <span class="s2">""</span>
 <a id="__codelineno-0-485" name="__codelineno-0-485"></a>            <span class="n">string</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'red'</span><span class="p">,</span><span class="w"> </span><span class="s1">'bold'</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s2">' is not a valid YOLO argument. </span><span class="si">{</span><span class="n">match_str</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
-<a id="__codelineno-0-486" name="__codelineno-0-486"></a>        <span class="k">raise</span> <span class="ne">SyntaxError</span><span class="p">(</span><span class="n">string</span> <span class="o">+</span> <span class="n">CLI_HELP_MSG</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<a id="__codelineno-0-486" name="__codelineno-0-486"></a>        <span class="k">raise</span> <span class="ne">SyntaxError</span><span class="p">(</span><span class="n">string</span> <span class="o">+</span> <span class="n">CLI_HELP_MSG</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2374,7 +2374,7 @@ messages for mismatched keys.</p>
 <span class="normal"><a href="#__codelineno-0-542">542</a></span>
 <span class="normal"><a href="#__codelineno-0-543">543</a></span>
 <span class="normal"><a href="#__codelineno-0-544">544</a></span>
-<span class="normal"><a href="#__codelineno-0-545">545</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-489" name="__codelineno-0-489"></a><span class="k">def</span> <span class="nf">merge_equals_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="normal"><a href="#__codelineno-0-545">545</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-489" name="__codelineno-0-489"></a><span class="k">def</span><span class="w"> </span><span class="nf">merge_equals_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <a id="__codelineno-0-490" name="__codelineno-0-490"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-491" name="__codelineno-0-491"></a><span class="sd">    Merges arguments around isolated '=' in a list of strings and joins fragments with brackets.</span>
 <a id="__codelineno-0-492" name="__codelineno-0-492"></a>
@@ -2517,7 +2517,7 @@ or 'logout'. For 'login', an optional second argument can be the API key.</p>
 <span class="normal"><a href="#__codelineno-0-574">574</a></span>
 <span class="normal"><a href="#__codelineno-0-575">575</a></span>
 <span class="normal"><a href="#__codelineno-0-576">576</a></span>
-<span class="normal"><a href="#__codelineno-0-577">577</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-548" name="__codelineno-0-548"></a><span class="k">def</span> <span class="nf">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-577">577</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-548" name="__codelineno-0-548"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-549" name="__codelineno-0-549"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-550" name="__codelineno-0-550"></a><span class="sd">    Handles Ultralytics HUB command-line interface (CLI) commands for authentication.</span>
 <a id="__codelineno-0-551" name="__codelineno-0-551"></a>
@@ -2538,7 +2538,7 @@ or 'logout'. For 'login', an optional second argument can be the API key.</p>
 <a id="__codelineno-0-566" name="__codelineno-0-566"></a><span class="sd">        - For the 'login' command, if no API key is provided, an empty string is passed to the login function.</span>
 <a id="__codelineno-0-567" name="__codelineno-0-567"></a><span class="sd">        - The 'logout' command does not require any additional arguments.</span>
 <a id="__codelineno-0-568" name="__codelineno-0-568"></a><span class="sd">    """</span>
-<a id="__codelineno-0-569" name="__codelineno-0-569"></a>    <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">hub</span>
+<a id="__codelineno-0-569" name="__codelineno-0-569"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">hub</span>
 <a id="__codelineno-0-570" name="__codelineno-0-570"></a>
 <a id="__codelineno-0-571" name="__codelineno-0-571"></a>    <span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"login"</span><span class="p">:</span>
 <a id="__codelineno-0-572" name="__codelineno-0-572"></a>        <span class="n">key</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">""</span>
@@ -2646,7 +2646,7 @@ called when executing a script with arguments related to YOLO settings managemen
 <span class="normal"><a href="#__codelineno-0-615">615</a></span>
 <span class="normal"><a href="#__codelineno-0-616">616</a></span>
 <span class="normal"><a href="#__codelineno-0-617">617</a></span>
-<span class="normal"><a href="#__codelineno-0-618">618</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-580" name="__codelineno-0-580"></a><span class="k">def</span> <span class="nf">handle_yolo_settings</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-618">618</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-580" name="__codelineno-0-580"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_settings</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-581" name="__codelineno-0-581"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-582" name="__codelineno-0-582"></a><span class="sd">    Handles YOLO settings command-line interface (CLI) commands.</span>
 <a id="__codelineno-0-583" name="__codelineno-0-583"></a>
@@ -2891,7 +2891,7 @@ and other configuration parameters.</p>
 <span class="normal"><a href="#__codelineno-0-733">733</a></span>
 <span class="normal"><a href="#__codelineno-0-734">734</a></span>
 <span class="normal"><a href="#__codelineno-0-735">735</a></span>
-<span class="normal"><a href="#__codelineno-0-736">736</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-621" name="__codelineno-0-621"></a><span class="k">def</span> <span class="nf">handle_yolo_solutions</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-736">736</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-621" name="__codelineno-0-621"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_solutions</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-622" name="__codelineno-0-622"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-623" name="__codelineno-0-623"></a><span class="sd">    Processes YOLO solutions arguments and runs the specified computer vision solutions pipeline.</span>
 <a id="__codelineno-0-624" name="__codelineno-0-624"></a>
@@ -2973,7 +2973,7 @@ and other configuration parameters.</p>
 <a id="__codelineno-0-700" name="__codelineno-0-700"></a>    <span class="k">else</span><span class="p">:</span>
 <a id="__codelineno-0-701" name="__codelineno-0-701"></a>        <span class="bp">cls</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">SOLUTION_MAP</span><span class="p">[</span><span class="n">s_n</span><span class="p">]</span>  <span class="c1"># solution class name, method name and default source</span>
 <a id="__codelineno-0-702" name="__codelineno-0-702"></a>
-<a id="__codelineno-0-703" name="__codelineno-0-703"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">solutions</span>  <span class="c1"># import ultralytics solutions</span>
+<a id="__codelineno-0-703" name="__codelineno-0-703"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>  <span class="c1"># import ultralytics solutions</span>
 <a id="__codelineno-0-704" name="__codelineno-0-704"></a>
 <a id="__codelineno-0-705" name="__codelineno-0-705"></a>        <span class="n">solution</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">solutions</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)(</span><span class="n">IS_CLI</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">overrides</span><span class="p">)</span>  <span class="c1"># get solution class i.e ObjectCounter</span>
 <a id="__codelineno-0-706" name="__codelineno-0-706"></a>        <span class="n">process</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span>
@@ -2983,10 +2983,10 @@ and other configuration parameters.</p>
 <a id="__codelineno-0-710" name="__codelineno-0-710"></a>        <span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"source"</span><span class="p">])</span>  <span class="c1"># read the video file</span>
 <a id="__codelineno-0-711" name="__codelineno-0-711"></a>
 <a id="__codelineno-0-712" name="__codelineno-0-712"></a>        <span class="c1"># extract width, height and fps of the video file, create save directory and initialize video writer</span>
-<a id="__codelineno-0-713" name="__codelineno-0-713"></a>        <span class="kn">import</span> <span class="nn">os</span>  <span class="c1"># for directory creation</span>
-<a id="__codelineno-0-714" name="__codelineno-0-714"></a>        <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<a id="__codelineno-0-713" name="__codelineno-0-713"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>  <span class="c1"># for directory creation</span>
+<a id="__codelineno-0-714" name="__codelineno-0-714"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <a id="__codelineno-0-715" name="__codelineno-0-715"></a>
-<a id="__codelineno-0-716" name="__codelineno-0-716"></a>        <span class="kn">from</span> <span class="nn">ultralytics.utils.files</span> <span class="kn">import</span> <span class="n">increment_path</span>  <span class="c1"># for output directory path update</span>
+<a id="__codelineno-0-716" name="__codelineno-0-716"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.files</span><span class="w"> </span><span class="kn">import</span> <span class="n">increment_path</span>  <span class="c1"># for output directory path update</span>
 <a id="__codelineno-0-717" name="__codelineno-0-717"></a>
 <a id="__codelineno-0-718" name="__codelineno-0-718"></a>        <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
 <a id="__codelineno-0-719" name="__codelineno-0-719"></a>        <span class="k">if</span> <span class="n">s_n</span> <span class="o">==</span> <span class="s2">"analytics"</span><span class="p">:</span>  <span class="c1"># analytical graphs follow fixed shape for output i.e w=1920, h=1080</span>
@@ -3150,7 +3150,7 @@ and other configuration parameters.</p>
 <span class="normal"><a href="#__codelineno-0-767">767</a></span>
 <span class="normal"><a href="#__codelineno-0-768">768</a></span>
 <span class="normal"><a href="#__codelineno-0-769">769</a></span>
-<span class="normal"><a href="#__codelineno-0-770">770</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-739" name="__codelineno-0-739"></a><span class="k">def</span> <span class="nf">parse_key_value_pair</span><span class="p">(</span><span class="n">pair</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"key=value"</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-770">770</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-739" name="__codelineno-0-739"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_key_value_pair</span><span class="p">(</span><span class="n">pair</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"key=value"</span><span class="p">):</span>
 <a id="__codelineno-0-740" name="__codelineno-0-740"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-741" name="__codelineno-0-741"></a><span class="sd">    Parses a key-value pair string into separate key and value components.</span>
 <a id="__codelineno-0-742" name="__codelineno-0-742"></a>
@@ -3311,7 +3311,7 @@ is applicable.</p>
 <span class="normal"><a href="#__codelineno-0-812">812</a></span>
 <span class="normal"><a href="#__codelineno-0-813">813</a></span>
 <span class="normal"><a href="#__codelineno-0-814">814</a></span>
-<span class="normal"><a href="#__codelineno-0-815">815</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-773" name="__codelineno-0-773"></a><span class="k">def</span> <span class="nf">smart_value</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-815">815</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-773" name="__codelineno-0-773"></a><span class="k">def</span><span class="w"> </span><span class="nf">smart_value</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
 <a id="__codelineno-0-774" name="__codelineno-0-774"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-775" name="__codelineno-0-775"></a><span class="sd">    Converts a string representation of a value to its appropriate Python type.</span>
 <a id="__codelineno-0-776" name="__codelineno-0-776"></a>
@@ -3579,7 +3579,7 @@ executing the corresponding tasks such as training, validation, prediction, expo
 <span class="normal"><a href="#__codelineno-0-977">977</a></span>
 <span class="normal"><a href="#__codelineno-0-978">978</a></span>
 <span class="normal"><a href="#__codelineno-0-979">979</a></span>
-<span class="normal"><a href="#__codelineno-0-980">980</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-818" name="__codelineno-0-818"></a><span class="k">def</span> <span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-980">980</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-818" name="__codelineno-0-818"></a><span class="k">def</span><span class="w"> </span><span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <a id="__codelineno-0-819" name="__codelineno-0-819"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-820" name="__codelineno-0-820"></a><span class="sd">    Ultralytics entrypoint function for parsing and executing command-line arguments.</span>
 <a id="__codelineno-0-821" name="__codelineno-0-821"></a>
@@ -3691,19 +3691,19 @@ executing the corresponding tasks such as training, validation, prediction, expo
 <a id="__codelineno-0-927" name="__codelineno-0-927"></a>    <span class="n">overrides</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
 <a id="__codelineno-0-928" name="__codelineno-0-928"></a>    <span class="n">stem</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <a id="__codelineno-0-929" name="__codelineno-0-929"></a>    <span class="k">if</span> <span class="s2">"rtdetr"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>  <span class="c1"># guess architecture</span>
-<a id="__codelineno-0-930" name="__codelineno-0-930"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">RTDETR</span>
+<a id="__codelineno-0-930" name="__codelineno-0-930"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">RTDETR</span>
 <a id="__codelineno-0-931" name="__codelineno-0-931"></a>
 <a id="__codelineno-0-932" name="__codelineno-0-932"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">RTDETR</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>  <span class="c1"># no task argument</span>
 <a id="__codelineno-0-933" name="__codelineno-0-933"></a>    <span class="k">elif</span> <span class="s2">"fastsam"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
-<a id="__codelineno-0-934" name="__codelineno-0-934"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">FastSAM</span>
+<a id="__codelineno-0-934" name="__codelineno-0-934"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastSAM</span>
 <a id="__codelineno-0-935" name="__codelineno-0-935"></a>
 <a id="__codelineno-0-936" name="__codelineno-0-936"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">FastSAM</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <a id="__codelineno-0-937" name="__codelineno-0-937"></a>    <span class="k">elif</span> <span class="s2">"sam_"</span> <span class="ow">in</span> <span class="n">stem</span> <span class="ow">or</span> <span class="s2">"sam2_"</span> <span class="ow">in</span> <span class="n">stem</span> <span class="ow">or</span> <span class="s2">"sam2.1_"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
-<a id="__codelineno-0-938" name="__codelineno-0-938"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">SAM</span>
+<a id="__codelineno-0-938" name="__codelineno-0-938"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAM</span>
 <a id="__codelineno-0-939" name="__codelineno-0-939"></a>
 <a id="__codelineno-0-940" name="__codelineno-0-940"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <a id="__codelineno-0-941" name="__codelineno-0-941"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-942" name="__codelineno-0-942"></a>        <span class="kn">from</span> <span class="nn">ultralytics</span> <span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-0-942" name="__codelineno-0-942"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <a id="__codelineno-0-943" name="__codelineno-0-943"></a>
 <a id="__codelineno-0-944" name="__codelineno-0-944"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">)</span>
 <a id="__codelineno-0-945" name="__codelineno-0-945"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"pretrained"</span><span class="p">),</span> <span class="nb">str</span><span class="p">):</span>
@@ -3801,7 +3801,7 @@ to create a custom configuration file based on the default settings.</p>
 <span class="normal"><a href="#__codelineno-0-1007">1007</a></span>
 <span class="normal"><a href="#__codelineno-0-1008">1008</a></span>
 <span class="normal"><a href="#__codelineno-0-1009">1009</a></span>
-<span class="normal"><a href="#__codelineno-0-1010">1010</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-984" name="__codelineno-0-984"></a><span class="k">def</span> <span class="nf">copy_default_cfg</span><span class="p">():</span>
+<span class="normal"><a href="#__codelineno-0-1010">1010</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-984" name="__codelineno-0-984"></a><span class="k">def</span><span class="w"> </span><span class="nf">copy_default_cfg</span><span class="p">():</span>
 <a id="__codelineno-0-985" name="__codelineno-0-985"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-986" name="__codelineno-0-986"></a><span class="sd">    Copies the default configuration file and creates a new one with '_copy' appended to its name.</span>
 <a id="__codelineno-0-987" name="__codelineno-0-987"></a>
@@ -3838,7 +3838,7 @@ to create a custom configuration file based on the default settings.</p>
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on December 24, 2024">
-<span class="hover-item">✏️</span> Updated 10 days ago
+<span class="hover-item">✏️</span> Updated 12 days ago
     </span>
 </div>
 <div class="authors-container">
