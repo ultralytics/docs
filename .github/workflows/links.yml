@@ -21,7 +21,13 @@ jobs:
     strategy:
       fail-fast: false # This ensures that if one job fails, the others will still run
       matrix:
-        website: [www.ultralytics.com, docs.ultralytics.com, community.ultralytics.com, handbook.ultralytics.com]
+        website:
+          [
+            www.ultralytics.com,
+            docs.ultralytics.com,
+            community.ultralytics.com,
+            handbook.ultralytics.com,
+          ]
     steps:
       - name: Download and install lychee
         run: |
@@ -39,7 +45,7 @@ jobs:
           echo "Downloading sitemap..."
           SITEMAP=$(wget -qO- "https://${{ matrix.website }}/sitemap.xml") || { echo "Failed to download sitemap"; exit 1; }
           echo "$SITEMAP" | parse_sitemap > urls.txt
-          
+
           # Process any subsitemaps if they exist
           if grep -q 'sitemap' urls.txt; then
             echo "Found subsitemaps, processing..."
