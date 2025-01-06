@@ -52,6 +52,13 @@ jobs:
           total_urls=$(wc -l < urls.txt)
           echo "Total URLs to be downloaded: $total_urls"
 
+          # Set higher wait seconds for discourse community to avoid 429 rate limit errors
+          if [ "${{ matrix.website }}" = "community.ultralytics.com" ]; then
+            WAIT=1
+          else
+            WAIT=0.001
+          fi
+
           # Download all URLs
           wget \
           --adjust-extension \
@@ -59,7 +66,7 @@ jobs:
           --input-file=urls.txt \
           --no-clobber \
           --no-parent \
-          --wait=0.001 \
+          --wait=$WAIT \
           --random-wait \
           --tries=3 \
           --no-verbose \
