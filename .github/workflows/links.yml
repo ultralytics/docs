@@ -34,10 +34,10 @@ jobs:
           parse_sitemap() {
             cat | tr '\n' ' ' | sed 's/<loc>/\n<loc>/g' | grep -oP '(?<=<loc>).*?(?=</loc>)'
           }
-          
+
           # Download initial sitemap and process
           wget -qO- https://${{ matrix.website }}/sitemap.xml | parse_sitemap > urls.txt
-          
+
           # Process any subsitemaps if they exist
           if grep -q 'sitemap' urls.txt; then
             grep 'sitemap' urls.txt > subsitemaps.txt
@@ -47,11 +47,11 @@ jobs:
             done < subsitemaps.txt
             mv urls.tmp urls.txt
           fi
-          
+
           # Count URLs
           total_urls=$(wc -l < urls.txt)
           echo "Total URLs to be downloaded: $total_urls"
-      
+
           # Download all URLs
           wget \
           --adjust-extension \
@@ -104,7 +104,7 @@ jobs:
             # Ignore lines starting with [TIMEOUT] on the next line or keep them in the following line
             ESCAPED_SUMMARY=$(awk '!/^\[TIMEOUT\]/ {printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
             ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
-            
+
             echo "SUMMARY<<EOF" >> $GITHUB_ENV
             echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
