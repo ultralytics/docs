@@ -38,24 +38,19 @@ jobs:
           # Download initial sitemap and process
           echo "Downloading sitemap..."
           SITEMAP=$(wget -qO- "https://${{ matrix.website }}/sitemap.xml") || { echo "Failed to download sitemap"; exit 1; }
-          echo "Downloaded sitemap content:"
-          echo "$SITEMAP" | head -n 5
-
-          echo "Parsing sitemap..."
           echo "$SITEMAP" | parse_sitemap > urls.txt
-          echo "Initial parsed URLs:"
-          head -n 5 urls.txt
-
+          
           # Process any subsitemaps if they exist
           if grep -q 'sitemap' urls.txt; then
             echo "Found subsitemaps, processing..."
             grep 'sitemap' urls.txt > subsitemaps.txt
-            grep -v 'sitemap' urls.txt > urls.tmp
-            while read submap; do
+            grep -v 'sitemap' urls.txt > urls.tmp || true
+            while read -r submap; do
               echo "Processing submap: $submap"
-              wget -qO- "$submap" | parse_sitemap >> urls.tmp
+              SUBMAP_CONTENT=$(wget -qO- "$submap") || { echo "Failed to download submap: $submap"; continue; }
+              echo "$SUBMAP_CONTENT" | parse_sitemap >> urls.tmp
             done < subsitemaps.txt
-            mv urls.tmp urls.txt
+            mv urls.tmp urls.txt || true
           fi
 
           # Count URLs
