@@ -21,40 +21,63 @@ jobs:
     strategy:
       fail-fast: false # This ensures that if one job fails, the others will still run
       matrix:
-        website: [www.ultralytics.com, docs.ultralytics.com]
+        website: [www.ultralytics.com, docs.ultralytics.com, community.ultralytics.com, handbook.ultralytics.com]
     steps:
       - name: Download and install lychee
         run: |
           LYCHEE_URL=$(curl -s https://api.github.com/repos/lycheeverse/lychee/releases/latest | grep "browser_download_url" | grep "x86_64-unknown-linux-gnu.tar.gz" | cut -d '"' -f 4)
           curl -L $LYCHEE_URL | tar xz -C /usr/local/bin
 
-      - name: Download Website
+      - name: Get Website URLs
         run: |
-          # Download sitemap.xml
-          wget -O sitemap.xml https://${{ matrix.website }}/sitemap.xml
+          # Function to parse sitemap URLs
+          parse_sitemap() {
+            cat - | tr '\n' ' ' | sed 's/<loc>/\n<loc>/g' | grep -oP '(?<=<loc>).*?(?=</loc>)' || true
+          }
 
-          # Parse URLs using a combination of tr, sed, and grep
-          tr '\n' ' ' < sitemap.xml | \
-            sed 's/<loc>/\n<loc>/g' | \
-            grep -oP '(?<=<loc>).*?(?=</loc>)' | \
-            sed 's/^[[:space:]]*//;s/[[:space:]]*$//' > urls.txt
+          # Download initial sitemap and process
+          echo "Downloading sitemap..."
+          SITEMAP=$(wget -qO- "https://${{ matrix.website }}/sitemap.xml") || { echo "Failed to download sitemap"; exit 1; }
+          echo "$SITEMAP" | parse_sitemap > urls.txt
+          
+          # Process any subsitemaps if they exist
+          if grep -q 'sitemap' urls.txt; then
+            echo "Found subsitemaps, processing..."
+            grep 'sitemap' urls.txt > subsitemaps.txt
+            grep -v 'sitemap' urls.txt > urls.tmp || true
+            while read -r submap; do
+              echo "Processing submap: $submap"
+              SUBMAP_CONTENT=$(wget -qO- "$submap") || { echo "Failed to download submap: $submap"; continue; }
+              echo "$SUBMAP_CONTENT" | parse_sitemap >> urls.tmp
+            done < subsitemaps.txt
+            mv urls.tmp urls.txt || true
+          fi
 
-          # Count total URLs to be downloaded
+          # Count URLs
           total_urls=$(wc -l < urls.txt)
           echo "Total URLs to be downloaded: $total_urls"
 
+      - name: Download Website
+        run: |
+          # Set higher wait seconds for discourse community to avoid 429 rate limit errors
+          if [ "${{ matrix.website }}" = "community.ultralytics.com" ]; then
+            WAIT=1
+          else
+            WAIT=0.001
+          fi
+
           # Download all URLs
           wget \
-            --adjust-extension \
-            --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
-            --input-file=urls.txt \
-            --no-clobber \
-            --no-parent \
-            --wait=0.001 \
-            --random-wait \
-            --tries=3 \
-            --no-verbose \
-            --force-directories
+          --adjust-extension \
+          --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
+          --input-file=urls.txt \
+          --no-clobber \
+          --no-parent \
+          --wait=$WAIT \
+          --random-wait \
+          --tries=3 \
+          --no-verbose \
+          --force-directories
 
       - name: Run Broken Link Checks on Website
         id: lychee
@@ -95,7 +118,7 @@ jobs:
             # Ignore lines starting with [TIMEOUT] on the next line or keep them in the following line
             ESCAPED_SUMMARY=$(awk '!/^\[TIMEOUT\]/ {printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
             ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
-            
+
             echo "SUMMARY<<EOF" >> $GITHUB_ENV
             echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
