@@ -30,31 +30,43 @@ jobs:
 
       - name: Download Website
         run: |
-          # Download sitemap.xml
-          wget -O sitemap.xml https://${{ matrix.website }}/sitemap.xml
-
-          # Parse URLs using a combination of tr, sed, and grep
-          tr '\n' ' ' < sitemap.xml | \
+          # Function to parse sitemap URLs
+          parse_sitemap() {
+            tr '\n' ' ' < "$1" | \
             sed 's/<loc>/\n<loc>/g' | \
-            grep -oP '(?<=<loc>).*?(?=</loc>)' | \
-            sed 's/^[[:space:]]*//;s/[[:space:]]*$//' > urls.txt
+            grep -oP '(?<=<loc>).*?(?=</loc>)'
+          }
+      
+          # Download initial sitemap
+          wget -O sitemap.xml https://${{ matrix.website }}/sitemap.xml
+          
+          # Extract URLs and process any subsitemaps if they exist
+          parse_sitemap sitemap.xml > urls.txt
+          if grep -q 'sitemap' urls.txt; then
+            grep 'sitemap' urls.txt > subsitemaps.txt
+            grep -v 'sitemap' urls.txt > urls.tmp
+            while read submap; do
+              wget -O - "$submap" | parse_sitemap - >> urls.tmp
+            done < subsitemaps.txt
+            mv urls.tmp urls.txt
+          fi
 
-          # Count total URLs to be downloaded
+          # Count and download URLs
           total_urls=$(wc -l < urls.txt)
           echo "Total URLs to be downloaded: $total_urls"
-
+      
           # Download all URLs
           wget \
-            --adjust-extension \
-            --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
-            --input-file=urls.txt \
-            --no-clobber \
-            --no-parent \
-            --wait=0.001 \
-            --random-wait \
-            --tries=3 \
-            --no-verbose \
-            --force-directories
+          --adjust-extension \
+          --reject "*.jpg*,*.jpeg*,*.png*,*.gif*,*.webp*,*.svg*,*.txt" \
+          --input-file=urls.txt \
+          --no-clobber \
+          --no-parent \
+          --wait=0.001 \
+          --random-wait \
+          --tries=3 \
+          --no-verbose \
+          --force-directories
 
       - name: Run Broken Link Checks on Website
         id: lychee
