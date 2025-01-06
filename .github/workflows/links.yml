@@ -32,18 +32,18 @@ jobs:
         run: |
           # Function to parse sitemap URLs
           parse_sitemap() {
-            cat | tr '\n' ' ' | sed 's/<loc>/\n<loc>/g' | grep -oP '(?<=<loc>).*?(?=</loc>)'
+            cat - | tr '\n' ' ' | sed 's/<loc>/\n<loc>/g' | grep -oP '(?<=<loc>).*?(?=</loc>)'
           }
 
           # Download initial sitemap and process
-          wget -qO- https://${{ matrix.website }}/sitemap.xml | parse_sitemap > urls.txt
+          wget -qO- "https://${{ matrix.website }}/sitemap.xml" | parse_sitemap > urls.txt || exit 1
 
           # Process any subsitemaps if they exist
           if grep -q 'sitemap' urls.txt; then
             grep 'sitemap' urls.txt > subsitemaps.txt
             grep -v 'sitemap' urls.txt > urls.tmp
             while read submap; do
-              wget -qO- "$submap" | parse_sitemap >> urls.tmp
+              wget -qO- "$submap" | parse_sitemap >> urls.tmp || exit 1
             done < subsitemaps.txt
             mv urls.tmp urls.txt
           fi
