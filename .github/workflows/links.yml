@@ -32,26 +32,23 @@ jobs:
         run: |
           # Function to parse sitemap URLs
           parse_sitemap() {
-            tr '\n' ' ' < "$1" | \
-            sed 's/<loc>/\n<loc>/g' | \
-            grep -oP '(?<=<loc>).*?(?=</loc>)'
+            cat | tr '\n' ' ' | sed 's/<loc>/\n<loc>/g' | grep -oP '(?<=<loc>).*?(?=</loc>)'
           }
-      
-          # Download initial sitemap
-          wget -O sitemap.xml https://${{ matrix.website }}/sitemap.xml
           
-          # Extract URLs and process any subsitemaps if they exist
-          parse_sitemap sitemap.xml > urls.txt
+          # Download initial sitemap and process
+          wget -qO- https://${{ matrix.website }}/sitemap.xml | parse_sitemap > urls.txt
+          
+          # Process any subsitemaps if they exist
           if grep -q 'sitemap' urls.txt; then
             grep 'sitemap' urls.txt > subsitemaps.txt
             grep -v 'sitemap' urls.txt > urls.tmp
             while read submap; do
-              wget -O - "$submap" | parse_sitemap - >> urls.tmp
+              wget -qO- "$submap" | parse_sitemap >> urls.tmp
             done < subsitemaps.txt
             mv urls.tmp urls.txt
           fi
-
-          # Count and download URLs
+          
+          # Count URLs
           total_urls=$(wc -l < urls.txt)
           echo "Total URLs to be downloaded: $total_urls"
       
