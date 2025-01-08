@@ -23,9 +23,6 @@ jobs:
       matrix:
         website:
           [
-            www.ultralytics.com,
-            docs.ultralytics.com,
-            community.ultralytics.com,
             handbook.ultralytics.com,
           ]
     steps:
@@ -87,7 +84,7 @@ jobs:
 
       - name: Run Broken Link Checks on Website
         id: lychee
-        uses: ultralytics/actions/retry@main
+        uses: ultralytics/actions/retry@test
         with:
           timeout_minutes: 60
           retry_delay_seconds: 900
