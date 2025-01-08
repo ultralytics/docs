@@ -122,7 +122,7 @@ jobs:
 
             # Prepare the summary for Slack (escape newlines, remove [], remove .html, and escape special characters)
             # Ignore lines starting with [TIMEOUT] on the next line or keep them in the following line
-            ESCAPED_SUMMARY=$(awk '!/^\[TIMEOUT\]/ {printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
+            # ESCAPED_SUMMARY=$(awk '!/^\[TIMEOUT\]/ {printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
             ESCAPED_SUMMARY=$(awk '{printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
 
             echo "SUMMARY<<EOF" >> $GITHUB_ENV
