@@ -4037,13 +4037,13 @@ during training.</p>
 <table>
 <thead>
 <tr>
-<th>Name</th> <th>Type</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>bool</code></td> <td>
+<td>
 <code>bool</code>
 </td>
 <td>
@@ -4065,16 +4065,18 @@ during training.</p>
 <span class="normal"><a href="#__codelineno-0-791">791</a></span>
 <span class="normal"><a href="#__codelineno-0-792">792</a></span>
 <span class="normal"><a href="#__codelineno-0-793">793</a></span>
-<span class="normal"><a href="#__codelineno-0-794">794</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-785" name="__codelineno-0-785"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_sudo_available</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-794">794</a></span>
+<span class="normal"><a href="#__codelineno-0-795">795</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-785" name="__codelineno-0-785"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_sudo_available</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-0-786" name="__codelineno-0-786"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-787" name="__codelineno-0-787"></a><span class="sd">    Check if the sudo command is available in the environment.</span>
 <a id="__codelineno-0-788" name="__codelineno-0-788"></a>
 <a id="__codelineno-0-789" name="__codelineno-0-789"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-790" name="__codelineno-0-790"></a><span class="sd">        bool: True if the sudo command is available, False otherwise.</span>
+<a id="__codelineno-0-790" name="__codelineno-0-790"></a><span class="sd">        (bool): True if the sudo command is available, False otherwise.</span>
 <a id="__codelineno-0-791" name="__codelineno-0-791"></a><span class="sd">    """</span>
 <a id="__codelineno-0-792" name="__codelineno-0-792"></a>    <span class="k">if</span> <span class="n">WINDOWS</span><span class="p">:</span>
 <a id="__codelineno-0-793" name="__codelineno-0-793"></a>        <span class="k">return</span> <span class="kc">False</span>
-<a id="__codelineno-0-794" name="__codelineno-0-794"></a>    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"sudo --version"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">)</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span>
+<a id="__codelineno-0-794" name="__codelineno-0-794"></a>    <span class="n">cmd</span> <span class="o">=</span> <span class="s2">"sudo --version"</span>
+<a id="__codelineno-0-795" name="__codelineno-0-795"></a>    <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">)</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
