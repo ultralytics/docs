@@ -163,6 +163,8 @@ jobs:
             # Check if lychee found any broken links
             if grep -q "0 Errors" summary.txt; then
               echo "No broken links found."
+              # Retry step may need exit 0
+              exit 0
             else
               echo "Broken links found."
               exit 1
