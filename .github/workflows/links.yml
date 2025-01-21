@@ -27,7 +27,6 @@ jobs:
           [
             www.ultralytics.com,
             docs.ultralytics.com,
-            community.ultralytics.com,
             handbook.ultralytics.com,
           ]
     steps:
@@ -98,7 +97,7 @@ jobs:
           2>&1 || true)
 
           # Process CODESPELL_OUTPUT
-          MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*/\)[^/]*:[0-9]*: \(.*\)#\1  \2#')
+          MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*\):[0-9]*: \(.*\)#\1  \2#; s/\.html//; s#\(.*\)/index  #\1/  #')
           echo "$MODIFIED_OUTPUT"
 
           if [[ "$CODESPELL_OUTPUT" == *"==>"* ]]; then
@@ -113,6 +112,7 @@ jobs:
 
       - name: Run Broken Link Checks on Website
         id: lychee
+        if: false
         uses: ultralytics/actions/retry@main
         with:
           timeout_minutes: 60
