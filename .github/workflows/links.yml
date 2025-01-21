@@ -3,7 +3,6 @@
 # Continuous Integration (CI) GitHub Actions tests broken link checker using https://github.com/lycheeverse/lychee
 # Ignores the following status codes to reduce false positives:
 #   - 401(Vimeo, 'unauthorized')
-
 #   - 403(OpenVINO, 'forbidden')
 #   - 429(Instagram, 'too many requests')
 #   - 500(Zenodo, 'cached')
@@ -26,7 +25,9 @@ jobs:
       matrix:
         website:
           [
+            www.ultralytics.com,
             docs.ultralytics.com,
+            community.ultralytics.com,
             handbook.ultralytics.com,
           ]
     steps:
@@ -122,7 +123,6 @@ jobs:
       - name: Run Broken Link Checks on Website
         id: lychee
         uses: ultralytics/actions/retry@main
-        if: false
         with:
           timeout_minutes: 60
           retry_delay_seconds: 900
