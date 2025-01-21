@@ -96,25 +96,16 @@ jobs:
           --ignore-words-list "crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin,referer,pre,uint,dto,linkedin,webp,webgl,href,onclick,github,api,http,png,svg,gif,jpg,jpeg,href,js" \
           --skip "*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,*lock*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/??/*.md,./docs/mkdocs_??.yml" \
           2>&1 || true)
-          echo "$CODESPELL_OUTPUT"
 
           # Process CODESPELL_OUTPUT
           MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*/\)[^/]*:[0-9]*: \(.*\)#\1  \2#')
           echo "$MODIFIED_OUTPUT"
 
-          # Check for spelling errors
           if [[ "$CODESPELL_OUTPUT" == *"==>"* ]]; then
             echo "Spelling errors found ⚠️"
-
-            echo "CODESPELL_SUMMARY<<EOF" >> $GITHUB_ENV
-            echo "## 📝 Spelling Errors" >> $GITHUB_ENV
-            # Use MODIFIED_OUTPUT here instead of CODESPELL_OUTPUT
-            echo "$MODIFIED_OUTPUT" >> $GITHUB_ENV
-            echo "EOF" >> $GITHUB_ENV
-
-            # Set output for Slack notification
-            echo "CODESPELL_ERRORS=$CODESPELL_SUMMARY" >> $GITHUB_OUTPUT
             echo "CODESPELL_FAILED=true" >> $GITHUB_OUTPUT
+            echo "## 📝 Spelling Errors" >> $GITHUB_STEP_SUMMARY
+            echo "$MODIFIED_OUTPUT" >> $GITHUB_STEP_SUMMARY 
           else
             echo "No spelling errors found ✅"
             echo "CODESPELL_FAILED=false" >> $GITHUB_OUTPUT
