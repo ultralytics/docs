@@ -23,11 +23,7 @@ jobs:
       fail-fast: false # This ensures that if one job fails, the others will still run
       matrix:
         website:
-          [
-            www.ultralytics.com,
-            docs.ultralytics.com,
-            handbook.ultralytics.com,
-          ]
+          [www.ultralytics.com, docs.ultralytics.com, handbook.ultralytics.com]
     steps:
       - name: Download and install lychee
         run: |
@@ -94,19 +90,19 @@ jobs:
           --ignore-words-list "FPR,Hach,Calle,ore,COO,MOT,crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin" \
           --skip "*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,*lock*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/??/*.md,./docs/mkdocs_??.yml" \
           2>&1 || true)
-      
+
           # Process CODESPELL_OUTPUT 
           MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*\):[0-9]*: \(.*\)#\1  \2#; s/\.html//; s#\(.*\)/index  #\1/  #')
-      
+
           # Prepare the output for Slack with explicit newlines
           ESCAPED_OUTPUT=$(echo "$MODIFIED_OUTPUT" | awk '{printf "%s\\n", $0}')
-          
+
           echo "CODESPELL_ERRORS<<EOF" >> $GITHUB_ENV
           echo "$ESCAPED_OUTPUT" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-      
+
           echo "$MODIFIED_OUTPUT"
-      
+
           if [[ "$CODESPELL_OUTPUT" == *"==>"* ]]; then
             echo "Spelling errors found ⚠️"
             echo "## 📝 Spelling Errors" >> $GITHUB_STEP_SUMMARY
