@@ -95,7 +95,7 @@ jobs:
 
           # Check for spelling errors
           if [[ "$CODESPELL_OUTPUT" == *"misspelled"* ]]; then
-            echo "Spelling errors found."
+            echo "Spelling errors found ⚠️"
 
             # Extract misspelled words and their locations
             ERROR_DETAILS=$(echo "$CODESPELL_OUTPUT" | sed -n 's/.*\(..\/[^:]*\):[0-9]*: \(.*\) -->.*/\1:\2/p' | sed 's/-->.*//')
@@ -118,7 +118,7 @@ jobs:
             echo "CODESPELL_ERRORS=$ESCAPED_ERROR_DETAILS_EMOJI" >> $GITHUB_OUTPUT
             echo "CODESPELL_FAILED=true" >> $GITHUB_OUTPUT
           else
-            echo "No spelling errors found."
+            echo "No spelling errors found ✅"
             echo "CODESPELL_FAILED=false" >> $GITHUB_OUTPUT
           fi
 
