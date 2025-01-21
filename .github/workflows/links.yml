@@ -95,12 +95,16 @@ jobs:
           --ignore-words-list "ore,COO,MOT,crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin,referer,pre,uint,dto,linkedin,webp,webgl,href,onclick,github,api,http,png,svg,gif,jpg,jpeg,href,js" \
           --skip "*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,*lock*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/??/*.md,./docs/mkdocs_??.yml" \
           2>&1 || true)
-
-          # Process CODESPELL_OUTPUT
+      
+          # Process CODESPELL_OUTPUT and escape for multiline
           MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*\):[0-9]*: \(.*\)#\1  \2#; s/\.html//; s#\(.*\)/index  #\1/  #')
+      
+          echo "CODESPELL_ERRORS<<EOF" >> $GITHUB_ENV
+          echo "$MODIFIED_OUTPUT" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+      
           echo "$MODIFIED_OUTPUT"
-          echo "CODESPELL_ERRORS=$MODIFIED_OUTPUT" >> $GITHUB_OUTPUT
-
+      
           if [[ "$CODESPELL_OUTPUT" == *"==>"* ]]; then
             echo "Spelling errors found ⚠️"
             echo "## 📝 Spelling Errors" >> $GITHUB_STEP_SUMMARY
@@ -178,5 +182,5 @@ jobs:
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
             {
-              "text": "GitHub Actions: Spelling errors found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n*📝 Spelling Errors:*\n${{ steps.codespell.outputs.CODESPELL_ERRORS }}\n"
+              "text": "GitHub Actions: Spelling errors found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n*📝 Spelling Errors:*\n${{ env.CODESPELL_ERRORS }}\n"
             }
