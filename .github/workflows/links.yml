@@ -164,11 +164,6 @@ jobs:
               exit 1
             fi
 
-      - name: Add spelling errors to GitHub Summary
-        if: always() && steps.codespell.outputs.CODESPELL_FAILED == 'true'
-        run: |
-          echo "${{ env.CODESPELL_SUMMARY }}" >> $GITHUB_STEP_SUMMARY
-
       - name: Notify Slack for broken links
         if: always() && steps.lychee.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
         uses: slackapi/slack-github-action@v2.0.0
