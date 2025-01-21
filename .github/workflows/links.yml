@@ -89,32 +89,27 @@ jobs:
 
       - name: Run codespell on downloaded pages
         id: codespell
-        continue-on-error: true  # Ensure the workflow continues even if spelling errors are found
+        # continue-on-error: true  # Still needed to skip to later steps on errors
         run: |
           pip install codespell
-          CODESPELL_OUTPUT=$(find ${{ matrix.website }} -type f -name "*.html" -print0 | xargs -0 codespell \
+          if ! codespell \
           --ignore-words-list "crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin,referer,pre,uint,dto,linkedin,webp,webgl,href,onclick,github,api,http,png,svg,gif,jpg,jpeg,href,js" \
           --skip "*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,*lock*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/??/*.md,./docs/mkdocs_??.yml" \
-          2>&1 || true)
-          echo "$CODESPELL_OUTPUT"
-
-          # Process CODESPELL_OUTPUT
-          MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*/\)[^/]*:[0-9]*: \(.*\)#\1  \2#')
-          echo "$MODIFIED_OUTPUT"
-
-          # Check for spelling errors
-          if [[ "$CODESPELL_OUTPUT" == *"==>"* ]]; then
+          --check-filenames \
+          --check-hidden \
+          ${{ matrix.website }}; then
             echo "Spelling errors found ⚠️"
-
-            echo "CODESPELL_SUMMARY<<EOF" >> $GITHUB_ENV
-            echo "## 📝 Spelling Errors" >> $GITHUB_ENV
-            # Use MODIFIED_OUTPUT here instead of CODESPELL_OUTPUT
-            echo "$MODIFIED_OUTPUT" >> $GITHUB_ENV
-            echo "EOF" >> $GITHUB_ENV
-
-            # Set output for Slack notification
-            echo "CODESPELL_ERRORS=$CODESPELL_SUMMARY" >> $GITHUB_OUTPUT
             echo "CODESPELL_FAILED=true" >> $GITHUB_OUTPUT
+
+            # Add spelling errors to GitHub Summary automatically by codespell
+            echo "## 📝 Spelling Errors" >> $GITHUB_STEP_SUMMARY
+            codespell -D ${{ matrix.website }} >> $GITHUB_STEP_SUMMARY
+
+            # Prepare a summary for Slack
+            CODESPELL_SUMMARY=$(codespell -D ${{ matrix.website }} | sed 's/"/\\"/g') # Escape double quotes for JSON
+            echo "CODESPELL_ERRORS<<EOF" >> $GITHUB_OUTPUT
+            echo "$CODESPELL_SUMMARY" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
           else
             echo "No spelling errors found ✅"
             echo "CODESPELL_FAILED=false" >> $GITHUB_OUTPUT
