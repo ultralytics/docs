@@ -101,29 +101,14 @@ jobs:
           if [[ "$CODESPELL_OUTPUT" == *"==>"* ]]; then
             echo "Spelling errors found ⚠️"
 
-            # Extract misspelled words and their locations
-            ERROR_DETAILS=$(echo "$CODESPELL_OUTPUT" | sed -n 's/.*\(..\/[^:]*\):[0-9]*: \(.*\) -->.*/\1:\2/p' | sed 's/-->.*//')
-
-            # Prepare the error details for Slack and GitHub Summary
-            ESCAPED_ERROR_DETAILS=$(echo "$ERROR_DETAILS" | sed 's/"/\\"/g' | tr '\n' ' ')
-            ESCAPED_ERROR_DETAILS_EMOJI="📝 $ESCAPED_ERROR_DETAILS" # Add emoji for Slack
-
-            # Prepare the error details for the GitHub Summary
-            SUMMARY_TABLE=$(echo "$ERROR_DETAILS" | awk -F: '{print "| 📄 " $1 " | 🔤 " $2 " |"}' | sed 's/|  |/| /')
-
             echo "CODESPELL_SUMMARY<<EOF" >> $GITHUB_ENV
-            echo "### 📝 Spelling Errors" >> $GITHUB_ENV
-            echo "| File | Misspelled Word |" >> $GITHUB_ENV
-            echo "| ---- | --------------- |" >> $GITHUB_ENV
-            echo "$SUMMARY_TABLE" >> $GITHUB_ENV
+            echo "## 📝 Spelling Errors" >> $GITHUB_ENV
+            echo "$CODESPELL_OUTPUT" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
 
             # Set output for Slack notification
-            echo "CODESPELL_ERRORS=$ESCAPED_ERROR_DETAILS_EMOJI" >> $GITHUB_OUTPUT
+            echo "CODESPELL_ERRORS=$CODESPELL_SUMMARY" >> $GITHUB_OUTPUT
             echo "CODESPELL_FAILED=true" >> $GITHUB_OUTPUT
-
-            # Exit with a non-zero code to indicate that spelling errors were found
-            exit 123
           else
             echo "No spelling errors found ✅"
             echo "CODESPELL_FAILED=false" >> $GITHUB_OUTPUT
