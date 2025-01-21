@@ -88,7 +88,7 @@ jobs:
 
       - name: Run codespell on downloaded pages
         id: codespell
-        continue-on-error: true  # Ensure the workflow continues even if spelling errors are found
+        continue-on-error: true
         run: |
           pip install codespell
           CODESPELL_OUTPUT=$(find ${{ matrix.website }} -type f -name "*.html" -print0 | xargs -0 codespell \
@@ -112,7 +112,6 @@ jobs:
 
       - name: Run Broken Link Checks on Website
         id: lychee
-        if: false
         uses: ultralytics/actions/retry@main
         with:
           timeout_minutes: 60
