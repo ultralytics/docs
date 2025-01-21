@@ -24,9 +24,6 @@ jobs:
       matrix:
         website:
           [
-            www.ultralytics.com,
-            docs.ultralytics.com,
-            community.ultralytics.com,
             handbook.ultralytics.com,
           ]
     steps:
@@ -86,6 +83,46 @@ jobs:
           --no-verbose \
           --force-directories
 
+      - name: Install codespell
+
+      - name: Run codespell on downloaded pages
+        id: codespell
+        continue-on-error: true
+        run: |
+          # Run codespell and capture output
+          pip install codespell
+          CODESPELL_OUTPUT=$(find ${{ matrix.website }} -type f -name "*.html" -print0 | xargs -0 codespell --ignore-words-list="referer,pre,uint,dto,linkedin,webp,webgl,href,onclick,github,api,http,png,svg,gif,jpg,jpeg,href,js" 2>&1)
+          echo "$CODESPELL_OUTPUT"
+
+          # Check for spelling errors
+          if [[ "$CODESPELL_OUTPUT" == *"misspelled"* ]]; then
+            echo "Spelling errors found."
+
+            # Extract misspelled words and their locations
+            ERROR_DETAILS=$(echo "$CODESPELL_OUTPUT" | sed -n 's/.*\(..\/[^:]*\):[0-9]*: \(.*\) -->.*/\1:\2/p' | sed 's/-->.*//')
+
+            # Prepare the error details for Slack and GitHub Summary
+            ESCAPED_ERROR_DETAILS=$(echo "$ERROR_DETAILS" | sed 's/"/\\"/g' | tr '\n' ' ')
+            ESCAPED_ERROR_DETAILS_EMOJI="📝 $ESCAPED_ERROR_DETAILS" # Add emoji for Slack
+
+            # Prepare the error details for the GitHub Summary
+            SUMMARY_TABLE=$(echo "$ERROR_DETAILS" | awk -F: '{print "| 📄 " $1 " | 🔤 " $2 " |"}' | sed 's/|  |/| /')
+
+            echo "CODESPELL_SUMMARY<<EOF" >> $GITHUB_ENV
+            echo "### 📝 Spelling Errors" >> $GITHUB_ENV
+            echo "| File | Misspelled Word |" >> $GITHUB_ENV
+            echo "| ---- | --------------- |" >> $GITHUB_ENV
+            echo "$SUMMARY_TABLE" >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+
+            # Set output for Slack notification
+            echo "CODESPELL_ERRORS=$ESCAPED_ERROR_DETAILS_EMOJI" >> $GITHUB_OUTPUT
+            echo "CODESPELL_FAILED=true" >> $GITHUB_OUTPUT
+          else
+            echo "No spelling errors found."
+            echo "CODESPELL_FAILED=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Run Broken Link Checks on Website
         id: lychee
         uses: ultralytics/actions/retry@main
@@ -139,7 +176,12 @@ jobs:
               exit 1
             fi
 
-      - name: Check for failure and notify
+      - name: Add spelling errors to GitHub Summary
+        if: always() && steps.codespell.outputs.CODESPELL_FAILED == 'true'
+        run: |
+          echo "${{ env.CODESPELL_SUMMARY }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Notify Slack for broken links
         if: always() && steps.lychee.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
         uses: slackapi/slack-github-action@v2.0.0
         with:
@@ -147,3 +189,14 @@ jobs:
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
             text: "GitHub Actions: Errors found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"
+
+      - name: Notify Slack for spelling errors
+        if: always() && steps.codespell.outputs.CODESPELL_FAILED == 'true' && github.event_name == 'schedule' && github.run_attempt == '1'
+        uses: slackapi/slack-github-action@v2.0.0
+        with:
+          webhook-type: incoming-webhook
+          webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
+          payload: |
+            {
+              "text": "GitHub Actions: Spelling errors found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n*Misspelled words:*\n${{ steps.codespell.outputs.CODESPELL_ERRORS }}\n"
+            }
