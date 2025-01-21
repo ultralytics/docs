@@ -1201,9 +1201,7 @@
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-81"> 81</a></span>
-<span class="normal"><a href="#__codelineno-0-82"> 82</a></span>
-<span class="normal"><a href="#__codelineno-0-83"> 83</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-83"> 83</a></span>
 <span class="normal"><a href="#__codelineno-0-84"> 84</a></span>
 <span class="normal"><a href="#__codelineno-0-85"> 85</a></span>
 <span class="normal"><a href="#__codelineno-0-86"> 86</a></span>
@@ -1234,40 +1232,42 @@
 <span class="normal"><a href="#__codelineno-0-111">111</a></span>
 <span class="normal"><a href="#__codelineno-0-112">112</a></span>
 <span class="normal"><a href="#__codelineno-0-113">113</a></span>
-<span class="normal"><a href="#__codelineno-0-114">114</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="sd">    Initializes the BasePredictor class.</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">        cfg (str, optional): Path to a configuration file. Defaults to DEFAULT_CFG.</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="sd">        overrides (dict, optional): Configuration overrides. Defaults to None.</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="sd">    """</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">)</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">get_save_dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span> <span class="o">=</span> <span class="mf">0.25</span>  <span class="c1"># default conf=0.25</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">done_warmup</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">show</span><span class="p">:</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">show</span> <span class="o">=</span> <span class="n">check_imshow</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a>    <span class="c1"># Usable if setup is done</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># data_dict</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">vid_writer</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># dict of {save_path: video_writer, ...}</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plotted_img</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">source_type</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">seen</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">windows</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-108" name="__codelineno-0-108"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">batch</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span> <span class="o">=</span> <span class="n">_callbacks</span> <span class="ow">or</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">get_default_callbacks</span><span class="p">()</span>
-<a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">txt_path</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>  <span class="c1"># for automatic thread-safe inference</span>
-<a id="__codelineno-0-114" name="__codelineno-0-114"></a>    <span class="n">callbacks</span><span class="o">.</span><span class="n">add_integration_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-114">114</a></span>
+<span class="normal"><a href="#__codelineno-0-115">115</a></span>
+<span class="normal"><a href="#__codelineno-0-116">116</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">    Initializes the BasePredictor class.</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="sd">        cfg (str, optional): Path to a configuration file. Defaults to DEFAULT_CFG.</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="sd">        overrides (dict, optional): Configuration overrides. Defaults to None.</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="sd">    """</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">)</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">get_save_dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span> <span class="o">=</span> <span class="mf">0.25</span>  <span class="c1"># default conf=0.25</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">done_warmup</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">show</span><span class="p">:</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">show</span> <span class="o">=</span> <span class="n">check_imshow</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>    <span class="c1"># Usable if setup is done</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># data_dict</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">vid_writer</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># dict of {save_path: video_writer, ...}</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plotted_img</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">source_type</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">seen</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">windows</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">batch</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span> <span class="o">=</span> <span class="n">_callbacks</span> <span class="ow">or</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">get_default_callbacks</span><span class="p">()</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">txt_path</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>  <span class="c1"># for automatic thread-safe inference</span>
+<a id="__codelineno-0-116" name="__codelineno-0-116"></a>    <span class="n">callbacks</span><span class="o">.</span><span class="n">add_integration_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
