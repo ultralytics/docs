@@ -97,7 +97,7 @@ jobs:
           echo "$CODESPELL_OUTPUT"
 
           # Process CODESPELL_OUTPUT
-          MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's/\.html: / line /g' | sed 's#^#https://#')
+          MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's/\.html: / line /g' | sed 's/index\.html: / line /g' | sed 's#^#https://#')
           echo "$MODIFIED_OUTPUT"
 
           # Check for spelling errors
