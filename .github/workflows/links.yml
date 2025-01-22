@@ -9,11 +9,10 @@
 #   - 502(Zenodo, 'bad gateway')
 #   - 999(LinkedIn, 'unknown status code')
 
-name: Check Website links
+name: Website links and spellcheck
 
 on:
   workflow_dispatch:
-  pull_request:
   schedule:
     - cron: "0 0 * * *" # runs at 00:00 UTC every day
 
@@ -24,12 +23,7 @@ jobs:
       fail-fast: false # This ensures that if one job fails, the others will still run
       matrix:
         website:
-          [
-            www.ultralytics.com,
-            docs.ultralytics.com,
-            community.ultralytics.com,
-            handbook.ultralytics.com,
-          ]
+          [www.ultralytics.com, docs.ultralytics.com, handbook.ultralytics.com]
     steps:
       - name: Download and install lychee
         run: |
@@ -89,36 +83,33 @@ jobs:
 
       - name: Run codespell on downloaded pages
         id: codespell
-        continue-on-error: true  # Ensure the workflow continues even if spelling errors are found
+        continue-on-error: true
         run: |
           pip install codespell
           CODESPELL_OUTPUT=$(find ${{ matrix.website }} -type f -name "*.html" -print0 | xargs -0 codespell \
-          --ignore-words-list "crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin,referer,pre,uint,dto,linkedin,webp,webgl,href,onclick,github,api,http,png,svg,gif,jpg,jpeg,href,js" \
+          --ignore-words-list "FPR,Hach,Calle,ore,COO,MOT,crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin" \
           --skip "*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,*lock*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/??/*.md,./docs/mkdocs_??.yml" \
           2>&1 || true)
-          echo "$CODESPELL_OUTPUT"
 
-          # Process CODESPELL_OUTPUT
-          MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*/\)[^/]*:[0-9]*: \(.*\)#\1  \2#')
+          # Process CODESPELL_OUTPUT 
+          MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*\):[0-9]*: \(.*\)#\1  \2#; s/\.html//; s#\(.*\)/index  #\1/  #')
+
+          # Prepare the output for Slack with explicit newlines
+          ESCAPED_OUTPUT=$(echo "$MODIFIED_OUTPUT" | awk '{printf "%s\\n", $0}')
+
+          echo "CODESPELL_ERRORS<<EOF" >> $GITHUB_ENV
+          echo "$ESCAPED_OUTPUT" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
           echo "$MODIFIED_OUTPUT"
 
-          # Check for spelling errors
           if [[ "$CODESPELL_OUTPUT" == *"==>"* ]]; then
             echo "Spelling errors found ⚠️"
-
-            echo "CODESPELL_SUMMARY<<EOF" >> $GITHUB_ENV
-            echo "## 📝 Spelling Errors" >> $GITHUB_ENV
-            # Use MODIFIED_OUTPUT here instead of CODESPELL_OUTPUT
-            echo "$MODIFIED_OUTPUT" >> $GITHUB_ENV
-            echo "EOF" >> $GITHUB_ENV
-
-            # Set output for Slack notification
-            echo "CODESPELL_ERRORS=$CODESPELL_SUMMARY" >> $GITHUB_OUTPUT
-            echo "CODESPELL_FAILED=true" >> $GITHUB_OUTPUT
-          else
-            echo "No spelling errors found ✅"
-            echo "CODESPELL_FAILED=false" >> $GITHUB_OUTPUT
+            echo "## 📝 Spelling Errors" >> $GITHUB_STEP_SUMMARY
+            echo "$MODIFIED_OUTPUT" >> $GITHUB_STEP_SUMMARY
+            exit 1
           fi
+          echo "No spelling errors found ✅"
 
       - name: Run Broken Link Checks on Website
         id: lychee
@@ -167,16 +158,12 @@ jobs:
             # Check if lychee found any broken links
             if grep -q "0 Errors" summary.txt; then
               echo "No broken links found."
+              # Retry step may need exit 0
               exit 0
             else
               echo "Broken links found."
               exit 1
             fi
-
-      - name: Add spelling errors to GitHub Summary
-        if: always() && steps.codespell.outputs.CODESPELL_FAILED == 'true'
-        run: |
-          echo "${{ env.CODESPELL_SUMMARY }}" >> $GITHUB_STEP_SUMMARY
 
       - name: Notify Slack for broken links
         if: always() && steps.lychee.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
@@ -188,12 +175,12 @@ jobs:
             text: "GitHub Actions: Errors found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"
 
       - name: Notify Slack for spelling errors
-        if: always() && steps.codespell.outputs.CODESPELL_FAILED == 'true' && github.event_name == 'schedule' && github.run_attempt == '1'
+        if: always() && steps.codespell.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
         uses: slackapi/slack-github-action@v2.0.0
         with:
           webhook-type: incoming-webhook
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
             {
-              "text": "GitHub Actions: Spelling errors found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n*Misspelled words:*\n${{ steps.codespell.outputs.CODESPELL_ERRORS }}\n"
+              "text": "GitHub Actions: Spelling errors found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n*📝 Spelling Errors:*\n${{ env.CODESPELL_ERRORS }}\n"
             }
