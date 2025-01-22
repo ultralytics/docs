@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Enhance YOLO11 performance using Neural Magic's DeepSparse Engine. Learn how to deploy and benchmark YOLO11 models on CPUs for efficient object detection." name="description"/>
+<meta content="Discover how to get started with Seeed Studio reCamera for edge AI applications using Ultralytics YOLO11. Learn about its powerful features, real-world applications, and how to export YOLO11 models to ONNX format for seamless integration." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/integrations/neural-magic/" rel="canonical"/>
-<link href="../mlflow/" rel="prev"/>
-<link href="../onnx/" rel="next"/>
+<link href="https://docs.ultralytics.com/integrations/seeedstudio-recamera/" rel="canonical"/>
+<link href="../rockchip-rknn/" rel="prev"/>
+<link href="../../hub/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.50" name="generator"/>
-<title>Neural Magic - Ultralytics YOLO Docs</title>
+<title>Seeed Studio reCamera - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.a40c8224.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,13 +23,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Neural Magic" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO11, DeepSparse, Neural Magic, model optimization, object detection, inference speed, CPU performance, sparsity, pruning, quantization" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/neural-magic" property="og:url"/><meta content="Neural Magic" property="og:title"/><meta content="Enhance YOLO11 performance using Neural Magic's DeepSparse Engine. Learn how to deploy and benchmark YOLO11 models on CPUs for efficient object detection." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/neural-magic-deepsparse-overview.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/neural-magic" property="twitter:url"/><meta content="Neural Magic" property="twitter:title"/><meta content="Enhance YOLO11 performance using Neural Magic's DeepSparse Engine. Learn how to deploy and benchmark YOLO11 models on CPUs for efficient object detection." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/neural-magic-deepsparse-overview.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Neural Magic", "image": ["https://github.com/ultralytics/docs/releases/download/0/neural-magic-deepsparse-overview.avif"], "datePublished": "2023-12-30 19:01:13 +0530", "dateModified": "2024-10-01 16:58:12 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Enhance YOLO11 performance using Neural Magic's DeepSparse Engine. Learn how to deploy and benchmark YOLO11 models on CPUs for efficient object detection.", "mainEntity": [{"@type": "Question", "name": "What is Neural Magic's DeepSparse Engine and how does it optimize YOLO11 performance?", "acceptedAnswer": {"@type": "Answer", "text": "Neural Magic's DeepSparse Engine is an inference runtime designed to optimize the execution of neural networks on CPUs through advanced techniques such as sparsity, pruning, and quantization. By integrating DeepSparse with YOLO11, you can achieve GPU-like performance on standard CPUs, significantly enhancing inference speed, model efficiency, and overall performance while maintaining accuracy. For more details, check out the Neural Magic's DeepSparse section."}}, {"@type": "Question", "name": "How can I install the needed packages to deploy YOLO11 using Neural Magic's DeepSparse?", "acceptedAnswer": {"@type": "Answer", "text": "Installing the required packages for deploying YOLO11 with Neural Magic's DeepSparse is straightforward. You can easily install them using the CLI. Here's the command you need to run: Once installed, follow the steps provided in the Installation section to set up your environment and start using DeepSparse with YOLO11."}}, {"@type": "Question", "name": "How do I convert YOLO11 models to ONNX format for use with DeepSparse?", "acceptedAnswer": {"@type": "Answer", "text": "To convert YOLO11 models to the ONNX format, which is required for compatibility with DeepSparse, you can use the following CLI command: This command will export your YOLO11 model (yolo11n.pt) to a format (yolo11n.onnx) that can be utilized by the DeepSparse Engine. More information about model export can be found in the Model Export section."}}, {"@type": "Question", "name": "How do I benchmark YOLO11 performance on the DeepSparse Engine?", "acceptedAnswer": {"@type": "Answer", "text": "Benchmarking YOLO11 performance on DeepSparse helps you analyze throughput and latency to ensure your model is optimized. You can use the following CLI command to run a benchmark: This command will provide you with vital performance metrics. For more details, see the Benchmarking Performance section."}}, {"@type": "Question", "name": "Why should I use Neural Magic's DeepSparse with YOLO11 for object detection tasks?", "acceptedAnswer": {"@type": "Answer", "text": "Integrating Neural Magic's DeepSparse with YOLO11 offers several benefits: For a deeper dive into these advantages, visit the Benefits of Integrating Neural Magic's DeepSparse with YOLO11 section."}}]}</script></head>
+<meta content="Seeed Studio reCamera" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Seeed Studio reCamera, YOLO11, ONNX export, edge AI, computer vision, real-time detection, personal protective equipment detection, fire detection, waste detection, fall detection, modular AI devices, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/seeedstudio-recamera" property="og:url"/><meta content="Seeed Studio reCamera" property="og:title"/><meta content="Discover how to get started with Seeed Studio reCamera for edge AI applications using Ultralytics YOLO11. Learn about its powerful features, real-world applications, and how to export YOLO11 models to ONNX format for seamless integration." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/saeed-studio-recamera.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/seeedstudio-recamera" property="twitter:url"/><meta content="Seeed Studio reCamera" property="twitter:title"/><meta content="Discover how to get started with Seeed Studio reCamera for edge AI applications using Ultralytics YOLO11. Learn about its powerful features, real-world applications, and how to export YOLO11 models to ONNX format for seamless integration." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/saeed-studio-recamera.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Seeed Studio reCamera", "image": ["https://github.com/ultralytics/docs/releases/download/0/saeed-studio-recamera.avif"], "datePublished": "2025-01-22 16:22:10 +0500", "dateModified": "2025-01-22 16:22:10 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover how to get started with Seeed Studio reCamera for edge AI applications using Ultralytics YOLO11. Learn about its powerful features, real-world applications, and how to export YOLO11 models to ONNX format for seamless integration."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#optimizing-yolo11-inferences-with-neural-magics-deepsparse-engine">
+<a class="md-skip" href="#quick-start-guide-seeed-studio-recamera-with-ultralytics-yolo11">
           Skip to content
         </a>
 </div>
@@ -77,7 +77,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Neural Magic
+              Seeed Studio reCamera
             
           </span>
 </div>
@@ -419,154 +419,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    Neural Magic
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../neural-magic/">
 <span class="md-ellipsis">
     Neural Magic
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#neural-magics-deepsparse">
-<span class="md-ellipsis">
-      Neural Magic's DeepSparse
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#benefits-of-integrating-neural-magics-deepsparse-with-yolo11">
-<span class="md-ellipsis">
-      Benefits of Integrating Neural Magic's DeepSparse with YOLO11
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-does-neural-magics-deepsparse-technology-works">
-<span class="md-ellipsis">
-      How Does Neural Magic's DeepSparse Technology Works?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-sparse-version-of-yolo11-trained-on-a-custom-dataset">
-<span class="md-ellipsis">
-      Creating A Sparse Version of YOLO11 Trained on a Custom Dataset
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-deploying-yolov8-using-deepsparse">
-<span class="md-ellipsis">
-      Usage: Deploying YOLOV8 using DeepSparse
-    </span>
-</a>
-<nav aria-label="Usage: Deploying YOLOV8 using DeepSparse" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-installation">
-<span class="md-ellipsis">
-      Step 1: Installation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-exporting-yolo11-to-onnx-format">
-<span class="md-ellipsis">
-      Step 2: Exporting YOLO11 to ONNX Format
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-deploying-and-running-inferences">
-<span class="md-ellipsis">
-      Step 3: Deploying and Running Inferences
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-benchmarking-performance">
-<span class="md-ellipsis">
-      Step 4: Benchmarking Performance
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-additional-features">
-<span class="md-ellipsis">
-      Step 5: Additional Features
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
-<span class="md-ellipsis">
-      Summary
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-<span class="md-ellipsis">
-      FAQ
-    </span>
-</a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-neural-magics-deepsparse-engine-and-how-does-it-optimize-yolo11-performance">
-<span class="md-ellipsis">
-      What is Neural Magic's DeepSparse Engine and how does it optimize YOLO11 performance?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-install-the-needed-packages-to-deploy-yolo11-using-neural-magics-deepsparse">
-<span class="md-ellipsis">
-      How can I install the needed packages to deploy YOLO11 using Neural Magic's DeepSparse?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-convert-yolo11-models-to-onnx-format-for-use-with-deepsparse">
-<span class="md-ellipsis">
-      How do I convert YOLO11 models to ONNX format for use with DeepSparse?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-benchmark-yolo11-performance-on-the-deepsparse-engine">
-<span class="md-ellipsis">
-      How do I benchmark YOLO11 performance on the DeepSparse Engine?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-i-use-neural-magics-deepsparse-with-yolo11-for-object-detection-tasks">
-<span class="md-ellipsis">
-      Why should I use Neural Magic's DeepSparse with YOLO11 for object detection tasks?
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../onnx/">
@@ -715,12 +573,98 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../seeedstudio-recamera/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Seeed Studio reCamera
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Seeed Studio reCamera
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-choose-recamera">
+<span class="md-ellipsis">
+      Why Choose reCamera?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#quick-hardware-setup-of-recamera">
+<span class="md-ellipsis">
+      Quick Hardware Setup of reCamera
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#export-to-cvimodel-converting-your-yolo11-model">
+<span class="md-ellipsis">
+      Export to cvimodel: Converting Your YOLO11 Model
+    </span>
+</a>
+<nav aria-label="Export to cvimodel: Converting Your YOLO11 Model" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#export-to-onnx">
+<span class="md-ellipsis">
+      Export to ONNX
+    </span>
+</a>
+<nav aria-label="Export to ONNX" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+<span class="md-ellipsis">
+      Installation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage">
+<span class="md-ellipsis">
+      Usage
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#export-onnx-to-mlir-and-cvimodel">
+<span class="md-ellipsis">
+      Export ONNX to MLIR and cvimodel
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#benchmarks">
+<span class="md-ellipsis">
+      Benchmarks
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#real-world-applications-of-recamera">
+<span class="md-ellipsis">
+      Real-World Applications of reCamera
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -764,73 +708,46 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#neural-magics-deepsparse">
+<a class="md-nav__link" href="#why-choose-recamera">
 <span class="md-ellipsis">
-      Neural Magic's DeepSparse
+      Why Choose reCamera?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#benefits-of-integrating-neural-magics-deepsparse-with-yolo11">
+<a class="md-nav__link" href="#quick-hardware-setup-of-recamera">
 <span class="md-ellipsis">
-      Benefits of Integrating Neural Magic's DeepSparse with YOLO11
+      Quick Hardware Setup of reCamera
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-does-neural-magics-deepsparse-technology-works">
+<a class="md-nav__link" href="#export-to-cvimodel-converting-your-yolo11-model">
 <span class="md-ellipsis">
-      How Does Neural Magic's DeepSparse Technology Works?
+      Export to cvimodel: Converting Your YOLO11 Model
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#creating-a-sparse-version-of-yolo11-trained-on-a-custom-dataset">
-<span class="md-ellipsis">
-      Creating A Sparse Version of YOLO11 Trained on a Custom Dataset
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-deploying-yolov8-using-deepsparse">
-<span class="md-ellipsis">
-      Usage: Deploying YOLOV8 using DeepSparse
-    </span>
-</a>
-<nav aria-label="Usage: Deploying YOLOV8 using DeepSparse" class="md-nav">
+<nav aria-label="Export to cvimodel: Converting Your YOLO11 Model" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-installation">
+<a class="md-nav__link" href="#export-to-onnx">
 <span class="md-ellipsis">
-      Step 1: Installation
+      Export to ONNX
+    </span>
+</a>
+<nav aria-label="Export to ONNX" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+<span class="md-ellipsis">
+      Installation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-exporting-yolo11-to-onnx-format">
+<a class="md-nav__link" href="#usage">
 <span class="md-ellipsis">
-      Step 2: Exporting YOLO11 to ONNX Format
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-deploying-and-running-inferences">
-<span class="md-ellipsis">
-      Step 3: Deploying and Running Inferences
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-benchmarking-performance">
-<span class="md-ellipsis">
-      Step 4: Benchmarking Performance
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-additional-features">
-<span class="md-ellipsis">
-      Step 5: Additional Features
+      Usage
     </span>
 </a>
 </li>
@@ -838,57 +755,28 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
+<a class="md-nav__link" href="#export-onnx-to-mlir-and-cvimodel">
 <span class="md-ellipsis">
-      Summary
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-<span class="md-ellipsis">
-      FAQ
-    </span>
-</a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-neural-magics-deepsparse-engine-and-how-does-it-optimize-yolo11-performance">
-<span class="md-ellipsis">
-      What is Neural Magic's DeepSparse Engine and how does it optimize YOLO11 performance?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-install-the-needed-packages-to-deploy-yolo11-using-neural-magics-deepsparse">
-<span class="md-ellipsis">
-      How can I install the needed packages to deploy YOLO11 using Neural Magic's DeepSparse?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-convert-yolo11-models-to-onnx-format-for-use-with-deepsparse">
-<span class="md-ellipsis">
-      How do I convert YOLO11 models to ONNX format for use with DeepSparse?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-benchmark-yolo11-performance-on-the-deepsparse-engine">
-<span class="md-ellipsis">
-      How do I benchmark YOLO11 performance on the DeepSparse Engine?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-i-use-neural-magics-deepsparse-with-yolo11-for-object-detection-tasks">
-<span class="md-ellipsis">
-      Why should I use Neural Magic's DeepSparse with YOLO11 for object detection tasks?
+      Export ONNX to MLIR and cvimodel
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#benchmarks">
+<span class="md-ellipsis">
+      Benchmarks
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#real-world-applications-of-recamera">
+<span class="md-ellipsis">
+      Real-World Applications of reCamera
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -897,215 +785,125 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/neural-magic.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/seeedstudio-recamera.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="optimizing-yolo11-inferences-with-neural-magics-deepsparse-engine">Optimizing YOLO11 Inferences with Neural Magic's DeepSparse Engine</h1>
-<p>When deploying <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> models like <a href="https://www.ultralytics.com/">Ultralytics YOLO11</a> on various hardware, you can bump into unique issues like optimization. This is where YOLO11's integration with Neural Magic's DeepSparse Engine steps in. It transforms the way YOLO11 models are executed and enables GPU-level performance directly on CPUs.</p>
-<p>This guide shows you how to deploy YOLO11 using Neural Magic's DeepSparse, how to run inferences, and also how to benchmark performance to ensure it is optimized.</p>
-<h2 id="neural-magics-deepsparse">Neural Magic's DeepSparse</h2>
-<p align="center">
-<img alt="Neural Magic's DeepSparse Overview" src="https://github.com/ultralytics/docs/releases/download/0/neural-magic-deepsparse-overview.avif" width="640"/>
-</p>
-<p><a href="https://neuralmagic.com/deepsparse/">Neural Magic's DeepSparse</a> is an inference run-time designed to optimize the execution of neural networks on CPUs. It applies advanced techniques like sparsity, pruning, and quantization to dramatically reduce computational demands while maintaining accuracy. DeepSparse offers an agile solution for efficient and scalable <a href="https://www.ultralytics.com/glossary/neural-network-nn">neural network</a> execution across various devices.</p>
-<h2 id="benefits-of-integrating-neural-magics-deepsparse-with-yolo11">Benefits of Integrating Neural Magic's DeepSparse with YOLO11</h2>
-<p>Before diving into how to deploy YOLOV8 using DeepSparse, let's understand the benefits of using DeepSparse. Some key advantages include:</p>
-<ul>
-<li><strong>Enhanced Inference Speed</strong>: Achieves up to 525 FPS (on YOLO11n), significantly speeding up YOLO11's inference capabilities compared to traditional methods.</li>
-</ul>
-<p align="center">
-<img alt="Enhanced Inference Speed" src="https://github.com/ultralytics/docs/releases/download/0/enhanced-inference-speed.avif" width="640"/>
-</p>
-<ul>
-<li><strong>Optimized Model Efficiency</strong>: Uses pruning and quantization to enhance YOLO11's efficiency, reducing model size and computational requirements while maintaining <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>.</li>
-</ul>
-<p align="center">
-<img alt="Optimized Model Efficiency" src="https://github.com/ultralytics/docs/releases/download/0/optimized-model-efficiency.avif" width="640"/>
-</p>
+<h1 id="quick-start-guide-seeed-studio-recamera-with-ultralytics-yolo11">Quick Start Guide: Seeed Studio reCamera with Ultralytics YOLO11</h1>
+<p><a href="https://www.seeedstudio.com/recamera">reCamera</a> was introduced for the AI community at <a href="https://www.youtube.com/watch?v=rfI5vOo3-_A">YOLO Vision 2024 (YV24)</a>, <a href="https://ultralytics.com/">Ultralytics</a> annual hybrid event. It is mainly designed for edge AI applications, offering powerful processing capabilities and effortless deployment.</p>
+<p>With support for diverse hardware configurations and open-source resources, it serves as an ideal platform for prototyping and deploying innovative <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> <a href="https://docs.ultralytics.com/solutions/#solutions">solutions</a> at the edge.</p>
+<p><img alt="Seeed Studio reCamera" src="https://github.com/ultralytics/docs/releases/download/0/saeed-studio-recamera.avif"/></p>
+<h2 id="why-choose-recamera">Why Choose reCamera?</h2>
+<p>reCamera series is purpose-built for edge AI applications, tailored to meet the needs of developers and innovators. Here's why it stands out:</p>
 <ul>
 <li>
-<p><strong>High Performance on Standard CPUs</strong>: Delivers GPU-like performance on CPUs, providing a more accessible and cost-effective option for various applications.</p>
+<p><strong>RISC-V Powered Performance</strong>: At its core is the SG200X processor, built on the RISC-V architecture, delivering exceptional performance for edge AI tasks while maintaining energy efficiency. With the ability to execute 1 trillion operations per second (1 TOPS), it handles demanding tasks like real-time object detection easily.</p>
 </li>
 <li>
-<p><strong>Streamlined Integration and Deployment</strong>: Offers user-friendly tools for easy integration of YOLO11 into applications, including image and video annotation features.</p>
+<p><strong>Optimized Video Technologies</strong>: Supports advanced video compression standards, including H.264 and H.265, to reduce storage and bandwidth requirements without sacrificing quality. Features like HDR imaging, 3D noise reduction, and lens correction ensure professional visuals, even in challenging environments.</p>
 </li>
 <li>
-<p><strong>Support for Various Model Types</strong>: Compatible with both standard and sparsity-optimized YOLO11 models, adding deployment flexibility.</p>
+<p><strong>Energy-Efficient Dual Processing</strong>: While the SG200X handles complex AI tasks, a smaller 8-bit microcontroller manages simpler operations to conserve power, making the reCamera ideal for battery-operated or low-power setups.</p>
 </li>
 <li>
-<p><strong>Cost-Effective and Scalable Solution</strong>: Reduces operational expenses and offers scalable deployment of advanced object detection models.</p>
+<p><strong>Modular and Upgradable Design</strong>: The reCamera is built with a modular structure, consisting of three main components: the core board, sensor board, and baseboard. This design allows developers to easily swap or upgrade components, ensuring flexibility and future-proofing for evolving projects.</p>
 </li>
 </ul>
-<h2 id="how-does-neural-magics-deepsparse-technology-works">How Does Neural Magic's DeepSparse Technology Works?</h2>
-<p>Neural Magic's Deep Sparse technology is inspired by the human brain's efficiency in neural network computation. It adopts two key principles from the brain as follows:</p>
-<ul>
-<li>
-<p><strong>Sparsity</strong>: The process of sparsification involves pruning redundant information from <a href="https://www.ultralytics.com/glossary/deep-learning-dl">deep learning</a> networks, leading to smaller and faster models without compromising accuracy. This technique reduces the network's size and computational needs significantly.</p>
-</li>
-<li>
-<p><strong>Locality of Reference</strong>: DeepSparse uses a unique execution method, breaking the network into Tensor Columns. These columns are executed depth-wise, fitting entirely within the CPU's cache. This approach mimics the brain's efficiency, minimizing data movement and maximizing the CPU's cache use.</p>
-</li>
-</ul>
+<h2 id="quick-hardware-setup-of-recamera">Quick Hardware Setup of reCamera</h2>
+<p>Please follow <a href="https://wiki.seeedstudio.com/recamera_getting_started">reCamera Quick Start Guide</a> for initial onboarding of the device such as connecting the device to a WiFi network and access the <a href="https://nodered.org">Node-RED</a> web UI for quick previewing of detection redsults with the pre-installed Ultralytics YOLO models.</p>
+<h2 id="export-to-cvimodel-converting-your-yolo11-model">Export to cvimodel: Converting Your YOLO11 Model</h2>
+<p>Here we will first convert <code>PyTorch</code> model to <code>ONNX</code> and then convert it to <code>MLIR</code> model format. Finally <code>MLIR</code> will be converted to <code>cvimodel</code> in order to inference on-device</p>
 <p align="center">
-<img alt="How Neural Magic's DeepSparse Technology Works " src="https://github.com/ultralytics/docs/releases/download/0/neural-magic-deepsparse-technology.avif" width="640"/>
+<img alt="reCamera Toolchain" src="https://github.com/ultralytics/assets/releases/download/v0.0.0/recamera-toolchain-workflow.avif" width="80%"/>
 </p>
-<p>For more details on how Neural Magic's DeepSparse technology work, check out <a href="https://neuralmagic.com/blog/how-neural-magics-deep-sparse-technology-works/">their blog post</a>.</p>
-<h2 id="creating-a-sparse-version-of-yolo11-trained-on-a-custom-dataset">Creating A Sparse Version of YOLO11 Trained on a Custom Dataset</h2>
-<p>SparseZoo, an open-source model repository by Neural Magic, offers <a href="https://sparsezoo.neuralmagic.com/?modelSet=computer_vision&amp;searchModels=yolo">a collection of pre-sparsified YOLO11 model checkpoints</a>. With SparseML, seamlessly integrated with Ultralytics, users can effortlessly fine-tune these sparse checkpoints on their specific datasets using a straightforward command-line interface.</p>
-<p>Checkout <a href="https://github.com/neuralmagic/sparseml/tree/main/integrations/ultralytics-yolov8">Neural Magic's SparseML YOLO11 documentation</a> for more details.</p>
-<h2 id="usage-deploying-yolov8-using-deepsparse">Usage: Deploying YOLOV8 using DeepSparse</h2>
-<p>Deploying YOLO11 with Neural Magic's DeepSparse involves a few straightforward steps. Before diving into the usage instructions, be sure to check out the range of <a href="../../models/">YOLO11 models offered by Ultralytics</a>. This will help you choose the most appropriate model for your project requirements. Here's how you can get started.</p>
-<h3 id="step-1-installation">Step 1: Installation</h3>
+<h3 id="export-to-onnx">Export to ONNX</h3>
+<p>Export an Ultralytics YOLO11 model to ONNX model format.</p>
+<h4 id="installation">Installation</h4>
 <p>To install the required packages, run:</p>
 <div class="admonition tip">
 <p class="admonition-title">Installation</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the required packages</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>deepsparse<span class="o">[</span>yolov8<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 </div>
 </div>
 </input></div>
 </div>
-<h3 id="step-2-exporting-yolo11-to-onnx-format">Step 2: Exporting YOLO11 to ONNX Format</h3>
-<p>DeepSparse Engine requires YOLO11 models in ONNX format. Exporting your model to this format is essential for compatibility with DeepSparse. Use the following command to export YOLO11 models:</p>
-<div class="admonition tip">
-<p class="admonition-title">Model Export</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">CLI</label></div>
+<p>For detailed instructions and best practices related to the installation process, check our <a href="../../quickstart/">Ultralytics Installation guide</a>. While installing the required packages for YOLO11, if you encounter any difficulties, consult our <a href="../../guides/yolo-common-issues/">Common Issues guide</a> for solutions and tips.</p>
+<h4 id="usage">Usage</h4>
+<div class="admonition example">
+<p class="admonition-title">Usage</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Export YOLO11 model to ONNX format</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">opset</span><span class="o">=</span><span class="m">13</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load the YOLO11 model</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Export the model to ONNX format</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>  <span class="c1"># creates 'yolo11n.onnx'</span>
 </code></pre></div>
 </div>
-</div>
-</input></div>
-</div>
-<p>This command will save the <code>yolo11n.onnx</code> model to your disk.</p>
-<h3 id="step-3-deploying-and-running-inferences">Step 3: Deploying and Running Inferences</h3>
-<p>With your YOLO11 model in ONNX format, you can deploy and run inferences using DeepSparse. This can be done easily with their intuitive Python API:</p>
-<div class="admonition tip">
-<p class="admonition-title">Deploying and Running Inferences</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
-<div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">deepsparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Specify the path to your YOLO11 ONNX model</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model_path</span> <span class="o">=</span> <span class="s2">"path/to/yolo11n.onnx"</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Set up the DeepSparse Pipeline</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">yolo_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">model_path</span><span class="o">=</span><span class="n">model_path</span><span class="p">)</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1"># Run the model on your images</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"path/to/image.jpg"</span><span class="p">]</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">pipeline_outputs</span> <span class="o">=</span> <span class="n">yolo_pipeline</span><span class="p">(</span><span class="n">images</span><span class="o">=</span><span class="n">images</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Export a YOLO11n PyTorch model to ONNX format</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w">  </span><span class="c1"># creates 'yolo11n.onnx'</span>
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</input></input></div>
 </div>
-<h3 id="step-4-benchmarking-performance">Step 4: Benchmarking Performance</h3>
-<p>It's important to check that your YOLO11 model is performing optimally on DeepSparse. You can benchmark your model's performance to analyze throughput and latency:</p>
-<div class="admonition tip">
-<p class="admonition-title">Benchmarking</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Benchmark performance</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>deepsparse.benchmark<span class="w"> </span><span class="nv">model_path</span><span class="o">=</span><span class="s2">"path/to/yolo11n.onnx"</span><span class="w"> </span>--scenario<span class="o">=</span>sync<span class="w"> </span>--input_shapes<span class="o">=</span><span class="s2">"[1,3,640,640]"</span>
-</code></pre></div>
+<p>For more details about the export process, visit the <a href="../../modes/export/">Ultralytics documentation page on exporting</a>.</p>
+<h3 id="export-onnx-to-mlir-and-cvimodel">Export ONNX to MLIR and cvimodel</h3>
+<p>After obtaining an ONNX model, refer to <a href="https://wiki.seeedstudio.com/recamera_model_conversion">Convert and Quantize AI Models</a> page to convert the ONNX model to MLIR and then to cvimodel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We're actively working on adding reCamera support directly into the Ultralytics package, and it will be available soon. In the meantime, check out our blog on <a href="https://www.ultralytics.com/blog/integrating-ultralytics-yolo-models-on-seeed-studios-recamera">Integrating Ultralytics YOLO Models with Seeed Studio's reCamera</a> for more insights.</p>
 </div>
-</div>
-</input></div>
-</div>
-<h3 id="step-5-additional-features">Step 5: Additional Features</h3>
-<p>DeepSparse provides additional features for practical integration of YOLO11 in applications, such as image annotation and dataset evaluation.</p>
-<div class="admonition tip">
-<p class="admonition-title">Additional Features</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># For image annotation</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>deepsparse.yolov8.annotate<span class="w"> </span>--source<span class="w"> </span><span class="s2">"path/to/image.jpg"</span><span class="w"> </span>--model_filepath<span class="w"> </span><span class="s2">"path/to/yolo11n.onnx"</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># For evaluating model performance on a dataset</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>deepsparse.yolov8.eval<span class="w"> </span>--model_path<span class="w"> </span><span class="s2">"path/to/yolo11n.onnx"</span>
-</code></pre></div>
-</div>
-</div>
-</input></div>
-</div>
-<p>Running the annotate command processes your specified image, detecting objects, and saving the annotated image with bounding boxes and classifications. The annotated image will be stored in an annotation-results folder. This helps provide a visual representation of the model's detection capabilities.</p>
-<p align="center">
-<img alt="Image Annotation Feature" src="https://github.com/ultralytics/docs/releases/download/0/image-annotation-feature.avif" width="640"/>
-</p>
-<p>After running the eval command, you will receive detailed output metrics such as <a href="https://www.ultralytics.com/glossary/precision">precision</a>, <a href="https://www.ultralytics.com/glossary/recall">recall</a>, and mAP (mean Average Precision). This provides a comprehensive view of your model's performance on the dataset. This functionality is particularly useful for fine-tuning and optimizing your YOLO11 models for specific use cases, ensuring high accuracy and efficiency.</p>
-<h2 id="summary">Summary</h2>
-<p>This guide explored integrating Ultralytics' YOLO11 with Neural Magic's DeepSparse Engine. It highlighted how this integration enhances YOLO11's performance on CPU platforms, offering GPU-level efficiency and advanced neural network sparsity techniques.</p>
-<p>For more detailed information and advanced usage, visit <a href="https://docs.neuralmagic.com/products/deepsparse/">Neural Magic's DeepSparse documentation</a>. Also, check out Neural Magic's documentation on the integration with YOLO11 <a href="https://github.com/neuralmagic/deepsparse/tree/main/src/deepsparse/yolov8#yolov8-inference-pipelines">here</a> and watch a great session on it <a href="https://www.youtube.com/watch?v=qtJ7bdt52x8">here</a>.</p>
-<p>Additionally, for a broader understanding of various YOLO11 integrations, visit the <a href="../">Ultralytics integration guide page</a>, where you can discover a range of other exciting integration possibilities.</p>
-<h2 id="faq">FAQ</h2>
-<h3 id="what-is-neural-magics-deepsparse-engine-and-how-does-it-optimize-yolo11-performance">What is Neural Magic's DeepSparse Engine and how does it optimize YOLO11 performance?</h3>
-<p>Neural Magic's DeepSparse Engine is an inference runtime designed to optimize the execution of neural networks on CPUs through advanced techniques such as sparsity, pruning, and quantization. By integrating DeepSparse with YOLO11, you can achieve GPU-like performance on standard CPUs, significantly enhancing inference speed, model efficiency, and overall performance while maintaining accuracy. For more details, check out the <a href="#neural-magics-deepsparse">Neural Magic's DeepSparse section</a>.</p>
-<h3 id="how-can-i-install-the-needed-packages-to-deploy-yolo11-using-neural-magics-deepsparse">How can I install the needed packages to deploy YOLO11 using Neural Magic's DeepSparse?</h3>
-<p>Installing the required packages for deploying YOLO11 with Neural Magic's DeepSparse is straightforward. You can easily install them using the CLI. Here's the command you need to run:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>deepsparse<span class="o">[</span>yolov8<span class="o">]</span>
-</code></pre></div>
-<p>Once installed, follow the steps provided in the <a href="#step-1-installation">Installation section</a> to set up your environment and start using DeepSparse with YOLO11.</p>
-<h3 id="how-do-i-convert-yolo11-models-to-onnx-format-for-use-with-deepsparse">How do I convert YOLO11 models to ONNX format for use with DeepSparse?</h3>
-<p>To convert YOLO11 models to the ONNX format, which is required for compatibility with DeepSparse, you can use the following CLI command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">opset</span><span class="o">=</span><span class="m">13</span>
-</code></pre></div>
-<p>This command will export your YOLO11 model (<code>yolo11n.pt</code>) to a format (<code>yolo11n.onnx</code>) that can be utilized by the DeepSparse Engine. More information about model export can be found in the <a href="#step-2-exporting-yolo11-to-onnx-format">Model Export section</a>.</p>
-<h3 id="how-do-i-benchmark-yolo11-performance-on-the-deepsparse-engine">How do I benchmark YOLO11 performance on the DeepSparse Engine?</h3>
-<p>Benchmarking YOLO11 performance on DeepSparse helps you analyze throughput and latency to ensure your model is optimized. You can use the following CLI command to run a benchmark:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>deepsparse.benchmark<span class="w"> </span><span class="nv">model_path</span><span class="o">=</span><span class="s2">"path/to/yolo11n.onnx"</span><span class="w"> </span>--scenario<span class="o">=</span>sync<span class="w"> </span>--input_shapes<span class="o">=</span><span class="s2">"[1,3,640,640]"</span>
-</code></pre></div>
-<p>This command will provide you with vital performance metrics. For more details, see the <a href="#step-4-benchmarking-performance">Benchmarking Performance section</a>.</p>
-<h3 id="why-should-i-use-neural-magics-deepsparse-with-yolo11-for-object-detection-tasks">Why should I use Neural Magic's DeepSparse with YOLO11 for object detection tasks?</h3>
-<p>Integrating Neural Magic's DeepSparse with YOLO11 offers several benefits:</p>
+<h2 id="benchmarks">Benchmarks</h2>
+<p>Coming soon.</p>
+<h2 id="real-world-applications-of-recamera">Real-World Applications of reCamera</h2>
+<p>reCamera advanced computer vision capabilities and modular design make it suitable for a wide range of real-world scenarios, helping developers and businesses tackle unique challenges with ease.</p>
 <ul>
-<li><strong>Enhanced Inference Speed:</strong> Achieves up to 525 FPS, significantly speeding up YOLO11's capabilities.</li>
-<li><strong>Optimized Model Efficiency:</strong> Uses sparsity, pruning, and quantization techniques to reduce model size and computational needs while maintaining accuracy.</li>
-<li><strong>High Performance on Standard CPUs:</strong> Offers GPU-like performance on cost-effective CPU hardware.</li>
-<li><strong>Streamlined Integration:</strong> User-friendly tools for easy deployment and integration.</li>
-<li><strong>Flexibility:</strong> Supports both standard and sparsity-optimized YOLO11 models.</li>
-<li><strong>Cost-Effective:</strong> Reduces operational expenses through efficient resource utilization.</li>
+<li>
+<p><strong>Fall Detection</strong>: Designed for safety and healthcare applications, the reCamera can detect falls in real-time, making it ideal for elderly care, hospitals, and industrial settings where rapid response is critical.</p>
+</li>
+<li>
+<p><strong>Personal Protective Equipment Detection</strong>: The reCamera can be used to ensure workplace safety by detecting PPE compliance in real-time. It helps identify whether workers are wearing helmets, gloves, or other safety gear, reducing risks in industrial environments.</p>
+</li>
 </ul>
-<p>For a deeper dive into these advantages, visit the <a href="#benefits-of-integrating-neural-magics-deepsparse-with-yolo11">Benefits of Integrating Neural Magic's DeepSparse with YOLO11 section</a>.</p>
+<p><img alt="Personal protective equipment detection" src="https://github.com/ultralytics/docs/releases/download/0/personal-protective-equipment-detection.avif"/></p>
+<ul>
+<li>
+<p><strong>Fire Detection</strong>: The reCamera's real-time processing capabilities make it an excellent choice for fire detection in industrial and residential areas, providing early warnings to prevent potential disasters.</p>
+</li>
+<li>
+<p><strong>Waste Detection</strong>: It can also be utilized for waste detection applications, making it an excellent tool for environmental monitoring and waste management.</p>
+</li>
+<li>
+<p><strong>Car Parts Detection</strong>: In manufacturing and automotive industries, it aids in detecting and analyzing car parts for quality control, assembly line monitoring, and inventory management.</p>
+</li>
+</ul>
+<p><img alt="Car parts detection" src="https://github.com/ultralytics/docs/releases/download/0/carparts-detection.avif"/></p>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on December 30, 2023">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="date-item" title="This page was first created on January 22, 2025">
+<span class="hover-item">📅</span> Created 0 days ago
     </span>
-<span class="date-item" title="This page was last updated on October 01, 2024">
-<span class="hover-item">✏️</span> Updated 3 months ago
+<span class="date-item" title="This page was last updated on January 22, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
-<img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (8 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/MatthewNoyce" title="MatthewNoyce (1 change)">
-<img alt="MatthewNoyce" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/131261051?v=4&amp;s=96"/>
-</a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
 </a>
-<a class="author-link" href="https://github.com/abirami-vina" title="abirami-vina (1 change)">
-<img alt="abirami-vina" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/25847604?v=4&amp;s=96"/>
-</a>
 </div></div><div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/neural-magic', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/seeedstudio-recamera', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/neural-magic', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/seeedstudio-recamera', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
@@ -1124,7 +922,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: MLflow" class="md-footer__link md-footer__link--prev" href="../mlflow/">
+<a aria-label="Previous: Rockchip RKNN" class="md-footer__link md-footer__link--prev" href="../rockchip-rknn/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -1133,17 +931,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                MLflow
+                Rockchip RKNN
               </div>
 </div>
 </a>
-<a aria-label="Next: ONNX" class="md-footer__link md-footer__link--next" href="../onnx/">
+<a aria-label="Next: Ultralytics HUB" class="md-footer__link md-footer__link--next" href="../../hub/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                ONNX
+                Ultralytics HUB
               </div>
 </div>
 <div class="md-footer__button md-icon">
