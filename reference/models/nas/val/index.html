@@ -1235,26 +1235,14 @@ ultimately producing the final detections.</p>
 <span class="normal"><a href="#__codelineno-0-41">41</a></span>
 <span class="normal"><a href="#__codelineno-0-42">42</a></span>
 <span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds_in</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds_in</span><span class="p">):</span>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">    </span><span class="sd">"""Apply Non-maximum suppression to prediction outputs."""</span>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xyxy2xywh</span><span class="p">(</span><span class="n">preds_in</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="n">preds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">boxes</span><span class="p">,</span> <span class="n">preds_in</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">non_max_suppression</span><span class="p">(</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="n">preds</span><span class="p">,</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">iou</span><span class="p">,</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="n">labels</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lb</span><span class="p">,</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="n">multi_label</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="n">agnostic</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">single_cls</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">agnostic_nms</span><span class="p">,</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">max_det</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">max_det</span><span class="p">,</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="n">max_time_img</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="p">)</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="n">max_time_img</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
