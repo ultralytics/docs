@@ -173,7 +173,7 @@ jobs:
           webhook-type: incoming-webhook
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
-            text: "GitHub Actions: Errors found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"
+            text: "GitHub Actions: Broken links found for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"
 
       - name: Notify Slack for spelling errors
         if: always() && steps.codespell.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
@@ -183,5 +183,5 @@ jobs:
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
             {
-              "text": "GitHub Actions: Spelling errors found in ${{ github.workflow }} for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n*📝 Spelling Errors:*\n${{ env.CODESPELL_ERRORS }}\n"
+              "text": "GitHub Actions: Spelling errors found for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n*📝 Spelling Errors:*\n${{ env.CODESPELL_ERRORS }}\n"
             }
