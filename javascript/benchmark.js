@@ -115,7 +115,7 @@ function updateChart(initialDatasets = []) {
   const selectedAlgorithms =
     initialDatasets.length > 0 ? initialDatasets : Object.keys(data);
   // Create the datasets for the selected algorithms.
-  const datasets = Object.keys(data).map((algorithm, i) => {
+  const datasets = selectedAlgorithms.map((algorithm, i) => {
     const baseColor =
       colorMap[algorithm] || `hsl(${Math.random() * 360}, 70%, 50%)`;
     const lineColor =
@@ -137,7 +137,7 @@ function updateChart(initialDatasets = []) {
       pointBackgroundColor: lineColor,
       pointBorderColor: "#ffffff", // Add a border around points for contrast.
       borderWidth: i === 0 ? 3 : 1.5, // Slightly increase line size for the primary dataset.
-      hidden: !initialDatasets.includes(algorithm),
+      hidden: false,
     };
   });
   // Create a new chart instance.
