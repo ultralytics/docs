@@ -4,7 +4,6 @@ function loadGiscus() {
   if (!giscusContainer || giscusContainer.querySelector("script")) {
     return;
   }
-
   const script = document.createElement("script");
   script.src = "https://giscus.app/client.js";
   script.setAttribute("data-repo", "ultralytics/ultralytics");
@@ -21,16 +20,13 @@ function loadGiscus() {
   script.setAttribute("data-loading", "lazy");
   script.setAttribute("crossorigin", "anonymous");
   script.setAttribute("async", "");
-
   giscusContainer.appendChild(script);
-
   // Synchronize Giscus theme with palette
   var palette = __md_get("__palette");
   if (palette && typeof palette.color === "object") {
     var theme = palette.color.scheme === "slate" ? "dark" : "light";
     script.setAttribute("data-theme", theme);
   }
-
   // Register event handlers for theme changes
   var ref = document.querySelector("[data-md-component=palette]");
   if (ref) {
@@ -38,7 +34,6 @@ function loadGiscus() {
       var palette = __md_get("__palette");
       if (palette && typeof palette.color === "object") {
         var theme = palette.color.scheme === "slate" ? "dark" : "light";
-
         // Instruct Giscus to change theme
         var frame = document.querySelector(".giscus-frame");
         if (frame) {
@@ -51,11 +46,9 @@ function loadGiscus() {
     });
   }
 }
-
 // Use Intersection Observer to load Giscus when the container is visible
 function setupGiscusLoader() {
   const giscusContainer = document.getElementById("giscus-container");
-
   if (giscusContainer) {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -68,11 +61,9 @@ function setupGiscusLoader() {
       },
       { threshold: 0.1 },
     ); // Trigger when 10% of the element is visible
-
     observer.observe(giscusContainer);
   }
 }
-
 // Hook into MkDocs' navigation system
 if (typeof document$ !== "undefined") {
   document$.subscribe(() => {

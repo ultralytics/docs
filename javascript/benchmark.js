@@ -80,9 +80,7 @@ const data = {
     // d8: { speed: 157.57, mAP: 55.1 }
   },
 };
-
 let modelComparisonChart = null; // chart variable will hold the reference to the current chart instance.
-
 // Function to lighten a hex color by a specified amount.
 function lightenHexColor(color, amount = 0.5) {
   const r = parseInt(color.slice(1, 3), 16);
@@ -93,13 +91,11 @@ function lightenHexColor(color, amount = 0.5) {
   const newB = Math.min(255, Math.round(b + (255 - b) * amount));
   return `#${newR.toString(16).padStart(2, "0")}${newG.toString(16).padStart(2, "0")}${newB.toString(16).padStart(2, "0")}`;
 }
-
 // Function to update the benchmarks chart.
 function updateChart(initialDatasets = []) {
   if (modelComparisonChart) {
     modelComparisonChart.destroy();
   } // If a chart instance already exists, destroy it.
-
   // Define a specific color map for models.
   const colorMap = {
     YOLO11: "#0b23a9",
@@ -115,11 +111,9 @@ function updateChart(initialDatasets = []) {
     RTDETRv2: "#eccd22",
     EfficientDet: "#000000",
   };
-
   // Get the selected algorithms from the initialDatasets or all if empty.
   const selectedAlgorithms =
     initialDatasets.length > 0 ? initialDatasets : Object.keys(data);
-
   // Create the datasets for the selected algorithms.
   const datasets = Object.keys(data).map((algorithm, i) => {
     const baseColor =
@@ -128,7 +122,6 @@ function updateChart(initialDatasets = []) {
       Object.keys(data).indexOf(algorithm) === 0
         ? baseColor
         : lightenHexColor(baseColor, 0.6); // Lighten non-primary lines
-
     return {
       label: algorithm,
       data: Object.entries(data[algorithm]).map(([version, point]) => ({
@@ -147,7 +140,6 @@ function updateChart(initialDatasets = []) {
       hidden: !initialDatasets.includes(algorithm),
     };
   });
-
   // Create a new chart instance.
   modelComparisonChart = new Chart(
     document.getElementById("modelComparisonChart").getContext("2d"),
@@ -210,11 +202,9 @@ function updateChart(initialDatasets = []) {
     },
   );
 }
-
 function initChart(activeModels) {
   updateChart(activeModels);
 }
-
 document$.subscribe(function () {
   (function initializeApp() {
     if (typeof Chart !== "undefined") {

@@ -1,6 +1,5 @@
 <!--Ultralytics YOLO 🚀, AGPL-3.0 license-->
 <!DOCTYPE html>
-
 <html class="no-js" lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -76,9 +75,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-            
               Multi-GPU Training
-            
           </span>
 </div>
 </div>
@@ -114,122 +111,62 @@
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../..">
-          
-  
-    
-  
   Home
-
         </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../quickstart/">
-          
-  
-    
-  
   Quickstart
-
         </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../modes/">
-          
-  
-    
-  
   Modes
-
         </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../tasks/">
-          
-  
-    
-  
   Tasks
-
         </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../models/">
-          
-  
-    
-  
   Models
-
         </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../datasets/">
-          
-  
-    
-  
   Datasets
-
         </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../solutions/">
-          
-  
-    
-  
   Solutions 🚀 NEW
-
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
 <a class="md-tabs__link" href="../../../guides/">
-          
-  
-    
-  
   Guides
-
         </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../integrations/">
-          
-  
-    
-  
   Integrations
-
         </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../hub/">
-          
-  
-    
-  
   HUB
-
         </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../reference/cfg/__init__/">
-          
-  
-    
-  
   Reference
-
         </a>
 </li>
 <li class="md-tabs__item">
 <a class="md-tabs__link" href="../../../help/">
-          
-  
-    
-  
   Help
-
         </a>
 </li>
 </ul>
@@ -996,46 +933,32 @@
 <p>The code above will use GPUs <code>0... (N-1)</code>.</p>
 <details>
 <summary>Use specific GPUs (click to expand)</summary>
-
 You can do so by simply passing `--device` followed by your specific GPUs. For example, in the code below, we will use GPUs `2,3`.
-
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>python<span class="w"> </span>-m<span class="w"> </span>torch.distributed.run<span class="w"> </span>--nproc_per_node<span class="w"> </span><span class="m">2</span><span class="w"> </span>train.py<span class="w"> </span>--batch<span class="w"> </span><span class="m">64</span><span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--cfg<span class="w"> </span>yolov5s.yaml<span class="w"> </span>--weights<span class="w"> </span><span class="s1">''</span><span class="w"> </span>--device<span class="w"> </span><span class="m">2</span>,3
 </code></pre></div>
 </details>
 <details>
 <summary>Use SyncBatchNorm (click to expand)</summary>
-
 [SyncBatchNorm](https://pytorch.org/docs/master/generated/torch.nn.SyncBatchNorm.html) could increase [accuracy](https://www.ultralytics.com/glossary/accuracy) for multiple gpu training, however, it will slow down training by a significant factor. It is **only** available for Multiple GPU DistributedDataParallel training.
-
 It is best used when the batch-size on **each** GPU is small (&lt;= 8).
-
 To use SyncBatchNorm, simple pass `--sync-bn` to the command like below,
-
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>torch.distributed.run<span class="w"> </span>--nproc_per_node<span class="w"> </span><span class="m">2</span><span class="w"> </span>train.py<span class="w"> </span>--batch<span class="w"> </span><span class="m">64</span><span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--cfg<span class="w"> </span>yolov5s.yaml<span class="w"> </span>--weights<span class="w"> </span><span class="s1">''</span><span class="w"> </span>--sync-bn
 </code></pre></div>
 </details>
 <details>
 <summary>Use Multiple machines (click to expand)</summary>
-
 This is **only** available for Multiple GPU DistributedDataParallel training.
-
 Before we continue, make sure the files on all machines are the same, dataset, codebase, etc. Afterward, make sure the machines can communicate to each other.
-
 You will have to choose a master machine(the machine that the others will talk to). Note down its address(`master_addr`) and choose a port(`master_port`). I will use `master_addr = 192.168.1.1` and `master_port = 1234` for the example below.
-
 To use it, you can do as the following,
-
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># On master machine 0</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>python<span class="w"> </span>-m<span class="w"> </span>torch.distributed.run<span class="w"> </span>--nproc_per_node<span class="w"> </span>G<span class="w"> </span>--nnodes<span class="w"> </span>N<span class="w"> </span>--node_rank<span class="w"> </span><span class="m">0</span><span class="w"> </span>--master_addr<span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="w"> </span>--master_port<span class="w"> </span><span class="m">1234</span><span class="w"> </span>train.py<span class="w"> </span>--batch<span class="w"> </span><span class="m">64</span><span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--cfg<span class="w"> </span>yolov5s.yaml<span class="w"> </span>--weights<span class="w"> </span><span class="s1">''</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># On machine R</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>python<span class="w"> </span>-m<span class="w"> </span>torch.distributed.run<span class="w"> </span>--nproc_per_node<span class="w"> </span>G<span class="w"> </span>--nnodes<span class="w"> </span>N<span class="w"> </span>--node_rank<span class="w"> </span>R<span class="w"> </span>--master_addr<span class="w"> </span><span class="s2">"192.168.1.1"</span><span class="w"> </span>--master_port<span class="w"> </span><span class="m">1234</span><span class="w"> </span>train.py<span class="w"> </span>--batch<span class="w"> </span><span class="m">64</span><span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--cfg<span class="w"> </span>yolov5s.yaml<span class="w"> </span>--weights<span class="w"> </span><span class="s1">''</span>
 </code></pre></div>
-
 where `G` is number of GPU per machine, `N` is the number of machines, and `R` is the machine number from `0...(N-1)`. Let's say I have two machines with two GPUs each, it would be `G = 2` , `N = 2`, and `R = 1` for the above.
-
 Training will not start until <b>all </b> `N` machines are connected. Output will only be shown on master machine!
-
 </details>
 <h3 id="notes">Notes</h3>
 <ul>
@@ -1116,9 +1039,7 @@ Training will not start until <b>all </b> `N` machines are connected. Output wil
 <li>Have you tried in other environments listed in the "Environments" section below? </li>
 <li>Have you tried with another dataset like coco128 or coco2017? It will make it easier to find the root cause. </li>
 </ul>
-
 If you went through all the above, feel free to raise an Issue by giving as much detail as possible following the template.
-
 </details>
 <h2 id="supported-environments">Supported Environments</h2>
 <p>Ultralytics provides a range of ready-to-use environments, each pre-installed with essential dependencies such as <a href="https://developer.nvidia.com/cuda-zone">CUDA</a>, <a href="https://developer.nvidia.com/cudnn">CUDNN</a>, <a href="https://www.python.org/">Python</a>, and <a href="https://pytorch.org/">PyTorch</a>, to kickstart your projects.</p>
@@ -1212,8 +1133,6 @@ If you went through all the above, feel free to raise an Issue by giving as much
 <div class="md-copyright__highlight">
 <a href="https://www.ultralytics.com/" target="_blank">© 2025 Ultralytics Inc.</a> All rights reserved.
     </div>
-  
-  
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
