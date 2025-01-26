@@ -63,7 +63,7 @@ PP-YOLOE+ is engineered for high accuracy, making it a strong contender in scena
 - **Robust Detection**: The architectural choices in PP-YOLOE+ contribute to robust performance, especially in complex scenes and with challenging object variations.
 - **Scalable Model Sizes**: Like YOLO11, PP-YOLOE+ also offers different model sizes, though the emphasis remains on maintaining accuracy across scales.
 
-[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/develop/configs/ppyoloe/README_en.md){ .md-button }
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8/configs/ppyoloe/README.md){ .md-button }
 
 ### Use Cases and Strengths
 

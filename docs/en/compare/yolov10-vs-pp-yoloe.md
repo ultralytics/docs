@@ -98,7 +98,7 @@ PP-YOLOE+ is well-suited for various object detection tasks, especially within t
 - **Framework Dependency:** Primarily optimized for and within the PaddlePaddle ecosystem, which might be a limitation for users preferring other frameworks like PyTorch. ([PyTorch](https://www.ultralytics.com/glossary/pytorch))
 - **Community Size:** While PaddlePaddle has a growing community, it might be smaller compared to PyTorch and TensorFlow ([TensorFlow](https://www.ultralytics.com/glossary/tensorflow)) which are more widely used in the YOLO community.
 
-[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/develop/configs/ppyoloe/README_en.md){ .md-button }
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8/configs/ppyoloe/README.md){ .md-button }
 
 ## Model Comparison Table
 
