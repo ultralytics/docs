@@ -6,7 +6,7 @@ keywords: YOLOv7, DAMO-YOLO, object detection, model comparison, computer vision
 
 # YOLOv7 vs DAMO-YOLO: A Technical Comparison for Object Detection
 
-When selecting an object detection model, understanding the nuances between architectures is crucial for optimal performance and deployment. This page provides a detailed technical comparison between YOLOv7 and DAMO-YOLO, two prominent models in the field. We will delve into their architectural differences, performance metrics, and ideal use cases to help you make an informed decision for your computer vision projects.
+When selecting an object detection model, understanding the nuances between architectures is crucial for optimal performance and deployment. This page provides a detailed technical comparison between YOLOv7 and [DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO), two prominent models in the field. We will delve into their architectural differences, performance metrics, and ideal use cases to help you make an informed decision for your computer vision projects.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>

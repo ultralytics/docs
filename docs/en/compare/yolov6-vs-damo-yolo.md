@@ -21,7 +21,7 @@ Before diving into the specifics, let's visualize a performance overview:
 
 [Learn more about YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6/){ .md-button }
 
-**DAMO-YOLO**, originating from Alibaba DAMO Academy, is also engineered for high-speed object detection. It emphasizes a decoupled head structure, separating classification and localization tasks to enhance performance. DAMO-YOLO is known for its efforts in balancing accuracy and speed, often incorporating techniques to optimize both aspects. Its architecture is tailored to achieve efficient inference, making it suitable for real-time applications. [Further details on DAMO-YOLO can be found in its research papers and repositories](https://github.com/alibaba/TinyObjectDetection).
+**DAMO-YOLO**, originating from Alibaba DAMO Academy, is also engineered for high-speed object detection. It emphasizes a decoupled head structure, separating classification and localization tasks to enhance performance. DAMO-YOLO is known for its efforts in balancing accuracy and speed, often incorporating techniques to optimize both aspects. Its architecture is tailored to achieve efficient inference, making it suitable for real-time applications. [Further details on DAMO-YOLO can be found in its research papers and repositories](https://github.com/tinyvision/DAMO-YOLO).
 
 [Learn more about DAMO-YOLO](https://github.com/alibaba/TinyObjectDetection){ .md-button }
 
