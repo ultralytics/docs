@@ -45,7 +45,7 @@ PP-YOLOE+ adopts an anchor-free approach, simplifying the model architecture and
 
 ### Performance
 
-PP-YOLOE+ offers a range of models (t, s, m, l, x) to suit different performance requirements. It is benchmarked for high accuracy and efficient inference. The 'Plus' (+) version signifies improvements over the original PP-YOLOE, particularly in balancing accuracy and speed. Performance details can be found in [PaddleDetection model zoo](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.6/configs/ppyoloe/README_en.md).
+PP-YOLOE+ offers a range of models (t, s, m, l, x) to suit different performance requirements. It is benchmarked for high accuracy and efficient inference. The 'Plus' (+) version signifies improvements over the original PP-YOLOE, particularly in balancing accuracy and speed. Performance details can be found in [https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8/configs/ppyoloe/README.md).
 
 ### Use Cases
 
@@ -55,7 +55,7 @@ PP-YOLOE+ is well-suited for:
 - **Versatile applications:** Adaptable to various tasks due to its range of model sizes and efficient design.
 - **Research and development:** A strong baseline model for further research in object detection.
 
-[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.6/configs/ppyoloe/README_en.md){ .md-button }
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8/configs/ppyoloe/README.md){ .md-button }
 
 ## Comparison Table
 

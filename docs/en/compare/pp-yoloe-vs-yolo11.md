@@ -71,7 +71,7 @@ PP-YOLOE+ (PaddlePaddle You Only Look One-level Efficient Plus) is part of the P
 - **Robotics:** Real-time perception for robots in dynamic environments. [Robotics](https://www.ultralytics.com/glossary/robotics)
 - **High-Throughput Processing:** Scenarios requiring fast object detection on a large volume of images or video streams.
 
-[PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/develop/configs/ppyoloe/README_en.md){ .md-button }
+[PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8/configs/ppyoloe/README.md){ .md-button }
 
 ## Model Comparison Table
 
