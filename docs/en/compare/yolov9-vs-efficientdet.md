@@ -64,14 +64,14 @@ EfficientDet models are well-suited for applications where computational resourc
 
 - **YOLOv9:** Best suited for applications where top-tier accuracy is paramount, such as:
 
-  - **High-resolution image analysis:** Medical imaging ([medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis)), satellite imagery ([using computer vision to analyse satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery)), and detailed quality control in manufacturing ([AI in manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing)).
-  - **Security and surveillance** requiring precise object identification ([computer vision for theft prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security)).
-  - **Autonomous driving** scenarios needing robust and reliable perception ([AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving)).
+    - **High-resolution image analysis:** Medical imaging ([medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis)), satellite imagery ([using computer vision to analyse satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery)), and detailed quality control in manufacturing ([AI in manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing)).
+    - **Security and surveillance** requiring precise object identification ([computer vision for theft prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security)).
+    - **Autonomous driving** scenarios needing robust and reliable perception ([AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving)).
 
 - **EfficientDet:** Ideal for scenarios prioritizing speed and efficiency:
-  - **Mobile and edge devices:** Deployments on smartphones, drones ([computer vision applications in AI drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations)), and embedded systems due to its smaller model size and faster inference.
-  - **Real-time object detection:** Applications like real-time video analytics, robotics ([role of computer vision and Ultralytics YOLO11 in animal monitoring](https://www.ultralytics.com/blog/role-of-computer-vision-and-ultralytics-yolo11-in-animal-monitoring)), and interactive systems where low latency is critical.
-  - **Resource-constrained environments:** Projects with limited computational budget but still requiring a balance of accuracy and speed.
+    - **Mobile and edge devices:** Deployments on smartphones, drones ([computer vision applications in AI drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations)), and embedded systems due to its smaller model size and faster inference.
+    - **Real-time object detection:** Applications like real-time video analytics, robotics ([role of computer vision and Ultralytics YOLO11 in animal monitoring](https://www.ultralytics.com/blog/role-of-computer-vision-and-ultralytics-yolo11-in-animal-monitoring)), and interactive systems where low latency is critical.
+    - **Resource-constrained environments:** Projects with limited computational budget but still requiring a balance of accuracy and speed.
 
 ## Strengths and Weaknesses
 
@@ -171,14 +171,14 @@ EfficientDet models are well-suited for applications where computational resourc
 
 - **YOLOv9:** Best suited for applications where top-tier accuracy is paramount, such as:
 
-  - **High-resolution image analysis:** Medical imaging ([medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis)), satellite imagery ([using computer vision to analyse satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery)), and detailed quality control in manufacturing ([AI in manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing)).
-  - **Security and surveillance** requiring precise object identification ([computer vision for theft prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security)).
-  - **Autonomous driving** scenarios needing robust and reliable perception ([AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving)).
+    - **High-resolution image analysis:** Medical imaging ([medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis)), satellite imagery ([using computer vision to analyse satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery)), and detailed quality control in manufacturing ([AI in manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing)).
+    - **Security and surveillance** requiring precise object identification ([computer vision for theft prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security)).
+    - **Autonomous driving** scenarios needing robust and reliable perception ([AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving)).
 
 - **EfficientDet:** Ideal for scenarios prioritizing speed and efficiency:
-  - **Mobile and edge devices:** Deployments on smartphones, drones ([computer vision applications in AI drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations)), and embedded systems due to its smaller model size and faster inference.
-  - **Real-time object detection:** Applications like real-time video analytics, robotics ([role of computer vision and Ultralytics YOLO11 in animal monitoring](https://www.ultralytics.com/blog/role-of-computer-vision-and-ultralytics-yolo11-in-animal-monitoring)), and interactive systems where low latency is critical.
-  - **Resource-constrained environments:** Projects with limited computational budget but still requiring a balance of accuracy and speed.
+    - **Mobile and edge devices:** Deployments on smartphones, drones ([computer vision applications in AI drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations)), and embedded systems due to its smaller model size and faster inference.
+    - **Real-time object detection:** Applications like real-time video analytics, robotics ([role of computer vision and Ultralytics YOLO11 in animal monitoring](https://www.ultralytics.com/blog/role-of-computer-vision-and-ultralytics-yolo11-in-animal-monitoring)), and interactive systems where low latency is critical.
+    - **Resource-constrained environments:** Projects with limited computational budget but still requiring a balance of accuracy and speed.
 
 ## Strengths and Weaknesses
 

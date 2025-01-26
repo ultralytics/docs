@@ -76,21 +76,21 @@ YOLOv8 generally outperforms YOLOv5 in terms of accuracy (mAP), especially in th
 ## Strengths and Weaknesses
 
 - **YOLOv5 Strengths:**
-  - **Speed:** Faster inference speeds, particularly in smaller models.
-  - **Efficiency:** Lower computational requirements, suitable for edge devices.
-  - **Mature and Stable:** Well-established and widely adopted with a strong community.
+    - **Speed:** Faster inference speeds, particularly in smaller models.
+    - **Efficiency:** Lower computational requirements, suitable for edge devices.
+    - **Mature and Stable:** Well-established and widely adopted with a strong community.
 - **YOLOv5 Weaknesses:**
 
-  - **Accuracy:** Generally lower mAP compared to YOLOv8, especially in larger models.
-  - **Versatility:** Primarily focused on object detection, with less native support for other vision tasks compared to YOLOv8.
+    - **Accuracy:** Generally lower mAP compared to YOLOv8, especially in larger models.
+    - **Versatility:** Primarily focused on object detection, with less native support for other vision tasks compared to YOLOv8.
 
 - **YOLOv8 Strengths:**
-  - **Accuracy:** Higher mAP across model sizes due to architectural improvements.
-  - **Versatility:** Supports a broader range of vision tasks, including detection, segmentation, pose estimation, and classification.
-  - **State-of-the-art:** Represents the latest advancements in the YOLO series, incorporating modern detection techniques.
+    - **Accuracy:** Higher mAP across model sizes due to architectural improvements.
+    - **Versatility:** Supports a broader range of vision tasks, including detection, segmentation, pose estimation, and classification.
+    - **State-of-the-art:** Represents the latest advancements in the YOLO series, incorporating modern detection techniques.
 - **YOLOv8 Weaknesses:**
-  - **Speed:** Slightly slower inference speeds than YOLOv5, especially in smaller models.
-  - **Resource Intensity:** Higher computational requirements, potentially less suitable for extremely resource-constrained devices compared to YOLOv5n/s.
+    - **Speed:** Slightly slower inference speeds than YOLOv5, especially in smaller models.
+    - **Resource Intensity:** Higher computational requirements, potentially less suitable for extremely resource-constrained devices compared to YOLOv5n/s.
 
 ## Conclusion and Alternatives
 

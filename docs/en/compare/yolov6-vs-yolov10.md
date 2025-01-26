@@ -47,24 +47,24 @@ The table below summarizes the performance metrics for different sizes of YOLOv6
 
 - **YOLOv6-3.0 Strengths:**
 
-  - High accuracy, particularly in larger model sizes.
-  - Designed for industrial applications requiring robust detection.
-  - Mature and well-documented, benefiting from community support and resources.
+    - High accuracy, particularly in larger model sizes.
+    - Designed for industrial applications requiring robust detection.
+    - Mature and well-documented, benefiting from community support and resources.
 
 - **YOLOv6-3.0 Weaknesses:**
 
-  - Inference speed, while optimized, may not be as fast as the latest models like YOLOv10, especially on resource-constrained devices.
-  - Model sizes can be larger compared to YOLOv10 for similar performance levels.
+    - Inference speed, while optimized, may not be as fast as the latest models like YOLOv10, especially on resource-constrained devices.
+    - Model sizes can be larger compared to YOLOv10 for similar performance levels.
 
 - **YOLOv10 Strengths:**
 
-  - **Superior speed and efficiency**, especially in smaller model sizes, making it ideal for real-time and edge applications.
-  - Anchor-free architecture simplifies the model and potentially improves generalization.
-  - Competitive accuracy, often exceeding YOLOv6-3.0, particularly in smaller, faster models.
+    - **Superior speed and efficiency**, especially in smaller model sizes, making it ideal for real-time and edge applications.
+    - Anchor-free architecture simplifies the model and potentially improves generalization.
+    - Competitive accuracy, often exceeding YOLOv6-3.0, particularly in smaller, faster models.
 
 - **YOLOv10 Weaknesses:**
-  - Newer model, potentially less community support and fewer deployment examples compared to YOLOv6-3.0.
-  - May require more fine-tuning for specific datasets to achieve optimal accuracy compared to specialized models.
+    - Newer model, potentially less community support and fewer deployment examples compared to YOLOv6-3.0.
+    - May require more fine-tuning for specific datasets to achieve optimal accuracy compared to specialized models.
 
 ## Use Cases
 

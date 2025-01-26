@@ -82,21 +82,21 @@ EfficientDet, developed by Google, is a family of object detection models that p
 **YOLOv6-3.0:**
 
 - **Strengths:**
-  - **High Inference Speed:** Optimized for real-time performance, making it suitable for applications demanding low latency.
-  - **Good Balance of Speed and Accuracy:** Offers a competitive accuracy-speed trade-off for many practical applications.
+    - **High Inference Speed:** Optimized for real-time performance, making it suitable for applications demanding low latency.
+    - **Good Balance of Speed and Accuracy:** Offers a competitive accuracy-speed trade-off for many practical applications.
 - **Weaknesses:**
-  - **Potentially Larger Model Size:** May have a larger model size and computational footprint compared to EfficientDet for similar accuracy.
-  - **Limited Model Size Variations:** Fewer model size options compared to EfficientDet's D0-D7 scaling.
+    - **Potentially Larger Model Size:** May have a larger model size and computational footprint compared to EfficientDet for similar accuracy.
+    - **Limited Model Size Variations:** Fewer model size options compared to EfficientDet's D0-D7 scaling.
 
 **EfficientDet:**
 
 - **Strengths:**
-  - **High Efficiency:** Achieves state-of-the-art accuracy with fewer parameters and FLOPs, making it highly efficient.
-  - **Scalability:** Offers a range of model sizes (D0-D7) to suit various computational budgets and accuracy needs.
-  - **Strong Accuracy for Size:** Particularly strong in achieving high accuracy relative to model size and computational cost.
+    - **High Efficiency:** Achieves state-of-the-art accuracy with fewer parameters and FLOPs, making it highly efficient.
+    - **Scalability:** Offers a range of model sizes (D0-D7) to suit various computational budgets and accuracy needs.
+    - **Strong Accuracy for Size:** Particularly strong in achieving high accuracy relative to model size and computational cost.
 - **Weaknesses:**
-  - **Potentially Slower Inference Speed:** May be slower than YOLOv6-3.0 for real-time applications, especially smaller variants.
-  - **Complexity:** The BiFPN architecture might be more complex to implement and optimize compared to simpler YOLO heads.
+    - **Potentially Slower Inference Speed:** May be slower than YOLOv6-3.0 for real-time applications, especially smaller variants.
+    - **Complexity:** The BiFPN architecture might be more complex to implement and optimize compared to simpler YOLO heads.
 
 ## Conclusion
 

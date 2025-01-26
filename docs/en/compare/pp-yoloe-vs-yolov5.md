@@ -42,13 +42,13 @@ PP-YOLOE+ is well-suited for applications requiring robust object detection with
 
 - **Strengths:**
 
-  - Anchor-free design simplifies implementation and reduces hyperparameter tuning. [Discover anchor-free detectors](https://www.ultralytics.com/glossary/anchor-free-detectors).
-  - High accuracy and efficient inference.
-  - Well-documented and supported within the PaddlePaddle ecosystem.
+    - Anchor-free design simplifies implementation and reduces hyperparameter tuning. [Discover anchor-free detectors](https://www.ultralytics.com/glossary/anchor-free-detectors).
+    - High accuracy and efficient inference.
+    - Well-documented and supported within the PaddlePaddle ecosystem.
 
 - **Weaknesses:**
-  - Ecosystem lock-in might be a concern for users deeply invested in other frameworks like PyTorch.
-  - Community and resources may be less extensive compared to more widely adopted models like YOLOv5.
+    - Ecosystem lock-in might be a concern for users deeply invested in other frameworks like PyTorch.
+    - Community and resources may be less extensive compared to more widely adopted models like YOLOv5.
 
 ## YOLOv5
 
@@ -81,14 +81,14 @@ YOLOv5's versatility makes it suitable for a wide array of applications, includi
 
 - **Strengths:**
 
-  - Exceptional speed and real-time performance. [Explore YOLO performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/).
-  - Multiple model sizes for flexible deployment scenarios.
-  - Large and active community with extensive resources and support. [Join the Ultralytics community](https://ultralytics.com/discord).
-  - Easy to use with a well-documented Python package and Ultralytics HUB platform [Ultralytics HUB documentation](https://docs.ultralytics.com/hub/).
+    - Exceptional speed and real-time performance. [Explore YOLO performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/).
+    - Multiple model sizes for flexible deployment scenarios.
+    - Large and active community with extensive resources and support. [Join the Ultralytics community](https://ultralytics.com/discord).
+    - Easy to use with a well-documented Python package and Ultralytics HUB platform [Ultralytics HUB documentation](https://docs.ultralytics.com/hub/).
 
 - **Weaknesses:**
-  - While highly accurate, larger models can be computationally intensive.
-  - Anchor-based approach might require more fine-tuning for certain datasets compared to anchor-free methods. [Learn about anchor-based detectors](https://www.ultralytics.com/glossary/anchor-based-detectors).
+    - While highly accurate, larger models can be computationally intensive.
+    - Anchor-based approach might require more fine-tuning for certain datasets compared to anchor-free methods. [Learn about anchor-based detectors](https://www.ultralytics.com/glossary/anchor-based-detectors).
 
 ## Performance Table
 

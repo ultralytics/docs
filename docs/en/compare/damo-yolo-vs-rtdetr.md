@@ -56,38 +56,38 @@ The table below summarizes the performance metrics for different sizes of DAMO-Y
 **DAMO-YOLO:**
 
 - **Strengths**:
-  - **High Speed**: Excellent inference speed, ideal for real-time applications.
-  - **Lightweight**: Small model size, suitable for resource-constrained environments and edge devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/).
-  - **Efficient**: Lower computational cost.
+    - **High Speed**: Excellent inference speed, ideal for real-time applications.
+    - **Lightweight**: Small model size, suitable for resource-constrained environments and edge devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/).
+    - **Efficient**: Lower computational cost.
 - **Weaknesses**:
-  - **Lower Accuracy**: Generally lower mAP compared to RTDETRv2, especially in complex scenarios.
-  - **Potential for Missed Detections**: May struggle with small objects or occluded objects compared to more complex models.
+    - **Lower Accuracy**: Generally lower mAP compared to RTDETRv2, especially in complex scenarios.
+    - **Potential for Missed Detections**: May struggle with small objects or occluded objects compared to more complex models.
 
 **RTDETRv2:**
 
 - **Strengths**:
-  - **High Accuracy**: Achieves higher mAP, indicating better detection accuracy and fewer missed detections.
-  - **Robust to Context**: Vision Transformer architecture allows for better handling of complex scenes and occlusions.
+    - **High Accuracy**: Achieves higher mAP, indicating better detection accuracy and fewer missed detections.
+    - **Robust to Context**: Vision Transformer architecture allows for better handling of complex scenes and occlusions.
 - **Weaknesses**:
-  - **Slower Speed**: Slower inference speed compared to DAMO-YOLO, less suitable for extremely real-time applications.
-  - **Resource Intensive**: Larger model size and higher computational cost, requiring more powerful hardware.
+    - **Slower Speed**: Slower inference speed compared to DAMO-YOLO, less suitable for extremely real-time applications.
+    - **Resource Intensive**: Larger model size and higher computational cost, requiring more powerful hardware.
 
 ## Use Cases
 
 - **DAMO-YOLO**: Best suited for applications where speed and efficiency are critical, such as:
 
-  - Real-time video surveillance
-  - Object detection on mobile devices
-  - Robotics and drone vision
-  - Applications with limited computational resources
-  - [Smart retail inventory management](https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management)
+    - Real-time video surveillance
+    - Object detection on mobile devices
+    - Robotics and drone vision
+    - Applications with limited computational resources
+    - [Smart retail inventory management](https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management)
 
 - **RTDETRv2**: Ideal for applications prioritizing accuracy and robustness, such as:
-  - Medical image analysis
-  - High-resolution image analysis
-  - Autonomous driving perception
-  - Detailed quality control in manufacturing
-  - [Wildlife monitoring](https://www.ultralytics.com/blog/yolovme-colony-counting-smear-evaluation-and-wildlife-detection)
+    - Medical image analysis
+    - High-resolution image analysis
+    - Autonomous driving perception
+    - Detailed quality control in manufacturing
+    - [Wildlife monitoring](https://www.ultralytics.com/blog/yolovme-colony-counting-smear-evaluation-and-wildlife-detection)
 
 ## Similar Models
 

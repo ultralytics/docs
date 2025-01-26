@@ -58,25 +58,25 @@ Below is a comparison table summarizing the performance metrics of PP-YOLOE+ and
 
 - **Strengths:**
 
-  - Simpler architecture, easier to implement and deploy.
-  - Good balance of speed and accuracy.
-  - Efficient anchor-free design.
+    - Simpler architecture, easier to implement and deploy.
+    - Good balance of speed and accuracy.
+    - Efficient anchor-free design.
 
 - **Weaknesses:**
-  - May not achieve the highest accuracy compared to transformer-based models in complex scenarios.
-  - Performance may plateau at higher model sizes compared to RTDETRv2.
+    - May not achieve the highest accuracy compared to transformer-based models in complex scenarios.
+    - Performance may plateau at higher model sizes compared to RTDETRv2.
 
 **RTDETRv2**
 
 - **Strengths:**
 
-  - Potentially higher accuracy due to Vision Transformer backbone.
-  - Real-time performance optimized architecture.
-  - Effective in complex scenes requiring contextual understanding.
+    - Potentially higher accuracy due to Vision Transformer backbone.
+    - Real-time performance optimized architecture.
+    - Effective in complex scenes requiring contextual understanding.
 
 - **Weaknesses:**
-  - More complex architecture, potentially harder to implement and optimize.
-  - Larger model sizes and potentially slower inference speeds than smaller PP-YOLOE+ models, especially for the 'x' variants with larger parameter counts and FLOPs.
+    - More complex architecture, potentially harder to implement and optimize.
+    - Larger model sizes and potentially slower inference speeds than smaller PP-YOLOE+ models, especially for the 'x' variants with larger parameter counts and FLOPs.
 
 ## Conclusion
 
