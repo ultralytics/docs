@@ -65,7 +65,7 @@ PP-YOLOE+ is an enhanced version of the PP-YOLOE (PaddlePaddle You Only Look Onc
 PP-YOLOE+ builds upon the anchor-free paradigm and incorporates several architectural improvements for enhanced accuracy and speed. Key features include:
 
 - **Anchor-Free Design:** Similar to YOLOv10, it avoids anchor boxes for simpler and faster detection.
-- **CSPRepResNet Backbone:** Employs an efficient backbone network based on CSPNet (Cross Stage Partial Network) and represent (Re-parameterized Residual Network) for effective feature extraction.
+- **CSPRepResNet Backbone:** Employs an efficient backbone network based on CSPNet (Cross Stage Partial Network) and RepResNet (Re-parameterized Residual Network) for effective feature extraction.
 - **Varifocal Loss:** Uses Varifocal Loss to address the imbalance between positive and negative samples during training, improving detection accuracy.
 - **ET-Head (Efficient Task Head):** An optimized detection head designed for efficiency and accuracy.
 
