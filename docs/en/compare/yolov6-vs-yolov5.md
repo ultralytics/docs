@@ -101,6 +101,6 @@ YOLOv6-3.0 is designed for scenarios where high accuracy and fast inference are 
 
 ## Conclusion
 
-Choosing between YOLOv6-3.0 and YOLOv5 depends on the specific requirements of your object detection task. [YOLOv5](https://yolov5.streamlit.app/) remains a strong choice for applications prioritizing speed and ease of deployment, with a good balance of accuracy. [YOLOv6-3.0](https://github.com/meituan/YOLOv6) offers enhanced accuracy and efficient inference, making it more suitable for industrial and high-precision applications.
+Choosing between YOLOv6-3.0 and YOLOv5 depends on the specific requirements of your object detection task. [YOLOv5](https://github.com/ultralytics/yolov5) remains a strong choice for applications prioritizing speed and ease of deployment, with a good balance of accuracy. [YOLOv6-3.0](https://github.com/meituan/YOLOv6) offers enhanced accuracy and efficient inference, making it more suitable for industrial and high-precision applications.
 
 Users may also be interested in exploring other advanced YOLO models available in Ultralytics Docs, such as the cutting-edge [YOLOv8](https://docs.ultralytics.com/models/yolov8/), [YOLOv9](https://docs.ultralytics.com/models/yolov9/) and [YOLOv10](https://docs.ultralytics.com/models/yolov10/) for state-of-the-art performance, or [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) and [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/) for specialized architectures.
