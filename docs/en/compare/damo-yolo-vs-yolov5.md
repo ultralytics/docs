@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of DAMO-YOLO and YOLOv5 object detection models, focusing on architecture, performance, and use cases.
-keywords: DAMO-YOLO, YOLOv5, object detection, computer vision, model comparison, mAP, inference speed, model size, Ultralytics
+description: Discover the strengths, weaknesses, and performance metrics of DAMO-YOLO and YOLOv5 in this comprehensive comparison for object detection models.
+keywords: DAMO-YOLO, YOLOv5, object detection, model comparison, accuracy, inference speed, anchor-free, anchor-based, Ultralytics, real-time applications
 ---
 
 # DAMO-YOLO vs YOLOv5: A Technical Comparison for Object Detection

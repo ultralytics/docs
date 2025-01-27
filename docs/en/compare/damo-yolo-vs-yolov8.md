@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of DAMO-YOLO and YOLOv8 object detection models, including architecture, performance, and use cases.
-keywords: DAMO-YOLO, YOLOv8, object detection, model comparison, computer vision, Ultralytics
+description: Compare DAMO-YOLO and YOLOv8 in object detection, from performance and architecture to use cases. Discover the best model for your project.
+keywords: DAMO-YOLO, YOLOv8, object detection, model comparison, computer vision, AI models, YOLO series, DAMO Academy, Ultralytics, performance metrics
 ---
 
 # DAMO-YOLO vs YOLOv8: A Technical Comparison for Object Detection

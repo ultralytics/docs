@@ -1,7 +1,7 @@
 ---
 comments: true
-description:
-keywords:
+description: Compare YOLO11 and YOLOv7 for object detection. Discover key differences in architecture, performance, and use cases to choose the best model for your needs.
+keywords: YOLO11, YOLOv7, object detection, model comparison, YOLO performance metrics, advanced AI models, computer vision, benchmark metrics, AI applications
 ---
 
 # YOLO11 vs YOLOv7: A Detailed Model Comparison

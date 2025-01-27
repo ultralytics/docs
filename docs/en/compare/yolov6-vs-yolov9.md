@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv6-3.0 and YOLOv9 object detection models, focusing on architecture, performance, and use cases within the Ultralytics ecosystem.
-keywords: YOLOv6-3.0, YOLOv9, object detection, model comparison, Ultralytics, AI, computer vision, performance metrics, architecture
+description: Explore a detailed comparison of YOLOv6-3.0 and YOLOv9. Discover their speed, accuracy, use cases, and which model suits your object detection needs.
+keywords: YOLOv6, YOLOv9, object detection, model comparison, computer vision, real-time detection, deep learning, Ultralytics models, AI models, YOLO family
 ---
 
 # Model Comparison: YOLOv6-3.0 vs YOLOv9 for Object Detection

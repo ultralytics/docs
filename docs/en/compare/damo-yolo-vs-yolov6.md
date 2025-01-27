@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of DAMO-YOLO and YOLOv6-3.0 object detection models, including architecture, performance, and use cases.
-keywords: DAMO-YOLO, YOLOv6-3.0, object detection, model comparison, computer vision, Ultralytics
+description: Explore the technical comparison of DAMO-YOLO and YOLOv6-3.0, analyzing accuracy, speed, architecture, and use cases in real-time object detection.
+keywords: DAMO-YOLO, YOLOv6-3.0, object detection, model comparison, real-time AI, computer vision, Ultralytics, efficiency, accuracy
 ---
 
 # DAMO-YOLO vs YOLOv6-3.0: A Technical Comparison

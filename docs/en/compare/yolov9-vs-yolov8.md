@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv9 and YOLOv8 object detection models, highlighting architecture, performance, and use cases.
-keywords: YOLOv9, YOLOv8, object detection, model comparison, Ultralytics, AI, computer vision
+description: Explore the key differences between YOLOv9 and YOLOv8. Compare architecture, performance, and use cases to find the best model for your tasks.
+keywords: YOLOv9, YOLOv8, YOLO comparison, object detection, machine learning, computer vision, model performance, real-time detection, Ultralytics
 ---
 
 # YOLOv9 vs YOLOv8: A Technical Comparison

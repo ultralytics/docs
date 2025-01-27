@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOX and DAMO-YOLO object detection models, including architecture, performance, and use cases.
-keywords: YOLOX, DAMO-YOLO, object detection, computer vision, model comparison, Ultralytics
+description: Compare YOLOX and DAMO-YOLO object detection models. Explore architecture, performance, and use cases to find the best fit for your ML projects.
+keywords: YOLOX, DAMO-YOLO, object detection, model comparison, machine learning, computer vision, neural networks, performance metrics, AI tools
 ---
 
 # YOLOX vs. DAMO-YOLO: A Detailed Comparison

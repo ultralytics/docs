@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of RTDETRv2 and PP-YOLOE+ object detection models, including architecture, performance, use cases, mAP, inference speed, and model size.
-keywords: RTDETRv2, PP-YOLOE+, object detection, model comparison, computer vision, Ultralytics YOLO, performance metrics, architecture
+description: Compare RTDETRv2 and PP-YOLOE+ object detection models. Explore differences in architecture, accuracy, and performance to choose the best fit.
+keywords: RTDETRv2, PP-YOLOE+, object detection, model comparison, computer vision, real-time detection, YOLO models, transformer, performance analysis
 ---
 
 # RTDETRv2 vs PP-YOLOE+: Detailed Model Comparison

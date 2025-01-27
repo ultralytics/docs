@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLO11 and YOLOv8 object detection models, including architecture, performance metrics like mAP and inference speed, and use cases.
-keywords: YOLO11, YOLOv8, object detection, model comparison, Ultralytics, AI, computer vision, performance, architecture, use cases
+description: Explore a technical comparison of YOLO11 and YOLOv8. Discover their performance, architecture, and best use cases for object detection.
+keywords: YOLO11, YOLOv8, object detection, model comparison, computer vision, Ultralytics, AI performance metrics, advanced AI models
 ---
 
 # YOLO11 vs YOLOv8: A Technical Comparison

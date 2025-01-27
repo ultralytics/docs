@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of EfficientDet and DAMO-YOLO object detection models, focusing on architecture, performance, and use cases.
-keywords: EfficientDet, DAMO-YOLO, object detection, model comparison, computer vision, Ultralytics
+description: Explore a detailed technical comparison of EfficientDet and DAMO-YOLO. Discover their architectures, performance metrics, and ideal use cases.
+keywords: EfficientDet, DAMO-YOLO, object detection, model comparison, computer vision, Ultralytics, mAP, inference speed, real-time detection
 ---
 
 # EfficientDet vs. DAMO-YOLO: A Technical Comparison for Object Detection

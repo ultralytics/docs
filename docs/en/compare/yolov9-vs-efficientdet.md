@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv9 and EfficientDet object detection models, including architecture, performance, and use cases.
-keywords: YOLOv9, EfficientDet, object detection, model comparison, computer vision, Ultralytics
+description: Compare YOLOv9 and EfficientDet for object detection. Explore differences in architecture, performance, and use cases to find the best fit for your project.
+keywords: YOLOv9, EfficientDet, object detection, model comparison, computer vision, AI, machine learning, PGI, GELAN, BiFPN, efficient object detection
 ---
 
 # YOLOv9 vs. EfficientDet: A Detailed Comparison

@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv9 and PP-YOLOE+ object detection models, focusing on architecture, performance, and use cases.
-keywords: YOLOv9, PP-YOLOE+, object detection, model comparison, computer vision, Ultralytics
+description: Compare YOLOv9 and PP-YOLOE+ models for object detection. Explore their architecture, performance, strengths, weaknesses, and use cases.
+keywords: YOLOv9, PP-YOLOE+, object detection, model comparison, AI models, computer vision, YOLO series, real-time detection, AI architecture
 ---
 
 # YOLOv9 vs PP-YOLOE+: A Technical Comparison for Object Detection

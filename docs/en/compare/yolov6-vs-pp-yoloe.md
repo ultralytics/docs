@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv6-3.0 and PP-YOLOE+ object detection models, focusing on architecture, performance, and use cases.
-keywords: YOLOv6-3.0, PP-YOLOE+, object detection, model comparison, computer vision, Ultralytics
+description: Compare YOLOv6-3.0 and PP-YOLOE+ for object detection. Discover key differences in architecture, performance, and ideal use cases.
+keywords: YOLOv6, PP-YOLOE+, object detection, model comparison, YOLO models, computer vision, real-time detection, high accuracy, architecture, performance metrics
 ---
 
 # Model Comparison: YOLOv6-3.0 vs PP-YOLOE+ for Object Detection

@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLO11 and RTDETRv2 object detection models, focusing on architecture, performance, and use cases.
-keywords: YOLO11, RTDETRv2, object detection, model comparison, computer vision, Ultralytics
+description: Dive into a detailed comparison of YOLO11 and RTDETRv2. Explore their architecture, strengths, weaknesses, and ideal use cases for object detection.
+keywords: YOLO11, RTDETRv2, object detection model, YOLO comparison, real-time detection, vision transformer, ultralytics models, model architecture, performance metrics
 ---
 
 # YOLO11 vs RTDETRv2: A Detailed Model Comparison for Object Detection

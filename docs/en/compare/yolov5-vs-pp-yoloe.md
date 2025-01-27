@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv5 and PP-YOLOE+ object detection models, focusing on architecture, performance, and use cases.
-keywords: YOLOv5, PP-YOLOE+, object detection, model comparison, computer vision, Ultralytics
+description: Compare YOLOv5 and PP-YOLOE+ for object detection. Learn their differences in architecture, performance, and applications to choose the right model.
+keywords: YOLOv5, PP-YOLOE+, object detection, Ultralytics, YOLO, comparison, anchor-based, anchor-free, model performance
 ---
 
 # YOLOv5 vs PP-YOLOE+: A Detailed Comparison

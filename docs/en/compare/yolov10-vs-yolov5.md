@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv10 and YOLOv5 object detection models, highlighting architecture, performance, and use cases.
-keywords: YOLOv10, YOLOv5, object detection, model comparison, architecture, performance, mAP, inference speed, model size, use cases, Ultralytics
+description: Compare YOLOv10 and YOLOv5 models. Explore architectural differences, performance metrics, and use cases for cutting-edge object detection applications.
+keywords: YOLOv10, YOLOv5, object detection, model comparison, Ultralytics, computer vision, performance metrics, real-time processing, AI models
 ---
 
 # YOLOv10 vs YOLOv5: A Detailed Comparison

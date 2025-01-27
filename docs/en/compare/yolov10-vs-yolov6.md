@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv10 and YOLOv6-3.0 object detection models, including architecture, performance, and use cases.
-keywords: YOLOv10, YOLOv6-3.0, object detection, model comparison, computer vision, Ultralytics
+description: Compare YOLOv10 and YOLOv6-3.0 for object detection. Explore differences in speed, accuracy, and use cases to find the best model for your needs.
+keywords: YOLOv10, YOLOv6-3.0, object detection, model comparison, YOLO models, computer vision, real-time detection, machine learning
 ---
 
 # YOLOv10 vs YOLOv6-3.0: A Technical Comparison for Object Detection

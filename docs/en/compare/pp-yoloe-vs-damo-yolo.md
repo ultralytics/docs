@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of PP-YOLOE+ and DAMO-YOLO computer vision models, focusing on architecture, performance, and use cases.
-keywords: PP-YOLOE+, DAMO-YOLO, object detection, model comparison, computer vision, Ultralytics, YOLO
+description: Compare PP-YOLOE+ and DAMO-YOLO for object detection. Explore their performance, architecture, and use cases to find the ideal model for your needs.
+keywords: PP-YOLOE+, DAMO-YOLO, object detection, model comparison, computer vision, PaddlePaddle, Alibaba, deep learning, machine learning
 ---
 
 # Model Comparison: PP-YOLOE+ vs DAMO-YOLO for Object Detection

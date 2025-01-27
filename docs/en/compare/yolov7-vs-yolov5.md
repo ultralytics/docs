@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv7 and YOLOv5 computer vision models by Ultralytics. Explore architecture, performance, use cases, and metrics like mAP and inference speed.
-keywords: YOLOv7, YOLOv5, comparison, object detection, computer vision, Ultralytics, mAP, inference speed, model size, architecture, performance, use cases
+description: Compare YOLOv7 and YOLOv5 for object detection. Explore their architectural differences, performance metrics, and ideal use cases.
+keywords: YOLOv7,YOLOv5,object detection,Ultralytics,performance metrics,model comparison,real-time applications,accuracy vs speed
 ---
 
 # YOLOv7 vs YOLOv5: A Detailed Comparison

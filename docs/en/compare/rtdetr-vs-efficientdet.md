@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of RTDETRv2 and EfficientDet object detection models, including architecture, performance, and use cases.
-keywords: RTDETRv2, EfficientDet, object detection, model comparison, computer vision, Ultralytics
+description: Discover how RTDETRv2 and EfficientDet stack up in object detection performance, architecture, speed, and use cases. Choose the right model for your needs.
+keywords: RTDETRv2, EfficientDet, object detection, model comparison, Vision Transformer, EfficientNet, real-time detection, anchor-free detector, scalability, performance metrics
 ---
 
 # RTDETRv2 vs EfficientDet: A Technical Comparison for Object Detection

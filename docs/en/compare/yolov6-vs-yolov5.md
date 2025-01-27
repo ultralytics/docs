@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv6-3.0 and YOLOv5 object detection models, highlighting architecture, performance, and use cases.
-keywords: YOLOv6-3.0, YOLOv5, object detection, model comparison, Ultralytics, computer vision
+description: Explore the ultimate YOLOv6-3.0 vs YOLOv5 comparison. Discover their architectures, performance benchmarks, strengths, and ideal applications.
+keywords: YOLOv5, YOLOv6-3.0, Ultralytics, object detection, model comparison, AI, deep learning, computer vision, performance benchmarks, PyTorch, industrial AI, YOLO models
 ---
 
 # YOLOv6-3.0 vs YOLOv5: A Detailed Comparison

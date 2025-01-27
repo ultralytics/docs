@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv7 and PP-YOLOE+ object detection models, analyzing architecture, performance, and use cases.
-keywords: YOLOv7, PP-YOLOE+, object detection, model comparison, computer vision, Ultralytics
+description: Explore the technical comparison of YOLOv7 and PP-YOLOE+, analyzing architecture, benchmarks, and use cases to find the best object detection model.
+keywords: YOLOv7,PP-YOLOE+,object detection,model comparison,YOLO series,real-time detection,anchor-free,Ultralytics,computer vision
 ---
 
 # YOLOv7 vs PP-YOLOE+: A Technical Comparison for Object Detection

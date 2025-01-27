@@ -1,7 +1,7 @@
 ---
 comments: true
-description:
-keywords:
+description: Discover a detailed comparison of YOLOv9 and YOLO11 object detection models. Explore architecture, benchmarks, and use cases to choose the right model.
+keywords: YOLOv9, YOLO11, object detection, model comparison, Ultralytics, real-time AI, machine learning, computer vision, edge AI, benchmarks, performance metrics
 ---
 
 # YOLOv9 vs YOLO11: A Detailed Comparison for Object Detection

@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv5 and RT-DETR for object detection, focusing on architecture, performance, use cases, mAP, inference speed, and model size.
-keywords: YOLOv5, RT-DETR, object detection, model comparison, computer vision, Ultralytics, performance, architecture, use cases, mAP, inference speed, model size
+description: Compare YOLOv5 and RT-DETR v2 object detection models — explore architecture, performance, and use cases to find the best fit for your project.
+keywords: YOLOv5, RT-DETR v2, object detection, YOLO comparison, RT-DETR, Ultralytics models, performance metrics, computer vision, AI models
 ---
 
 # YOLOv5 vs RT-DETR v2: A Detailed Model Comparison

@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of EfficientDet and YOLOX object detection models, including architecture, performance metrics, and use cases.
-keywords: EfficientDet, YOLOX, object detection, computer vision, model comparison, mAP, inference speed, model size, Ultralytics
+description: Discover the key differences between EfficientDet and YOLOX for object detection. Learn about their architectures, performance, and best use cases.
+keywords: EfficientDet, YOLOX, object detection, machine learning, model comparison, real-time AI, computer vision, scalability, inference speed
 ---
 
 # EfficientDet vs YOLOX: A Technical Comparison for Object Detection

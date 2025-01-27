@@ -1,7 +1,7 @@
 ---
 comments: true
-description:
-keywords:
+description: Compare YOLO11 and YOLOX for object detection. Explore performance, architecture, and use cases to choose the right model for your project.
+keywords: YOLO11, YOLOX, object detection, Ultralytics, machine learning, computer vision, model comparison, YOLO models, real-time detection, AI models
 ---
 
 # YOLO11 vs YOLOX: A Detailed Model Comparison for Object Detection

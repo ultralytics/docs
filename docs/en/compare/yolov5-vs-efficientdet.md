@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv5 and EfficientDet object detection models, covering architecture, performance, use cases, and metrics like mAP and inference speed.
-keywords: YOLOv5, EfficientDet, object detection, model comparison, Ultralytics, computer vision, AI models, performance metrics, architecture, use cases
+description: Explore a detailed comparison between YOLOv5 and EfficientDet. Learn about architecture, performance, and use cases to choose the best object detection model.
+keywords: YOLOv5,EfficientDet,object detection,computer vision,YOLO comparison,EfficientDet comparison,real-time detection,high-accuracy detection,Ultralytics models
 ---
 
 # YOLOv5 vs. EfficientDet: A Detailed Comparison for Object Detection

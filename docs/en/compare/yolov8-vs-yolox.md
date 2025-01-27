@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv8 and YOLOX object detection models, highlighting architecture, performance, use cases, and metrics like mAP and inference speed.
-keywords: YOLOv8, YOLOX, object detection, model comparison, computer vision, Ultralytics, mAP, inference speed, architecture, performance
+description: Compare YOLOv8 and YOLOX in architecture, performance, and applications. Discover the best object detection model for your needs with Ultralytics.
+keywords: YOLOv8,YOLOX,object detection,Ultralytics,model comparison,YOLO models,computer vision,AI performance,benchmarking
 ---
 
 # Model Comparison: YOLOv8 vs YOLOX for Object Detection

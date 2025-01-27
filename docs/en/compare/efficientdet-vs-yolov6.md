@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of EfficientDet and YOLOv6-3.0 object detection models, focusing on architecture, performance, and use cases.
-keywords: EfficientDet, YOLOv6-3.0, object detection, model comparison, computer vision, Ultralytics
+description: Discover key differences between EfficientDet and YOLOv6-3.0, including architecture, accuracy, speed, and use cases for optimized object detection.
+keywords: EfficientDet, YOLOv6, object detection, model comparison, computer vision, mAP, inference speed, real-time detection, EfficientDet vs YOLO, Ultralytics
 ---
 
 # EfficientDet vs YOLOv6-3.0: A Technical Comparison for Object Detection

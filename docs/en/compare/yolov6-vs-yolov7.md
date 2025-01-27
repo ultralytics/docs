@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Detailed technical comparison between YOLOv6-3.0 and YOLOv7 computer vision models, focusing on architecture, performance, and use cases for object detection.
-keywords: YOLOv6-3.0, YOLOv7, object detection, model comparison, performance, architecture, use cases, mAP, inference speed, model size
+description: Compare YOLOv6-3.0 and YOLOv7 object detection models. Explore strengths, weaknesses, performance metrics, and use cases for optimal selection.
+keywords: YOLOv6-3.0, YOLOv7, object detection, model comparison, performance metrics, real-time AI, computer vision, Ultralytics, machine learning models
 ---
 
 # YOLOv6-3.0 vs YOLOv7: Model Comparison

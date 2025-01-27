@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of EfficientDet and YOLO11 object detection models, including architecture, performance, and use cases.
-keywords: EfficientDet, YOLO11, object detection, model comparison, computer vision, Ultralytics
+description: Explore a detailed comparison of EfficientDet and YOLO11 for object detection. Learn about their architecture, performance, and best use cases.
+keywords: EfficientDet, YOLO11, object detection, real-time detection, model comparison, machine learning, computer vision, deep learning, accuracy, speed, scalability
 ---
 
 # Model Comparison: EfficientDet vs YOLO11 for Object Detection

@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv8 and PP-YOLOE+ computer vision models for object detection, including architecture, performance, and use cases.
-keywords: YOLOv8, PP-YOLOE+, object detection, model comparison, computer vision, Ultralytics, performance metrics, AI models
+description: Dive into a detailed comparison of YOLOv8 and PP-YOLOE+. Understand their strengths, speeds, and accuracy to choose the ideal model for object detection.
+keywords: YOLOv8, PP-YOLOE+, object detection, model comparison, YOLO, Ultralytics, PaddleDetection, real-time inference, machine learning, computer vision
 ---
 
 # YOLOv8 vs PP-YOLOE+: A Technical Comparison for Object Detection

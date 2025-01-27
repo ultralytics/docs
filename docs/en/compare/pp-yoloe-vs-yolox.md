@@ -1,7 +1,7 @@
 ---
 comments: true
-description:
-keywords:
+description: Explore a detailed comparison of PP-YOLOE+ and YOLOX, covering architecture, performance benchmarks, and use cases in object detection.
+keywords: PP-YOLOE+, YOLOX, object detection, model comparison, computer vision, one-stage detector, YOLO models, deep learning, AI, performance benchmarks
 ---
 
 # PP-YOLOE+ vs YOLOX: Detailed Model Comparison

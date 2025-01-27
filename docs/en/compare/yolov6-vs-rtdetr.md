@@ -1,7 +1,7 @@
 ---
 comments: true
-description:
-keywords:
+description: Explore a detailed comparison between YOLOv6-3.0 and RTDETRv2 models for object detection, highlighting strengths, weaknesses, and performance metrics.
+keywords: YOLOv6, RTDETRv2, object detection, model comparison, computer vision, real-time detection, Vision Transformers, CNN, Ultralytics
 ---
 
 # YOLOv6-3.0 vs RTDETRv2: Detailed Model Comparison for Object Detection
