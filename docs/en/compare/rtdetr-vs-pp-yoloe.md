@@ -60,11 +60,11 @@ PP-YOLOE+ is an excellent choice for applications where speed is a primary conce
 | RTDETRv2-l | 640                   | 53.4                 | -                              | 9.76                                | 42                 | 136               |
 | RTDETRv2-x | 640                   | 54.3                 | -                              | 15.03                               | 76                 | 259               |
 |            |                       |                      |                                |                                     |                    |                   |
-| PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | -                  | -                 |
-| PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | -                  | -                 |
-| PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | -                  | -                 |
-| PP-YOLOE+l | 640                   | 52.9                 | -                              | 8.36                                | -                  | -                 |
-| PP-YOLOE+x | 640                   | 54.7                 | -                              | 14.3                                | -                  | -                 |
+| PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
+| PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | 7.93               | 17.36             |
+| PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |
+| PP-YOLOE+l | 640                   | 52.9                 | -                              | 8.36                                | 52.2               | 110.07            |
+| PP-YOLOE+x | 640                   | 54.7                 | -                              | 14.3                                | 98.42              | 206.59            |
 
 ## Conclusion
 

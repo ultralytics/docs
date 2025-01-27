@@ -53,11 +53,11 @@ While PP-YOLOE+ delivers higher accuracy than YOLOv5 in many benchmarks, it migh
 | YOLOv5l    | 640                   | 49.0                 | 408.4                          | 6.61                                | 53.2               | 135.0             |
 | YOLOv5x    | 640                   | 50.7                 | 763.2                          | 11.89                               | 97.2               | 246.4             |
 |            |                       |                      |                                |                                     |                    |                   |
-| PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | -                  | -                 |
-| PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | -                  | -                 |
-| PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | -                  | -                 |
-| PP-YOLOE+l | 640                   | 52.9                 | -                              | 8.36                                | -                  | -                 |
-| PP-YOLOE+x | 640                   | 54.7                 | -                              | 14.3                                | -                  | -                 |
+| PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
+| PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | 7.93               | 17.36             |
+| PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |
+| PP-YOLOE+l | 640                   | 52.9                 | -                              | 8.36                                | 52.2               | 110.07            |
+| PP-YOLOE+x | 640                   | 54.7                 | -                              | 14.3                                | 98.42              | 206.59            |
 
 ## Conclusion
 

@@ -81,11 +81,11 @@ The table below provides a comparative overview of the performance metrics for d
 | YOLOv9c    | 640                   | 53.0                 | -                              | 7.16                                | 25.3               | 102.1             |
 | YOLOv9e    | 640                   | 55.6                 | -                              | 16.77                               | 57.3               | 189.0             |
 |            |                       |                      |                                |                                     |                    |                   |
-| PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | -                  | -                 |
-| PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | -                  | -                 |
-| PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | -                  | -                 |
-| PP-YOLOE+l | 640                   | 52.9                 | -                              | 8.36                                | -                  | -                 |
-| PP-YOLOE+x | 640                   | 54.7                 | -                              | 14.3                                | -                  | -                 |
+| PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
+| PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | 7.93               | 17.36             |
+| PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |
+| PP-YOLOE+l | 640                   | 52.9                 | -                              | 8.36                                | 52.2               | 110.07            |
+| PP-YOLOE+x | 640                   | 54.7                 | -                              | 14.3                                | 98.42              | 206.59            |
 
 _Note: Speed metrics can vary based on hardware, software, and optimization techniques._
 
