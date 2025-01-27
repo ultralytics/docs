@@ -19,7 +19,7 @@ This page provides a detailed technical comparison between two state-of-the-art 
 
 **Architecture and Key Features:**
 
-YOLO11's architecture focuses on optimizing the balance between model size and accuracy. Key improvements include enhanced feature extraction layers for more detailed feature capture and a streamlined network structure to reduce computational overhead. This results in models that are not only faster but also more parameter-efficient. The architecture is designed to be flexible, allowing for deployment across diverse platforms, from edge devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and [NVIDIA Jetson](docs.ultralytics.com/guides/nvidia-jetson/) to cloud servers. YOLO11 is also easily integrated with platforms like [Ultralytics HUB](https://www.ultralytics.com/hub) for streamlined training and deployment workflows.
+YOLO11's architecture focuses on optimizing the balance between model size and accuracy. Key improvements include enhanced feature extraction layers for more detailed feature capture and a streamlined network structure to reduce computational overhead. This results in models that are not only faster but also more parameter-efficient. The architecture is designed to be flexible, allowing for deployment across diverse platforms, from edge devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) to cloud servers. YOLO11 is also easily integrated with platforms like [Ultralytics HUB](https://www.ultralytics.com/hub) for streamlined training and deployment workflows.
 
 **Performance Metrics:**
 
