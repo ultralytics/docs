@@ -35,11 +35,11 @@ Below is a comparison table summarizing the performance metrics of PP-YOLOE+ and
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
 | ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
-| PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | -                  | -                 |
-| PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | -                  | -                 |
-| PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | -                  | -                 |
-| PP-YOLOE+l | 640                   | 52.9                 | -                              | 8.36                                | -                  | -                 |
-| PP-YOLOE+x | 640                   | 54.7                 | -                              | 14.3                                | -                  | -                 |
+| PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
+| PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | 7.93               | 17.36             |
+| PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |
+| PP-YOLOE+l | 640                   | 52.9                 | -                              | 8.36                                | 52.2               | 110.07            |
+| PP-YOLOE+x | 640                   | 54.7                 | -                              | 14.3                                | 98.42              | 206.59            |
 |            |                       |                      |                                |                                     |                    |                   |
 | RTDETRv2-s | 640                   | 48.1                 | -                              | 5.03                                | 20                 | 60                |
 | RTDETRv2-m | 640                   | 51.9                 | -                              | 7.51                                | 36                 | 100               |
