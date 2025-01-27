@@ -75,7 +75,7 @@ The following table provides a comparative overview of the performance metrics f
 **YOLOv9 Ideal Use Cases:**
 
 - **Real-time Object Detection**: Applications demanding high-speed processing, such as autonomous driving, robotics, and live video analytics ([AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving), [robotics](https://www.ultralytics.com/glossary/robotics)).
-- **Edge Devices**: Deployments on resource-constrained devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and [NVIDIA Jetson](docs.ultralytics.com/guides/nvidia-jetson/) where efficiency is paramount.
+- **Edge Devices**: Deployments on resource-constrained devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where efficiency is paramount.
 - **General Object Detection Tasks**: Versatile for a wide range of object detection tasks due to its balance of speed and accuracy.
 
 **DAMO-YOLO Ideal Use Cases:**
