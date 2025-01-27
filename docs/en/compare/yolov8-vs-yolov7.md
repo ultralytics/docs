@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv8 and YOLOv7 object detection models, including architecture, performance, use cases, and metrics like mAP and inference speed.
-keywords: YOLOv8, YOLOv7, object detection, model comparison, computer vision, performance metrics, architecture, use cases, Ultralytics
+description: Explore a detailed comparison of YOLOv8 vs YOLOv7. Discover differences in architecture, performance, and use cases to choose the right model.
+keywords: YOLOv8, YOLOv7, object detection, YOLO comparison, Ultralytics, model comparison, anchor-free detection, real-time detection
 ---
 
 # YOLOv8 vs YOLOv7: A Detailed Model Comparison for Object Detection

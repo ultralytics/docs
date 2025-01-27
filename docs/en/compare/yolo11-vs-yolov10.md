@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of Ultralytics YOLO11 and YOLOv10 object detection models, focusing on architecture, performance, and use cases.
-keywords: YOLO11, YOLOv10, object detection, computer vision, model comparison, Ultralytics, AI models, performance metrics, architecture, use cases
+description: Compare YOLO11 and YOLOv10, two cutting-edge Ultralytics models. Explore architecture, performance, and use cases to choose the best fit for your needs.
+keywords: YOLO11, YOLOv10, object detection, model comparison, Ultralytics, accuracy, inference speed, performance metrics, computer vision
 ---
 
 # YOLO11 vs YOLOv10: A Technical Comparison for Object Detection

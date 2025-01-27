@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Compare YOLOv9 and RTDETRv2 object detection models. Explore their architectures, performance, and use cases in this technical analysis.
-keywords: YOLOv9, RTDETRv2, object detection, model comparison, computer vision, Ultralytics
+description: Compare YOLOv9 and RTDETRv2 models in this in-depth analysis of architecture, performance, and real-world applications. Find the best fit for your needs.
+keywords: YOLOv9, RTDETRv2, object detection, model comparison, Ultralytics, machine learning, computer vision, real-time detection, YOLO models
 ---
 
 # YOLOv9 vs RTDETRv2: A Technical Comparison for Object Detection

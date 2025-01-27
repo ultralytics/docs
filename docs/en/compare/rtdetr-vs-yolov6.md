@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of RTDETRv2 and YOLOv6-3.0 object detection models, focusing on architecture, performance, use cases, and metrics like mAP and inference speed.
-keywords: RTDETRv2, YOLOv6-3.0, object detection, model comparison, Ultralytics, computer vision, AI, performance metrics, architecture, use cases
+description: Explore RT-DETR and YOLOv6-3.0 in this detailed Ultralytics guide. Compare accuracy, speed, and applications to select the best model for your needs.
+keywords: RT-DETR, YOLOv6-3.0, Ultralytics, model comparison, object detection, real-time detection, accuracy vs speed, computer vision
 ---
 
 # RT-DETR vs YOLOv6-3.0: A Detailed Model Comparison

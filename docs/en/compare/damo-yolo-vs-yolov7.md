@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison between DAMO-YOLO and YOLOv7 object detection models, highlighting architecture, performance, and use cases.
-keywords: DAMO-YOLO, YOLOv7, object detection, model comparison, computer vision, Ultralytics
+description: Discover the key differences between DAMO-YOLO and YOLOv7, comparing accuracy, speed, architecture, and performance for optimal object detection.
+keywords: DAMO-YOLO, YOLOv7, object detection models, YOLO family, computer vision, model comparison, real-time detection, deep learning, Ultralytics
 ---
 
 # DAMO-YOLO vs YOLOv7: A Technical Comparison

@@ -1,7 +1,6 @@
 ---
-comments: true
-description: Compare YOLOv5 and YOLOv7 for object detection: architecture, performance, speed, mAP, model size, and use cases.
-keywords: YOLOv5, YOLOv7, object detection, model comparison, Ultralytics, AI, computer vision
+description: Compare YOLOv5 and YOLOv7 for object detection. Explore their architectures, performance metrics, strengths, weaknesses, and use cases.
+keywords: YOLOv5, YOLOv7, object detection, model comparison, YOLO models, Ultralytics, computer vision, performance metrics, architectures
 ---
 
 # YOLOv5 vs YOLOv7: Detailed Model Comparison for Object Detection

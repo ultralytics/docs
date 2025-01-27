@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of RTDETRv2 and DAMO-YOLO object detection models, focusing on architecture, performance, and use cases.
-keywords: RTDETRv2, DAMO-YOLO, object detection, model comparison, computer vision, AI models, Ultralytics
+description: Discover how RTDETRv2 and DAMO-YOLO stack up in object detection performance, speed, and applications. Choose the right model for your needs.
+keywords: RTDETRv2, DAMO-YOLO, object detection, model comparison, computer vision, real-time detection, anchor-free detector, Ultralytics
 ---
 
 # RTDETRv2 vs DAMO-YOLO: A Technical Comparison for Object Detection

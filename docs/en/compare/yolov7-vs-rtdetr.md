@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv7 and RT-DETR object detection models, including architecture, performance, and use cases.
-keywords: YOLOv7, RT-DETR, object detection, model comparison, computer vision, Ultralytics
+description: Discover the differences between YOLOv7 and RT-DETR, two state-of-the-art object detection models. Compare performance, features, and use cases.
+keywords: YOLOv7, RT-DETR, object detection, model comparison, Ultralytics, Vision Transformers, CNN, real-time detection, computer vision
 ---
 
 # YOLOv7 vs RT-DETR: A Detailed Model Comparison

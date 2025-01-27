@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLO11 and PP-YOLOE+ object detection models, including architecture, performance, and use cases.
-keywords: YOLO11, PP-YOLOE+, object detection, model comparison, computer vision, Ultralytics
+description: Compare YOLO11 and PP-YOLOE+ for object detection. Explore performance, architecture, and applications to choose the right model for your needs.
+keywords: YOLO11, PP-YOLOE+, object detection, model comparison, Ultralytics, computer vision, machine learning, real-time detection, accuracy, performance metrics
 ---
 
 # Model Comparison: YOLO11 vs PP-YOLOE+ for Object Detection

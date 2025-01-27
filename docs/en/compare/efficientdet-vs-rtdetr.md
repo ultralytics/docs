@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison page between EfficientDet and RTDETRv2 object detection models, focusing on architecture, performance, use cases, and metrics like mAP and inference speed.
-keywords: EfficientDet, RTDETRv2, object detection, model comparison, computer vision, Ultralytics, YOLO, mAP, inference speed, architecture, performance, use cases
+description: Compare EfficientDet and RTDETRv2 object detection models. Discover their strengths, weaknesses, and ideal use cases for optimal deployment.
+keywords: EfficientDet,RTDETRv2,object detection,model comparison,Ultralytics,Yolo,real-time detection,transformer models,EfficientNet,BiFPN
 ---
 
 # Model Comparison: EfficientDet vs RTDETRv2

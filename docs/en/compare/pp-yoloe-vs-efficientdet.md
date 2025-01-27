@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of PP-YOLOE+ and EfficientDet object detection models, including architecture, performance, use cases, mAP, and inference speed.
-keywords: PP-YOLOE+, EfficientDet, object detection, model comparison, computer vision, AI, Ultralytics
+description: Compare PP-YOLOE+ and EfficientDet on architecture, performance, and applications. Find the best model for your object detection needs.
+keywords: PP-YOLOE+, EfficientDet, object detection, model comparison, computer vision, YOLO, EfficientNet, architecture analysis
 ---
 
 # PP-YOLOE+ vs EfficientDet: A Technical Comparison

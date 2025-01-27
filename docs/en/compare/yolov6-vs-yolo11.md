@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv6-3.0 and YOLO11 object detection models, including architecture, performance, and use cases.
-keywords: YOLOv6-3.0, YOLO11, object detection, model comparison, Ultralytics, computer vision, AI
+description: Compare YOLOv6-3.0 and YOLO11 object detection models. Explore performance metrics, architecture, and use cases for optimal model selection.
+keywords: YOLOv6-3.0, YOLO11, object detection, Ultralytics, computer vision, model comparison, deep learning, AI models, technical analysis, YOLO series
 ---
 
 # YOLOv6-3.0 vs YOLO11: A Technical Comparison for Object Detection

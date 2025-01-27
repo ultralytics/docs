@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOv5 and YOLOv6-3.0 object detection models, highlighting architecture, performance, use cases, and metrics like mAP and inference speed.
-keywords: YOLOv5, YOLOv6-3.0, object detection, model comparison, Ultralytics, computer vision, mAP, inference speed, model size, architecture, performance, use cases
+description: Compare YOLOv5 and YOLOv6-3.0 in speed, accuracy, and applications. Discover the ideal YOLO model for real-time object detection projects.
+keywords: YOLOv5, YOLOv6-3.0, object detection, model comparison, computer vision, Ultralytics, real-time AI, speed vs accuracy
 ---
 
 # YOLOv5 vs YOLOv6-3.0: A Detailed Comparison

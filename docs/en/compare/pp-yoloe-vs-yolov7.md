@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of PP-YOLOE+ and YOLOv7 object detection models, highlighting architecture, performance, use cases, metrics like mAP, inference speed, and model size.
-keywords: PP-YOLOE+, YOLOv7, object detection, computer vision, model comparison, Ultralytics, AI models, performance metrics, architecture
+description: Explore the ultimate technical comparison of PP-YOLOE+ and YOLOv7. Discover their strengths, performance, and ideal use cases for object detection.
+keywords: PP-YOLOE+, YOLOv7, object detection, computer vision, model comparison, real-time detection, AI models, machine learning, Ultralytics, PaddleDetection
 ---
 
 # PP-YOLOE+ vs YOLOv7: A Technical Comparison

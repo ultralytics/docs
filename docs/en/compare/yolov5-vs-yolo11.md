@@ -1,7 +1,7 @@
 ---
 comments: true
-description:
-keywords:
+description: Explore a detailed comparison of YOLOv5 and YOLO11 models. Evaluate their architecture, performance, and use cases to find the best for your needs.
+keywords: YOLOv5, YOLO11, object detection, computer vision, model comparison, YOLO models, Ultralytics, deep learning, architecture, performance metrics, real-time detection, machine learning
 ---
 
 # Technical Comparison: YOLOv5 vs YOLO11 for Object Detection

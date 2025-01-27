@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison between YOLOX and PP-YOLOE+ object detection models, highlighting architecture, performance, and use cases.
-keywords: YOLOX, PP-YOLOE+, object detection, model comparison, Ultralytics YOLO
+description: Compare YOLOX and PP-YOLOE+ for object detection. Explore architectures, performance metrics, and use cases to choose the best model for your needs.
+keywords: YOLOX,PP-YOLOE+,object detection,model comparison,computer vision,YOLOX vs PP-YOLOE+,machine learning,deep learning,real-time detection
 ---
 
 # YOLOX vs PP-YOLOE+: A Technical Comparison for Object Detection

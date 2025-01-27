@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of DAMO-YOLO and YOLO11 computer vision models, focusing on architecture, performance, and use cases for object detection.
-keywords: DAMO-YOLO, YOLO11, object detection, model comparison, computer vision, Ultralytics
+description: Compare DAMO-YOLO and YOLO11 in object detection. Explore performance, accuracy, use cases, and architectural differences to choose the best model.
+keywords: DAMO-YOLO, YOLO11, object detection, model comparison, computer vision, Ultralytics YOLO, DAMO Academy, accuracy, performance benchmarking, real-time AI
 ---
 
 # DAMO-YOLO vs YOLO11: A Detailed Comparison

@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Technical comparison of YOLOX and YOLOv10 object detection models, highlighting architecture, performance, and use cases.
-keywords: YOLOX, YOLOv10, object detection, model comparison, computer vision, Ultralytics
+description: Compare YOLOX and YOLOv10 models for object detection. Explore architecture, performance, and use cases to pick the best for your project.
+keywords: YOLOX, YOLOv10, object detection, model comparison, computer vision, real-time detection, edge AI, deep learning, AI models, Ultralytics
 ---
 
 # YOLOX vs YOLOv10: A Technical Comparison for Object Detection
