@@ -60,7 +60,7 @@ The table below summarizes the performance metrics of EfficientDet and YOLOv8 mo
 - **Versatility:** YOLOv8 supports a wide range of tasks beyond object detection, including [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [classification](https://docs.ultralytics.com/tasks/classify/).
 - **Scalability:** YOLOv8 offers a range of model sizes (n, s, m, l, x) to suit different computational budgets and accuracy requirements.
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8){ .md-button }
+[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 **YOLOv8 Weaknesses:**
 

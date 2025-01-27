@@ -19,7 +19,7 @@ This page provides a detailed technical comparison between two state-of-the-art 
 
 **Architecture and Key Features:**
 
-YOLO11's architecture focuses on optimizing the balance between model size and accuracy. Key improvements include enhanced feature extraction layers for more detailed feature capture and a streamlined network structure to reduce computational overhead. This results in models that are not only faster but also more parameter-efficient. The architecture is designed to be flexible, allowing for deployment across diverse platforms, from edge devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and [NVIDIA Jetson](docs.ultralytics.com/guides/nvidia-jetson/) to cloud servers. YOLO11 is also easily integrated with platforms like [Ultralytics HUB](https://www.ultralytics.com/hub/) for streamlined training and deployment workflows.
+YOLO11's architecture focuses on optimizing the balance between model size and accuracy. Key improvements include enhanced feature extraction layers for more detailed feature capture and a streamlined network structure to reduce computational overhead. This results in models that are not only faster but also more parameter-efficient. The architecture is designed to be flexible, allowing for deployment across diverse platforms, from edge devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and [NVIDIA Jetson](docs.ultralytics.com/guides/nvidia-jetson/) to cloud servers. YOLO11 is also easily integrated with platforms like [Ultralytics HUB](https://www.ultralytics.com/hub) for streamlined training and deployment workflows.
 
 **Performance Metrics:**
 
@@ -47,7 +47,7 @@ YOLO11 excels in applications requiring real-time object detection, such as:
 - **Industrial automation:** Quality control in [manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing), [recycling efficiency](https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting).
 - **Retail analytics:** [Inventory management](https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management), [customer behavior analysis](https://www.ultralytics.com/blog/achieving-retail-efficiency-with-ai).
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## DAMO-YOLO
 

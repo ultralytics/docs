@@ -34,7 +34,7 @@ Choosing the right object detection model is crucial for computer vision project
 - **Edge Deployment**: Efficient models like YOLO11n and YOLO11s are well-suited for edge devices with limited resources like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/).
 - **High-Accuracy Applications**: Larger models (YOLO11m, l, x) are suitable for applications prioritizing accuracy, such as [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) and [quality control in manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing).
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## YOLOX
 

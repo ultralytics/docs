@@ -17,7 +17,7 @@ Ultralytics YOLO models are renowned for their speed and accuracy in object dete
 
 [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) builds upon previous YOLO iterations, offering a refined architecture that balances speed and accuracy for real-time object detection. It is designed for ease of use and versatility, supporting various tasks including detection, segmentation, classification, and pose estimation. YOLOv8's architecture incorporates advancements for efficient feature extraction and optimized detection heads, making it suitable for a wide range of applications. It is well-documented and offers a user-friendly experience for both beginners and experts in computer vision.
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8){ .md-button }
+[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 ### Key Strengths of YOLOv8
 

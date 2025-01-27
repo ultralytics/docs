@@ -33,7 +33,7 @@ YOLO11 excels in balancing speed and accuracy, making it suitable for real-time 
 - **Fast Inference Speed**: Optimized for speed, YOLO11 delivers impressive inference times, crucial for real-time processing.
 - **Compact Model Size**: Despite its performance, YOLO11 maintains a relatively small model size, facilitating deployment on resource-constrained devices.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ### Use Cases and Strengths
 

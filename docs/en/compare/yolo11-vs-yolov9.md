@@ -31,7 +31,7 @@ YOLO11 excels in scenarios demanding high accuracy and real-time performance, su
 - **Manufacturing:** [Quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing) and automation in production lines.
 - **Agriculture:** [Crop health monitoring](https://www.ultralytics.com/blog/real-time-crop-health-monitoring-with-ultralytics-yolo11) and precision farming.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## YOLOv9: Pushing the Boundaries of Real-time Object Detection
 

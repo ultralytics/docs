@@ -63,7 +63,7 @@ YOLOv5 is built entirely in PyTorch and is designed for both research and practi
 - **Head:** YOLOv5's detection head, which is a single convolution layer, maintaining simplicity and speed.
 - **Data Augmentation:** Strong data augmentation techniques, including Mosaic and MixUp, enhance model robustness. [Learn about data augmentation](https://www.ultralytics.com/glossary/data-augmentation).
 
-[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5){ .md-button }
+[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
 
 ### Performance
 
@@ -83,7 +83,7 @@ YOLOv5's versatility makes it suitable for a wide array of applications, includi
 
     - Exceptional speed and real-time performance. [Explore YOLO performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/).
     - Multiple model sizes for flexible deployment scenarios.
-    - Large and active community with extensive resources and support. [Join the Ultralytics community](https://ultralytics.com/discord).
+    - Large and active community with extensive resources and support. [Join the Ultralytics community](https://discord.com/invite/ultralytics).
     - Easy to use with a well-documented Python package and Ultralytics HUB platform [Ultralytics HUB documentation](https://docs.ultralytics.com/hub/).
 
 - **Weaknesses:**

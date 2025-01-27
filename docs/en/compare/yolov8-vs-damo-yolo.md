@@ -55,7 +55,7 @@ YOLOv8 is ideal for applications requiring real-time object detection, such as:
 - **Autonomous Systems**: [Robotics](https://www.ultralytics.com/glossary/robotics) and [self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving).
 - **Industrial Applications**: [Manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing) and [automation](https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting).
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8){ .md-button }
+[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 ## DAMO-YOLO
 

@@ -33,7 +33,7 @@ YOLOv8 is ideal for cutting-edge applications requiring the highest possible acc
 
 Being the newer model, YOLOv8's ecosystem and community support, while rapidly growing, are still evolving compared to the more mature YOLOv5. Some users might find fewer readily available resources and community-contributed tools initially.
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8){ .md-button }
+[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 ## YOLOv5: The Proven and Versatile Choice
 

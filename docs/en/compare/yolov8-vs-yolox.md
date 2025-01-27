@@ -36,7 +36,7 @@ YOLOv8 is exceptionally versatile, ideal for applications requiring a balance of
 - **Versatile Vision AI Solutions** across industries like [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture), [manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing), and [healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare).
 - **Rapid Prototyping and Deployment** due to its ease of use and comprehensive tooling.
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8){ .md-button }
+[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 ## YOLOX: High Performance with Decoupled Head
 

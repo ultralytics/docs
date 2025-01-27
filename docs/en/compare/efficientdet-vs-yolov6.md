@@ -91,6 +91,6 @@ Choosing between EfficientDet and YOLOv6-3.0 depends heavily on the specific req
 
 For users interested in exploring other cutting-edge object detection models, Ultralytics offers a range of [YOLO models](https://docs.ultralytics.com/models/) including the latest [YOLOv11](https://docs.ultralytics.com/models/yolo11/) and [YOLOv8](https://docs.ultralytics.com/models/yolov8/), which provide state-of-the-art performance and features for diverse computer vision tasks. You might also consider [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) and [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/) for different trade-offs in accuracy and speed.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov8){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 [Learn more about EfficientDet](https://www.ultralytics.com/glossary/object-detection){ .md-button }

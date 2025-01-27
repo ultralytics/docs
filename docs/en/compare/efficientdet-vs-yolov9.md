@@ -32,7 +32,7 @@ EfficientDet, developed by Google, emphasizes efficiency in both parameter size 
 - **Complexity:** The BiFPN and compound scaling techniques add complexity to the architecture, potentially making it harder to implement and customize compared to simpler models.
 - **Speed Trade-off**: While efficient, EfficientDet may not achieve the same inference speed as some of the fastest real-time detectors, particularly at smaller model sizes.
 
-[Learn more about EfficientDet](https://ai.googleblog.com/2020/04/efficientdet-towards-scalable-and.html){ .md-button }
+[Learn more about EfficientDet](https://research.google/blog/efficientdet-towards-scalable-and-efficient-object-detection/){ .md-button }
 
 ## YOLOv9
 

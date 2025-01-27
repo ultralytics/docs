@@ -52,7 +52,7 @@ YOLOv8 is ideal for applications requiring a robust and reliable object detectio
 - [Queue management](https://docs.ultralytics.com/guides/queue-management/)
 - [Industrial quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing)
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8){ .md-button }
+[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 ## YOLOv10: Pushing the Boundaries of Efficiency
 
@@ -94,7 +94,7 @@ YOLOv10 is particularly well-suited for applications where real-time performance
 - Edge AI applications
 - Mobile and embedded vision systems
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
 
 ## Model Comparison Table
 

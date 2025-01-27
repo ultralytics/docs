@@ -34,7 +34,7 @@ YOLO11 is particularly well-suited for applications requiring real-time object d
 - **Versatility:** Supports multiple computer vision tasks.
 - **Efficient Resource Utilization:** Balances performance with computational cost.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## EfficientDet
 

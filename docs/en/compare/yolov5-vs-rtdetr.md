@@ -6,7 +6,7 @@ keywords: YOLOv5, RT-DETR, object detection, model comparison, computer vision, 
 
 # YOLOv5 vs RT-DETR v2: A Detailed Model Comparison
 
-Choosing the right object detection model is crucial for computer vision projects. Ultralytics YOLO offers a suite of models tailored for various needs. This page provides a technical comparison between [Ultralytics YOLOv5](https://docs.ultralytics.com/models/yolov5) and [RT-DETR v2](https://docs.ultralytics.com/models/rtdetr), highlighting their architectural differences, performance metrics, and ideal applications.
+Choosing the right object detection model is crucial for computer vision projects. Ultralytics YOLO offers a suite of models tailored for various needs. This page provides a technical comparison between [Ultralytics YOLOv5](https://docs.ultralytics.com/models/yolov5/) and [RT-DETR v2](https://docs.ultralytics.com/models/rtdetr/), highlighting their architectural differences, performance metrics, and ideal applications.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>

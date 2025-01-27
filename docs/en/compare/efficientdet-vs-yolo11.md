@@ -27,13 +27,13 @@ EfficientDet models are available in various sizes, from D0 to D7, offering a tr
 
 Ultralytics YOLO11 is the cutting-edge real-time object detection model in the YOLO family, known for its exceptional speed and accuracy. Building upon the legacy of previous YOLO versions like [YOLOv8](https://docs.ultralytics.com/models/yolov8/), YOLO11 incorporates architectural enhancements and optimizations to achieve state-of-the-art performance. Key features of YOLO11 include:
 
-- **Anchor-Free Detection:** YOLO11, like its predecessor [YOLOv8](https://ultralytics.com/yolo), is anchor-free, simplifying the model architecture and training process. This anchor-free design contributes to its efficiency and adaptability across different datasets.
+- **Anchor-Free Detection:** YOLO11, like its predecessor [YOLOv8](https://www.ultralytics.com/yolo), is anchor-free, simplifying the model architecture and training process. This anchor-free design contributes to its efficiency and adaptability across different datasets.
 - **Backbone and Neck Improvements:** YOLO11 leverages an optimized backbone for efficient feature extraction and an improved neck architecture for enhanced feature aggregation. These modifications contribute to improved accuracy and faster inference.
 - **Focus on Real-Time Performance:** YOLO11 is explicitly designed for real-time applications, achieving a superior speed-accuracy trade-off. It is available in Nano (n), Small (s), Medium (m), Large (l), and Extra-Large (x) sizes, catering to diverse computational needs from edge devices to cloud servers.
 
 YOLO11 excels in applications demanding real-time object detection, such as [security systems](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security), [robotics](https://www.ultralytics.com/glossary/robotics), and [sports analytics](https://www.ultralytics.com/blog/exploring-the-applications-of-computer-vision-in-sports). Its speed and efficiency make it ideal for scenarios where low latency is critical. While generally faster, the smaller YOLO11 models might trade off some accuracy compared to the larger EfficientDet models.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## Performance Metrics and Comparison Table
 

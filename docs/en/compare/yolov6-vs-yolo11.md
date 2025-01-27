@@ -56,7 +56,7 @@ Ultralytics YOLO11 is the latest iteration in the YOLO series, building upon pre
 - **Complex Vision Tasks:** Excels in scenarios requiring detailed scene understanding and multiple vision tasks, leveraging its versatility.
 - **Cloud and High-Performance Deployment:** Optimized for environments with substantial computational resources, like cloud servers and high-end GPUs. [Deploy YOLO models](https://docs.ultralytics.com/guides/model-deployment-options/) effectively.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 Besides YOLOv6-3.0 and YOLO11, users might also be interested in exploring other YOLO models such as [YOLOv8](https://docs.ultralytics.com/models/yolov8/), [YOLOv7](https://docs.ultralytics.com/models/yolov7/), [YOLOv5](https://docs.ultralytics.com/models/yolov5/), and [YOLOv4](https://docs.ultralytics.com/models/yolov4/), each offering different balances of speed, accuracy, and features. For lightweight and fast models, consider [MobileSAM](https://docs.ultralytics.com/models/mobile-sam/) or [FastSAM](https://docs.ultralytics.com/models/fast-sam/). For applications requiring oriented bounding boxes, explore [YOLOv8 OBB](https://docs.ultralytics.com/tasks/obb/).
 

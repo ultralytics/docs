@@ -21,7 +21,7 @@ Ultralytics YOLOv5 is a highly versatile one-stage object detection model known 
 
 - **Speed:** YOLOv5 is optimized for fast inference, making it suitable for real-time applications.
 - **Scalability:** With multiple model sizes, YOLOv5 adapts to various hardware and performance requirements.
-- **Ease of Use:** Ultralytics provides excellent documentation and a user-friendly [Python package](https://pypi.org/project/ultralytics/) and [Ultralytics HUB](https://www.ultralytics.com/hub/) platform, simplifying training, deployment, and management.
+- **Ease of Use:** Ultralytics provides excellent documentation and a user-friendly [Python package](https://pypi.org/project/ultralytics/) and [Ultralytics HUB](https://www.ultralytics.com/hub) platform, simplifying training, deployment, and management.
 - **Community Support:** [YOLOv5's GitHub repository](https://github.com/ultralytics/yolov5) boasts a large and active community, ensuring continuous development and support.
 
 **Weaknesses:**

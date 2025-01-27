@@ -25,7 +25,7 @@ YOLO11 introduces several architectural refinements focused on improving feature
 
 YOLO11 demonstrates superior performance over YOLOv5 in key metrics, especially in balancing accuracy and speed. The table below provides a detailed comparison, but generally, YOLO11 achieves higher mAP with fewer parameters in comparable model sizes. Its inference speed is also optimized, offering faster processing on both CPU and GPU, particularly when using TensorRT.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ### Strengths and Weaknesses
 

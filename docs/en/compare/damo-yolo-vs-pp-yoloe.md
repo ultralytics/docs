@@ -34,7 +34,7 @@ DAMO-YOLO is designed for high efficiency and ease of deployment, particularly o
 - **Real-time Object Detection:** Suitable for applications requiring fast inference, such as robotics and surveillance.
 - **Resource-Constrained Environments:** Effective in scenarios where computational resources are limited but object detection is necessary.
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8){ .md-button }
+[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 ## PP-YOLOE+
 
@@ -57,7 +57,7 @@ PP-YOLOE+ is part of the PaddlePaddle YOLO series, emphasizing high accuracy and
 - **Complex Scenes:** Excels in handling complex scenes with numerous objects or challenging conditions due to its robust design.
 - **Cloud-based Applications:** Well-suited for cloud deployments where computational resources are less constrained and high accuracy is desired.
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8){ .md-button }
+[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 ## Model Comparison Table
 

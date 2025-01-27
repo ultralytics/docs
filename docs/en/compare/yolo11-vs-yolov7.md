@@ -46,7 +46,7 @@ YOLO11's enhanced accuracy and efficiency make it well-suited for applications r
 - Larger models might require more computational resources compared to smaller, speed-optimized models like YOLOv5n.
 - Optimization for specific edge devices may require further [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/) configurations.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## Ultralytics YOLOv7
 

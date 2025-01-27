@@ -51,7 +51,7 @@ YOLOX excels in scenarios demanding rapid object detection, such as:
 
 [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/) represents the latest evolution in the YOLO series, building upon the strengths of its predecessors while introducing significant architectural enhancements. YOLO11 is engineered for superior accuracy and efficiency, achieving state-of-the-art performance with a reduced parameter count. This makes it an excellent choice for applications requiring both high precision and speed.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 **Architecture and Key Features:**
 

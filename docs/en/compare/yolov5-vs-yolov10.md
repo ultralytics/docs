@@ -28,7 +28,7 @@ Choosing the right computer vision model is crucial for the success of your proj
 - **Manufacturing**: [Quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing) and defect detection.
 - **Robotics**: Object recognition and navigation in robotic systems.
 
-[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5){ .md-button }
+[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
 
 ## YOLOv10: Cutting-Edge Efficiency
 

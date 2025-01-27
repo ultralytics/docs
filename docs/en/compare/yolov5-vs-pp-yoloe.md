@@ -26,7 +26,7 @@ YOLOv5 excels in scenarios demanding fast inference, such as real-time video ana
 
 However, YOLOv5's accuracy can be surpassed by more recent models, particularly in complex scenes with overlapping objects or when requiring very high precision. Its anchor-based nature can also limit its adaptability to datasets with unusual object aspect ratios compared to anchor-free detectors. For users seeking higher accuracy and are less constrained by speed, exploring models like PP-YOLOE+ or [YOLOv8](https://www.ultralytics.com/yolo) might be beneficial.
 
-[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5){ .md-button }
+[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
 
 ## PP-YOLOE+
 

@@ -21,7 +21,7 @@ YOLOv10 is the latest iteration in the renowned YOLO (You Only Look Once) series
 
 - **Speed:** YOLO models are inherently designed for speed, and YOLOv10 likely continues this trend, making it suitable for real-time applications.
 - **Efficiency:** YOLOv10 is expected to be computationally efficient, allowing for deployment on resource-constrained devices.
-- **Ease of Use:** Following the Ultralytics tradition, YOLOv10 is expected to be user-friendly and easily integrable with existing workflows through the [Ultralytics HUB](https://www.ultralytics.com/hub/).
+- **Ease of Use:** Following the Ultralytics tradition, YOLOv10 is expected to be user-friendly and easily integrable with existing workflows through the [Ultralytics HUB](https://www.ultralytics.com/hub).
 
 **Weaknesses:**
 

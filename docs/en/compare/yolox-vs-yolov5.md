@@ -69,7 +69,7 @@ The table below summarizes the performance metrics for different sizes of YOLOX 
 - **Computational Cost:** Generally, YOLOX models might be slightly more computationally intensive compared to the most streamlined YOLOv5 models, potentially leading to slower inference speeds on resource-constrained devices.
 - **Integration:** As it's not a native Ultralytics model, integration with the Ultralytics ecosystem might require additional effort compared to using YOLOv5 or YOLOv8.
 
-[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5){ .md-button }
+[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
 
 [Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 

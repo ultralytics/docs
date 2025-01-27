@@ -32,11 +32,11 @@ This page provides a detailed technical comparison between two state-of-the-art 
 
 **YOLO11**, the latest iteration in the YOLO series, builds upon the foundation of previous models like YOLOv8, focusing on enhanced feature extraction and improved parameter efficiency. A key architectural highlight of YOLO11 is its refined network structure, designed to capture more intricate details with fewer parameters. This is achieved through advancements in network layers and optimization techniques, leading to a model that is both accurate and computationally efficient. YOLO11 supports all the standard YOLO [computer vision tasks](https://docs.ultralytics.com/tasks/) including object detection, [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/).
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 **YOLOv10**, while also striving for high performance, emphasizes real-time efficiency and speed. It introduces innovations aimed at reducing inference latency, making it particularly suitable for applications requiring rapid object detection. One of the notable architectural changes in YOLOv10 is the elimination of Non-Maximum Suppression (NMS) in post-processing, streamlining the inference pipeline and contributing to faster processing times. This architectural choice directly addresses the need for speed in real-time applications. Like YOLO11, YOLOv10 is versatile and capable of handling various computer vision tasks.
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
 
 ## Performance Metrics
 

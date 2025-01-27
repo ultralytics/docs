@@ -29,7 +29,7 @@ Comparing Ultralytics YOLOv8 and YOLOv7 for object detection involves examining 
 - **Versatile Applications:** Its adaptability makes YOLOv8 ideal for a broad spectrum of use cases, from [edge device deployment](https://www.ultralytics.com/blog/edge-ai-and-aiot-upgrade-any-camera-with-ultralytics-yolov8-in-a-no-code-way) to cloud-based high-performance systems. Applications span across industries like [retail](https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management), [healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare), and [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture).
 - **Ease of Use:** Ultralytics emphasizes user-friendliness, providing clear [documentation](https://docs.ultralytics.com/) and straightforward workflows for training, validation, and deployment.
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8){ .md-button }
+[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 ## YOLOv7: Performance-Focused Predecessor
 

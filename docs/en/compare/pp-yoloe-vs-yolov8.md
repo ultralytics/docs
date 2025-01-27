@@ -17,7 +17,7 @@ Choosing the right object detection model is crucial for computer vision applica
 
 [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics) is the latest iteration in the YOLO series, renowned for its speed and accuracy. Designed for versatility, YOLOv8 excels across various object detection tasks, offering a balance between performance and ease of use. Its architecture is an evolution of previous YOLO models, incorporating advancements for improved efficiency and precision. YOLOv8 is well-documented and user-friendly, making it accessible to both beginners and experts in the field. It supports a wide range of deployment options and is actively maintained by Ultralytics.
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8){ .md-button }
+[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 ### Strengths of YOLOv8
 

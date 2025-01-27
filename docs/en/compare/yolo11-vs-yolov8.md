@@ -34,7 +34,7 @@ Due to its focus on accuracy and efficient performance, YOLO11 is particularly w
 - **Advanced Security Systems**: For applications like [computer vision for theft prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security), YOLO11's accuracy is critical for reliable threat detection.
 - **Robotics**: In robotics applications requiring precise environmental understanding, YOLO11 provides the necessary accuracy for tasks like navigation and manipulation.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## YOLOv8
 

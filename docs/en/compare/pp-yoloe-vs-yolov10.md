@@ -35,7 +35,7 @@ PP-YOLOE+ is well-suited for applications requiring high detection accuracy, suc
 - **Medical Image Analysis:** Assisting in accurate diagnosis through detailed image interpretation. (Learn more about [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis))
 - **Security Systems:** Enhancing [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) with reliable object detection.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## YOLOv10 Overview
 

@@ -32,7 +32,7 @@ PP-YOLOE+, part of the PaddleDetection family, stands out as an anchor-free, sin
 
 PP-YOLOE+ comes in various sizes (tiny, small, medium, large, extra-large), allowing users to choose a configuration that best fits their computational resources and accuracy needs. Performance metrics typically show a competitive mAP and fast inference times, although specific numbers can vary based on the chosen size and hardware. For instance, PP-YOLOE+ models can achieve mAP scores ranging from the high 30s to the mid 50s on COCO dataset, with inference speeds suitable for real-time processing on appropriate hardware.
 
-[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/develop/configs/ppyoloe) { .md-button }
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/tree/develop/configs/ppyoloe) { .md-button }
 
 ## YOLOv7
 
