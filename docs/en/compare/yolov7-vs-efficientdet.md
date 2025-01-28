@@ -81,11 +81,11 @@ Performance metrics are crucial for evaluating object detection models. Key metr
 | EfficientDet-d0 | 640                   | 34.6                 | 10.2                           | 3.92                                | 3.9                | 2.54              |
 | EfficientDet-d1 | 640                   | 40.5                 | 13.5                           | 7.31                                | 6.6                | 6.1               |
 | EfficientDet-d2 | 640                   | 43.0                 | 17.7                           | 10.92                               | 8.1                | 11.0              |
-| EfficientDet-d3 | 640                   | 47.5                 | 28.0                                                  | 19.59              | 12.0              | 24.9  |
-| EfficientDet-d4 | 640                   | 49.7                 | 42.8                                                    | 33.55              | 20.7              | 55.2  |
-| EfficientDet-d5 | 640                   | 51.5                 | 72.5                                                     | 67.86              | 33.7              | 130.0 |
-| EfficientDet-d6 | 640                   | 52.6                 | 92.8                                                   | 89.29              | 51.9              | 226.0 |
-| EfficientDet-d7 | 640                   | 53.7                 | 122.0                                                 | 128.07             | 51.9              | 325.0 |
+| EfficientDet-d3 | 640                   | 47.5                 | 28.0                           | 19.59                               | 12.0               | 24.9              |
+| EfficientDet-d4 | 640                   | 49.7                 | 42.8                           | 33.55                               | 20.7               | 55.2              |
+| EfficientDet-d5 | 640                   | 51.5                 | 72.5                           | 67.86                               | 33.7               | 130.0             |
+| EfficientDet-d6 | 640                   | 52.6                 | 92.8                           | 89.29                               | 51.9               | 226.0             |
+| EfficientDet-d7 | 640                   | 53.7                 | 122.0                          | 128.07                              | 51.9               | 325.0             |
 
 ## Conclusion
 
