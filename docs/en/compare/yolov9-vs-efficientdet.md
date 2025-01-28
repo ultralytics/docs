@@ -8,8 +8,6 @@ keywords: YOLOv9, EfficientDet, object detection, model comparison, computer vis
 
 Choosing the right object detection model is crucial for computer vision projects. This page provides a detailed technical comparison between YOLOv9 and EfficientDet, two popular models known for their efficiency and accuracy. We will explore their architectural differences, performance metrics, and ideal applications to help you make an informed decision.
 
-html
-
 <script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
@@ -114,8 +112,6 @@ keywords: YOLOv9, EfficientDet, object detection, model comparison, computer vis
 # YOLOv9 vs. EfficientDet: A Detailed Comparison
 
 Choosing the right object detection model is crucial for computer vision projects. This page provides a detailed technical comparison between YOLOv9 and EfficientDet, two popular models known for their efficiency and accuracy. We will explore their architectural differences, performance metrics, and ideal applications to help you make an informed decision.
-
-html
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>

@@ -8,8 +8,6 @@ keywords: YOLOv6-3.0, YOLOv7, object detection, model comparison, performance me
 
 Below is a detailed technical comparison between Ultralytics YOLOv6-3.0 and YOLOv7, two popular models for object detection. This analysis highlights their architectural differences, performance metrics, and suitable use cases to help you choose the right model for your computer vision needs.
 
-html
-
 <script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
