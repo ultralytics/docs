@@ -410,19 +410,120 @@
 <li>Larger EfficientDet models can be computationally intensive.</li>
 </ul>
 <h2 id="model-comparison-table">Model Comparison Table</h2>
-<p>| Model           | size<br/><sup>(pixels) | mAP<sup>val<br/>50-95 | Speed<br/><sup>CPU ONNX<br/>(ms) | Speed<br/><sup>T4 TensorRT10<br/>(ms) | params<br/><sup>(M) | FLOPs<br/><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- | ----- |
-| YOLOv7l         | 640                   | 51.4                 | -                              | 6.84                                | 36.9               | 104.7             |
-| YOLOv7x         | 640                   | 53.1                 | -                              | 11.57                               | 71.3               | 189.9             |
-|                 |                       |                      |                                |                                     |                    |                   |
-| EfficientDet-d0 | 640                   | 34.6                 | 10.2                           | 3.92                                | 3.9                | 2.54              |
-| EfficientDet-d1 | 640                   | 40.5                 | 13.5                           | 7.31                                | 6.6                | 6.1               |
-| EfficientDet-d2 | 640                   | 43.0                 | 17.7                           | 10.92                               | 8.1                | 11.0              |
-| EfficientDet-d3 | 640                   | 47.5                 | 28.0                           | 28.0                                | 19.59              | 12.0              | 24.9  |
-| EfficientDet-d4 | 640                   | 49.7                 | 42.8                           | 42.8                                | 33.55              | 20.7              | 55.2  |
-| EfficientDet-d5 | 640                   | 51.5                 | 72.5                           | 72.5                                | 67.86              | 33.7              | 130.0 |
-| EfficientDet-d6 | 640                   | 52.6                 | 92.8                           | 92.8                                | 89.29              | 51.9              | 226.0 |
-| EfficientDet-d7 | 640                   | 53.7                 | 122.0                          | 122.0                               | 128.07             | 51.9              | 325.0 |</sup></sup></sup></sup></sup></sup></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>size<br/><sup>(pixels)</sup></th>
+<th>mAP<sup>val<br/>50-95</sup></th>
+<th>Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
+<th>Speed<br/><sup>T4 TensorRT10<br/>(ms)</sup></th>
+<th>params<br/><sup>(M)</sup></th>
+<th>FLOPs<br/><sup>(B)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YOLOv7l</td>
+<td>640</td>
+<td>51.4</td>
+<td>-</td>
+<td>6.84</td>
+<td>36.9</td>
+<td>104.7</td>
+</tr>
+<tr>
+<td>YOLOv7x</td>
+<td>640</td>
+<td>53.1</td>
+<td>-</td>
+<td>11.57</td>
+<td>71.3</td>
+<td>189.9</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>EfficientDet-d0</td>
+<td>640</td>
+<td>34.6</td>
+<td>10.2</td>
+<td>3.92</td>
+<td>3.9</td>
+<td>2.54</td>
+</tr>
+<tr>
+<td>EfficientDet-d1</td>
+<td>640</td>
+<td>40.5</td>
+<td>13.5</td>
+<td>7.31</td>
+<td>6.6</td>
+<td>6.1</td>
+</tr>
+<tr>
+<td>EfficientDet-d2</td>
+<td>640</td>
+<td>43.0</td>
+<td>17.7</td>
+<td>10.92</td>
+<td>8.1</td>
+<td>11.0</td>
+</tr>
+<tr>
+<td>EfficientDet-d3</td>
+<td>640</td>
+<td>47.5</td>
+<td>28.0</td>
+<td>19.59</td>
+<td>12.0</td>
+<td>24.9</td>
+</tr>
+<tr>
+<td>EfficientDet-d4</td>
+<td>640</td>
+<td>49.7</td>
+<td>42.8</td>
+<td>33.55</td>
+<td>20.7</td>
+<td>55.2</td>
+</tr>
+<tr>
+<td>EfficientDet-d5</td>
+<td>640</td>
+<td>51.5</td>
+<td>72.5</td>
+<td>67.86</td>
+<td>33.7</td>
+<td>130.0</td>
+</tr>
+<tr>
+<td>EfficientDet-d6</td>
+<td>640</td>
+<td>52.6</td>
+<td>92.8</td>
+<td>89.29</td>
+<td>51.9</td>
+<td>226.0</td>
+</tr>
+<tr>
+<td>EfficientDet-d7</td>
+<td>640</td>
+<td>53.7</td>
+<td>122.0</td>
+<td>128.07</td>
+<td>51.9</td>
+<td>325.0</td>
+</tr>
+</tbody>
+</table>
 <h2 id="conclusion">Conclusion</h2>
 <p>Choosing between YOLOv7 and EfficientDet depends on your specific application requirements. If real-time performance and speed are paramount, and resources are less constrained, YOLOv7 is an excellent choice. If scalability, efficiency across different resource levels, and a good balance of accuracy and computational cost are key, EfficientDet provides a robust and versatile solution.</p>
 <p>Consider exploring other models within the Ultralytics ecosystem, such as <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a>, <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a>, <a href="https://docs.ultralytics.com/models/yolo11/">YOLOv11</a>, and <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a>, to find the model that best fits your project needs. For further assistance, visit the <a href="https://docs.ultralytics.com/guides/">Ultralytics Guides</a> for comprehensive tutorials and resources.</p>
