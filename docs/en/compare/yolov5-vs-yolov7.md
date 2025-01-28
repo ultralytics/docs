@@ -9,7 +9,6 @@ Ultralytics YOLO models are renowned for their speed and accuracy in object dete
 
 Before diving into the specifics, here's a visual comparison of their performance:
 
-
 <script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
