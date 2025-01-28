@@ -97,7 +97,7 @@ YOLOv6-3.0 is designed for scenarios where high accuracy and fast inference are 
 | YOLOv5s     | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m     | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |
 | YOLOv5l     | 640                   | 49.0                 | 408.4                          | 6.61                                | 53.2               | 135.0             |
-| YOLOv5x     | 640                   | 50.7                 | 763.2                          | 11.89                               | 97.2              | 246.4 |
+| YOLOv5x     | 640                   | 50.7                 | 763.2                          | 11.89                               | 97.2               | 246.4             |
 
 ## Conclusion
 
