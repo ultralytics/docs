@@ -57,7 +57,7 @@ YOLOv5 is ideally suited for a wide range of applications due to its versatility
 The table below provides a comparative overview of the performance metrics for different sizes of DAMO-YOLO and YOLOv5 models, highlighting key differences in mAP, speed, and model complexity.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- | ----- |
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | DAMO-YOLOt | 640                   | 42.0                 | -                              | 2.32                                | 8.5                | 18.1              |
 | DAMO-YOLOs | 640                   | 46.0                 | -                              | 3.45                                | 16.3               | 37.8              |
 | DAMO-YOLOm | 640                   | 49.2                 | -                              | 5.09                                | 28.2               | 61.8              |
@@ -67,7 +67,7 @@ The table below provides a comparative overview of the performance metrics for d
 | YOLOv5s    | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m    | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |
 | YOLOv5l    | 640                   | 49.0                 | 408.4                          | 6.61                                | 53.2               | 135.0             |
-| YOLOv5x    | 640                   | 50.7                 | 763.2                          | 11.89                               | 11.89              | 97.2              | 246.4 |
+| YOLOv5x    | 640                   | 50.7                 | 763.2                          | 11.89                       | 97.2              | 246.4 |
 
 **Key Observations:**
 
