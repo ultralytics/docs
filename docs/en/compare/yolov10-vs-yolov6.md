@@ -8,8 +8,6 @@ keywords: YOLOv10, YOLOv6-3.0, object detection, model comparison, YOLO models, 
 
 This page provides a detailed technical comparison between two state-of-the-art object detection models: [YOLOv10](https://docs.ultralytics.com/models/yolov10/) and [YOLOv6](https://docs.ultralytics.com/models/yolov6/) 3.0. We analyze their architectures, performance metrics, and suitable use cases to help you choose the best model for your computer vision needs.
 
-html
-
 <script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 

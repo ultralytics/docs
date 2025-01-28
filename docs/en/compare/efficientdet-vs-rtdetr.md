@@ -8,8 +8,6 @@ keywords: EfficientDet,RTDETRv2,object detection,model comparison,Ultralytics,Yo
 
 EfficientDet and RTDETRv2 are popular object detection models, each offering unique architectural and performance characteristics. This page provides a detailed technical comparison to help users understand their key differences and ideal applications.
 
-html
-
 <script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
