@@ -30,7 +30,7 @@ EfficientDet focuses on achieving a balance between accuracy and efficiency thro
 Below is a performance comparison table for various sizes of YOLOX and EfficientDet models.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- | ----- |
+| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- | 
 | YOLOXnano       | 416                   | 25.8                 | -                              | -                                   | 0.91               | 1.08              |
 | YOLOXtiny       | 416                   | 32.8                 | -                              | -                                   | 5.06               | 6.45              |
 | YOLOXs          | 640                   | 40.5                 | -                              | 2.56                                | 9.0                | 26.8              |
@@ -44,7 +44,7 @@ Below is a performance comparison table for various sizes of YOLOX and Efficient
 | EfficientDet-d3 | 640                   | 47.5                 | 28.0                           | 19.59                               | 12.0               | 24.9              |
 | EfficientDet-d4 | 640                   | 49.7                 | 42.8                           | 33.55                               | 20.7               | 55.2              |
 | EfficientDet-d5 | 640                   | 51.5                 | 72.5                           | 67.86                               | 33.7               | 130.0             |
-| EfficientDet-d6 | 640                   | 52.6                 | 92.8                           | 89.29                               | 89.29              | 51.9              | 226.0 |
+| EfficientDet-d6 | 640                   | 52.6                 | 92.8                           | 89.29                                       | 51.9              | 226.0 |
 | EfficientDet-d7 | 640                   | 53.7                 | 122.0                          | 128.07                              | 51.9               | 325.0             |
 
 ## Performance Analysis
