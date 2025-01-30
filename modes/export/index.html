@@ -775,6 +775,12 @@
 <td><code>None</code></td>
 <td>Specifies the device for exporting: GPU (<code>device=0</code>), CPU (<code>device=cpu</code>), MPS for Apple silicon (<code>device=mps</code>) or DLA for NVIDIA Jetson (<code>device=dla:0</code> or <code>device=dla:1</code>).</td>
 </tr>
+<tr>
+<td><code>data</code></td>
+<td><code>str</code></td>
+<td><code>coco8.yaml</code></td>
+<td>Path to the dataset configuration file (default: <code>coco8.yaml</code>), essential for quantization.</td>
+</tr>
 </tbody>
 </table>
 <p>Adjusting these parameters allows for customization of the export process to fit specific requirements, such as deployment environment, hardware constraints, and performance targets. Selecting the appropriate format and settings is essential for achieving the best balance between model size, speed, and <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>.</p>
@@ -817,14 +823,14 @@
 <td><code>openvino</code></td>
 <td><code>yolo11n_openvino_model/</code></td>
 <td>✅</td>
-<td><code>imgsz</code>, <code>half</code>, <code>dynamic</code>, <code>int8</code>, <code>nms</code>, <code>batch</code></td>
+<td><code>imgsz</code>, <code>half</code>, <code>dynamic</code>, <code>int8</code>, <code>nms</code>, <code>batch</code>, <code>data</code></td>
 </tr>
 <tr>
 <td><a href="../../integrations/tensorrt/">TensorRT</a></td>
 <td><code>engine</code></td>
 <td><code>yolo11n.engine</code></td>
 <td>✅</td>
-<td><code>imgsz</code>, <code>half</code>, <code>dynamic</code>, <code>simplify</code>, <code>workspace</code>, <code>int8</code>, <code>nms</code>, <code>batch</code></td>
+<td><code>imgsz</code>, <code>half</code>, <code>dynamic</code>, <code>simplify</code>, <code>workspace</code>, <code>int8</code>, <code>nms</code>, <code>batch</code>, <code>data</code></td>
 </tr>
 <tr>
 <td><a href="../../integrations/coreml/">CoreML</a></td>
@@ -852,7 +858,7 @@
 <td><code>tflite</code></td>
 <td><code>yolo11n.tflite</code></td>
 <td>✅</td>
-<td><code>imgsz</code>, <code>half</code>, <code>int8</code>, <code>nms</code>, <code>batch</code></td>
+<td><code>imgsz</code>, <code>half</code>, <code>int8</code>, <code>nms</code>, <code>batch</code>, <code>data</code></td>
 </tr>
 <tr>
 <td><a href="../../integrations/edge-tpu/">TF Edge TPU</a></td>
@@ -894,7 +900,7 @@
 <td><code>imx</code></td>
 <td><code>yolov8n_imx_model/</code></td>
 <td>✅</td>
-<td><code>imgsz</code>, <code>int8</code></td>
+<td><code>imgsz</code>, <code>int8</code>, <code>data</code></td>
 </tr>
 <tr>
 <td><a href="../../integrations/rockchip-rknn/">RKNN</a></td>
