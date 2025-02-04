@@ -10,9 +10,9 @@
 <link href="../train/" rel="prev"/>
 <link href="../../world/train/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.1" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.2" name="generator"/>
 <title>val - Ultralytics YOLO Docs</title>
-<link href="../../../../../assets/stylesheets/main.a40c8224.min.css" rel="stylesheet"/>
+<link href="../../../../../assets/stylesheets/main.d7758b05.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -677,6 +677,27 @@
 <nav aria-label=" SegmentationValidator" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.yolo.segment.val.SegmentationValidator._prepare_batch">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> _prepare_batch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.yolo.segment.val.SegmentationValidator._prepare_pred">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> _prepare_pred
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.yolo.segment.val.SegmentationValidator._process_batch">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> _process_batch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.models.yolo.segment.val.SegmentationValidator.eval_json">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> eval_json
@@ -1161,6 +1182,27 @@
 <nav aria-label=" SegmentationValidator" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.yolo.segment.val.SegmentationValidator._prepare_batch">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> _prepare_batch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.yolo.segment.val.SegmentationValidator._prepare_pred">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> _prepare_pred
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.yolo.segment.val.SegmentationValidator._process_batch">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> _process_batch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.models.yolo.segment.val.SegmentationValidator.eval_json">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> eval_json
@@ -1295,6 +1337,329 @@
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.models.yolo.segment.val.SegmentationValidator._prepare_batch">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">_prepare_batch</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">_prepare_batch</span><span class="p">(</span><span class="n">si</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Prepares a batch for training or inference by processing images and targets.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-77">77</a></span>
+<span class="normal"><a href="#__codelineno-0-78">78</a></span>
+<span class="normal"><a href="#__codelineno-0-79">79</a></span>
+<span class="normal"><a href="#__codelineno-0-80">80</a></span>
+<span class="normal"><a href="#__codelineno-0-81">81</a></span>
+<span class="normal"><a href="#__codelineno-0-82">82</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="k">def</span><span class="w"> </span><span class="nf">_prepare_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="w">    </span><span class="sd">"""Prepares a batch for training or inference by processing images and targets."""</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="n">prepared_batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_prepare_batch</span><span class="p">(</span><span class="n">si</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="n">midx</span> <span class="o">=</span> <span class="p">[</span><span class="n">si</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">overlap_mask</span> <span class="k">else</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">]</span> <span class="o">==</span> <span class="n">si</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="n">prepared_batch</span><span class="p">[</span><span class="s2">"masks"</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"masks"</span><span class="p">][</span><span class="n">midx</span><span class="p">]</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="k">return</span> <span class="n">prepared_batch</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.models.yolo.segment.val.SegmentationValidator._prepare_pred">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">_prepare_pred</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">_prepare_pred</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">pbatch</span><span class="p">,</span> <span class="n">proto</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Prepares a batch for training or inference by processing images and targets.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-84">84</a></span>
+<span class="normal"><a href="#__codelineno-0-85">85</a></span>
+<span class="normal"><a href="#__codelineno-0-86">86</a></span>
+<span class="normal"><a href="#__codelineno-0-87">87</a></span>
+<span class="normal"><a href="#__codelineno-0-88">88</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="k">def</span><span class="w"> </span><span class="nf">_prepare_pred</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">pbatch</span><span class="p">,</span> <span class="n">proto</span><span class="p">):</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="w">    </span><span class="sd">"""Prepares a batch for training or inference by processing images and targets."""</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="n">predn</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_prepare_pred</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">pbatch</span><span class="p">)</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="n">pred_masks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">proto</span><span class="p">,</span> <span class="n">pred</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="n">pbatch</span><span class="p">[</span><span class="s2">"imgsz"</span><span class="p">])</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="k">return</span> <span class="n">predn</span><span class="p">,</span> <span class="n">pred_masks</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.models.yolo.segment.val.SegmentationValidator._process_batch">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">_process_batch</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">_process_batch</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">detections</span><span class="p">,</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">gt_bboxes</span><span class="p">,</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">gt_cls</span><span class="p">,</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">pred_masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">gt_masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">overlap</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">masks</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Compute correct prediction matrix for a batch based on bounding boxes and optional masks.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>detections</code>
+</td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Tensor of shape (N, 6) representing detected bounding boxes and
+associated confidence scores and class indices. Each row is of the format [x1, y1, x2, y2, conf, class].</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>gt_bboxes</code>
+</td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Tensor of shape (M, 4) representing ground truth bounding box coordinates.
+Each row is of the format [x1, y1, x2, y2].</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>gt_cls</code>
+</td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Tensor of shape (M,) representing ground truth class indices.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>pred_masks</code>
+</td>
+<td>
+<code><span title="torch.Tensor">Tensor</span> | None</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Tensor representing predicted masks, if available. The shape should
+match the ground truth masks.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>gt_masks</code>
+</td>
+<td>
+<code><span title="torch.Tensor">Tensor</span> | None</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Tensor of shape (M, H, W) representing ground truth masks, if available.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>overlap</code>
+</td>
+<td>
+<code>bool</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Flag indicating if overlapping masks should be considered.</p>
+</div>
+</td>
+<td>
+<code>False</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>masks</code>
+</td>
+<td>
+<code>bool</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Flag indicating if the batch contains mask data.</p>
+</div>
+</td>
+<td>
+<code>False</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>A correct prediction matrix of shape (N, 10), where 10 represents different IoU levels.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="note" open="">
+<summary>Note</summary>
+<ul>
+<li>If <code>masks</code> is True, the function computes IoU between predicted and ground truth masks.</li>
+<li>If <code>overlap</code> is True and <code>masks</code> is True, overlapping masks are taken into account when computing IoU.</li>
+</ul>
+</details>
+<details class="example" open="">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">detections</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">290</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">gt_bboxes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">199</span><span class="p">,</span> <span class="mi">299</span><span class="p">],</span> <span class="p">[</span><span class="mi">55</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">185</span><span class="p">,</span> <span class="mi">295</span><span class="p">]])</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">gt_cls</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">correct_preds</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">_process_batch</span><span class="p">(</span><span class="n">detections</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">gt_cls</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<details class="quote">
+<summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-164">164</a></span>
+<span class="normal"><a href="#__codelineno-0-165">165</a></span>
+<span class="normal"><a href="#__codelineno-0-166">166</a></span>
+<span class="normal"><a href="#__codelineno-0-167">167</a></span>
+<span class="normal"><a href="#__codelineno-0-168">168</a></span>
+<span class="normal"><a href="#__codelineno-0-169">169</a></span>
+<span class="normal"><a href="#__codelineno-0-170">170</a></span>
+<span class="normal"><a href="#__codelineno-0-171">171</a></span>
+<span class="normal"><a href="#__codelineno-0-172">172</a></span>
+<span class="normal"><a href="#__codelineno-0-173">173</a></span>
+<span class="normal"><a href="#__codelineno-0-174">174</a></span>
+<span class="normal"><a href="#__codelineno-0-175">175</a></span>
+<span class="normal"><a href="#__codelineno-0-176">176</a></span>
+<span class="normal"><a href="#__codelineno-0-177">177</a></span>
+<span class="normal"><a href="#__codelineno-0-178">178</a></span>
+<span class="normal"><a href="#__codelineno-0-179">179</a></span>
+<span class="normal"><a href="#__codelineno-0-180">180</a></span>
+<span class="normal"><a href="#__codelineno-0-181">181</a></span>
+<span class="normal"><a href="#__codelineno-0-182">182</a></span>
+<span class="normal"><a href="#__codelineno-0-183">183</a></span>
+<span class="normal"><a href="#__codelineno-0-184">184</a></span>
+<span class="normal"><a href="#__codelineno-0-185">185</a></span>
+<span class="normal"><a href="#__codelineno-0-186">186</a></span>
+<span class="normal"><a href="#__codelineno-0-187">187</a></span>
+<span class="normal"><a href="#__codelineno-0-188">188</a></span>
+<span class="normal"><a href="#__codelineno-0-189">189</a></span>
+<span class="normal"><a href="#__codelineno-0-190">190</a></span>
+<span class="normal"><a href="#__codelineno-0-191">191</a></span>
+<span class="normal"><a href="#__codelineno-0-192">192</a></span>
+<span class="normal"><a href="#__codelineno-0-193">193</a></span>
+<span class="normal"><a href="#__codelineno-0-194">194</a></span>
+<span class="normal"><a href="#__codelineno-0-195">195</a></span>
+<span class="normal"><a href="#__codelineno-0-196">196</a></span>
+<span class="normal"><a href="#__codelineno-0-197">197</a></span>
+<span class="normal"><a href="#__codelineno-0-198">198</a></span>
+<span class="normal"><a href="#__codelineno-0-199">199</a></span>
+<span class="normal"><a href="#__codelineno-0-200">200</a></span>
+<span class="normal"><a href="#__codelineno-0-201">201</a></span>
+<span class="normal"><a href="#__codelineno-0-202">202</a></span>
+<span class="normal"><a href="#__codelineno-0-203">203</a></span>
+<span class="normal"><a href="#__codelineno-0-204">204</a></span>
+<span class="normal"><a href="#__codelineno-0-205">205</a></span>
+<span class="normal"><a href="#__codelineno-0-206">206</a></span>
+<span class="normal"><a href="#__codelineno-0-207">207</a></span>
+<span class="normal"><a href="#__codelineno-0-208">208</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="k">def</span><span class="w"> </span><span class="nf">_process_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detections</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">gt_cls</span><span class="p">,</span> <span class="n">pred_masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gt_masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-0-165" name="__codelineno-0-165"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-166" name="__codelineno-0-166"></a><span class="sd">    Compute correct prediction matrix for a batch based on bounding boxes and optional masks.</span>
+<a id="__codelineno-0-167" name="__codelineno-0-167"></a>
+<a id="__codelineno-0-168" name="__codelineno-0-168"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-169" name="__codelineno-0-169"></a><span class="sd">        detections (torch.Tensor): Tensor of shape (N, 6) representing detected bounding boxes and</span>
+<a id="__codelineno-0-170" name="__codelineno-0-170"></a><span class="sd">            associated confidence scores and class indices. Each row is of the format [x1, y1, x2, y2, conf, class].</span>
+<a id="__codelineno-0-171" name="__codelineno-0-171"></a><span class="sd">        gt_bboxes (torch.Tensor): Tensor of shape (M, 4) representing ground truth bounding box coordinates.</span>
+<a id="__codelineno-0-172" name="__codelineno-0-172"></a><span class="sd">            Each row is of the format [x1, y1, x2, y2].</span>
+<a id="__codelineno-0-173" name="__codelineno-0-173"></a><span class="sd">        gt_cls (torch.Tensor): Tensor of shape (M,) representing ground truth class indices.</span>
+<a id="__codelineno-0-174" name="__codelineno-0-174"></a><span class="sd">        pred_masks (torch.Tensor | None): Tensor representing predicted masks, if available. The shape should</span>
+<a id="__codelineno-0-175" name="__codelineno-0-175"></a><span class="sd">            match the ground truth masks.</span>
+<a id="__codelineno-0-176" name="__codelineno-0-176"></a><span class="sd">        gt_masks (torch.Tensor | None): Tensor of shape (M, H, W) representing ground truth masks, if available.</span>
+<a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="sd">        overlap (bool): Flag indicating if overlapping masks should be considered.</span>
+<a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="sd">        masks (bool): Flag indicating if the batch contains mask data.</span>
+<a id="__codelineno-0-179" name="__codelineno-0-179"></a>
+<a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-181" name="__codelineno-0-181"></a><span class="sd">        (torch.Tensor): A correct prediction matrix of shape (N, 10), where 10 represents different IoU levels.</span>
+<a id="__codelineno-0-182" name="__codelineno-0-182"></a>
+<a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="sd">    Note:</span>
+<a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">        - If `masks` is True, the function computes IoU between predicted and ground truth masks.</span>
+<a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="sd">        - If `overlap` is True and `masks` is True, overlapping masks are taken into account when computing IoU.</span>
+<a id="__codelineno-0-186" name="__codelineno-0-186"></a>
+<a id="__codelineno-0-187" name="__codelineno-0-187"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-188" name="__codelineno-0-188"></a><span class="sd">        ```python</span>
+<a id="__codelineno-0-189" name="__codelineno-0-189"></a><span class="sd">        detections = torch.tensor([[25, 30, 200, 300, 0.8, 1], [50, 60, 180, 290, 0.75, 0]])</span>
+<a id="__codelineno-0-190" name="__codelineno-0-190"></a><span class="sd">        gt_bboxes = torch.tensor([[24, 29, 199, 299], [55, 65, 185, 295]])</span>
+<a id="__codelineno-0-191" name="__codelineno-0-191"></a><span class="sd">        gt_cls = torch.tensor([1, 0])</span>
+<a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="sd">        correct_preds = validator._process_batch(detections, gt_bboxes, gt_cls)</span>
+<a id="__codelineno-0-193" name="__codelineno-0-193"></a><span class="sd">        ```</span>
+<a id="__codelineno-0-194" name="__codelineno-0-194"></a><span class="sd">    """</span>
+<a id="__codelineno-0-195" name="__codelineno-0-195"></a>    <span class="k">if</span> <span class="n">masks</span><span class="p">:</span>
+<a id="__codelineno-0-196" name="__codelineno-0-196"></a>        <span class="k">if</span> <span class="n">overlap</span><span class="p">:</span>
+<a id="__codelineno-0-197" name="__codelineno-0-197"></a>            <span class="n">nl</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">gt_cls</span><span class="p">)</span>
+<a id="__codelineno-0-198" name="__codelineno-0-198"></a>            <span class="n">index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">gt_masks</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-0-199" name="__codelineno-0-199"></a>            <span class="n">gt_masks</span> <span class="o">=</span> <span class="n">gt_masks</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># shape(1,640,640) -&gt; (n,640,640)</span>
+<a id="__codelineno-0-200" name="__codelineno-0-200"></a>            <span class="n">gt_masks</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">gt_masks</span> <span class="o">==</span> <span class="n">index</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<a id="__codelineno-0-201" name="__codelineno-0-201"></a>        <span class="k">if</span> <span class="n">gt_masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="n">pred_masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+<a id="__codelineno-0-202" name="__codelineno-0-202"></a>            <span class="n">gt_masks</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">gt_masks</span><span class="p">[</span><span class="kc">None</span><span class="p">],</span> <span class="n">pred_masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bilinear"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a>            <span class="n">gt_masks</span> <span class="o">=</span> <span class="n">gt_masks</span><span class="o">.</span><span class="n">gt_</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<a id="__codelineno-0-204" name="__codelineno-0-204"></a>        <span class="n">iou</span> <span class="o">=</span> <span class="n">mask_iou</span><span class="p">(</span><span class="n">gt_masks</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">gt_masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">pred_masks</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">pred_masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a>    <span class="k">else</span><span class="p">:</span>  <span class="c1"># boxes</span>
+<a id="__codelineno-0-206" name="__codelineno-0-206"></a>        <span class="n">iou</span> <span class="o">=</span> <span class="n">box_iou</span><span class="p">(</span><span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">detections</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+<a id="__codelineno-0-207" name="__codelineno-0-207"></a>
+<a id="__codelineno-0-208" name="__codelineno-0-208"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">match_predictions</span><span class="p">(</span><span class="n">detections</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">gt_cls</span><span class="p">,</span> <span class="n">iou</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.segment.val.SegmentationValidator.eval_json">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">eval_json</span>
@@ -1960,7 +2325,7 @@
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../../../assets/javascripts/bundle.5090c770.min.js"></script>
+<script src="../../../../../assets/javascripts/bundle.f13b1293.min.js"></script>
 <script src="../../../../../javascript/extra.js"></script>
 <script src="../../../../../javascript/giscus.js"></script>
 </body>

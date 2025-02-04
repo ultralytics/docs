@@ -10,9 +10,9 @@
 <link href="../../data/utils/" rel="prev"/>
 <link href="../model/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.1" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.2" name="generator"/>
 <title>exporter - Ultralytics YOLO Docs</title>
-<link href="../../../assets/stylesheets/main.a40c8224.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.d7758b05.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -440,6 +440,20 @@
 <a class="md-nav__link" href="#ultralytics.engine.exporter.Exporter.__call__">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> __call__
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.engine.exporter.Exporter._add_tflite_metadata">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> _add_tflite_metadata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.engine.exporter.Exporter._pipeline_coreml">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> _pipeline_coreml
     </span>
 </a>
 </li>
@@ -1190,6 +1204,20 @@
 <a class="md-nav__link" href="#ultralytics.engine.exporter.Exporter.__call__">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> __call__
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.engine.exporter.Exporter._add_tflite_metadata">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> _add_tflite_metadata
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.engine.exporter.Exporter._pipeline_coreml">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> _pipeline_coreml
     </span>
 </a>
 </li>
@@ -2038,6 +2066,368 @@
 <a id="__codelineno-0-452" name="__codelineno-0-452"></a>
 <a id="__codelineno-0-453" name="__codelineno-0-453"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks</span><span class="p">(</span><span class="s2">"on_export_end"</span><span class="p">)</span>
 <a id="__codelineno-0-454" name="__codelineno-0-454"></a>    <span class="k">return</span> <span class="n">f</span>  <span class="c1"># return list of exported files/dirs</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.engine.exporter.Exporter._add_tflite_metadata">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">_add_tflite_metadata</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">_add_tflite_metadata</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Add metadata to *.tflite models per <a href="https://www.tensorflow.org/lite/models/convert/metadata">https://www.tensorflow.org/lite/models/convert/metadata</a>.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1325">1325</a></span>
+<span class="normal"><a href="#__codelineno-0-1326">1326</a></span>
+<span class="normal"><a href="#__codelineno-0-1327">1327</a></span>
+<span class="normal"><a href="#__codelineno-0-1328">1328</a></span>
+<span class="normal"><a href="#__codelineno-0-1329">1329</a></span>
+<span class="normal"><a href="#__codelineno-0-1330">1330</a></span>
+<span class="normal"><a href="#__codelineno-0-1331">1331</a></span>
+<span class="normal"><a href="#__codelineno-0-1332">1332</a></span>
+<span class="normal"><a href="#__codelineno-0-1333">1333</a></span>
+<span class="normal"><a href="#__codelineno-0-1334">1334</a></span>
+<span class="normal"><a href="#__codelineno-0-1335">1335</a></span>
+<span class="normal"><a href="#__codelineno-0-1336">1336</a></span>
+<span class="normal"><a href="#__codelineno-0-1337">1337</a></span>
+<span class="normal"><a href="#__codelineno-0-1338">1338</a></span>
+<span class="normal"><a href="#__codelineno-0-1339">1339</a></span>
+<span class="normal"><a href="#__codelineno-0-1340">1340</a></span>
+<span class="normal"><a href="#__codelineno-0-1341">1341</a></span>
+<span class="normal"><a href="#__codelineno-0-1342">1342</a></span>
+<span class="normal"><a href="#__codelineno-0-1343">1343</a></span>
+<span class="normal"><a href="#__codelineno-0-1344">1344</a></span>
+<span class="normal"><a href="#__codelineno-0-1345">1345</a></span>
+<span class="normal"><a href="#__codelineno-0-1346">1346</a></span>
+<span class="normal"><a href="#__codelineno-0-1347">1347</a></span>
+<span class="normal"><a href="#__codelineno-0-1348">1348</a></span>
+<span class="normal"><a href="#__codelineno-0-1349">1349</a></span>
+<span class="normal"><a href="#__codelineno-0-1350">1350</a></span>
+<span class="normal"><a href="#__codelineno-0-1351">1351</a></span>
+<span class="normal"><a href="#__codelineno-0-1352">1352</a></span>
+<span class="normal"><a href="#__codelineno-0-1353">1353</a></span>
+<span class="normal"><a href="#__codelineno-0-1354">1354</a></span>
+<span class="normal"><a href="#__codelineno-0-1355">1355</a></span>
+<span class="normal"><a href="#__codelineno-0-1356">1356</a></span>
+<span class="normal"><a href="#__codelineno-0-1357">1357</a></span>
+<span class="normal"><a href="#__codelineno-0-1358">1358</a></span>
+<span class="normal"><a href="#__codelineno-0-1359">1359</a></span>
+<span class="normal"><a href="#__codelineno-0-1360">1360</a></span>
+<span class="normal"><a href="#__codelineno-0-1361">1361</a></span>
+<span class="normal"><a href="#__codelineno-0-1362">1362</a></span>
+<span class="normal"><a href="#__codelineno-0-1363">1363</a></span>
+<span class="normal"><a href="#__codelineno-0-1364">1364</a></span>
+<span class="normal"><a href="#__codelineno-0-1365">1365</a></span>
+<span class="normal"><a href="#__codelineno-0-1366">1366</a></span>
+<span class="normal"><a href="#__codelineno-0-1367">1367</a></span>
+<span class="normal"><a href="#__codelineno-0-1368">1368</a></span>
+<span class="normal"><a href="#__codelineno-0-1369">1369</a></span>
+<span class="normal"><a href="#__codelineno-0-1370">1370</a></span>
+<span class="normal"><a href="#__codelineno-0-1371">1371</a></span>
+<span class="normal"><a href="#__codelineno-0-1372">1372</a></span>
+<span class="normal"><a href="#__codelineno-0-1373">1373</a></span>
+<span class="normal"><a href="#__codelineno-0-1374">1374</a></span>
+<span class="normal"><a href="#__codelineno-0-1375">1375</a></span>
+<span class="normal"><a href="#__codelineno-0-1376">1376</a></span>
+<span class="normal"><a href="#__codelineno-0-1377">1377</a></span>
+<span class="normal"><a href="#__codelineno-0-1378">1378</a></span>
+<span class="normal"><a href="#__codelineno-0-1379">1379</a></span>
+<span class="normal"><a href="#__codelineno-0-1380">1380</a></span>
+<span class="normal"><a href="#__codelineno-0-1381">1381</a></span>
+<span class="normal"><a href="#__codelineno-0-1382">1382</a></span>
+<span class="normal"><a href="#__codelineno-0-1383">1383</a></span>
+<span class="normal"><a href="#__codelineno-0-1384">1384</a></span>
+<span class="normal"><a href="#__codelineno-0-1385">1385</a></span>
+<span class="normal"><a href="#__codelineno-0-1386">1386</a></span>
+<span class="normal"><a href="#__codelineno-0-1387">1387</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1325" name="__codelineno-0-1325"></a><span class="k">def</span><span class="w"> </span><span class="nf">_add_tflite_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+<a id="__codelineno-0-1326" name="__codelineno-0-1326"></a><span class="w">    </span><span class="sd">"""Add metadata to *.tflite models per https://www.tensorflow.org/lite/models/convert/metadata."""</span>
+<a id="__codelineno-0-1327" name="__codelineno-0-1327"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">flatbuffers</span>
+<a id="__codelineno-0-1328" name="__codelineno-0-1328"></a>
+<a id="__codelineno-0-1329" name="__codelineno-0-1329"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-1330" name="__codelineno-0-1330"></a>        <span class="c1"># TFLite Support bug https://github.com/tensorflow/tflite-support/issues/954#issuecomment-2108570845</span>
+<a id="__codelineno-0-1331" name="__codelineno-0-1331"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow_lite_support.metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">metadata_schema_py_generated</span> <span class="k">as</span> <span class="n">schema</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-1332" name="__codelineno-0-1332"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow_lite_support.metadata.python</span><span class="w"> </span><span class="kn">import</span> <span class="n">metadata</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-1333" name="__codelineno-0-1333"></a>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>  <span class="c1"># ARM64 systems may not have the 'tensorflow_lite_support' package available</span>
+<a id="__codelineno-0-1334" name="__codelineno-0-1334"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">tflite_support</span><span class="w"> </span><span class="kn">import</span> <span class="n">metadata</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-1335" name="__codelineno-0-1335"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">tflite_support</span><span class="w"> </span><span class="kn">import</span> <span class="n">metadata_schema_py_generated</span> <span class="k">as</span> <span class="n">schema</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-1336" name="__codelineno-0-1336"></a>
+<a id="__codelineno-0-1337" name="__codelineno-0-1337"></a>    <span class="c1"># Create model info</span>
+<a id="__codelineno-0-1338" name="__codelineno-0-1338"></a>    <span class="n">model_meta</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">ModelMetadataT</span><span class="p">()</span>
+<a id="__codelineno-0-1339" name="__codelineno-0-1339"></a>    <span class="n">model_meta</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">"description"</span><span class="p">]</span>
+<a id="__codelineno-0-1340" name="__codelineno-0-1340"></a>    <span class="n">model_meta</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">"version"</span><span class="p">]</span>
+<a id="__codelineno-0-1341" name="__codelineno-0-1341"></a>    <span class="n">model_meta</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">"author"</span><span class="p">]</span>
+<a id="__codelineno-0-1342" name="__codelineno-0-1342"></a>    <span class="n">model_meta</span><span class="o">.</span><span class="n">license</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">"license"</span><span class="p">]</span>
+<a id="__codelineno-0-1343" name="__codelineno-0-1343"></a>
+<a id="__codelineno-0-1344" name="__codelineno-0-1344"></a>    <span class="c1"># Label file</span>
+<a id="__codelineno-0-1345" name="__codelineno-0-1345"></a>    <span class="n">tmp_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"temp_meta.txt"</span>
+<a id="__codelineno-0-1346" name="__codelineno-0-1346"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tmp_file</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-0-1347" name="__codelineno-0-1347"></a>        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">))</span>
+<a id="__codelineno-0-1348" name="__codelineno-0-1348"></a>
+<a id="__codelineno-0-1349" name="__codelineno-0-1349"></a>    <span class="n">label_file</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">AssociatedFileT</span><span class="p">()</span>
+<a id="__codelineno-0-1350" name="__codelineno-0-1350"></a>    <span class="n">label_file</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">tmp_file</span><span class="o">.</span><span class="n">name</span>
+<a id="__codelineno-0-1351" name="__codelineno-0-1351"></a>    <span class="n">label_file</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">AssociatedFileType</span><span class="o">.</span><span class="n">TENSOR_AXIS_LABELS</span>
+<a id="__codelineno-0-1352" name="__codelineno-0-1352"></a>
+<a id="__codelineno-0-1353" name="__codelineno-0-1353"></a>    <span class="c1"># Create input info</span>
+<a id="__codelineno-0-1354" name="__codelineno-0-1354"></a>    <span class="n">input_meta</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">TensorMetadataT</span><span class="p">()</span>
+<a id="__codelineno-0-1355" name="__codelineno-0-1355"></a>    <span class="n">input_meta</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"image"</span>
+<a id="__codelineno-0-1356" name="__codelineno-0-1356"></a>    <span class="n">input_meta</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"Input image to be detected."</span>
+<a id="__codelineno-0-1357" name="__codelineno-0-1357"></a>    <span class="n">input_meta</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">ContentT</span><span class="p">()</span>
+<a id="__codelineno-0-1358" name="__codelineno-0-1358"></a>    <span class="n">input_meta</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">contentProperties</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">ImagePropertiesT</span><span class="p">()</span>
+<a id="__codelineno-0-1359" name="__codelineno-0-1359"></a>    <span class="n">input_meta</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">contentProperties</span><span class="o">.</span><span class="n">colorSpace</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">ColorSpaceType</span><span class="o">.</span><span class="n">RGB</span>
+<a id="__codelineno-0-1360" name="__codelineno-0-1360"></a>    <span class="n">input_meta</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">contentPropertiesType</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">ContentProperties</span><span class="o">.</span><span class="n">ImageProperties</span>
+<a id="__codelineno-0-1361" name="__codelineno-0-1361"></a>
+<a id="__codelineno-0-1362" name="__codelineno-0-1362"></a>    <span class="c1"># Create output info</span>
+<a id="__codelineno-0-1363" name="__codelineno-0-1363"></a>    <span class="n">output1</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">TensorMetadataT</span><span class="p">()</span>
+<a id="__codelineno-0-1364" name="__codelineno-0-1364"></a>    <span class="n">output1</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"output"</span>
+<a id="__codelineno-0-1365" name="__codelineno-0-1365"></a>    <span class="n">output1</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"Coordinates of detected objects, class labels, and confidence score"</span>
+<a id="__codelineno-0-1366" name="__codelineno-0-1366"></a>    <span class="n">output1</span><span class="o">.</span><span class="n">associatedFiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">label_file</span><span class="p">]</span>
+<a id="__codelineno-0-1367" name="__codelineno-0-1367"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"segment"</span><span class="p">:</span>
+<a id="__codelineno-0-1368" name="__codelineno-0-1368"></a>        <span class="n">output2</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">TensorMetadataT</span><span class="p">()</span>
+<a id="__codelineno-0-1369" name="__codelineno-0-1369"></a>        <span class="n">output2</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"output"</span>
+<a id="__codelineno-0-1370" name="__codelineno-0-1370"></a>        <span class="n">output2</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="s2">"Mask protos"</span>
+<a id="__codelineno-0-1371" name="__codelineno-0-1371"></a>        <span class="n">output2</span><span class="o">.</span><span class="n">associatedFiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">label_file</span><span class="p">]</span>
+<a id="__codelineno-0-1372" name="__codelineno-0-1372"></a>
+<a id="__codelineno-0-1373" name="__codelineno-0-1373"></a>    <span class="c1"># Create subgraph info</span>
+<a id="__codelineno-0-1374" name="__codelineno-0-1374"></a>    <span class="n">subgraph</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">SubGraphMetadataT</span><span class="p">()</span>
+<a id="__codelineno-0-1375" name="__codelineno-0-1375"></a>    <span class="n">subgraph</span><span class="o">.</span><span class="n">inputTensorMetadata</span> <span class="o">=</span> <span class="p">[</span><span class="n">input_meta</span><span class="p">]</span>
+<a id="__codelineno-0-1376" name="__codelineno-0-1376"></a>    <span class="n">subgraph</span><span class="o">.</span><span class="n">outputTensorMetadata</span> <span class="o">=</span> <span class="p">[</span><span class="n">output1</span><span class="p">,</span> <span class="n">output2</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"segment"</span> <span class="k">else</span> <span class="p">[</span><span class="n">output1</span><span class="p">]</span>
+<a id="__codelineno-0-1377" name="__codelineno-0-1377"></a>    <span class="n">model_meta</span><span class="o">.</span><span class="n">subgraphMetadata</span> <span class="o">=</span> <span class="p">[</span><span class="n">subgraph</span><span class="p">]</span>
+<a id="__codelineno-0-1378" name="__codelineno-0-1378"></a>
+<a id="__codelineno-0-1379" name="__codelineno-0-1379"></a>    <span class="n">b</span> <span class="o">=</span> <span class="n">flatbuffers</span><span class="o">.</span><span class="n">Builder</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-1380" name="__codelineno-0-1380"></a>    <span class="n">b</span><span class="o">.</span><span class="n">Finish</span><span class="p">(</span><span class="n">model_meta</span><span class="o">.</span><span class="n">Pack</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="n">metadata</span><span class="o">.</span><span class="n">MetadataPopulator</span><span class="o">.</span><span class="n">METADATA_FILE_IDENTIFIER</span><span class="p">)</span>
+<a id="__codelineno-0-1381" name="__codelineno-0-1381"></a>    <span class="n">metadata_buf</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+<a id="__codelineno-0-1382" name="__codelineno-0-1382"></a>
+<a id="__codelineno-0-1383" name="__codelineno-0-1383"></a>    <span class="n">populator</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">MetadataPopulator</span><span class="o">.</span><span class="n">with_model_file</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+<a id="__codelineno-0-1384" name="__codelineno-0-1384"></a>    <span class="n">populator</span><span class="o">.</span><span class="n">load_metadata_buffer</span><span class="p">(</span><span class="n">metadata_buf</span><span class="p">)</span>
+<a id="__codelineno-0-1385" name="__codelineno-0-1385"></a>    <span class="n">populator</span><span class="o">.</span><span class="n">load_associated_files</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">tmp_file</span><span class="p">)])</span>
+<a id="__codelineno-0-1386" name="__codelineno-0-1386"></a>    <span class="n">populator</span><span class="o">.</span><span class="n">populate</span><span class="p">()</span>
+<a id="__codelineno-0-1387" name="__codelineno-0-1387"></a>    <span class="n">tmp_file</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.engine.exporter.Exporter._pipeline_coreml">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">_pipeline_coreml</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">_pipeline_coreml</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">weights_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'CoreML Pipeline:'</span><span class="p">))</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>YOLO CoreML pipeline.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1389">1389</a></span>
+<span class="normal"><a href="#__codelineno-0-1390">1390</a></span>
+<span class="normal"><a href="#__codelineno-0-1391">1391</a></span>
+<span class="normal"><a href="#__codelineno-0-1392">1392</a></span>
+<span class="normal"><a href="#__codelineno-0-1393">1393</a></span>
+<span class="normal"><a href="#__codelineno-0-1394">1394</a></span>
+<span class="normal"><a href="#__codelineno-0-1395">1395</a></span>
+<span class="normal"><a href="#__codelineno-0-1396">1396</a></span>
+<span class="normal"><a href="#__codelineno-0-1397">1397</a></span>
+<span class="normal"><a href="#__codelineno-0-1398">1398</a></span>
+<span class="normal"><a href="#__codelineno-0-1399">1399</a></span>
+<span class="normal"><a href="#__codelineno-0-1400">1400</a></span>
+<span class="normal"><a href="#__codelineno-0-1401">1401</a></span>
+<span class="normal"><a href="#__codelineno-0-1402">1402</a></span>
+<span class="normal"><a href="#__codelineno-0-1403">1403</a></span>
+<span class="normal"><a href="#__codelineno-0-1404">1404</a></span>
+<span class="normal"><a href="#__codelineno-0-1405">1405</a></span>
+<span class="normal"><a href="#__codelineno-0-1406">1406</a></span>
+<span class="normal"><a href="#__codelineno-0-1407">1407</a></span>
+<span class="normal"><a href="#__codelineno-0-1408">1408</a></span>
+<span class="normal"><a href="#__codelineno-0-1409">1409</a></span>
+<span class="normal"><a href="#__codelineno-0-1410">1410</a></span>
+<span class="normal"><a href="#__codelineno-0-1411">1411</a></span>
+<span class="normal"><a href="#__codelineno-0-1412">1412</a></span>
+<span class="normal"><a href="#__codelineno-0-1413">1413</a></span>
+<span class="normal"><a href="#__codelineno-0-1414">1414</a></span>
+<span class="normal"><a href="#__codelineno-0-1415">1415</a></span>
+<span class="normal"><a href="#__codelineno-0-1416">1416</a></span>
+<span class="normal"><a href="#__codelineno-0-1417">1417</a></span>
+<span class="normal"><a href="#__codelineno-0-1418">1418</a></span>
+<span class="normal"><a href="#__codelineno-0-1419">1419</a></span>
+<span class="normal"><a href="#__codelineno-0-1420">1420</a></span>
+<span class="normal"><a href="#__codelineno-0-1421">1421</a></span>
+<span class="normal"><a href="#__codelineno-0-1422">1422</a></span>
+<span class="normal"><a href="#__codelineno-0-1423">1423</a></span>
+<span class="normal"><a href="#__codelineno-0-1424">1424</a></span>
+<span class="normal"><a href="#__codelineno-0-1425">1425</a></span>
+<span class="normal"><a href="#__codelineno-0-1426">1426</a></span>
+<span class="normal"><a href="#__codelineno-0-1427">1427</a></span>
+<span class="normal"><a href="#__codelineno-0-1428">1428</a></span>
+<span class="normal"><a href="#__codelineno-0-1429">1429</a></span>
+<span class="normal"><a href="#__codelineno-0-1430">1430</a></span>
+<span class="normal"><a href="#__codelineno-0-1431">1431</a></span>
+<span class="normal"><a href="#__codelineno-0-1432">1432</a></span>
+<span class="normal"><a href="#__codelineno-0-1433">1433</a></span>
+<span class="normal"><a href="#__codelineno-0-1434">1434</a></span>
+<span class="normal"><a href="#__codelineno-0-1435">1435</a></span>
+<span class="normal"><a href="#__codelineno-0-1436">1436</a></span>
+<span class="normal"><a href="#__codelineno-0-1437">1437</a></span>
+<span class="normal"><a href="#__codelineno-0-1438">1438</a></span>
+<span class="normal"><a href="#__codelineno-0-1439">1439</a></span>
+<span class="normal"><a href="#__codelineno-0-1440">1440</a></span>
+<span class="normal"><a href="#__codelineno-0-1441">1441</a></span>
+<span class="normal"><a href="#__codelineno-0-1442">1442</a></span>
+<span class="normal"><a href="#__codelineno-0-1443">1443</a></span>
+<span class="normal"><a href="#__codelineno-0-1444">1444</a></span>
+<span class="normal"><a href="#__codelineno-0-1445">1445</a></span>
+<span class="normal"><a href="#__codelineno-0-1446">1446</a></span>
+<span class="normal"><a href="#__codelineno-0-1447">1447</a></span>
+<span class="normal"><a href="#__codelineno-0-1448">1448</a></span>
+<span class="normal"><a href="#__codelineno-0-1449">1449</a></span>
+<span class="normal"><a href="#__codelineno-0-1450">1450</a></span>
+<span class="normal"><a href="#__codelineno-0-1451">1451</a></span>
+<span class="normal"><a href="#__codelineno-0-1452">1452</a></span>
+<span class="normal"><a href="#__codelineno-0-1453">1453</a></span>
+<span class="normal"><a href="#__codelineno-0-1454">1454</a></span>
+<span class="normal"><a href="#__codelineno-0-1455">1455</a></span>
+<span class="normal"><a href="#__codelineno-0-1456">1456</a></span>
+<span class="normal"><a href="#__codelineno-0-1457">1457</a></span>
+<span class="normal"><a href="#__codelineno-0-1458">1458</a></span>
+<span class="normal"><a href="#__codelineno-0-1459">1459</a></span>
+<span class="normal"><a href="#__codelineno-0-1460">1460</a></span>
+<span class="normal"><a href="#__codelineno-0-1461">1461</a></span>
+<span class="normal"><a href="#__codelineno-0-1462">1462</a></span>
+<span class="normal"><a href="#__codelineno-0-1463">1463</a></span>
+<span class="normal"><a href="#__codelineno-0-1464">1464</a></span>
+<span class="normal"><a href="#__codelineno-0-1465">1465</a></span>
+<span class="normal"><a href="#__codelineno-0-1466">1466</a></span>
+<span class="normal"><a href="#__codelineno-0-1467">1467</a></span>
+<span class="normal"><a href="#__codelineno-0-1468">1468</a></span>
+<span class="normal"><a href="#__codelineno-0-1469">1469</a></span>
+<span class="normal"><a href="#__codelineno-0-1470">1470</a></span>
+<span class="normal"><a href="#__codelineno-0-1471">1471</a></span>
+<span class="normal"><a href="#__codelineno-0-1472">1472</a></span>
+<span class="normal"><a href="#__codelineno-0-1473">1473</a></span>
+<span class="normal"><a href="#__codelineno-0-1474">1474</a></span>
+<span class="normal"><a href="#__codelineno-0-1475">1475</a></span>
+<span class="normal"><a href="#__codelineno-0-1476">1476</a></span>
+<span class="normal"><a href="#__codelineno-0-1477">1477</a></span>
+<span class="normal"><a href="#__codelineno-0-1478">1478</a></span>
+<span class="normal"><a href="#__codelineno-0-1479">1479</a></span>
+<span class="normal"><a href="#__codelineno-0-1480">1480</a></span>
+<span class="normal"><a href="#__codelineno-0-1481">1481</a></span>
+<span class="normal"><a href="#__codelineno-0-1482">1482</a></span>
+<span class="normal"><a href="#__codelineno-0-1483">1483</a></span>
+<span class="normal"><a href="#__codelineno-0-1484">1484</a></span>
+<span class="normal"><a href="#__codelineno-0-1485">1485</a></span>
+<span class="normal"><a href="#__codelineno-0-1486">1486</a></span>
+<span class="normal"><a href="#__codelineno-0-1487">1487</a></span>
+<span class="normal"><a href="#__codelineno-0-1488">1488</a></span>
+<span class="normal"><a href="#__codelineno-0-1489">1489</a></span>
+<span class="normal"><a href="#__codelineno-0-1490">1490</a></span>
+<span class="normal"><a href="#__codelineno-0-1491">1491</a></span>
+<span class="normal"><a href="#__codelineno-0-1492">1492</a></span>
+<span class="normal"><a href="#__codelineno-0-1493">1493</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1389" name="__codelineno-0-1389"></a><span class="k">def</span><span class="w"> </span><span class="nf">_pipeline_coreml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">weights_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"CoreML Pipeline:"</span><span class="p">)):</span>
+<a id="__codelineno-0-1390" name="__codelineno-0-1390"></a><span class="w">    </span><span class="sd">"""YOLO CoreML pipeline."""</span>
+<a id="__codelineno-0-1391" name="__codelineno-0-1391"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">coremltools</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ct</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-1392" name="__codelineno-0-1392"></a>
+<a id="__codelineno-0-1393" name="__codelineno-0-1393"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting pipeline with coremltools </span><span class="si">{</span><span class="n">ct</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
+<a id="__codelineno-0-1394" name="__codelineno-0-1394"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># BCHW</span>
+<a id="__codelineno-0-1395" name="__codelineno-0-1395"></a>
+<a id="__codelineno-0-1396" name="__codelineno-0-1396"></a>    <span class="c1"># Output shapes</span>
+<a id="__codelineno-0-1397" name="__codelineno-0-1397"></a>    <span class="n">spec</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_spec</span><span class="p">()</span>
+<a id="__codelineno-0-1398" name="__codelineno-0-1398"></a>    <span class="n">out0</span><span class="p">,</span> <span class="n">out1</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+<a id="__codelineno-0-1399" name="__codelineno-0-1399"></a>    <span class="k">if</span> <span class="n">MACOS</span><span class="p">:</span>
+<a id="__codelineno-0-1400" name="__codelineno-0-1400"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<a id="__codelineno-0-1401" name="__codelineno-0-1401"></a>
+<a id="__codelineno-0-1402" name="__codelineno-0-1402"></a>        <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">"RGB"</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>  <span class="c1"># w=192, h=320</span>
+<a id="__codelineno-0-1403" name="__codelineno-0-1403"></a>        <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">({</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">img</span><span class="p">})</span>
+<a id="__codelineno-0-1404" name="__codelineno-0-1404"></a>        <span class="n">out0_shape</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="n">out0</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># (3780, 80)</span>
+<a id="__codelineno-0-1405" name="__codelineno-0-1405"></a>        <span class="n">out1_shape</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="n">out1</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># (3780, 4)</span>
+<a id="__codelineno-0-1406" name="__codelineno-0-1406"></a>    <span class="k">else</span><span class="p">:</span>  <span class="c1"># linux and windows can not run model.predict(), get sizes from PyTorch model output y</span>
+<a id="__codelineno-0-1407" name="__codelineno-0-1407"></a>        <span class="n">out0_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_shape</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span>  <span class="c1"># (3780, 80)</span>
+<a id="__codelineno-0-1408" name="__codelineno-0-1408"></a>        <span class="n">out1_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_shape</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">4</span>  <span class="c1"># (3780, 4)</span>
+<a id="__codelineno-0-1409" name="__codelineno-0-1409"></a>
+<a id="__codelineno-0-1410" name="__codelineno-0-1410"></a>    <span class="c1"># Checks</span>
+<a id="__codelineno-0-1411" name="__codelineno-0-1411"></a>    <span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span>
+<a id="__codelineno-0-1412" name="__codelineno-0-1412"></a>    <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">imageType</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">imageType</span><span class="o">.</span><span class="n">height</span>
+<a id="__codelineno-0-1413" name="__codelineno-0-1413"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">out0_shape</span>  <span class="c1"># number of anchors, number of classes</span>
+<a id="__codelineno-0-1414" name="__codelineno-0-1414"></a>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">==</span> <span class="n">nc</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span><span class="si">}</span><span class="s2"> names found for nc=</span><span class="si">{</span><span class="n">nc</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># check</span>
+<a id="__codelineno-0-1415" name="__codelineno-0-1415"></a>
+<a id="__codelineno-0-1416" name="__codelineno-0-1416"></a>    <span class="c1"># Define output shapes (missing)</span>
+<a id="__codelineno-0-1417" name="__codelineno-0-1417"></a>    <span class="n">out0</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">multiArrayType</span><span class="o">.</span><span class="n">shape</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">out0_shape</span>  <span class="c1"># (3780, 80)</span>
+<a id="__codelineno-0-1418" name="__codelineno-0-1418"></a>    <span class="n">out1</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">multiArrayType</span><span class="o">.</span><span class="n">shape</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">out1_shape</span>  <span class="c1"># (3780, 4)</span>
+<a id="__codelineno-0-1419" name="__codelineno-0-1419"></a>
+<a id="__codelineno-0-1420" name="__codelineno-0-1420"></a>    <span class="c1"># Model from spec</span>
+<a id="__codelineno-0-1421" name="__codelineno-0-1421"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">MLModel</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">weights_dir</span><span class="o">=</span><span class="n">weights_dir</span><span class="p">)</span>
+<a id="__codelineno-0-1422" name="__codelineno-0-1422"></a>
+<a id="__codelineno-0-1423" name="__codelineno-0-1423"></a>    <span class="c1"># 3. Create NMS protobuf</span>
+<a id="__codelineno-0-1424" name="__codelineno-0-1424"></a>    <span class="n">nms_spec</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">proto</span><span class="o">.</span><span class="n">Model_pb2</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span>
+<a id="__codelineno-0-1425" name="__codelineno-0-1425"></a>    <span class="n">nms_spec</span><span class="o">.</span><span class="n">specificationVersion</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-0-1426" name="__codelineno-0-1426"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-0-1427" name="__codelineno-0-1427"></a>        <span class="n">decoder_output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">_spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">()</span>
+<a id="__codelineno-0-1428" name="__codelineno-0-1428"></a>        <span class="n">nms_spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+<a id="__codelineno-0-1429" name="__codelineno-0-1429"></a>        <span class="n">nms_spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">input</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">decoder_output</span><span class="p">)</span>
+<a id="__codelineno-0-1430" name="__codelineno-0-1430"></a>        <span class="n">nms_spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+<a id="__codelineno-0-1431" name="__codelineno-0-1431"></a>        <span class="n">nms_spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">decoder_output</span><span class="p">)</span>
+<a id="__codelineno-0-1432" name="__codelineno-0-1432"></a>
+<a id="__codelineno-0-1433" name="__codelineno-0-1433"></a>    <span class="n">nms_spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"confidence"</span>
+<a id="__codelineno-0-1434" name="__codelineno-0-1434"></a>    <span class="n">nms_spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"coordinates"</span>
+<a id="__codelineno-0-1435" name="__codelineno-0-1435"></a>
+<a id="__codelineno-0-1436" name="__codelineno-0-1436"></a>    <span class="n">output_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="n">nc</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<a id="__codelineno-0-1437" name="__codelineno-0-1437"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-0-1438" name="__codelineno-0-1438"></a>        <span class="n">ma_type</span> <span class="o">=</span> <span class="n">nms_spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">multiArrayType</span>
+<a id="__codelineno-0-1439" name="__codelineno-0-1439"></a>        <span class="n">ma_type</span><span class="o">.</span><span class="n">shapeRange</span><span class="o">.</span><span class="n">sizeRanges</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+<a id="__codelineno-0-1440" name="__codelineno-0-1440"></a>        <span class="n">ma_type</span><span class="o">.</span><span class="n">shapeRange</span><span class="o">.</span><span class="n">sizeRanges</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lowerBound</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-1441" name="__codelineno-0-1441"></a>        <span class="n">ma_type</span><span class="o">.</span><span class="n">shapeRange</span><span class="o">.</span><span class="n">sizeRanges</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upperBound</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-0-1442" name="__codelineno-0-1442"></a>        <span class="n">ma_type</span><span class="o">.</span><span class="n">shapeRange</span><span class="o">.</span><span class="n">sizeRanges</span><span class="o">.</span><span class="n">add</span><span class="p">()</span>
+<a id="__codelineno-0-1443" name="__codelineno-0-1443"></a>        <span class="n">ma_type</span><span class="o">.</span><span class="n">shapeRange</span><span class="o">.</span><span class="n">sizeRanges</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lowerBound</span> <span class="o">=</span> <span class="n">output_sizes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-0-1444" name="__codelineno-0-1444"></a>        <span class="n">ma_type</span><span class="o">.</span><span class="n">shapeRange</span><span class="o">.</span><span class="n">sizeRanges</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upperBound</span> <span class="o">=</span> <span class="n">output_sizes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-0-1445" name="__codelineno-0-1445"></a>        <span class="k">del</span> <span class="n">ma_type</span><span class="o">.</span><span class="n">shape</span><span class="p">[:]</span>
+<a id="__codelineno-0-1446" name="__codelineno-0-1446"></a>
+<a id="__codelineno-0-1447" name="__codelineno-0-1447"></a>    <span class="n">nms</span> <span class="o">=</span> <span class="n">nms_spec</span><span class="o">.</span><span class="n">nonMaximumSuppression</span>
+<a id="__codelineno-0-1448" name="__codelineno-0-1448"></a>    <span class="n">nms</span><span class="o">.</span><span class="n">confidenceInputFeatureName</span> <span class="o">=</span> <span class="n">out0</span><span class="o">.</span><span class="n">name</span>  <span class="c1"># 1x507x80</span>
+<a id="__codelineno-0-1449" name="__codelineno-0-1449"></a>    <span class="n">nms</span><span class="o">.</span><span class="n">coordinatesInputFeatureName</span> <span class="o">=</span> <span class="n">out1</span><span class="o">.</span><span class="n">name</span>  <span class="c1"># 1x507x4</span>
+<a id="__codelineno-0-1450" name="__codelineno-0-1450"></a>    <span class="n">nms</span><span class="o">.</span><span class="n">confidenceOutputFeatureName</span> <span class="o">=</span> <span class="s2">"confidence"</span>
+<a id="__codelineno-0-1451" name="__codelineno-0-1451"></a>    <span class="n">nms</span><span class="o">.</span><span class="n">coordinatesOutputFeatureName</span> <span class="o">=</span> <span class="s2">"coordinates"</span>
+<a id="__codelineno-0-1452" name="__codelineno-0-1452"></a>    <span class="n">nms</span><span class="o">.</span><span class="n">iouThresholdInputFeatureName</span> <span class="o">=</span> <span class="s2">"iouThreshold"</span>
+<a id="__codelineno-0-1453" name="__codelineno-0-1453"></a>    <span class="n">nms</span><span class="o">.</span><span class="n">confidenceThresholdInputFeatureName</span> <span class="o">=</span> <span class="s2">"confidenceThreshold"</span>
+<a id="__codelineno-0-1454" name="__codelineno-0-1454"></a>    <span class="n">nms</span><span class="o">.</span><span class="n">iouThreshold</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">iou</span>
+<a id="__codelineno-0-1455" name="__codelineno-0-1455"></a>    <span class="n">nms</span><span class="o">.</span><span class="n">confidenceThreshold</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span>
+<a id="__codelineno-0-1456" name="__codelineno-0-1456"></a>    <span class="n">nms</span><span class="o">.</span><span class="n">pickTop</span><span class="o">.</span><span class="n">perClass</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-0-1457" name="__codelineno-0-1457"></a>    <span class="n">nms</span><span class="o">.</span><span class="n">stringClassLabels</span><span class="o">.</span><span class="n">vector</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">names</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<a id="__codelineno-0-1458" name="__codelineno-0-1458"></a>    <span class="n">nms_model</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">MLModel</span><span class="p">(</span><span class="n">nms_spec</span><span class="p">)</span>
+<a id="__codelineno-0-1459" name="__codelineno-0-1459"></a>
+<a id="__codelineno-0-1460" name="__codelineno-0-1460"></a>    <span class="c1"># 4. Pipeline models together</span>
+<a id="__codelineno-0-1461" name="__codelineno-0-1461"></a>    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">pipeline</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">(</span>
+<a id="__codelineno-0-1462" name="__codelineno-0-1462"></a>        <span class="n">input_features</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-0-1463" name="__codelineno-0-1463"></a>            <span class="p">(</span><span class="s2">"image"</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">datatypes</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">)),</span>
+<a id="__codelineno-0-1464" name="__codelineno-0-1464"></a>            <span class="p">(</span><span class="s2">"iouThreshold"</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">datatypes</span><span class="o">.</span><span class="n">Double</span><span class="p">()),</span>
+<a id="__codelineno-0-1465" name="__codelineno-0-1465"></a>            <span class="p">(</span><span class="s2">"confidenceThreshold"</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">datatypes</span><span class="o">.</span><span class="n">Double</span><span class="p">()),</span>
+<a id="__codelineno-0-1466" name="__codelineno-0-1466"></a>        <span class="p">],</span>
+<a id="__codelineno-0-1467" name="__codelineno-0-1467"></a>        <span class="n">output_features</span><span class="o">=</span><span class="p">[</span><span class="s2">"confidence"</span><span class="p">,</span> <span class="s2">"coordinates"</span><span class="p">],</span>
+<a id="__codelineno-0-1468" name="__codelineno-0-1468"></a>    <span class="p">)</span>
+<a id="__codelineno-0-1469" name="__codelineno-0-1469"></a>    <span class="n">pipeline</span><span class="o">.</span><span class="n">add_model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-0-1470" name="__codelineno-0-1470"></a>    <span class="n">pipeline</span><span class="o">.</span><span class="n">add_model</span><span class="p">(</span><span class="n">nms_model</span><span class="p">)</span>
+<a id="__codelineno-0-1471" name="__codelineno-0-1471"></a>
+<a id="__codelineno-0-1472" name="__codelineno-0-1472"></a>    <span class="c1"># Correct datatypes</span>
+<a id="__codelineno-0-1473" name="__codelineno-0-1473"></a>    <span class="n">pipeline</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">_spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">())</span>
+<a id="__codelineno-0-1474" name="__codelineno-0-1474"></a>    <span class="n">pipeline</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">nms_model</span><span class="o">.</span><span class="n">_spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">())</span>
+<a id="__codelineno-0-1475" name="__codelineno-0-1475"></a>    <span class="n">pipeline</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">nms_model</span><span class="o">.</span><span class="n">_spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">())</span>
+<a id="__codelineno-0-1476" name="__codelineno-0-1476"></a>
+<a id="__codelineno-0-1477" name="__codelineno-0-1477"></a>    <span class="c1"># Update metadata</span>
+<a id="__codelineno-0-1478" name="__codelineno-0-1478"></a>    <span class="n">pipeline</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">specificationVersion</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-0-1479" name="__codelineno-0-1479"></a>    <span class="n">pipeline</span><span class="o">.</span><span class="n">spec</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">userDefined</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+<a id="__codelineno-0-1480" name="__codelineno-0-1480"></a>        <span class="p">{</span><span class="s2">"IoU threshold"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">nms</span><span class="o">.</span><span class="n">iouThreshold</span><span class="p">),</span> <span class="s2">"Confidence threshold"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">nms</span><span class="o">.</span><span class="n">confidenceThreshold</span><span class="p">)}</span>
+<a id="__codelineno-0-1481" name="__codelineno-0-1481"></a>    <span class="p">)</span>
+<a id="__codelineno-0-1482" name="__codelineno-0-1482"></a>
+<a id="__codelineno-0-1483" name="__codelineno-0-1483"></a>    <span class="c1"># Save the model</span>
+<a id="__codelineno-0-1484" name="__codelineno-0-1484"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">MLModel</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">spec</span><span class="p">,</span> <span class="n">weights_dir</span><span class="o">=</span><span class="n">weights_dir</span><span class="p">)</span>
+<a id="__codelineno-0-1485" name="__codelineno-0-1485"></a>    <span class="n">model</span><span class="o">.</span><span class="n">input_description</span><span class="p">[</span><span class="s2">"image"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Input image"</span>
+<a id="__codelineno-0-1486" name="__codelineno-0-1486"></a>    <span class="n">model</span><span class="o">.</span><span class="n">input_description</span><span class="p">[</span><span class="s2">"iouThreshold"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"(optional) IoU threshold override (default: </span><span class="si">{</span><span class="n">nms</span><span class="o">.</span><span class="n">iouThreshold</span><span class="si">}</span><span class="s2">)"</span>
+<a id="__codelineno-0-1487" name="__codelineno-0-1487"></a>    <span class="n">model</span><span class="o">.</span><span class="n">input_description</span><span class="p">[</span><span class="s2">"confidenceThreshold"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-1488" name="__codelineno-0-1488"></a>        <span class="sa">f</span><span class="s2">"(optional) Confidence threshold override (default: </span><span class="si">{</span><span class="n">nms</span><span class="o">.</span><span class="n">confidenceThreshold</span><span class="si">}</span><span class="s2">)"</span>
+<a id="__codelineno-0-1489" name="__codelineno-0-1489"></a>    <span class="p">)</span>
+<a id="__codelineno-0-1490" name="__codelineno-0-1490"></a>    <span class="n">model</span><span class="o">.</span><span class="n">output_description</span><span class="p">[</span><span class="s2">"confidence"</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Boxes × Class confidence (see user-defined metadata "classes")'</span>
+<a id="__codelineno-0-1491" name="__codelineno-0-1491"></a>    <span class="n">model</span><span class="o">.</span><span class="n">output_description</span><span class="p">[</span><span class="s2">"coordinates"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Boxes × [x, y, width, height] (relative to image size)"</span>
+<a id="__codelineno-0-1492" name="__codelineno-0-1492"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> pipeline success"</span><span class="p">)</span>
+<a id="__codelineno-0-1493" name="__codelineno-0-1493"></a>    <span class="k">return</span> <span class="n">model</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4646,7 +5036,7 @@
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on January 24, 2025">
-<span class="hover-item">✏️</span> Updated 7 days ago
+<span class="hover-item">✏️</span> Updated 11 days ago
     </span>
 </div>
 <div class="authors-container">
@@ -4758,7 +5148,7 @@
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.5090c770.min.js"></script>
+<script src="../../../assets/javascripts/bundle.f13b1293.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 </body>
