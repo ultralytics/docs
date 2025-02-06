@@ -22,7 +22,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Rockchip RKNN" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO11, RKNN, model export, Ultralytics, Rockchip, machine learning, model deployment, computer vision, deep learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/rockchip-rknn" property="og:url"/><meta content="Rockchip RKNN" property="og:title"/><meta content="Learn how to export YOLO11 models to RKNN format for efficient deployment on Rockchip platforms with enhanced performance." property="og:description"/><meta content="https://github.com/ultralytics/assets/releases/download/v0.0.0/rockchip-rknn.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/rockchip-rknn" property="twitter:url"/><meta content="Rockchip RKNN" property="twitter:title"/><meta content="Learn how to export YOLO11 models to RKNN format for efficient deployment on Rockchip platforms with enhanced performance." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/releases/download/v0.0.0/rockchip-rknn.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Rockchip RKNN", "image": ["https://github.com/ultralytics/assets/releases/download/v0.0.0/rockchip-rknn.avif"], "datePublished": "2025-01-20 20:25:54 -0500", "dateModified": "2025-02-03 06:17:42 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to export YOLO11 models to RKNN format for efficient deployment on Rockchip platforms with enhanced performance.", "mainEntity": [{"@type": "Question", "name": "How do I export my Ultralytics YOLO model to RKNN format?", "acceptedAnswer": {"@type": "Answer", "text": "You can easily export your Ultralytics YOLO model to RKNN format using the export() method in the Ultralytics Python package or via the command-line interface (CLI). Ensure you are using an x86-based Linux PC for the export process, as ARM64 devices like Rockchip are not supported for this operation. You can specify the target Rockchip platform using the name argument, such as rk3588, rk3566, or others. This process generates an optimized RKNN model ready for deployment on your Rockchip device, taking advantage of its Neural Processing Unit (NPU) for accelerated inference."}}, {"@type": "Question", "name": "What are the benefits of using RKNN models on Rockchip devices?", "acceptedAnswer": {"@type": "Answer", "text": "RKNN models are specifically designed to leverage the hardware acceleration capabilities of Rockchip's Neural Processing Units (NPUs). This optimization results in significantly faster inference speeds and reduced latency compared to running generic model formats like ONNX or TensorFlow Lite on the same hardware. Using RKNN models allows for more efficient use of the device's resources, leading to lower power consumption and better overall performance, especially critical for real-time applications on edge devices. By converting your Ultralytics YOLO models to RKNN, you can achieve optimal performance on devices powered by Rockchip SoCs like the RK3588, RK3566, and others."}}, {"@type": "Question", "name": "Can I deploy RKNN models on devices from other manufacturers like NVIDIA or Google?", "acceptedAnswer": {"@type": "Answer", "text": "RKNN models are specifically optimized for Rockchip platforms and their integrated NPUs. While you can technically run an RKNN model on other platforms using software emulation, you will not benefit from the hardware acceleration provided by Rockchip devices. For optimal performance on other platforms, it's recommended to export your Ultralytics YOLO models to formats specifically designed for those platforms, such as TensorRT for NVIDIA GPUs or TensorFlow Lite for Google's Edge TPU. Ultralytics supports exporting to a wide range of formats, ensuring compatibility with various hardware accelerators."}}, {"@type": "Question", "name": "What Rockchip platforms are supported for RKNN model deployment?", "acceptedAnswer": {"@type": "Answer", "text": "The Ultralytics YOLO export to RKNN format supports a wide range of Rockchip platforms, including the popular RK3588, RK3576, RK3566, RK3568, RK3562, RV1103, RV1106, RV1103B, RV1106B, and RK2118. These platforms are commonly found in devices from manufacturers like Radxa, ASUS, Pine64, Orange Pi, Odroid, Khadas, and Banana Pi. This broad support ensures that you can deploy your optimized RKNN models on various Rockchip-powered devices, from single-board computers to industrial systems, taking full advantage of their AI acceleration capabilities for enhanced performance in your computer vision applications."}}, {"@type": "Question", "name": "How does the performance of RKNN models compare to other formats on Rockchip devices?", "acceptedAnswer": {"@type": "Answer", "text": "RKNN models generally outperform other formats like ONNX or TensorFlow Lite on Rockchip devices due to their optimization for Rockchip's NPUs. For instance, benchmarks on the Radxa Rock 5B (RK3588) show that YOLO11n in RKNN format achieves an inference time of 99.5 ms/image, significantly faster than other formats. This performance advantage is consistent across various YOLO11 model sizes, as demonstrated in the benchmarks section. By leveraging the dedicated NPU hardware, RKNN models minimize latency and maximize throughput, making them ideal for real-time applications on Rockchip-based edge devices."}}]}</script></head>
+<meta content="Rockchip RKNN" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO11, RKNN, model export, Ultralytics, Rockchip, machine learning, model deployment, computer vision, deep learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/rockchip-rknn" property="og:url"/><meta content="Rockchip RKNN" property="og:title"/><meta content="Learn how to export YOLO11 models to RKNN format for efficient deployment on Rockchip platforms with enhanced performance." property="og:description"/><meta content="https://github.com/ultralytics/assets/releases/download/v0.0.0/rockchip-rknn.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/rockchip-rknn" property="twitter:url"/><meta content="Rockchip RKNN" property="twitter:title"/><meta content="Learn how to export YOLO11 models to RKNN format for efficient deployment on Rockchip platforms with enhanced performance." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/releases/download/v0.0.0/rockchip-rknn.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Rockchip RKNN", "image": ["https://github.com/ultralytics/assets/releases/download/v0.0.0/rockchip-rknn.avif"], "datePublished": "2025-01-20 20:25:54 -0500", "dateModified": "2025-02-05 18:43:02 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to export YOLO11 models to RKNN format for efficient deployment on Rockchip platforms with enhanced performance.", "mainEntity": [{"@type": "Question", "name": "How do I export my Ultralytics YOLO model to RKNN format?", "acceptedAnswer": {"@type": "Answer", "text": "You can easily export your Ultralytics YOLO model to RKNN format using the export() method in the Ultralytics Python package or via the command-line interface (CLI). Ensure you are using an x86-based Linux PC for the export process, as ARM64 devices like Rockchip are not supported for this operation. You can specify the target Rockchip platform using the name argument, such as rk3588, rk3566, or others. This process generates an optimized RKNN model ready for deployment on your Rockchip device, taking advantage of its Neural Processing Unit (NPU) for accelerated inference."}}, {"@type": "Question", "name": "What are the benefits of using RKNN models on Rockchip devices?", "acceptedAnswer": {"@type": "Answer", "text": "RKNN models are specifically designed to leverage the hardware acceleration capabilities of Rockchip's Neural Processing Units (NPUs). This optimization results in significantly faster inference speeds and reduced latency compared to running generic model formats like ONNX or TensorFlow Lite on the same hardware. Using RKNN models allows for more efficient use of the device's resources, leading to lower power consumption and better overall performance, especially critical for real-time applications on edge devices. By converting your Ultralytics YOLO models to RKNN, you can achieve optimal performance on devices powered by Rockchip SoCs like the RK3588, RK3566, and others."}}, {"@type": "Question", "name": "Can I deploy RKNN models on devices from other manufacturers like NVIDIA or Google?", "acceptedAnswer": {"@type": "Answer", "text": "RKNN models are specifically optimized for Rockchip platforms and their integrated NPUs. While you can technically run an RKNN model on other platforms using software emulation, you will not benefit from the hardware acceleration provided by Rockchip devices. For optimal performance on other platforms, it's recommended to export your Ultralytics YOLO models to formats specifically designed for those platforms, such as TensorRT for NVIDIA GPUs or TensorFlow Lite for Google's Edge TPU. Ultralytics supports exporting to a wide range of formats, ensuring compatibility with various hardware accelerators."}}, {"@type": "Question", "name": "What Rockchip platforms are supported for RKNN model deployment?", "acceptedAnswer": {"@type": "Answer", "text": "The Ultralytics YOLO export to RKNN format supports a wide range of Rockchip platforms, including the popular RK3588, RK3576, RK3566, RK3568, RK3562, RV1103, RV1106, RV1103B, RV1106B, and RK2118. These platforms are commonly found in devices from manufacturers like Radxa, ASUS, Pine64, Orange Pi, Odroid, Khadas, and Banana Pi. This broad support ensures that you can deploy your optimized RKNN models on various Rockchip-powered devices, from single-board computers to industrial systems, taking full advantage of their AI acceleration capabilities for enhanced performance in your computer vision applications."}}, {"@type": "Question", "name": "How does the performance of RKNN models compare to other formats on Rockchip devices?", "acceptedAnswer": {"@type": "Answer", "text": "RKNN models generally outperform other formats like ONNX or TensorFlow Lite on Rockchip devices due to their optimization for Rockchip's NPUs. For instance, benchmarks on the Radxa Rock 5B (RK3588) show that YOLO11n in RKNN format achieves an inference time of 99.5 ms/image, significantly faster than other formats. This performance advantage is consistent across various YOLO11 model sizes, as demonstrated in the benchmarks section. By leveraging the dedicated NPU hardware, RKNN models minimize latency and maximize throughput, making them ideal for real-time applications on Rockchip-based edge devices."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -572,6 +572,13 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#export-arguments">
+<span class="md-ellipsis">
+      Export Arguments
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -761,6 +768,13 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#export-arguments">
+<span class="md-ellipsis">
+      Export Arguments
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -935,6 +949,43 @@
 </div>
 </input></input></div>
 </div>
+<h3 id="export-arguments">Export Arguments</h3>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format</code></td>
+<td><code>str</code></td>
+<td><code>rknn</code></td>
+<td>Target format for the exported model, defining compatibility with various deployment environments.</td>
+</tr>
+<tr>
+<td><code>imgsz</code></td>
+<td><code>int</code> or <code>tuple</code></td>
+<td><code>640</code></td>
+<td>Desired image size for the model input. Can be an integer for square images or a tuple <code>(height, width)</code> for specific dimensions.</td>
+</tr>
+<tr>
+<td><code>batch</code></td>
+<td><code>int</code></td>
+<td><code>1</code></td>
+<td>Specifies export model batch inference size or the max number of images the exported model will process concurrently in <code>predict</code> mode.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>str</code></td>
+<td><code>rk3588</code></td>
+<td>Specifies the Rockchip model (rk3588, rk3576, rk3566, rk3568, rk3562, rv1103, rv1106, rv1103b, rv1106b, rk2118)</td>
+</tr>
+</tbody>
+</table>
 <p>For more details about the export process, visit the <a href="../../modes/export/">Ultralytics documentation page on exporting</a>.</p>
 <h2 id="deploying-exported-yolo11-rknn-models">Deploying Exported YOLO11 RKNN Models</h2>
 <p>Once you've successfully exported your Ultralytics YOLO11 models to RKNN format, the next step is deploying these models on Rockchip-based devices.</p>
@@ -1081,12 +1132,12 @@
 <span class="date-item" title="This page was first created on January 20, 2025">
 <span class="hover-item">📅</span> Created 16 days ago
     </span>
-<span class="date-item" title="This page was last updated on February 03, 2025">
-<span class="hover-item">✏️</span> Updated 2 days ago
+<span class="date-item" title="This page was last updated on February 05, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/lakshanthad" title="lakshanthad (2 changes)">
+<a class="author-link" href="https://github.com/lakshanthad" title="lakshanthad (3 changes)">
 <img alt="lakshanthad" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/20147381?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/IvorZhu331" title="IvorZhu331 (1 change)">
