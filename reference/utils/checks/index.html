@@ -1816,7 +1816,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code>List[int]</code>
+<code>List[int] | int</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1892,7 +1892,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">        floor (int): Minimum allowed value for image size.</span>
 <a id="__codelineno-0-132" name="__codelineno-0-132"></a>
 <a id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-134" name="__codelineno-0-134"></a><span class="sd">        (List[int]): Updated image size.</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a><span class="sd">        (List[int] | int): Updated image size.</span>
 <a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="sd">    """</span>
 <a id="__codelineno-0-136" name="__codelineno-0-136"></a>    <span class="c1"># Convert stride to integer if it is a tensor</span>
 <a id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="n">stride</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">stride</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stride</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">stride</span><span class="p">)</span>

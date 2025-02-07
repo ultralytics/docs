@@ -5945,18 +5945,7 @@ If True, coordinates will be returned as float values between 0 and 1. Defaults 
 <span class="normal"><a href="#__codelineno-0-998"> 998</a></span>
 <span class="normal"><a href="#__codelineno-0-999"> 999</a></span>
 <span class="normal"><a href="#__codelineno-0-1000">1000</a></span>
-<span class="normal"><a href="#__codelineno-0-1001">1001</a></span>
-<span class="normal"><a href="#__codelineno-0-1002">1002</a></span>
-<span class="normal"><a href="#__codelineno-0-1003">1003</a></span>
-<span class="normal"><a href="#__codelineno-0-1004">1004</a></span>
-<span class="normal"><a href="#__codelineno-0-1005">1005</a></span>
-<span class="normal"><a href="#__codelineno-0-1006">1006</a></span>
-<span class="normal"><a href="#__codelineno-0-1007">1007</a></span>
-<span class="normal"><a href="#__codelineno-0-1008">1008</a></span>
-<span class="normal"><a href="#__codelineno-0-1009">1009</a></span>
-<span class="normal"><a href="#__codelineno-0-1010">1010</a></span>
-<span class="normal"><a href="#__codelineno-0-1011">1011</a></span>
-<span class="normal"><a href="#__codelineno-0-1012">1012</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-945" name="__codelineno-0-945"></a><span class="k">def</span><span class="w"> </span><span class="nf">to_sql</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_name</span><span class="o">=</span><span class="s2">"results"</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">db_path</span><span class="o">=</span><span class="s2">"results.db"</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-1001">1001</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-945" name="__codelineno-0-945"></a><span class="k">def</span><span class="w"> </span><span class="nf">to_sql</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_name</span><span class="o">=</span><span class="s2">"results"</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">db_path</span><span class="o">=</span><span class="s2">"results.db"</span><span class="p">):</span>
 <a id="__codelineno-0-946" name="__codelineno-0-946"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-947" name="__codelineno-0-947"></a><span class="sd">    Converts detection results to an SQL-compatible format.</span>
 <a id="__codelineno-0-948" name="__codelineno-0-948"></a>
@@ -5981,7 +5970,7 @@ If True, coordinates will be returned as float values between 0 and 1. Defaults 
 <a id="__codelineno-0-967" name="__codelineno-0-967"></a>
 <a id="__codelineno-0-968" name="__codelineno-0-968"></a>    <span class="c1"># Convert results to a list of dictionaries</span>
 <a id="__codelineno-0-969" name="__codelineno-0-969"></a>    <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="n">normalize</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="n">decimals</span><span class="p">)</span>
-<a id="__codelineno-0-970" name="__codelineno-0-970"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+<a id="__codelineno-0-970" name="__codelineno-0-970"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <a id="__codelineno-0-971" name="__codelineno-0-971"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"⚠️ No results to save to SQL. Results dict is empty"</span><span class="p">)</span>
 <a id="__codelineno-0-972" name="__codelineno-0-972"></a>        <span class="k">return</span>
 <a id="__codelineno-0-973" name="__codelineno-0-973"></a>
@@ -5991,39 +5980,28 @@ If True, coordinates will be returned as float values between 0 and 1. Defaults 
 <a id="__codelineno-0-977" name="__codelineno-0-977"></a>
 <a id="__codelineno-0-978" name="__codelineno-0-978"></a>    <span class="c1"># Create table if it doesn't exist</span>
 <a id="__codelineno-0-979" name="__codelineno-0-979"></a>    <span class="n">columns</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-980" name="__codelineno-0-980"></a>        <span class="s2">"id INTEGER PRIMARY KEY AUTOINCREMENT, class_name TEXT, confidence REAL, "</span>
-<a id="__codelineno-0-981" name="__codelineno-0-981"></a>        <span class="s2">"box TEXT, masks TEXT, kpts TEXT, obb TEXT"</span>
-<a id="__codelineno-0-982" name="__codelineno-0-982"></a>    <span class="p">)</span>
-<a id="__codelineno-0-983" name="__codelineno-0-983"></a>    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CREATE TABLE IF NOT EXISTS </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">columns</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
-<a id="__codelineno-0-984" name="__codelineno-0-984"></a>
-<a id="__codelineno-0-985" name="__codelineno-0-985"></a>    <span class="c1"># Insert data into the table</span>
-<a id="__codelineno-0-986" name="__codelineno-0-986"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<a id="__codelineno-0-987" name="__codelineno-0-987"></a>        <span class="n">detect</span><span class="p">,</span> <span class="n">obb</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>  <span class="c1"># necessary to reinit these variables inside for loop to avoid duplication</span>
-<a id="__codelineno-0-988" name="__codelineno-0-988"></a>        <span class="n">class_name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
-<a id="__codelineno-0-989" name="__codelineno-0-989"></a>        <span class="n">box</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"box"</span><span class="p">,</span> <span class="p">{})</span>
-<a id="__codelineno-0-990" name="__codelineno-0-990"></a>        <span class="c1"># Serialize the box as JSON for 'detect' and 'obb' based on key presence</span>
-<a id="__codelineno-0-991" name="__codelineno-0-991"></a>        <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">box</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"x1"</span><span class="p">,</span> <span class="s2">"y1"</span><span class="p">,</span> <span class="s2">"x2"</span><span class="p">,</span> <span class="s2">"y2"</span><span class="p">])</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">box</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"x3"</span><span class="p">,</span> <span class="s2">"x4"</span><span class="p">]):</span>
-<a id="__codelineno-0-992" name="__codelineno-0-992"></a>            <span class="n">detect</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
-<a id="__codelineno-0-993" name="__codelineno-0-993"></a>        <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">box</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"x1"</span><span class="p">,</span> <span class="s2">"y1"</span><span class="p">,</span> <span class="s2">"x2"</span><span class="p">,</span> <span class="s2">"y2"</span><span class="p">,</span> <span class="s2">"x3"</span><span class="p">,</span> <span class="s2">"x4"</span><span class="p">]):</span>
-<a id="__codelineno-0-994" name="__codelineno-0-994"></a>            <span class="n">obb</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
-<a id="__codelineno-0-995" name="__codelineno-0-995"></a>
-<a id="__codelineno-0-996" name="__codelineno-0-996"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-<a id="__codelineno-0-997" name="__codelineno-0-997"></a>            <span class="sa">f</span><span class="s2">"INSERT INTO </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> (class_name, confidence, box, masks, kpts, obb) VALUES (?, ?, ?, ?, ?, ?)"</span><span class="p">,</span>
-<a id="__codelineno-0-998" name="__codelineno-0-998"></a>            <span class="p">(</span>
-<a id="__codelineno-0-999" name="__codelineno-0-999"></a>                <span class="n">class_name</span><span class="p">,</span>
-<a id="__codelineno-0-1000" name="__codelineno-0-1000"></a>                <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"confidence"</span><span class="p">),</span>
-<a id="__codelineno-0-1001" name="__codelineno-0-1001"></a>                <span class="n">detect</span><span class="p">,</span>
-<a id="__codelineno-0-1002" name="__codelineno-0-1002"></a>                <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"segments"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="p">[])),</span>
-<a id="__codelineno-0-1003" name="__codelineno-0-1003"></a>                <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"keypoints"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="p">[])),</span>
-<a id="__codelineno-0-1004" name="__codelineno-0-1004"></a>                <span class="n">obb</span><span class="p">,</span>
-<a id="__codelineno-0-1005" name="__codelineno-0-1005"></a>            <span class="p">),</span>
-<a id="__codelineno-0-1006" name="__codelineno-0-1006"></a>        <span class="p">)</span>
-<a id="__codelineno-0-1007" name="__codelineno-0-1007"></a>
-<a id="__codelineno-0-1008" name="__codelineno-0-1008"></a>    <span class="c1"># Commit and close the connection</span>
-<a id="__codelineno-0-1009" name="__codelineno-0-1009"></a>    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-<a id="__codelineno-0-1010" name="__codelineno-0-1010"></a>    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<a id="__codelineno-0-1011" name="__codelineno-0-1011"></a>
-<a id="__codelineno-0-1012" name="__codelineno-0-1012"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"✅ Detection results successfully written to SQL table '</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">' in database '</span><span class="si">{</span><span class="n">db_path</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+<a id="__codelineno-0-980" name="__codelineno-0-980"></a>        <span class="s2">"id INTEGER PRIMARY KEY AUTOINCREMENT, class_name TEXT, confidence REAL, box TEXT, masks TEXT, kpts TEXT"</span>
+<a id="__codelineno-0-981" name="__codelineno-0-981"></a>    <span class="p">)</span>
+<a id="__codelineno-0-982" name="__codelineno-0-982"></a>    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CREATE TABLE IF NOT EXISTS </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">columns</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<a id="__codelineno-0-983" name="__codelineno-0-983"></a>
+<a id="__codelineno-0-984" name="__codelineno-0-984"></a>    <span class="c1"># Insert data into the table</span>
+<a id="__codelineno-0-985" name="__codelineno-0-985"></a>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+<a id="__codelineno-0-986" name="__codelineno-0-986"></a>        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+<a id="__codelineno-0-987" name="__codelineno-0-987"></a>            <span class="sa">f</span><span class="s2">"INSERT INTO </span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2"> (class_name, confidence, box, masks, kpts) VALUES (?, ?, ?, ?, ?)"</span><span class="p">,</span>
+<a id="__codelineno-0-988" name="__codelineno-0-988"></a>            <span class="p">(</span>
+<a id="__codelineno-0-989" name="__codelineno-0-989"></a>                <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">),</span>
+<a id="__codelineno-0-990" name="__codelineno-0-990"></a>                <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"confidence"</span><span class="p">),</span>
+<a id="__codelineno-0-991" name="__codelineno-0-991"></a>                <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"box"</span><span class="p">,</span> <span class="p">{})),</span>
+<a id="__codelineno-0-992" name="__codelineno-0-992"></a>                <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"segments"</span><span class="p">,</span> <span class="p">{})),</span>
+<a id="__codelineno-0-993" name="__codelineno-0-993"></a>                <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"keypoints"</span><span class="p">,</span> <span class="p">{})),</span>
+<a id="__codelineno-0-994" name="__codelineno-0-994"></a>            <span class="p">),</span>
+<a id="__codelineno-0-995" name="__codelineno-0-995"></a>        <span class="p">)</span>
+<a id="__codelineno-0-996" name="__codelineno-0-996"></a>
+<a id="__codelineno-0-997" name="__codelineno-0-997"></a>    <span class="c1"># Commit and close the connection</span>
+<a id="__codelineno-0-998" name="__codelineno-0-998"></a>    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-0-999" name="__codelineno-0-999"></a>    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-0-1000" name="__codelineno-0-1000"></a>
+<a id="__codelineno-0-1001" name="__codelineno-0-1001"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"✅ Detection results successfully written to SQL table '</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">' in database '</span><span class="si">{</span><span class="n">db_path</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -6814,7 +6792,18 @@ for box coordinates, including both absolute and normalized forms.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1052">1052</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1041">1041</a></span>
+<span class="normal"><a href="#__codelineno-0-1042">1042</a></span>
+<span class="normal"><a href="#__codelineno-0-1043">1043</a></span>
+<span class="normal"><a href="#__codelineno-0-1044">1044</a></span>
+<span class="normal"><a href="#__codelineno-0-1045">1045</a></span>
+<span class="normal"><a href="#__codelineno-0-1046">1046</a></span>
+<span class="normal"><a href="#__codelineno-0-1047">1047</a></span>
+<span class="normal"><a href="#__codelineno-0-1048">1048</a></span>
+<span class="normal"><a href="#__codelineno-0-1049">1049</a></span>
+<span class="normal"><a href="#__codelineno-0-1050">1050</a></span>
+<span class="normal"><a href="#__codelineno-0-1051">1051</a></span>
+<span class="normal"><a href="#__codelineno-0-1052">1052</a></span>
 <span class="normal"><a href="#__codelineno-0-1053">1053</a></span>
 <span class="normal"><a href="#__codelineno-0-1054">1054</a></span>
 <span class="normal"><a href="#__codelineno-0-1055">1055</a></span>
@@ -6836,51 +6825,40 @@ for box coordinates, including both absolute and normalized forms.</p>
 <span class="normal"><a href="#__codelineno-0-1071">1071</a></span>
 <span class="normal"><a href="#__codelineno-0-1072">1072</a></span>
 <span class="normal"><a href="#__codelineno-0-1073">1073</a></span>
-<span class="normal"><a href="#__codelineno-0-1074">1074</a></span>
-<span class="normal"><a href="#__codelineno-0-1075">1075</a></span>
-<span class="normal"><a href="#__codelineno-0-1076">1076</a></span>
-<span class="normal"><a href="#__codelineno-0-1077">1077</a></span>
-<span class="normal"><a href="#__codelineno-0-1078">1078</a></span>
-<span class="normal"><a href="#__codelineno-0-1079">1079</a></span>
-<span class="normal"><a href="#__codelineno-0-1080">1080</a></span>
-<span class="normal"><a href="#__codelineno-0-1081">1081</a></span>
-<span class="normal"><a href="#__codelineno-0-1082">1082</a></span>
-<span class="normal"><a href="#__codelineno-0-1083">1083</a></span>
-<span class="normal"><a href="#__codelineno-0-1084">1084</a></span>
-<span class="normal"><a href="#__codelineno-0-1085">1085</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1052" name="__codelineno-0-1052"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1053" name="__codelineno-0-1053"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-1054" name="__codelineno-0-1054"></a><span class="sd">    Initialize the Boxes class with detection box data and the original image shape.</span>
-<a id="__codelineno-0-1055" name="__codelineno-0-1055"></a>
-<a id="__codelineno-0-1056" name="__codelineno-0-1056"></a><span class="sd">    This class manages detection boxes, providing easy access and manipulation of box coordinates,</span>
-<a id="__codelineno-0-1057" name="__codelineno-0-1057"></a><span class="sd">    confidence scores, class identifiers, and optional tracking IDs. It supports multiple formats</span>
-<a id="__codelineno-0-1058" name="__codelineno-0-1058"></a><span class="sd">    for box coordinates, including both absolute and normalized forms.</span>
+<span class="normal"><a href="#__codelineno-0-1074">1074</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1041" name="__codelineno-0-1041"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1042" name="__codelineno-0-1042"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-1043" name="__codelineno-0-1043"></a><span class="sd">    Initialize the Boxes class with detection box data and the original image shape.</span>
+<a id="__codelineno-0-1044" name="__codelineno-0-1044"></a>
+<a id="__codelineno-0-1045" name="__codelineno-0-1045"></a><span class="sd">    This class manages detection boxes, providing easy access and manipulation of box coordinates,</span>
+<a id="__codelineno-0-1046" name="__codelineno-0-1046"></a><span class="sd">    confidence scores, class identifiers, and optional tracking IDs. It supports multiple formats</span>
+<a id="__codelineno-0-1047" name="__codelineno-0-1047"></a><span class="sd">    for box coordinates, including both absolute and normalized forms.</span>
+<a id="__codelineno-0-1048" name="__codelineno-0-1048"></a>
+<a id="__codelineno-0-1049" name="__codelineno-0-1049"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1050" name="__codelineno-0-1050"></a><span class="sd">        boxes (torch.Tensor | np.ndarray): A tensor or numpy array with detection boxes of shape</span>
+<a id="__codelineno-0-1051" name="__codelineno-0-1051"></a><span class="sd">            (num_boxes, 6) or (num_boxes, 7). Columns should contain</span>
+<a id="__codelineno-0-1052" name="__codelineno-0-1052"></a><span class="sd">            [x1, y1, x2, y2, confidence, class, (optional) track_id].</span>
+<a id="__codelineno-0-1053" name="__codelineno-0-1053"></a><span class="sd">        orig_shape (Tuple[int, int]): The original image shape as (height, width). Used for normalization.</span>
+<a id="__codelineno-0-1054" name="__codelineno-0-1054"></a>
+<a id="__codelineno-0-1055" name="__codelineno-0-1055"></a><span class="sd">    Attributes:</span>
+<a id="__codelineno-0-1056" name="__codelineno-0-1056"></a><span class="sd">        data (torch.Tensor): The raw tensor containing detection boxes and their associated data.</span>
+<a id="__codelineno-0-1057" name="__codelineno-0-1057"></a><span class="sd">        orig_shape (Tuple[int, int]): The original image size, used for normalization.</span>
+<a id="__codelineno-0-1058" name="__codelineno-0-1058"></a><span class="sd">        is_track (bool): Indicates whether tracking IDs are included in the box data.</span>
 <a id="__codelineno-0-1059" name="__codelineno-0-1059"></a>
-<a id="__codelineno-0-1060" name="__codelineno-0-1060"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-1061" name="__codelineno-0-1061"></a><span class="sd">        boxes (torch.Tensor | np.ndarray): A tensor or numpy array with detection boxes of shape</span>
-<a id="__codelineno-0-1062" name="__codelineno-0-1062"></a><span class="sd">            (num_boxes, 6) or (num_boxes, 7). Columns should contain</span>
-<a id="__codelineno-0-1063" name="__codelineno-0-1063"></a><span class="sd">            [x1, y1, x2, y2, confidence, class, (optional) track_id].</span>
-<a id="__codelineno-0-1064" name="__codelineno-0-1064"></a><span class="sd">        orig_shape (Tuple[int, int]): The original image shape as (height, width). Used for normalization.</span>
-<a id="__codelineno-0-1065" name="__codelineno-0-1065"></a>
-<a id="__codelineno-0-1066" name="__codelineno-0-1066"></a><span class="sd">    Attributes:</span>
-<a id="__codelineno-0-1067" name="__codelineno-0-1067"></a><span class="sd">        data (torch.Tensor): The raw tensor containing detection boxes and their associated data.</span>
-<a id="__codelineno-0-1068" name="__codelineno-0-1068"></a><span class="sd">        orig_shape (Tuple[int, int]): The original image size, used for normalization.</span>
-<a id="__codelineno-0-1069" name="__codelineno-0-1069"></a><span class="sd">        is_track (bool): Indicates whether tracking IDs are included in the box data.</span>
-<a id="__codelineno-0-1070" name="__codelineno-0-1070"></a>
-<a id="__codelineno-0-1071" name="__codelineno-0-1071"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-1072" name="__codelineno-0-1072"></a><span class="sd">        &gt;&gt;&gt; import torch</span>
-<a id="__codelineno-0-1073" name="__codelineno-0-1073"></a><span class="sd">        &gt;&gt;&gt; boxes = torch.tensor([[100, 50, 150, 100, 0.9, 0]])</span>
-<a id="__codelineno-0-1074" name="__codelineno-0-1074"></a><span class="sd">        &gt;&gt;&gt; orig_shape = (480, 640)</span>
-<a id="__codelineno-0-1075" name="__codelineno-0-1075"></a><span class="sd">        &gt;&gt;&gt; detection_boxes = Boxes(boxes, orig_shape)</span>
-<a id="__codelineno-0-1076" name="__codelineno-0-1076"></a><span class="sd">        &gt;&gt;&gt; print(detection_boxes.xyxy)</span>
-<a id="__codelineno-0-1077" name="__codelineno-0-1077"></a><span class="sd">        tensor([[100.,  50., 150., 100.]])</span>
-<a id="__codelineno-0-1078" name="__codelineno-0-1078"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1079" name="__codelineno-0-1079"></a>    <span class="k">if</span> <span class="n">boxes</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-1080" name="__codelineno-0-1080"></a>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-<a id="__codelineno-0-1081" name="__codelineno-0-1081"></a>    <span class="n">n</span> <span class="o">=</span> <span class="n">boxes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-1082" name="__codelineno-0-1082"></a>    <span class="k">assert</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">},</span> <span class="sa">f</span><span class="s2">"expected 6 or 7 values but got </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># xyxy, track_id, conf, cls</span>
-<a id="__codelineno-0-1083" name="__codelineno-0-1083"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
-<a id="__codelineno-0-1084" name="__codelineno-0-1084"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">is_track</span> <span class="o">=</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">7</span>
-<a id="__codelineno-0-1085" name="__codelineno-0-1085"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span> <span class="o">=</span> <span class="n">orig_shape</span>
+<a id="__codelineno-0-1060" name="__codelineno-0-1060"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-1061" name="__codelineno-0-1061"></a><span class="sd">        &gt;&gt;&gt; import torch</span>
+<a id="__codelineno-0-1062" name="__codelineno-0-1062"></a><span class="sd">        &gt;&gt;&gt; boxes = torch.tensor([[100, 50, 150, 100, 0.9, 0]])</span>
+<a id="__codelineno-0-1063" name="__codelineno-0-1063"></a><span class="sd">        &gt;&gt;&gt; orig_shape = (480, 640)</span>
+<a id="__codelineno-0-1064" name="__codelineno-0-1064"></a><span class="sd">        &gt;&gt;&gt; detection_boxes = Boxes(boxes, orig_shape)</span>
+<a id="__codelineno-0-1065" name="__codelineno-0-1065"></a><span class="sd">        &gt;&gt;&gt; print(detection_boxes.xyxy)</span>
+<a id="__codelineno-0-1066" name="__codelineno-0-1066"></a><span class="sd">        tensor([[100.,  50., 150., 100.]])</span>
+<a id="__codelineno-0-1067" name="__codelineno-0-1067"></a><span class="sd">    """</span>
+<a id="__codelineno-0-1068" name="__codelineno-0-1068"></a>    <span class="k">if</span> <span class="n">boxes</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-1069" name="__codelineno-0-1069"></a>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+<a id="__codelineno-0-1070" name="__codelineno-0-1070"></a>    <span class="n">n</span> <span class="o">=</span> <span class="n">boxes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-1071" name="__codelineno-0-1071"></a>    <span class="k">assert</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">},</span> <span class="sa">f</span><span class="s2">"expected 6 or 7 values but got </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># xyxy, track_id, conf, cls</span>
+<a id="__codelineno-0-1072" name="__codelineno-0-1072"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<a id="__codelineno-0-1073" name="__codelineno-0-1073"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">is_track</span> <span class="o">=</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">7</span>
+<a id="__codelineno-0-1074" name="__codelineno-0-1074"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span> <span class="o">=</span> <span class="n">orig_shape</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -7366,41 +7344,41 @@ including methods for converting between pixel and normalized coordinates.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1260">1260</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1249">1249</a></span>
+<span class="normal"><a href="#__codelineno-0-1250">1250</a></span>
+<span class="normal"><a href="#__codelineno-0-1251">1251</a></span>
+<span class="normal"><a href="#__codelineno-0-1252">1252</a></span>
+<span class="normal"><a href="#__codelineno-0-1253">1253</a></span>
+<span class="normal"><a href="#__codelineno-0-1254">1254</a></span>
+<span class="normal"><a href="#__codelineno-0-1255">1255</a></span>
+<span class="normal"><a href="#__codelineno-0-1256">1256</a></span>
+<span class="normal"><a href="#__codelineno-0-1257">1257</a></span>
+<span class="normal"><a href="#__codelineno-0-1258">1258</a></span>
+<span class="normal"><a href="#__codelineno-0-1259">1259</a></span>
+<span class="normal"><a href="#__codelineno-0-1260">1260</a></span>
 <span class="normal"><a href="#__codelineno-0-1261">1261</a></span>
 <span class="normal"><a href="#__codelineno-0-1262">1262</a></span>
 <span class="normal"><a href="#__codelineno-0-1263">1263</a></span>
 <span class="normal"><a href="#__codelineno-0-1264">1264</a></span>
 <span class="normal"><a href="#__codelineno-0-1265">1265</a></span>
-<span class="normal"><a href="#__codelineno-0-1266">1266</a></span>
-<span class="normal"><a href="#__codelineno-0-1267">1267</a></span>
-<span class="normal"><a href="#__codelineno-0-1268">1268</a></span>
-<span class="normal"><a href="#__codelineno-0-1269">1269</a></span>
-<span class="normal"><a href="#__codelineno-0-1270">1270</a></span>
-<span class="normal"><a href="#__codelineno-0-1271">1271</a></span>
-<span class="normal"><a href="#__codelineno-0-1272">1272</a></span>
-<span class="normal"><a href="#__codelineno-0-1273">1273</a></span>
-<span class="normal"><a href="#__codelineno-0-1274">1274</a></span>
-<span class="normal"><a href="#__codelineno-0-1275">1275</a></span>
-<span class="normal"><a href="#__codelineno-0-1276">1276</a></span>
-<span class="normal"><a href="#__codelineno-0-1277">1277</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1260" name="__codelineno-0-1260"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">masks</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1261" name="__codelineno-0-1261"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-1262" name="__codelineno-0-1262"></a><span class="sd">    Initialize the Masks class with detection mask data and the original image shape.</span>
-<a id="__codelineno-0-1263" name="__codelineno-0-1263"></a>
-<a id="__codelineno-0-1264" name="__codelineno-0-1264"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-1265" name="__codelineno-0-1265"></a><span class="sd">        masks (torch.Tensor | np.ndarray): Detection masks with shape (num_masks, height, width).</span>
-<a id="__codelineno-0-1266" name="__codelineno-0-1266"></a><span class="sd">        orig_shape (tuple): The original image shape as (height, width). Used for normalization.</span>
-<a id="__codelineno-0-1267" name="__codelineno-0-1267"></a>
-<a id="__codelineno-0-1268" name="__codelineno-0-1268"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-1269" name="__codelineno-0-1269"></a><span class="sd">        &gt;&gt;&gt; import torch</span>
-<a id="__codelineno-0-1270" name="__codelineno-0-1270"></a><span class="sd">        &gt;&gt;&gt; from ultralytics.engine.results import Masks</span>
-<a id="__codelineno-0-1271" name="__codelineno-0-1271"></a><span class="sd">        &gt;&gt;&gt; masks = torch.rand(10, 160, 160)  # 10 masks of 160x160 resolution</span>
-<a id="__codelineno-0-1272" name="__codelineno-0-1272"></a><span class="sd">        &gt;&gt;&gt; orig_shape = (720, 1280)  # Original image shape</span>
-<a id="__codelineno-0-1273" name="__codelineno-0-1273"></a><span class="sd">        &gt;&gt;&gt; mask_obj = Masks(masks, orig_shape)</span>
-<a id="__codelineno-0-1274" name="__codelineno-0-1274"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1275" name="__codelineno-0-1275"></a>    <span class="k">if</span> <span class="n">masks</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-<a id="__codelineno-0-1276" name="__codelineno-0-1276"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-<a id="__codelineno-0-1277" name="__codelineno-0-1277"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-1266">1266</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1249" name="__codelineno-0-1249"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">masks</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1250" name="__codelineno-0-1250"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-1251" name="__codelineno-0-1251"></a><span class="sd">    Initialize the Masks class with detection mask data and the original image shape.</span>
+<a id="__codelineno-0-1252" name="__codelineno-0-1252"></a>
+<a id="__codelineno-0-1253" name="__codelineno-0-1253"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1254" name="__codelineno-0-1254"></a><span class="sd">        masks (torch.Tensor | np.ndarray): Detection masks with shape (num_masks, height, width).</span>
+<a id="__codelineno-0-1255" name="__codelineno-0-1255"></a><span class="sd">        orig_shape (tuple): The original image shape as (height, width). Used for normalization.</span>
+<a id="__codelineno-0-1256" name="__codelineno-0-1256"></a>
+<a id="__codelineno-0-1257" name="__codelineno-0-1257"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-1258" name="__codelineno-0-1258"></a><span class="sd">        &gt;&gt;&gt; import torch</span>
+<a id="__codelineno-0-1259" name="__codelineno-0-1259"></a><span class="sd">        &gt;&gt;&gt; from ultralytics.engine.results import Masks</span>
+<a id="__codelineno-0-1260" name="__codelineno-0-1260"></a><span class="sd">        &gt;&gt;&gt; masks = torch.rand(10, 160, 160)  # 10 masks of 160x160 resolution</span>
+<a id="__codelineno-0-1261" name="__codelineno-0-1261"></a><span class="sd">        &gt;&gt;&gt; orig_shape = (720, 1280)  # Original image shape</span>
+<a id="__codelineno-0-1262" name="__codelineno-0-1262"></a><span class="sd">        &gt;&gt;&gt; mask_obj = Masks(masks, orig_shape)</span>
+<a id="__codelineno-0-1263" name="__codelineno-0-1263"></a><span class="sd">    """</span>
+<a id="__codelineno-0-1264" name="__codelineno-0-1264"></a>    <span class="k">if</span> <span class="n">masks</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-0-1265" name="__codelineno-0-1265"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+<a id="__codelineno-0-1266" name="__codelineno-0-1266"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -7697,7 +7675,18 @@ normalization, and confidence values.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1363">1363</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1352">1352</a></span>
+<span class="normal"><a href="#__codelineno-0-1353">1353</a></span>
+<span class="normal"><a href="#__codelineno-0-1354">1354</a></span>
+<span class="normal"><a href="#__codelineno-0-1355">1355</a></span>
+<span class="normal"><a href="#__codelineno-0-1356">1356</a></span>
+<span class="normal"><a href="#__codelineno-0-1357">1357</a></span>
+<span class="normal"><a href="#__codelineno-0-1358">1358</a></span>
+<span class="normal"><a href="#__codelineno-0-1359">1359</a></span>
+<span class="normal"><a href="#__codelineno-0-1360">1360</a></span>
+<span class="normal"><a href="#__codelineno-0-1361">1361</a></span>
+<span class="normal"><a href="#__codelineno-0-1362">1362</a></span>
+<span class="normal"><a href="#__codelineno-0-1363">1363</a></span>
 <span class="normal"><a href="#__codelineno-0-1364">1364</a></span>
 <span class="normal"><a href="#__codelineno-0-1365">1365</a></span>
 <span class="normal"><a href="#__codelineno-0-1366">1366</a></span>
@@ -7711,43 +7700,32 @@ normalization, and confidence values.</p>
 <span class="normal"><a href="#__codelineno-0-1374">1374</a></span>
 <span class="normal"><a href="#__codelineno-0-1375">1375</a></span>
 <span class="normal"><a href="#__codelineno-0-1376">1376</a></span>
-<span class="normal"><a href="#__codelineno-0-1377">1377</a></span>
-<span class="normal"><a href="#__codelineno-0-1378">1378</a></span>
-<span class="normal"><a href="#__codelineno-0-1379">1379</a></span>
-<span class="normal"><a href="#__codelineno-0-1380">1380</a></span>
-<span class="normal"><a href="#__codelineno-0-1381">1381</a></span>
-<span class="normal"><a href="#__codelineno-0-1382">1382</a></span>
-<span class="normal"><a href="#__codelineno-0-1383">1383</a></span>
-<span class="normal"><a href="#__codelineno-0-1384">1384</a></span>
-<span class="normal"><a href="#__codelineno-0-1385">1385</a></span>
-<span class="normal"><a href="#__codelineno-0-1386">1386</a></span>
-<span class="normal"><a href="#__codelineno-0-1387">1387</a></span>
-<span class="normal"><a href="#__codelineno-0-1388">1388</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1363" name="__codelineno-0-1363"></a><span class="nd">@smart_inference_mode</span><span class="p">()</span>  <span class="c1"># avoid keypoints &lt; conf in-place error</span>
-<a id="__codelineno-0-1364" name="__codelineno-0-1364"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1365" name="__codelineno-0-1365"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-1366" name="__codelineno-0-1366"></a><span class="sd">    Initializes the Keypoints object with detection keypoints and original image dimensions.</span>
-<a id="__codelineno-0-1367" name="__codelineno-0-1367"></a>
-<a id="__codelineno-0-1368" name="__codelineno-0-1368"></a><span class="sd">    This method processes the input keypoints tensor, handling both 2D and 3D formats. For 3D tensors</span>
-<a id="__codelineno-0-1369" name="__codelineno-0-1369"></a><span class="sd">    (x, y, confidence), it masks out low-confidence keypoints by setting their coordinates to zero.</span>
-<a id="__codelineno-0-1370" name="__codelineno-0-1370"></a>
-<a id="__codelineno-0-1371" name="__codelineno-0-1371"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-1372" name="__codelineno-0-1372"></a><span class="sd">        keypoints (torch.Tensor): A tensor containing keypoint data. Shape can be either:</span>
-<a id="__codelineno-0-1373" name="__codelineno-0-1373"></a><span class="sd">            - (num_objects, num_keypoints, 2) for x, y coordinates only</span>
-<a id="__codelineno-0-1374" name="__codelineno-0-1374"></a><span class="sd">            - (num_objects, num_keypoints, 3) for x, y coordinates and confidence scores</span>
-<a id="__codelineno-0-1375" name="__codelineno-0-1375"></a><span class="sd">        orig_shape (Tuple[int, int]): The original image dimensions (height, width).</span>
-<a id="__codelineno-0-1376" name="__codelineno-0-1376"></a>
-<a id="__codelineno-0-1377" name="__codelineno-0-1377"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-1378" name="__codelineno-0-1378"></a><span class="sd">        &gt;&gt;&gt; kpts = torch.rand(1, 17, 3)  # 1 object, 17 keypoints (COCO format), x,y,conf</span>
-<a id="__codelineno-0-1379" name="__codelineno-0-1379"></a><span class="sd">        &gt;&gt;&gt; orig_shape = (720, 1280)  # Original image height, width</span>
-<a id="__codelineno-0-1380" name="__codelineno-0-1380"></a><span class="sd">        &gt;&gt;&gt; keypoints = Keypoints(kpts, orig_shape)</span>
-<a id="__codelineno-0-1381" name="__codelineno-0-1381"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1382" name="__codelineno-0-1382"></a>    <span class="k">if</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-<a id="__codelineno-0-1383" name="__codelineno-0-1383"></a>        <span class="n">keypoints</span> <span class="o">=</span> <span class="n">keypoints</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-<a id="__codelineno-0-1384" name="__codelineno-0-1384"></a>    <span class="k">if</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># x, y, conf</span>
-<a id="__codelineno-0-1385" name="__codelineno-0-1385"></a>        <span class="n">mask</span> <span class="o">=</span> <span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.5</span>  <span class="c1"># points with conf &lt; 0.5 (not visible)</span>
-<a id="__codelineno-0-1386" name="__codelineno-0-1386"></a>        <span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-1387" name="__codelineno-0-1387"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">keypoints</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
-<a id="__codelineno-0-1388" name="__codelineno-0-1388"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">has_visible</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
+<span class="normal"><a href="#__codelineno-0-1377">1377</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1352" name="__codelineno-0-1352"></a><span class="nd">@smart_inference_mode</span><span class="p">()</span>  <span class="c1"># avoid keypoints &lt; conf in-place error</span>
+<a id="__codelineno-0-1353" name="__codelineno-0-1353"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1354" name="__codelineno-0-1354"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-1355" name="__codelineno-0-1355"></a><span class="sd">    Initializes the Keypoints object with detection keypoints and original image dimensions.</span>
+<a id="__codelineno-0-1356" name="__codelineno-0-1356"></a>
+<a id="__codelineno-0-1357" name="__codelineno-0-1357"></a><span class="sd">    This method processes the input keypoints tensor, handling both 2D and 3D formats. For 3D tensors</span>
+<a id="__codelineno-0-1358" name="__codelineno-0-1358"></a><span class="sd">    (x, y, confidence), it masks out low-confidence keypoints by setting their coordinates to zero.</span>
+<a id="__codelineno-0-1359" name="__codelineno-0-1359"></a>
+<a id="__codelineno-0-1360" name="__codelineno-0-1360"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1361" name="__codelineno-0-1361"></a><span class="sd">        keypoints (torch.Tensor): A tensor containing keypoint data. Shape can be either:</span>
+<a id="__codelineno-0-1362" name="__codelineno-0-1362"></a><span class="sd">            - (num_objects, num_keypoints, 2) for x, y coordinates only</span>
+<a id="__codelineno-0-1363" name="__codelineno-0-1363"></a><span class="sd">            - (num_objects, num_keypoints, 3) for x, y coordinates and confidence scores</span>
+<a id="__codelineno-0-1364" name="__codelineno-0-1364"></a><span class="sd">        orig_shape (Tuple[int, int]): The original image dimensions (height, width).</span>
+<a id="__codelineno-0-1365" name="__codelineno-0-1365"></a>
+<a id="__codelineno-0-1366" name="__codelineno-0-1366"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-1367" name="__codelineno-0-1367"></a><span class="sd">        &gt;&gt;&gt; kpts = torch.rand(1, 17, 3)  # 1 object, 17 keypoints (COCO format), x,y,conf</span>
+<a id="__codelineno-0-1368" name="__codelineno-0-1368"></a><span class="sd">        &gt;&gt;&gt; orig_shape = (720, 1280)  # Original image height, width</span>
+<a id="__codelineno-0-1369" name="__codelineno-0-1369"></a><span class="sd">        &gt;&gt;&gt; keypoints = Keypoints(kpts, orig_shape)</span>
+<a id="__codelineno-0-1370" name="__codelineno-0-1370"></a><span class="sd">    """</span>
+<a id="__codelineno-0-1371" name="__codelineno-0-1371"></a>    <span class="k">if</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-0-1372" name="__codelineno-0-1372"></a>        <span class="n">keypoints</span> <span class="o">=</span> <span class="n">keypoints</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+<a id="__codelineno-0-1373" name="__codelineno-0-1373"></a>    <span class="k">if</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># x, y, conf</span>
+<a id="__codelineno-0-1374" name="__codelineno-0-1374"></a>        <span class="n">mask</span> <span class="o">=</span> <span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">0.5</span>  <span class="c1"># points with conf &lt; 0.5 (not visible)</span>
+<a id="__codelineno-0-1375" name="__codelineno-0-1375"></a>        <span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-1376" name="__codelineno-0-1376"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">keypoints</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<a id="__codelineno-0-1377" name="__codelineno-0-1377"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">has_visible</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -8162,7 +8140,18 @@ consistency with other result classes.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1489">1489</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1478">1478</a></span>
+<span class="normal"><a href="#__codelineno-0-1479">1479</a></span>
+<span class="normal"><a href="#__codelineno-0-1480">1480</a></span>
+<span class="normal"><a href="#__codelineno-0-1481">1481</a></span>
+<span class="normal"><a href="#__codelineno-0-1482">1482</a></span>
+<span class="normal"><a href="#__codelineno-0-1483">1483</a></span>
+<span class="normal"><a href="#__codelineno-0-1484">1484</a></span>
+<span class="normal"><a href="#__codelineno-0-1485">1485</a></span>
+<span class="normal"><a href="#__codelineno-0-1486">1486</a></span>
+<span class="normal"><a href="#__codelineno-0-1487">1487</a></span>
+<span class="normal"><a href="#__codelineno-0-1488">1488</a></span>
+<span class="normal"><a href="#__codelineno-0-1489">1489</a></span>
 <span class="normal"><a href="#__codelineno-0-1490">1490</a></span>
 <span class="normal"><a href="#__codelineno-0-1491">1491</a></span>
 <span class="normal"><a href="#__codelineno-0-1492">1492</a></span>
@@ -8181,48 +8170,37 @@ consistency with other result classes.</p>
 <span class="normal"><a href="#__codelineno-0-1505">1505</a></span>
 <span class="normal"><a href="#__codelineno-0-1506">1506</a></span>
 <span class="normal"><a href="#__codelineno-0-1507">1507</a></span>
-<span class="normal"><a href="#__codelineno-0-1508">1508</a></span>
-<span class="normal"><a href="#__codelineno-0-1509">1509</a></span>
-<span class="normal"><a href="#__codelineno-0-1510">1510</a></span>
-<span class="normal"><a href="#__codelineno-0-1511">1511</a></span>
-<span class="normal"><a href="#__codelineno-0-1512">1512</a></span>
-<span class="normal"><a href="#__codelineno-0-1513">1513</a></span>
-<span class="normal"><a href="#__codelineno-0-1514">1514</a></span>
-<span class="normal"><a href="#__codelineno-0-1515">1515</a></span>
-<span class="normal"><a href="#__codelineno-0-1516">1516</a></span>
-<span class="normal"><a href="#__codelineno-0-1517">1517</a></span>
-<span class="normal"><a href="#__codelineno-0-1518">1518</a></span>
-<span class="normal"><a href="#__codelineno-0-1519">1519</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1489" name="__codelineno-0-1489"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="n">orig_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1490" name="__codelineno-0-1490"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-1491" name="__codelineno-0-1491"></a><span class="sd">    Initialize the Probs class with classification probabilities.</span>
-<a id="__codelineno-0-1492" name="__codelineno-0-1492"></a>
-<a id="__codelineno-0-1493" name="__codelineno-0-1493"></a><span class="sd">    This class stores and manages classification probabilities, providing easy access to top predictions and their</span>
-<a id="__codelineno-0-1494" name="__codelineno-0-1494"></a><span class="sd">    confidences.</span>
-<a id="__codelineno-0-1495" name="__codelineno-0-1495"></a>
-<a id="__codelineno-0-1496" name="__codelineno-0-1496"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-1497" name="__codelineno-0-1497"></a><span class="sd">        probs (torch.Tensor | np.ndarray): A 1D tensor or array of classification probabilities.</span>
-<a id="__codelineno-0-1498" name="__codelineno-0-1498"></a><span class="sd">        orig_shape (tuple | None): The original image shape as (height, width). Not used in this class but kept for</span>
-<a id="__codelineno-0-1499" name="__codelineno-0-1499"></a><span class="sd">            consistency with other result classes.</span>
-<a id="__codelineno-0-1500" name="__codelineno-0-1500"></a>
-<a id="__codelineno-0-1501" name="__codelineno-0-1501"></a><span class="sd">    Attributes:</span>
-<a id="__codelineno-0-1502" name="__codelineno-0-1502"></a><span class="sd">        data (torch.Tensor | np.ndarray): The raw tensor or array containing classification probabilities.</span>
-<a id="__codelineno-0-1503" name="__codelineno-0-1503"></a><span class="sd">        top1 (int): Index of the top 1 class.</span>
-<a id="__codelineno-0-1504" name="__codelineno-0-1504"></a><span class="sd">        top5 (List[int]): Indices of the top 5 classes.</span>
-<a id="__codelineno-0-1505" name="__codelineno-0-1505"></a><span class="sd">        top1conf (torch.Tensor | np.ndarray): Confidence of the top 1 class.</span>
-<a id="__codelineno-0-1506" name="__codelineno-0-1506"></a><span class="sd">        top5conf (torch.Tensor | np.ndarray): Confidences of the top 5 classes.</span>
-<a id="__codelineno-0-1507" name="__codelineno-0-1507"></a>
-<a id="__codelineno-0-1508" name="__codelineno-0-1508"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-1509" name="__codelineno-0-1509"></a><span class="sd">        &gt;&gt;&gt; import torch</span>
-<a id="__codelineno-0-1510" name="__codelineno-0-1510"></a><span class="sd">        &gt;&gt;&gt; probs = torch.tensor([0.1, 0.3, 0.2, 0.4])</span>
-<a id="__codelineno-0-1511" name="__codelineno-0-1511"></a><span class="sd">        &gt;&gt;&gt; p = Probs(probs)</span>
-<a id="__codelineno-0-1512" name="__codelineno-0-1512"></a><span class="sd">        &gt;&gt;&gt; print(p.top1)</span>
-<a id="__codelineno-0-1513" name="__codelineno-0-1513"></a><span class="sd">        3</span>
-<a id="__codelineno-0-1514" name="__codelineno-0-1514"></a><span class="sd">        &gt;&gt;&gt; print(p.top1conf)</span>
-<a id="__codelineno-0-1515" name="__codelineno-0-1515"></a><span class="sd">        tensor(0.4000)</span>
-<a id="__codelineno-0-1516" name="__codelineno-0-1516"></a><span class="sd">        &gt;&gt;&gt; print(p.top5)</span>
-<a id="__codelineno-0-1517" name="__codelineno-0-1517"></a><span class="sd">        [3, 1, 2, 0]</span>
-<a id="__codelineno-0-1518" name="__codelineno-0-1518"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1519" name="__codelineno-0-1519"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-1508">1508</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1478" name="__codelineno-0-1478"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="n">orig_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1479" name="__codelineno-0-1479"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-1480" name="__codelineno-0-1480"></a><span class="sd">    Initialize the Probs class with classification probabilities.</span>
+<a id="__codelineno-0-1481" name="__codelineno-0-1481"></a>
+<a id="__codelineno-0-1482" name="__codelineno-0-1482"></a><span class="sd">    This class stores and manages classification probabilities, providing easy access to top predictions and their</span>
+<a id="__codelineno-0-1483" name="__codelineno-0-1483"></a><span class="sd">    confidences.</span>
+<a id="__codelineno-0-1484" name="__codelineno-0-1484"></a>
+<a id="__codelineno-0-1485" name="__codelineno-0-1485"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1486" name="__codelineno-0-1486"></a><span class="sd">        probs (torch.Tensor | np.ndarray): A 1D tensor or array of classification probabilities.</span>
+<a id="__codelineno-0-1487" name="__codelineno-0-1487"></a><span class="sd">        orig_shape (tuple | None): The original image shape as (height, width). Not used in this class but kept for</span>
+<a id="__codelineno-0-1488" name="__codelineno-0-1488"></a><span class="sd">            consistency with other result classes.</span>
+<a id="__codelineno-0-1489" name="__codelineno-0-1489"></a>
+<a id="__codelineno-0-1490" name="__codelineno-0-1490"></a><span class="sd">    Attributes:</span>
+<a id="__codelineno-0-1491" name="__codelineno-0-1491"></a><span class="sd">        data (torch.Tensor | np.ndarray): The raw tensor or array containing classification probabilities.</span>
+<a id="__codelineno-0-1492" name="__codelineno-0-1492"></a><span class="sd">        top1 (int): Index of the top 1 class.</span>
+<a id="__codelineno-0-1493" name="__codelineno-0-1493"></a><span class="sd">        top5 (List[int]): Indices of the top 5 classes.</span>
+<a id="__codelineno-0-1494" name="__codelineno-0-1494"></a><span class="sd">        top1conf (torch.Tensor | np.ndarray): Confidence of the top 1 class.</span>
+<a id="__codelineno-0-1495" name="__codelineno-0-1495"></a><span class="sd">        top5conf (torch.Tensor | np.ndarray): Confidences of the top 5 classes.</span>
+<a id="__codelineno-0-1496" name="__codelineno-0-1496"></a>
+<a id="__codelineno-0-1497" name="__codelineno-0-1497"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-1498" name="__codelineno-0-1498"></a><span class="sd">        &gt;&gt;&gt; import torch</span>
+<a id="__codelineno-0-1499" name="__codelineno-0-1499"></a><span class="sd">        &gt;&gt;&gt; probs = torch.tensor([0.1, 0.3, 0.2, 0.4])</span>
+<a id="__codelineno-0-1500" name="__codelineno-0-1500"></a><span class="sd">        &gt;&gt;&gt; p = Probs(probs)</span>
+<a id="__codelineno-0-1501" name="__codelineno-0-1501"></a><span class="sd">        &gt;&gt;&gt; print(p.top1)</span>
+<a id="__codelineno-0-1502" name="__codelineno-0-1502"></a><span class="sd">        3</span>
+<a id="__codelineno-0-1503" name="__codelineno-0-1503"></a><span class="sd">        &gt;&gt;&gt; print(p.top1conf)</span>
+<a id="__codelineno-0-1504" name="__codelineno-0-1504"></a><span class="sd">        tensor(0.4000)</span>
+<a id="__codelineno-0-1505" name="__codelineno-0-1505"></a><span class="sd">        &gt;&gt;&gt; print(p.top5)</span>
+<a id="__codelineno-0-1506" name="__codelineno-0-1506"></a><span class="sd">        [3, 1, 2, 0]</span>
+<a id="__codelineno-0-1507" name="__codelineno-0-1507"></a><span class="sd">    """</span>
+<a id="__codelineno-0-1508" name="__codelineno-0-1508"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -8705,7 +8683,18 @@ If present, the third last column contains track IDs, and the fifth column conta
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1629">1629</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1618">1618</a></span>
+<span class="normal"><a href="#__codelineno-0-1619">1619</a></span>
+<span class="normal"><a href="#__codelineno-0-1620">1620</a></span>
+<span class="normal"><a href="#__codelineno-0-1621">1621</a></span>
+<span class="normal"><a href="#__codelineno-0-1622">1622</a></span>
+<span class="normal"><a href="#__codelineno-0-1623">1623</a></span>
+<span class="normal"><a href="#__codelineno-0-1624">1624</a></span>
+<span class="normal"><a href="#__codelineno-0-1625">1625</a></span>
+<span class="normal"><a href="#__codelineno-0-1626">1626</a></span>
+<span class="normal"><a href="#__codelineno-0-1627">1627</a></span>
+<span class="normal"><a href="#__codelineno-0-1628">1628</a></span>
+<span class="normal"><a href="#__codelineno-0-1629">1629</a></span>
 <span class="normal"><a href="#__codelineno-0-1630">1630</a></span>
 <span class="normal"><a href="#__codelineno-0-1631">1631</a></span>
 <span class="normal"><a href="#__codelineno-0-1632">1632</a></span>
@@ -8728,52 +8717,41 @@ If present, the third last column contains track IDs, and the fifth column conta
 <span class="normal"><a href="#__codelineno-0-1649">1649</a></span>
 <span class="normal"><a href="#__codelineno-0-1650">1650</a></span>
 <span class="normal"><a href="#__codelineno-0-1651">1651</a></span>
-<span class="normal"><a href="#__codelineno-0-1652">1652</a></span>
-<span class="normal"><a href="#__codelineno-0-1653">1653</a></span>
-<span class="normal"><a href="#__codelineno-0-1654">1654</a></span>
-<span class="normal"><a href="#__codelineno-0-1655">1655</a></span>
-<span class="normal"><a href="#__codelineno-0-1656">1656</a></span>
-<span class="normal"><a href="#__codelineno-0-1657">1657</a></span>
-<span class="normal"><a href="#__codelineno-0-1658">1658</a></span>
-<span class="normal"><a href="#__codelineno-0-1659">1659</a></span>
-<span class="normal"><a href="#__codelineno-0-1660">1660</a></span>
-<span class="normal"><a href="#__codelineno-0-1661">1661</a></span>
-<span class="normal"><a href="#__codelineno-0-1662">1662</a></span>
-<span class="normal"><a href="#__codelineno-0-1663">1663</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1629" name="__codelineno-0-1629"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1630" name="__codelineno-0-1630"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-1631" name="__codelineno-0-1631"></a><span class="sd">    Initialize an OBB (Oriented Bounding Box) instance with oriented bounding box data and original image shape.</span>
-<a id="__codelineno-0-1632" name="__codelineno-0-1632"></a>
-<a id="__codelineno-0-1633" name="__codelineno-0-1633"></a><span class="sd">    This class stores and manipulates Oriented Bounding Boxes (OBB) for object detection tasks. It provides</span>
-<a id="__codelineno-0-1634" name="__codelineno-0-1634"></a><span class="sd">    various properties and methods to access and transform the OBB data.</span>
+<span class="normal"><a href="#__codelineno-0-1652">1652</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1618" name="__codelineno-0-1618"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1619" name="__codelineno-0-1619"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-1620" name="__codelineno-0-1620"></a><span class="sd">    Initialize an OBB (Oriented Bounding Box) instance with oriented bounding box data and original image shape.</span>
+<a id="__codelineno-0-1621" name="__codelineno-0-1621"></a>
+<a id="__codelineno-0-1622" name="__codelineno-0-1622"></a><span class="sd">    This class stores and manipulates Oriented Bounding Boxes (OBB) for object detection tasks. It provides</span>
+<a id="__codelineno-0-1623" name="__codelineno-0-1623"></a><span class="sd">    various properties and methods to access and transform the OBB data.</span>
+<a id="__codelineno-0-1624" name="__codelineno-0-1624"></a>
+<a id="__codelineno-0-1625" name="__codelineno-0-1625"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1626" name="__codelineno-0-1626"></a><span class="sd">        boxes (torch.Tensor | numpy.ndarray): A tensor or numpy array containing the detection boxes,</span>
+<a id="__codelineno-0-1627" name="__codelineno-0-1627"></a><span class="sd">            with shape (num_boxes, 7) or (num_boxes, 8). The last two columns contain confidence and class values.</span>
+<a id="__codelineno-0-1628" name="__codelineno-0-1628"></a><span class="sd">            If present, the third last column contains track IDs, and the fifth column contains rotation.</span>
+<a id="__codelineno-0-1629" name="__codelineno-0-1629"></a><span class="sd">        orig_shape (Tuple[int, int]): Original image size, in the format (height, width).</span>
+<a id="__codelineno-0-1630" name="__codelineno-0-1630"></a>
+<a id="__codelineno-0-1631" name="__codelineno-0-1631"></a><span class="sd">    Attributes:</span>
+<a id="__codelineno-0-1632" name="__codelineno-0-1632"></a><span class="sd">        data (torch.Tensor | numpy.ndarray): The raw OBB tensor.</span>
+<a id="__codelineno-0-1633" name="__codelineno-0-1633"></a><span class="sd">        orig_shape (Tuple[int, int]): The original image shape.</span>
+<a id="__codelineno-0-1634" name="__codelineno-0-1634"></a><span class="sd">        is_track (bool): Whether the boxes include tracking IDs.</span>
 <a id="__codelineno-0-1635" name="__codelineno-0-1635"></a>
-<a id="__codelineno-0-1636" name="__codelineno-0-1636"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-1637" name="__codelineno-0-1637"></a><span class="sd">        boxes (torch.Tensor | numpy.ndarray): A tensor or numpy array containing the detection boxes,</span>
-<a id="__codelineno-0-1638" name="__codelineno-0-1638"></a><span class="sd">            with shape (num_boxes, 7) or (num_boxes, 8). The last two columns contain confidence and class values.</span>
-<a id="__codelineno-0-1639" name="__codelineno-0-1639"></a><span class="sd">            If present, the third last column contains track IDs, and the fifth column contains rotation.</span>
-<a id="__codelineno-0-1640" name="__codelineno-0-1640"></a><span class="sd">        orig_shape (Tuple[int, int]): Original image size, in the format (height, width).</span>
-<a id="__codelineno-0-1641" name="__codelineno-0-1641"></a>
-<a id="__codelineno-0-1642" name="__codelineno-0-1642"></a><span class="sd">    Attributes:</span>
-<a id="__codelineno-0-1643" name="__codelineno-0-1643"></a><span class="sd">        data (torch.Tensor | numpy.ndarray): The raw OBB tensor.</span>
-<a id="__codelineno-0-1644" name="__codelineno-0-1644"></a><span class="sd">        orig_shape (Tuple[int, int]): The original image shape.</span>
-<a id="__codelineno-0-1645" name="__codelineno-0-1645"></a><span class="sd">        is_track (bool): Whether the boxes include tracking IDs.</span>
-<a id="__codelineno-0-1646" name="__codelineno-0-1646"></a>
-<a id="__codelineno-0-1647" name="__codelineno-0-1647"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-1648" name="__codelineno-0-1648"></a><span class="sd">        AssertionError: If the number of values per box is not 7 or 8.</span>
-<a id="__codelineno-0-1649" name="__codelineno-0-1649"></a>
-<a id="__codelineno-0-1650" name="__codelineno-0-1650"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-1651" name="__codelineno-0-1651"></a><span class="sd">        &gt;&gt;&gt; import torch</span>
-<a id="__codelineno-0-1652" name="__codelineno-0-1652"></a><span class="sd">        &gt;&gt;&gt; boxes = torch.rand(3, 7)  # 3 boxes with 7 values each</span>
-<a id="__codelineno-0-1653" name="__codelineno-0-1653"></a><span class="sd">        &gt;&gt;&gt; orig_shape = (640, 480)</span>
-<a id="__codelineno-0-1654" name="__codelineno-0-1654"></a><span class="sd">        &gt;&gt;&gt; obb = OBB(boxes, orig_shape)</span>
-<a id="__codelineno-0-1655" name="__codelineno-0-1655"></a><span class="sd">        &gt;&gt;&gt; print(obb.xywhr)  # Access the boxes in xywhr format</span>
-<a id="__codelineno-0-1656" name="__codelineno-0-1656"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1657" name="__codelineno-0-1657"></a>    <span class="k">if</span> <span class="n">boxes</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-1658" name="__codelineno-0-1658"></a>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
-<a id="__codelineno-0-1659" name="__codelineno-0-1659"></a>    <span class="n">n</span> <span class="o">=</span> <span class="n">boxes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-1660" name="__codelineno-0-1660"></a>    <span class="k">assert</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">},</span> <span class="sa">f</span><span class="s2">"expected 7 or 8 values but got </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># xywh, rotation, track_id, conf, cls</span>
-<a id="__codelineno-0-1661" name="__codelineno-0-1661"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
-<a id="__codelineno-0-1662" name="__codelineno-0-1662"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">is_track</span> <span class="o">=</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">8</span>
-<a id="__codelineno-0-1663" name="__codelineno-0-1663"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span> <span class="o">=</span> <span class="n">orig_shape</span>
+<a id="__codelineno-0-1636" name="__codelineno-0-1636"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-1637" name="__codelineno-0-1637"></a><span class="sd">        AssertionError: If the number of values per box is not 7 or 8.</span>
+<a id="__codelineno-0-1638" name="__codelineno-0-1638"></a>
+<a id="__codelineno-0-1639" name="__codelineno-0-1639"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-1640" name="__codelineno-0-1640"></a><span class="sd">        &gt;&gt;&gt; import torch</span>
+<a id="__codelineno-0-1641" name="__codelineno-0-1641"></a><span class="sd">        &gt;&gt;&gt; boxes = torch.rand(3, 7)  # 3 boxes with 7 values each</span>
+<a id="__codelineno-0-1642" name="__codelineno-0-1642"></a><span class="sd">        &gt;&gt;&gt; orig_shape = (640, 480)</span>
+<a id="__codelineno-0-1643" name="__codelineno-0-1643"></a><span class="sd">        &gt;&gt;&gt; obb = OBB(boxes, orig_shape)</span>
+<a id="__codelineno-0-1644" name="__codelineno-0-1644"></a><span class="sd">        &gt;&gt;&gt; print(obb.xywhr)  # Access the boxes in xywhr format</span>
+<a id="__codelineno-0-1645" name="__codelineno-0-1645"></a><span class="sd">    """</span>
+<a id="__codelineno-0-1646" name="__codelineno-0-1646"></a>    <span class="k">if</span> <span class="n">boxes</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-1647" name="__codelineno-0-1647"></a>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+<a id="__codelineno-0-1648" name="__codelineno-0-1648"></a>    <span class="n">n</span> <span class="o">=</span> <span class="n">boxes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-1649" name="__codelineno-0-1649"></a>    <span class="k">assert</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">},</span> <span class="sa">f</span><span class="s2">"expected 7 or 8 values but got </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># xywh, rotation, track_id, conf, cls</span>
+<a id="__codelineno-0-1650" name="__codelineno-0-1650"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<a id="__codelineno-0-1651" name="__codelineno-0-1651"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">is_track</span> <span class="o">=</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">8</span>
+<a id="__codelineno-0-1652" name="__codelineno-0-1652"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">orig_shape</span> <span class="o">=</span> <span class="n">orig_shape</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
