@@ -10,7 +10,7 @@
 <link href="../../data/utils/" rel="prev"/>
 <link href="../model/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.4" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
 <title>exporter - Ultralytics YOLO Docs</title>
 <link href="../../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -2040,7 +2040,7 @@
 <a id="__codelineno-0-419" name="__codelineno-0-419"></a>        <span class="k">if</span> <span class="n">pb</span> <span class="ow">or</span> <span class="n">tfjs</span><span class="p">:</span>  <span class="c1"># pb prerequisite to tfjs</span>
 <a id="__codelineno-0-420" name="__codelineno-0-420"></a>            <span class="n">f</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_pb</span><span class="p">(</span><span class="n">keras_model</span><span class="o">=</span><span class="n">keras_model</span><span class="p">)</span>
 <a id="__codelineno-0-421" name="__codelineno-0-421"></a>        <span class="k">if</span> <span class="n">tflite</span><span class="p">:</span>
-<a id="__codelineno-0-422" name="__codelineno-0-422"></a>            <span class="n">f</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_tflite</span><span class="p">(</span><span class="n">keras_model</span><span class="o">=</span><span class="n">keras_model</span><span class="p">,</span> <span class="n">nms</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">agnostic_nms</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">agnostic_nms</span><span class="p">)</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>            <span class="n">f</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_tflite</span><span class="p">()</span>
 <a id="__codelineno-0-423" name="__codelineno-0-423"></a>        <span class="k">if</span> <span class="n">edgetpu</span><span class="p">:</span>
 <a id="__codelineno-0-424" name="__codelineno-0-424"></a>            <span class="n">f</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_edgetpu</span><span class="p">(</span><span class="n">tflite_model</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_full_integer_quant.tflite"</span><span class="p">)</span>
 <a id="__codelineno-0-425" name="__codelineno-0-425"></a>        <span class="k">if</span> <span class="n">tfjs</span><span class="p">:</span>
@@ -4234,9 +4234,7 @@
 <h3 class="doc doc-heading" id="ultralytics.engine.exporter.Exporter.export_tflite">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">export_tflite</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">export_tflite</span><span class="p">(</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">keras_model</span><span class="p">,</span> <span class="n">nms</span><span class="p">,</span> <span class="n">agnostic_nms</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorFlow Lite:"</span><span class="p">)</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">export_tflite</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'TensorFlow Lite:'</span><span class="p">))</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>YOLO TensorFlow Lite export.</p>
@@ -4257,7 +4255,7 @@
 <span class="normal"><a href="#__codelineno-0-1091">1091</a></span>
 <span class="normal"><a href="#__codelineno-0-1092">1092</a></span>
 <span class="normal"><a href="#__codelineno-0-1093">1093</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1079" name="__codelineno-0-1079"></a><span class="nd">@try_export</span>
-<a id="__codelineno-0-1080" name="__codelineno-0-1080"></a><span class="k">def</span><span class="w"> </span><span class="nf">export_tflite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keras_model</span><span class="p">,</span> <span class="n">nms</span><span class="p">,</span> <span class="n">agnostic_nms</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorFlow Lite:"</span><span class="p">)):</span>
+<a id="__codelineno-0-1080" name="__codelineno-0-1080"></a><span class="k">def</span><span class="w"> </span><span class="nf">export_tflite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorFlow Lite:"</span><span class="p">)):</span>
 <a id="__codelineno-0-1081" name="__codelineno-0-1081"></a><span class="w">    </span><span class="sd">"""YOLO TensorFlow Lite export."""</span>
 <a id="__codelineno-0-1082" name="__codelineno-0-1082"></a>    <span class="c1"># BUG https://github.com/ultralytics/ultralytics/issues/13436</span>
 <a id="__codelineno-0-1083" name="__codelineno-0-1083"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>  <span class="c1"># noqa</span>
