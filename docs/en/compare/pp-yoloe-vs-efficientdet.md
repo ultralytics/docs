@@ -11,7 +11,7 @@ keywords: PP-YOLOE+, EfficientDet, object detection, model comparison, computer 
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "EfficientDet"]'></canvas>
 
-In the realm of object detection, both PP-YOLOE+ and EfficientDet stand out as efficient and accurate models, yet they achieve this through distinct architectural choices and optimization strategies. This page provides a detailed technical comparison to help users understand their key differences and select the model best suited for their specific computer vision needs. We will delve into their architectures, performance metrics, and ideal applications. For users interested in exploring other cutting-edge models, Ultralytics offers a range of YOLO models, including the latest [YOLOv11](https://docs.ultralytics.com/models/yolo11/) and [YOLOv8](https://docs.ultralytics.com/models/yolov8/), known for their speed and accuracy in real-time object detection tasks.
+In the realm of object detection, both PP-YOLOE+ and EfficientDet stand out as efficient and accurate models, yet they achieve this through distinct architectural choices and optimization strategies. This page provides a detailed technical comparison to help users understand their key differences and select the model best suited for their specific computer vision needs. We will delve into their architectures, performance metrics, and ideal applications. For users interested in exploring other cutting-edge models, Ultralytics offers a range of YOLO models, including the latest [YOLO11](https://docs.ultralytics.com/models/yolo11/) and [YOLOv8](https://docs.ultralytics.com/models/yolov8/), known for their speed and accuracy in real-time object detection tasks.
 
 ## Architectural Differences
 

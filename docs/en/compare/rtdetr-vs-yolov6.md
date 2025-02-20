@@ -75,7 +75,7 @@ The choice between RT-DETR and YOLOv6-3.0 depends on the specific requirements o
 Beyond RT-DETR and YOLOv6-3.0, Ultralytics offers a diverse range of models, including:
 
 - **YOLOv8:** The latest iteration in the YOLO series, offering a balance of speed and accuracy and a wide range of tasks including [segmentation](https://docs.ultralytics.com/tasks/segment/) and [pose estimation](https://docs.ultralytics.com/tasks/pose/). Learn more about [YOLOv8](https://docs.ultralytics.com/models/yolov8/).
-- **YOLOv11:** The newest model in the YOLO family, pushing the boundaries of accuracy and efficiency in object detection. Explore the capabilities of [YOLOv11](https://docs.ultralytics.com/models/yolo11/).
+- **YOLO11:** The newest model in the YOLO family, pushing the boundaries of accuracy and efficiency in object detection. Explore the capabilities of [YOLO11](https://docs.ultralytics.com/models/yolo11/).
 - **YOLO-NAS:** A model from Deci AI, known for its Neural Architecture Search (NAS) optimized design, providing a strong balance of performance and efficiency. Discover [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/).
 
 By understanding the strengths and weaknesses of each model, developers can select the most appropriate architecture for their specific computer vision projects. For further guidance and tutorials, refer to the [Ultralytics Guides](https://docs.ultralytics.com/guides/).

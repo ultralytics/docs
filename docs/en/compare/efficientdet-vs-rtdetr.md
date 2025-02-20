@@ -47,7 +47,7 @@ RTDETRv2 (Real-Time DEtection TRansformer v2), developed by Baidu, is a more rec
 
 [Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
 
-It's important to note that Ultralytics also offers a range of cutting-edge YOLO models, including [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and [YOLOv11](https://docs.ultralytics.com/models/yolo11/), which are renowned for their speed and accuracy in object detection tasks. Users interested in real-time performance and ease of use within the Ultralytics ecosystem may find these models highly suitable.
+It's important to note that Ultralytics also offers a range of cutting-edge YOLO models, including [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and [YOLO11](https://docs.ultralytics.com/models/yolo11/), which are renowned for their speed and accuracy in object detection tasks. Users interested in real-time performance and ease of use within the Ultralytics ecosystem may find these models highly suitable.
 
 ## Model Comparison Table
 

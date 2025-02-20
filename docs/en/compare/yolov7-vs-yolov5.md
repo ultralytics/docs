@@ -64,6 +64,6 @@ Interested in exploring other models? Ultralytics offers a range of cutting-edge
 - **YOLOv6**: Explore Meituan's YOLOv6 for a balance of speed and accuracy. [Learn about YOLOv6](https://docs.ultralytics.com/models/yolov6/).
 - **YOLOv4**: Discover Alexey Bochkovskiy's YOLOv4, a highly influential real-time object detector. [Explore YOLOv4 documentation](https://docs.ultralytics.com/models/yolov4/).
 - **YOLOv3**: Understand the architecture and features of YOLOv3 and its variants. [Learn about YOLOv3](https://docs.ultralytics.com/models/yolov3/).
-- **YOLOv11**: The groundbreaking model redefining computer vision with unmatched accuracy and efficiency. [Discover YOLOv11](https://docs.ultralytics.com/models/yolo11/).
+- **YOLO11**: The groundbreaking model redefining computer vision with unmatched accuracy and efficiency. [Discover YOLO11](https://docs.ultralytics.com/models/yolo11/).
 
 Explore the [Ultralytics Docs](https://docs.ultralytics.com/models/) for a comprehensive overview of all available models and their capabilities. You can also engage with the community and explore practical guides in the [Ultralytics Guides](https://docs.ultralytics.com/guides/) section.

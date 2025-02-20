@@ -83,7 +83,7 @@ The table below summarizes the performance metrics for different sizes of YOLOv1
 
 Besides YOLOv10 and YOLOv7, Ultralytics offers a range of other models that may be of interest depending on specific project requirements:
 
-- **YOLOv11:** The direct successor to YOLOv10, potentially offering further improvements. Explore [YOLO11 documentation](https://docs.ultralytics.com/models/yolo11/).
+- **YOLO11:** The direct successor to YOLOv10, potentially offering further improvements. Explore [YOLO11 documentation](https://docs.ultralytics.com/models/yolo11/).
 - **YOLOv8:** A versatile and widely used model known for its balance of performance and ease of use. Learn more about [YOLOv8](https://docs.ultralytics.com/models/yolov8/).
 - **YOLOv5:** A highly popular and efficient model with a large community and extensive resources. Discover [YOLOv5](https://docs.ultralytics.com/models/yolov5/).
 - **YOLO-NAS:** Models from Deci AI integrated into Ultralytics, focusing on Neural Architecture Search for optimized performance. See [YOLO-NAS documentation](https://docs.ultralytics.com/models/yolo-nas/).

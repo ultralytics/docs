@@ -21,7 +21,7 @@ YOLOv9 represents the cutting edge in the YOLO series, known for its real-time o
 
 Key expected strengths of YOLOv9 include:
 
-- **Improved Accuracy**: YOLOv9 likely incorporates advancements to boost mAP scores compared to predecessors, addressing the continuous demand for more precise detection. [Explore YOLOv8](https://www.ultralytics.com/yolo) and [YOLOv11](https://docs.ultralytics.com/models/yolo11/) documentation for insights into Ultralytics' model evolution.
+- **Improved Accuracy**: YOLOv9 likely incorporates advancements to boost mAP scores compared to predecessors, addressing the continuous demand for more precise detection. [Explore YOLOv8](https://www.ultralytics.com/yolo) and [YOLO11](https://docs.ultralytics.com/models/yolo11/) documentation for insights into Ultralytics' model evolution.
 - **Enhanced Efficiency**: Staying true to the YOLO philosophy, YOLOv9 is engineered for speed, making it suitable for real-time applications.
 - **Flexible Architecture**: Likely offering various model sizes (as seen in the table below) to cater to different computational budgets and accuracy needs.
 
@@ -90,4 +90,4 @@ Both YOLOv9 and DAMO-YOLO are powerful object detection models, each with its st
 
 Choosing between YOLOv9 and DAMO-YOLO depends heavily on the specific application requirements. If raw speed and efficiency are critical, and the latest advancements are desired, YOLOv9 is a strong contender. If robustness and industrial deployment are paramount, DAMO-YOLO presents a compelling option.
 
-For users interested in exploring other models within the Ultralytics ecosystem, consider investigating [YOLOv8](https://docs.ultralytics.com/models/yolov8/), [YOLOv11](https://docs.ultralytics.com/models/yolo11/), and [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/) for a broader range of performance and architectural choices. Remember to evaluate models based on your specific dataset and deployment environment for optimal results.
+For users interested in exploring other models within the Ultralytics ecosystem, consider investigating [YOLOv8](https://docs.ultralytics.com/models/yolov8/), [YOLO11](https://docs.ultralytics.com/models/yolo11/), and [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/) for a broader range of performance and architectural choices. Remember to evaluate models based on your specific dataset and deployment environment for optimal results.

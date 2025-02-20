@@ -95,7 +95,7 @@ DAMO-YOLO models, particularly larger variants, typically achieve higher mAP sco
 
 PP-YOLOE+ and DAMO-YOLO represent different ends of the spectrum in object detection model design. PP-YOLOE+ prioritizes efficiency and balanced performance, making it excellent for real-time and resource-constrained applications. DAMO-YOLO focuses on achieving the highest possible accuracy, suitable for applications where precision is paramount, even if it requires more computational resources.
 
-For users within the Ultralytics ecosystem, models like [YOLOv8](https://www.ultralytics.com/yolo), [YOLOv10](https://docs.ultralytics.com/models/yolov10/), [YOLOv11](https://docs.ultralytics.com/models/yolo11/) and [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/) offer state-of-the-art performance and a wide range of deployment options. Consider exploring these models as well to find the best fit for your specific computer vision needs.
+For users within the Ultralytics ecosystem, models like [YOLOv8](https://www.ultralytics.com/yolo), [YOLOv10](https://docs.ultralytics.com/models/yolov10/), [YOLO11](https://docs.ultralytics.com/models/yolo11/) and [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/) offer state-of-the-art performance and a wide range of deployment options. Consider exploring these models as well to find the best fit for your specific computer vision needs.
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/tree/develop/configs/ppyoloe){ .md-button }
