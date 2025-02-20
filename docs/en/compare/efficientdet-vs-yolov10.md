@@ -128,7 +128,7 @@ EfficientDet and YOLOv10 cater to different priorities in object detection. Effi
 
 For users interested in other models within the Ultralytics ecosystem, consider exploring:
 
-- **YOLOv11**: The latest Ultralytics YOLO model, offering state-of-the-art performance and features. [Discover YOLO11](https://docs.ultralytics.com/models/yolo11/)
+- **YOLO11**: The latest Ultralytics YOLO model, offering state-of-the-art performance and features. [Discover YOLO11](https://docs.ultralytics.com/models/yolo11/)
 - **YOLOv9**: Known for its advancements in real-time object detection and efficiency. [Explore YOLOv9](https://docs.ultralytics.com/models/yolov9/)
 - **YOLOv8**: A versatile and widely-used model with a balance of speed and accuracy across various tasks. [Learn about YOLOv8](https://docs.ultralytics.com/models/yolov8/)
 - **RT-DETR**: Real-Time DEtection Transformer, offering transformer-based detection with high accuracy and adaptable speed. [Explore RT-DETR](https://docs.ultralytics.com/models/rtdetr/)

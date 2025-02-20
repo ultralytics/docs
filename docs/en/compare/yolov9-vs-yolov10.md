@@ -76,6 +76,6 @@ Choosing between YOLOv9 and YOLOv10 depends on the specific requirements of your
 Users interested in exploring other models within the Ultralytics ecosystem might also consider:
 
 - **YOLOv8**: A versatile and widely-used model offering a balance of speed and accuracy across various tasks. Explore Ultralytics YOLOv8 documentation for more details.
-- **YOLOv11**: The next evolution in the YOLO series, focusing on further improvements in accuracy and efficiency. Learn about Ultralytics YOLO11 and its features.
+- **YOLO11**: The next evolution in the YOLO series, focusing on further improvements in accuracy and efficiency. Learn about Ultralytics YOLO11 and its features.
 
 For further details and implementation, refer to the [Ultralytics Docs](https://docs.ultralytics.com/models/) and the [Ultralytics GitHub repository](https://github.com/ultralytics/ultralytics). You can also explore tutorials on [training custom datasets with Ultralytics YOLOv8 in Google Colab](https://www.ultralytics.com/blog/training-custom-datasets-with-ultralytics-yolov8-in-google-colab) or [training Ultralytics YOLO11 using the JupyterLab integration](https://www.ultralytics.com/blog/train-ultralytics-yolo11-using-the-jupyterlab-integration) to get hands-on experience. Understand [YOLO performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/) to effectively evaluate your chosen model.

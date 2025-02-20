@@ -105,7 +105,7 @@ Users might also be interested in other models in the YOLO family, such as:
 
 - [YOLOv8](https://docs.ultralytics.com/models/yolov8/): A versatile and widely-used model offering a good balance of performance and ease of use.
 - [YOLOv10](https://docs.ultralytics.com/models/yolov10/): The latest iteration focusing on efficiency and speed, potentially offering faster inference than YOLOv7 for certain applications.
-- [YOLOv11](https://docs.ultralytics.com/models/yolo11/): The most recent model, emphasizing cutting-edge advancements and potentially surpassing both YOLOv7 and YOLOv9 in overall performance, depending on the specific task and configuration.
+- [YOLO11](https://docs.ultralytics.com/models/yolo11/): The most recent model, emphasizing cutting-edge advancements and potentially surpassing both YOLOv7 and YOLOv9 in overall performance, depending on the specific task and configuration.
 
 ## Conclusion
 

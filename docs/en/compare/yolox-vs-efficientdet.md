@@ -82,7 +82,7 @@ Below is a performance comparison table for various sizes of YOLOX and Efficient
 
 ## Other Models to Consider
 
-Besides YOLOX and EfficientDet, Ultralytics offers a range of cutting-edge YOLO models including [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and the latest [YOLOv11](https://docs.ultralytics.com/models/yolo11/), which provide further advancements in both speed and accuracy. For specific use-cases, models like [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/) and [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) may also be of interest.
+Besides YOLOX and EfficientDet, Ultralytics offers a range of cutting-edge YOLO models including [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and the latest [YOLO11](https://docs.ultralytics.com/models/yolo11/), which provide further advancements in both speed and accuracy. For specific use-cases, models like [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/) and [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) may also be of interest.
 
 ## Conclusion
 

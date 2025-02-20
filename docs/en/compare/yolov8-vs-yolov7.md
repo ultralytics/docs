@@ -97,7 +97,7 @@ Users interested in exploring other models in the YOLO family might consider:
 - [YOLOv5](https://docs.ultralytics.com/models/yolov5/): A highly popular and widely used predecessor, known for its balance of performance and ease of use.
 - [YOLOv9](https://docs.ultralytics.com/models/yolov9/) and [YOLOv10](https://docs.ultralytics.com/models/yolov10/): Newer iterations focusing on further improvements in efficiency and accuracy.
 - [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/): A model from Deci AI, known for its Neural Architecture Search optimized design and quantization support, available through Ultralytics.
-- [YOLOv11](https://docs.ultralytics.com/models/yolo11/): The latest model in the YOLO series, pushing the boundaries of accuracy and efficiency.
+- [YOLO11](https://docs.ultralytics.com/models/yolo11/): The latest model in the YOLO series, pushing the boundaries of accuracy and efficiency.
 
 ## Conclusion
 

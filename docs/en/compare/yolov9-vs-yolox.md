@@ -86,7 +86,7 @@ Users interested in YOLOv9 and YOLOX might also find other Ultralytics YOLO mode
 
 - **YOLOv8:** A balanced and versatile model offering state-of-the-art performance across various tasks and model sizes. Explore [YOLOv8 documentation](https://docs.ultralytics.com/models/yolov8/) for more details.
 - **YOLOv10:** The latest iteration aiming for enhanced efficiency and speed, particularly suitable for real-time applications. Learn more about [YOLOv10](https://docs.ultralytics.com/models/yolov10/).
-- **YOLOv11:** Building upon previous versions, YOLOv11 emphasizes accuracy and robustness for complex computer vision tasks. Discover [YOLOv11 features](https://docs.ultralytics.com/models/yolo11/).
+- **YOLO11:** Building upon previous versions, YOLO11 emphasizes accuracy and robustness for complex computer vision tasks. Discover [YOLO11 features](https://docs.ultralytics.com/models/yolo11/).
 
 ## Conclusion
 

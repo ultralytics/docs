@@ -122,4 +122,4 @@ EfficientDet and Ultralytics YOLOv5 offer distinct advantages for object detecti
 
 Your choice should align with your project's specific needs, balancing accuracy requirements with computational constraints and speed demands.
 
-Consider exploring other models within the Ultralytics ecosystem, such as the cutting-edge [YOLOv8](https://www.ultralytics.com/yolo) and the latest [YOLOv11](https://docs.ultralytics.com/models/yolo11/), which build upon the strengths of YOLOv5 with further advancements in performance and features. For applications prioritizing speed and efficiency even further, explore [FastSAM](https://docs.ultralytics.com/models/fast-sam/).
+Consider exploring other models within the Ultralytics ecosystem, such as the cutting-edge [YOLOv8](https://www.ultralytics.com/yolo) and the latest [YOLO11](https://docs.ultralytics.com/models/yolo11/), which build upon the strengths of YOLOv5 with further advancements in performance and features. For applications prioritizing speed and efficiency even further, explore [FastSAM](https://docs.ultralytics.com/models/fast-sam/).

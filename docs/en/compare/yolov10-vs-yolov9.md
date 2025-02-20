@@ -87,7 +87,7 @@ Choosing between YOLOv10 and YOLOv9 depends largely on the specific application 
 
 Users interested in exploring other models within the Ultralytics ecosystem might also consider:
 
-- **YOLOv11:** The latest iteration, offering further advancements in accuracy and efficiency. [Learn more about YOLOv11](https://docs.ultralytics.com/models/yolo11/)
+- **YOLO11:** The latest iteration, offering further advancements in accuracy and efficiency. [Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/)
 - **YOLOv8:** A versatile and widely-adopted model known for its balanced performance. [Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/)
 - **YOLO-NAS:** Models from Deci AI, offering Neural Architecture Search optimized performance. [Learn more about YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/)
 - **RT-DETR:** For real-time detection with transformer architectures. [Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr/)

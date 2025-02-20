@@ -84,6 +84,6 @@ The table below summarizes the performance metrics for different sizes of YOLOv9
 
 Both YOLOv8 and YOLOv9 are powerful object detection models. YOLOv8 provides an excellent balance of performance and versatility, making it a robust choice for many applications. YOLOv9, as the latest iteration, is poised to offer further improvements, especially in accuracy and efficiency, catering to more demanding and cutting-edge use cases. Users should select the model that best aligns with their specific project requirements for speed, accuracy, and computational resources.
 
-For users interested in exploring other models, [YOLOv11](https://docs.ultralytics.com/models/yolo11/) and [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/) are also available in the Ultralytics ecosystem, each offering unique strengths and optimizations.
+For users interested in exploring other models, [YOLO11](https://docs.ultralytics.com/models/yolo11/) and [YOLO-NAS](https://docs.ultralytics.com/models/yolo-nas/) are also available in the Ultralytics ecosystem, each offering unique strengths and optimizations.
 
 Visit the [Ultralytics Docs](https://docs.ultralytics.com/) for detailed information and guides, and explore the [Ultralytics GitHub repository](https://github.com/ultralytics/ultralytics) for model implementations and updates.

@@ -77,7 +77,7 @@ Users interested in exploring other models within the Ultralytics ecosystem migh
 
 - **YOLOv8**: A highly versatile and widely adopted model known for its balance of speed and accuracy. Explore [YOLOv8 documentation](https://docs.ultralytics.com/models/yolov8/).
 - **YOLOv9**: Focuses on improving accuracy and reducing computational overhead. Learn more about [YOLOv9 architecture](https://docs.ultralytics.com/models/yolov9/).
-- **YOLOv11**: The latest model from Ultralytics, building upon previous versions with further enhancements in speed and accuracy. Discover [YOLOv11 features](https://docs.ultralytics.com/models/yolo11/).
+- **YOLO11**: The latest model from Ultralytics, building upon previous versions with further enhancements in speed and accuracy. Discover [YOLO11 features](https://docs.ultralytics.com/models/yolo11/).
 - **YOLO-NAS**: Developed by Deci AI, offering a Neural Architecture Search-optimized model for efficient object detection. See [YOLO-NAS details](https://docs.ultralytics.com/models/yolo-nas/).
 
 ## Conclusion

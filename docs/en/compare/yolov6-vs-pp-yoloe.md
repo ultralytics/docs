@@ -85,7 +85,7 @@ _Note: Speed metrics are indicative and can vary based on hardware, software, an
 **YOLOv6-3.0 Weaknesses:**
 
 - Performance metrics may slightly lag behind the most accurate models in certain scenarios.
-- Limited official Ultralytics integration compared to YOLOv8 or YOLOv11.
+- Limited official Ultralytics integration compared to YOLOv8 or YOLO11.
 
 **PP-YOLOE+ Strengths:**
 
@@ -102,4 +102,4 @@ _Note: Speed metrics are indicative and can vary based on hardware, software, an
 
 Both YOLOv6-3.0 and PP-YOLOE+ are powerful object detection models with distinct strengths. YOLOv6-3.0 excels in speed and efficiency, making it ideal for real-time and edge applications. PP-YOLOE+ prioritizes accuracy and versatility, suitable for tasks where detection precision is paramount.
 
-Users interested in other Ultralytics models might explore [YOLOv8](https://docs.ultralytics.com/models/yolov8/) for a balance of performance and flexibility, [YOLOv11](https://docs.ultralytics.com/models/yolo11/) for the latest advancements, or [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) for transformer-based architectures. The choice between YOLOv6-3.0 and PP-YOLOE+, or other models, depends on the specific requirements of the computer vision task, including the balance between speed, accuracy, and resource constraints. For further exploration, consider reviewing [Ultralytics Tutorials](https://docs.ultralytics.com/guides/) to master YOLO model implementation and optimization.
+Users interested in other Ultralytics models might explore [YOLOv8](https://docs.ultralytics.com/models/yolov8/) for a balance of performance and flexibility, [YOLO11](https://docs.ultralytics.com/models/yolo11/) for the latest advancements, or [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) for transformer-based architectures. The choice between YOLOv6-3.0 and PP-YOLOE+, or other models, depends on the specific requirements of the computer vision task, including the balance between speed, accuracy, and resource constraints. For further exploration, consider reviewing [Ultralytics Tutorials](https://docs.ultralytics.com/guides/) to master YOLO model implementation and optimization.
