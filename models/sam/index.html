@@ -7,7 +7,7 @@
 <meta content="Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/models/sam/" rel="canonical"/>
-<link href="../yolo11/" rel="prev"/>
+<link href="../yolo12/" rel="prev"/>
 <link href="../sam-2/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
@@ -22,7 +22,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="SAM (Segment Anything Model)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Segment Anything, SAM, image segmentation, promptable segmentation, zero-shot performance, SA-1B dataset, advanced architecture, auto-annotation, Ultralytics, pre-trained models, instance segmentation, computer vision, AI, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/sam" property="og:url"/><meta content="SAM (Segment Anything Model)" property="og:title"/><meta content="Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/sa-1b-dataset-sample.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/sam" property="twitter:url"/><meta content="SAM (Segment Anything Model)" property="twitter:title"/><meta content="Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/sa-1b-dataset-sample.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "SAM (Segment Anything Model)", "image": ["https://github.com/ultralytics/docs/releases/download/0/sa-1b-dataset-sample.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-12-25 17:30:12 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips.", "mainEntity": [{"@type": "Question", "name": "What is the Segment Anything Model (SAM) by Ultralytics?", "acceptedAnswer": {"@type": "Answer", "text": "The Segment Anything Model (SAM) by Ultralytics is a revolutionary image segmentation model designed for promptable segmentation tasks. It leverages advanced architecture, including image and prompt encoders combined with a lightweight mask decoder, to generate high-quality segmentation masks from various prompts such as spatial or text cues. Trained on the expansive SA-1B dataset, SAM excels in zero-shot performance, adapting to new image distributions and tasks without prior knowledge. Learn more here."}}, {"@type": "Question", "name": "How can I use the Segment Anything Model (SAM) for image segmentation?", "acceptedAnswer": {"@type": "Answer", "text": "You can use the Segment Anything Model (SAM) for image segmentation by running inference with various prompts such as bounding boxes or points. Here's an example using Python: Alternatively, you can run inference with SAM in the command line interface (CLI): For more detailed usage instructions, visit the Segmentation section."}}, {"@type": "Question", "name": "How do SAM and YOLOv8 compare in terms of performance?", "acceptedAnswer": {"@type": "Answer", "text": "Compared to YOLOv8, SAM models like SAM-b and FastSAM-s are larger and slower but offer unique capabilities for automatic segmentation. For instance, Ultralytics YOLOv8n-seg is 53.4 times smaller and 866 times faster than SAM-b. However, SAM's zero-shot performance makes it highly flexible and efficient in diverse, untrained tasks. Learn more about performance comparisons between SAM and YOLOv8 here."}}, {"@type": "Question", "name": "How can I auto-annotate my dataset using SAM?", "acceptedAnswer": {"@type": "Answer", "text": "Ultralytics' SAM offers an auto-annotation feature that allows generating segmentation datasets using a pre-trained detection model. Here's an example in Python: This function takes the path to your images and optional arguments for pre-trained detection and SAM segmentation models, along with device and output directory specifications. For a complete guide, see Auto-Annotation."}}, {"@type": "Question", "name": "What datasets are used to train the Segment Anything Model (SAM)?", "acceptedAnswer": {"@type": "Answer", "text": "SAM is trained on the extensive SA-1B dataset which comprises over 1 billion masks across 11 million images. SA-1B is the largest segmentation dataset to date, providing high-quality and diverse training data, ensuring impressive zero-shot performance in varied segmentation tasks. For more details, visit the Dataset section."}}]}</script></head>
+<meta content="SAM (Segment Anything Model)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Segment Anything, SAM, image segmentation, promptable segmentation, zero-shot performance, SA-1B dataset, advanced architecture, auto-annotation, Ultralytics, pre-trained models, instance segmentation, computer vision, AI, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/sam" property="og:url"/><meta content="SAM (Segment Anything Model)" property="og:title"/><meta content="Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/sa-1b-dataset-sample.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/sam" property="twitter:url"/><meta content="SAM (Segment Anything Model)" property="twitter:title"/><meta content="Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/sa-1b-dataset-sample.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "SAM (Segment Anything Model)", "image": ["https://github.com/ultralytics/docs/releases/download/0/sa-1b-dataset-sample.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-02-20 20:42:50 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore the revolutionary Segment Anything Model (SAM) for promptable image segmentation with zero-shot performance. Discover key features, datasets, and usage tips.", "mainEntity": [{"@type": "Question", "name": "What is the Segment Anything Model (SAM) by Ultralytics?", "acceptedAnswer": {"@type": "Answer", "text": "The Segment Anything Model (SAM) by Ultralytics is a revolutionary image segmentation model designed for promptable segmentation tasks. It leverages advanced architecture, including image and prompt encoders combined with a lightweight mask decoder, to generate high-quality segmentation masks from various prompts such as spatial or text cues. Trained on the expansive SA-1B dataset, SAM excels in zero-shot performance, adapting to new image distributions and tasks without prior knowledge. Learn more here."}}, {"@type": "Question", "name": "How can I use the Segment Anything Model (SAM) for image segmentation?", "acceptedAnswer": {"@type": "Answer", "text": "You can use the Segment Anything Model (SAM) for image segmentation by running inference with various prompts such as bounding boxes or points. Here's an example using Python: Alternatively, you can run inference with SAM in the command line interface (CLI): For more detailed usage instructions, visit the Segmentation section."}}, {"@type": "Question", "name": "How do SAM and YOLOv8 compare in terms of performance?", "acceptedAnswer": {"@type": "Answer", "text": "Compared to YOLOv8, SAM models like SAM-b and FastSAM-s are larger and slower but offer unique capabilities for automatic segmentation. For instance, Ultralytics YOLOv8n-seg is 53.4 times smaller and 866 times faster than SAM-b. However, SAM's zero-shot performance makes it highly flexible and efficient in diverse, untrained tasks. Learn more about performance comparisons between SAM and YOLOv8 here."}}, {"@type": "Question", "name": "How can I auto-annotate my dataset using SAM?", "acceptedAnswer": {"@type": "Answer", "text": "Ultralytics' SAM offers an auto-annotation feature that allows generating segmentation datasets using a pre-trained detection model. Here's an example in Python: This function takes the path to your images and optional arguments for pre-trained detection and SAM segmentation models, along with device and output directory specifications. For a complete guide, see Auto-Annotation."}}, {"@type": "Question", "name": "What datasets are used to train the Segment Anything Model (SAM)?", "acceptedAnswer": {"@type": "Answer", "text": "SAM is trained on the extensive SA-1B dataset which comprises over 1 billion masks across 11 million images. SA-1B is the largest segmentation dataset to date, providing high-quality and diverse training data, ensuring impressive zero-shot performance in varied segmentation tasks. For more details, visit the Dataset section."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -307,6 +307,13 @@
 <a class="md-nav__link" href="../yolo11/">
 <span class="md-ellipsis">
     YOLO11 🚀 NEW
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolo12/">
+<span class="md-ellipsis">
+    YOLO12
   </span>
 </a>
 </li>
@@ -886,7 +893,7 @@
 <td>46122</td>
 </tr>
 <tr>
-<td><a href="../fast-sam/">FastSAM-s</a> with YOLOv8 backbone</td>
+<td><a href="../fast-sam/">FastSAM-s</a> with YOLOv8 <a href="https://www.ultralytics.com/glossary/backbone">backbone</a></td>
 <td>23.7</td>
 <td>11.8</td>
 <td>115</td>
@@ -1084,16 +1091,16 @@
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on December 25, 2024">
-<span class="hover-item">✏️</span> Updated 1 month ago
+<span class="date-item" title="This page was last updated on February 20, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (3 changes)">
+<img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (5 changes)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (2 changes)">
-<img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/Y-T-G" title="Y-T-G (1 change)">
 <img alt="Y-T-G" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/32206511?v=4&amp;s=96"/>
@@ -1136,7 +1143,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: YOLO11 🚀 NEW" class="md-footer__link md-footer__link--prev" href="../yolo11/">
+<a aria-label="Previous: YOLO12" class="md-footer__link md-footer__link--prev" href="../yolo12/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -1145,7 +1152,7 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                YOLO11 🚀 NEW
+                YOLO12
               </div>
 </div>
 </a>

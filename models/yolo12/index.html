@@ -4,14 +4,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore YOLOv4, a state-of-the-art real-time object detection model by Alexey Bochkovskiy. Discover its architecture, features, and performance." name="description"/>
+<meta content="Discover YOLO12, featuring groundbreaking attention-centric architecture for state-of-the-art object detection with unmatched accuracy and efficiency." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/models/yolov4/" rel="canonical"/>
-<link href="../yolov3/" rel="prev"/>
-<link href="../yolov5/" rel="next"/>
+<link href="https://docs.ultralytics.com/models/yolo12/" rel="canonical"/>
+<link href="../yolo11/" rel="prev"/>
+<link href="../sam/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
-<title>YOLOv4 - Ultralytics YOLO Docs</title>
+<title>YOLO12 - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -22,13 +22,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLOv4" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv4, object detection, real-time detection, Alexey Bochkovskiy, neural networks, machine learning, computer vision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/yolov4" property="og:url"/><meta content="YOLOv4" property="og:title"/><meta content="Explore YOLOv4, a state-of-the-art real-time object detection model by Alexey Bochkovskiy. Discover its architecture, features, and performance." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov4-architecture-diagram.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/yolov4" property="twitter:url"/><meta content="YOLOv4" property="twitter:title"/><meta content="Explore YOLOv4, a state-of-the-art real-time object detection model by Alexey Bochkovskiy. Discover its architecture, features, and performance." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov4-architecture-diagram.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "YOLOv4", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolov4-architecture-diagram.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-02-20 20:42:50 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore YOLOv4, a state-of-the-art real-time object detection model by Alexey Bochkovskiy. Discover its architecture, features, and performance.", "mainEntity": [{"@type": "Question", "name": "What is YOLOv4 and why should I use it for object detection?", "acceptedAnswer": {"@type": "Answer", "text": "YOLOv4, which stands for \"You Only Look Once version 4,\" is a state-of-the-art real-time object detection model developed by Alexey Bochkovskiy in 2020. It achieves an optimal balance between speed and accuracy, making it highly suitable for real-time applications. YOLOv4's architecture incorporates several innovative features like Weighted-Residual-Connections (WRC), Cross-Stage-Partial-connections (CSP), and Self-adversarial-training (SAT), among others, to achieve state-of-the-art results. If you're looking for a high-performance model that operates efficiently on conventional GPUs, YOLOv4 is an excellent choice."}}, {"@type": "Question", "name": "How does the architecture of YOLOv4 enhance its performance?", "acceptedAnswer": {"@type": "Answer", "text": "The architecture of YOLOv4 includes several key components: the backbone, the neck, and the head. The backbone, which can be models like VGG, ResNet, or CSPDarknet53, is pre-trained to predict classes and bounding boxes. The neck, utilizing PANet, connects feature maps from different stages for comprehensive data extraction. Finally, the head, which uses configurations from YOLOv3, makes the final object detections. YOLOv4 also employs \"bag of freebies\" techniques like mosaic data augmentation and DropBlock regularization, further optimizing its speed and accuracy."}}, {"@type": "Question", "name": "What are \"bag of freebies\" in the context of YOLOv4?", "acceptedAnswer": {"@type": "Answer", "text": "\"Bag of freebies\" refers to methods that improve the training accuracy of YOLOv4 without increasing the cost of inference. These techniques include various forms of data augmentation like photometric distortions (adjusting brightness, contrast, etc.) and geometric distortions (scaling, cropping, flipping, rotating). By increasing the variability of the input images, these augmentations help YOLOv4 generalize better to different types of images, thereby improving its robustness and accuracy without compromising its real-time performance."}}, {"@type": "Question", "name": "Why is YOLOv4 considered suitable for real-time object detection on conventional GPUs?", "acceptedAnswer": {"@type": "Answer", "text": "YOLOv4 is designed to optimize both speed and accuracy, making it ideal for real-time object detection tasks that require quick and reliable performance. It operates efficiently on conventional GPUs, needing only one for both training and inference. This makes it accessible and practical for various applications ranging from recommendation systems to standalone process management, thereby reducing the need for extensive hardware setups and making it a cost-effective solution for real-time object detection."}}, {"@type": "Question", "name": "How can I get started with YOLOv4 if Ultralytics does not currently support it?", "acceptedAnswer": {"@type": "Answer", "text": "To get started with YOLOv4, you should visit the official YOLOv4 GitHub repository. Follow the installation instructions provided in the README file, which typically include cloning the repository, installing dependencies, and setting up environment variables. Once installed, you can train the model by preparing your dataset, configuring the model parameters, and following the usage instructions provided. Since Ultralytics does not currently support YOLOv4, it is recommended to refer directly to the YOLOv4 GitHub for the most up-to-date and detailed guidance."}}]}</script></head>
+<meta content="YOLO12" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO12, attention-centric object detection, YOLO series, Ultralytics, computer vision, AI, machine learning, deep learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/yolo12" property="og:url"/><meta content="YOLO12" property="og:title"/><meta content="Discover YOLO12, featuring groundbreaking attention-centric architecture for state-of-the-art object detection with unmatched accuracy and efficiency." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/yolo12" property="twitter:url"/><meta content="YOLO12" property="twitter:title"/><meta content="Discover YOLO12, featuring groundbreaking attention-centric architecture for state-of-the-art object detection with unmatched accuracy and efficiency." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "YOLO12", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2025-02-20 20:42:50 +0800", "dateModified": "2025-02-20 20:42:50 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover YOLO12, featuring groundbreaking attention-centric architecture for state-of-the-art object detection with unmatched accuracy and efficiency.", "mainEntity": [{"@type": "Question", "name": "How does YOLO12 achieve real-time object detection while maintaining high accuracy?", "acceptedAnswer": {"@type": "Answer", "text": "YOLO12 incorporates several key innovations to balance speed and accuracy. The Area Attention mechanism efficiently processes large receptive fields, reducing computational cost compared to standard self-attention. The Residual Efficient Layer Aggregation Networks (R-ELAN) improve feature aggregation, addressing optimization challenges in larger attention-centric models. Optimized Attention Architecture, including the use of FlashAttention and removal of positional encoding, further enhances efficiency. These features allow YOLO12 to achieve state-of-the-art accuracy while maintaining the real-time inference speed crucial for many applications."}}, {"@type": "Question", "name": "What computer vision tasks does YOLO12 support?", "acceptedAnswer": {"@type": "Answer", "text": "YOLO12 is a versatile model that supports a wide range of core computer vision tasks. It excels in object detection, instance segmentation, image classification, pose estimation, and oriented object detection (OBB) (see details). This comprehensive task support makes YOLO12 a powerful tool for diverse applications, from robotics and autonomous driving to medical imaging and industrial inspection. Each of these tasks can be performed in Inference, Validation, Training, and Export modes."}}, {"@type": "Question", "name": "How does YOLO12 compare to other YOLO models and competitors like RT-DETR?", "acceptedAnswer": {"@type": "Answer", "text": "YOLO12 demonstrates significant accuracy improvements across all model scales compared to prior YOLO models like YOLOv10 and YOLOv11, with some trade-offs in speed compared to the fastest prior models. For example, YOLO12n achieves a +2.1% mAP improvement over YOLOv10n and +1.2% over YOLOv11n on the COCO val2017 dataset. Compared to models like RT-DETR, YOLO12s offers a +1.5% mAP improvement and a substantial +42% speed increase. These metrics highlight YOLO12's strong balance between accuracy and efficiency. See the performance metrics section for detailed comparisons."}}, {"@type": "Question", "name": "What are the hardware requirements for running YOLO12, especially for using FlashAttention?", "acceptedAnswer": {"@type": "Answer", "text": "By default, the Ultralytics YOLO12 implementation does not require FlashAttention. However, FlashAttention can be optionally compiled and used with YOLO12 to minimize memory access overhead. To compile FlashAttention, one of the following NVIDIA GPUs is needed: Turing GPUs (e.g., T4, Quadro RTX series), Ampere GPUs (e.g., RTX30 series, A30/40/100), Ada Lovelace GPUs (e.g., RTX40 series), or Hopper GPUs (e.g., H100/H200). This flexibility allows users to leverage FlashAttention's benefits when hardware resources permit."}}, {"@type": "Question", "name": "Where can I find usage examples and more detailed documentation for YOLO12?", "acceptedAnswer": {"@type": "Answer", "text": "This page provides basic usage examples for training and inference. For comprehensive documentation on these and other modes, including Validation and Export, consult the dedicated Predict and Train pages. For task-specific information (segmentation, classification, oriented object detection, and pose estimation), refer to the respective documentation: Segment, Classify, OBB, and Pose. These resources provide in-depth guidance for effectively utilizing YOLO12 in various scenarios."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#yolov4-high-speed-and-precise-object-detection">
+<a class="md-skip" href="#yolo12-attention-centric-object-detection">
           Skip to content
         </a>
 </div>
@@ -75,7 +75,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              YOLOv4
+              YOLO12
           </span>
 </div>
 </div>
@@ -254,122 +254,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    YOLOv4
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov4/">
 <span class="md-ellipsis">
     YOLOv4
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction">
-<span class="md-ellipsis">
-      Introduction
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#architecture">
-<span class="md-ellipsis">
-      Architecture
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#bag-of-freebies">
-<span class="md-ellipsis">
-      Bag of Freebies
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#features-and-performance">
-<span class="md-ellipsis">
-      Features and Performance
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage-examples">
-<span class="md-ellipsis">
-      Usage Examples
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
-<span class="md-ellipsis">
-      Conclusion
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#citations-and-acknowledgements">
-<span class="md-ellipsis">
-      Citations and Acknowledgements
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-<span class="md-ellipsis">
-      FAQ
-    </span>
-</a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-yolov4-and-why-should-i-use-it-for-object-detection">
-<span class="md-ellipsis">
-      What is YOLOv4 and why should I use it for object detection?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-does-the-architecture-of-yolov4-enhance-its-performance">
-<span class="md-ellipsis">
-      How does the architecture of YOLOv4 enhance its performance?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-bag-of-freebies-in-the-context-of-yolov4">
-<span class="md-ellipsis">
-      What are "bag of freebies" in the context of YOLOv4?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-is-yolov4-considered-suitable-for-real-time-object-detection-on-conventional-gpus">
-<span class="md-ellipsis">
-      Why is YOLOv4 considered suitable for real-time object detection on conventional GPUs?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-get-started-with-yolov4-if-ultralytics-does-not-currently-support-it">
-<span class="md-ellipsis">
-      How can I get started with YOLOv4 if Ultralytics does not currently support it?
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../yolov5/">
@@ -420,12 +310,140 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../yolo12/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    YOLO12
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     YOLO12
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features">
+<span class="md-ellipsis">
+      Key Features
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#supported-tasks-and-modes">
+<span class="md-ellipsis">
+      Supported Tasks and Modes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#performance-metrics">
+<span class="md-ellipsis">
+      Performance Metrics
+    </span>
+</a>
+<nav aria-label="Performance Metrics" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detection-performance-coco-val2017">
+<span class="md-ellipsis">
+      Detection Performance (COCO val2017)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage-examples">
+<span class="md-ellipsis">
+      Usage Examples
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-improvements">
+<span class="md-ellipsis">
+      Key Improvements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#requirements">
+<span class="md-ellipsis">
+      Requirements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#citations-and-acknowledgements">
+<span class="md-ellipsis">
+      Citations and Acknowledgements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-yolo12-achieve-real-time-object-detection-while-maintaining-high-accuracy">
+<span class="md-ellipsis">
+      How does YOLO12 achieve real-time object detection while maintaining high accuracy?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-computer-vision-tasks-does-yolo12-support">
+<span class="md-ellipsis">
+      What computer vision tasks does YOLO12 support?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-yolo12-compare-to-other-yolo-models-and-competitors-like-rt-detr">
+<span class="md-ellipsis">
+      How does YOLO12 compare to other YOLO models and competitors like RT-DETR?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-hardware-requirements-for-running-yolo12-especially-for-using-flashattention">
+<span class="md-ellipsis">
+      What are the hardware requirements for running YOLO12, especially for using FlashAttention?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#where-can-i-find-usage-examples-and-more-detailed-documentation-for-yolo12">
+<span class="md-ellipsis">
+      Where can I find usage examples and more detailed documentation for YOLO12?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../sam/">
@@ -550,32 +568,43 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#introduction">
+<a class="md-nav__link" href="#overview">
 <span class="md-ellipsis">
-      Introduction
+      Overview
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#architecture">
+<a class="md-nav__link" href="#key-features">
 <span class="md-ellipsis">
-      Architecture
+      Key Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#bag-of-freebies">
+<a class="md-nav__link" href="#supported-tasks-and-modes">
 <span class="md-ellipsis">
-      Bag of Freebies
+      Supported Tasks and Modes
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#features-and-performance">
+<a class="md-nav__link" href="#performance-metrics">
 <span class="md-ellipsis">
-      Features and Performance
+      Performance Metrics
     </span>
 </a>
+<nav aria-label="Performance Metrics" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detection-performance-coco-val2017">
+<span class="md-ellipsis">
+      Detection Performance (COCO val2017)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage-examples">
@@ -585,9 +614,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
+<a class="md-nav__link" href="#key-improvements">
 <span class="md-ellipsis">
-      Conclusion
+      Key Improvements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#requirements">
+<span class="md-ellipsis">
+      Requirements
     </span>
 </a>
 </li>
@@ -607,37 +643,37 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-yolov4-and-why-should-i-use-it-for-object-detection">
+<a class="md-nav__link" href="#how-does-yolo12-achieve-real-time-object-detection-while-maintaining-high-accuracy">
 <span class="md-ellipsis">
-      What is YOLOv4 and why should I use it for object detection?
+      How does YOLO12 achieve real-time object detection while maintaining high accuracy?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-does-the-architecture-of-yolov4-enhance-its-performance">
+<a class="md-nav__link" href="#what-computer-vision-tasks-does-yolo12-support">
 <span class="md-ellipsis">
-      How does the architecture of YOLOv4 enhance its performance?
+      What computer vision tasks does YOLO12 support?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-bag-of-freebies-in-the-context-of-yolov4">
+<a class="md-nav__link" href="#how-does-yolo12-compare-to-other-yolo-models-and-competitors-like-rt-detr">
 <span class="md-ellipsis">
-      What are "bag of freebies" in the context of YOLOv4?
+      How does YOLO12 compare to other YOLO models and competitors like RT-DETR?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-is-yolov4-considered-suitable-for-real-time-object-detection-on-conventional-gpus">
+<a class="md-nav__link" href="#what-are-the-hardware-requirements-for-running-yolo12-especially-for-using-flashattention">
 <span class="md-ellipsis">
-      Why is YOLOv4 considered suitable for real-time object detection on conventional GPUs?
+      What are the hardware requirements for running YOLO12, especially for using FlashAttention?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-get-started-with-yolov4-if-ultralytics-does-not-currently-support-it">
+<a class="md-nav__link" href="#where-can-i-find-usage-examples-and-more-detailed-documentation-for-yolo12">
 <span class="md-ellipsis">
-      How can I get started with YOLOv4 if Ultralytics does not currently support it?
+      Where can I find usage examples and more detailed documentation for YOLO12?
     </span>
 </a>
 </li>
@@ -651,74 +687,273 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/models/yolov4.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/models/yolo12.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="yolov4-high-speed-and-precise-object-detection">YOLOv4: High-Speed and Precise Object Detection</h1>
-<p>Welcome to the Ultralytics documentation page for YOLOv4, a state-of-the-art, real-time object detector launched in 2020 by Alexey Bochkovskiy at <a href="https://github.com/AlexeyAB/darknet">https://github.com/AlexeyAB/darknet</a>. YOLOv4 is designed to provide the optimal balance between speed and accuracy, making it an excellent choice for many applications.</p>
-<p><img alt="YOLOv4 architecture diagram" src="https://github.com/ultralytics/docs/releases/download/0/yolov4-architecture-diagram.avif"> <strong>YOLOv4 architecture diagram</strong>. Showcasing the intricate network design of YOLOv4, including the backbone, neck, and head components, and their interconnected layers for optimal real-time object detection.</img></p>
-<h2 id="introduction">Introduction</h2>
-<p>YOLOv4 stands for You Only Look Once version 4. It is a real-time object detection model developed to address the limitations of previous YOLO versions like <a href="../yolov3/">YOLOv3</a> and other object detection models. Unlike other <a href="https://www.ultralytics.com/glossary/convolutional-neural-network-cnn">convolutional neural network</a> (CNN) based object detectors, YOLOv4 is not only applicable for recommendation systems but also for standalone process management and human input reduction. Its operation on conventional graphics processing units (GPUs) allows for mass usage at an affordable price, and it is designed to work in real-time on a conventional GPU while requiring only one such GPU for training.</p>
-<h2 id="architecture">Architecture</h2>
-<p>YOLOv4 makes use of several innovative features that work together to optimize its performance. These include Weighted-Residual-Connections (WRC), Cross-Stage-Partial-connections (CSP), Cross mini-<a href="https://www.ultralytics.com/glossary/batch-normalization">Batch Normalization</a> (CmBN), Self-adversarial-training (SAT), Mish-activation, Mosaic <a href="https://www.ultralytics.com/glossary/data-augmentation">data augmentation</a>, DropBlock <a href="https://www.ultralytics.com/glossary/regularization">regularization</a>, and CIoU loss. These features are combined to achieve state-of-the-art results.</p>
-<p>A typical object detector is composed of several parts including the input, the backbone, the neck, and the head. The backbone of YOLOv4 is pre-trained on ImageNet and is used to predict classes and bounding boxes of objects. The backbone could be from several models including VGG, ResNet, ResNeXt, or DenseNet. The neck part of the detector is used to collect feature maps from different stages and usually includes several bottom-up paths and several top-down paths. The head part is what is used to make the final object detections and classifications.</p>
-<h2 id="bag-of-freebies">Bag of Freebies</h2>
-<p>YOLOv4 also makes use of methods known as "bag of freebies," which are techniques that improve the accuracy of the model during training without increasing the cost of inference. Data augmentation is a common bag of freebies technique used in object detection, which increases the variability of the input images to improve the robustness of the model. Some examples of data augmentation include photometric distortions (adjusting the brightness, contrast, hue, saturation, and noise of an image) and geometric distortions (adding random scaling, cropping, flipping, and rotating). These techniques help the model to generalize better to different types of images.</p>
-<h2 id="features-and-performance">Features and Performance</h2>
-<p>YOLOv4 is designed for optimal speed and accuracy in object detection. The architecture of YOLOv4 includes CSPDarknet53 as the backbone, PANet as the neck, and YOLOv3 as the <a href="https://www.ultralytics.com/glossary/detection-head">detection head</a>. This design allows YOLOv4 to perform object detection at an impressive speed, making it suitable for real-time applications. YOLOv4 also excels in accuracy, achieving state-of-the-art results in object detection benchmarks.</p>
+<h1 id="yolo12-attention-centric-object-detection">YOLO12: Attention-Centric Object Detection</h1>
+<h2 id="overview">Overview</h2>
+<p>YOLO12 introduces an attention-centric architecture that departs from the traditional CNN-based approaches used in previous YOLO models, yet retains the real-time inference speed essential for many applications. This model achieves state-of-the-art object detection accuracy through novel methodological innovations in attention mechanisms and overall network architecture, while maintaining real-time performance.</p>
+<h2 id="key-features">Key Features</h2>
+<ul>
+<li><strong>Area Attention Mechanism</strong>: A new self-attention approach that processes large receptive fields efficiently. It divides <a href="https://www.ultralytics.com/glossary/feature-maps">feature maps</a> into <em>l</em> equal-sized regions (defaulting to 4), either horizontally or vertically, avoiding complex operations and maintaining a large effective receptive field. This significantly reduces computational cost compared to standard self-attention.</li>
+<li><strong>Residual Efficient Layer Aggregation Networks (R-ELAN)</strong>: An improved feature aggregation module based on ELAN, designed to address optimization challenges, especially in larger-scale attention-centric models. R-ELAN introduces:<ul>
+<li>Block-level residual connections with scaling (similar to layer scaling).</li>
+<li>A redesigned feature aggregation method creating a bottleneck-like structure.</li>
+</ul>
+</li>
+<li><strong>Optimized Attention Architecture</strong>: YOLO12 streamlines the standard attention mechanism for greater efficiency and compatibility with the YOLO framework. This includes:<ul>
+<li>Using FlashAttention to minimize memory access overhead.</li>
+<li>Removing positional encoding for a cleaner and faster model.</li>
+<li>Adjusting the MLP ratio (from the typical 4 to 1.2 or 2) to better balance computation between attention and feed-forward layers.</li>
+<li>Reducing the depth of stacked blocks for improved optimization.</li>
+<li>Leveraging convolution operations (where appropriate) for their computational efficiency.</li>
+<li>Adding a 7x7 separable convolution (the "position perceiver") to the attention mechanism to implicitly encode positional information.</li>
+</ul>
+</li>
+<li><strong>Comprehensive Task Support</strong>: YOLO12 supports a range of core computer vision tasks: object detection, <a href="https://www.ultralytics.com/glossary/instance-segmentation">instance segmentation</a>, <a href="https://www.ultralytics.com/glossary/image-classification">image classification</a>, pose estimation, and oriented object detection (OBB).</li>
+<li><strong>Enhanced Efficiency</strong>: Achieves higher accuracy with fewer parameters compared to many prior models, demonstrating an improved balance between speed and accuracy.</li>
+<li><strong>Flexible Deployment</strong>: Designed for deployment across diverse platforms, from edge devices to cloud infrastructure.</li>
+</ul>
+<h2 id="supported-tasks-and-modes">Supported Tasks and Modes</h2>
+<p>YOLO12 supports a variety of computer vision tasks. The table below shows task support and the operational modes (Inference, Validation, Training, and Export) enabled for each:</p>
+<table>
+<thead>
+<tr>
+<th>Model Type</th>
+<th>Task</th>
+<th>Inference</th>
+<th>Validation</th>
+<th>Training</th>
+<th>Export</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/yolov12/ultralytics/cfg/models/12/yolo12.yaml">YOLO12</a></td>
+<td><a href="../../tasks/detect/">Detection</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/yolov12/ultralytics/cfg/models/12/yolo12-seg.yaml">YOLO12-seg</a></td>
+<td><a href="../../tasks/segment/">Segmentation</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/yolov12/ultralytics/cfg/models/12/yolo12-pose.yaml">YOLO12-pose</a></td>
+<td><a href="../../tasks/pose/">Pose</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/yolov12/ultralytics/cfg/models/12/yolo12-cls.yaml">YOLO12-cls</a></td>
+<td><a href="../../tasks/classify/">Classification</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/ultralytics/blob/yolov12/ultralytics/cfg/models/12/yolo12-obb.yaml">YOLO12-obb</a></td>
+<td><a href="../../tasks/obb/">OBB</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<h2 id="performance-metrics">Performance Metrics</h2>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script defer="" src="../../javascript/benchmark.js"></script>
+<canvas active-models='["YOLO11"]' height="400" id="modelComparisonChart" width="1024"></canvas>
+<p>YOLO12 demonstrates significant <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a> improvements across all model scales, with some trade-offs in speed compared to the <em>fastest</em> prior YOLO models. Below are quantitative results for <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> on the COCO validation dataset:</p>
+<h3 id="detection-performance-coco-val2017">Detection Performance (COCO val2017)</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>size<br/><sup>(pixels)</sup></th>
+<th>mAP<sup>val<br/>50-95</sup></th>
+<th>Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
+<th>Speed<br/><sup>T4 TensorRT<br/>(ms)</sup></th>
+<th>params<br/><sup>(M)</sup></th>
+<th>FLOPs<br/><sup>(B)</sup></th>
+<th>Comparison<br/><sup>(mAP/Speed)</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo12n.pt">YOLO12n</a></td>
+<td>640</td>
+<td>40.6</td>
+<td>-</td>
+<td>1.64</td>
+<td>2.6</td>
+<td>6.5</td>
+<td>+2.1% / -9% (vs. YOLOv10n)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo12s.pt">YOLO12s</a></td>
+<td>640</td>
+<td>48.0</td>
+<td>-</td>
+<td>2.61</td>
+<td>9.3</td>
+<td>21.4</td>
+<td>+0.1% / +42% (vs. RT-DETRv2-R18)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo12m.pt">YOLO12m</a></td>
+<td>640</td>
+<td>52.5</td>
+<td>-</td>
+<td>4.86</td>
+<td>20.2</td>
+<td>67.5</td>
+<td>+1.0% / +3% (vs. YOLO11m)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo12l.pt">YOLO12l</a></td>
+<td>640</td>
+<td>53.7</td>
+<td>-</td>
+<td>6.77</td>
+<td>26.4</td>
+<td>88.9</td>
+<td>+0.4% / -8% (vs. YOLO11l)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo12x.pt">YOLO12x</a></td>
+<td>640</td>
+<td>55.2</td>
+<td>-</td>
+<td>11.79</td>
+<td>59.1</td>
+<td>199.0</td>
+<td>+0.6% / -4% (vs. YOLO11x)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Inference speed measured on an NVIDIA T4 GPU with TensorRT FP16 <a href="https://www.ultralytics.com/glossary/precision">precision</a>.</li>
+<li>Comparisons show the relative improvement in mAP and the percentage change in speed (positive indicates faster; negative indicates slower). Comparisons are made against published results for YOLOv10, YOLO11, and RT-DETR where available.</li>
+</ul>
 <h2 id="usage-examples">Usage Examples</h2>
-<p>As of the time of writing, Ultralytics does not currently support YOLOv4 models. Therefore, any users interested in using YOLOv4 will need to refer directly to the YOLOv4 GitHub repository for installation and usage instructions.</p>
-<p>Here is a brief overview of the typical steps you might take to use YOLOv4:</p>
-<ol>
-<li>
-<p>Visit the YOLOv4 GitHub repository: <a href="https://github.com/AlexeyAB/darknet">https://github.com/AlexeyAB/darknet</a>.</p>
-</li>
-<li>
-<p>Follow the instructions provided in the README file for installation. This typically involves cloning the repository, installing necessary dependencies, and setting up any necessary environment variables.</p>
-</li>
-<li>
-<p>Once installation is complete, you can train and use the model as per the usage instructions provided in the repository. This usually involves preparing your dataset, configuring the model parameters, training the model, and then using the trained model to perform object detection.</p>
-</li>
-</ol>
-<p>Please note that the specific steps may vary depending on your specific use case and the current state of the YOLOv4 repository. Therefore, it is strongly recommended to refer directly to the instructions provided in the YOLOv4 GitHub repository.</p>
-<p>We regret any inconvenience this may cause and will strive to update this document with usage examples for Ultralytics once support for YOLOv4 is implemented.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>YOLOv4 is a powerful and efficient object detection model that strikes a balance between speed and accuracy. Its use of unique features and bag of freebies techniques during training allows it to perform excellently in real-time object detection tasks. YOLOv4 can be trained and used by anyone with a conventional GPU, making it accessible and practical for a wide range of applications.</p>
-<h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
-<p>We would like to acknowledge the YOLOv4 authors for their significant contributions in the field of real-time object detection:</p>
-<div class="admonition quote">
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">BibTeX</label></div>
+<p>This section provides examples for training and inference with YOLO12. For more comprehensive documentation on these and other modes (including <a href="../../modes/val/">Validation</a> and <a href="../../modes/export/">Export</a>), consult the dedicated <a href="../../modes/predict/">Predict</a> and <a href="../../modes/train/">Train</a> pages.</p>
+<p>The examples below focus on YOLO12 <a href="../../tasks/detect/">Detect</a> models (for object detection). For other supported tasks (segmentation, classification, oriented object detection, and pose estimation), refer to the respective task-specific documentation: <a href="../../tasks/segment/">Segment</a>, <a href="../../tasks/classify/">Classify</a>, <a href="../../tasks/obb/">OBB</a>, and <a href="../../tasks/pose/">Pose</a>.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">bochkovskiy2020yolov4</span><span class="p">,</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{YOLOv4: Optimal Speed and Accuracy of Object Detection}</span><span class="p">,</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Alexey Bochkovskiy and Chien-Yao Wang and Hong-Yuan Mark Liao}</span><span class="p">,</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2020}</span><span class="p">,</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{2004.10934}</span><span class="p">,</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="p">}</span>
+<p>Pretrained <code>*.pt</code> models (using <a href="https://pytorch.org/">PyTorch</a>) and configuration <code>*.yaml</code> files can be passed to the <code>YOLO()</code> class to create a model instance in Python:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a COCO-pretrained YOLO12n model</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo12n.pt"</span><span class="p">)</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Run inference with the YOLO12n model on the 'bus.jpg' image</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/bus.jpg"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Command Line Interface (CLI) commands are also available:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Load a COCO-pretrained YOLO12n model and train on the COCO8 example dataset for 100 epochs</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo12n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Load a COCO-pretrained YOLO12n model and run inference on the 'bus.jpg' image</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo12n.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/bus.jpg
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</div>
+<h2 id="key-improvements">Key Improvements</h2>
+<ol>
+<li>
+<p><strong>Enhanced <a href="https://www.ultralytics.com/glossary/feature-extraction">Feature Extraction</a></strong>:</p>
+<ul>
+<li><strong>Area Attention</strong>: Efficiently handles large <a href="https://www.ultralytics.com/glossary/receptive-field">receptive fields</a>, reducing computational cost.</li>
+<li><strong>Optimized Balance</strong>: Improved balance between attention and feed-forward network computations.</li>
+<li><strong>R-ELAN</strong>: Enhances feature aggregation using the R-ELAN architecture.</li>
+</ul>
+</li>
+<li>
+<p><strong>Optimization Innovations</strong>:</p>
+<ul>
+<li><strong>Residual Connections</strong>: Introduces residual connections with scaling to stabilize training, especially in larger models.</li>
+<li><strong>Refined Feature Integration</strong>: Implements an improved method for feature integration within R-ELAN.</li>
+<li><strong>FlashAttention</strong>: Incorporates FlashAttention to reduce memory access overhead.</li>
+</ul>
+</li>
+<li>
+<p><strong>Architectural Efficiency</strong>:</p>
+<ul>
+<li><strong>Reduced Parameters</strong>: Achieves a lower parameter count while maintaining or improving accuracy compared to many previous models.</li>
+<li><strong>Streamlined Attention</strong>: Uses a simplified attention implementation, avoiding positional encoding.</li>
+<li><strong>Optimized MLP Ratios</strong>: Adjusts MLP ratios to more effectively allocate computational resources.</li>
+</ul>
+</li>
+</ol>
+<h2 id="requirements">Requirements</h2>
+<p>The Ultralytics YOLO12 implementation, by default, <em>does not require</em> FlashAttention. However, FlashAttention can be optionally compiled and used with YOLO12. To compile FlashAttention, one of the following NVIDIA GPUs is needed:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Turing_(microarchitecture)">Turing GPUs</a> (e.g., T4, Quadro RTX series)</li>
+<li><a href="https://en.wikipedia.org/wiki/Ampere_(microarchitecture)">Ampere GPUs</a> (e.g., RTX30 series, A30/40/100)</li>
+<li><a href="https://www.nvidia.com/en-us/geforce/ada-lovelace-architecture/">Ada Lovelace GPUs</a> (e.g., RTX40 series)</li>
+<li><a href="https://www.nvidia.com/en-us/data-center/technologies/hopper-architecture/">Hopper GPUs</a> (e.g., H100/H200)</li>
+</ul>
+<h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
+<p>If you use YOLO12 in your research, please cite the original work by <a href="https://www.buffalo.edu/">University at Buffalo</a> and the <a href="https://english.ucas.ac.cn/">University of Chinese Academy of Sciences</a>:</p>
+<div class="admonition quote">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">tian2025yolov12</span><span class="p">,</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{YOLOv12: Attention-Centric Real-Time Object Detectors}</span><span class="p">,</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Tian, Yunjie and Ye, Qixiang and Doermann, David}</span><span class="p">,</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="na">journal</span><span class="p">=</span><span class="s">{arXiv preprint arXiv:2502.12524}</span><span class="p">,</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="p">}</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="nc">@software</span><span class="p">{</span><span class="nl">yolo12</span><span class="p">,</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Tian, Yunjie and Ye, Qixiang and Doermann, David}</span><span class="p">,</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{YOLOv12: Attention-Centric Real-Time Object Detectors}</span><span class="p">,</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span><span class="p">,</span>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/sunsmarterjie/yolov12}</span><span class="p">,</span>
+<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">  </span><span class="na">license</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{AGPL-3.0}</span>
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
 </input></div>
 </div>
-<p>The original YOLOv4 paper can be found on <a href="https://arxiv.org/abs/2004.10934">arXiv</a>. The authors have made their work publicly available, and the codebase can be accessed on <a href="https://github.com/AlexeyAB/darknet">GitHub</a>. We appreciate their efforts in advancing the field and making their work accessible to the broader community.</p>
 <h2 id="faq">FAQ</h2>
-<h3 id="what-is-yolov4-and-why-should-i-use-it-for-object-detection">What is YOLOv4 and why should I use it for <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a>?</h3>
-<p>YOLOv4, which stands for "You Only Look Once version 4," is a state-of-the-art real-time object detection model developed by Alexey Bochkovskiy in 2020. It achieves an optimal balance between speed and <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>, making it highly suitable for real-time applications. YOLOv4's architecture incorporates several innovative features like Weighted-Residual-Connections (WRC), Cross-Stage-Partial-connections (CSP), and Self-adversarial-training (SAT), among others, to achieve state-of-the-art results. If you're looking for a high-performance model that operates efficiently on conventional GPUs, YOLOv4 is an excellent choice.</p>
-<h3 id="how-does-the-architecture-of-yolov4-enhance-its-performance">How does the architecture of YOLOv4 enhance its performance?</h3>
-<p>The architecture of YOLOv4 includes several key components: the <a href="https://www.ultralytics.com/glossary/backbone">backbone</a>, the neck, and the head. The backbone, which can be models like VGG, ResNet, or CSPDarknet53, is pre-trained to predict classes and bounding boxes. The neck, utilizing PANet, connects <a href="https://www.ultralytics.com/glossary/feature-maps">feature maps</a> from different stages for comprehensive data extraction. Finally, the head, which uses configurations from YOLOv3, makes the final object detections. YOLOv4 also employs "bag of freebies" techniques like mosaic data augmentation and DropBlock regularization, further optimizing its speed and accuracy.</p>
-<h3 id="what-are-bag-of-freebies-in-the-context-of-yolov4">What are "bag of freebies" in the context of YOLOv4?</h3>
-<p>"Bag of freebies" refers to methods that improve the training accuracy of YOLOv4 without increasing the cost of inference. These techniques include various forms of data augmentation like photometric distortions (adjusting brightness, contrast, etc.) and geometric distortions (scaling, cropping, flipping, rotating). By increasing the variability of the input images, these augmentations help YOLOv4 generalize better to different types of images, thereby improving its robustness and accuracy without compromising its real-time performance.</p>
-<h3 id="why-is-yolov4-considered-suitable-for-real-time-object-detection-on-conventional-gpus">Why is YOLOv4 considered suitable for real-time object detection on conventional GPUs?</h3>
-<p>YOLOv4 is designed to optimize both speed and accuracy, making it ideal for real-time object detection tasks that require quick and reliable performance. It operates efficiently on conventional GPUs, needing only one for both training and inference. This makes it accessible and practical for various applications ranging from <a href="https://www.ultralytics.com/glossary/recommendation-system">recommendation systems</a> to standalone process management, thereby reducing the need for extensive hardware setups and making it a cost-effective solution for real-time object detection.</p>
-<h3 id="how-can-i-get-started-with-yolov4-if-ultralytics-does-not-currently-support-it">How can I get started with YOLOv4 if Ultralytics does not currently support it?</h3>
-<p>To get started with YOLOv4, you should visit the official <a href="https://github.com/AlexeyAB/darknet">YOLOv4 GitHub repository</a>. Follow the installation instructions provided in the README file, which typically include cloning the repository, installing dependencies, and setting up environment variables. Once installed, you can train the model by preparing your dataset, configuring the model parameters, and following the usage instructions provided. Since Ultralytics does not currently support YOLOv4, it is recommended to refer directly to the YOLOv4 GitHub for the most up-to-date and detailed guidance.</p>
+<h3 id="how-does-yolo12-achieve-real-time-object-detection-while-maintaining-high-accuracy">How does YOLO12 achieve real-time object detection while maintaining high accuracy?</h3>
+<p>YOLO12 incorporates several key innovations to balance speed and accuracy. The Area <a href="https://www.ultralytics.com/glossary/attention-mechanism">Attention mechanism</a> efficiently processes large receptive fields, reducing computational cost compared to standard self-attention. The Residual Efficient Layer Aggregation Networks (R-ELAN) improve feature aggregation, addressing optimization challenges in larger attention-centric models. Optimized Attention Architecture, including the use of FlashAttention and removal of positional encoding, further enhances efficiency. These features allow YOLO12 to achieve state-of-the-art accuracy while maintaining the real-time inference speed crucial for many applications.</p>
+<h3 id="what-computer-vision-tasks-does-yolo12-support">What <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> tasks does YOLO12 support?</h3>
+<p>YOLO12 is a versatile model that supports a wide range of core computer vision tasks. It excels in object <a href="../../tasks/detect/">detection</a>, instance <a href="../../tasks/segment/">segmentation</a>, image <a href="../../tasks/classify/">classification</a>, <a href="../../tasks/pose/">pose estimation</a>, and oriented object detection (OBB) (<a href="../../tasks/obb/">see details</a>). This comprehensive task support makes YOLO12 a powerful tool for diverse applications, from <a href="https://www.ultralytics.com/glossary/robotics">robotics</a> and autonomous driving to medical imaging and industrial inspection. Each of these tasks can be performed in Inference, Validation, Training, and Export modes.</p>
+<h3 id="how-does-yolo12-compare-to-other-yolo-models-and-competitors-like-rt-detr">How does YOLO12 compare to other YOLO models and competitors like RT-DETR?</h3>
+<p>YOLO12 demonstrates significant accuracy improvements across all model scales compared to prior YOLO models like YOLOv10 and YOLOv11, with some trade-offs in speed compared to the <em>fastest</em> prior models. For example, YOLO12n achieves a +2.1% mAP improvement over YOLOv10n and +1.2% over YOLOv11n on the COCO val2017 dataset. Compared to models like <a href="https://docs.ultralytics.com/compare/yolov8-vs-rtdetr/">RT-DETR</a>, YOLO12s offers a +1.5% mAP improvement and a substantial +42% speed increase. These metrics highlight YOLO12's strong balance between accuracy and efficiency. See the <a href="#performance-metrics">performance metrics section</a> for detailed comparisons.</p>
+<h3 id="what-are-the-hardware-requirements-for-running-yolo12-especially-for-using-flashattention">What are the hardware requirements for running YOLO12, especially for using FlashAttention?</h3>
+<p>By default, the Ultralytics YOLO12 implementation does <em>not</em> require FlashAttention. However, FlashAttention can be optionally compiled and used with YOLO12 to minimize memory access overhead. To compile FlashAttention, one of the following NVIDIA GPUs is needed: Turing GPUs (e.g., T4, Quadro RTX series), Ampere GPUs (e.g., RTX30 series, A30/40/100), Ada Lovelace GPUs (e.g., RTX40 series), or Hopper GPUs (e.g., H100/H200). This flexibility allows users to leverage FlashAttention's benefits when hardware resources permit.</p>
+<h3 id="where-can-i-find-usage-examples-and-more-detailed-documentation-for-yolo12">Where can I find usage examples and more detailed documentation for YOLO12?</h3>
+<p>This page provides basic <a href="#usage-examples">usage examples</a> for training and inference. For comprehensive documentation on these and other modes, including <a href="../../modes/val/">Validation</a> and <a href="../../modes/export/">Export</a>, consult the dedicated <a href="../../modes/predict/">Predict</a> and <a href="../../modes/train/">Train</a> pages. For task-specific information (segmentation, classification, oriented object detection, and pose estimation), refer to the respective documentation: <a href="../../tasks/segment/">Segment</a>, <a href="../../tasks/classify/">Classify</a>, <a href="../../tasks/obb/">OBB</a>, and <a href="../../tasks/pose/">Pose</a>. These resources provide in-depth guidance for effectively utilizing YOLO12 in various scenarios.</p>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on November 12, 2023">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="date-item" title="This page was first created on February 20, 2025">
+<span class="hover-item">📅</span> Created 0 days ago
     </span>
 <span class="date-item" title="This page was last updated on February 20, 2025">
 <span class="hover-item">✏️</span> Updated 0 days ago
@@ -728,23 +963,11 @@
 <a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (1 change)">
 <img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
 </a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (10 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/MatthewNoyce" title="MatthewNoyce (1 change)">
-<img alt="MatthewNoyce" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/131261051?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
-<img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/sergiuwaxmann" title="sergiuwaxmann (1 change)">
-<img alt="sergiuwaxmann" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/47978446?v=4&amp;s=96"/>
-</a>
 </div></div><div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/models/yolov4', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/models/yolo12', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/models/yolov4', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/models/yolo12', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
@@ -763,7 +986,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: YOLOv3" class="md-footer__link md-footer__link--prev" href="../yolov3/">
+<a aria-label="Previous: YOLO11 🚀 NEW" class="md-footer__link md-footer__link--prev" href="../yolo11/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -772,17 +995,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                YOLOv3
+                YOLO11 🚀 NEW
               </div>
 </div>
 </a>
-<a aria-label="Next: YOLOv5" class="md-footer__link md-footer__link--next" href="../yolov5/">
+<a aria-label="Next: SAM (Segment Anything Model)" class="md-footer__link md-footer__link--next" href="../sam/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                YOLOv5
+                SAM (Segment Anything Model)
               </div>
 </div>
 <div class="md-footer__button md-icon">
