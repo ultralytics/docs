@@ -8,7 +8,7 @@ keywords: EfficientDet, YOLOv5, object detection, comparison, model comparison, 
 
 Choosing the right object detection model is crucial for computer vision projects. This page offers a technical comparison between two popular choices: EfficientDet and Ultralytics YOLOv5. We'll analyze their architectures, performance, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv5"]'></canvas>

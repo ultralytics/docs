@@ -8,7 +8,7 @@ keywords: EfficientDet, YOLOv7, object detection, model comparison, EfficientDet
 
 Choosing the right object detection model is crucial for computer vision projects. This page provides a detailed technical comparison between EfficientDet and YOLOv7, two popular models known for their efficiency and accuracy. We will analyze their architectures, performance metrics, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv7"]'></canvas>

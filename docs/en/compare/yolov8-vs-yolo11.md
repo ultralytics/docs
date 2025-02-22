@@ -8,7 +8,7 @@ keywords: YOLOv8, YOLO11, object detection, computer vision, model comparison, U
 
 When choosing a computer vision model for object detection, understanding the nuances between different architectures is crucial. Ultralytics offers a suite of YOLO (You Only Look Once) models, and this page provides a detailed technical comparison between two prominent versions: YOLOv8 and the latest Ultralytics YOLO11. We'll delve into their architectural differences, performance metrics, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLO11"]'></canvas>

@@ -8,7 +8,7 @@ keywords: YOLOv8, DAMO-YOLO, object detection models, YOLO comparison, computer 
 
 Choosing the right object detection model is crucial for computer vision projects, as different models offer varying strengths in terms of accuracy, speed, and resource efficiency. This page provides a detailed technical comparison between Ultralytics YOLOv8 and DAMO-YOLO, two popular models in the field. We will analyze their architectures, performance metrics, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "DAMO-YOLO"]'></canvas>

@@ -8,7 +8,7 @@ keywords: RTDETRv2,YOLO11,object detection,Ultralytics,Vision Transformer,YOLO m
 
 Choosing the right object detection model is crucial for computer vision projects. Ultralytics offers a range of models, including the efficient YOLO series and the high-accuracy RT-DETR series. This page provides a detailed technical comparison between **RTDETRv2** and **YOLO11**, two state-of-the-art models for object detection, to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLO11"]'></canvas>

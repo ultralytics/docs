@@ -6,7 +6,7 @@ keywords: YOLOX, YOLO11, object detection, YOLO models, Ultralytics, model compa
 
 # YOLOX vs YOLO11: A Detailed Comparison for Object Detection
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLO11"]'></canvas>

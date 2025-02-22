@@ -8,7 +8,7 @@ keywords: PP-YOLOE+, YOLO11, object detection, model comparison, AI benchmarks, 
 
 When choosing a computer vision model for object detection, developers face a range of options, each with unique strengths. This page provides a detailed technical comparison between two popular models: PP-YOLOE+ and Ultralytics YOLO11, highlighting their architectural differences, performance benchmarks, and ideal applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLO11"]'></canvas>

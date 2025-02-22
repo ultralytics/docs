@@ -10,7 +10,7 @@ When selecting an object detection model, understanding the nuances between diff
 
 Before diving into the specifics, let's visualize a performance overview:
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "PP-YOLOE+"]'></canvas>

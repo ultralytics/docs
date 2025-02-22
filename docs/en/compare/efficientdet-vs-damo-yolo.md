@@ -8,7 +8,7 @@ keywords: EfficientDet, DAMO-YOLO, object detection, model comparison, computer 
 
 EfficientDet and DAMO-YOLO are both state-of-the-art object detection models designed for high accuracy and efficiency in computer vision tasks. While both models achieve impressive performance, they differ significantly in their architectural design, performance characteristics, and ideal applications. This page provides a detailed technical comparison to help users understand their key differences and choose the right model for their needs.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "DAMO-YOLO"]'></canvas>

@@ -6,7 +6,7 @@ keywords: YOLO11, YOLOv5, object detection, computer vision, YOLO models, real-t
 
 # YOLO11 vs YOLOv5: A Detailed Comparison
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv5"]'></canvas>

@@ -8,7 +8,7 @@ keywords: YOLOv6-3.0, YOLOv8, object detection comparison, Ultralytics, YOLO mod
 
 Choosing the right object detection model is crucial for computer vision projects. Ultralytics offers a range of YOLO models, and understanding the nuances between them is key to optimal selection. This page provides a detailed technical comparison between [YOLOv6-3.0](https://github.com/meituan/YOLOv6) and [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics), two popular models for object detection tasks. We will explore their architectures, performance metrics, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOv8"]'></canvas>

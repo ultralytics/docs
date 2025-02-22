@@ -8,7 +8,7 @@ keywords: YOLOv5, YOLOv6-3.0, object detection, model comparison, computer visio
 
 Choosing the right object detection model is crucial for computer vision projects. Ultralytics YOLO models are renowned for their speed and accuracy. This page offers a technical comparison between two popular models: YOLOv5 and YOLOv6-3.0, focusing on their object detection capabilities. We'll analyze their architectures, performance metrics, training methodologies, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv6-3.0"]'></canvas>

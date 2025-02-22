@@ -8,7 +8,7 @@ keywords: YOLOv9, YOLOX, object detection, model comparison, computer vision, re
 
 Comparing state-of-the-art object detection models is crucial for selecting the right tool for your computer vision needs. This page provides a detailed technical comparison between YOLOv9 and YOLOX, two prominent models in the YOLO family, focusing on their architecture, performance, and ideal applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOX"]'></canvas>

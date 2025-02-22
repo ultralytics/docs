@@ -6,7 +6,7 @@ keywords: YOLO11, DAMO-YOLO, object detection, model comparison, computer vision
 
 # YOLO11 vs. DAMO-YOLO: A Technical Comparison for Object Detection
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "DAMO-YOLO"]'></canvas>

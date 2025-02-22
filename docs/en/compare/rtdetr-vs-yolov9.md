@@ -8,7 +8,7 @@ keywords: RTDETRv2, YOLOv9, object detection, model comparison, Ultralytics, dee
 
 When selecting a computer vision model for object detection, understanding the nuances between different architectures is crucial. This page provides a detailed technical comparison between two state-of-the-art models: [RTDETRv2](https://docs.ultralytics.com/models/rtdetr/) and [YOLOv9](https://docs.ultralytics.com/models/yolov9/), both available through Ultralytics. We will delve into their architectural differences, performance metrics, and suitable use cases to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv9"]'></canvas>

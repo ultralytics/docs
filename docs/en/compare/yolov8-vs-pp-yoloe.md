@@ -8,7 +8,7 @@ keywords: YOLOv8, PP-YOLOE+, object detection, model comparison, YOLO, Ultralyti
 
 Choosing the right model is crucial for successful object detection in computer vision applications. Ultralytics YOLOv8 and PP-YOLOE+ are both state-of-the-art models known for their high performance, but they have distinct characteristics that make them suitable for different use cases. This page provides a detailed technical comparison to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "PP-YOLOE+"]'></canvas>

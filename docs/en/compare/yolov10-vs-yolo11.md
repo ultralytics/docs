@@ -10,7 +10,7 @@ Ultralytics YOLOv10 and YOLO11 represent the cutting edge in real-time object de
 
 Both models are successors in the YOLO (You Only Look Once) series, renowned for their speed and accuracy. However, they diverge in architectural focuses and performance optimizations, making them suitable for distinct use cases. YOLO11, announced at YOLO Vision 2024, builds upon the YOLOv8 architecture, emphasizing enhanced accuracy and efficiency with a reduced parameter count. YOLOv10, on the other hand, prioritizes achieving even greater speed and efficiency, pushing the boundaries of real-time performance, and is the latest model in the YOLO family.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLO11"]'></canvas>

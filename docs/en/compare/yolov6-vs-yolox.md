@@ -8,7 +8,7 @@ keywords: YOLOv6-3.0,YOLOX,object detection,model comparison,YOLO models,compute
 
 Choosing the right object detection model is crucial for computer vision projects. Ultralytics offers a range of YOLO models, and understanding their nuances is key to optimal selection. This page provides a technical comparison between YOLOv6-3.0 and YOLOX, two popular models known for their efficiency and accuracy in object detection tasks. We will delve into their architectural differences, performance metrics, training methodologies, and suitable use cases to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOX"]'></canvas>
