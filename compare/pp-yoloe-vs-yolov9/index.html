@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore a detailed comparison of PP-YOLOE+ and YOLOv9 object detection models, covering accuracy, speed, architecture, and ideal applications. Make informed choices." name="description"/>
+<meta content="Explore the differences between PP-YOLOE+ and YOLOv9 with detailed architecture, performance benchmarks, and use case analysis for object detection." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov9/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
-<title>PP-YOLOE+ vs YOLOv9: A Detailed Comparison - Ultralytics YOLO Docs</title>
+<title>PP-YOLOE+ vs YOLOv9: A Technical Comparison for Object Detection - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,13 +20,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="PP-YOLOE+ vs YOLOv9: A Detailed Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="PP-YOLOE+, YOLOv9, object detection, model comparison, computer vision, deep learning, accuracy, speed, architecture, performance, real-time detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov9" property="og:url"/><meta content="PP-YOLOE+ vs YOLOv9: A Detailed Comparison" property="og:title"/><meta content="Explore a detailed comparison of PP-YOLOE+ and YOLOv9 object detection models, covering accuracy, speed, architecture, and ideal applications. Make informed choices." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov9" property="twitter:url"/><meta content="PP-YOLOE+ vs YOLOv9: A Detailed Comparison" property="twitter:title"/><meta content="Explore a detailed comparison of PP-YOLOE+ and YOLOv9 object detection models, covering accuracy, speed, architecture, and ideal applications. Make informed choices." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "PP-YOLOE+ vs YOLOv9: A Detailed Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 12:37:48 +0000", "dateModified": "2025-01-13 12:37:48 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore a detailed comparison of PP-YOLOE+ and YOLOv9 object detection models, covering accuracy, speed, architecture, and ideal applications. Make informed choices."}</script></head>
+<meta content="PP-YOLOE+ vs YOLOv9: A Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="PP-YOLOE+, YOLOv9, object detection, model comparison, computer vision, anchor-free detector, programmable gradient information, AI models, benchmarking" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov9" property="og:url"/><meta content="PP-YOLOE+ vs YOLOv9: A Technical Comparison for Object Detection" property="og:title"/><meta content="Explore the differences between PP-YOLOE+ and YOLOv9 with detailed architecture, performance benchmarks, and use case analysis for object detection." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov9" property="twitter:url"/><meta content="PP-YOLOE+ vs YOLOv9: A Technical Comparison for Object Detection" property="twitter:title"/><meta content="Explore the differences between PP-YOLOE+ and YOLOv9 with detailed architecture, performance benchmarks, and use case analysis for object detection." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "PP-YOLOE+ vs YOLOv9: A Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 15:28:36 +0000", "dateModified": "2025-01-13 15:28:36 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore the differences between PP-YOLOE+ and YOLOv9 with detailed architecture, performance benchmarks, and use case analysis for object detection."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#pp-yoloe-vs-yolov9-a-detailed-comparison">
+<a class="md-skip" href="#pp-yoloe-vs-yolov9-a-technical-comparison-for-object-detection">
           Skip to content
         </a>
 </div>
@@ -73,7 +73,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              PP-YOLOE+ vs YOLOv9: A Detailed Comparison
+              PP-YOLOE+ vs YOLOv9: A Technical Comparison for Object Detection
           </span>
 </div>
 </div>
@@ -306,30 +306,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pp-yoloe">
+<a class="md-nav__link" href="#yolov9-programmable-gradient-information">
 <span class="md-ellipsis">
-      PP-YOLOE+
+      YOLOv9: Programmable Gradient Information
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#yolov9">
+<a class="md-nav__link" href="#pp-yoloe-enhanced-anchor-free-detector">
 <span class="md-ellipsis">
-      YOLOv9
+      PP-YOLOE+: Enhanced Anchor-Free Detector
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#model-comparison-table">
+<a class="md-nav__link" href="#other-models">
 <span class="md-ellipsis">
-      Model Comparison Table
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
-<span class="md-ellipsis">
-      Conclusion
+      Other Models
     </span>
 </a>
 </li>
@@ -343,42 +336,11 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/pp-yoloe-vs-yolov9.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="pp-yoloe-vs-yolov9-a-detailed-comparison">PP-YOLOE+ vs YOLOv9: A Detailed Comparison</h1>
-<p>When choosing a computer vision model for object detection, developers often face the dilemma of balancing accuracy, speed, and model size. This page provides a detailed technical comparison between two state-of-the-art models: PP-YOLOE+ and YOLOv9, both renowned for their efficiency and effectiveness in object detection tasks. We will delve into their architectural nuances, performance benchmarks, and ideal applications to help you make an informed decision.</p>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<h1 id="pp-yoloe-vs-yolov9-a-technical-comparison-for-object-detection">PP-YOLOE+ vs YOLOv9: A Technical Comparison for Object Detection</h1>
+<p>Selecting the optimal object detection model is crucial for balancing accuracy and efficiency in computer vision applications. This page offers a detailed technical comparison between <strong>PP-YOLOE+</strong> and <strong>YOLOv9</strong>, two cutting-edge models known for their performance in object detection. We will explore their architectural designs, performance benchmarks, and appropriate use cases to assist you in making an informed decision.</p>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["PP-YOLOE+", "YOLOv9"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<h2 id="pp-yoloe">PP-YOLOE+</h2>
-<p>PP-YOLOE+, developed by PaddlePaddle, stands out as an enhanced version of the PP-YOLO series, focusing on improving both accuracy and efficiency without increasing inference cost. It employs an anchor-free approach, simplifying the model architecture and training process. PP-YOLOE+ incorporates several architectural improvements, such as a better backbone, neck, and head design, alongside advanced training strategies like batch normalization and label smoothing to achieve state-of-the-art performance.</p>
-<p><strong>Strengths:</strong></p>
-<ul>
-<li><strong>High Accuracy:</strong> PP-YOLOE+ achieves impressive mAP scores, making it suitable for applications where detection accuracy is paramount.</li>
-<li><strong>Efficient Inference:</strong> While prioritizing accuracy, it maintains a commendable inference speed, making it viable for real-time applications with sufficient computational resources.</li>
-<li><strong>Robust Training:</strong> Advanced training techniques contribute to a more stable and generalizable model.</li>
-</ul>
-<p><strong>Weaknesses:</strong></p>
-<ul>
-<li><strong>Complexity:</strong> Despite being anchor-free, the intricate architecture and training optimizations can make it more complex to implement and fine-tune compared to simpler models.</li>
-<li><strong>Resource Intensive:</strong> Higher accuracy often comes with increased computational demands during both training and inference.</li>
-</ul>
-<p>PP-YOLOE+ is particularly well-suited for industrial applications requiring high precision object detection, such as quality control in manufacturing, advanced robotics, and detailed scene understanding in <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> systems.</p>
-<p><a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection">Learn more about PP-YOLOE+</a></p>
-<h2 id="yolov9">YOLOv9</h2>
-<p>YOLOv9, the latest iteration in the You Only Look Once (YOLO) series, introduces Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN) to achieve superior performance with fewer parameters. YOLOv9 is designed to address information loss during deep network propagation, enhancing the model's ability to learn and detect objects accurately and efficiently. Its architecture focuses on maintaining high real-time performance while pushing the boundaries of object detection accuracy.</p>
-<p><strong>Strengths:</strong></p>
-<ul>
-<li><strong>Exceptional Speed:</strong> YOLOv9 is engineered for real-time object detection, offering rapid inference speeds crucial for time-sensitive applications.</li>
-<li><strong>Parameter Efficiency:</strong> With GELAN and PGI, YOLOv9 achieves high accuracy with a relatively smaller number of parameters, making it efficient in terms of computational resources and model size.</li>
-<li><strong>Cutting-Edge Architecture:</strong> Innovations like PGI and GELAN represent significant advancements in object detection architecture, potentially leading to better performance on complex datasets.</li>
-</ul>
-<p><strong>Weaknesses:</strong></p>
-<ul>
-<li><strong>Newer Model:</strong> As a more recent model, YOLOv9 may have a smaller community and fewer readily available resources compared to more established models.</li>
-<li><strong>Computational Cost:</strong> While parameter-efficient, achieving top-tier accuracy still necessitates considerable computational power, especially for larger model variants.</li>
-</ul>
-<p>YOLOv9 excels in scenarios demanding real-time object detection with high accuracy, such as autonomous driving, real-time security systems, and applications on <a href="https://www.ultralytics.com/glossary/edge-ai">edge AI</a> devices. Its efficiency also makes it a strong candidate for mobile and embedded systems where computational resources are limited. You can explore its capabilities further in the <a href="https://docs.ultralytics.com/models/yolov9/">Ultralytics YOLOv9 Docs</a>.</p>
-<p><a class="md-button" href="https://docs.ultralytics.com/models/yolov9/">Learn more about YOLOv9</a></p>
-<h2 id="model-comparison-table">Model Comparison Table</h2>
 <table>
 <thead>
 <tr>
@@ -493,9 +455,53 @@
 </tr>
 </tbody>
 </table>
-<h2 id="conclusion">Conclusion</h2>
-<p>Both PP-YOLOE+ and YOLOv9 represent significant advancements in object detection technology, each with unique strengths. PP-YOLOE+ excels in achieving high accuracy, making it suitable for precision-demanding tasks. YOLOv9, on the other hand, prioritizes real-time performance and parameter efficiency, making it ideal for applications requiring speed and resource-constrained environments.</p>
-<p>For users within the Ultralytics ecosystem, it's also worth considering <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a> and the upcoming <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a>, which offer a balance of performance and ease of use, backed by extensive documentation and community support. The choice between these models will ultimately depend on the specific requirements of your project, balancing factors like accuracy needs, speed demands, and computational resources available.</p>
+<h2 id="yolov9-programmable-gradient-information">YOLOv9: Programmable Gradient Information</h2>
+<p><strong>YOLOv9</strong>, introduced in February 2024, is authored by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan. This model is part of the YOLO series and is designed to address the issue of information loss in deep networks through innovative techniques.</p>
+<ul>
+<li><strong>Architecture</strong>: YOLOv9 introduces Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN). PGI helps the network learn what it is intended to learn by preserving complete information for gradient computation. GELAN is an efficient network architecture that optimizes parameter utilization and computational efficiency.</li>
+<li><strong>Performance</strong>: YOLOv9 achieves state-of-the-art performance in real-time object detection. As indicated in the comparison table, YOLOv9 models like <code>YOLOv9c</code> and <code>YOLOv9e</code> demonstrate high mAP scores with efficient parameter usage and FLOPs. For instance, YOLOv9c achieves comparable accuracy to YOLOv7 AF with significantly fewer parameters and computations, as detailed in the YOLOv9 documentation.</li>
+<li><strong>Use Cases</strong>: YOLOv9's efficiency and accuracy make it suitable for a wide range of applications, including real-time object detection scenarios, edge deployments, and applications where computational resources are limited but high accuracy is required. Its advancements in efficiency could be particularly beneficial in <a href="https://www.ultralytics.com/glossary/robotics">robotic systems</a> and <a href="https://www.ultralytics.com/blog/ai-in-aviation-a-runway-to-smarter-airports">AI in aviation</a>.</li>
+</ul>
+<p><a class="md-button" href="https://docs.ultralytics.com/models/yolov9/">Learn more about YOLOv9</a></p>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li>High accuracy and efficiency due to PGI and GELAN.</li>
+<li>Reduced parameters and computational needs compared to previous models with comparable performance.</li>
+<li>Suitable for real-time applications and edge devices.</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+<li>Training YOLOv9 models may require more resources and time compared to some other models like YOLOv8, as noted in the YOLOv9 documentation.</li>
+<li>Relatively new architecture, community support and tooling may still be developing compared to more established models.</li>
+</ul>
+<p><strong>Relevant Links:</strong> <a href="https://arxiv.org/abs/2402.13616">YOLOv9 Arxiv Paper</a>, <a href="https://github.com/WongKinYiu/yolov9">YOLOv9 GitHub Repository</a></p>
+<h2 id="pp-yoloe-enhanced-anchor-free-detector">PP-YOLOE+: Enhanced Anchor-Free Detector</h2>
+<p><strong>PP-YOLOE+</strong>, developed by PaddlePaddle Authors at Baidu and released in April 2022, builds upon the PP-YOLOE series, focusing on enhancing accuracy and efficiency in anchor-free object detection.</p>
+<ul>
+<li><strong>Architecture</strong>: PP-YOLOE+ is an anchor-free model, simplifying the detection process by eliminating predefined anchor boxes. It uses a decoupled head for classification and localization and VariFocal Loss for improved accuracy. The "+" version includes enhancements over the base PP-YOLOE, featuring improvements in the backbone, neck, and detection head.</li>
+<li><strong>Performance</strong>: PP-YOLOE+ models offer a strong balance between accuracy and speed. The performance table shows that PP-YOLOE+ models like <code>PP-YOLOE+l</code> and <code>PP-YOLOE+x</code> achieve competitive mAP scores with reasonable inference times, making them versatile for various applications. PaddlePaddle's documentation provides further details on PP-YOLOE+'s performance.</li>
+<li><strong>Use Cases</strong>: PP-YOLOE+'s anchor-free design and balanced performance make it well-suited for industrial applications like <a href="https://www.ultralytics.com/solutions/ai-in-manufacturing">quality inspection in manufacturing</a>, <a href="https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting">recycling efficiency</a>, and general object detection tasks requiring a good trade-off between speed and accuracy. Its efficiency also makes it deployable on various hardware platforms.</li>
+</ul>
+<p><a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">Learn more about PP-YOLOE+</a></p>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li>Anchor-free design simplifies model architecture and training.</li>
+<li>Good balance of accuracy and inference speed.</li>
+<li>Robust performance in industrial applications.</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+<li>While efficient, it may not be the absolute fastest in scenarios prioritizing extreme speed over accuracy.</li>
+<li>Complexity in architecture and training optimizations might be higher compared to simpler models.</li>
+</ul>
+<p><strong>Relevant Links:</strong> <a href="https://arxiv.org/abs/2203.16250">PP-YOLOE+ Arxiv Paper</a>, <a href="https://github.com/PaddlePaddle/PaddleDetection/">PP-YOLOE+ GitHub Repository</a>, <a href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">PP-YOLOE+ Documentation</a></p>
+<h2 id="other-models">Other Models</h2>
+<p>Users interested in PP-YOLOE+ and YOLOv9 might also find these models relevant:</p>
+<ul>
+<li><strong>YOLOv8</strong>: The latest iteration in the Ultralytics YOLO series, known for its versatility and ease of use. <a href="https://docs.ultralytics.com/models/yolov8/">Explore YOLOv8 Docs</a></li>
+<li><strong>YOLOv7</strong>: Emphasizes speed and efficiency for real-time object detection. <a href="https://docs.ultralytics.com/models/yolov7/">View YOLOv7 Documentation</a></li>
+<li><strong>YOLO11</strong>: Ultralytics YOLO11, designed for high performance in various computer vision tasks. <a href="https://docs.ultralytics.com/models/yolo11/">Learn about YOLO11</a></li>
+</ul>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on February 23, 2024">

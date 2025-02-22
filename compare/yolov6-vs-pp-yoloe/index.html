@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Compare YOLOv6-3.0 and PP-YOLOE+ for object detection. Discover key differences in architecture, performance, and ideal use cases." name="description"/>
+<meta content="Compare YOLOv6-3.0 and PP-YOLOE+ models. Explore performance, architecture, and use cases to choose the best object detection model for your needs." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/compare/yolov6-vs-pp-yoloe/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
-<title>Model Comparison: YOLOv6-3.0 vs PP-YOLOE+ for Object Detection - Ultralytics YOLO Docs</title>
+<title>YOLOv6-3.0 vs PP-YOLOE+: Detailed Technical Comparison - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,13 +20,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Model Comparison: YOLOv6-3.0 vs PP-YOLOE+ for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv6, PP-YOLOE+, object detection, model comparison, YOLO models, computer vision, real-time detection, high accuracy, architecture, performance metrics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/yolov6-vs-pp-yoloe" property="og:url"/><meta content="Model Comparison: YOLOv6-3.0 vs PP-YOLOE+ for Object Detection" property="og:title"/><meta content="Compare YOLOv6-3.0 and PP-YOLOE+ for object detection. Discover key differences in architecture, performance, and ideal use cases." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/yolov6-vs-pp-yoloe" property="twitter:url"/><meta content="Model Comparison: YOLOv6-3.0 vs PP-YOLOE+ for Object Detection" property="twitter:title"/><meta content="Compare YOLOv6-3.0 and PP-YOLOE+ for object detection. Discover key differences in architecture, performance, and ideal use cases." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Model Comparison: YOLOv6-3.0 vs PP-YOLOE+ for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 12:37:48 +0000", "dateModified": "2025-01-13 12:37:48 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Compare YOLOv6-3.0 and PP-YOLOE+ for object detection. Discover key differences in architecture, performance, and ideal use cases."}</script></head>
+<meta content="YOLOv6-3.0 vs PP-YOLOE+: Detailed Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv6-3.0, PP-YOLOE+, object detection, model comparison, computer vision, AI models, inference speed, accuracy, architecture, benchmarking" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/yolov6-vs-pp-yoloe" property="og:url"/><meta content="YOLOv6-3.0 vs PP-YOLOE+: Detailed Technical Comparison" property="og:title"/><meta content="Compare YOLOv6-3.0 and PP-YOLOE+ models. Explore performance, architecture, and use cases to choose the best object detection model for your needs." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/yolov6-vs-pp-yoloe" property="twitter:url"/><meta content="YOLOv6-3.0 vs PP-YOLOE+: Detailed Technical Comparison" property="twitter:title"/><meta content="Compare YOLOv6-3.0 and PP-YOLOE+ models. Explore performance, architecture, and use cases to choose the best object detection model for your needs." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLOv6-3.0 vs PP-YOLOE+: Detailed Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 15:28:36 +0000", "dateModified": "2025-01-13 15:28:36 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Compare YOLOv6-3.0 and PP-YOLOE+ models. Explore performance, architecture, and use cases to choose the best object detection model for your needs."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#model-comparison-yolov6-30-vs-pp-yoloe-for-object-detection">
+<a class="md-skip" href="#yolov6-30-vs-pp-yoloe-detailed-technical-comparison">
           Skip to content
         </a>
 </div>
@@ -73,7 +73,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              Model Comparison: YOLOv6-3.0 vs PP-YOLOE+ for Object Detection
+              YOLOv6-3.0 vs PP-YOLOE+: Detailed Technical Comparison
           </span>
 </div>
 </div>
@@ -306,73 +306,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#yolov6-30">
-<span class="md-ellipsis">
-      YOLOv6-3.0
-    </span>
-</a>
-<nav aria-label="YOLOv6-3.0" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#architecture">
-<span class="md-ellipsis">
-      Architecture
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#performance">
-<span class="md-ellipsis">
-      Performance
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#use-cases">
-<span class="md-ellipsis">
-      Use Cases
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#pp-yoloe">
 <span class="md-ellipsis">
       PP-YOLOE+
     </span>
 </a>
-<nav aria-label="PP-YOLOE+" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#architecture_1">
+<a class="md-nav__link" href="#yolov6-30">
 <span class="md-ellipsis">
-      Architecture
+      YOLOv6-3.0
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance_1">
+<a class="md-nav__link" href="#model-comparison-table">
 <span class="md-ellipsis">
-      Performance
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#use-cases_1">
-<span class="md-ellipsis">
-      Use Cases
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#comparison-table">
-<span class="md-ellipsis">
-      Comparison Table
+      Model Comparison Table
     </span>
 </a>
 </li>
@@ -400,40 +350,21 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/yolov6-vs-pp-yoloe.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="model-comparison-yolov6-30-vs-pp-yoloe-for-object-detection">Model Comparison: YOLOv6-3.0 vs PP-YOLOE+ for Object Detection</h1>
-<p>Comparing state-of-the-art object detection models is crucial for selecting the optimal solution for specific computer vision tasks. This page provides a detailed technical comparison between YOLOv6-3.0 and PP-YOLOE+, two prominent models in the object detection landscape. We will analyze their architectural differences, performance metrics, and suitability for various use cases.</p>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<h1 id="yolov6-30-vs-pp-yoloe-detailed-technical-comparison">YOLOv6-3.0 vs PP-YOLOE+: Detailed Technical Comparison</h1>
+<p>Selecting the right object detection model is crucial for balancing accuracy, speed, and resource efficiency in computer vision applications. This page offers a technical comparison between YOLOv6-3.0 and PP-YOLOE+, examining their architectures, performance metrics, and suitability for different use cases.</p>
+<p>Before diving into the specifics, explore this performance overview of the models:</p>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["YOLOv6-3.0", "PP-YOLOE+"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<h2 id="yolov6-30">YOLOv6-3.0</h2>
-<p>YOLOv6 is a single-stage object detection framework known for its efficiency and high performance. Version 3.0 represents an iteration focused on refining speed and accuracy, making it suitable for real-time applications.</p>
-<h3 id="architecture">Architecture</h3>
-<p>YOLOv6-3.0 builds upon the EfficientRep backbone and Rep-PAN neck, optimized for hardware-friendly deployment. It incorporates techniques like re-parameterization to enhance inference speed without sacrificing accuracy. The model is designed to be easily deployable on various platforms, including edge devices. For more architectural details, refer to the <a href="https://github.com/meituan/YOLOv6">YOLOv6 GitHub repository</a>.</p>
-<h3 id="performance">Performance</h3>
-<p>YOLOv6-3.0 achieves a compelling balance between speed and accuracy. Performance varies across different model sizes (n, s, m, l), catering to diverse computational resources. Key metrics include mAP (mean Average Precision), inference speed, and model size. For detailed performance benchmarks, refer to the official <a href="https://github.com/meituan/YOLOv6">YOLOv6 documentation</a>.</p>
-<h3 id="use-cases">Use Cases</h3>
-<p>Ideal use cases for YOLOv6-3.0 include:</p>
-<ul>
-<li><strong>Real-time object detection:</strong> Applications requiring fast inference, such as robotics and autonomous systems.</li>
-<li><strong>Edge deployment:</strong> Efficient models suitable for resource-constrained devices like embedded systems and mobile platforms.</li>
-<li><strong>Industrial applications:</strong> Quality control and automation in manufacturing due to its speed and precision.</li>
-</ul>
-<p><a class="md-button" href="https://github.com/meituan/YOLOv6">Learn more about YOLOv6</a></p>
 <h2 id="pp-yoloe">PP-YOLOE+</h2>
-<p>PP-YOLOE+ (PaddlePaddle You Only Look Once Efficient Plus) is part of the PaddleDetection model series from Baidu. It focuses on creating an efficient and high-accuracy object detector without relying on techniques like knowledge distillation or complex augmentation during inference.</p>
-<h3 id="architecture_1">Architecture</h3>
-<p>PP-YOLOE+ adopts an anchor-free approach, simplifying the model architecture and training process. It utilizes a CSPRepResNet backbone, a PAFPN neck, and a Dynamic Head. This architecture is designed for high efficiency and accuracy, aiming to reduce computational overhead while maintaining state-of-the-art performance. For more architectural insights, visit the <a href="https://github.com/PaddlePaddle/PaddleDetection">PaddleDetection GitHub repository</a>.</p>
-<h3 id="performance_1">Performance</h3>
-<p>PP-YOLOE+ offers a range of models (t, s, m, l, x) to suit different performance requirements. It is benchmarked for high accuracy and efficient inference. The 'Plus' (+) version signifies improvements over the original PP-YOLOE, particularly in balancing accuracy and speed. Performance details can be found in [<a href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8/configs/ppyoloe/README.md">https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8/configs/ppyoloe/README.md</a>).</p>
-<h3 id="use-cases_1">Use Cases</h3>
-<p>PP-YOLOE+ is well-suited for:</p>
-<ul>
-<li><strong>High-accuracy object detection:</strong> Scenarios prioritizing detection accuracy, such as security systems and detailed image analysis.</li>
-<li><strong>Versatile applications:</strong> Adaptable to various tasks due to its range of model sizes and efficient design.</li>
-<li><strong>Research and development:</strong> A strong baseline model for further research in object detection.</li>
-</ul>
-<p><a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8/configs/ppyoloe/README.md">Learn more about PP-YOLOE+</a></p>
-<h2 id="comparison-table">Comparison Table</h2>
+<p>PP-YOLOE+ (Probabilistic and Point-wise YOLOv3 Enhancement) is developed by PaddlePaddle, Baidu, and was released in 2022. It's an evolution of the YOLO series, focusing on enhancing efficiency and accuracy without relying on complex distillation methods during inference. PP-YOLOE+ adopts an anchor-free detection approach, simplifying the architecture and training process. It uses a CSPRepResNet backbone, a PAFPN neck, and a Dynamic Head. This design aims for high performance while minimizing computational overhead.</p>
+<p>PP-YOLOE+ is available in various sizes (tiny, small, medium, large, extra-large), allowing for flexible deployment based on computational resources. It excels in scenarios prioritizing high accuracy in object detection tasks, such as detailed image analysis and security systems. However, its inference speed might be slower compared to models optimized for speed.</p>
+<p><a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">Learn more about PP-YOLOE+</a></p>
+<h2 id="yolov6-30">YOLOv6-3.0</h2>
+<p>YOLOv6-3.0, authored by Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu from Meituan, was introduced on 2023-01-13. It is engineered for industrial applications, emphasizing a balance between high speed and accuracy. YOLOv6-3.0 incorporates the EfficientRepRep Block in its backbone and neck, along with Hybrid Channels in the head for improved feature aggregation. It is designed for efficient deployment across diverse platforms, including edge devices, and is available in Nano, Small, Medium, and Large sizes.</p>
+<p>YOLOv6-3.0 is particularly strong in real-time object detection and edge deployment scenarios, making it suitable for robotics, autonomous systems, and industrial automation where rapid inference is critical. While it provides a compelling speed-accuracy trade-off, its accuracy might be slightly lower than the most accurate models in certain complex scenarios.</p>
+<p><a class="md-button" href="https://github.com/meituan/YOLOv6">Learn more about YOLOv6</a></p>
+<h2 id="model-comparison-table">Model Comparison Table</h2>
 <table>
 <thead>
 <tr>
@@ -498,8 +429,8 @@
 <td>39.9</td>
 <td>-</td>
 <td>2.84</td>
-<td>-</td>
-<td>-</td>
+<td>4.85</td>
+<td>19.15</td>
 </tr>
 <tr>
 <td>PP-YOLOE+s</td>
@@ -507,8 +438,8 @@
 <td>43.7</td>
 <td>-</td>
 <td>2.62</td>
-<td>-</td>
-<td>-</td>
+<td>7.93</td>
+<td>17.36</td>
 </tr>
 <tr>
 <td>PP-YOLOE+m</td>
@@ -516,8 +447,8 @@
 <td>49.8</td>
 <td>-</td>
 <td>5.56</td>
-<td>-</td>
-<td>-</td>
+<td>23.43</td>
+<td>49.91</td>
 </tr>
 <tr>
 <td>PP-YOLOE+l</td>
@@ -525,8 +456,8 @@
 <td>52.9</td>
 <td>-</td>
 <td>8.36</td>
-<td>-</td>
-<td>-</td>
+<td>52.2</td>
+<td>110.07</td>
 </tr>
 <tr>
 <td>PP-YOLOE+x</td>
@@ -534,38 +465,37 @@
 <td>54.7</td>
 <td>-</td>
 <td>14.3</td>
-<td>-</td>
-<td>-</td>
+<td>98.42</td>
+<td>206.59</td>
 </tr>
 </tbody>
 </table>
-<p><em>Note: Speed metrics are indicative and can vary based on hardware, software, and batch size.</em></p>
 <h2 id="strengths-and-weaknesses">Strengths and Weaknesses</h2>
 <p><strong>YOLOv6-3.0 Strengths:</strong></p>
 <ul>
-<li><strong>High inference speed:</strong> Optimized for real-time performance and edge deployment.</li>
-<li><strong>Balanced accuracy and speed:</strong> Provides a good trade-off for many applications.</li>
-<li><strong>Hardware-friendly design:</strong> Efficient on various hardware platforms.</li>
+<li><strong>High Inference Speed</strong>: Optimized for real-time applications and efficient edge deployment.</li>
+<li><strong>Balanced Performance</strong>: Offers a strong balance between speed and accuracy.</li>
+<li><strong>Industrial Focus</strong>: Designed for robust performance in industrial scenarios.</li>
 </ul>
 <p><strong>YOLOv6-3.0 Weaknesses:</strong></p>
 <ul>
-<li>Performance metrics may slightly lag behind the most accurate models in certain scenarios.</li>
-<li>Limited official Ultralytics integration compared to YOLOv8 or YOLO11.</li>
+<li><strong>Accuracy</strong>: May slightly lag behind the most accurate models in demanding tasks.</li>
+<li><strong>Ecosystem</strong>: Less integrated within the Ultralytics ecosystem compared to native Ultralytics YOLO models.</li>
 </ul>
 <p><strong>PP-YOLOE+ Strengths:</strong></p>
 <ul>
-<li><strong>High accuracy:</strong> Achieves state-of-the-art accuracy without complex inference techniques.</li>
-<li><strong>Anchor-free architecture:</strong> Simplifies design and training.</li>
-<li><strong>Versatile model range:</strong> Offers models optimized for different performance needs.</li>
+<li><strong>High Accuracy</strong>: Achieves state-of-the-art accuracy without complex inference processes.</li>
+<li><strong>Anchor-Free Design</strong>: Simplifies the model architecture and training.</li>
+<li><strong>Versatility</strong>: Range of model sizes suitable for various applications and resource constraints.</li>
 </ul>
 <p><strong>PP-YOLOE+ Weaknesses:</strong></p>
 <ul>
-<li>Inference speed might be slower compared to the fastest models like YOLOv6-3.0 for equivalent accuracy.</li>
-<li>Less direct integration within the Ultralytics ecosystem.</li>
+<li><strong>Inference Speed</strong>: Might be slower than speed-optimized models like YOLOv6-3.0 for similar accuracy levels.</li>
+<li><strong>Ecosystem</strong>: Limited direct integration with Ultralytics tools and workflows.</li>
 </ul>
 <h2 id="conclusion">Conclusion</h2>
-<p>Both YOLOv6-3.0 and PP-YOLOE+ are powerful object detection models with distinct strengths. YOLOv6-3.0 excels in speed and efficiency, making it ideal for real-time and edge applications. PP-YOLOE+ prioritizes accuracy and versatility, suitable for tasks where detection precision is paramount.</p>
-<p>Users interested in other Ultralytics models might explore <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a> for a balance of performance and flexibility, <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a> for the latest advancements, or <a href="https://docs.ultralytics.com/models/rtdetr/">RT-DETR</a> for transformer-based architectures. The choice between YOLOv6-3.0 and PP-YOLOE+, or other models, depends on the specific requirements of the computer vision task, including the balance between speed, accuracy, and resource constraints. For further exploration, consider reviewing <a href="https://docs.ultralytics.com/guides/">Ultralytics Tutorials</a> to master YOLO model implementation and optimization.</p>
+<p>Both YOLOv6-3.0 and PP-YOLOE+ are effective object detection models, each with distinct advantages. YOLOv6-3.0 is excellent for applications requiring real-time processing and speed, while PP-YOLOE+ is ideal when accuracy is the primary concern.</p>
+<p>For users within the Ultralytics ecosystem, exploring models like <a href="https://docs.ultralytics.com/models/yolov8/">Ultralytics YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a>, <a href="https://docs.ultralytics.com/models/yolov10/">YOLO10</a> or <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a> might also be beneficial, offering seamless integration and potentially different performance profiles. Consider also investigating <a href="https://docs.ultralytics.com/models/rtdetr/">RT-DETR</a> and <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a> for alternative architectures and performance characteristics within the Ultralytics model suite.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on February 23, 2024">

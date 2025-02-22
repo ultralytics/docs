@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Discover how RTDETRv2 and DAMO-YOLO stack up in object detection performance, speed, and applications. Choose the right model for your needs." name="description"/>
+<meta content="Discover a detailed comparison of RTDETRv2 and DAMO-YOLO for object detection. Learn about their performance, strengths, and ideal use cases." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/compare/rtdetr-vs-damo-yolo/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
@@ -20,7 +20,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="RTDETRv2 vs DAMO-YOLO: A Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="RTDETRv2, DAMO-YOLO, object detection, model comparison, computer vision, real-time detection, anchor-free detector, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-damo-yolo" property="og:url"/><meta content="RTDETRv2 vs DAMO-YOLO: A Technical Comparison for Object Detection" property="og:title"/><meta content="Discover how RTDETRv2 and DAMO-YOLO stack up in object detection performance, speed, and applications. Choose the right model for your needs." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-damo-yolo" property="twitter:url"/><meta content="RTDETRv2 vs DAMO-YOLO: A Technical Comparison for Object Detection" property="twitter:title"/><meta content="Discover how RTDETRv2 and DAMO-YOLO stack up in object detection performance, speed, and applications. Choose the right model for your needs." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "RTDETRv2 vs DAMO-YOLO: A Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 12:37:48 +0000", "dateModified": "2025-01-13 12:37:48 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover how RTDETRv2 and DAMO-YOLO stack up in object detection performance, speed, and applications. Choose the right model for your needs."}</script></head>
+<meta content="RTDETRv2 vs DAMO-YOLO: A Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="RTDETRv2,DAMO-YOLO,object detection,model comparison,Ultralytics,computer vision,real-time detection,AI models,deep learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-damo-yolo" property="og:url"/><meta content="RTDETRv2 vs DAMO-YOLO: A Technical Comparison for Object Detection" property="og:title"/><meta content="Discover a detailed comparison of RTDETRv2 and DAMO-YOLO for object detection. Learn about their performance, strengths, and ideal use cases." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-damo-yolo" property="twitter:url"/><meta content="RTDETRv2 vs DAMO-YOLO: A Technical Comparison for Object Detection" property="twitter:title"/><meta content="Discover a detailed comparison of RTDETRv2 and DAMO-YOLO for object detection. Learn about their performance, strengths, and ideal use cases." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "RTDETRv2 vs DAMO-YOLO: A Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 15:28:36 +0000", "dateModified": "2025-01-13 15:28:36 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover a detailed comparison of RTDETRv2 and DAMO-YOLO for object detection. Learn about their performance, strengths, and ideal use cases."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -306,24 +306,24 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#rtdetrv2-real-time-detection-transformer-v2">
+<a class="md-nav__link" href="#rtdetrv2-transformer-based-high-accuracy-detection">
 <span class="md-ellipsis">
-      RTDETRv2: Real-Time DEtection Transformer v2
+      RTDETRv2: Transformer-Based High-Accuracy Detection
     </span>
 </a>
-<nav aria-label="RTDETRv2: Real-Time DEtection Transformer v2" class="md-nav">
+<nav aria-label="RTDETRv2: Transformer-Based High-Accuracy Detection" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#architecture-and-key-features">
+<a class="md-nav__link" href="#architecture-and-features">
 <span class="md-ellipsis">
-      Architecture and Key Features
+      Architecture and Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance-and-use-cases">
+<a class="md-nav__link" href="#performance">
 <span class="md-ellipsis">
-      Performance and Use Cases
+      Performance
     </span>
 </a>
 </li>
@@ -334,28 +334,35 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#use-cases">
+<span class="md-ellipsis">
+      Use Cases
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#damo-yolo-high-speed-and-lightweight-detector">
+<a class="md-nav__link" href="#damo-yolo-efficient-and-fast-object-detection">
 <span class="md-ellipsis">
-      DAMO-YOLO: High-Speed and Lightweight Detector
+      DAMO-YOLO: Efficient and Fast Object Detection
     </span>
 </a>
-<nav aria-label="DAMO-YOLO: High-Speed and Lightweight Detector" class="md-nav">
+<nav aria-label="DAMO-YOLO: Efficient and Fast Object Detection" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#architecture-and-key-features_1">
+<a class="md-nav__link" href="#architecture-and-features_1">
 <span class="md-ellipsis">
-      Architecture and Key Features
+      Architecture and Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance-and-use-cases_1">
+<a class="md-nav__link" href="#performance_1">
 <span class="md-ellipsis">
-      Performance and Use Cases
+      Performance
     </span>
 </a>
 </li>
@@ -363,6 +370,13 @@
 <a class="md-nav__link" href="#strengths-and-weaknesses_1">
 <span class="md-ellipsis">
       Strengths and Weaknesses
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#use-cases_1">
+<span class="md-ellipsis">
+      Use Cases
     </span>
 </a>
 </li>
@@ -377,9 +391,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion-choosing-the-right-model">
+<a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
-      Conclusion: Choosing the Right Model
+      Conclusion
     </span>
 </a>
 </li>
@@ -394,79 +408,75 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
 <h1 id="rtdetrv2-vs-damo-yolo-a-technical-comparison-for-object-detection">RTDETRv2 vs DAMO-YOLO: A Technical Comparison for Object Detection</h1>
-<p>Choosing the right object detection model is crucial for the success of your computer vision project. This page provides a detailed technical comparison between two popular models: RTDETRv2 and DAMO-YOLO. We will analyze their architectures, performance metrics, and ideal applications to help you make an informed decision.</p>
-<p>Before diving into the specifics, here's a visual overview of the models' performance:</p>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<p>Choosing the optimal object detection model is critical for successful computer vision applications. Ultralytics offers a diverse range of models, and this page delivers a detailed technical comparison between <strong>RTDETRv2</strong> and <strong>DAMO-YOLO</strong>, two advanced models in the object detection landscape. This analysis will assist you in making a well-informed decision based on your project requirements.</p>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["RTDETRv2", "DAMO-YOLO"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<h2 id="rtdetrv2-real-time-detection-transformer-v2">RTDETRv2: Real-Time DEtection Transformer v2</h2>
-<p>RTDETRv2, developed by Baidu, is a one-stage detector that leverages a hybrid architecture combining CNN backbones with Transformer decoders. This design aims to achieve a balance between high accuracy and real-time inference speed.</p>
-<h3 id="architecture-and-key-features">Architecture and Key Features</h3>
-<ul>
-<li><strong>Hybrid Backbone:</strong> RTDETRv2 typically uses a CNN backbone like ResNet or CSPNet for efficient feature extraction from input images. This is beneficial for capturing local spatial information effectively.</li>
-<li><strong>Transformer Decoder:</strong> The model employs a Transformer-based decoder, which excels at capturing long-range dependencies in the image. This helps in understanding the global context and improving object detection accuracy, especially for complex scenes or occluded objects. You can learn more about Transformers and their impact on computer vision in our glossary on <a href="https://www.ultralytics.com/glossary/vision-transformer-vit">Vision Transformer (ViT)</a>.</li>
-<li><strong>Efficient Design:</strong> RTDETRv2 is engineered for efficiency, aiming to reduce computational overhead while maintaining competitive accuracy. This makes it suitable for deployment on resource-constrained devices.</li>
-</ul>
-<h3 id="performance-and-use-cases">Performance and Use Cases</h3>
-<p>RTDETRv2 models are known for their strong performance, particularly in scenarios requiring high accuracy and reasonable speed. They are well-suited for applications like:</p>
-<ul>
-<li><strong>Industrial Inspection:</strong> Where high precision is needed to detect defects or anomalies in manufacturing processes.</li>
-<li><strong>Robotics:</strong> For real-time perception and navigation tasks requiring accurate object detection.</li>
-<li><strong>Security and Surveillance:</strong> Applications that benefit from both accuracy and speed to effectively monitor environments and identify potential threats. You can explore how object detection is used in <a href="https://docs.ultralytics.com/guides/security-alarm-system/">security alarm systems</a>.</li>
-</ul>
+<h2 id="rtdetrv2-transformer-based-high-accuracy-detection">RTDETRv2: Transformer-Based High-Accuracy Detection</h2>
+<p><strong>RTDETRv2</strong> (<a href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme">Real-Time Detection Transformer v2</a>) is a state-of-the-art object detection model developed by Baidu, known for its high accuracy and efficient real-time performance. Introduced on 2023-04-17 in the paper "<a href="https://arxiv.org/abs/2304.08069">DETRs Beat YOLOs on Real-time Object Detection</a>" by Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu, RTDETRv2 leverages a Vision Transformer (ViT) architecture to achieve robust feature extraction and global context understanding.</p>
+<h3 id="architecture-and-features">Architecture and Features</h3>
+<p>RTDETRv2 distinguishes itself with its transformer-based architecture, enabling it to capture global context within images more effectively than traditional CNN-based detectors. This architecture allows for superior accuracy, especially in complex scenes where understanding the broader context is crucial. The model is implemented in PyTorch and is available on <a href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch">GitHub</a>.</p>
+<h3 id="performance">Performance</h3>
+<p>RTDETRv2 demonstrates impressive performance metrics, achieving a mAPval50-95 of 54.3 for its largest variant, RTDETRv2-x. Inference speeds are also competitive, making it suitable for real-time applications when using capable hardware.</p>
 <h3 id="strengths-and-weaknesses">Strengths and Weaknesses</h3>
 <p><strong>Strengths:</strong></p>
 <ul>
-<li><strong>High Accuracy:</strong> Transformer decoder contributes to excellent detection accuracy, often outperforming purely CNN-based one-stage detectors.</li>
-<li><strong>Real-time Capable:</strong> Designed for efficient inference, allowing for real-time object detection on capable hardware.</li>
-<li><strong>Robust Feature Extraction:</strong> Hybrid backbone combines the strengths of CNNs and Transformers for comprehensive feature representation.</li>
+<li><strong>High Accuracy</strong>: Transformer architecture provides excellent object detection accuracy.</li>
+<li><strong>Real-Time Capability</strong>: Achieves fast inference speeds, especially with TensorRT acceleration.</li>
+<li><strong>Effective Contextual Learning</strong>: Vision Transformers excel at capturing global context in images.</li>
 </ul>
 <p><strong>Weaknesses:</strong></p>
 <ul>
-<li><strong>Computational Cost:</strong> While efficient, the Transformer component can still be computationally more demanding than purely CNN-based models, especially for very lightweight applications.</li>
-<li><strong>Complexity:</strong> The hybrid architecture adds some complexity compared to simpler one-stage detectors.</li>
+<li><strong>Larger Model Size</strong>: RTDETRv2 models, particularly the larger variants, have a significant number of parameters and FLOPs, requiring more computational resources.</li>
+<li><strong>Computational Demand</strong>: While optimized for speed, it may not be as lightweight as some other models for deployment on very resource-constrained devices.</li>
+</ul>
+<h3 id="use-cases">Use Cases</h3>
+<p>RTDETRv2 is ideally suited for applications prioritizing high accuracy and having access to substantial computational resources:</p>
+<ul>
+<li><strong>Autonomous Vehicles</strong>: For reliable and precise environmental perception crucial for <a href="https://www.ultralytics.com/solutions/ai-in-self-driving">AI in self-driving cars</a>.</li>
+<li><strong>Robotics</strong>: Enables robots to accurately perceive and interact with objects in complex environments, enhancing applications <a href="https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics">from Algorithms to Automation: AI's Role in Robotics</a>.</li>
+<li><strong>Medical Imaging</strong>: For precise detection of anomalies in medical images, aiding in diagnostics, as explored in <a href="https://www.ultralytics.com/solutions/ai-in-healthcare">AI in Healthcare</a>.</li>
+<li><strong>Detailed Image Analysis</strong>: Suited for high-resolution image analysis such as <a href="https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery">Using Computer Vision to Analyse Satellite Imagery</a> or industrial inspection.</li>
 </ul>
 <p><a class="md-button" href="https://docs.ultralytics.com/models/rtdetr/">Learn more about RTDETRv2</a></p>
-<h2 id="damo-yolo-high-speed-and-lightweight-detector">DAMO-YOLO: High-Speed and Lightweight Detector</h2>
-<p>DAMO-YOLO, developed by Alibaba DAMO Academy, prioritizes inference speed and model size, making it an excellent choice for applications where resources are highly constrained.</p>
-<h3 id="architecture-and-key-features_1">Architecture and Key Features</h3>
-<ul>
-<li><strong>Lightweight Backbone:</strong> DAMO-YOLO utilizes efficient CNN backbones, optimized for speed and reduced parameter count. This typically involves architectures like ShuffleNet or MobileNet variations.</li>
-<li><strong>Anchor-Free Detection:</strong> DAMO-YOLO is an anchor-free detector, simplifying the model architecture and potentially improving generalization. Anchor-free detectors are a newer approach that simplifies the detection process by eliminating the need for predefined anchor boxes, potentially improving generalization and reducing complexity as explained in our glossary on <a href="https://www.ultralytics.com/glossary/anchor-free-detectors">anchor-free detectors</a>.</li>
-<li><strong>Focus on Speed:</strong> The entire model design is geared towards maximizing inference speed, even at the cost of some accuracy compared to heavier models.</li>
-</ul>
-<h3 id="performance-and-use-cases_1">Performance and Use Cases</h3>
-<p>DAMO-YOLO excels in scenarios where speed and efficiency are paramount:</p>
-<ul>
-<li><strong>Mobile Applications:</strong> Ideal for running object detection on smartphones and other mobile devices with limited computational power.</li>
-<li><strong>Edge Devices:</strong> Suitable for deployment on edge devices like embedded systems and IoT devices where low latency and power consumption are critical. You can learn more about deploying models on edge in our guide on <a href="https://www.ultralytics.com/glossary/edge-ai">Edge AI</a>.</li>
-<li><strong>High-Volume Processing:</strong> Applications requiring processing a large number of images or video frames in a short time, such as high-speed video analytics.</li>
-</ul>
+<h2 id="damo-yolo-efficient-and-fast-object-detection">DAMO-YOLO: Efficient and Fast Object Detection</h2>
+<p><strong>DAMO-YOLO</strong> (<a href="https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md">DAMO series YOLO</a>), developed by Alibaba Group and introduced on 2022-11-23 in the paper "<a href="https://arxiv.org/abs/2211.15444v2">DAMO-YOLO: Rethinking Scalable and Accurate Object Detection</a>" by Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun, is designed for speed and efficiency while maintaining competitive accuracy. DAMO-YOLO focuses on real-time performance and is available on <a href="https://github.com/tinyvision/DAMO-YOLO">GitHub</a>.</p>
+<h3 id="architecture-and-features_1">Architecture and Features</h3>
+<p>DAMO-YOLO incorporates several innovative techniques to enhance efficiency, including Neural Architecture Search (NAS) backbones, an efficient RepGFPN, and a ZeroHead. These architectural choices contribute to its speed and reduced computational demands, making it an excellent choice for real-time applications and edge deployments.</p>
+<h3 id="performance_1">Performance</h3>
+<p>DAMO-YOLO excels in inference speed, offering very fast performance on various hardware platforms. While its accuracy is slightly lower than RTDETRv2, it provides a compelling balance between speed and accuracy, particularly for applications requiring rapid processing.</p>
 <h3 id="strengths-and-weaknesses_1">Strengths and Weaknesses</h3>
 <p><strong>Strengths:</strong></p>
 <ul>
-<li><strong>Ultra-Fast Inference:</strong> Achieves very high inference speeds, making it one of the fastest object detection models available.</li>
-<li><strong>Lightweight Model Size:</strong> Small model size allows for easy deployment on resource-constrained devices and reduces memory footprint.</li>
-<li><strong>Anchor-Free Simplicity:</strong> Anchor-free design simplifies the architecture and training process.</li>
+<li><strong>High Speed</strong>: Optimized for extremely fast inference, ideal for real-time systems.</li>
+<li><strong>Efficiency</strong>: Smaller model sizes and lower computational requirements make it suitable for edge devices.</li>
+<li><strong>Scalability</strong>: Designed to be scalable and adaptable for various deployment scenarios.</li>
 </ul>
 <p><strong>Weaknesses:</strong></p>
 <ul>
-<li><strong>Lower Accuracy:</strong> Typically sacrifices some accuracy compared to larger, more complex models like RTDETRv2 to achieve its speed advantage.</li>
-<li><strong>Performance Trade-off:</strong> The focus on speed can sometimes limit its performance in very complex or densely packed scenes where higher accuracy models might be needed.</li>
+<li><strong>Accuracy</strong>: While accurate, it may not achieve the same top-tier mAP scores as RTDETRv2, especially in scenarios demanding the highest precision.</li>
+<li><strong>Contextual Understanding</strong>: Being CNN-centric, it may not capture global context as effectively as transformer-based models in highly complex scenes.</li>
 </ul>
-<p><a class="md-button" href="https://github.com/tinyvision/DAMO-YOLO">Learn more about DAMO-YOLO</a></p>
+<h3 id="use-cases_1">Use Cases</h3>
+<p>DAMO-YOLO is well-suited for applications where speed and efficiency are paramount, and where deployment on less powerful hardware is necessary:</p>
+<ul>
+<li><strong>Real-time Video Surveillance</strong>: Ideal for applications like <a href="https://docs.ultralytics.com/guides/security-alarm-system/">security alarm systems</a> requiring immediate detection.</li>
+<li><strong>Edge Computing</strong>: Perfect for deployment on edge devices such as <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a> and <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a>.</li>
+<li><strong>Rapid Processing Applications</strong>: Suited for robotics (<a href="https://docs.ultralytics.com/guides/ros-quickstart/">ROS Quickstart</a>) and other applications requiring quick decision-making.</li>
+<li><strong>Mobile Deployments</strong>: Efficient enough for mobile applications and resource-limited environments.</li>
+</ul>
+<p><a class="md-button" href="https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md">Learn more about DAMO-YOLO</a></p>
 <h2 id="model-comparison-table">Model Comparison Table</h2>
-<p>Here's a comparative look at the performance metrics of RTDETRv2 and DAMO-YOLO across different model sizes:</p>
 <table>
 <thead>
 <tr>
 <th>Model</th>
-<th>size<br/><sup>(pixels)</sup></th>
+<th>size<sup>(pixels)</sup></th>
 <th>mAP<sup>val<br/>50-95</sup></th>
-<th>Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
-<th>Speed<br/><sup>T4 TensorRT10<br/>(ms)</sup></th>
-<th>params<br/><sup>(M)</sup></th>
-<th>FLOPs<br/><sup>(B)</sup></th>
+<th>Speed<sup>CPU ONNX<br/>(ms)</sup></th>
+<th>Speed<sup>T4 TensorRT10<br/>(ms)</sup></th>
+<th>params<sup>(M)</sup></th>
+<th>FLOPs<sup>(B)</sup></th>
 </tr>
 </thead>
 <tbody>
@@ -553,19 +563,16 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Key Metrics Explained:</strong></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Both RTDETRv2 and DAMO-YOLO are powerful object detection models, each with distinct advantages. <strong>RTDETRv2</strong> stands out when maximum accuracy is the priority, and computational resources are available. <strong>DAMO-YOLO</strong> is the preferred choice for applications that require real-time processing and efficient deployment, especially on edge devices.</p>
+<p>For users considering other options, Ultralytics offers a wide range of models, including:</p>
 <ul>
-<li><strong>mAP<sup>val 50-95</sup>:</strong> Mean Average Precision (mAP) is a standard metric for evaluating object detection models. A higher mAP indicates better accuracy. The 50-95 range represents IoU thresholds from 0.5 to 0.95. You can learn more about mAP in our glossary on <a href="https://www.ultralytics.com/glossary/mean-average-precision-map">Mean Average Precision (mAP)</a>.</li>
-<li><strong>Speed (CPU ONNX &amp; T4 TensorRT10):</strong> Inference speed measured in milliseconds (ms) on different hardware configurations. Lower values indicate faster inference. ONNX represents CPU performance, while TensorRT10 showcases GPU performance using NVIDIA T4 GPUs with TensorRT optimization. You can optimize your models for deployment using <a href="https://docs.ultralytics.com/integrations/tensorrt/">TensorRT</a> for NVIDIA GPUs and <a href="https://docs.ultralytics.com/integrations/openvino/">OpenVINO</a> for Intel CPUs to enhance speed.</li>
-<li><strong>Params (M):</strong> Number of parameters in millions, indicating model size. Smaller models are generally faster and require less memory.</li>
-<li><strong>FLOPs (B):</strong> Floating Point Operations in billions, representing the computational complexity of the model. Lower FLOPs generally translate to faster inference.</li>
+<li><strong>YOLO11</strong>: The latest in the YOLO series, balancing speed and accuracy. Learn more about <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a>.</li>
+<li><strong>YOLOv8 and YOLOv9</strong>: Previous generations offering various speed-accuracy trade-offs, detailed in "<a href="https://www.ultralytics.com/blog/ultralytics-yolov8-turns-one-a-year-of-breakthroughs-and-innovations">Ultralytics YOLOv8 Turns One: A Year of Breakthroughs and Innovations</a>" and <a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a>.</li>
+<li><strong>YOLO-NAS</strong>: Models designed via Neural Architecture Search for optimal performance. See <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS by Deci AI - a State-of-the-Art Object Detection Model</a>.</li>
+<li><strong>FastSAM and MobileSAM</strong>: For real-time instance segmentation, check out <a href="https://docs.ultralytics.com/models/fast-sam/">FastSAM</a> and <a href="https://docs.ultralytics.com/models/mobile-sam/">MobileSAM</a>.</li>
 </ul>
-<h2 id="conclusion-choosing-the-right-model">Conclusion: Choosing the Right Model</h2>
-<ul>
-<li><strong>Choose RTDETRv2 if:</strong> Your application demands high object detection accuracy and you have access to reasonably powerful hardware (like GPUs or capable CPUs). It's a strong all-around performer balancing accuracy and speed.</li>
-<li><strong>Choose DAMO-YOLO if:</strong> Your primary concern is real-time inference speed and deployment on resource-constrained devices such as mobile phones or edge devices. It's ideal when speed and lightweight nature are more critical than absolute maximum accuracy.</li>
-</ul>
-<p>For users interested in exploring other models within the Ultralytics ecosystem, consider investigating <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a>, and <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a>. Each offers different trade-offs between accuracy, speed, and model size, catering to a wide range of computer vision tasks and deployment environments. You can explore the full range of models on our <a href="https://docs.ultralytics.com/models/">Ultralytics Models documentation page</a>.</p>
+<p>The selection between RTDETRv2, DAMO-YOLO, or other Ultralytics models should be based on the specific needs of your computer vision project, carefully considering the balance between accuracy, speed, and available resources. For further details and implementation guides, refer to the <a href="https://docs.ultralytics.com/models/">Ultralytics Documentation</a> and the <a href="https://github.com/ultralytics/ultralytics">Ultralytics GitHub repository</a>.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on February 23, 2024">

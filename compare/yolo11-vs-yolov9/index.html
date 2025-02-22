@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Discover the technical differences, performance metrics, and applications of YOLO11 and YOLOv9. Choose the best object detection model for your needs." name="description"/>
+<meta content="Compare YOLO11 and YOLOv9 in architecture, performance, and use cases. Learn which model suits your object detection and computer vision needs." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/compare/yolo11-vs-yolov9/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
-<title>YOLO11 vs YOLOv9: A Technical Comparison for Object Detection - Ultralytics YOLO Docs</title>
+<title>YOLO11 vs YOLOv9: Detailed Technical Comparison - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,13 +20,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLO11 vs YOLOv9: A Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO11, YOLOv9, object detection, Ultralytics, computer vision, deep learning, model comparison, accuracy, efficiency, real-time AI" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/yolo11-vs-yolov9" property="og:url"/><meta content="YOLO11 vs YOLOv9: A Technical Comparison for Object Detection" property="og:title"/><meta content="Discover the technical differences, performance metrics, and applications of YOLO11 and YOLOv9. Choose the best object detection model for your needs." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/yolo11-vs-yolov9" property="twitter:url"/><meta content="YOLO11 vs YOLOv9: A Technical Comparison for Object Detection" property="twitter:title"/><meta content="Discover the technical differences, performance metrics, and applications of YOLO11 and YOLOv9. Choose the best object detection model for your needs." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLO11 vs YOLOv9: A Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 12:37:48 +0000", "dateModified": "2025-01-13 12:37:48 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover the technical differences, performance metrics, and applications of YOLO11 and YOLOv9. Choose the best object detection model for your needs."}</script></head>
+<meta content="YOLO11 vs YOLOv9: Detailed Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO11, YOLOv9, model comparison, object detection, computer vision, Ultralytics, YOLO architecture, YOLO performance, real-time processing" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/yolo11-vs-yolov9" property="og:url"/><meta content="YOLO11 vs YOLOv9: Detailed Technical Comparison" property="og:title"/><meta content="Compare YOLO11 and YOLOv9 in architecture, performance, and use cases. Learn which model suits your object detection and computer vision needs." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/yolo11-vs-yolov9" property="twitter:url"/><meta content="YOLO11 vs YOLOv9: Detailed Technical Comparison" property="twitter:title"/><meta content="Compare YOLO11 and YOLOv9 in architecture, performance, and use cases. Learn which model suits your object detection and computer vision needs." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLO11 vs YOLOv9: Detailed Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 15:28:36 +0000", "dateModified": "2025-01-13 15:28:36 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Compare YOLO11 and YOLOv9 in architecture, performance, and use cases. Learn which model suits your object detection and computer vision needs."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#yolo11-vs-yolov9-a-technical-comparison-for-object-detection">
+<a class="md-skip" href="#yolo11-vs-yolov9-detailed-technical-comparison">
           Skip to content
         </a>
 </div>
@@ -73,7 +73,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              YOLO11 vs YOLOv9: A Technical Comparison for Object Detection
+              YOLO11 vs YOLOv9: Detailed Technical Comparison
           </span>
 </div>
 </div>
@@ -306,16 +306,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics-yolo11-redefining-accuracy-and-efficiency">
+<a class="md-nav__link" href="#ultralytics-yolo11-the-cutting-edge">
 <span class="md-ellipsis">
-      Ultralytics YOLO11: Redefining Accuracy and Efficiency
+      Ultralytics YOLO11: The Cutting Edge
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#yolov9-pushing-the-boundaries-of-real-time-object-detection">
+<a class="md-nav__link" href="#yolov9-efficiency-and-accuracy-innovations">
 <span class="md-ellipsis">
-      YOLOv9: Pushing the Boundaries of Real-time Object Detection
+      YOLOv9: Efficiency and Accuracy Innovations
     </span>
 </a>
 </li>
@@ -323,13 +323,6 @@
 <a class="md-nav__link" href="#model-comparison-table">
 <span class="md-ellipsis">
       Model Comparison Table
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#strengths-and-weaknesses">
-<span class="md-ellipsis">
-      Strengths and Weaknesses
     </span>
 </a>
 </li>
@@ -350,40 +343,23 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/yolo11-vs-yolov9.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="yolo11-vs-yolov9-a-technical-comparison-for-object-detection">YOLO11 vs YOLOv9: A Technical Comparison for Object Detection</h1>
-<p>Ultralytics continuously advances the field of computer vision with state-of-the-art YOLO models. This page provides a detailed technical comparison between two of our cutting-edge object detection models: <a href="https://docs.ultralytics.com/models/yolo11/">Ultralytics YOLO11</a> and <a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a>. We will analyze their architectures, performance metrics, and ideal applications to help you choose the best model for your specific needs.</p>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<h1 id="yolo11-vs-yolov9-detailed-technical-comparison">YOLO11 vs YOLOv9: Detailed Technical Comparison</h1>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["YOLO11", "YOLOv9"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<h2 id="ultralytics-yolo11-redefining-accuracy-and-efficiency">Ultralytics YOLO11: Redefining Accuracy and Efficiency</h2>
-<p><a href="https://docs.ultralytics.com/models/yolo11/">Ultralytics YOLO11</a> is the latest iteration in the YOLO series, building upon the successes of previous versions like <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>. YOLO11 is designed to achieve higher accuracy and efficiency for various computer vision tasks, including object detection, <a href="https://www.ultralytics.com/glossary/instance-segmentation">instance segmentation</a>, <a href="https://docs.ultralytics.com/tasks/classify/">image classification</a>, and <a href="https://docs.ultralytics.com/tasks/pose/">pose estimation</a>.</p>
-<p><strong>Architecture and Key Features:</strong>
-YOLO11 boasts an innovative architecture focused on enhanced feature extraction and optimized processing speeds. It achieves greater accuracy with fewer parameters compared to its predecessors, making it more efficient for real-time applications and deployment on diverse platforms, from edge devices like <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a> and <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a> to cloud systems. YOLO11 supports the same tasks as YOLOv8, ensuring a seamless transition for existing users.</p>
-<p><strong>Performance Metrics:</strong>
-As shown in the comparison table, YOLO11 models offer a range of sizes and performance levels. For instance, YOLO11m achieves a mAP<sup>val</sup><sub>50-95</sub> of 51.5 at 640 size, with a CPU ONNX speed of 183.2ms and a T4 TensorRT10 speed of 4.7ms. The model size is 20.1M parameters and 68.0B FLOPs. This balance of accuracy and speed makes YOLO11 a versatile choice for many applications.</p>
-<p><strong>Use Cases:</strong>
-YOLO11 excels in scenarios demanding high accuracy and real-time performance, such as:</p>
-<ul>
-<li><strong>Smart Cities:</strong> <a href="https://www.ultralytics.com/blog/optimizingtraffic-management-with-ultralytics-yolo11">Traffic management</a>, <a href="https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8">security systems</a>, and <a href="https://www.ultralytics.com/blog/vision-ai-in-crowd-management">crowd management</a>.</li>
-<li><strong>Healthcare:</strong> <a href="https://www.ultralytics.com/glossary/medical-image-analysis">Medical image analysis</a> for tumor detection and diagnostics.</li>
-<li><strong>Manufacturing:</strong> <a href="https://www.ultralytics.com/solutions/ai-in-manufacturing">Quality control</a> and automation in production lines.</li>
-<li><strong>Agriculture:</strong> <a href="https://www.ultralytics.com/blog/real-time-crop-health-monitoring-with-ultralytics-yolo11">Crop health monitoring</a> and precision farming.</li>
-</ul>
-<p><a class="md-button" href="https://docs.ultralytics.com/models/yolo11/">Learn more about YOLO11</a></p>
-<h2 id="yolov9-pushing-the-boundaries-of-real-time-object-detection">YOLOv9: Pushing the Boundaries of Real-time Object Detection</h2>
-<p><a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a> represents another significant advancement in real-time object detection. It introduces innovations like Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN) to achieve state-of-the-art efficiency and accuracy.</p>
-<p><strong>Architecture and Key Features:</strong>
-YOLOv9's architecture focuses on maintaining high accuracy while being incredibly efficient. The PGI mechanism ensures that gradient information is reliable, leading to better learning. GELAN helps in designing efficient network architectures that reduce parameter count and computational cost without compromising accuracy.</p>
-<p><strong>Performance Metrics:</strong>
-YOLOv9 also offers various model sizes to cater to different computational constraints. YOLOv9m, for example, achieves a mAP<sup>val</sup><sub>50-95</sub> of 51.4 at 640 size, with a T4 TensorRT10 speed of 6.43ms and a model size of 20.0M parameters. While specific CPU speeds are not listed in the provided table, YOLOv9 is designed for efficient inference, particularly on GPUs and accelerators like TensorRT.</p>
-<p><strong>Use Cases:</strong>
-YOLOv9 is ideally suited for applications where speed and efficiency are paramount, such as:</p>
-<ul>
-<li><strong>Edge AI Applications:</strong> Deployment on resource-constrained devices for real-time processing.</li>
-<li><strong>Robotics:</strong> <a href="https://www.ultralytics.com/glossary/robotics">Robot vision</a> for navigation and interaction in dynamic environments.</li>
-<li><strong>Surveillance:</strong> High-speed object detection in <a href="https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security">security systems</a> requiring rapid response.</li>
-<li><strong>Autonomous Vehicles:</strong> <a href="https://www.ultralytics.com/solutions/ai-in-self-driving">Self-driving car</a> perception systems needing low latency.</li>
-</ul>
+<p>This page provides a detailed technical comparison between two state-of-the-art object detection models: <a href="https://docs.ultralytics.com/models/yolo11/">Ultralytics YOLO11</a> and <a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a>. We analyze their architectures, performance metrics, and use cases to assist you in selecting the most suitable model for your computer vision needs.</p>
+<h2 id="ultralytics-yolo11-the-cutting-edge">Ultralytics YOLO11: The Cutting Edge</h2>
+<p><a href="https://docs.ultralytics.com/models/yolo11/">Ultralytics YOLO11</a>, authored by Glenn Jocher and Jing Qiu from Ultralytics and released on 2024-09-27, represents the latest advancement in the YOLO series. Building upon the foundation of previous models like <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, YOLO11 is engineered for enhanced accuracy and efficiency across various computer vision tasks including object detection, <a href="https://www.ultralytics.com/glossary/instance-segmentation">instance segmentation</a>, <a href="https://docs.ultralytics.com/tasks/classify/">image classification</a>, and <a href="https://docs.ultralytics.com/tasks/pose/">pose estimation</a>.</p>
+<p><strong>Architecture and Features:</strong> YOLO11's architecture is designed for superior feature extraction and faster processing. It achieves higher accuracy with fewer parameters, making it ideal for real-time applications on diverse platforms, from edge devices like <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a> to cloud systems. It maintains task compatibility with YOLOv8, ensuring ease of transition for existing users.</p>
+<p><strong>Performance:</strong> YOLO11 models offer a range of performance profiles. For example, YOLO11m achieves a mAPval50-95 of 51.5 at a 640 image size, with an inference speed of 183.2ms on CPU (ONNX) and 4.7ms on T4 TensorRT10. Its parameter size is 20.1M and FLOPs are 68.0B. This balance positions YOLO11 as a versatile option for applications requiring both accuracy and speed.</p>
+<p><strong>Use Cases:</strong> YOLO11 is particularly well-suited for scenarios demanding high precision and real-time processing, such as <a href="https://www.ultralytics.com/blog/optimizingtraffic-management-with-ultralytics-yolo11">traffic management</a> in smart cities, <a href="https://www.ultralytics.com/glossary/medical-image-analysis">medical image analysis</a> for diagnostics, and <a href="https://www.ultralytics.com/solutions/ai-in-manufacturing">quality control</a> in manufacturing.</p>
+<p><a class="md-button" href="https://docs.ultralytics.com/models/yolo11">Learn more about YOLO11</a></p>
+<h2 id="yolov9-efficiency-and-accuracy-innovations">YOLOv9: Efficiency and Accuracy Innovations</h2>
+<p><a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a>, developed by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan, and introduced on 2024-02-21, brings significant innovations in real-time object detection. YOLOv9 introduces Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN) to address information loss, enhancing both efficiency and accuracy.</p>
+<p><strong>Architecture and Features:</strong> YOLOv9's architecture focuses on maintaining information integrity throughout the network, crucial for smaller models. The GELAN optimizes computational efficiency, allowing YOLOv9 to achieve state-of-the-art accuracy with fewer parameters and computations.</p>
+<p><strong>Performance:</strong> YOLOv9 demonstrates impressive performance metrics on the COCO dataset. YOLOv9c, for instance, achieves a mAPval50-95 of 53.0 at a 640 size. While specific inference speeds are not directly provided in the document, YOLOv9 prioritizes efficiency, suggesting competitive speeds. YOLOv9c has 25.3M parameters and 102.1B FLOPs.</p>
+<p><strong>Use Cases:</strong> YOLOv9 excels in applications where computational resources are limited but high accuracy is still required. This includes deployment on edge devices, mobile applications, and scenarios where model size and speed are critical, such as <a href="https://www.ultralytics.com/blog/ultralytics-yolo11-and-computer-vision-for-environmental-conservation">environmental monitoring</a> and <a href="https://www.ultralytics.com/solutions/ai-in-agriculture">agricultural applications</a>.</p>
+<p><a class="md-button" href="https://docs.ultralytics.com/models/yolov9/">Learn more about YOLOv9</a></p>
 <h2 id="model-comparison-table">Model Comparison Table</h2>
 <table>
 <thead>
@@ -499,31 +475,9 @@ YOLOv9 is ideally suited for applications where speed and efficiency are paramou
 </tr>
 </tbody>
 </table>
-<h2 id="strengths-and-weaknesses">Strengths and Weaknesses</h2>
-<p><strong>YOLO11 Strengths:</strong></p>
-<ul>
-<li><strong>High Accuracy:</strong> Achieves excellent mAP scores, making it suitable for applications requiring precise object detection.</li>
-<li><strong>Versatility:</strong> Supports multiple vision tasks beyond object detection.</li>
-<li><strong>Optimized Architecture:</strong> Fewer parameters than previous models, leading to better efficiency.</li>
-</ul>
-<p><strong>YOLO11 Weaknesses:</strong></p>
-<ul>
-<li><strong>Inference Speed:</strong> While efficient, the larger YOLO11 models might be slower on less powerful hardware compared to the fastest YOLOv9 variants.</li>
-</ul>
-<p><strong>YOLOv9 Strengths:</strong></p>
-<ul>
-<li><strong>Real-time Performance:</strong> Designed for exceptional speed, making it ideal for latency-sensitive applications.</li>
-<li><strong>Efficiency:</strong> GELAN architecture ensures fewer parameters and lower computational cost.</li>
-<li><strong>Cutting-edge Innovations:</strong> PGI and GELAN contribute to improved training and performance.</li>
-</ul>
-<p><strong>YOLOv9 Weaknesses:</strong></p>
-<ul>
-<li><strong>Limited Task Support:</strong> Primarily focused on object detection; broader task support like YOLO11 might require further development.</li>
-<li><strong>CPU Speed Data:</strong> CPU speed metrics are not available in the provided table, which could be relevant for CPU-based deployments.</li>
-</ul>
 <h2 id="conclusion">Conclusion</h2>
-<p>Both YOLO11 and YOLOv9 represent significant advancements in object detection. YOLO11 prioritizes accuracy and versatility, making it a robust choice for a wide range of applications where precision is crucial. YOLOv9, on the other hand, excels in real-time performance and efficiency, making it perfect for edge deployment and high-speed processing needs.</p>
-<p>For users seeking a balance of accuracy and speed with multi-task capabilities, YOLO11 is an excellent choice. For applications where real-time inference and computational efficiency are the primary concerns, YOLOv9 offers superior performance. Consider exploring other models like <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a> and <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a> in the Ultralytics <a href="https://docs.ultralytics.com/models/">model zoo</a> to find the perfect fit for your specific project requirements.</p>
+<p>Both YOLO11 and YOLOv9 represent significant advancements in object detection. YOLO11 excels in delivering high accuracy and speed, making it suitable for a broad range of demanding applications. YOLOv9, with its focus on efficiency and information preservation, is ideal for resource-constrained environments without sacrificing accuracy.</p>
+<p>Users interested in exploring other models might also consider <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a> for a balance of performance and versatility, or <a href="https://docs.ultralytics.com/models/yolov7/">YOLOv7</a> for its speed and efficiency in various tasks.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on February 23, 2024">

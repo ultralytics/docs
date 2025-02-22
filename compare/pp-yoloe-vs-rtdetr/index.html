@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Dive into a detailed comparison of PP-YOLOE+ and RTDETRv2 object detection models. Explore performance, architecture, and ideal use cases." name="description"/>
+<meta content="Explore a detailed comparison of PP-YOLOE+ and RTDETRv2 object detection models, analyzing performance, accuracy, and use cases to guide your decision." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/compare/pp-yoloe-vs-rtdetr/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
-<title>PP-YOLOE+ vs RTDETRv2: Model Comparison - Ultralytics YOLO Docs</title>
+<title>PP-YOLOE+ vs RTDETRv2: Detailed Technical Comparison - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,13 +20,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="PP-YOLOE+ vs RTDETRv2: Model Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="PP-YOLOE+, RTDETRv2, model comparison, object detection, Vision Transformer, CNN, anchor-free detection, real-time detection, computer vision models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-rtdetr" property="og:url"/><meta content="PP-YOLOE+ vs RTDETRv2: Model Comparison" property="og:title"/><meta content="Dive into a detailed comparison of PP-YOLOE+ and RTDETRv2 object detection models. Explore performance, architecture, and ideal use cases." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-rtdetr" property="twitter:url"/><meta content="PP-YOLOE+ vs RTDETRv2: Model Comparison" property="twitter:title"/><meta content="Dive into a detailed comparison of PP-YOLOE+ and RTDETRv2 object detection models. Explore performance, architecture, and ideal use cases." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "PP-YOLOE+ vs RTDETRv2: Model Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 12:37:48 +0000", "dateModified": "2025-01-13 12:37:48 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Dive into a detailed comparison of PP-YOLOE+ and RTDETRv2 object detection models. Explore performance, architecture, and ideal use cases."}</script></head>
+<meta content="PP-YOLOE+ vs RTDETRv2: Detailed Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="PP-YOLOE+, RTDETRv2, object detection, model comparison, real-time detection, anchor-free detection, transformers, ultralytics, computer vision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-rtdetr" property="og:url"/><meta content="PP-YOLOE+ vs RTDETRv2: Detailed Technical Comparison" property="og:title"/><meta content="Explore a detailed comparison of PP-YOLOE+ and RTDETRv2 object detection models, analyzing performance, accuracy, and use cases to guide your decision." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-rtdetr" property="twitter:url"/><meta content="PP-YOLOE+ vs RTDETRv2: Detailed Technical Comparison" property="twitter:title"/><meta content="Explore a detailed comparison of PP-YOLOE+ and RTDETRv2 object detection models, analyzing performance, accuracy, and use cases to guide your decision." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "PP-YOLOE+ vs RTDETRv2: Detailed Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 15:28:36 +0000", "dateModified": "2025-01-13 15:28:36 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore a detailed comparison of PP-YOLOE+ and RTDETRv2 object detection models, analyzing performance, accuracy, and use cases to guide your decision."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#pp-yoloe-vs-rtdetrv2-model-comparison">
+<a class="md-skip" href="#pp-yoloe-vs-rtdetrv2-detailed-technical-comparison">
           Skip to content
         </a>
 </div>
@@ -73,7 +73,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              PP-YOLOE+ vs RTDETRv2: Model Comparison
+              PP-YOLOE+ vs RTDETRv2: Detailed Technical Comparison
           </span>
 </div>
 </div>
@@ -306,37 +306,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pp-yoloe">
+<a class="md-nav__link" href="#pp-yoloe-efficient-anchor-free-detection">
 <span class="md-ellipsis">
-      PP-YOLOE+
+      PP-YOLOE+: Efficient Anchor-Free Detection
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#rtdetrv2">
+<a class="md-nav__link" href="#rtdetrv2-real-time-detection-with-transformers">
 <span class="md-ellipsis">
-      RTDETRv2
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#performance-comparison-table">
-<span class="md-ellipsis">
-      Performance Comparison Table
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#use-cases">
-<span class="md-ellipsis">
-      Use Cases
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#strengths-and-weaknesses">
-<span class="md-ellipsis">
-      Strengths and Weaknesses
+      RTDETRv2: Real-Time Detection with Transformers
     </span>
 </a>
 </li>
@@ -357,21 +336,50 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/pp-yoloe-vs-rtdetr.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="pp-yoloe-vs-rtdetrv2-model-comparison">PP-YOLOE+ vs RTDETRv2: Model Comparison</h1>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<h1 id="pp-yoloe-vs-rtdetrv2-detailed-technical-comparison">PP-YOLOE+ vs RTDETRv2: Detailed Technical Comparison</h1>
+<p>Choosing the optimal object detection model is a critical decision for computer vision projects. This page offers a technical comparison between PP-YOLOE+ and RTDETRv2, two advanced models with distinct architectures and performance profiles. We will explore their key differences to assist you in selecting the best model for your specific needs.</p>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["PP-YOLOE+", "RTDETRv2"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<p>This page provides a detailed technical comparison between two state-of-the-art object detection models: PP-YOLOE+ and RTDETRv2. Both models are designed for high-performance object detection but employ different architectural approaches and offer unique strengths. This comparison will delve into their architectures, performance metrics, and ideal use cases to help users make informed decisions for their computer vision projects.</p>
-<h2 id="pp-yoloe">PP-YOLOE+</h2>
-<p>PP-YOLOE+ represents an evolution in anchor-free object detection, focusing on efficiency and ease of use. Built upon the <a href="https://github.com/PaddlePaddle/PaddleDetection/tree/develop/configs/ppyoloe">PP-YOLO</a> series from PaddleDetection, PP-YOLOE+ simplifies the architecture while enhancing performance. It utilizes a single-stage detector approach, eliminating the need for complex anchor box configurations, which streamlines both training and deployment processes. This model is known for its balanced performance in terms of accuracy and speed, making it a versatile choice for various applications. PP-YOLOE+ benefits from techniques like decoupled head, and efficient backbone design. However, specific architectural details may vary depending on the implementation.</p>
-<p>PP-YOLOE+'s strengths lie in its ease of implementation and competitive performance, particularly in scenarios where a good balance between speed and accuracy is required. It is well-suited for applications that demand real-time object detection without requiring extreme levels of precision.</p>
-<p><a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection/tree/develop/configs/ppyoloe">Learn more about PP-YOLOE+</a></p>
-<h2 id="rtdetrv2">RTDETRv2</h2>
-<p>RTDETRv2, developed by Baidu, stands for Real-Time DEtection TRansformer, Version 2. This model leverages a Vision Transformer (ViT) backbone, marking a departure from traditional CNN-based architectures prevalent in many object detectors. <a href="https://www.ultralytics.com/glossary/vision-transformer-vit">Vision Transformers</a> excel at capturing long-range dependencies in images, potentially leading to better contextual understanding and improved detection accuracy, especially for complex scenes. RTDETRv2 is engineered for real-time performance while maintaining high accuracy. It incorporates a hybrid efficient architecture combining transformer encoders and CNN decoders, optimizing for both speed and precision. RTDETRv2 also emphasizes anchor-free detection, simplifying the design and deployment.</p>
-<p>The strength of RTDETRv2 is its potential for higher accuracy due to the ViT backbone and its real-time capabilities. It is particularly effective in applications where high precision and understanding of context are crucial, such as autonomous driving or complex scene analysis. RTDETRv2 is part of a family of models including <a href="https://docs.ultralytics.com/models/rtdetr/">RT-DETR</a> which users may also find interesting.</p>
+<h2 id="pp-yoloe-efficient-anchor-free-detection">PP-YOLOE+: Efficient Anchor-Free Detection</h2>
+<p>PP-YOLOE+, introduced by PaddlePaddle Authors from Baidu on 2022-04-02 (<a href="https://arxiv.org/abs/2203.16250">Arxiv</a>), is an enhanced version of the PP-YOLOE series, focusing on streamlining the architecture for better efficiency and ease of use in anchor-free object detection. It simplifies the detection process by eliminating complex anchor box configurations, leading to faster training and deployment. PP-YOLOE+ is known for its balanced performance, offering a good trade-off between accuracy and speed, making it a versatile option for various applications. The model architecture incorporates a decoupled head and an efficient backbone design, contributing to its overall performance. More details can be found in the <a href="https://github.com/PaddlePaddle/PaddleDetection/">GitHub repository</a> and <a href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">documentation</a>.</p>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li><strong>Efficiency:</strong> PP-YOLOE+ is designed for efficient computation, making it suitable for real-time applications and resource-constrained environments.</li>
+<li><strong>Simplicity:</strong> The anchor-free design simplifies implementation and reduces the need for extensive hyperparameter tuning related to anchor boxes.</li>
+<li><strong>Balanced Performance:</strong> It provides a good balance between detection accuracy and inference speed.</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+<li><strong>Accuracy Ceiling:</strong> While efficient, it might not reach the highest accuracy levels compared to more complex models, especially on challenging datasets.</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Real-time object detection systems where speed is crucial.</li>
+<li>Applications requiring a balance of speed and reasonable accuracy, such as <a href="https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management">smart retail inventory management</a>.</li>
+<li>Deployment on edge devices with limited computational resources.</li>
+</ul>
+<p><a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">Learn more about PP-YOLOE+</a></p>
+<h2 id="rtdetrv2-real-time-detection-with-transformers">RTDETRv2: Real-Time Detection with Transformers</h2>
+<p>RTDETRv2, developed by Wenyu Lv, Yian Zhao, and colleagues at Baidu and released on 2023-04-17 (<a href="https://arxiv.org/abs/2304.08069">Arxiv</a>), stands for Real-Time DEtection Transformer, Version 2. This model leverages a Vision Transformer (ViT) backbone, a departure from traditional CNN-based architectures, to capture long-range dependencies in images for improved contextual understanding and detection accuracy. RTDETRv2 is engineered for real-time performance while maintaining high accuracy through a hybrid efficient architecture combining transformer encoders and CNN decoders. It also adopts an anchor-free detection approach, simplifying the design and deployment process. Further information is available in the <a href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch">RT-DETR GitHub repository</a> and <a href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme">documentation</a>. RTDETRv2 is an evolution of the <a href="https://docs.ultralytics.com/models/rtdetr/">RT-DETR</a> model
+family.</p>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li><strong>High Accuracy Potential:</strong> The Vision Transformer backbone enables superior object detection accuracy, especially in complex scenes by effectively capturing global context.</li>
+<li><strong>Real-Time Capability:</strong> Optimized for real-time inference, making it suitable for applications requiring quick processing.</li>
+<li><strong>Robust Contextual Understanding:</strong> Transformers excel at capturing long-range dependencies, leading to better performance in scenes with complex object interactions.</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+<li><strong>Larger Model Size and Computation:</strong> Transformer-based models can be larger and more computationally intensive compared to some CNN-based models, potentially requiring more powerful hardware.</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Autonomous driving and <a href="https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics">robotics</a> where high accuracy and contextual understanding are critical.</li>
+<li>Complex scene analysis, such as <a href="https://www.ultralytics.com/blog/ai-in-traffic-management-from-congestion-to-coordination">AI in traffic management</a> and <a href="https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities">smart city applications</a>.</li>
+<li>Medical imaging and high-resolution image analysis requiring precise detection.</li>
+</ul>
 <p><a class="md-button" href="https://docs.ultralytics.com/models/rtdetr/">Learn more about RTDETRv2</a></p>
-<h2 id="performance-comparison-table">Performance Comparison Table</h2>
-<p>Below is a comparison table summarizing the performance metrics of PP-YOLOE+ and RTDETRv2 models across different sizes. The metrics highlight the trade-offs between model size, speed, and accuracy.</p>
 <table>
 <thead>
 <tr>
@@ -477,54 +485,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="use-cases">Use Cases</h2>
-<ul>
-<li>
-<p><strong>PP-YOLOE+:</strong> Ideal for applications requiring a balance of speed and accuracy, such as general object detection in robotics, retail analytics for <a href="https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management">smarter retail inventory management</a>, or basic <a href="https://docs.ultralytics.com/guides/security-alarm-system/">security alarm systems</a>. Its simplicity makes it a good starting point for many projects.</p>
-</li>
-<li>
-<p><strong>RTDETRv2:</strong> Best suited for use cases where higher accuracy is paramount, even with slightly increased computational cost. Applications include <a href="https://www.ultralytics.com/solutions/ai-in-self-driving">AI in self-driving cars</a>, advanced video surveillance, <a href="https://www.ultralytics.com/glossary/medical-image-analysis">medical image analysis</a>, and scenarios needing detailed scene understanding, like <a href="https://www.ultralytics.com/blog/exploring-the-applications-of-computer-vision-in-sports">computer vision in sports</a>.</p>
-</li>
-</ul>
-<h2 id="strengths-and-weaknesses">Strengths and Weaknesses</h2>
-<p><strong>PP-YOLOE+</strong></p>
-<ul>
-<li>
-<p><strong>Strengths:</strong></p>
-<ul>
-<li>Simpler architecture, easier to implement and deploy.</li>
-<li>Good balance of speed and accuracy.</li>
-<li>Efficient anchor-free design.</li>
-</ul>
-</li>
-<li>
-<p><strong>Weaknesses:</strong></p>
-<ul>
-<li>May not achieve the highest accuracy compared to transformer-based models in complex scenarios.</li>
-<li>Performance may plateau at higher model sizes compared to RTDETRv2.</li>
-</ul>
-</li>
-</ul>
-<p><strong>RTDETRv2</strong></p>
-<ul>
-<li>
-<p><strong>Strengths:</strong></p>
-<ul>
-<li>Potentially higher accuracy due to Vision Transformer backbone.</li>
-<li>Real-time performance optimized architecture.</li>
-<li>Effective in complex scenes requiring contextual understanding.</li>
-</ul>
-</li>
-<li>
-<p><strong>Weaknesses:</strong></p>
-<ul>
-<li>More complex architecture, potentially harder to implement and optimize.</li>
-<li>Larger model sizes and potentially slower inference speeds than smaller PP-YOLOE+ models, especially for the 'x' variants with larger parameter counts and FLOPs.</li>
-</ul>
-</li>
-</ul>
 <h2 id="conclusion">Conclusion</h2>
-<p>Choosing between PP-YOLOE+ and RTDETRv2 depends on the specific requirements of your project. If simplicity, speed, and a good balance of accuracy are prioritized, PP-YOLOE+ is an excellent choice. For applications demanding the highest possible accuracy and contextual understanding, RTDETRv2 offers a powerful, albeit more complex, solution. Users interested in other high-performance models should also explore <a href="https://www.ultralytics.com/yolo">YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a>, <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a> and <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a> within the Ultralytics ecosystem, as well as open-vocabulary detection models like <a href="https://docs.ultralytics.com/models/yolo-world/">YOLO-World</a>. Experimentation and benchmarking on your specific dataset are always recommended for optimal model selection.</p>
+<p>Both PP-YOLOE+ and RTDETRv2 offer state-of-the-art object detection capabilities but cater to different priorities. PP-YOLOE+ is an excellent choice when efficiency and speed are paramount, while RTDETRv2 is preferable when higher accuracy and contextual understanding are needed, even with potentially higher computational costs. Users interested in other high-performance real-time object detectors might also consider exploring <a href="https://docs.ultralytics.com/models/yolov8/">Ultralytics YOLOv8</a> and <a href="https://docs.ultralytics.com/models/yolov7/">YOLOv7</a> for further options.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on February 23, 2024">

@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore RT-DETR and YOLOv6-3.0 in this detailed Ultralytics guide. Compare accuracy, speed, and applications to select the best model for your needs." name="description"/>
+<meta content="Explore an in-depth comparison of RTDETRv2 and YOLOv6-3.0. Learn about architecture, performance, and use cases to choose the right object detection model." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/compare/rtdetr-vs-yolov6/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
-<title>RT-DETR vs YOLOv6-3.0: A Detailed Model Comparison - Ultralytics YOLO Docs</title>
+<title>RTDETRv2 vs YOLOv6-3.0: A Detailed Model Comparison - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,13 +20,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="RT-DETR vs YOLOv6-3.0: A Detailed Model Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="RT-DETR, YOLOv6-3.0, Ultralytics, model comparison, object detection, real-time detection, accuracy vs speed, computer vision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-yolov6" property="og:url"/><meta content="RT-DETR vs YOLOv6-3.0: A Detailed Model Comparison" property="og:title"/><meta content="Explore RT-DETR and YOLOv6-3.0 in this detailed Ultralytics guide. Compare accuracy, speed, and applications to select the best model for your needs." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-yolov6" property="twitter:url"/><meta content="RT-DETR vs YOLOv6-3.0: A Detailed Model Comparison" property="twitter:title"/><meta content="Explore RT-DETR and YOLOv6-3.0 in this detailed Ultralytics guide. Compare accuracy, speed, and applications to select the best model for your needs." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "RT-DETR vs YOLOv6-3.0: A Detailed Model Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 12:37:48 +0000", "dateModified": "2025-01-13 12:37:48 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore RT-DETR and YOLOv6-3.0 in this detailed Ultralytics guide. Compare accuracy, speed, and applications to select the best model for your needs."}</script></head>
+<meta content="RTDETRv2 vs YOLOv6-3.0: A Detailed Model Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="RTDETRv2, YOLOv6, object detection, model comparison, Vision Transformer, CNN, real-time AI, AI in computer vision, Ultralytics, accuracy vs speed" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-yolov6" property="og:url"/><meta content="RTDETRv2 vs YOLOv6-3.0: A Detailed Model Comparison" property="og:title"/><meta content="Explore an in-depth comparison of RTDETRv2 and YOLOv6-3.0. Learn about architecture, performance, and use cases to choose the right object detection model." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-yolov6" property="twitter:url"/><meta content="RTDETRv2 vs YOLOv6-3.0: A Detailed Model Comparison" property="twitter:title"/><meta content="Explore an in-depth comparison of RTDETRv2 and YOLOv6-3.0. Learn about architecture, performance, and use cases to choose the right object detection model." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "RTDETRv2 vs YOLOv6-3.0: A Detailed Model Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 15:28:36 +0000", "dateModified": "2025-01-13 15:28:36 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore an in-depth comparison of RTDETRv2 and YOLOv6-3.0. Learn about architecture, performance, and use cases to choose the right object detection model."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#rt-detr-vs-yolov6-30-a-detailed-model-comparison">
+<a class="md-skip" href="#rtdetrv2-vs-yolov6-30-a-detailed-model-comparison">
           Skip to content
         </a>
 </div>
@@ -73,7 +73,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              RT-DETR vs YOLOv6-3.0: A Detailed Model Comparison
+              RTDETRv2 vs YOLOv6-3.0: A Detailed Model Comparison
           </span>
 </div>
 </div>
@@ -306,30 +306,80 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#rt-detr-accuracy-focused-real-time-detection">
+<a class="md-nav__link" href="#rtdetrv2-transformer-based-accuracy">
 <span class="md-ellipsis">
-      RT-DETR: Accuracy-Focused Real-Time Detection
+      RTDETRv2: Transformer-Based Accuracy
+    </span>
+</a>
+<nav aria-label="RTDETRv2: Transformer-Based Accuracy" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-and-key-features">
+<span class="md-ellipsis">
+      Architecture and Key Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#yolov6-30-speed-optimized-real-time-detection">
+<a class="md-nav__link" href="#performance-metrics">
 <span class="md-ellipsis">
-      YOLOv6-3.0: Speed-Optimized Real-Time Detection
+      Performance Metrics
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#model-comparison-table">
+<a class="md-nav__link" href="#use-cases-and-strengths">
 <span class="md-ellipsis">
-      Model Comparison Table
+      Use Cases and Strengths
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#yolov6-30-cnn-based-speed-and-efficiency">
+<span class="md-ellipsis">
+      YOLOv6-3.0: CNN-Based Speed and Efficiency
+    </span>
+</a>
+<nav aria-label="YOLOv6-3.0: CNN-Based Speed and Efficiency" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-and-key-features_1">
+<span class="md-ellipsis">
+      Architecture and Key Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#choosing-the-right-model">
+<a class="md-nav__link" href="#performance-metrics_1">
 <span class="md-ellipsis">
-      Choosing the Right Model
+      Performance Metrics
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#use-cases-and-strengths_1">
+<span class="md-ellipsis">
+      Use Cases and Strengths
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#other-models">
+<span class="md-ellipsis">
+      Other Models
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
     </span>
 </a>
 </li>
@@ -343,36 +393,63 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/rtdetr-vs-yolov6.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="rt-detr-vs-yolov6-30-a-detailed-model-comparison">RT-DETR vs YOLOv6-3.0: A Detailed Model Comparison</h1>
-<p>When choosing an object detection model, developers often face the decision between accuracy and speed. Ultralytics offers a range of models catering to different needs. This page provides a technical comparison between two popular choices: RT-DETR and YOLOv6-3.0, focusing on their architectures, performance, and ideal applications.</p>
-<p>Before diving into the specifics, let's visualize a performance overview:</p>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<h1 id="rtdetrv2-vs-yolov6-30-a-detailed-model-comparison">RTDETRv2 vs YOLOv6-3.0: A Detailed Model Comparison</h1>
+<p>Choosing the right object detection model is crucial for computer vision projects. This page provides a technical comparison between RTDETRv2 and YOLOv6-3.0, two state-of-the-art models, to assist you in making an informed decision. We explore their architectural differences, performance metrics, and suitable applications.</p>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["RTDETRv2", "YOLOv6-3.0"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<h2 id="rt-detr-accuracy-focused-real-time-detection">RT-DETR: Accuracy-Focused Real-Time Detection</h2>
-<p>RT-DETR, or Real-Time DEtection TRansformer, represents a shift towards transformer-based architectures for real-time object detection. Unlike traditional CNN-based detectors, RT-DETR leverages a Vision Transformer (ViT) backbone to capture global context in images, potentially leading to higher accuracy, especially in complex scenes.</p>
-<p><strong>Architecture:</strong> RT-DETR employs a hybrid efficient encoder that combines CNNs and Transformers to extract multi-scale features efficiently. It also introduces an IoU-aware query selection mechanism in its decoder, which refines object localization and boosts detection precision. This architecture is detailed in the <a href="https://docs.ultralytics.com/models/rtdetr/">RT-DETR documentation</a>.</p>
-<p><strong>Performance:</strong> As indicated in the chart and table below, RT-DETR models, particularly the larger variants like RTDETRv2-l and RTDETRv2-x, achieve impressive mAP scores, showcasing their accuracy. However, this accuracy comes with a trade-off in speed compared to lighter models. Inference speed, especially on CPU, might be slower than YOLOv6-3.0, making it more suitable for applications where accuracy is paramount and computational resources are less constrained.</p>
-<p><strong>Use Cases:</strong> RT-DETR is well-suited for applications demanding high detection accuracy, such as:</p>
+<h2 id="rtdetrv2-transformer-based-accuracy">RTDETRv2: Transformer-Based Accuracy</h2>
+<p>RTDETRv2, standing for Real-Time Detection Transformer version 2, is an object detection model developed by Baidu and introduced in April 2023 (<a href="https://arxiv.org/abs/2304.08069">arXiv:2304.08069</a>). It distinguishes itself by leveraging a <strong>Vision Transformer (ViT)</strong> architecture, moving away from traditional CNN-based designs. This transformer-based approach enables RTDETRv2 to capture global context within images, potentially leading to enhanced accuracy in object detection tasks, especially in complex scenarios.</p>
+<h3 id="architecture-and-key-features">Architecture and Key Features</h3>
+<p>RTDETRv2's architecture is characterized by:</p>
 <ul>
-<li><strong>Autonomous Driving:</strong> Precise detection of vehicles, pedestrians, and traffic signs is crucial for safety.</li>
-<li><strong>Medical Image Analysis:</strong> Accurate identification of anomalies in medical scans for diagnostics. Explore the applications of <a href="https://www.ultralytics.com/glossary/medical-image-analysis">medical image analysis</a> in healthcare.</li>
-<li><strong>High-Resolution Imagery Analysis:</strong> Applications like <a href="https://www.ultralytics.com/glossary/satellite-image-analysis">satellite image analysis</a> benefit from the detailed scene understanding provided by RT-DETR.</li>
+<li><strong>Vision Transformer Backbone:</strong> Utilizes a ViT backbone to process the entire image, capturing long-range dependencies and global context. To understand more about this architecture, refer to our explanation on <a href="https://www.ultralytics.com/glossary/vision-transformer-vit">Vision Transformer (ViT)</a>.</li>
+<li><strong>Hybrid Efficient Encoder:</strong> Combines CNNs and Transformers for efficient multi-scale feature extraction, balancing computational efficiency with robust feature representation.</li>
+<li><strong>IoU-aware Query Selection:</strong> Implements an IoU-aware query selection mechanism in the decoder, refining object localization and improving detection precision.</li>
 </ul>
+<p>These architectural choices contribute to RTDETRv2's ability to achieve high accuracy while maintaining competitive inference speeds. The official implementation and further details are available on the <a href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch">RT-DETR GitHub repository</a>.</p>
+<h3 id="performance-metrics">Performance Metrics</h3>
+<p>RTDETRv2 prioritizes accuracy and delivers strong performance metrics, making it suitable for applications where precision is paramount:</p>
+<ul>
+<li><strong>mAPval50-95</strong>: Achieves up to 54.3%</li>
+<li><strong>Inference Speed (T4 TensorRT10)</strong>: Starts from 5.03 ms</li>
+<li><strong>Model Size (parameters)</strong>: Begins at 20M</li>
+</ul>
+<h3 id="use-cases-and-strengths">Use Cases and Strengths</h3>
+<p>RTDETRv2 is particularly well-suited for applications that demand high detection accuracy, such as:</p>
+<ul>
+<li><strong>Autonomous Driving:</strong> For precise detection of vehicles, pedestrians, and traffic signs, crucial for safety in <a href="https://www.ultralytics.com/solutions/ai-in-self-driving">AI in self-driving cars</a>.</li>
+<li><strong>Medical Image Analysis:</strong> Accurate identification of anomalies in medical scans for diagnostics, a key application of <a href="https://www.ultralytics.com/solutions/ai-in-healthcare">AI in Healthcare</a>.</li>
+<li><strong>High-Resolution Imagery Analysis:</strong> Applications like <a href="https://www.ultralytics.com/glossary/satellite-image-analysis">satellite image analysis</a> and detailed industrial inspection benefit from RTDETRv2's detailed scene understanding.</li>
+</ul>
+<p>Its strength lies in its transformer-based architecture which excels in accuracy, while its potential weakness is a larger model size and potentially slower inference speed compared to some CNN-based models, especially on CPU.</p>
 <p><a class="md-button" href="https://docs.ultralytics.com/models/rtdetr/">Learn more about RT-DETR</a></p>
-<h2 id="yolov6-30-speed-optimized-real-time-detection">YOLOv6-3.0: Speed-Optimized Real-Time Detection</h2>
-<p>YOLOv6-3.0 builds upon the strengths of the YOLO (You Only Look Once) family, prioritizing inference speed and efficiency. It is designed as a one-stage detector, meaning it performs object detection in a single pass through the network, leading to faster processing times.</p>
-<p><strong>Architecture:</strong> YOLOv6-3.0 utilizes an efficient backbone network, often based on RepVGG or similar architectures, optimized for speed without significantly sacrificing accuracy. The focus is on creating lightweight models that can run efficiently on various hardware, including edge devices. Further details can be found in the general <a href="https://docs.ultralytics.com/models/yolov6/">YOLOv6 documentation</a>.</p>
-<p><strong>Performance:</strong> YOLOv6-3.0 models, especially the YOLOv6-3.0n and YOLOv6-3.0s variants, excel in inference speed, as shown in the comparison table. They offer a good balance between speed and accuracy, making them ideal for real-time applications. While their mAP scores might be slightly lower than RT-DETR, their speed advantage is significant in latency-sensitive scenarios.</p>
-<p><strong>Use Cases:</strong> YOLOv6-3.0 is an excellent choice for applications where speed and real-time performance are critical:</p>
+<h2 id="yolov6-30-cnn-based-speed-and-efficiency">YOLOv6-3.0: CNN-Based Speed and Efficiency</h2>
+<p>YOLOv6-3.0, developed by Meituan and released in January 2023 (<a href="https://arxiv.org/abs/2301.05586">arXiv:2301.05586</a>), represents the YOLO series' commitment to <strong>speed and efficiency</strong>. It is built upon a highly optimized CNN-based architecture, focusing on delivering real-time object detection capabilities with a strong balance of accuracy and speed.</p>
+<h3 id="architecture-and-key-features_1">Architecture and Key Features</h3>
+<p>YOLOv6-3.0's architecture is built for speed and efficiency:</p>
 <ul>
-<li><strong>Robotics:</strong> Real-time object detection is essential for robot navigation and interaction. Explore the integration of <a href="https://www.ultralytics.com/glossary/robotics">robotics</a> and AI.</li>
-<li><strong>Video Surveillance:</strong> Fast processing of video streams for <a href="https://docs.ultralytics.com/guides/security-alarm-system/">security alarm systems</a> and anomaly detection.</li>
-<li><strong>Edge AI Deployment:</strong> Running object detection on resource-constrained devices like <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a> or <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a>.</li>
+<li><strong>Efficient CNN Backbone:</strong> Employs an optimized CNN backbone for feature extraction, designed for rapid processing.</li>
+<li><strong>Hardware-aware Design:</strong> YOLOv6 is designed with hardware efficiency in mind, allowing for fast inference on various platforms, including edge devices.</li>
+<li><strong>Reparameterization Techniques:</strong> Utilizes network reparameterization to further accelerate inference speed without sacrificing accuracy.</li>
 </ul>
+<p>These features enable YOLOv6-3.0 to achieve remarkable inference speeds, making it ideal for real-time applications. More details and the official code can be found on the <a href="https://github.com/meituan/YOLOv6">YOLOv6 GitHub repository</a>. For Ultralytics users, YOLOv6 models are also integrated and documented within the Ultralytics ecosystem at <a href="https://docs.ultralytics.com/models/yolov6/">Ultralytics YOLOv6 Docs</a>.</p>
+<h3 id="performance-metrics_1">Performance Metrics</h3>
+<p>YOLOv6-3.0 excels in speed while maintaining competitive accuracy:</p>
+<ul>
+<li><strong>mAPval50-95</strong>: Up to 52.8%</li>
+<li><strong>Inference Speed (T4 TensorRT10)</strong>: As low as 1.17 ms</li>
+<li><strong>Model Size (parameters)</strong>: Starting from a very compact 4.7M</li>
+</ul>
+<h3 id="use-cases-and-strengths_1">Use Cases and Strengths</h3>
+<p>YOLOv6-3.0 is exceptionally suited for applications requiring <strong>real-time object detection</strong> and efficient deployment:</p>
+<ul>
+<li><strong>Real-time Video Surveillance:</strong> Ideal for <a href="https://docs.ultralytics.com/guides/security-alarm-system/">security alarm systems</a> and monitoring applications where immediate detection is critical.</li>
+<li><strong>Edge Computing and Mobile Deployment:</strong> Its efficiency makes it perfect for deployment on resource-constrained devices like <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a> and <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a>.</li>
+<li><strong>Robotics and Autonomous Systems:</strong> For fast perception in robots and other autonomous systems, including <a href="https://docs.ultralytics.com/guides/ros-quickstart/">ROS Quickstart</a> applications.</li>
+</ul>
+<p>YOLOv6-3.0's primary strength is its speed and efficiency, making it deployable in a wide range of real-time scenarios. A potential trade-off is that for tasks requiring the absolute highest accuracy, larger transformer-based models like RTDETRv2 might offer an advantage.</p>
 <p><a class="md-button" href="https://docs.ultralytics.com/models/yolov6/">Learn more about YOLOv6</a></p>
-<h2 id="model-comparison-table">Model Comparison Table</h2>
-<p>Below is a detailed comparison table summarizing the performance metrics of RT-DETR and YOLOv6-3.0 models:</p>
 <table>
 <thead>
 <tr>
@@ -469,20 +546,17 @@
 </tr>
 </tbody>
 </table>
-<h2 id="choosing-the-right-model">Choosing the Right Model</h2>
-<p>The choice between RT-DETR and YOLOv6-3.0 depends on the specific requirements of your object detection task.</p>
+<h2 id="other-models">Other Models</h2>
+<p>Users interested in these models might also find value in exploring other models within the Ultralytics ecosystem, such as:</p>
 <ul>
-<li><strong>Prioritize Accuracy:</strong> If your application demands the highest possible accuracy and computational resources are not severely limited, RT-DETR is the preferred choice. It excels in scenarios where missing detections or inaccurate localization can have significant consequences.</li>
-<li><strong>Prioritize Speed:</strong> For real-time applications, especially those deployed on edge devices or requiring low latency, YOLOv6-3.0 offers a compelling advantage. Its speed-optimized architecture ensures fast inference without drastically compromising accuracy, making it suitable for a wide range of practical applications.</li>
+<li><strong>YOLOv5:</strong> A highly versatile and widely-used one-stage detector known for its balance of speed and accuracy. <a href="https://docs.ultralytics.com/models/yolov5/">Learn more about YOLOv5</a>.</li>
+<li><strong>YOLOv7:</strong> An evolution of the YOLO series, focusing on real-time performance and efficiency. <a href="https://docs.ultralytics.com/models/yolov7/">Explore YOLOv7 documentation</a>.</li>
+<li><strong>YOLOv8:</strong> The latest iteration in the YOLO family, offering state-of-the-art performance and flexibility across various tasks. <a href="https://docs.ultralytics.com/models/yolov8/">Discover YOLOv8 features</a>.</li>
+<li><strong>YOLO11:</strong> The newest model in the YOLO series, pushing the boundaries of real-time object detection. <a href="https://docs.ultralytics.com/models/yolo11/">View YOLO11 details</a>.</li>
+<li><strong>RT-DETR:</strong> The predecessor to RTDETRv2, also transformer-based and focused on real-time detection with accuracy. <a href="https://docs.ultralytics.com/models/rtdetr/">See RT-DETR information</a>.</li>
 </ul>
-<p><strong>Other Ultralytics Models to Consider:</strong></p>
-<p>Beyond RT-DETR and YOLOv6-3.0, Ultralytics offers a diverse range of models, including:</p>
-<ul>
-<li><strong>YOLOv8:</strong> The latest iteration in the YOLO series, offering a balance of speed and accuracy and a wide range of tasks including <a href="https://docs.ultralytics.com/tasks/segment/">segmentation</a> and <a href="https://docs.ultralytics.com/tasks/pose/">pose estimation</a>. Learn more about <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>.</li>
-<li><strong>YOLO11:</strong> The newest model in the YOLO family, pushing the boundaries of accuracy and efficiency in object detection. Explore the capabilities of <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a>.</li>
-<li><strong>YOLO-NAS:</strong> A model from Deci AI, known for its Neural Architecture Search (NAS) optimized design, providing a strong balance of performance and efficiency. Discover <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a>.</li>
-</ul>
-<p>By understanding the strengths and weaknesses of each model, developers can select the most appropriate architecture for their specific computer vision projects. For further guidance and tutorials, refer to the <a href="https://docs.ultralytics.com/guides/">Ultralytics Guides</a>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>RTDETRv2 and YOLOv6-3.0 represent distinct approaches to real-time object detection. RTDETRv2, with its transformer architecture, leans towards maximizing accuracy, making it suitable for applications where precision is critical. YOLOv6-3.0, with its CNN-based design, prioritizes speed and efficiency, excelling in real-time applications and deployments on resource-constrained devices. The choice between these models depends on the specific requirements of your project, balancing the need for accuracy with the constraints of speed and computational resources.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on February 23, 2024">

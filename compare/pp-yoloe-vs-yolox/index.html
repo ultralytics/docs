@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore a detailed comparison of PP-YOLOE+ and YOLOX, covering architecture, performance benchmarks, and use cases in object detection." name="description"/>
+<meta content="Discover the key differences between PP-YOLOE+ and YOLOX models in architecture, performance, and applications for streamlined object detection." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolox/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
-<title>PP-YOLOE+ vs YOLOX: Detailed Model Comparison - Ultralytics YOLO Docs</title>
+<title>PP-YOLOE+ vs YOLOX: A Technical Comparison for Object Detection - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,13 +20,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="PP-YOLOE+ vs YOLOX: Detailed Model Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="PP-YOLOE+, YOLOX, object detection, model comparison, computer vision, one-stage detector, YOLO models, deep learning, AI, performance benchmarks" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolox" property="og:url"/><meta content="PP-YOLOE+ vs YOLOX: Detailed Model Comparison" property="og:title"/><meta content="Explore a detailed comparison of PP-YOLOE+ and YOLOX, covering architecture, performance benchmarks, and use cases in object detection." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolox" property="twitter:url"/><meta content="PP-YOLOE+ vs YOLOX: Detailed Model Comparison" property="twitter:title"/><meta content="Explore a detailed comparison of PP-YOLOE+ and YOLOX, covering architecture, performance benchmarks, and use cases in object detection." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "PP-YOLOE+ vs YOLOX: Detailed Model Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 12:37:48 +0000", "dateModified": "2025-01-13 12:37:48 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore a detailed comparison of PP-YOLOE+ and YOLOX, covering architecture, performance benchmarks, and use cases in object detection."}</script></head>
+<meta content="PP-YOLOE+ vs YOLOX: A Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="PP-YOLOE+, YOLOX, object detection, anchor-free models, model comparison, performance benchmarks, decoupled detection head, machine learning, computer vision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolox" property="og:url"/><meta content="PP-YOLOE+ vs YOLOX: A Technical Comparison for Object Detection" property="og:title"/><meta content="Discover the key differences between PP-YOLOE+ and YOLOX models in architecture, performance, and applications for streamlined object detection." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolox" property="twitter:url"/><meta content="PP-YOLOE+ vs YOLOX: A Technical Comparison for Object Detection" property="twitter:title"/><meta content="Discover the key differences between PP-YOLOE+ and YOLOX models in architecture, performance, and applications for streamlined object detection." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "PP-YOLOE+ vs YOLOX: A Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 15:28:36 +0000", "dateModified": "2025-01-13 15:28:36 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover the key differences between PP-YOLOE+ and YOLOX models in architecture, performance, and applications for streamlined object detection."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#pp-yoloe-vs-yolox-detailed-model-comparison">
+<a class="md-skip" href="#pp-yoloe-vs-yolox-a-technical-comparison-for-object-detection">
           Skip to content
         </a>
 </div>
@@ -73,7 +73,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              PP-YOLOE+ vs YOLOX: Detailed Model Comparison
+              PP-YOLOE+ vs YOLOX: A Technical Comparison for Object Detection
           </span>
 </div>
 </div>
@@ -306,44 +306,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#architecture-and-key-differences">
+<a class="md-nav__link" href="#pp-yoloe-streamlined-anchor-free-detection-from-baidu">
 <span class="md-ellipsis">
-      Architecture and Key Differences
+      PP-YOLOE+: Streamlined Anchor-Free Detection from Baidu
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance-metrics">
+<a class="md-nav__link" href="#yolox-high-performance-anchor-free-yolo">
 <span class="md-ellipsis">
-      Performance Metrics
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#use-cases-and-applications">
-<span class="md-ellipsis">
-      Use Cases and Applications
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#strengths-and-weaknesses">
-<span class="md-ellipsis">
-      Strengths and Weaknesses
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#training-methodologies">
-<span class="md-ellipsis">
-      Training Methodologies
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
-<span class="md-ellipsis">
-      Conclusion
+      YOLOX: High-Performance Anchor-Free YOLO
     </span>
 </a>
 </li>
@@ -357,16 +329,28 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/pp-yoloe-vs-yolox.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="pp-yoloe-vs-yolox-detailed-model-comparison">PP-YOLOE+ vs YOLOX: Detailed Model Comparison</h1>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<h1 id="pp-yoloe-vs-yolox-a-technical-comparison-for-object-detection">PP-YOLOE+ vs YOLOX: A Technical Comparison for Object Detection</h1>
+<p>For computer vision practitioners selecting an object detection model, understanding the specific strengths of each architecture is essential. This page delivers a technical comparison between <strong>PP-YOLOE+</strong> and <strong>YOLOX</strong>, two state-of-the-art models in the field. We will explore their architectural designs, performance benchmarks, and application suitability to guide your choice.</p>
+<p>html</p>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["PP-YOLOE+", "YOLOX"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<p>This page provides a technical comparison between PP-YOLOE+ and YOLOX, two popular one-stage object detection models in the computer vision domain. We will delve into their architectural nuances, performance benchmarks, and suitability for various use cases.</p>
-<h2 id="architecture-and-key-differences">Architecture and Key Differences</h2>
-<p><strong>YOLOX</strong>, introduced after YOLOv5, distinguishes itself with an anchor-free design, simplifying the training process and enhancing generalization. It incorporates advanced techniques such as decoupled heads, SimOTA label assignment, and strong data augmentation. YOLOX is known for its efficiency and high performance across different model sizes, making it adaptable to diverse computational resources. The architecture of YOLOX focuses on optimizing speed and accuracy, achieving state-of-the-art results for a one-stage detector.</p>
-<p><strong>PP-YOLOE+</strong> builds upon the PP-YOLOE series from PaddleDetection, emphasizing an improved architecture for enhanced performance. It utilizes a CSPRepResNet backbone and Enhanced RepBlock for feature extraction, alongside a VarifocalNet detection head. PP-YOLOE+ focuses on balancing accuracy and inference speed, making it a strong contender for industrial applications requiring robust object detection. The "+" in PP-YOLOE+ indicates further refinements and optimizations over its predecessors, aiming for superior performance.</p>
-<h2 id="performance-metrics">Performance Metrics</h2>
-<p>Both models offer a range of sizes to cater to different speed-accuracy trade-offs. Examining the provided performance table gives insights into their capabilities:</p>
+<h2 id="pp-yoloe-streamlined-anchor-free-detection-from-baidu">PP-YOLOE+: Streamlined Anchor-Free Detection from Baidu</h2>
+<p><strong>PP-YOLOE+</strong>, developed by PaddlePaddle Authors at Baidu and released on 2022-04-02, is an enhanced version of PP-YOLOE, focusing on improving both accuracy and efficiency in object detection. It stands out for its anchor-free design and optimized architecture.</p>
+<ul>
+<li><strong>Architecture</strong>: PP-YOLOE+ adopts an anchor-free approach, simplifying the model by removing the need for predefined anchor boxes. This reduces design complexity and hyperparameter tuning. It features a decoupled detection head, separating classification and localization tasks for improved performance. PP-YOLOE+ also utilizes VariFocal Loss, which refines classification and bounding box localization accuracy. The architecture is detailed in their <a href="https://arxiv.org/abs/2203.16250">Arxiv paper</a>.</li>
+<li><strong>Performance</strong>: PP-YOLOE+ models achieve a strong balance between accuracy and speed. As shown in the comparison table, PP-YOLOE+ variants (t, s, m, l, x) offer competitive mAP scores and efficient inference times, making them versatile for different performance needs.</li>
+<li><strong>Use Cases</strong>: PP-YOLOE+'s efficient and accurate nature makes it suitable for a wide range of applications. It can be effectively used in <a href="https://www.ultralytics.com/solutions/ai-in-manufacturing">industrial quality inspection</a> to ensure product standards, in <a href="https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting">recycling efficiency</a> to enhance automated sorting processes, and in general scenarios requiring robust object detection without compromising speed.</li>
+</ul>
+<p><a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">Learn more about PP-YOLOE+</a></p>
+<h2 id="yolox-high-performance-anchor-free-yolo">YOLOX: High-Performance Anchor-Free YOLO</h2>
+<p><strong>YOLOX</strong>, introduced by Megvii researchers including Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun on 2021-07-18, is an anchor-free version of the YOLO series, aiming for simplicity and high performance. It seeks to bridge the gap between research and industrial applications with its efficient design.</p>
+<ul>
+<li><strong>Architecture</strong>: YOLOX distinguishes itself with its anchor-free detection mechanism, simplifying the traditional YOLO pipeline. By eliminating anchor boxes, YOLOX reduces the complexity and number of hyperparameters, potentially leading to better generalization. It employs decoupled heads for classification and regression, along with SimOTA label assignment, which dynamically optimizes label assignment during training. More architectural details can be found in the <a href="https://arxiv.org/abs/2107.08430">YOLOX Arxiv report</a>.</li>
+<li><strong>Performance</strong>: YOLOX models demonstrate excellent performance in terms of both speed and accuracy. The comparison table shows that YOLOX models (nano, tiny, s, m, l, x) offer a range of sizes to suit different computational resources, while maintaining competitive mAP scores and fast inference speeds, making them a strong contender in real-time object detection scenarios.</li>
+<li><strong>Use Cases</strong>: YOLOX is well-suited for applications requiring real-time and efficient object detection. Its speed makes it ideal for integration into <a href="https://www.ultralytics.com/glossary/robotics">robotic systems</a>, <a href="https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security">security systems</a>, and various industrial automation tasks where low latency and high accuracy are crucial.</li>
+</ul>
+<p><a class="md-button" href="https://yolox.readthedocs.io/en/latest/">Learn more about YOLOX</a></p>
 <table>
 <thead>
 <tr>
@@ -490,44 +474,7 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>mAP (Mean Average Precision):</strong> PP-YOLOE+ generally achieves higher mAP scores, especially in larger model sizes (l and x), indicating superior accuracy in object detection tasks. For instance, PP-YOLOE+x reaches 54.7 mAP, outperforming YOLOXx at 51.1 mAP.</li>
-<li><strong>Inference Speed:</strong> YOLOX demonstrates competitive inference speeds, particularly in smaller models like YOLOX-s, which runs slightly faster on TensorRT than PP-YOLOE+s (2.56 ms vs 2.62 ms). However, PP-YOLOE+ models show comparable and sometimes better speeds for similar mAP levels, suggesting efficiency gains in their architecture.</li>
-<li><strong>Model Size and Complexity:</strong> YOLOX offers a nano version with extremely low parameters (0.91M) and FLOPs (1.08B), making it suitable for highly resource-constrained devices. PP-YOLOE+ model sizes are not listed in this table, but generally, YOLOX models are known for their lightweight design.</li>
-</ul>
-<h2 id="use-cases-and-applications">Use Cases and Applications</h2>
-<p><strong>YOLOX</strong> excels in scenarios demanding real-time object detection with limited computational resources. Its nano and tiny versions are ideal for mobile applications, edge devices, and applications where speed is paramount, such as robotics and quick prototyping. It's also suitable for research and development due to its ease of use and strong baseline performance.</p>
-<p><strong>PP-YOLOE+</strong> is well-suited for applications where higher accuracy is crucial, such as industrial quality inspection, security systems, and advanced analytics. Its larger models offer enhanced precision, making it appropriate for scenarios where detection robustness outweighs the need for extreme speed. PP-YOLOE+ could be beneficial in deployments on more powerful edge devices or cloud-based systems where computational resources are less constrained.</p>
-<h2 id="strengths-and-weaknesses">Strengths and Weaknesses</h2>
-<p><strong>YOLOX Strengths:</strong></p>
-<ul>
-<li><strong>Anchor-free design:</strong> Simplifies training and reduces design complexity.</li>
-<li><strong>High speed and efficiency:</strong> Especially in smaller models, ideal for real-time applications.</li>
-<li><strong>Versatile model sizes:</strong> Offers a wide range of models from nano to x, catering to different resource constraints.</li>
-<li><strong>Strong performance baseline:</strong> Achieves excellent results with relatively simple architecture.</li>
-</ul>
-<p><strong>YOLOX Weaknesses:</strong></p>
-<ul>
-<li><strong>Accuracy:</strong> While accurate, it may be slightly less precise than PP-YOLOE+ in larger, more complex models.</li>
-</ul>
-<p><strong>PP-YOLOE+ Strengths:</strong></p>
-<ul>
-<li><strong>High accuracy:</strong> Achieves superior mAP, particularly in larger model variants.</li>
-<li><strong>Optimized architecture:</strong> CSPRepResNet and Enhanced RepBlock contribute to robust feature extraction.</li>
-<li><strong>Industrial focus:</strong> Designed for applications requiring reliable and precise object detection.</li>
-<li><strong>Good balance of speed and accuracy:</strong> Offers competitive inference speeds while maintaining high precision.</li>
-</ul>
-<p><strong>PP-YOLOE+ Weaknesses:</strong></p>
-<ul>
-<li><strong>Complexity:</strong> Potentially more complex architecture compared to YOLOX, which might lead to longer development or fine-tuning time for some users.</li>
-<li><strong>Resource Intensity:</strong> Larger models may require more computational resources for deployment compared to the smaller YOLOX counterparts.</li>
-</ul>
-<h2 id="training-methodologies">Training Methodologies</h2>
-<p>Both YOLOX and PP-YOLOE+ are typically trained using large datasets like COCO. YOLOX employs SimOTA for optimal transport assignment, enhancing training efficiency. PP-YOLOE+ leverages techniques optimized within the PaddleDetection framework, focusing on industrial application scenarios. Both models benefit from standard deep learning practices such as data augmentation, batch normalization, and optimized optimizers like AdamW or SGD with momentum. For training Ultralytics YOLO models, resources like the <a href="https://docs.ultralytics.com/guides/model-training-tips/">Model Training Tips Guide</a> provide valuable insights.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Choosing between PP-YOLOE+ and YOLOX depends on the specific application requirements. If real-time performance and minimal resource usage are primary concerns, especially on edge devices, YOLOX is an excellent choice. For applications prioritizing higher accuracy and robustness, particularly in industrial and high-precision contexts, PP-YOLOE+ offers a compelling advantage.</p>
-<p>Users interested in exploring similar models within the Ultralytics ecosystem might consider <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a> and <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a> for state-of-the-art performance, or <a href="https://docs.ultralytics.com/models/yolov5/">YOLOv5</a> and <a href="https://docs.ultralytics.com/models/yolov7/">YOLOv7</a> for well-established and versatile options. For real-time applications, <a href="https://docs.ultralytics.com/models/fast-sam/">FastSAM</a> and <a href="https://docs.ultralytics.com/models/rtdetr/">RT-DETR</a> are also worth exploring.</p>
-<p><a class="md-button" href="https://github.com/Megvii-BaseDetection/YOLOX">Learn more about YOLOX</a></p>
+<p>Both PP-YOLOE+ and YOLOX represent advancements in anchor-free object detection, offering streamlined pipelines and excellent performance. For users interested in other high-performance models, explore comparisons with Ultralytics YOLO models like <a href="https://docs.ultralytics.com/models/yolov7/">YOLOv7</a>, <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolov9/">YOLO9</a>, <a href="https://docs.ultralytics.com/models/yolov10/">YOLO10</a> and <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a>. You may also find comparisons such as <a href="https://docs.ultralytics.com/compare/yolov5-vs-yolox/">YOLOv5 vs YOLOX</a> and <a href="https://docs.ultralytics.com/compare/rtdetr-vs-pp-yoloe/">RT-DETR vs PP-YOLOE+</a> helpful in making your model selection.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on February 23, 2024">

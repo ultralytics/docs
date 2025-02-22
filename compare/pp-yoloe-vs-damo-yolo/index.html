@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Compare PP-YOLOE+ and DAMO-YOLO for object detection. Explore their performance, architecture, and use cases to find the ideal model for your needs." name="description"/>
+<meta content="Compare PP-YOLOE+ and DAMO-YOLO for object detection. Learn their strengths, weaknesses, and performance metrics to choose the right model." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/compare/pp-yoloe-vs-damo-yolo/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
-<title>Model Comparison: PP-YOLOE+ vs DAMO-YOLO for Object Detection - Ultralytics YOLO Docs</title>
+<title>PP-YOLOE+ vs DAMO-YOLO: A Technical Comparison for Object Detection - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,13 +20,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Model Comparison: PP-YOLOE+ vs DAMO-YOLO for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="PP-YOLOE+, DAMO-YOLO, object detection, model comparison, computer vision, PaddlePaddle, Alibaba, deep learning, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-damo-yolo" property="og:url"/><meta content="Model Comparison: PP-YOLOE+ vs DAMO-YOLO for Object Detection" property="og:title"/><meta content="Compare PP-YOLOE+ and DAMO-YOLO for object detection. Explore their performance, architecture, and use cases to find the ideal model for your needs." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-damo-yolo" property="twitter:url"/><meta content="Model Comparison: PP-YOLOE+ vs DAMO-YOLO for Object Detection" property="twitter:title"/><meta content="Compare PP-YOLOE+ and DAMO-YOLO for object detection. Explore their performance, architecture, and use cases to find the ideal model for your needs." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Model Comparison: PP-YOLOE+ vs DAMO-YOLO for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 12:37:48 +0000", "dateModified": "2025-01-13 12:37:48 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Compare PP-YOLOE+ and DAMO-YOLO for object detection. Explore their performance, architecture, and use cases to find the ideal model for your needs."}</script></head>
+<meta content="PP-YOLOE+ vs DAMO-YOLO: A Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="PP-YOLOE+, DAMO-YOLO, object detection, model comparison, computer vision, PaddlePaddle, Neural Architecture Search, Ultralytics YOLO, AI performance" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-damo-yolo" property="og:url"/><meta content="PP-YOLOE+ vs DAMO-YOLO: A Technical Comparison for Object Detection" property="og:title"/><meta content="Compare PP-YOLOE+ and DAMO-YOLO for object detection. Learn their strengths, weaknesses, and performance metrics to choose the right model." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-damo-yolo" property="twitter:url"/><meta content="PP-YOLOE+ vs DAMO-YOLO: A Technical Comparison for Object Detection" property="twitter:title"/><meta content="Compare PP-YOLOE+ and DAMO-YOLO for object detection. Learn their strengths, weaknesses, and performance metrics to choose the right model." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "PP-YOLOE+ vs DAMO-YOLO: A Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 15:28:36 +0000", "dateModified": "2025-01-13 15:28:36 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Compare PP-YOLOE+ and DAMO-YOLO for object detection. Learn their strengths, weaknesses, and performance metrics to choose the right model."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#model-comparison-pp-yoloe-vs-damo-yolo-for-object-detection">
+<a class="md-skip" href="#pp-yoloe-vs-damo-yolo-a-technical-comparison-for-object-detection">
           Skip to content
         </a>
 </div>
@@ -73,7 +73,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              Model Comparison: PP-YOLOE+ vs DAMO-YOLO for Object Detection
+              PP-YOLOE+ vs DAMO-YOLO: A Technical Comparison for Object Detection
           </span>
 </div>
 </div>
@@ -306,18 +306,54 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pp-yoloe">
+<a class="md-nav__link" href="#pp-yoloe-overview">
 <span class="md-ellipsis">
-      PP-YOLOE+
+      PP-YOLOE+ Overview
+    </span>
+</a>
+<nav aria-label="PP-YOLOE+ Overview" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strengths-of-pp-yoloe">
+<span class="md-ellipsis">
+      Strengths of PP-YOLOE+
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#damo-yolo">
+<a class="md-nav__link" href="#weaknesses-of-pp-yoloe">
 <span class="md-ellipsis">
-      DAMO-YOLO
+      Weaknesses of PP-YOLOE+
     </span>
 </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#damo-yolo-overview">
+<span class="md-ellipsis">
+      DAMO-YOLO Overview
+    </span>
+</a>
+<nav aria-label="DAMO-YOLO Overview" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strengths-of-damo-yolo">
+<span class="md-ellipsis">
+      Strengths of DAMO-YOLO
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#weaknesses-of-damo-yolo">
+<span class="md-ellipsis">
+      Weaknesses of DAMO-YOLO
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#comparison-table">
@@ -343,65 +379,39 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/pp-yoloe-vs-damo-yolo.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="model-comparison-pp-yoloe-vs-damo-yolo-for-object-detection">Model Comparison: PP-YOLOE+ vs DAMO-YOLO for Object Detection</h1>
-<p>Choosing the right object detection model is crucial for computer vision projects. This page provides a technical comparison between two popular models: PP-YOLOE+ and DAMO-YOLO, highlighting their architectural differences, performance metrics, and suitable use cases.</p>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<h1 id="pp-yoloe-vs-damo-yolo-a-technical-comparison-for-object-detection">PP-YOLOE+ vs DAMO-YOLO: A Technical Comparison for Object Detection</h1>
+<p>Choosing the right object detection model is crucial for computer vision applications. Both PP-YOLOE+ and DAMO-YOLO are state-of-the-art models designed for high performance, but they cater to different priorities in terms of accuracy, speed, and implementation. This page provides a detailed technical comparison to help you understand their strengths and weaknesses for informed decision-making.</p>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["PP-YOLOE+", "DAMO-YOLO"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<h2 id="pp-yoloe">PP-YOLOE+</h2>
-<p>PP-YOLOE+ is part of the PaddlePaddle Detection model zoo, known for its efficiency and ease of use. It's designed to be an anchor-free, single-stage object detector that focuses on striking a balance between high accuracy and fast inference speed.</p>
-<p><strong>Architecture and Key Features:</strong></p>
+<h2 id="pp-yoloe-overview">PP-YOLOE+ Overview</h2>
+<p>PP-YOLOE+ is developed by PaddlePaddle Authors from Baidu and was released on 2022-04-02 (<a href="https://arxiv.org/abs/2203.16250">Arxiv Link</a>). It is an enhanced version of PP-YOLOE, focusing on achieving a balance between high accuracy and efficient inference speed. PP-YOLOE+ is designed to be an anchor-free, single-stage object detector, making it user-friendly and efficient for industrial applications. It is part of the PaddlePaddle Detection model zoo (<a href="https://github.com/PaddlePaddle/PaddleDetection/">GitHub Link</a>).</p>
+<p><a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">Learn more about PP-YOLOE+</a></p>
+<h3 id="strengths-of-pp-yoloe">Strengths of PP-YOLOE+</h3>
 <ul>
-<li><strong>Anchor-Free Detection:</strong> Simplifies the detection process by eliminating the need for predefined anchor boxes, reducing hyperparameters and complexity.</li>
-<li><strong>Enhanced Backbone and Neck:</strong> Utilizes an improved backbone and neck architecture for better feature extraction and fusion, contributing to higher accuracy.</li>
-<li><strong>Focus on Efficiency:</strong> Optimized for industrial applications where speed and resource utilization are critical.</li>
+<li><strong>Efficiency and Speed</strong>: PP-YOLOE+ prioritizes efficient computation and fast inference speeds, making it suitable for real-time applications and deployment on resource-constrained devices.</li>
+<li><strong>Balanced Accuracy</strong>: It offers a strong balance between detection accuracy and speed, providing competitive mAP scores without sacrificing efficiency.</li>
+<li><strong>Anchor-Free Design</strong>: The anchor-free approach simplifies the model architecture and reduces the number of hyperparameters, making it easier to train and deploy.</li>
+<li><strong>Industrial Applications</strong>: Well-suited for industrial inspection and automation scenarios requiring reliable and fast object detection.</li>
 </ul>
-<p><strong>Performance:</strong></p>
-<p>PP-YOLOE+ offers a range of model sizes (tiny, small, medium, large, extra-large) to cater to different computational budgets. As shown in the comparison table, it delivers competitive mAP with varying speed and parameter counts.</p>
-<p><strong>Strengths:</strong></p>
+<h3 id="weaknesses-of-pp-yoloe">Weaknesses of PP-YOLOE+</h3>
 <ul>
-<li><strong>Efficiency:</strong> PP-YOLOE+ models are generally faster in inference compared to many other high-accuracy models, making them suitable for real-time applications.</li>
-<li><strong>Balanced Performance:</strong> Provides a good trade-off between accuracy and speed.</li>
-<li><strong>Ease of Implementation:</strong> Designed to be user-friendly within the PaddlePaddle framework.</li>
+<li><strong>Accuracy Ceiling</strong>: While efficient, PP-YOLOE+ may not achieve the absolute highest accuracy compared to models specifically designed for maximum precision, such as DAMO-YOLO.</li>
+<li><strong>PaddlePaddle Ecosystem</strong>: It is primarily designed for and optimized within the PaddlePaddle framework (<a href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">PaddlePaddle Docs</a>), which might be a consideration for users deeply invested in other frameworks like PyTorch. For users within the Ultralytics ecosystem, models like Ultralytics YOLOv8 offer seamless integration and flexibility.</li>
 </ul>
-<p><strong>Weaknesses:</strong></p>
+<h2 id="damo-yolo-overview">DAMO-YOLO Overview</h2>
+<p>DAMO-YOLO is authored by Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun from Alibaba Group and was introduced on 2022-11-23 (<a href="https://arxiv.org/abs/2211.15444v2">Arxiv Link</a>). DAMO-YOLO is designed for high accuracy object detection, incorporating advanced techniques like Neural Architecture Search (NAS) backbones and an efficient RepGFPN. It aims to push the boundaries of object detection accuracy while maintaining reasonable speed. The model and code are available on <a href="https://github.com/tinyvision/DAMO-YOLO">GitHub</a>.</p>
+<p><a class="md-button" href="https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md">Learn more about DAMO-YOLO</a></p>
+<h3 id="strengths-of-damo-yolo">Strengths of DAMO-YOLO</h3>
 <ul>
-<li><strong>Accuracy Ceiling:</strong> While efficient, it may not reach the absolute highest accuracy levels achieved by more complex models like DAMO-YOLO, especially in demanding scenarios.</li>
-<li><strong>Framework Dependency:</strong> Tightly integrated with the PaddlePaddle framework, which might be a limitation for users primarily working in other ecosystems like PyTorch. Ultralytics YOLO models built on PyTorch offer seamless integration and flexibility <a href="https://docs.ultralytics.com/integrations/">in various environments</a>.</li>
+<li><strong>High Accuracy</strong>: DAMO-YOLO focuses on achieving state-of-the-art accuracy in object detection, making it ideal for applications where precision is paramount.</li>
+<li><strong>Advanced Architecture</strong>: It utilizes cutting-edge architectural components like NAS backbones and RepGFPN, contributing to its high performance.</li>
+<li><strong>Strong Performance on Benchmarks</strong>: DAMO-YOLO demonstrates strong performance on standard object detection benchmarks, reflecting its advanced design.</li>
 </ul>
-<p><strong>Ideal Use Cases:</strong></p>
+<h3 id="weaknesses-of-damo-yolo">Weaknesses of DAMO-YOLO</h3>
 <ul>
-<li><strong>Industrial Inspection:</strong> <a href="https://www.ultralytics.com/blog/quality-inspection-in-manufacturing-traditional-vs-deep-learning-methods">Quality inspection in manufacturing</a> where speed is crucial for real-time analysis on production lines.</li>
-<li><strong>Real-time Object Detection:</strong> Applications requiring fast processing, such as <a href="https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8">security alarm systems</a> or <a href="https://www.ultralytics.com/glossary/robotics">robotics</a> on edge devices.</li>
-<li><strong>Resource-Constrained Environments:</strong> Deployments on devices with limited computational power, where model size and inference speed are critical.</li>
-</ul>
-<h2 id="damo-yolo">DAMO-YOLO</h2>
-<p>DAMO-YOLO, developed by Alibaba DAMO Academy, is designed for high accuracy object detection. It prioritizes achieving state-of-the-art performance, often at the expense of model size and computational cost compared to models like PP-YOLOE+.</p>
-<p><strong>Architecture and Key Features:</strong></p>
-<ul>
-<li><strong>Advanced Backbone and Neck:</strong> Employs sophisticated backbone networks and neck architectures to extract and fuse rich features.</li>
-<li><strong>Focus on Accuracy:</strong> Architectural choices are geared towards maximizing detection accuracy, often incorporating techniques to enhance feature representation and localization precision.</li>
-<li><strong>Scalability:</strong> Offers different model sizes but generally leans towards larger models to achieve top-tier performance.</li>
-</ul>
-<p><strong>Performance:</strong></p>
-<p>DAMO-YOLO models, particularly larger variants, typically achieve higher mAP scores, as reflected in the comparison table. However, this comes with increased inference time and model size.</p>
-<p><strong>Strengths:</strong></p>
-<ul>
-<li><strong>High Accuracy:</strong> Excels in scenarios demanding the highest possible detection accuracy.</li>
-<li><strong>Robust Detection:</strong> Effective in complex scenes and challenging conditions due to its advanced architecture.</li>
-<li><strong>State-of-the-Art Performance:</strong> Often benchmarks at the top of object detection leaderboards.</li>
-</ul>
-<p><strong>Weaknesses:</strong></p>
-<ul>
-<li><strong>Computational Cost:</strong> Larger DAMO-YOLO models can be computationally intensive, requiring powerful GPUs for real-time inference.</li>
-<li><strong>Slower Inference Speed:</strong> Inference speed is generally slower compared to lighter models like PP-YOLOE+, which might limit its applicability in ultra-real-time scenarios.</li>
-<li><strong>Model Size:</strong> Larger model sizes demand more storage and memory resources.</li>
-</ul>
-<p><strong>Ideal Use Cases:</strong></p>
-<ul>
-<li><strong>High-Precision Applications:</strong> Scenarios where accuracy is paramount, such as <a href="https://www.ultralytics.com/glossary/medical-image-analysis">medical image analysis</a> for diagnostics or detailed <a href="https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery">satellite image analysis</a>.</li>
-<li><strong>Complex Scene Understanding:</strong> Applications requiring detailed and accurate object detection in cluttered or complex environments.</li>
-<li><strong>Benchmarking and Research:</strong> Ideal for research purposes and pushing the boundaries of object detection accuracy.</li>
+<li><strong>Computational Cost</strong>: Achieving top-tier accuracy often comes with increased computational demands. DAMO-YOLO, while efficient for its accuracy level, may require more computational resources compared to faster models like PP-YOLOE+, especially for real-time applications on edge devices.</li>
+<li><strong>Complexity</strong>: The advanced architecture of DAMO-YOLO might introduce complexities in customization and implementation compared to simpler models.</li>
 </ul>
 <h2 id="comparison-table">Comparison Table</h2>
 <table>
@@ -510,10 +520,8 @@
 </tbody>
 </table>
 <h2 id="conclusion">Conclusion</h2>
-<p>PP-YOLOE+ and DAMO-YOLO represent different ends of the spectrum in object detection model design. PP-YOLOE+ prioritizes efficiency and balanced performance, making it excellent for real-time and resource-constrained applications. DAMO-YOLO focuses on achieving the highest possible accuracy, suitable for applications where precision is paramount, even if it requires more computational resources.</p>
-<p>For users within the Ultralytics ecosystem, models like <a href="https://www.ultralytics.com/yolo">YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a>, <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a> and <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a> offer state-of-the-art performance and a wide range of deployment options. Consider exploring these models as well to find the best fit for your specific computer vision needs.</p>
-<p><a class="md-button" href="https://github.com/tinyvision/DAMO-YOLO">Learn more about DAMO-YOLO</a>
-<a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection/tree/develop/configs/ppyoloe">Learn more about PP-YOLOE+</a></p>
+<p>PP-YOLOE+ and DAMO-YOLO represent a trade-off between efficiency and accuracy in object detection. PP-YOLOE+ is an excellent choice when speed and balanced performance are critical, making it suitable for real-time and resource-limited applications like <a href="https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8">security alarm systems</a> and <a href="https://www.ultralytics.com/glossary/robotics">robotics</a>. DAMO-YOLO, on the other hand, is ideal for scenarios where maximizing detection accuracy is the top priority, even if it means using more computational resources. Applications requiring high precision, such as <a href="https://www.ultralytics.com/blog/quality-inspection-in-manufacturing-traditional-vs-deep-learning-methods">quality inspection in manufacturing</a> or <a href="https://www.ultralytics.com/blog/using-yolo11-for-tumor-detection-in-medical-imaging">medical imaging</a>, might benefit more from DAMO-YOLO's accuracy focus.</p>
+<p>For users seeking models within the Ultralytics ecosystem, consider exploring Ultralytics YOLOv8 (<a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8 Docs</a>), YOLOv10 (<a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10 Docs</a>), and YOLO11 (<a href="https://docs.ultralytics.com/models/yolo11/">YOLO11 Docs</a>) for versatile and high-performance object detection solutions. These models offer a range of sizes and capabilities to suit various application needs.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on February 23, 2024">

@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Detailed technical comparison of DAMO-YOLO and YOLOX models. Explore architectures, benchmarks, and performance to choose the best for your needs." name="description"/>
+<meta content="Explore a detailed comparison of DAMO-YOLO and YOLOX, analyzing architecture, performance, and use cases for object detection applications." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/compare/damo-yolo-vs-yolox/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
-<title>DAMO-YOLO vs YOLOX: A Detailed Technical Comparison for Object Detection - Ultralytics YOLO Docs</title>
+<title>DAMO-YOLO vs YOLOX: A Detailed Technical Comparison - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,13 +20,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="DAMO-YOLO vs YOLOX: A Detailed Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="DAMO-YOLO,YOLOX,object detection,computer vision,model comparison,AI models,machine learning,YOLO,benchmarks,inference speed,performance metrics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolox" property="og:url"/><meta content="DAMO-YOLO vs YOLOX: A Detailed Technical Comparison for Object Detection" property="og:title"/><meta content="Detailed technical comparison of DAMO-YOLO and YOLOX models. Explore architectures, benchmarks, and performance to choose the best for your needs." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolox" property="twitter:url"/><meta content="DAMO-YOLO vs YOLOX: A Detailed Technical Comparison for Object Detection" property="twitter:title"/><meta content="Detailed technical comparison of DAMO-YOLO and YOLOX models. Explore architectures, benchmarks, and performance to choose the best for your needs." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "DAMO-YOLO vs YOLOX: A Detailed Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 12:37:48 +0000", "dateModified": "2025-01-13 12:37:48 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Detailed technical comparison of DAMO-YOLO and YOLOX models. Explore architectures, benchmarks, and performance to choose the best for your needs."}</script></head>
+<meta content="DAMO-YOLO vs YOLOX: A Detailed Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="DAMO-YOLO, YOLOX, object detection, model comparison, YOLO, computer vision, NAS backbone, RepGFPN, ZeroHead, SimOTA, anchor-free detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolox" property="og:url"/><meta content="DAMO-YOLO vs YOLOX: A Detailed Technical Comparison" property="og:title"/><meta content="Explore a detailed comparison of DAMO-YOLO and YOLOX, analyzing architecture, performance, and use cases for object detection applications." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolox" property="twitter:url"/><meta content="DAMO-YOLO vs YOLOX: A Detailed Technical Comparison" property="twitter:title"/><meta content="Explore a detailed comparison of DAMO-YOLO and YOLOX, analyzing architecture, performance, and use cases for object detection applications." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "DAMO-YOLO vs YOLOX: A Detailed Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 15:28:36 +0000", "dateModified": "2025-01-13 15:28:36 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore a detailed comparison of DAMO-YOLO and YOLOX, analyzing architecture, performance, and use cases for object detection applications."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#damo-yolo-vs-yolox-a-detailed-technical-comparison-for-object-detection">
+<a class="md-skip" href="#damo-yolo-vs-yolox-a-detailed-technical-comparison">
           Skip to content
         </a>
 </div>
@@ -73,7 +73,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              DAMO-YOLO vs YOLOX: A Detailed Technical Comparison for Object Detection
+              DAMO-YOLO vs YOLOX: A Detailed Technical Comparison
           </span>
 </div>
 </div>
@@ -306,16 +306,24 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#architectural-overview">
+<a class="md-nav__link" href="#damo-yolo">
 <span class="md-ellipsis">
-      Architectural Overview
+      DAMO-YOLO
+    </span>
+</a>
+<nav aria-label="DAMO-YOLO" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-and-key-features">
+<span class="md-ellipsis">
+      Architecture and Key Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance-metrics-and-analysis">
+<a class="md-nav__link" href="#performance-metrics">
 <span class="md-ellipsis">
-      Performance Metrics and Analysis
+      Performance Metrics
     </span>
 </a>
 </li>
@@ -327,16 +335,58 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ideal-use-cases">
+<a class="md-nav__link" href="#use-cases">
 <span class="md-ellipsis">
-      Ideal Use Cases
+      Use Cases
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#yolox">
+<span class="md-ellipsis">
+      YOLOX
+    </span>
+</a>
+<nav aria-label="YOLOX" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-and-key-features_1">
+<span class="md-ellipsis">
+      Architecture and Key Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
+<a class="md-nav__link" href="#performance-metrics_1">
 <span class="md-ellipsis">
-      Conclusion
+      Performance Metrics
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strengths-and-weaknesses_1">
+<span class="md-ellipsis">
+      Strengths and Weaknesses
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#use-cases_1">
+<span class="md-ellipsis">
+      Use Cases
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model-comparison-table">
+<span class="md-ellipsis">
+      Model Comparison Table
     </span>
 </a>
 </li>
@@ -350,16 +400,86 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/damo-yolo-vs-yolox.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="damo-yolo-vs-yolox-a-detailed-technical-comparison-for-object-detection">DAMO-YOLO vs YOLOX: A Detailed Technical Comparison for Object Detection</h1>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<h1 id="damo-yolo-vs-yolox-a-detailed-technical-comparison">DAMO-YOLO vs YOLOX: A Detailed Technical Comparison</h1>
+<p>Object detection models are essential for various computer vision applications, and choosing the right one depends on specific project needs. This page offers a technical comparison between DAMO-YOLO and YOLOX, two state-of-the-art object detection models, analyzing their architecture, performance, and applications.</p>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["DAMO-YOLO", "YOLOX"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<p>This page offers a comprehensive technical comparison between DAMO-YOLO and YOLOX, two state-of-the-art models in the field of object detection. We delve into their architectural nuances, performance benchmarks, training methodologies, and optimal applications. This analysis aims to provide users with the insights needed to select the most suitable model for their specific computer vision tasks.</p>
-<h2 id="architectural-overview">Architectural Overview</h2>
-<p><strong>DAMO-YOLO</strong> represents a family of object detection models known for their efficiency and accuracy. While specific architectural details may vary across different versions (tiny, small, medium, large), DAMO-YOLO generally emphasizes a streamlined design to achieve a balance between performance and computational cost. Key architectural aspects often include efficient backbone networks for feature extraction and optimized detection heads for precise localization and classification.</p>
-<p><strong>YOLOX</strong>, developed by Megvii, stands out as an anchor-free object detection model that builds upon the YOLO series. It incorporates several key improvements such as a decoupled head, SimOTA label assignment, and strong data augmentation techniques. YOLOX is designed to be high-performing across various model sizes, from Nano for edge devices to XLarge for high accuracy needs. Its anchor-free nature simplifies the model and training process, while maintaining competitive or superior performance.</p>
-<h2 id="performance-metrics-and-analysis">Performance Metrics and Analysis</h2>
-<p>The table below summarizes the performance metrics for various sizes of DAMO-YOLO and YOLOX models. Key metrics include mAP (mean Average Precision) on the COCO dataset, inference speed on different hardware (CPU and NVIDIA T4 GPU with TensorRT), model size (parameters), and computational complexity (FLOPs).</p>
+<h2 id="damo-yolo">DAMO-YOLO</h2>
+<p><a href="https://github.com/tinyvision/DAMO-YOLO">DAMO-YOLO</a> is a fast and accurate object detection model developed by the Alibaba Group. It introduces several new techniques, including NAS backbones and an efficient RepGFPN, aiming for high performance in object detection tasks.</p>
+<h3 id="architecture-and-key-features">Architecture and Key Features</h3>
+<p>DAMO-YOLO's architecture incorporates several innovative components:</p>
+<ul>
+<li><strong>NAS Backbone</strong>: Utilizes a Neural Architecture Search (NAS) backbone for optimized feature extraction.</li>
+<li><strong>RepGFPN</strong>: Employs an efficient Reparameterized Gradient Feature Pyramid Network (GFPN) to enhance feature fusion.</li>
+<li><strong>ZeroHead</strong>: Features a lightweight detection head named ZeroHead to reduce computational overhead.</li>
+<li><strong>AlignedOTA</strong>: Uses Aligned Optimal Transport Assignment (OTA) for improved label assignment during training.</li>
+</ul>
+<h3 id="performance-metrics">Performance Metrics</h3>
+<p>DAMO-YOLO demonstrates a strong balance between speed and accuracy, offering different model sizes to suit various computational needs.</p>
+<ul>
+<li><strong>mAP</strong>: Achieves competitive mean Average Precision (mAP) on datasets like COCO.</li>
+<li><strong>Inference Speed</strong>: Designed for fast inference, making it suitable for real-time applications.</li>
+<li><strong>Model Size</strong>: Available in different sizes (tiny, small, medium, large) with varying parameter counts and FLOPs.</li>
+</ul>
+<h3 id="strengths-and-weaknesses">Strengths and Weaknesses</h3>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li><strong>High Accuracy</strong>: Achieves excellent mAP scores, indicating robust detection accuracy.</li>
+<li><strong>Efficient Architecture</strong>: Innovative components like RepGFPN and ZeroHead contribute to efficiency.</li>
+<li><strong>Real-time Capability</strong>: Designed for fast inference speeds suitable for real-time systems.</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+<li><strong>Complexity</strong>: The advanced architectural components might introduce complexity in customization and implementation.</li>
+<li><strong>Limited Community</strong>: Compared to more established models, the community and resources might be smaller.</li>
+</ul>
+<h3 id="use-cases">Use Cases</h3>
+<p>DAMO-YOLO is well-suited for applications that demand high accuracy and real-time performance, such as:</p>
+<ul>
+<li><strong>Advanced Robotics</strong>: Enabling precise object detection for complex robotic tasks.</li>
+<li><strong>High-Resolution Surveillance</strong>: Processing high-definition video streams for detailed object recognition.</li>
+<li><strong>Industrial Quality Control</strong>: Detecting fine-grained defects in manufacturing processes.</li>
+</ul>
+<p><a class="md-button" href="https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md">Learn more about DAMO-YOLO</a></p>
+<h2 id="yolox">YOLOX</h2>
+<p><a href="https://github.com/Megvii-BaseDetection/YOLOX">YOLOX</a>, developed by Megvii, is an anchor-free version of YOLO, emphasizing simplicity and high performance. It aims to bridge the gap between research and industrial applications with its efficient design.</p>
+<h3 id="architecture-and-key-features_1">Architecture and Key Features</h3>
+<p>YOLOX stands out with its anchor-free approach and streamlined architecture:</p>
+<ul>
+<li><strong>Anchor-Free Detection</strong>: Simplifies the detection pipeline by removing the need for anchor boxes, reducing complexity and hyperparameter tuning.</li>
+<li><strong>Decoupled Head</strong>: Separates the classification and regression heads for improved performance and training efficiency.</li>
+<li><strong>SimOTA Label Assignment</strong>: Utilizes the SimOTA (Simplified Optimal Transport Assignment) label assignment strategy for more effective training.</li>
+<li><strong>Strong Augmentations</strong>: Employs advanced data augmentation techniques to enhance model robustness and generalization.</li>
+</ul>
+<h3 id="performance-metrics_1">Performance Metrics</h3>
+<p>YOLOX offers a strong balance between accuracy and speed, with various model sizes available.</p>
+<ul>
+<li><strong>mAP</strong>: Achieves competitive mAP scores on benchmark datasets like COCO, often outperforming previous YOLO versions.</li>
+<li><strong>Inference Speed</strong>: Provides fast inference speeds, suitable for real-time deployment.</li>
+<li><strong>Model Size</strong>: Offers different model sizes (Nano, Tiny, s, m, l, x) to accommodate diverse resource constraints.</li>
+</ul>
+<h3 id="strengths-and-weaknesses_1">Strengths and Weaknesses</h3>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li><strong>Simplicity</strong>: Anchor-free design simplifies the model and reduces the need for complex tuning.</li>
+<li><strong>High Performance</strong>: Achieves excellent accuracy and speed, often surpassing anchor-based YOLO models.</li>
+<li><strong>Ease of Implementation</strong>: Well-documented and relatively easy to implement and deploy.</li>
+</ul>
+<p><strong>Weaknesses:</strong></p>
+<ul>
+<li><strong>Computational Cost</strong>: Larger YOLOX models can be computationally intensive, requiring more resources.</li>
+<li><strong>Optimization for Specific Hardware</strong>: May require optimization for deployment on very resource-constrained edge devices compared to extremely lightweight models.</li>
+</ul>
+<h3 id="use-cases_1">Use Cases</h3>
+<p>YOLOX is versatile and suitable for a wide range of object detection tasks, including:</p>
+<ul>
+<li><strong>Real-time Video Surveillance</strong>: Efficiently processing video feeds for security and monitoring.</li>
+<li><strong>Autonomous Driving</strong>: Providing robust and fast object detection for autonomous vehicles.</li>
+<li><strong>Edge Deployment</strong>: Deploying smaller YOLOX models on edge devices for applications with limited resources.</li>
+</ul>
+<p><a class="md-button" href="https://yolox.readthedocs.io/en/latest/">Learn more about YOLOX</a></p>
+<h2 id="model-comparison-table">Model Comparison Table</h2>
 <table>
 <thead>
 <tr>
@@ -474,51 +594,8 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Analysis:</strong></p>
-<ul>
-<li><strong>Accuracy (mAP):</strong> Both model families demonstrate a range of accuracy depending on their size. Larger models (DAMO-YOLOl, YOLOXx) achieve higher mAP scores, indicating better accuracy in object detection tasks. For instance, YOLOX-x and DAMO-YOLOl show comparable top-tier mAP values.</li>
-<li><strong>Inference Speed:</strong> DAMO-YOLO models, particularly the tiny and small variants, exhibit impressive inference speeds on TensorRT, suggesting efficiency for real-time applications. YOLOX-s also shows competitive TensorRT speeds. Note that CPU speeds are not available for either model in this table, limiting a complete CPU performance comparison here.</li>
-<li><strong>Model Size and Complexity:</strong> YOLOX provides a broader range of model sizes, from extremely small (Nano, Tiny) to very large (XLarge), catering to diverse resource constraints. DAMO-YOLO variants also offer different size options, but the table suggests a focus on slightly larger models overall compared to the smallest YOLOX options. The parameter and FLOP counts reflect these size differences, with larger models being more computationally intensive.</li>
-</ul>
-<h2 id="strengths-and-weaknesses">Strengths and Weaknesses</h2>
-<p><strong>DAMO-YOLO Strengths:</strong></p>
-<ul>
-<li><strong>High Accuracy for Size:</strong> DAMO-YOLO models, particularly the larger variants, offer very competitive accuracy, achieving high mAP scores.</li>
-<li><strong>Efficient Inference on GPU:</strong> DAMO-YOLO demonstrates fast inference speeds on GPUs, making it suitable for applications requiring quick processing.</li>
-</ul>
-<p><strong>DAMO-YOLO Weaknesses:</strong></p>
-<ul>
-<li><strong>Limited Size Range (in this comparison):</strong> The provided data focuses on relatively larger DAMO-YOLO models. The absence of extremely small variants might limit its applicability in highly resource-constrained environments compared to YOLOX's nano/tiny models.</li>
-<li><strong>CPU Speed Data Missing:</strong> Lack of CPU inference speed data in the table makes it harder to fully assess its performance on CPU-based systems.</li>
-</ul>
-<p><strong>YOLOX Strengths:</strong></p>
-<ul>
-<li><strong>Versatile Model Sizes:</strong> YOLOX's availability in a wide range of sizes, including Nano and Tiny, makes it highly adaptable to different hardware and application needs, from edge devices to high-performance servers.</li>
-<li><strong>Anchor-Free Design:</strong> The anchor-free architecture simplifies training and deployment, potentially reducing the need for task-specific tuning of anchors.</li>
-<li><strong>Strong Performance Balance:</strong> YOLOX models generally offer a good balance between accuracy and speed across different size configurations.</li>
-</ul>
-<p><strong>YOLOX Weaknesses:</strong></p>
-<ul>
-<li><strong>Speed of Larger Models:</strong> While YOLOX offers excellent performance, the larger models (l, x) might have slower inference speeds compared to some real-time optimized models, especially on resource-limited hardware.</li>
-<li><strong>Lower Accuracy in Nano/Tiny Sizes:</strong> The smaller YOLOX Nano and Tiny variants naturally sacrifice some accuracy for extreme efficiency, which might not be sufficient for applications demanding high precision.</li>
-</ul>
-<h2 id="ideal-use-cases">Ideal Use Cases</h2>
-<p><strong>DAMO-YOLO:</strong></p>
-<ul>
-<li><strong>High-Accuracy Demanding Applications:</strong> Ideal for scenarios where accuracy is paramount, such as high-resolution image analysis, detailed object recognition in complex scenes, and applications where false negatives are costly.</li>
-<li><strong>GPU-Accelerated Inference:</strong> Best suited for deployment environments equipped with GPUs, leveraging its fast GPU inference capabilities for real-time processing needs in areas like robotics and advanced video analytics.</li>
-</ul>
-<p><a class="md-button" href="https://www.ultralytics.com/yolo">Learn more about DAMO-YOLO</a></p>
-<p><strong>YOLOX:</strong></p>
-<ul>
-<li><strong>Edge Deployment and Mobile Applications:</strong> The Nano and Tiny versions are perfect for resource-constrained devices like mobile phones, embedded systems, and IoT devices, enabling on-device object detection. Consider exploring <a href="https://www.ultralytics.com/glossary/edge-ai">Edge AI</a> for more on-device AI solutions.</li>
-<li><strong>Versatile Object Detection Across Platforms:</strong> Suitable for a wide range of applications due to its model size diversity, from rapid prototyping to production deployment on both CPUs and GPUs. This makes it a flexible choice for various <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> projects.</li>
-<li><strong>Real-time Systems with Balanced Needs:</strong> YOLOX is well-suited for real-time object detection systems that require a good balance of speed and accuracy, such as autonomous driving perception, real-time security systems, and <a href="https://www.ultralytics.com/glossary/robotics">robotics</a>.</li>
-</ul>
-<p><a class="md-button" href="https://www.ultralytics.com/yolo">Learn more about YOLOX</a></p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Both DAMO-YOLO and YOLOX are powerful object detection models, each with its strengths. DAMO-YOLO excels in achieving high accuracy and efficient GPU inference, making it ideal for demanding applications where computational resources are available. YOLOX, with its anchor-free design and wide range of model sizes, offers versatility and adaptability, particularly for edge deployment and applications requiring a balance of speed and accuracy across diverse platforms.</p>
-<p>For users seeking alternative models, Ultralytics also offers a range of YOLO models including <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a>, <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a>, and <a href="https://docs.ultralytics.com/models/rtdetr/">RT-DETR</a>, each with unique architectural and performance characteristics catering to different computer vision needs. You can explore more models in the <a href="https://docs.ultralytics.com/models/">Ultralytics documentation</a>.</p>
+<p>Both DAMO-YOLO and YOLOX are powerful object detection models. DAMO-YOLO emphasizes accuracy and efficiency through architectural innovations, while YOLOX focuses on simplicity and high performance with its anchor-free design. The choice between them depends on the specific requirements of the application, considering factors like accuracy needs, speed requirements, and deployment environment.</p>
+<p>Users interested in other high-performance object detection models might also consider <a href="https://docs.ultralytics.com/models/yolov8/">Ultralytics YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a>, and <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a>. For comparisons with these and other models, refer to the <a href="https://docs.ultralytics.com/compare/">Ultralytics Model Comparison Docs</a>.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on February 23, 2024">

@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Compare DAMO-YOLO and YOLOv10 models in accuracy, speed, and efficiency. Discover their strengths, weaknesses, and use cases in object detection." name="description"/>
+<meta content="Compare YOLOv10 and DAMO-YOLO object detection models. Explore architectures, performance metrics, and ideal use cases for your computer vision needs." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/compare/damo-yolo-vs-yolov10/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
-<title>DAMO-YOLO vs YOLOv10: A Technical Comparison - Ultralytics YOLO Docs</title>
+<title>YOLOv10 vs. DAMO-YOLO: A Detailed Technical Comparison - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,13 +20,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="DAMO-YOLO vs YOLOv10: A Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="DAMO-YOLO, YOLOv10, Ultralytics, object detection, model comparison, AI benchmarks, deep learning, computer vision, mAP, inference speed" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolov10" property="og:url"/><meta content="DAMO-YOLO vs YOLOv10: A Technical Comparison" property="og:title"/><meta content="Compare DAMO-YOLO and YOLOv10 models in accuracy, speed, and efficiency. Discover their strengths, weaknesses, and use cases in object detection." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolov10" property="twitter:url"/><meta content="DAMO-YOLO vs YOLOv10: A Technical Comparison" property="twitter:title"/><meta content="Compare DAMO-YOLO and YOLOv10 models in accuracy, speed, and efficiency. Discover their strengths, weaknesses, and use cases in object detection." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "DAMO-YOLO vs YOLOv10: A Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 12:37:48 +0000", "dateModified": "2025-01-13 12:37:48 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Compare DAMO-YOLO and YOLOv10 models in accuracy, speed, and efficiency. Discover their strengths, weaknesses, and use cases in object detection."}</script></head>
+<meta content="YOLOv10 vs. DAMO-YOLO: A Detailed Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv10, DAMO-YOLO, object detection comparison, YOLO models, DAMO-YOLO performance, YOLOv10 features, computer vision models, real-time object detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolov10" property="og:url"/><meta content="YOLOv10 vs. DAMO-YOLO: A Detailed Technical Comparison" property="og:title"/><meta content="Compare YOLOv10 and DAMO-YOLO object detection models. Explore architectures, performance metrics, and ideal use cases for your computer vision needs." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolov10" property="twitter:url"/><meta content="YOLOv10 vs. DAMO-YOLO: A Detailed Technical Comparison" property="twitter:title"/><meta content="Compare YOLOv10 and DAMO-YOLO object detection models. Explore architectures, performance metrics, and ideal use cases for your computer vision needs." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLOv10 vs. DAMO-YOLO: A Detailed Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 15:28:36 +0000", "dateModified": "2025-01-13 15:28:36 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Compare YOLOv10 and DAMO-YOLO object detection models. Explore architectures, performance metrics, and ideal use cases for your computer vision needs."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#damo-yolo-vs-yolov10-a-technical-comparison">
+<a class="md-skip" href="#yolov10-vs-damo-yolo-a-detailed-technical-comparison">
           Skip to content
         </a>
 </div>
@@ -73,7 +73,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              DAMO-YOLO vs YOLOv10: A Technical Comparison
+              YOLOv10 vs. DAMO-YOLO: A Detailed Technical Comparison
           </span>
 </div>
 </div>
@@ -319,27 +319,6 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#performance-metrics-comparison">
-<span class="md-ellipsis">
-      Performance Metrics Comparison
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#use-cases">
-<span class="md-ellipsis">
-      Use Cases
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
-<span class="md-ellipsis">
-      Conclusion
-    </span>
-</a>
-</li>
 </ul>
 </nav>
 </div>
@@ -350,41 +329,83 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/damo-yolo-vs-yolov10.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="damo-yolo-vs-yolov10-a-technical-comparison">DAMO-YOLO vs YOLOv10: A Technical Comparison</h1>
-<p>Explore a detailed technical comparison between DAMO-YOLO and YOLOv10, two state-of-the-art object detection models. This page provides an in-depth analysis of their architectural nuances, performance benchmarks, and suitability for various computer vision applications.</p>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<h1 id="yolov10-vs-damo-yolo-a-detailed-technical-comparison">YOLOv10 vs. DAMO-YOLO: A Detailed Technical Comparison</h1>
+<p>This page offers a technical comparison between YOLOv10 and DAMO-YOLO, two advanced models in the field of object detection. We analyze their architectures, performance benchmarks, and suitability for different applications to assist you in choosing the right model for your computer vision needs.</p>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["DAMO-YOLO", "YOLOv10"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<p>This comparison aims to highlight the strengths and weaknesses of each model, helping users make informed decisions based on their specific project requirements. We delve into key metrics such as mAP, inference speed, and model size, providing a balanced perspective on both models.</p>
 <h2 id="damo-yolo">DAMO-YOLO</h2>
-<p>DAMO-YOLO is recognized for its high accuracy in object detection tasks. It employs a sophisticated architecture that focuses on improving detection precision, particularly in complex scenarios. While specific architectural details require deeper investigation of its official documentation, DAMO-YOLO generally represents a class of models prioritizing accuracy, often achieving state-of-the-art results on benchmark datasets.</p>
+<p>DAMO-YOLO, introduced by the Alibaba Group in November 2022, is designed for fast and accurate object detection. It incorporates Neural Architecture Search (NAS) backbones and efficient components like RepGFPN, ZeroHead, and AlignedOTA to enhance performance. DAMO-YOLO aims to strike a balance between speed and accuracy, making it suitable for real-time applications.</p>
+<p><strong>Architecture and Key Features:</strong></p>
+<p>DAMO-YOLO leverages several innovative architectural choices:</p>
+<ul>
+<li><strong>NAS Backbones:</strong> Employs backbones discovered through Neural Architecture Search for optimized feature extraction.</li>
+<li><strong>RepGFPN:</strong> Utilizes a Reparameterized Gradient Feature Pyramid Network for efficient feature fusion.</li>
+<li><strong>ZeroHead:</strong> A streamlined detection head designed to reduce computational overhead.</li>
+<li><strong>AlignedOTA:</strong> Implements an Aligned Optimal Transport Assignment for improved training efficiency.</li>
+</ul>
+<p><strong>Performance Metrics:</strong></p>
+<p>DAMO-YOLO exhibits strong performance on standard benchmarks. Key metrics include:</p>
+<ul>
+<li><strong>mAP</strong>: Achieves a competitive mean Average Precision (mAP) on datasets like COCO. For example, DAMO-YOLOl reaches 50.8 mAP<sup>val 50-95</sup>.</li>
+<li><strong>Inference Speed</strong>: Offers fast inference speeds suitable for real-time processing, with TensorRT speeds as low as 2.32ms on T4 for the tiny version.</li>
+<li><strong>Model Size</strong>: Available in various sizes (tiny, small, medium, large) with model sizes ranging from 8.5M to 97.3M parameters.</li>
+</ul>
 <p><strong>Strengths:</strong></p>
 <ul>
-<li><strong>High Accuracy:</strong> Excels in scenarios demanding precise object detection, achieving high mAP scores.</li>
-<li><strong>Robust Performance:</strong> Effective in handling complex scenes and challenging conditions where detection accuracy is paramount.</li>
+<li><strong>High Accuracy and Speed Trade-off</strong>: Provides a good balance between detection accuracy and inference speed.</li>
+<li><strong>Innovative Architecture</strong>: Integrates advanced components like NAS backbones and RepGFPN for enhanced performance.</li>
 </ul>
 <p><strong>Weaknesses:</strong></p>
 <ul>
-<li><strong>Inference Speed:</strong> May trade off speed for accuracy, potentially leading to slower inference times compared to real-time optimized models.</li>
-<li><strong>Model Size:</strong> Typically larger models due to architectural complexity, requiring more computational resources.</li>
+<li><strong>Complexity</strong>: The advanced architecture might introduce complexity in customization and implementation for some users.</li>
+<li><strong>Limited Public Benchmarks</strong>: Publicly available benchmark data might be less extensive compared to more established models.</li>
 </ul>
-<p><a class="md-button" href="https://docs.ultralytics.com/models/yolo11/">Learn more about YOLO11</a></p>
+<p><strong>Ideal Use Cases:</strong></p>
+<p>DAMO-YOLO is well-suited for applications demanding high accuracy and real-time processing, such as:</p>
+<ul>
+<li><strong>Autonomous Driving</strong>: Object detection in self-driving systems.</li>
+<li><strong>Advanced Robotics</strong>: Perception in robotic applications requiring precise object recognition.</li>
+<li><strong>High-Resolution Video Analysis</strong>: Analyzing high-definition video streams for detailed object detection.</li>
+</ul>
+<p><a class="md-button" href="https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md">Learn more about DAMO-YOLO</a></p>
 <h2 id="yolov10">YOLOv10</h2>
-<p>YOLOv10, the latest iteration in the Ultralytics YOLO series, emphasizes real-time object detection with a focus on efficiency and speed. Building upon the advancements of previous YOLO models like <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, YOLOv10 is engineered for optimal performance in applications where rapid inference is critical. Its architecture is streamlined to reduce computational overhead while maintaining a competitive level of accuracy.</p>
+<p>YOLOv10, released in May 2024 by Tsinghua University, represents the latest evolution in the YOLO series. It focuses on real-time end-to-end object detection, emphasizing efficiency and speed without Non-Maximum Suppression (NMS) during inference. YOLOv10 aims to deliver state-of-the-art performance with reduced latency and computational cost.</p>
+<p><strong>Architecture and Key Features:</strong></p>
+<p>YOLOv10 introduces several key improvements:</p>
+<ul>
+<li><strong>NMS-Free Training</strong>: Employs consistent dual assignments for NMS-free training, reducing post-processing overhead and latency.</li>
+<li><strong>Holistic Efficiency-Accuracy Driven Design</strong>: Comprehensive optimization of various model components for both efficiency and accuracy.</li>
+<li><strong>Lightweight Architecture</strong>: Designed for parameter efficiency and faster inference, suitable for deployment on diverse hardware.</li>
+</ul>
+<p><strong>Performance Metrics:</strong></p>
+<p>YOLOv10 excels in both speed and accuracy:</p>
+<ul>
+<li><strong>mAP</strong>: Achieves state-of-the-art mAP among real-time detectors. YOLOv10x reaches 54.4 mAP<sup>val 50-95</sup>.</li>
+<li><strong>Inference Speed</strong>: Boasts impressive inference speeds, with YOLOv10n achieving 1.56ms CPU ONNX speed and 2.3ms TensorRT speed on T4.</li>
+<li><strong>Model Size</strong>: Offers a range of model sizes (nano, small, medium, base, large, extra large) with YOLOv10n being exceptionally small at 2.3M parameters.</li>
+</ul>
 <p><strong>Strengths:</strong></p>
 <ul>
-<li><strong>High Speed:</strong> Designed for real-time applications, offering fast inference speeds suitable for live video analysis and edge deployment.</li>
-<li><strong>Efficiency:</strong> Optimized for resource-constrained environments, with smaller model sizes and lower computational requirements.</li>
-<li><strong>Ease of Use:</strong> Seamless integration with the Ultralytics ecosystem, facilitating easy training, deployment, and <a href="https://docs.ultralytics.com/modes/export/">model export</a>.</li>
+<li><strong>Exceptional Speed and Efficiency</strong>: Optimized for real-time inference with minimal latency.</li>
+<li><strong>NMS-Free Inference</strong>: Simplifies deployment and reduces inference time by eliminating the NMS post-processing step.</li>
+<li><strong>Versatile Model Range</strong>: Provides models catering to different computational budgets, from resource-constrained edge devices to high-performance servers.</li>
+<li><strong>Easy Integration</strong>: Seamless integration with the Ultralytics ecosystem and <a href="https://docs.ultralytics.com/usage/python/">Python package</a>.</li>
 </ul>
 <p><strong>Weaknesses:</strong></p>
 <ul>
-<li><strong>Accuracy Trade-off:</strong> While highly accurate, it may slightly compromise on absolute accuracy compared to models like DAMO-YOLO that prioritize precision above all else.</li>
-<li><strong>Complexity for Customization:</strong> While user-friendly, advanced architectural customizations might be less straightforward compared to more modular frameworks.</li>
+<li><strong>Relatively New Model</strong>: Being a newer model, YOLOv10 might have a smaller community and fewer real-world deployment examples compared to more mature models.</li>
+<li><strong>Potential Accuracy Trade-off</strong>: While highly accurate, the focus on extreme efficiency might lead to a slight trade-off in absolute accuracy compared to the most computationally intensive models in very specific scenarios.</li>
 </ul>
-<p><a class="md-button" href="https://www.ultralytics.com/yolo">Explore Ultralytics YOLOv8</a></p>
-<h2 id="performance-metrics-comparison">Performance Metrics Comparison</h2>
-<p>The table below provides a comparative overview of the performance metrics for DAMO-YOLO and YOLOv10 across different model sizes.</p>
+<p><strong>Ideal Use Cases:</strong></p>
+<p>YOLOv10 is ideally suited for applications where real-time performance and efficiency are paramount:</p>
+<ul>
+<li><strong>Edge AI Applications</strong>: Deployment on edge devices like <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a> and <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a> for real-time processing.</li>
+<li><strong>High-Throughput Video Processing</strong>: Applications requiring rapid analysis of video streams, such as <a href="https://www.ultralytics.com/blog/ai-in-traffic-management-from-congestion-to-coordination/">traffic monitoring</a> and <a href="https://docs.ultralytics.com/guides/queue-management/">queue management</a>.</li>
+<li><strong>Mobile and Web Deployments</strong>: Object detection in web and mobile applications where low latency is critical.</li>
+</ul>
+<p><a class="md-button" href="https://docs.ultralytics.com/models/yolov10/">Learn more about YOLOv10</a></p>
+<hr/>
 <table>
 <thead>
 <tr>
@@ -499,24 +520,15 @@
 </tr>
 </tbody>
 </table>
-<p>This table illustrates a trade-off: YOLOv10 models generally offer faster inference speeds (especially on TensorRT) and smaller model sizes (params and FLOPs), while achieving comparable or sometimes even slightly better mAP in certain size categories compared to DAMO-YOLO. For instance, YOLOv10s achieves a slightly higher mAP than DAMO-YOLOs with significantly faster TensorRT speed and smaller model size.</p>
-<h2 id="use-cases">Use Cases</h2>
-<p><strong>DAMO-YOLO:</strong> Ideal for applications where accuracy is the top priority, such as:</p>
+<hr/>
+<p><strong>Other Models</strong></p>
+<p>Users interested in DAMO-YOLO and YOLOv10 may also find these Ultralytics YOLO models relevant:</p>
 <ul>
-<li><strong>Medical Imaging:</strong> Precise detection of anomalies in medical scans where false negatives can be critical. Explore the use of <a href="https://www.ultralytics.com/glossary/medical-image-analysis">medical image analysis</a> with AI.</li>
-<li><strong>Quality Control in Manufacturing:</strong> Identifying minute defects on production lines requiring high precision. Learn more about <a href="https://www.ultralytics.com/solutions/ai-in-manufacturing">AI in manufacturing</a>.</li>
-<li><strong>Surveillance Systems:</strong> Critical infrastructure monitoring where accurate detection of specific objects or events is crucial. Discover how <a href="https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security">computer vision enhances security</a>.</li>
+<li><strong>Ultralytics YOLOv8</strong>: A highly versatile and widely adopted model known for its balance of speed and accuracy, making it a strong general-purpose object detector. <a href="https://docs.ultralytics.com/models/yolov8/">Explore YOLOv8 Docs</a></li>
+<li><strong>YOLOv9</strong>: Introduces Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN) for enhanced accuracy and efficiency. <a href="https://docs.ultralytics.com/models/yolov9/">View YOLOv9 Documentation</a></li>
+<li><strong>Ultralytics YOLO11</strong>: The cutting-edge model with focus on efficiency and speed, incorporating anchor-free detection and optimized architecture for real-time performance. <a href="https://docs.ultralytics.com/models/yolo11/">Read more about YOLO11</a></li>
 </ul>
-<p><strong>YOLOv10:</strong> Best suited for applications requiring real-time performance and efficiency:</p>
-<ul>
-<li><strong>Autonomous Driving:</strong> Real-time object detection for safe navigation and decision-making in self-driving vehicles. Understand <a href="https://www.ultralytics.com/solutions/ai-in-self-driving">vision AI in self-driving cars</a>.</li>
-<li><strong>Robotics:</strong> Enabling robots to perceive and interact with their environment in real-time. Explore the synergy of <a href="https://www.ultralytics.com/glossary/robotics">robotics and AI</a>.</li>
-<li><strong>Edge AI Applications:</strong> Deployment on edge devices with limited computational resources, such as mobile applications or embedded systems. Learn about <a href="https://www.ultralytics.com/glossary/edge-ai">Edge AI</a> and its benefits.</li>
-<li><strong>Real-time Analytics:</strong> Applications requiring immediate processing and analysis of video streams, like <a href="https://www.ultralytics.com/blog/optimizingtraffic-management-with-ultralytics-yolo11">traffic management</a> or <a href="https://docs.ultralytics.com/guides/queue-management/">queue management</a>.</li>
-</ul>
-<h2 id="conclusion">Conclusion</h2>
-<p>Choosing between DAMO-YOLO and YOLOv10 depends heavily on the specific application needs. If accuracy is paramount and computational resources are not strictly limited, DAMO-YOLO presents a robust option. Conversely, for real-time, efficient applications, YOLOv10 offers a compelling balance of speed and accuracy, making it an excellent choice for a wide range of practical deployments.</p>
-<p>Users interested in exploring other models might also consider <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a> or <a href="https://docs.ultralytics.com/models/rtdetr/">RT-DETR</a>, each offering unique strengths in different aspects of object detection. For further exploration of Ultralytics models and capabilities, refer to the <a href="https://docs.ultralytics.com/models/">Ultralytics documentation</a> and <a href="https://docs.ultralytics.com/guides/">guides</a>.</p>
+<p>These models offer a range of capabilities and can be chosen based on specific project requirements for accuracy, speed, and deployment environment.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on February 23, 2024">

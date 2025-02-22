@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore a detailed technical comparison of DAMO-YOLO and EfficientDet, focusing on performance, architecture, and use cases for object detection tasks." name="description"/>
+<meta content="Compare DAMO-YOLO and EfficientDet for object detection. Explore architectures, metrics, and use cases to select the right model for your needs." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/compare/damo-yolo-vs-efficientdet/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.5" name="generator"/>
-<title>DAMO-YOLO vs EfficientDet: A Technical Comparison - Ultralytics YOLO Docs</title>
+<title>DAMO-YOLO vs. EfficientDet: A Detailed Comparison for Object Detection - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.8608ea7d.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -20,13 +20,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="DAMO-YOLO vs EfficientDet: A Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="DAMO-YOLO,EfficientDet,object detection,model comparison,computer vision,real-time detection,performance metrics,TensorRT,YOLO" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-efficientdet" property="og:url"/><meta content="DAMO-YOLO vs EfficientDet: A Technical Comparison" property="og:title"/><meta content="Explore a detailed technical comparison of DAMO-YOLO and EfficientDet, focusing on performance, architecture, and use cases for object detection tasks." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-efficientdet" property="twitter:url"/><meta content="DAMO-YOLO vs EfficientDet: A Technical Comparison" property="twitter:title"/><meta content="Explore a detailed technical comparison of DAMO-YOLO and EfficientDet, focusing on performance, architecture, and use cases for object detection tasks." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "DAMO-YOLO vs EfficientDet: A Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 12:37:48 +0000", "dateModified": "2025-01-13 12:37:48 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore a detailed technical comparison of DAMO-YOLO and EfficientDet, focusing on performance, architecture, and use cases for object detection tasks."}</script></head>
+<meta content="DAMO-YOLO vs. EfficientDet: A Detailed Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="DAMO-YOLO, EfficientDet, object detection, model comparison, performance metrics, computer vision, YOLO, EfficientNet, BiFPN, NAS, COCO dataset" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-efficientdet" property="og:url"/><meta content="DAMO-YOLO vs. EfficientDet: A Detailed Comparison for Object Detection" property="og:title"/><meta content="Compare DAMO-YOLO and EfficientDet for object detection. Explore architectures, metrics, and use cases to select the right model for your needs." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-efficientdet" property="twitter:url"/><meta content="DAMO-YOLO vs. EfficientDet: A Detailed Comparison for Object Detection" property="twitter:title"/><meta content="Compare DAMO-YOLO and EfficientDet for object detection. Explore architectures, metrics, and use cases to select the right model for your needs." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "DAMO-YOLO vs. EfficientDet: A Detailed Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-02-23 15:28:36 +0000", "dateModified": "2025-01-13 15:28:36 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Compare DAMO-YOLO and EfficientDet for object detection. Explore architectures, metrics, and use cases to select the right model for your needs."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#damo-yolo-vs-efficientdet-a-technical-comparison">
+<a class="md-skip" href="#damo-yolo-vs-efficientdet-a-detailed-comparison-for-object-detection">
           Skip to content
         </a>
 </div>
@@ -73,7 +73,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              DAMO-YOLO vs EfficientDet: A Technical Comparison
+              DAMO-YOLO vs. EfficientDet: A Detailed Comparison for Object Detection
           </span>
 </div>
 </div>
@@ -314,23 +314,16 @@
 <nav aria-label="DAMO-YOLO" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#architecture">
+<a class="md-nav__link" href="#architecture-and-key-features">
 <span class="md-ellipsis">
-      Architecture
+      Architecture and Key Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance">
+<a class="md-nav__link" href="#performance-metrics">
 <span class="md-ellipsis">
-      Performance
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#use-cases">
-<span class="md-ellipsis">
-      Use Cases
+      Performance Metrics
     </span>
 </a>
 </li>
@@ -338,6 +331,13 @@
 <a class="md-nav__link" href="#strengths-and-weaknesses">
 <span class="md-ellipsis">
       Strengths and Weaknesses
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#use-cases">
+<span class="md-ellipsis">
+      Use Cases
     </span>
 </a>
 </li>
@@ -353,23 +353,16 @@
 <nav aria-label="EfficientDet" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#architecture_1">
+<a class="md-nav__link" href="#architecture-and-key-features_1">
 <span class="md-ellipsis">
-      Architecture
+      Architecture and Key Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance_1">
+<a class="md-nav__link" href="#performance-metrics_1">
 <span class="md-ellipsis">
-      Performance
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#use-cases_1">
-<span class="md-ellipsis">
-      Use Cases
+      Performance Metrics
     </span>
 </a>
 </li>
@@ -380,13 +373,20 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#use-cases_1">
+<span class="md-ellipsis">
+      Use Cases
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#model-comparison-table">
+<a class="md-nav__link" href="#performance-comparison-table">
 <span class="md-ellipsis">
-      Model Comparison Table
+      Performance Comparison Table
     </span>
 </a>
 </li>
@@ -407,64 +407,103 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/damo-yolo-vs-efficientdet.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="damo-yolo-vs-efficientdet-a-technical-comparison">DAMO-YOLO vs EfficientDet: A Technical Comparison</h1>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<h1 id="damo-yolo-vs-efficientdet-a-detailed-comparison-for-object-detection">DAMO-YOLO vs. EfficientDet: A Detailed Comparison for Object Detection</h1>
+<p>Choosing the right object detection model is critical for computer vision projects. This page offers a detailed technical comparison between DAMO-YOLO and EfficientDet, two state-of-the-art models. We analyze their architectures, performance metrics, and ideal applications to assist you in making an informed decision.</p>
+<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["DAMO-YOLO", "EfficientDet"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<p>In the realm of object detection, DAMO-YOLO and EfficientDet stand out as powerful models, each with unique architectural choices and performance characteristics. This page provides a detailed technical comparison to help users understand their strengths, weaknesses, and ideal applications. Both models address the crucial task of <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> in computer vision, but they employ different strategies to achieve state-of-the-art results.</p>
 <h2 id="damo-yolo">DAMO-YOLO</h2>
-<p>DAMO-YOLO is known for its efficiency and high performance in object detection tasks. It leverages a streamlined architecture that focuses on speed without significantly sacrificing accuracy. The model family includes various sizes (tiny, small, medium, large) to cater to different computational budgets and application needs. DAMO-YOLO models are designed to be highly optimized for inference speed, making them suitable for real-time applications.</p>
-<p><a class="md-button" href="https://docs.ultralytics.com/models/yolo11/">Learn more about YOLO11</a></p>
-<h3 id="architecture">Architecture</h3>
-<p>While specific architectural details of DAMO-YOLO may vary across versions, it generally adopts a one-stage detection approach, similar to the <a href="https://www.ultralytics.com/yolo">Ultralytics YOLO</a> series, focusing on direct prediction of bounding boxes and class probabilities. This avoids the region proposal step found in two-stage detectors, enhancing speed. It is engineered for efficient feature extraction and aggregation, contributing to its fast inference times.</p>
-<h3 id="performance">Performance</h3>
-<p>DAMO-YOLO achieves a compelling balance between speed and accuracy. As shown in the comparison table, different variants offer varying trade-offs. For instance, DAMO-YOLOm achieves a mAP<sup>val</sup><sub>50-95</sub> of 49.2% while maintaining a fast inference speed on TensorRT. Its performance metrics highlight its suitability for applications where rapid object detection is critical. For a deeper understanding of performance metrics, refer to our <a href="https://docs.ultralytics.com/guides/yolo-performance-metrics/">YOLO Performance Metrics guide</a>.</p>
-<h3 id="use-cases">Use Cases</h3>
-<p>Ideal use cases for DAMO-YOLO include:</p>
+<p><a href="https://github.com/tinyvision/DAMO-YOLO">DAMO-YOLO</a> is a high-performance object detection model developed by Alibaba Group, known for its accuracy and efficiency. It employs several advanced techniques to achieve state-of-the-art results.</p>
+<h3 id="architecture-and-key-features">Architecture and Key Features</h3>
+<p>DAMO-YOLO distinguishes itself with an anchor-free architecture, simplifying the model structure and potentially improving generalization. Key architectural innovations include:</p>
 <ul>
-<li><strong>Real-time object detection:</strong> Applications requiring fast processing, such as autonomous driving, robotics, and <a href="https://docs.ultralytics.com/guides/security-alarm-system/">security alarm systems</a>.</li>
-<li><strong>Edge deployment:</strong> Efficient models suitable for deployment on edge devices with limited computational resources.</li>
-<li><strong>High-speed video analysis:</strong> Scenarios demanding rapid analysis of video streams for object detection.</li>
+<li><strong>NAS Backbones</strong>: Utilizes Neural Architecture Search (NAS) to design efficient backbone networks.</li>
+<li><strong>RepGFPN</strong>: Employs an efficient Reparameterized Gradient Feature Pyramid Network (GFPN) for feature fusion.</li>
+<li><strong>ZeroHead</strong>: Features a lightweight detection head called ZeroHead.</li>
+<li><strong>AlignedOTA</strong>: Uses Aligned Optimal Transport Assignment (OTA) for improved label assignment during training.</li>
+</ul>
+<h3 id="performance-metrics">Performance Metrics</h3>
+<p>DAMO-YOLO achieves a strong balance between accuracy and speed. While detailed CPU ONNX speed metrics are not available in the provided table, its TensorRT speeds and mAP scores demonstrate competitive performance.</p>
+<ul>
+<li><strong>mAP</strong>: Achieves high mean Average Precision (mAP) on the COCO dataset, as shown in the comparison table.</li>
+<li><strong>Inference Speed</strong>: Offers fast inference times, particularly when deployed with TensorRT.</li>
+<li><strong>Model Size</strong>: Available in various sizes (t, s, m, l) to suit different computational needs.</li>
 </ul>
 <h3 id="strengths-and-weaknesses">Strengths and Weaknesses</h3>
 <p><strong>Strengths:</strong></p>
 <ul>
-<li><strong>High inference speed:</strong> Optimized for real-time performance.</li>
-<li><strong>Good accuracy:</strong> Achieves competitive mAP scores, especially considering its speed.</li>
-<li><strong>Model size variants:</strong> Offers models of different sizes to suit various resource constraints.</li>
+<li><strong>High Accuracy</strong>: Particularly larger DAMO-YOLO models (m, l) achieve impressive mAP scores.</li>
+<li><strong>Efficient Architecture</strong>: Anchor-free design and efficient network components contribute to fast inference.</li>
+<li><strong>Innovative Techniques</strong>: Incorporates cutting-edge techniques like NAS backbones and AlignedOTA.</li>
 </ul>
 <p><strong>Weaknesses:</strong></p>
 <ul>
-<li><strong>Limited documentation:</strong> Publicly available documentation may be less extensive compared to more established models.</li>
-<li><strong>Less community support:</strong> May have a smaller user and developer community compared to models like EfficientDet or Ultralytics YOLO.</li>
+<li><strong>Limited Customization</strong>: May offer less flexibility for architectural modifications compared to more modular frameworks.</li>
+<li><strong>Ecosystem</strong>: A relatively newer model, it may have a smaller community and ecosystem compared to more established models.</li>
+</ul>
+<h3 id="use-cases">Use Cases</h3>
+<p>DAMO-YOLO is well-suited for applications demanding high accuracy and efficient inference, such as:</p>
+<ul>
+<li><strong>Industrial Automation</strong>: Quality control in manufacturing and automated inspection systems.</li>
+<li><strong>Robotics</strong>: Perception in robotic systems requiring precise object detection.</li>
+<li><strong>Advanced Surveillance</strong>: High-performance surveillance systems needing accurate detection.</li>
+</ul>
+<p><a class="md-button" href="https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md">Learn more about DAMO-YOLO</a></p>
+<p><strong>Technical Details:</strong></p>
+<ul>
+<li><strong>Authors</strong>: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun</li>
+<li><strong>Organization</strong>: Alibaba Group</li>
+<li><strong>Date</strong>: 2022-11-23</li>
+<li><strong>Arxiv Link</strong>: <a href="https://arxiv.org/abs/2211.15444v2">https://arxiv.org/abs/2211.15444v2</a></li>
+<li><strong>GitHub Link</strong>: <a href="https://github.com/tinyvision/DAMO-YOLO">https://github.com/tinyvision/DAMO-YOLO</a></li>
+<li><strong>Docs Link</strong>: <a href="https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md">https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md</a></li>
 </ul>
 <h2 id="efficientdet">EfficientDet</h2>
-<p>EfficientDet is designed with a focus on both efficiency and accuracy, achieving state-of-the-art performance with fewer parameters and FLOPS compared to many contemporary object detectors. It introduces the BiFPN (Bidirectional Feature Pyramid Network) and compound scaling method to optimize model scaling and feature fusion.</p>
-<h3 id="architecture_1">Architecture</h3>
-<p>EfficientDet's architecture is built around the BiFPN, which enables efficient multi-level feature fusion. Unlike traditional FPNs, BiFPN employs bidirectional cross-scale connections and weighted feature fusion, allowing for richer feature representation. The model family scales efficiently using a compound scaling method that uniformly scales network depth, width, and resolution, leading to a family of models (D0-D7) with varying complexity and performance.</p>
-<h3 id="performance_1">Performance</h3>
-<p>EfficientDet models are known for achieving high accuracy with relatively efficient computation. EfficientDet-d7, the largest variant, reaches a mAP<sup>val</sup><sub>50-95</sub> of 53.7%, which is very competitive. Even smaller variants like EfficientDet-d4 offer a strong balance, achieving a mAP<sup>val</sup><sub>50-95</sub> of 49.7% with reasonable speed. However, as indicated in the table, EfficientDet models generally have slower inference speeds compared to DAMO-YOLO, especially on TensorRT.</p>
-<h3 id="use-cases_1">Use Cases</h3>
-<p>EfficientDet is well-suited for:</p>
+<p><a href="https://github.com/google/automl/tree/master/efficientdet">EfficientDet</a>, developed by Google, is a family of object detection models designed for efficiency and scalability. It focuses on achieving high accuracy with fewer parameters and FLOPs.</p>
+<h3 id="architecture-and-key-features_1">Architecture and Key Features</h3>
+<p>EfficientDet introduces several key architectural innovations to enhance efficiency and performance:</p>
 <ul>
-<li><strong>High-accuracy object detection:</strong> Applications where accuracy is paramount, such as medical image analysis, detailed surveillance, and <a href="https://www.ultralytics.com/blog/quality-inspection-in-manufacturing-traditional-vs-deep-learning-methods">quality inspection in manufacturing</a>.</li>
-<li><strong>Mobile and edge devices:</strong> While not as fast as DAMO-YOLO, EfficientDet's efficiency makes it deployable on mobile and edge devices, especially the smaller variants (D0-D3).</li>
-<li><strong>Applications requiring detailed object understanding:</strong> Scenarios needing precise localization and classification of objects in complex scenes.</li>
+<li><strong>BiFPN (Bi-directional Feature Pyramid Network)</strong>: A weighted bi-directional feature pyramid network that enables efficient multi-scale feature fusion.</li>
+<li><strong>Compound Scaling</strong>: A systematic approach to scale up model dimensions (depth, width, resolution) in a balanced way.</li>
+<li><strong>Efficient Backbone</strong>: Utilizes EfficientNet as a backbone for efficient feature extraction.</li>
+</ul>
+<h3 id="performance-metrics_1">Performance Metrics</h3>
+<p>EfficientDet models are designed to offer a range of performance levels, from smaller, faster models to larger, more accurate ones.</p>
+<ul>
+<li><strong>mAP</strong>: Achieves competitive mean Average Precision (mAP) scores across different EfficientDet-d variants.</li>
+<li><strong>Inference Speed</strong>: Offers a range of inference speeds, with smaller models like EfficientDet-d0 being very fast on CPU and TensorRT.</li>
+<li><strong>Model Size</strong>: Available in various sizes (d0 to d7), providing flexibility for different resource constraints.</li>
 </ul>
 <h3 id="strengths-and-weaknesses_1">Strengths and Weaknesses</h3>
 <p><strong>Strengths:</strong></p>
 <ul>
-<li><strong>High accuracy with efficiency:</strong> Achieves state-of-the-art accuracy with fewer parameters and FLOPS.</li>
-<li><strong>BiFPN for effective feature fusion:</strong> Bidirectional Feature Pyramid Network enhances feature representation.</li>
-<li><strong>Compound scaling:</strong> Efficiently scales model complexity to balance performance and computational cost.</li>
-<li><strong>Well-documented and established:</strong> Has good documentation and a strong presence in the computer vision community.</li>
+<li><strong>Efficiency</strong>: Achieves high accuracy with relatively fewer parameters and FLOPs, making it efficient in terms of computation and model size.</li>
+<li><strong>Scalability</strong>: Compound scaling allows for easy scaling of the model to meet different accuracy and speed requirements.</li>
+<li><strong>Balanced Performance</strong>: Offers a good balance between accuracy, speed, and model size across its different variants.</li>
 </ul>
 <p><strong>Weaknesses:</strong></p>
 <ul>
-<li><strong>Slower inference speed:</strong> Generally slower than models like DAMO-YOLO, especially in real-time scenarios.</li>
-<li><strong>Larger model sizes for high accuracy:</strong> To achieve top accuracy, larger EfficientDet variants can become computationally intensive.</li>
+<li><strong>Complexity</strong>: The BiFPN and compound scaling techniques add some complexity to the model architecture.</li>
+<li><strong>Speed for larger models</strong>: Larger EfficientDet models (d6, d7) can become slower compared to some real-time detectors, especially on CPU.</li>
 </ul>
-<h2 id="model-comparison-table">Model Comparison Table</h2>
+<h3 id="use-cases_1">Use Cases</h3>
+<p>EfficientDet is suitable for a wide range of object detection tasks, especially where efficiency and scalability are important:</p>
+<ul>
+<li><strong>Mobile and Edge Devices</strong>: Smaller EfficientDet models are ideal for deployment on resource-constrained devices like <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a> and <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a>.</li>
+<li><strong>Real-time Applications</strong>: EfficientDet-d0 and d1 offer real-time performance on various hardware.</li>
+<li><strong>Applications requiring a trade-off</strong>: When a balance between accuracy and computational cost is needed.</li>
+</ul>
+<p><a class="md-button" href="https://github.com/google/automl/tree/master/efficientdet#readme">Learn more about EfficientDet</a></p>
+<p><strong>Technical Details:</strong></p>
+<ul>
+<li><strong>Authors</strong>: Mingxing Tan, Ruoming Pang, and Quoc V. Le</li>
+<li><strong>Organization</strong>: Google</li>
+<li><strong>Date</strong>: 2019-11-20</li>
+<li><strong>Arxiv Link</strong>: <a href="https://arxiv.org/abs/1911.09070">https://arxiv.org/abs/1911.09070</a></li>
+<li><strong>GitHub Link</strong>: <a href="https://github.com/google/automl/tree/master/efficientdet">https://github.com/google/automl/tree/master/efficientdet</a></li>
+<li><strong>Docs Link</strong>: <a href="https://github.com/google/automl/tree/master/efficientdet#readme">https://github.com/google/automl/tree/master/efficientdet#readme</a></li>
+</ul>
+<h2 id="performance-comparison-table">Performance Comparison Table</h2>
 <table>
 <thead>
 <tr>
@@ -598,8 +637,8 @@
 </tbody>
 </table>
 <h2 id="conclusion">Conclusion</h2>
-<p>Choosing between DAMO-YOLO and EfficientDet depends heavily on the specific application requirements. If real-time performance and speed are paramount, DAMO-YOLO is a strong contender. For applications prioritizing higher accuracy and efficiency in parameter usage, EfficientDet offers a robust solution.</p>
-<p>Users interested in other high-performance object detection models from Ultralytics may also consider exploring <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a> and the latest <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a>, which offer state-of-the-art performance and a range of features for various computer vision tasks. Furthermore, for real-time applications, models like <a href="https://docs.ultralytics.com/models/rtdetr/">RT-DETR</a> and <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a> provide alternative architectures optimized for speed and efficiency.</p>
+<p>Both DAMO-YOLO and EfficientDet are powerful object detection models with distinct strengths. DAMO-YOLO excels in achieving high accuracy with innovative architectural designs, making it suitable for demanding applications. EfficientDet, on the other hand, is designed for efficiency and scalability, offering a range of models optimized for different computational resources and performance needs.</p>
+<p>For users interested in other high-performance object detectors, Ultralytics offers a range of YOLO models, including <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a> and <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a>, known for their speed, accuracy, and ease of use. You might also find comparisons with other models useful, such as <a href="https://docs.ultralytics.com/compare/damo-yolo-vs-yolov5/">YOLOv5 vs. DAMO-YOLO</a> and <a href="https://docs.ultralytics.com/compare/rtdetr-vs-damo-yolo/">RT-DETR vs. DAMO-YOLO</a>.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on February 23, 2024">
