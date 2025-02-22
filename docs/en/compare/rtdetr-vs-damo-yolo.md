@@ -105,7 +105,7 @@ Both RTDETRv2 and DAMO-YOLO are powerful object detection models, each with dist
 
 For users considering other options, Ultralytics offers a wide range of models, including:
 
-- **YOLOv11**: The latest in the YOLO series, balancing speed and accuracy. Learn more about [YOLO11](https://docs.ultralytics.com/models/yolo11/).
+- **YOLO11**: The latest in the YOLO series, balancing speed and accuracy. Learn more about [YOLO11](https://docs.ultralytics.com/models/yolo11/).
 - **YOLOv8 and YOLOv9**: Previous generations offering various speed-accuracy trade-offs, detailed in "[Ultralytics YOLOv8 Turns One: A Year of Breakthroughs and Innovations](https://www.ultralytics.com/blog/ultralytics-yolov8-turns-one-a-year-of-breakthroughs-and-innovations)" and [YOLOv9](https://docs.ultralytics.com/models/yolov9/).
 - **YOLO-NAS**: Models designed via Neural Architecture Search for optimal performance. See [YOLO-NAS by Deci AI - a State-of-the-Art Object Detection Model](https://docs.ultralytics.com/models/yolo-nas/).
 - **FastSAM and MobileSAM**: For real-time instance segmentation, check out [FastSAM](https://docs.ultralytics.com/models/fast-sam/) and [MobileSAM](https://docs.ultralytics.com/models/mobile-sam/).

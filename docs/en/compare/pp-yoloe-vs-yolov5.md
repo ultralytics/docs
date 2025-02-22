@@ -114,7 +114,7 @@ Users may also be interested in exploring other Ultralytics YOLO models such as:
 
 - [YOLOv7](https://docs.ultralytics.com/models/yolov7/), known for its speed and efficiency.
 - [YOLOv8](https://docs.ultralytics.com/models/yolov8/), the latest Ultralytics model with state-of-the-art performance.
-- [YOLOv11](https://docs.ultralytics.com/models/yolo11/), the newest iteration focusing on efficiency and accuracy.
+- [YOLO11](https://docs.ultralytics.com/models/yolo11/), the newest iteration focusing on efficiency and accuracy.
 - [YOLOv9](https://docs.ultralytics.com/models/yolov9/), offering advancements in both accuracy and speed.
 
 The choice between PP-YOLOE+ and YOLOv5 depends on project needs, framework preference, and the required balance between speed and accuracy.

@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Compare YOLOv11 and YOLOv9 for object detection. Explore innovations, benchmarks, and use cases to select the best model for your tasks.
-keywords: YOLOv11, YOLOv9, object detection, model comparison, benchmarks, Ultralytics, real-time processing, machine learning, computer vision
+description: Compare YOLO11 and YOLOv9 for object detection. Explore innovations, benchmarks, and use cases to select the best model for your tasks.
+keywords: YOLO11, YOLOv9, object detection, model comparison, benchmarks, Ultralytics, real-time processing, machine learning, computer vision
 ---
 
 # YOLO11 vs YOLOv9: A Technical Comparison for Object Detection
@@ -13,7 +13,7 @@ keywords: YOLOv11, YOLOv9, object detection, model comparison, benchmarks, Ultra
 
 Ultralytics consistently delivers state-of-the-art YOLO models, pushing the boundaries of real-time object detection. This page provides a technical comparison between two advanced models: [YOLOv9](https://docs.ultralytics.com/models/yolov9/) and [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/). We analyze their architectural innovations, performance benchmarks, and suitable applications to guide you in selecting the optimal model for your computer vision tasks.
 
-## YOLOv11: Redefining Accuracy and Efficiency
+## YOLO11: Redefining Accuracy and Efficiency
 
 [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/), the newest iteration in the YOLO series, builds upon previous successes like [YOLOv8](https://docs.ultralytics.com/models/yolov8/). YOLO11 is engineered for enhanced accuracy and efficiency across various computer vision tasks, including object detection, [instance segmentation](https://www.ultralytics.com/glossary/instance-segmentation), [image classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/).
 

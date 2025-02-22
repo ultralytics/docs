@@ -1,7 +1,7 @@
 ---
 comments: true
 description: Explore comprehensive comparisons of Ultralytics YOLO models and other popular object detection models.  Dive into detailed analyses to help you select the optimal model for your computer vision tasks.
-keywords: YOLO model comparison, object detection benchmarks, YOLOv11, YOLOv10, YOLOv9, YOLOv8, YOLOv7, YOLOv6, YOLOv5, PP-YOLOE+, DAMO-YOLO, YOLOX, RTDETR, EfficientDet, Ultralytics, model selection, performance metrics
+keywords: YOLO model comparison, object detection benchmarks, YOLO11, YOLOv10, YOLOv9, YOLOv8, YOLOv7, YOLOv6, YOLOv5, PP-YOLOE+, DAMO-YOLO, YOLOX, RTDETR, EfficientDet, Ultralytics, model selection, performance metrics
 ---
 
 # Model Comparisons: Choose the Best YOLO Model for Your Project

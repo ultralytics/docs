@@ -99,4 +99,4 @@ RTDETRv2 is ideally suited for applications where high accuracy is paramount and
 
 [Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme){ .md-button }
 
-Users interested in other high-performance object detection models might also consider exploring Ultralytics YOLOv8 and YOLOv11 for efficient and versatile solutions, or RT-DETR for another transformer-based option. For comparisons with other models, refer to pages like YOLOv5 vs RT-DETR v2 and YOLOv7 vs RT-DETR for further insights.
+Users interested in other high-performance object detection models might also consider exploring Ultralytics YOLOv8 and YOLO11 for efficient and versatile solutions, or RT-DETR for another transformer-based option. For comparisons with other models, refer to pages like YOLOv5 vs RT-DETR v2 and YOLOv7 vs RT-DETR for further insights.

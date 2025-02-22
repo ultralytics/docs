@@ -81,4 +81,4 @@ EfficientDet is well-suited for applications where high accuracy is paramount, a
 | EfficientDet-d6 | 640                   | 52.6                 | 92.8                           | 89.29                               | 51.9               | 226.0             |
 | EfficientDet-d7 | 640                   | 53.7                 | 122.0                          | 128.07                              | 51.9               | 325.0             |
 
-For users interested in other high-performance object detection models, Ultralytics also offers [YOLOv11](https://docs.ultralytics.com/models/yolo11/), [YOLOv9](https://docs.ultralytics.com/models/yolov9/), and [YOLOv7](https://docs.ultralytics.com/models/yolov7/), each with unique strengths in different application contexts.
+For users interested in other high-performance object detection models, Ultralytics also offers [YOLO11](https://docs.ultralytics.com/models/yolo11/), [YOLOv9](https://docs.ultralytics.com/models/yolov9/), and [YOLOv7](https://docs.ultralytics.com/models/yolov7/), each with unique strengths in different application contexts.

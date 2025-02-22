@@ -105,4 +105,4 @@ YOLOv5 is highly suitable for applications where speed and reliability are param
 
 Choosing between YOLOv5 and YOLOv10 depends on the specific needs of your project. YOLOv5 remains a solid, versatile choice when speed and ease of implementation are crucial, and a slightly lower accuracy is acceptable. YOLOv10, on the other hand, provides cutting-edge performance with improved accuracy and efficiency, making it ideal for applications pushing the boundaries of real-time object detection.
 
-For users interested in exploring other models, Ultralytics also offers YOLOv8 and YOLOv11, each with unique strengths and optimizations. You can compare different YOLO models and other architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) to find the best fit for your specific computer vision task.
+For users interested in exploring other models, Ultralytics also offers YOLOv8 and YOLO11, each with unique strengths and optimizations. You can compare different YOLO models and other architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) to find the best fit for your specific computer vision task.

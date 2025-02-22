@@ -93,7 +93,7 @@ Both RTDETRv2 and YOLOv5 are robust object detection models, each designed for d
 
 For users exploring other models, Ultralytics offers a broad model zoo, including:
 
-- **YOLOv8** and **YOLOv11**: Successors to YOLOv5, providing further advancements in performance and efficiency as highlighted in "[Ultralytics YOLOv8 Turns One: A Year of Breakthroughs and Innovations](https://www.ultralytics.com/blog/ultralytics-yolov8-turns-one-a-year-of-breakthroughs-and-innovations)" and "[Ultralytics YOLO11 Has Arrived: Redefine What's Possible in AI](https://www.ultralytics.com/blog/ultralytics-yolo11-has-arrived-redefine-whats-possible-in-ai)".
+- **YOLOv8** and **YOLO11**: Successors to YOLOv5, providing further advancements in performance and efficiency as highlighted in "[Ultralytics YOLOv8 Turns One: A Year of Breakthroughs and Innovations](https://www.ultralytics.com/blog/ultralytics-yolov8-turns-one-a-year-of-breakthroughs-and-innovations)" and "[Ultralytics YOLO11 Has Arrived: Redefine What's Possible in AI](https://www.ultralytics.com/blog/ultralytics-yolo11-has-arrived-redefine-whats-possible-in-ai)".
 - **YOLO-NAS**: Models architected with Neural Architecture Search for optimized performance ([YOLO-NAS by Deci AI](https://docs.ultralytics.com/models/yolo-nas/)).
 - **FastSAM** and **MobileSAM**: For real-time instance segmentation tasks ([FastSAM](https://docs.ultralytics.com/models/fast-sam/) and [MobileSAM](https://docs.ultralytics.com/models/mobile-sam/)).
 
