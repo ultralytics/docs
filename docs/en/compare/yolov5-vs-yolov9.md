@@ -8,7 +8,7 @@ keywords: YOLOv5, YOLOv9, object detection, AI models comparison, YOLO performan
 
 Ultralytics YOLO models are renowned for their speed and accuracy in object detection tasks. This page provides a technical comparison between two popular models: YOLOv5 and YOLOv9, highlighting their architectural differences, performance metrics, and suitable applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv9"]'></canvas>

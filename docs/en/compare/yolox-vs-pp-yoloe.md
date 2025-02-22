@@ -8,7 +8,7 @@ keywords: YOLOX,PP-YOLOE+,object detection,model comparison,computer vision,YOLO
 
 Choosing the right object detection model is crucial for computer vision projects. This page provides a detailed technical comparison between two popular models: YOLOX and PP-YOLOE+. We will analyze their architectures, performance metrics, training methodologies, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "PP-YOLOE+"]'></canvas>

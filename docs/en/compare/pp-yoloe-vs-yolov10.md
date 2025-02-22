@@ -8,7 +8,7 @@ keywords: PP-YOLOE+, YOLOv10, object detection, model comparison, computer visio
 
 As AI model analysts at Ultralytics, we constantly evaluate the landscape of computer vision models to provide our users with the best solutions. This page offers a technical comparison between two state-of-the-art object detection models: PP-YOLOE+ and YOLOv10. We'll delve into their architectures, performance metrics, and ideal applications to help you make informed decisions for your projects.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv10"]'></canvas>

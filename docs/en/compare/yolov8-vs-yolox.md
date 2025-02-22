@@ -8,7 +8,7 @@ keywords: YOLOv8,YOLOX,object detection,Ultralytics,model comparison,YOLO models
 
 When selecting an object detection model, understanding the nuances between architectures is crucial for optimal performance and deployment. This page provides a detailed technical comparison between Ultralytics YOLOv8 and YOLOX, two state-of-the-art models in the field of computer vision. We'll delve into their architectural differences, performance metrics, training methodologies, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLOX"]'></canvas>

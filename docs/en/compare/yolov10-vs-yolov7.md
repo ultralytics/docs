@@ -8,7 +8,7 @@ keywords: YOLOv10, YOLOv7, Ultralytics, object detection, YOLO comparison, compu
 
 Ultralytics YOLO models are renowned for their speed and accuracy in object detection tasks. This page provides a technical comparison between two prominent models in the YOLO family: YOLOv10 and YOLOv7. We will delve into their architectural differences, performance metrics, and suitable applications to help you make an informed decision for your computer vision projects.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv7"]'></canvas>

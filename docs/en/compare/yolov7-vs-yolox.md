@@ -8,7 +8,7 @@ keywords: YOLOv7, YOLOX, object detection, model comparison, computer vision, YO
 
 Choosing the right object detection model is crucial for computer vision projects. Ultralytics offers a range of models, and understanding the nuances between them is key to optimal performance. This page provides a technical comparison of two popular models: YOLOv7 and YOLOX, highlighting their architectural differences, performance benchmarks, and suitable applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOX"]'></canvas>

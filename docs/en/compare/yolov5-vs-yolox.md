@@ -8,7 +8,7 @@ keywords: YOLOv5, YOLOX, Ultralytics, object detection, computer vision, AI mode
 
 When choosing a computer vision model for object detection, developers often weigh various factors such as accuracy, speed, and model size. Ultralytics YOLO models are renowned for their real-time capabilities and efficiency. This page provides a technical comparison between two popular models in the YOLO family and beyond: YOLOv5 and YOLOX, highlighting their architectural differences, performance metrics, and ideal use cases.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOX"]'></canvas>

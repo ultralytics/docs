@@ -6,7 +6,7 @@ keywords: EfficientDet, YOLOv10, object detection, model comparison, machine lea
 
 # EfficientDet vs YOLOv10: A Detailed Comparison
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv10"]'></canvas>

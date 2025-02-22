@@ -8,7 +8,7 @@ keywords: DAMO-YOLO, YOLOv10, Ultralytics, object detection, model comparison, A
 
 Explore a detailed technical comparison between DAMO-YOLO and YOLOv10, two state-of-the-art object detection models. This page provides an in-depth analysis of their architectural nuances, performance benchmarks, and suitability for various computer vision applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv10"]'></canvas>

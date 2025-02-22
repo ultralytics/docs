@@ -8,7 +8,7 @@ keywords: YOLOv6-3.0, YOLOv10, object detection, model comparison, Ultralytics, 
 
 Comparing Ultralytics YOLOv6-3.0 and YOLOv10 reveals significant advancements in object detection technology. Both models are designed for high-performance computer vision tasks, but they differ in architecture, optimization strategies, and intended applications. This page provides a detailed technical comparison to help users choose the right model for their needs.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOv10"]'></canvas>

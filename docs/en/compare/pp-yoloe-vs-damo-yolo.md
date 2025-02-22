@@ -8,7 +8,7 @@ keywords: PP-YOLOE+, DAMO-YOLO, object detection, model comparison, computer vis
 
 Choosing the right object detection model is crucial for computer vision projects. This page provides a technical comparison between two popular models: PP-YOLOE+ and DAMO-YOLO, highlighting their architectural differences, performance metrics, and suitable use cases.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "DAMO-YOLO"]'></canvas>

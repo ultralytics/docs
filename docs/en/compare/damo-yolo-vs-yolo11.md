@@ -8,7 +8,7 @@ keywords: DAMO-YOLO, YOLO11, object detection, model comparison, computer vision
 
 Explore a detailed technical comparison between DAMO-YOLO and Ultralytics YOLO11, two state-of-the-art computer vision models for object detection. This page provides an in-depth analysis of their architectures, performance metrics, training methodologies, and ideal applications, helping you make an informed decision for your computer vision projects.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLO11"]'></canvas>

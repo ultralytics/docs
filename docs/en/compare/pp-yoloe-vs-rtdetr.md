@@ -6,7 +6,7 @@ keywords: PP-YOLOE+, RTDETRv2, model comparison, object detection, Vision Transf
 
 # PP-YOLOE+ vs RTDETRv2: Model Comparison
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "RTDETRv2"]'></canvas>

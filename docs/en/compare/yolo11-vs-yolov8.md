@@ -8,7 +8,7 @@ keywords: YOLO11, YOLOv8, object detection, model comparison, computer vision, U
 
 Ultralytics YOLO models are renowned for their cutting-edge performance in object detection tasks. This page provides a detailed technical comparison between two prominent models in the YOLO family: [YOLO11](https://docs.ultralytics.com/models/yolo11/) and [YOLOv8](https://docs.ultralytics.com/models/yolov8/). We delve into their architectural nuances, performance benchmarks, and suitability for various real-world applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv8"]'></canvas>

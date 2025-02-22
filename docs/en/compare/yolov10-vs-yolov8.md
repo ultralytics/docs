@@ -8,7 +8,7 @@ keywords: YOLOv10, YOLOv8, YOLO comparison, object detection, real-time AI, mode
 
 Ultralytics YOLO models are renowned for their cutting-edge performance in real-time object detection. This page provides a technical comparison between two prominent models: [YOLOv10](https://docs.ultralytics.com/models/yolov10/) and [YOLOv8](https://docs.ultralytics.com/models/yolov8/), highlighting their architectural differences, performance metrics, and ideal applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv8"]'></canvas>

@@ -6,7 +6,7 @@ keywords: DAMO-YOLO, YOLOv6-3.0, object detection, model comparison, real-time A
 
 # DAMO-YOLO vs YOLOv6-3.0: A Technical Comparison
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv6-3.0"]'></canvas>

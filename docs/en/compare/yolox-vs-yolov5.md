@@ -6,7 +6,7 @@ keywords: YOLOX, YOLOv5, object detection, model comparison, Ultralytics, anchor
 
 # YOLOX vs YOLOv5: A Detailed Comparison for Object Detection
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLOv5"]'></canvas>

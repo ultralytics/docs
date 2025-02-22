@@ -8,7 +8,7 @@ keywords: YOLO11, EfficientDet, object detection, model comparison, Ultralytics,
 
 When choosing a computer vision model for object detection, developers often weigh factors like accuracy, speed, and model size. This page provides a detailed technical comparison between Ultralytics YOLO11 and EfficientDet, two popular choices, to help you make an informed decision. We will analyze their architectures, performance metrics, training methodologies, and ideal applications to highlight their respective strengths and weaknesses.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "EfficientDet"]'></canvas>

@@ -6,7 +6,7 @@ keywords: YOLOv5, YOLOv8, object detection, model comparison, Ultralytics, AI mo
 
 # YOLOv5 vs YOLOv8: A Detailed Comparison for Object Detection
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv8"]'></canvas>

@@ -8,7 +8,7 @@ keywords: YOLO model comparison, object detection benchmarks, YOLOv11, YOLOv10, 
 
 Welcome to the Ultralytics Model Comparison Hub! This page serves as your index to a wide range of detailed technical comparisons between various state-of-the-art object detection models, including the latest Ultralytics YOLO models and other popular architectures. Whether you're deciding between different YOLO versions or considering alternatives like RTDETR or EfficientDet, our comprehensive comparisons are designed to guide you in making an informed decision for your computer vision projects.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400"></canvas>

@@ -8,7 +8,7 @@ keywords: YOLOv9, YOLO11, object detection, model comparison, Ultralytics, real-
 
 Ultralytics YOLO models are renowned for their real-time object detection capabilities, continually evolving to meet diverse application needs. This page provides a technical comparison between two cutting-edge models: YOLOv9 and YOLO11, highlighting their architectural nuances, performance benchmarks, and suitability for different use cases.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLO11"]'></canvas>

@@ -8,7 +8,7 @@ keywords: YOLOX,EfficientDet,object detection,model comparison,computer vision,A
 
 Choosing the right object detection model is crucial for computer vision projects, as different models offer varying balances of speed, accuracy, and size. This page provides a technical comparison between two popular models: YOLOX and EfficientDet, both known for their state-of-the-art performance in object detection. We will delve into their architectural differences, performance metrics, and ideal use cases to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "EfficientDet"]'></canvas>
