@@ -8,7 +8,7 @@ keywords: YOLOX, YOLOv6-3.0, object detection, model comparison, computer vision
 
 Choosing the right object detection model is crucial for computer vision projects. This page provides a technical comparison between two popular models: YOLOX and YOLOv6-3.0, both known for their efficiency and accuracy. We will delve into their architectural differences, performance benchmarks, and suitable applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLOv6-3.0"]'></canvas>

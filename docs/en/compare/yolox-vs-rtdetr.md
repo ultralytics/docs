@@ -8,7 +8,7 @@ keywords: YOLOX, RTDETRv2, object detection, computer vision, anchor-free, trans
 
 Choosing the right object detection model is crucial for computer vision tasks. This page provides a detailed technical comparison between two popular models: [YOLOX](https://arxiv.org/abs/2107.08430) and [RTDETRv2](https://arxiv.org/abs/2304.08069), both available in Ultralytics. We will analyze their architectures, performance, and ideal use cases to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "RTDETRv2"]'></canvas>

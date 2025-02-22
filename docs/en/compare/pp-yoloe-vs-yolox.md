@@ -6,7 +6,7 @@ keywords: PP-YOLOE+, YOLOX, object detection, model comparison, computer vision,
 
 # PP-YOLOE+ vs YOLOX: Detailed Model Comparison
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOX"]'></canvas>

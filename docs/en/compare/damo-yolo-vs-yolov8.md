@@ -8,7 +8,7 @@ keywords: DAMO-YOLO, YOLOv8, object detection, model comparison, computer vision
 
 Choosing the right object detection model is crucial for computer vision projects. This page provides a detailed technical comparison between **DAMO-YOLO** and **YOLOv8**, two state-of-the-art models, focusing on their architectures, performance metrics, training methodologies, and ideal applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv8"]'></canvas>

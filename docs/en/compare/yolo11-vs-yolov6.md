@@ -8,7 +8,7 @@ keywords: YOLO11, YOLOv6-3.0, model comparison, object detection, YOLO models, c
 
 Choosing the right computer vision model is crucial for achieving optimal performance in object detection tasks. Ultralytics offers a range of YOLO models, each with unique strengths. This page provides a technical comparison between Ultralytics YOLO11 and YOLOv6-3.0, two popular choices for object detection, focusing on their architectures, performance metrics, and ideal applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv6-3.0"]'></canvas>

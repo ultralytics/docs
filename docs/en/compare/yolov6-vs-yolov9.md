@@ -6,7 +6,7 @@ keywords: YOLOv6, YOLOv9, object detection, model comparison, computer vision, r
 
 # Model Comparison: YOLOv6-3.0 vs YOLOv9 for Object Detection
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOv9"]'></canvas>

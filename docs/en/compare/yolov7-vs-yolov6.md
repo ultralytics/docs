@@ -10,7 +10,7 @@ When choosing the right object detection model, understanding the nuances betwee
 
 Before diving into the specifics, let's visualize a performance overview of these models.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOv6-3.0"]'></canvas>

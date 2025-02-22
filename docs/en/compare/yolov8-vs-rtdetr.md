@@ -8,7 +8,7 @@ keywords: YOLOv8, RTDETRv2, object detection, model comparison, AI models, compu
 
 When selecting a computer vision model for object detection tasks, understanding the nuances between different architectures is crucial. This page provides a detailed technical comparison between Ultralytics YOLOv8 and RTDETRv2, two state-of-the-art models in the field. We will delve into their architectural differences, performance metrics, ideal use cases, and discuss their respective strengths and weaknesses to guide you in choosing the right model for your project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "RTDETRv2"]'></canvas>

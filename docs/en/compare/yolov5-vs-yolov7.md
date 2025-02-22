@@ -9,7 +9,7 @@ Ultralytics YOLO models are renowned for their speed and accuracy in object dete
 
 Before diving into the specifics, here's a visual comparison of their performance:
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv7"]'></canvas>

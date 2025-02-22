@@ -8,7 +8,7 @@ keywords: YOLOv8, YOLOv9, object detection, AI models comparison, computer visio
 
 Ultralytics YOLO models are at the forefront of real-time object detection, offering cutting-edge solutions for a wide array of computer vision tasks. This page provides a detailed technical comparison between two of our state-of-the-art models: [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) and [Ultralytics YOLOv9](https://docs.ultralytics.com/models/yolov9/). We will analyze their architectural differences, performance benchmarks, and ideal use cases to help you choose the best model for your specific needs.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLOv9"]'></canvas>

@@ -8,7 +8,7 @@ keywords: YOLOv8, YOLOv7, object detection, YOLO comparison, Ultralytics, model 
 
 Comparing Ultralytics YOLOv8 and YOLOv7 for object detection involves examining their architectural nuances, performance benchmarks, and suitability for diverse applications. This page offers a concise technical comparison to assist users in selecting the optimal model for their specific needs.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLOv7"]'></canvas>

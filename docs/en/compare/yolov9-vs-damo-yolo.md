@@ -10,7 +10,7 @@ Comparing state-of-the-art object detection models is crucial for selecting the 
 
 Before diving into the specifics, let's visualize a performance overview using the chart below.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "DAMO-YOLO"]'></canvas>

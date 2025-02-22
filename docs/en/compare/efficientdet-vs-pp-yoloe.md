@@ -8,7 +8,7 @@ keywords: EfficientDet, PP-YOLOE+, object detection, model comparison, Efficient
 
 EfficientDet and PP-YOLOE+ are popular choices in the field of object detection, each offering unique architectural designs and performance characteristics. This page provides a detailed technical comparison to help you understand their strengths, weaknesses, and ideal applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "PP-YOLOE+"]'></canvas>

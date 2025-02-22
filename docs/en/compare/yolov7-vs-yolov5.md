@@ -10,7 +10,7 @@ Ultralytics YOLO models are renowned for their speed and accuracy in object dete
 
 Both models are built upon the YOLO (You Only Look Once) framework, but they incorporate distinct innovations that cater to different needs in the computer vision landscape. Choosing between YOLOv7 and YOLOv5 depends on the specific requirements of your project, such as the balance between speed and accuracy, computational resources, and deployment environment.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOv5"]'></canvas>

@@ -6,7 +6,7 @@ keywords: EfficientDet, YOLOX, object detection, machine learning, model compari
 
 # EfficientDet vs YOLOX: A Technical Comparison for Object Detection
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOX"]'></canvas>
