@@ -8,7 +8,7 @@ keywords: YOLOv7, YOLO11, object detection, model comparison, YOLO models, Ultra
 
 Choosing the right object detection model is crucial for computer vision projects. Ultralytics offers a range of YOLO models, each with unique strengths. This page provides a technical comparison between two popular models: YOLOv7 and the latest YOLO11, focusing on their object detection capabilities. We'll delve into their architectures, performance metrics, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLO11"]'></canvas>

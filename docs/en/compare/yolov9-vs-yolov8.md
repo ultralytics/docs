@@ -8,7 +8,7 @@ keywords: YOLOv9, YOLOv8, YOLO comparison, object detection, machine learning, c
 
 Ultralytics YOLO models are renowned for their speed and accuracy in object detection tasks. This page provides a technical comparison between **YOLOv9** and **YOLOv8**, two state-of-the-art models, focusing on their architecture, performance, and ideal applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOv8"]'></canvas>

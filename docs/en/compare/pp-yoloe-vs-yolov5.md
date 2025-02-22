@@ -8,7 +8,7 @@ keywords: PP-YOLOE+, YOLOv5, object detection, model comparison, computer vision
 
 Comparing state-of-the-art object detection models is crucial for selecting the right tool for specific computer vision tasks. This page offers a technical comparison between PP-YOLOE+ and YOLOv5, two prominent models in the field. We will analyze their architectures, performance metrics, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv5"]'></canvas>

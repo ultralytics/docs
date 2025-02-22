@@ -8,7 +8,7 @@ keywords: YOLOv6, RTDETRv2, object detection, model comparison, computer vision,
 
 Object detection is a cornerstone of modern computer vision, powering applications from autonomous driving to retail analytics. Ultralytics offers a range of cutting-edge models, and this page provides a technical comparison between two popular choices for object detection: **YOLOv6-3.0** and **RTDETRv2**. We will delve into their architectural nuances, performance benchmarks, and suitability for various use cases to help you make an informed decision for your projects.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "RTDETRv2"]'></canvas>

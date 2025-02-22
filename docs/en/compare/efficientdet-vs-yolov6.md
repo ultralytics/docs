@@ -8,7 +8,7 @@ keywords: EfficientDet, YOLOv6, object detection, model comparison, computer vis
 
 When selecting an object detection model, understanding the nuances between different architectures is crucial for optimal performance in your specific application. This page provides a detailed technical comparison between **EfficientDet** and **YOLOv6-3.0**, two popular models in the field of computer vision. We will analyze their architectural differences, performance metrics, and ideal use cases to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv6-3.0"]'></canvas>

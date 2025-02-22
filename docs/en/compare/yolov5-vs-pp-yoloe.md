@@ -8,7 +8,7 @@ keywords: YOLOv5, PP-YOLOE+, object detection, Ultralytics, YOLO, comparison, an
 
 Comparing Ultralytics YOLOv5 and PP-YOLOE+ for object detection reveals key differences in architecture, performance, and ideal applications. Both models are one-stage detectors, but they diverge in design choices and optimization strategies, leading to distinct strengths and weaknesses.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "PP-YOLOE+"]'></canvas>

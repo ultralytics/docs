@@ -8,7 +8,7 @@ keywords: YOLOv5, YOLO11, object detection, computer vision, model comparison, Y
 
 Ultralytics YOLO models are renowned for their speed and accuracy in object detection. This page offers a detailed technical comparison between two popular models: YOLOv5 and the latest YOLO11, focusing on their object detection capabilities. We will analyze their architectures, performance metrics, training methodologies, and ideal applications to help you choose the right model for your computer vision needs.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLO11"]'></canvas>

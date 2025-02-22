@@ -8,7 +8,7 @@ keywords: YOLOv10, PP-YOLOE+, object detection, YOLO comparison, deep learning, 
 
 In the realm of real-time object detection, choosing the right model is crucial for balancing accuracy, speed, and computational resources. This page provides a detailed technical comparison between [Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/) and PP-YOLOE+, two state-of-the-art models known for their efficiency and effectiveness in various computer vision applications. We will delve into their architectural nuances, performance benchmarks, and ideal deployment scenarios to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "PP-YOLOE+"]'></canvas>

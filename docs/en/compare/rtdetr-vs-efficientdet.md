@@ -8,7 +8,7 @@ keywords: RTDETRv2, EfficientDet, object detection, model comparison, Vision Tra
 
 Choosing the right object detection model is crucial for computer vision projects. This page provides a detailed technical comparison between two popular models: **RTDETRv2** and **EfficientDet**. We will analyze their architectures, performance metrics, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "EfficientDet"]'></canvas>

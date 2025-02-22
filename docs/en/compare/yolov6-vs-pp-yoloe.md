@@ -8,7 +8,7 @@ keywords: YOLOv6, PP-YOLOE+, object detection, model comparison, YOLO models, co
 
 Comparing state-of-the-art object detection models is crucial for selecting the optimal solution for specific computer vision tasks. This page provides a detailed technical comparison between YOLOv6-3.0 and PP-YOLOE+, two prominent models in the object detection landscape. We will analyze their architectural differences, performance metrics, and suitability for various use cases.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "PP-YOLOE+"]'></canvas>

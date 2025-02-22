@@ -8,7 +8,7 @@ keywords: YOLOv7, RT-DETR, object detection, model comparison, Ultralytics, Visi
 
 Choosing the right object detection model is crucial for computer vision projects. This page provides a technical comparison between YOLOv7 and RT-DETR, two state-of-the-art models, to help you make an informed decision. We delve into their architectural differences, performance metrics, and ideal applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "RTDETRv2"]'></canvas>

@@ -8,7 +8,7 @@ keywords: RTDETRv2, PP-YOLOE+, object detection, model comparison, computer visi
 
 When choosing an object detection model, understanding the nuances between different architectures is crucial. This page provides a detailed technical comparison between **RTDETRv2** and **PP-YOLOE+**, two state-of-the-art models in the field of computer vision. We will delve into their architectural differences, performance metrics, training methodologies, and ideal use cases to help you make an informed decision for your projects.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "PP-YOLOE+"]'></canvas>

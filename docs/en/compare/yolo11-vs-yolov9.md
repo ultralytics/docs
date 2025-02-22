@@ -8,7 +8,7 @@ keywords: YOLO11, YOLOv9, object detection, Ultralytics, computer vision, deep l
 
 Ultralytics continuously advances the field of computer vision with state-of-the-art YOLO models. This page provides a detailed technical comparison between two of our cutting-edge object detection models: [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/) and [YOLOv9](https://docs.ultralytics.com/models/yolov9/). We will analyze their architectures, performance metrics, and ideal applications to help you choose the best model for your specific needs.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv9"]'></canvas>

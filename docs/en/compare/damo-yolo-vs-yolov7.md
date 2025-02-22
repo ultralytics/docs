@@ -8,7 +8,7 @@ keywords: DAMO-YOLO, YOLOv7, object detection models, YOLO family, computer visi
 
 Choosing the right object detection model is crucial for computer vision tasks. This page provides a detailed technical comparison between DAMO-YOLO and YOLOv7, two popular models known for their efficiency and accuracy. We will delve into their architectural differences, performance metrics, training methodologies, and ideal applications to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv7"]'></canvas>

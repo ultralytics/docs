@@ -6,7 +6,7 @@ keywords: DAMO-YOLO,YOLOX,object detection,computer vision,model comparison,AI m
 
 # DAMO-YOLO vs YOLOX: A Detailed Technical Comparison for Object Detection
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.min.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOX"]'></canvas>
