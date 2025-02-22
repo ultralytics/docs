@@ -40,7 +40,7 @@ YOLOv8 is exceptionally versatile and ideal for applications requiring a robust 
 
 ## YOLOv10: Pushing the Boundaries of Efficiency
 
-[Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/), introduced on May 23, 2024, by Ao Wang, Hui Chen, Lihao Liu, et al. from Tsinghua University, focuses on maximizing efficiency and speed while maintaining competitive accuracy. YOLOv10 is designed for real-time and edge applications where computational resources are limited. The model emphasizes end-to-end object detection, aiming to reduce latency and computational overhead.
+[YOLOv10](https://docs.ultralytics.com/models/yolov10/), introduced on May 23, 2024, by Ao Wang, Hui Chen, Lihao Liu, et al. from Tsinghua University, focuses on maximizing efficiency and speed while maintaining competitive accuracy. YOLOv10 is designed for real-time and edge applications where computational resources are limited. The model emphasizes end-to-end object detection, aiming to reduce latency and computational overhead.
 
 **Strengths:**
 

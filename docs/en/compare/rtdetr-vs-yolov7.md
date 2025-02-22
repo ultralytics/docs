@@ -57,7 +57,7 @@ Its strengths lie in its high accuracy and robust feature extraction, making it 
 
 ## YOLOv7: The Real-time Object Detector
 
-Ultralytics YOLOv7, introduced on 2022-07-06 and detailed in its [Arxiv paper](https://arxiv.org/abs/2207.02696), is renowned for its **speed and efficiency** in object detection tasks. Authored by Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan, it builds upon previous YOLO versions, refining the architecture to maximize inference speed without significantly compromising accuracy.
+YOLOv7, introduced on 2022-07-06 and detailed in its [Arxiv paper](https://arxiv.org/abs/2207.02696), is renowned for its **speed and efficiency** in object detection tasks. Authored by Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan, it builds upon previous YOLO versions, refining the architecture to maximize inference speed without significantly compromising accuracy.
 
 ### Architecture and Key Features
 
@@ -67,7 +67,7 @@ YOLOv7 employs an **efficient network architecture** with techniques like:
 - **Model Scaling**: Compound scaling methods to adjust model depth and width for varied performance needs.
 - **Auxiliary Head Training**: Utilizes auxiliary loss heads during training for improved accuracy.
 
-These features contribute to YOLOv7's ability to achieve high performance in real-time object detection scenarios, as documented in [Ultralytics YOLOv7 Docs](https://docs.ultralytics.com/models/yolov7/).
+These features contribute to YOLOv7's ability to achieve high performance in real-time object detection scenarios, as documented in [YOLOv7 Docs](https://docs.ultralytics.com/models/yolov7/).
 
 ### Performance Metrics
 

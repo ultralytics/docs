@@ -6,16 +6,16 @@ keywords: YOLOv10, DAMO-YOLO, object detection, YOLO comparison, computer vision
 
 # YOLOv10 vs. DAMO-YOLO: A Detailed Technical Comparison for Object Detection
 
-Choosing the optimal object detection model is crucial for computer vision applications, with models differing significantly in accuracy, speed, and efficiency. This page offers a detailed technical comparison between Ultralytics YOLOv10 and DAMO-YOLO, two advanced models in the object detection landscape. We will explore their architectures, performance benchmarks, and suitable applications to guide your model selection process.
+Choosing the optimal object detection model is crucial for computer vision applications, with models differing significantly in accuracy, speed, and efficiency. This page offers a detailed technical comparison between YOLOv10 and DAMO-YOLO, two advanced models in the object detection landscape. We will explore their architectures, performance benchmarks, and suitable applications to guide your model selection process.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "DAMO-YOLO"]'></canvas>
 
-## Ultralytics YOLOv10
+## YOLOv10
 
-[Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest evolution in the YOLO series, renowned for its real-time object detection capabilities. Developed by researchers at [Tsinghua University](https://www.tsinghua.edu.cn/en/), and introduced on 2024-05-23 ([arXiv preprint arXiv:2405.14458](https://arxiv.org/abs/2405.14458)), YOLOv10 is engineered for end-to-end efficiency and enhanced performance. The official PyTorch implementation is available on [GitHub](https://github.com/THU-MIG/yolov10).
+[YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest evolution in the YOLO series, renowned for its real-time object detection capabilities. Developed by researchers at [Tsinghua University](https://www.tsinghua.edu.cn/en/), and introduced on 2024-05-23 ([arXiv preprint arXiv:2405.14458](https://arxiv.org/abs/2405.14458)), YOLOv10 is engineered for end-to-end efficiency and enhanced performance. The official PyTorch implementation is available on [GitHub](https://github.com/THU-MIG/yolov10).
 
 ### Architecture and Key Features
 

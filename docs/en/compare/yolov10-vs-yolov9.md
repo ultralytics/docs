@@ -6,16 +6,16 @@ keywords: YOLOv10,YOLOv9,Ultralytics,object detection,real-time AI,computer visi
 
 # YOLOv10 vs YOLOv9: A Technical Comparison for Object Detection
 
-Choosing the right object detection model is crucial for computer vision projects. Ultralytics offers state-of-the-art YOLO models, and this page provides a detailed technical comparison between two cutting-edge options: [Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/) and [YOLOv9](https://docs.ultralytics.com/models/yolov9/). We will analyze their architectures, performance metrics, and ideal applications to help you make an informed decision.
+Choosing the right object detection model is crucial for computer vision projects. Ultralytics offers state-of-the-art YOLO models, and this page provides a detailed technical comparison between two cutting-edge options: [YOLOv10](https://docs.ultralytics.com/models/yolov10/) and [YOLOv9](https://docs.ultralytics.com/models/yolov9/). We will analyze their architectures, performance metrics, and ideal applications to help you make an informed decision.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv9"]'></canvas>
 
-## Ultralytics YOLOv10: Real-Time End-to-End Efficiency
+## YOLOv10: Real-Time End-to-End Efficiency
 
-[Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest evolution in the YOLO series, developed by researchers at Tsinghua University. Released in May 2024, YOLOv10 focuses on maximizing efficiency and speed for real-time object detection without sacrificing accuracy. This model is particularly designed for end-to-end deployment, minimizing latency by employing NMS-free training techniques.
+[YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest evolution in the YOLO series, developed by researchers at Tsinghua University. Released in May 2024, YOLOv10 focuses on maximizing efficiency and speed for real-time object detection without sacrificing accuracy. This model is particularly designed for end-to-end deployment, minimizing latency by employing NMS-free training techniques.
 
 **Architecture and Key Features:**
 

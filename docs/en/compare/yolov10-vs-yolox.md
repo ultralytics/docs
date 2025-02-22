@@ -15,7 +15,7 @@ Choosing the right object detection model is crucial for balancing accuracy, spe
 
 ## YOLOv10: The Cutting-Edge Real-Time Detector
 
-[Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/) represents the latest advancement in real-time object detection, focusing on maximizing efficiency and speed without significant accuracy trade-offs. Developed by researchers at [Tsinghua University](https://www.tsinghua.edu.cn/en/), YOLOv10 was introduced on 2024-05-23. The model's architecture and performance details are available in the [arXiv paper](https://arxiv.org/abs/2405.14458) and the [official GitHub repository](https://github.com/THU-MIG/yolov10).
+[YOLOv10](https://docs.ultralytics.com/models/yolov10/) represents the latest advancement in real-time object detection, focusing on maximizing efficiency and speed without significant accuracy trade-offs. Developed by researchers at [Tsinghua University](https://www.tsinghua.edu.cn/en/), YOLOv10 was introduced on 2024-05-23. The model's architecture and performance details are available in the [arXiv paper](https://arxiv.org/abs/2405.14458) and the [official GitHub repository](https://github.com/THU-MIG/yolov10).
 
 ### Architecture and Key Features
 

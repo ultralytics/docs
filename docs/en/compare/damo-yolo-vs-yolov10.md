@@ -6,7 +6,7 @@ keywords: YOLOv10, DAMO-YOLO, object detection comparison, YOLO models, DAMO-YOL
 
 # YOLOv10 vs. DAMO-YOLO: A Detailed Technical Comparison
 
-This page offers a technical comparison between Ultralytics YOLOv10 and DAMO-YOLO, two advanced models in the field of object detection. We analyze their architectures, performance benchmarks, and suitability for different applications to assist you in choosing the right model for your computer vision needs.
+This page offers a technical comparison between YOLOv10 and DAMO-YOLO, two advanced models in the field of object detection. We analyze their architectures, performance benchmarks, and suitability for different applications to assist you in choosing the right model for your computer vision needs.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -56,7 +56,7 @@ DAMO-YOLO is well-suited for applications demanding high accuracy and real-time 
 
 ## YOLOv10
 
-Ultralytics YOLOv10, released in May 2024 by Tsinghua University, represents the latest evolution in the YOLO series. It focuses on real-time end-to-end object detection, emphasizing efficiency and speed without Non-Maximum Suppression (NMS) during inference. YOLOv10 aims to deliver state-of-the-art performance with reduced latency and computational cost.
+YOLOv10, released in May 2024 by Tsinghua University, represents the latest evolution in the YOLO series. It focuses on real-time end-to-end object detection, emphasizing efficiency and speed without Non-Maximum Suppression (NMS) during inference. YOLOv10 aims to deliver state-of-the-art performance with reduced latency and computational cost.
 
 **Architecture and Key Features:**
 
@@ -119,7 +119,7 @@ YOLOv10 is ideally suited for applications where real-time performance and effic
 Users interested in DAMO-YOLO and YOLOv10 may also find these Ultralytics YOLO models relevant:
 
 - **Ultralytics YOLOv8**: A highly versatile and widely adopted model known for its balance of speed and accuracy, making it a strong general-purpose object detector. [Explore YOLOv8 Docs](https://docs.ultralytics.com/models/yolov8/)
-- **Ultralytics YOLOv9**: Introduces Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN) for enhanced accuracy and efficiency. [View YOLOv9 Documentation](https://docs.ultralytics.com/models/yolov9/)
+- **YOLOv9**: Introduces Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN) for enhanced accuracy and efficiency. [View YOLOv9 Documentation](https://docs.ultralytics.com/models/yolov9/)
 - **Ultralytics YOLO11**: The cutting-edge model with focus on efficiency and speed, incorporating anchor-free detection and optimized architecture for real-time performance. [Read more about YOLO11](https://docs.ultralytics.com/models/yolo11/)
 
 These models offer a range of capabilities and can be chosen based on specific project requirements for accuracy, speed, and deployment environment.

@@ -15,7 +15,7 @@ Ultralytics YOLO models are at the forefront of real-time object detection, know
 
 ## YOLOv10: The Cutting-Edge Real-Time Detector
 
-[Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest iteration in real-time object detection, prioritizing exceptional speed and efficiency. It is particularly well-suited for applications where minimal latency is crucial.
+[YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest iteration in real-time object detection, prioritizing exceptional speed and efficiency. It is particularly well-suited for applications where minimal latency is crucial.
 
 ### Architecture and Key Features
 

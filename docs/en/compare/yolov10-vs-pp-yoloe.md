@@ -6,16 +6,16 @@ keywords: YOLOv10,PP-YOLOE+,object detection,model comparison,computer vision,Ul
 
 # YOLOv10 vs PP-YOLOE+: Detailed Technical Comparison
 
-Choosing the optimal object detection model is critical for balancing accuracy, speed, and computational efficiency in computer vision applications. This page provides a detailed technical comparison between Ultralytics YOLOv10 and PP-YOLOE+, two state-of-the-art models renowned for their performance and efficiency. We analyze their architectural designs, performance benchmarks, and ideal use cases to assist you in making an informed decision.
+Choosing the optimal object detection model is critical for balancing accuracy, speed, and computational efficiency in computer vision applications. This page provides a detailed technical comparison between YOLOv10 and PP-YOLOE+, two state-of-the-art models renowned for their performance and efficiency. We analyze their architectural designs, performance benchmarks, and ideal use cases to assist you in making an informed decision.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "PP-YOLOE+"]'></canvas>
 
-## Ultralytics YOLOv10
+## YOLOv10
 
-[Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest iteration in the YOLO series, developed by Ao Wang, Hui Chen, Lihao Liu, et al. from Tsinghua University and released on 2024-05-23. It focuses on real-time end-to-end object detection, enhancing both performance and efficiency.
+[YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest iteration in the YOLO series, developed by Ao Wang, Hui Chen, Lihao Liu, et al. from Tsinghua University and released on 2024-05-23. It focuses on real-time end-to-end object detection, enhancing both performance and efficiency.
 
 ### Architecture and Key Features
 

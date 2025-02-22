@@ -11,7 +11,7 @@ keywords: YOLOv9, YOLOv8, object detection, computer vision, YOLO comparison, de
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOv8"]'></canvas>
 
-Ultralytics YOLOv9 and YOLOv8 are state-of-the-art computer vision models for object detection, each offering unique architectural and performance characteristics. This page provides a detailed technical comparison to help users understand their strengths, weaknesses, and ideal use cases.
+YOLOv9 and YOLOv8 are state-of-the-art computer vision models for object detection, each offering unique architectural and performance characteristics. This page provides a detailed technical comparison to help users understand their strengths, weaknesses, and ideal use cases.
 
 ## YOLOv9: Programmable Gradient Information
 

@@ -6,16 +6,16 @@ keywords: YOLOv10, EfficientDet, object detection, model comparison, real-time d
 
 # Technical Comparison: YOLOv10 vs EfficientDet for Object Detection
 
-Choosing the right object detection model is crucial for the success of computer vision projects. This page offers a detailed technical comparison between two prominent models: [Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/) and EfficientDet. We will explore their architectures, performance metrics, and use cases to help you decide which model best fits your needs.
+Choosing the right object detection model is crucial for the success of computer vision projects. This page offers a detailed technical comparison between two prominent models: [YOLOv10](https://docs.ultralytics.com/models/yolov10/) and EfficientDet. We will explore their architectures, performance metrics, and use cases to help you decide which model best fits your needs.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "EfficientDet"]'></canvas>
 
-## Ultralytics YOLOv10: Optimized for Real-Time Efficiency
+## YOLOv10: Optimized for Real-Time Efficiency
 
-[Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/), introduced in May 2024 by authors from Tsinghua University, is the latest iteration in the YOLO series, focusing on achieving state-of-the-art real-time object detection performance. It is designed for high efficiency and speed, making it suitable for applications where low latency is critical.
+[YOLOv10](https://docs.ultralytics.com/models/yolov10/), introduced in May 2024 by authors from Tsinghua University, is the latest iteration in the YOLO series, focusing on achieving state-of-the-art real-time object detection performance. It is designed for high efficiency and speed, making it suitable for applications where low latency is critical.
 
 ### Architecture and Key Features
 

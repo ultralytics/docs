@@ -6,16 +6,16 @@ keywords: YOLOv10, YOLOv6-3.0, model comparison, object detection, Ultralytics, 
 
 # YOLOv10 vs YOLOv6-3.0: A Detailed Model Comparison
 
-Choosing the ideal object detection model is essential for maximizing the success of your computer vision projects. Ultralytics offers a diverse array of YOLO models, each tailored to specific needs. This page presents a technical comparison between Ultralytics YOLOv10 and YOLOv6-3.0, two powerful models optimized for object detection, with a focus on their architectural designs, performance benchmarks, and suitability for different applications.
+Choosing the ideal object detection model is essential for maximizing the success of your computer vision projects. Ultralytics offers a diverse array of YOLO models, each tailored to specific needs. This page presents a technical comparison between YOLOv10 and YOLOv6-3.0, two powerful models optimized for object detection, with a focus on their architectural designs, performance benchmarks, and suitability for different applications.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOv10"]'></canvas>
 
-## Ultralytics YOLOv10
+## YOLOv10
 
-[Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest advancement in real-time object detection, prioritizing exceptional speed and efficiency. It is designed for applications where minimal latency is crucial, making it an excellent choice for edge deployment and real-time processing scenarios. YOLOv10 builds upon anchor-free detection, streamlining its architecture for reduced computational overhead and faster inference.
+[YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest advancement in real-time object detection, prioritizing exceptional speed and efficiency. It is designed for applications where minimal latency is crucial, making it an excellent choice for edge deployment and real-time processing scenarios. YOLOv10 builds upon anchor-free detection, streamlining its architecture for reduced computational overhead and faster inference.
 
 YOLOv10 introduces key architectural innovations such as an efficient backbone and neck designed for optimal feature extraction with minimal parameters and FLOPs. It also adopts an NMS-free approach, eliminating the Non-Maximum Suppression post-processing step, which further accelerates inference speed. The model offers scalable variants (n, s, m, b, l, x) to accommodate diverse computational resources and accuracy needs.
 

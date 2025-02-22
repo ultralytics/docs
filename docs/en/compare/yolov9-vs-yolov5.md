@@ -11,7 +11,7 @@ keywords: YOLOv9 vs YOLOv5, YOLO comparison, Ultralytics models, YOLO object det
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOv5"]'></canvas>
 
-This page provides a technical comparison between Ultralytics YOLOv9 and YOLOv5, two popular models in the YOLO series, focusing on their object detection capabilities. We delve into their architectural differences, performance metrics, training methodologies, and suitable use cases to help you choose the right model for your computer vision tasks.
+This page provides a technical comparison between YOLOv9 and YOLOv5, two popular models in the YOLO series, focusing on their object detection capabilities. We delve into their architectural differences, performance metrics, training methodologies, and suitable use cases to help you choose the right model for your computer vision tasks.
 
 ## YOLOv9: Programmable Gradient Information
 

@@ -13,7 +13,7 @@ Choosing the optimal object detection model is a critical decision in computer v
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOv6-3.0"]'></canvas>
 
-## Ultralytics YOLOv7 Overview
+## YOLOv7 Overview
 
 [YOLOv7](https://docs.ultralytics.com/models/yolov7/), developed by researchers at the Institute of Information Science, Academia Sinica, Taiwan, and introduced on 2022-07-06 ([arXiv](https://arxiv.org/abs/2207.02696)), is designed for efficient and powerful object detection. It builds upon prior YOLO models, emphasizing both speed and accuracy. The official implementation is available on [GitHub](https://github.com/WongKinYiu/yolov7).
 

@@ -6,7 +6,7 @@ keywords: EfficientDet,YOLORv10,object detection,model comparison,computer visio
 
 # EfficientDet vs YOLOv10: A Detailed Comparison
 
-Choosing the right object detection model is crucial for computer vision projects. This page offers a technical comparison between [EfficientDet](https://github.com/google/automl/tree/master/efficientdet) and [Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/), two popular models with distinct strengths. We will analyze their architectures, performance, and use cases to help you make an informed decision.
+Choosing the right object detection model is crucial for computer vision projects. This page offers a technical comparison between [EfficientDet](https://github.com/google/automl/tree/master/efficientdet) and [YOLOv10](https://docs.ultralytics.com/models/yolov10/), two popular models with distinct strengths. We will analyze their architectures, performance, and use cases to help you make an informed decision.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -52,7 +52,7 @@ EfficientDet is well-suited for applications where high accuracy is prioritized,
 
 ## YOLOv10: Speed and Efficiency Champion
 
-[Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/), introduced in May 2024 by researchers from Tsinghua University including Ao Wang, Hui Chen, and Lihao Liu, is the latest iteration in the YOLO series, focusing on maximizing real-time performance and efficiency.
+[YOLOv10](https://docs.ultralytics.com/models/yolov10/), introduced in May 2024 by researchers from Tsinghua University including Ao Wang, Hui Chen, and Lihao Liu, is the latest iteration in the YOLO series, focusing on maximizing real-time performance and efficiency.
 
 ### Architecture and Key Features
 

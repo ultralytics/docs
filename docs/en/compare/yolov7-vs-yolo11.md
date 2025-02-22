@@ -48,7 +48,7 @@ The enhanced accuracy and efficiency of YOLO11 make it ideal for applications re
 
 [Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
-## Ultralytics YOLOv7
+## YOLOv7
 
 YOLOv7, introduced by Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan on 2022-07-06, focuses on maximizing detection accuracy and speed. Detailed in their paper "[YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors](https://arxiv.org/abs/2207.02696)", YOLOv7 is known for its 'trainable bag-of-freebies' approach, enhancing training efficiency and final performance without increasing inference cost. The official [YOLOv7 GitHub repository](https://github.com/WongKinYiu/yolov7) and [documentation](https://docs.ultralytics.com/models/yolov7/) provide further details.
 

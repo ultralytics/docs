@@ -25,9 +25,9 @@ Choosing the right object detection model is critical for computer vision projec
 | YOLOv7l  | 640                   | 51.4                 | -                              | 6.84                                | 36.9               | 104.7             |
 | YOLOv7x  | 640                   | 53.1                 | -                              | 11.57                               | 71.3               | 189.9             |
 
-## Ultralytics YOLOv10
+## YOLOv10
 
-Ultralytics YOLOv10, introduced in May 2024 by researchers from Tsinghua University, represents the cutting edge of real-time object detection. Detailed in their Arxiv paper, "[YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)," Ao Wang, Hui Chen, Lihao Liu, et al. present YOLOv10 as a significant advancement focusing on both efficiency and accuracy. The official implementation is available on [GitHub](https://github.com/THU-MIG/yolov10). YOLOv10 is designed for end-to-end deployment, addressing previous YOLO versions' reliance on Non-Maximum Suppression (NMS).
+YOLOv10, introduced in May 2024 by researchers from Tsinghua University, represents the cutting edge of real-time object detection. Detailed in their Arxiv paper, "[YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)," Ao Wang, Hui Chen, Lihao Liu, et al. present YOLOv10 as a significant advancement focusing on both efficiency and accuracy. The official implementation is available on [GitHub](https://github.com/THU-MIG/yolov10). YOLOv10 is designed for end-to-end deployment, addressing previous YOLO versions' reliance on Non-Maximum Suppression (NMS).
 
 **Architecture and Key Features:**
 

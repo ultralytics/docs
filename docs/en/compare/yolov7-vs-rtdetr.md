@@ -6,7 +6,7 @@ keywords: YOLOv7, RTDETRv2, model comparison, object detection, computer vision,
 
 # YOLOv7 vs RTDETRv2: A Detailed Model Comparison
 
-Choosing the right object detection model is crucial for computer vision projects. This page provides a technical comparison between Ultralytics YOLOv7 and RTDETRv2, two state-of-the-art models, to help you make an informed decision. We delve into their architectural differences, performance metrics, and ideal applications.
+Choosing the right object detection model is crucial for computer vision projects. This page provides a technical comparison between YOLOv7 and RTDETRv2, two state-of-the-art models, to help you make an informed decision. We delve into their architectural differences, performance metrics, and ideal applications.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -25,7 +25,7 @@ Choosing the right object detection model is crucial for computer vision project
 
 ## YOLOv7: The Real-time Efficiency Expert
 
-Ultralytics YOLOv7, introduced in July 2022 by authors Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan, is celebrated for its **speed and efficiency** in object detection tasks. It refines the architecture of previous YOLO models, prioritizing rapid inference without significantly sacrificing accuracy.
+YOLOv7, introduced in July 2022 by authors Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan, is celebrated for its **speed and efficiency** in object detection tasks. It refines the architecture of previous YOLO models, prioritizing rapid inference without significantly sacrificing accuracy.
 
 ### Architecture and Key Features
 
@@ -53,7 +53,7 @@ YOLOv7 is particularly well-suited for applications requiring **real-time object
 - **Surveillance:** Enabling real-time monitoring and analysis in security systems. See how YOLOv8 can enhance [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8).
 - **Edge Devices:** Deployment on edge devices with limited computational power, such as [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) or [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/).
 
-Its primary strength is its speed and relatively small model size, making it highly deployable across various hardware platforms. Explore more about YOLOv7's architecture and capabilities in the [Ultralytics YOLOv7 Docs](https://docs.ultralytics.com/models/yolov7/).
+Its primary strength is its speed and relatively small model size, making it highly deployable across various hardware platforms. Explore more about YOLOv7's architecture and capabilities in the [YOLOv7 Docs](https://docs.ultralytics.com/models/yolov7/).
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
 

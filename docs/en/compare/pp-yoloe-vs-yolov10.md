@@ -6,16 +6,16 @@ keywords: YOLOv10,PP-YOLOE+,object detection,model comparison,Ultralytics,YOLO,P
 
 # YOLOv10 vs PP-YOLOE+: A Technical Comparison for Object Detection
 
-Choosing the optimal object detection model is crucial for balancing accuracy, speed, and computational resources in computer vision tasks. This page offers a technical comparison between [Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/) and PP-YOLOE+, two advanced models known for their efficiency and effectiveness. We analyze their architectures, performance, and applications to guide your decision.
+Choosing the optimal object detection model is crucial for balancing accuracy, speed, and computational resources in computer vision tasks. This page offers a technical comparison between [YOLOv10](https://docs.ultralytics.com/models/yolov10/) and PP-YOLOE+, two advanced models known for their efficiency and effectiveness. We analyze their architectures, performance, and applications to guide your decision.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv10"]'></canvas>
 
-## Ultralytics YOLOv10 Overview
+## YOLOv10 Overview
 
-[Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest iteration in the YOLO series, focusing on real-time, end-to-end object detection. Developed by researchers at [Tsinghua University](https://www.tsinghua.edu.cn/en/), YOLOv10 enhances both performance and efficiency. Published on [arXiv](https://arxiv.org/abs/2405.14458) on 2024-05-23, YOLOv10 is designed for applications needing low latency and high throughput. The official implementation is available on [GitHub](https://github.com/THU-MIG/yolov10).
+[YOLOv10](https://docs.ultralytics.com/models/yolov10/) is the latest iteration in the YOLO series, focusing on real-time, end-to-end object detection. Developed by researchers at [Tsinghua University](https://www.tsinghua.edu.cn/en/), YOLOv10 enhances both performance and efficiency. Published on [arXiv](https://arxiv.org/abs/2405.14458) on 2024-05-23, YOLOv10 is designed for applications needing low latency and high throughput. The official implementation is available on [GitHub](https://github.com/THU-MIG/yolov10).
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
 

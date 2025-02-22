@@ -6,16 +6,16 @@ keywords: YOLOv9, YOLOv10, object detection, Ultralytics, computer vision, model
 
 # YOLOv9 vs YOLOv10: Detailed Technical Comparison
 
-Ultralytics is committed to pushing the boundaries of computer vision, and a crucial part of this is developing and refining our YOLO models. This page offers a detailed technical comparison between [Ultralytics YOLOv9](https://docs.ultralytics.com/models/yolov9/) and [Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/), two state-of-the-art object detection models. We'll delve into their architectural nuances, performance benchmarks, and suitable applications to assist you in selecting the optimal model for your specific computer vision tasks.
+Ultralytics is committed to pushing the boundaries of computer vision, and a crucial part of this is developing and refining our YOLO models. This page offers a detailed technical comparison between [YOLOv9](https://docs.ultralytics.com/models/yolov9/) and [YOLOv10](https://docs.ultralytics.com/models/yolov10/), two state-of-the-art object detection models. We'll delve into their architectural nuances, performance benchmarks, and suitable applications to assist you in selecting the optimal model for your specific computer vision tasks.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOv10"]'></canvas>
 
-## Ultralytics YOLOv9: Programmable Gradient Information
+## YOLOv9: Programmable Gradient Information
 
-[Ultralytics YOLOv9](https://docs.ultralytics.com/models/yolov9/), introduced in February 2024 by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan, represents a significant advancement in efficient object detection. The core innovation of YOLOv9 lies in its **Programmable Gradient Information (PGI)**, designed to address information loss during the deep learning process. This is achieved through techniques like **Generalized Efficient Layer Aggregation Networks (GELAN)**, ensuring that the model learns exactly what you intend it to learn.
+[YOLOv9](https://docs.ultralytics.com/models/yolov9/), introduced in February 2024 by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan, represents a significant advancement in efficient object detection. The core innovation of YOLOv9 lies in its **Programmable Gradient Information (PGI)**, designed to address information loss during the deep learning process. This is achieved through techniques like **Generalized Efficient Layer Aggregation Networks (GELAN)**, ensuring that the model learns exactly what you intend it to learn.
 
 **Architecture and Key Features:**
 YOLOv9 leverages GELAN to enhance feature extraction and maintain information integrity throughout the network. This approach leads to a model that is not only accurate but also parameter-efficient, making it suitable for deployments where computational resources are limited. YOLOv9 is implemented from the paper "[YOLOv9: Learning What You Want to Learn Using Programmable Gradient Information](https://arxiv.org/abs/2402.13616)".
@@ -51,9 +51,9 @@ YOLOv9 is well-suited for applications requiring high accuracy and efficiency, s
 - **GitHub:** [github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 - **Docs:** [docs.ultralytics.com/models/yolov9/](https://docs.ultralytics.com/models/yolov9/)
 
-## Ultralytics YOLOv10: Holistic Efficiency-Accuracy Driven Design
+## YOLOv10: Holistic Efficiency-Accuracy Driven Design
 
-[Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10/), released in May 2024 by Ao Wang, Hui Chen, Lihao Liu, et al. from Tsinghua University, is engineered for real-time end-to-end object detection, emphasizing maximal efficiency and speed. YOLOv10 introduces several key methodological improvements to enhance both accuracy and efficiency, including **Consistent Dual Assignments** for NMS-free training and a **Holistic Efficiency-Accuracy Driven Model Design**.
+[YOLOv10](https://docs.ultralytics.com/models/yolov10/), released in May 2024 by Ao Wang, Hui Chen, Lihao Liu, et al. from Tsinghua University, is engineered for real-time end-to-end object detection, emphasizing maximal efficiency and speed. YOLOv10 introduces several key methodological improvements to enhance both accuracy and efficiency, including **Consistent Dual Assignments** for NMS-free training and a **Holistic Efficiency-Accuracy Driven Model Design**.
 
 **Architecture and Key Features:**
 YOLOv10's architecture is meticulously designed to minimize computational redundancy and maximize performance. Key efficiency enhancements include a **Lightweight Classification Head**, **Spatial-Channel Decoupled Downsampling**, and **Rank-Guided Block Design**. Accuracy is boosted through **Large-Kernel Convolutions** and **Partial Self-Attention (PSA)**. These innovations allow YOLOv10 to achieve state-of-the-art speed and efficiency without sacrificing accuracy. YOLOv10 is detailed in the paper "[YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)".
