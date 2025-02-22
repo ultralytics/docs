@@ -23,7 +23,7 @@ RTDETRv2's architecture is based on Vision Transformers, which excel at capturin
 
 ### Performance Analysis
 
-RTDETRv2 models, particularly larger variants like RTDETRv2-x, achieve impressive mAP scores, reaching up to 54.3 mAP<sup>val</sup><sub>50-95</sub>. Inference speeds are also competitive, making RTDETRv2 suitable for real-time applications when using capable hardware such as NVIDIA T4 GPUs. Refer to the [model comparison table](docs.ultralytics.com/models/) for detailed metrics.
+RTDETRv2 models, particularly larger variants like RTDETRv2-x, achieve impressive mAP scores, reaching up to 54.3 mAP<sup>val</sup><sub>50-95</sub>. Inference speeds are also competitive, making RTDETRv2 suitable for real-time applications when using capable hardware such as NVIDIA T4 GPUs. Refer to the [model comparison table](https://docs.ultralytics.com/models/) for detailed metrics.
 
 ### Strengths and Weaknesses
 
@@ -59,7 +59,7 @@ YOLOv10 maintains the single-stage detection approach, prioritizing inference sp
 
 ### Performance Metrics
 
-YOLOv10 excels in speed metrics, with YOLOv10n and YOLOv10s achieving rapid inference times on both CPU and GPU. While slightly lower in mAP compared to larger RTDETRv2 models, YOLOv10 still delivers strong accuracy for a wide range of object detection tasks. The [performance table](docs.ultralytics.com/guides/yolo-performance-metrics/) provides a comprehensive overview of YOLOv10's capabilities.
+YOLOv10 excels in speed metrics, with YOLOv10n and YOLOv10s achieving rapid inference times on both CPU and GPU. While slightly lower in mAP compared to larger RTDETRv2 models, YOLOv10 still delivers strong accuracy for a wide range of object detection tasks. The [performance table](https://docs.ultralytics.com/guides/yolo-performance-metrics/) provides a comprehensive overview of YOLOv10's capabilities.
 
 ### Strengths and Weaknesses
 
