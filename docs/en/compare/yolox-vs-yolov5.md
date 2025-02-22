@@ -14,7 +14,7 @@ When it comes to object detection, selecting the right model is crucial. Ultraly
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLOv5"]'></canvas>
 
 | Model     | size<sup>(pixels) | mAP<sup>val</sup><sub>50-95</sub> | Speed<sup>CPU ONNX</sup><sub>(ms)</sub> | Speed<sup>T4 TensorRT10</sup><sub>(ms)</sub> | params<sup>(M) | FLOPs<sup>(B) |
-| --------- | ----------------- | --------------------------------- | --------------------------------------- | -------------------------------------------- | -------------- | ------------- |
+|-----------|-------------------|-----------------------------------|-----------------------------------------|----------------------------------------------|----------------|---------------|
 | YOLOXnano | 416               | 25.8                              | -                                       | -                                            | 0.91           | 1.08          |
 | YOLOXtiny | 416               | 32.8                              | -                                       | -                                            | 5.06           | 6.45          |
 | YOLOXs    | 640               | 40.5                              | -                                       | 2.56                                         | 9.0            | 26.8          |

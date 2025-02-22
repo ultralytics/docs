@@ -89,7 +89,7 @@ YOLOX is ideally suited for applications requiring real-time object detection wi
 ## Model Comparison Table
 
 | Model      | size<sup>(pixels) | mAP<sup>val<br>50-95 | Speed<sup>CPU ONNX<br>(ms) | Speed<sup>T4 TensorRT10<br>(ms) | params<sup>(M) | FLOPs<sup>(B) |
-| ---------- | ----------------- | -------------------- | -------------------------- | ------------------------------- | -------------- | ------------- |
+|------------|-------------------|----------------------|----------------------------|---------------------------------|----------------|---------------|
 | RTDETRv2-s | 640               | 48.1                 | -                          | 5.03                            | 20             | 60            |
 | RTDETRv2-m | 640               | 51.9                 | -                          | 7.51                            | 36             | 100           |
 | RTDETRv2-l | 640               | 53.4                 | -                          | 9.76                            | 42             | 136           |

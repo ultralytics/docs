@@ -23,11 +23,11 @@ YOLOv10 introduces several architectural innovations to enhance both efficiency 
 
 - **Consistent Dual Assignments**: This method combines one-to-many and one-to-one label assignment strategies during training, ensuring rich supervision and NMS-free inference, reducing post-processing overhead and latency.
 - **Holistic Efficiency-Accuracy Driven Design**: This strategy involves several key components:
-  - **Lightweight Classification Head**: Reduces computational cost using depth-wise separable convolutions.
-  - **Spatial-Channel Decoupled Downsampling**: Minimizes information loss and computational cost during downsampling.
-  - **Rank-Guided Block Design**: Optimizes parameter utilization based on stage redundancy.
-  - **Large-Kernel Convolution**: Enhances feature extraction with larger receptive fields.
-  - **Partial Self-Attention (PSA)**: Improves global representation learning with minimal overhead.
+    - **Lightweight Classification Head**: Reduces computational cost using depth-wise separable convolutions.
+    - **Spatial-Channel Decoupled Downsampling**: Minimizes information loss and computational cost during downsampling.
+    - **Rank-Guided Block Design**: Optimizes parameter utilization based on stage redundancy.
+    - **Large-Kernel Convolution**: Enhances feature extraction with larger receptive fields.
+    - **Partial Self-Attention (PSA)**: Improves global representation learning with minimal overhead.
 
 **Performance Metrics:**
 
@@ -64,8 +64,8 @@ YOLOv9's architecture is built upon the foundation of previous YOLO models but i
 
 - **Programmable Gradient Information (PGI)**: This key innovation consists of two main components:
 
-  - **Generalized Efficient Layer Aggregation Network (GELAN)**: A highly efficient network structure that reduces parameter count and computational load while maintaining accuracy. GELAN serves as the backbone of YOLOv9, enabling faster training and inference.
-  - **Auxiliary Reversible Branch (ARB)**: Designed to preserve complete information and provide reliable gradients to the main branch, ARB helps the model learn more effectively from the data, especially deep within the network.
+    - **Generalized Efficient Layer Aggregation Network (GELAN)**: A highly efficient network structure that reduces parameter count and computational load while maintaining accuracy. GELAN serves as the backbone of YOLOv9, enabling faster training and inference.
+    - **Auxiliary Reversible Branch (ARB)**: Designed to preserve complete information and provide reliable gradients to the main branch, ARB helps the model learn more effectively from the data, especially deep within the network.
 
 - **Comprehensive Data Learning**: By preserving gradient information, YOLOv9 can learn more effectively from the training data, leading to improved accuracy and robustness.
 
@@ -97,7 +97,7 @@ YOLOv9 is well-suited for applications requiring high accuracy and robustness, p
 <br>
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv10n | 640                   | 39.5                 | -                              | 1.56                                | 2.3                | 6.7               |
 | YOLOv10s | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
 | YOLOv10m | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |

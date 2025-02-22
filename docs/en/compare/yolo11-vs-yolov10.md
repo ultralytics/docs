@@ -102,7 +102,7 @@ YOLOv10 is particularly suited for applications requiring ultra-fast, end-to-end
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLO11n  | 640                   | 39.5                 | 56.1                           | 1.5                                 | 2.6                | 6.5               |
 | YOLO11s  | 640                   | 47.0                 | 90.0                           | 2.5                                 | 9.4                | 21.5              |
 | YOLO11m  | 640                   | 51.5                 | 183.2                          | 4.7                                 | 20.1               | 68.0              |

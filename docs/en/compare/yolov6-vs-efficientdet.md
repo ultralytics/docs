@@ -72,7 +72,7 @@ EfficientDet's architecture is designed to be highly scalable and efficient, off
 The following table compares the performance metrics of YOLOv6-3.0 and EfficientDet models. Key metrics include mAP (mean Average Precision), inference speed on CPU and T4 TensorRT10, model parameters (Params), and FLOPs (Floating Point Operations).
 
 | Model           | size<sup>(pixels) | mAP<sup>val<br>50-95 | Speed<sup>CPU ONNX<br>(ms) | Speed<sup>T4 TensorRT10<br>(ms) | params<sup>(M) | FLOPs<sup>(B) |
-| --------------- | ----------------- | -------------------- | -------------------------- | ------------------------------- | -------------- | ------------- |
+|-----------------|-------------------|----------------------|----------------------------|---------------------------------|----------------|---------------|
 | YOLOv6-3.0n     | 640               | 37.5                 | -                          | 1.17                            | 4.7            | 11.4          |
 | YOLOv6-3.0s     | 640               | 45.0                 | -                          | 2.66                            | 18.5           | 45.3          |
 | YOLOv6-3.0m     | 640               | 50.0                 | -                          | 5.28                            | 34.9           | 85.8          |

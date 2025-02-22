@@ -37,7 +37,8 @@ PP-YOLOE+, introduced by PaddlePaddle Authors from Baidu on 2022-04-02 ([Arxiv](
 
 ## RTDETRv2: Real-Time Detection with Transformers
 
-RTDETRv2, developed by Wenyu Lv, Yian Zhao, and colleagues at Baidu and released on 2023-04-17 ([Arxiv](https://arxiv.org/abs/2304.08069)), stands for Real-Time DEtection Transformer, Version 2. This model leverages a Vision Transformer (ViT) backbone, a departure from traditional CNN-based architectures, to capture long-range dependencies in images for improved contextual understanding and detection accuracy. RTDETRv2 is engineered for real-time performance while maintaining high accuracy through a hybrid efficient architecture combining transformer encoders and CNN decoders. It also adopts an anchor-free detection approach, simplifying the design and deployment process. Further information is available in the [RT-DETR GitHub repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch) and [documentation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme). RTDETRv2 is an evolution of the [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) model family.
+RTDETRv2, developed by Wenyu Lv, Yian Zhao, and colleagues at Baidu and released on 2023-04-17 ([Arxiv](https://arxiv.org/abs/2304.08069)), stands for Real-Time DEtection Transformer, Version 2. This model leverages a Vision Transformer (ViT) backbone, a departure from traditional CNN-based architectures, to capture long-range dependencies in images for improved contextual understanding and detection accuracy. RTDETRv2 is engineered for real-time performance while maintaining high accuracy through a hybrid efficient architecture combining transformer encoders and CNN decoders. It also adopts an anchor-free detection approach, simplifying the design and deployment process. Further information is available in the [RT-DETR GitHub repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch) and [documentation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme). RTDETRv2 is an evolution of the [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) model
+family.
 
 **Strengths:**
 
@@ -58,7 +59,7 @@ RTDETRv2, developed by Wenyu Lv, Yian Zhao, and colleagues at Baidu and released
 [Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
 | PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | 7.93               | 17.36             |
 | PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |

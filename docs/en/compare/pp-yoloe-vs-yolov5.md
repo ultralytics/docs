@@ -42,12 +42,12 @@ PP-YOLOE+ is well-suited for applications demanding robust and efficient object 
 ### Strengths and Weaknesses
 
 - **Strengths**:
-  - Anchor-free design simplifies implementation.
-  - High accuracy and efficient inference capabilities.
-  - Well-documented and supported within the PaddlePaddle framework.
+    - Anchor-free design simplifies implementation.
+    - High accuracy and efficient inference capabilities.
+    - Well-documented and supported within the PaddlePaddle framework.
 - **Weaknesses**:
-  - Ecosystem lock-in for users outside the PaddlePaddle environment.
-  - Potentially smaller community and fewer resources compared to widely-adopted models like YOLOv5.
+    - Ecosystem lock-in for users outside the PaddlePaddle environment.
+    - Potentially smaller community and fewer resources compared to widely-adopted models like YOLOv5.
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
@@ -80,20 +80,20 @@ YOLOv5's versatility makes it suitable for a wide range of applications:
 ### Strengths and Weaknesses
 
 - **Strengths**:
-  - Exceptional speed and real-time performance.
-  - Flexible deployment with multiple model sizes.
-  - Large and active community with extensive support. [Join the Ultralytics community](https://discord.com/invite/ultralytics).
-  - Easy to use with excellent documentation and Ultralytics HUB integration. [Ultralytics HUB documentation](https://docs.ultralytics.com/hub/).
+    - Exceptional speed and real-time performance.
+    - Flexible deployment with multiple model sizes.
+    - Large and active community with extensive support. [Join the Ultralytics community](https://discord.com/invite/ultralytics).
+    - Easy to use with excellent documentation and Ultralytics HUB integration. [Ultralytics HUB documentation](https://docs.ultralytics.com/hub/).
 - **Weaknesses**:
-  - Larger models can be computationally intensive.
-  - Anchor-based approach may require more tuning for specific datasets compared to anchor-free methods. Learn about anchor-based detectors.
+    - Larger models can be computationally intensive.
+    - Anchor-based approach may require more tuning for specific datasets compared to anchor-free methods. Learn about anchor-based detectors.
 
 [Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
 
 ## Performance Table
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
 | PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | 7.93               | 17.36             |
 | PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |

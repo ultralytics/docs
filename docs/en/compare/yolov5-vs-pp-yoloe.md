@@ -45,13 +45,13 @@ YOLOv5's versatility makes it suitable for diverse applications such as:
 ### Strengths and Weaknesses
 
 - **Strengths**:
-  - Exceptional speed and real-time performance.
-  - Multiple model sizes for flexible deployment.
-  - Large and active community with extensive resources. Join the [Ultralytics Discord community](https://discord.com/invite/ultralytics).
-  - Easy to use with well-documented [Python package](https://docs.ultralytics.com/usage/python/) and Ultralytics HUB. Explore [Ultralytics HUB documentation](https://docs.ultralytics.com/hub/).
+    - Exceptional speed and real-time performance.
+    - Multiple model sizes for flexible deployment.
+    - Large and active community with extensive resources. Join the [Ultralytics Discord community](https://discord.com/invite/ultralytics).
+    - Easy to use with well-documented [Python package](https://docs.ultralytics.com/usage/python/) and Ultralytics HUB. Explore [Ultralytics HUB documentation](https://docs.ultralytics.com/hub/).
 - **Weaknesses**:
-  - Larger models can be computationally intensive.
-  - Anchor-based approach might require more tuning for specific datasets compared to anchor-free methods, learn more about [anchor-based detectors](https://www.ultralytics.com/glossary/anchor-based-detectors).
+    - Larger models can be computationally intensive.
+    - Anchor-based approach might require more tuning for specific datasets compared to anchor-free methods, learn more about [anchor-based detectors](https://www.ultralytics.com/glossary/anchor-based-detectors).
 
 ## PP-YOLOE+
 
@@ -85,17 +85,17 @@ PP-YOLOE+ is well-suited for applications requiring robust object detection and 
 ### Strengths and Weaknesses
 
 - **Strengths**:
-  - Anchor-free design simplifies implementation and reduces hyperparameter tuning. Discover more about [anchor-free detectors](https://www.ultralytics.com/glossary/anchor-free-detectors).
-  - High accuracy and efficient inference.
-  - Well-documented and supported within the PaddlePaddle ecosystem.
+    - Anchor-free design simplifies implementation and reduces hyperparameter tuning. Discover more about [anchor-free detectors](https://www.ultralytics.com/glossary/anchor-free-detectors).
+    - High accuracy and efficient inference.
+    - Well-documented and supported within the PaddlePaddle ecosystem.
 - **Weaknesses**:
-  - Ecosystem lock-in for those not already using PaddlePaddle.
-  - Smaller community and fewer resources compared to YOLOv5.
+    - Ecosystem lock-in for those not already using PaddlePaddle.
+    - Smaller community and fewer resources compared to YOLOv5.
 
 ## Performance Table
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv5n    | 640                   | 28.0                 | 73.6                           | 1.12                                | 2.6                | 7.7               |
 | YOLOv5s    | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m    | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |

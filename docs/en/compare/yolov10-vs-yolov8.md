@@ -34,7 +34,7 @@ YOLOv10 demonstrates superior performance, especially in speed and model size, a
 - **Model Size**: Features a compact model size, with YOLOv10-S having only 7.2M parameters.
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv10n | 640                   | 39.5                 | -                              | 1.56                                | 2.3                | 6.7               |
 | YOLOv10s | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
 | YOLOv10m | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |
@@ -118,7 +118,7 @@ YOLOv8’s versatility makes it ideal for numerous applications, including:
 ## Comparison Table
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv10n | 640                   | 39.5                 | -                              | 1.56                                | 2.3                | 6.7               |
 | YOLOv10s | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
 | YOLOv10m | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |

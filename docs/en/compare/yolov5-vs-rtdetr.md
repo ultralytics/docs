@@ -75,7 +75,7 @@ RTDETRv2 is ideally suited for applications where high accuracy is paramount and
 [Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
 
 | Model      | size<sup>(pixels) | mAP<sup>val50-95 | Speed<sup>CPU ONNX<sup>(ms) | Speed<sup>T4 TensorRT10<sup>(ms) | params<sup>(M) | FLOPs<sup>(B) |
-| ---------- | ----------------- | ---------------- | --------------------------- | -------------------------------- | -------------- | ------------- |
+|------------|-------------------|------------------|-----------------------------|----------------------------------|----------------|---------------|
 | YOLOv5n    | 640               | 28.0             | 73.6                        | 1.12                             | 2.6            | 7.7           |
 | YOLOv5s    | 640               | 37.4             | 120.7                       | 1.92                             | 9.1            | 24.0          |
 | YOLOv5m    | 640               | 45.4             | 233.9                       | 4.03                             | 25.1           | 64.2          |

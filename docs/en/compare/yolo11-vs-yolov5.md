@@ -32,7 +32,7 @@ YOLO11 introduces several architectural improvements, focusing on efficiency and
 YOLO11 demonstrates superior performance compared to YOLOv5 in terms of accuracy, especially when considering the trade-off with speed. The model achieves a higher mAP (mean Average Precision) while maintaining competitive inference speeds, making it suitable for applications requiring high detection accuracy.
 
 | Model   | size (pixels) | mAP<sup>val</sup><sub>50-95</sub> | Speed<sup>CPU ONNX</sup> (ms) | Speed<sup>T4 TensorRT10</sup> (ms) | params (M) | FLOPs (B) |
-| ------- | ------------- | --------------------------------- | ----------------------------- | ---------------------------------- | ---------- | --------- |
+|---------|---------------|-----------------------------------|-------------------------------|------------------------------------|------------|-----------|
 | YOLO11n | 640           | 39.5                              | 56.1                          | 1.5                                | 2.6        | 6.5       |
 | YOLO11s | 640           | 47.0                              | 90.0                          | 2.5                                | 9.4        | 21.5      |
 | YOLO11m | 640           | 51.5                              | 183.2                         | 4.7                                | 20.1       | 68.0      |
@@ -79,7 +79,7 @@ YOLOv5 utilizes a streamlined architecture that prioritizes efficiency and speed
 YOLOv5 excels in providing a good balance between accuracy and speed. It offers fast inference times, making it suitable for real-time object detection tasks. While slightly less accurate than YOLO11 in some benchmarks, its speed and efficiency are highly valued in many applications.
 
 | Model   | size (pixels) | mAP<sup>val</sup><sub>50-95</sub> | Speed<sup>CPU ONNX</sup> (ms) | Speed<sup>T4 TensorRT10</sup> (ms) | params (M) | FLOPs (B) |
-| ------- | ------------- | --------------------------------- | ----------------------------- | ---------------------------------- | ---------- | --------- |
+|---------|---------------|-----------------------------------|-------------------------------|------------------------------------|------------|-----------|
 | YOLOv5n | 640           | 28.0                              | 73.6                          | 1.12                               | 2.6        | 7.7       |
 | YOLOv5s | 640           | 37.4                              | 120.7                         | 1.92                               | 9.1        | 24.0      |
 | YOLOv5m | 640           | 45.4                              | 233.9                         | 4.03                               | 25.1       | 64.2      |
@@ -110,7 +110,7 @@ YOLOv5 is well-suited for applications where real-time performance and efficienc
 ## Comparison Table
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX</sup> (ms) | Speed<br><sup>T4 TensorRT10</sup> (ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ------- | --------------------- | --------------------------------- | --------------------------------- | -------------------------------------- | ------------------ | ----------------- |
+|---------|-----------------------|-----------------------------------|-----------------------------------|----------------------------------------|--------------------|-------------------|
 | YOLO11n | 640                   | 39.5                              | 56.1                              | 1.5                                    | 2.6                | 6.5               |
 | YOLO11s | 640                   | 47.0                              | 90.0                              | 2.5                                    | 9.4                | 21.5              |
 | YOLO11m | 640                   | 51.5                              | 183.2                             | 4.7                                    | 20.1               | 68.0              |

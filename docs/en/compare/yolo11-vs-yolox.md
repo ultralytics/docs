@@ -26,7 +26,7 @@ YOLO11 maintains the real-time detection focus of its predecessors while introdu
 YOLO11 models are available in various sizes, from YOLO11n to YOLO11x, catering to different computational needs. Below are the performance metrics for object detection on the COCO dataset:
 
 | Model   | size<sup>(pixels) | mAP<sup>val</sup><sub>50-95</sub> | Speed<sup>CPU ONNX</sup><sub>(ms)</sub> | Speed<sup>T4 TensorRT10</sup><sub>(ms)</sub> | params<sup>(M) | FLOPs<sup>(B) |
-| ------- | ----------------- | --------------------------------- | --------------------------------------- | -------------------------------------------- | -------------- | ------------- |
+|---------|-------------------|-----------------------------------|-----------------------------------------|----------------------------------------------|----------------|---------------|
 | YOLO11n | 640               | 39.5                              | 56.1                                    | 1.5                                          | 2.6            | 6.5           |
 | YOLO11s | 640               | 47.0                              | 90.0                                    | 2.5                                          | 9.4            | 21.5          |
 | YOLO11m | 640               | 51.5                              | 183.2                                   | 4.7                                          | 20.1           | 68.0          |
@@ -71,7 +71,7 @@ YOLOX distinguishes itself with an anchor-free detection mechanism, which simpli
 YOLOX offers a range of models, including Nano, Tiny, S, M, L, and X, each optimized for different trade-offs between speed and accuracy. Here's a comparison of performance metrics:
 
 | Model     | size<sup>(pixels) | mAP<sup>val</sup><sub>50-95</sub> | Speed<sup>T4 TensorRT10</sup><sub>(ms)</sub> | params<sup>(M) | FLOPs<sup>(B) |
-| --------- | ----------------- | --------------------------------- | -------------------------------------------- | -------------- | ------------- |
+|-----------|-------------------|-----------------------------------|----------------------------------------------|----------------|---------------|
 | YOLOXnano | 416               | 25.8                              | -                                            | 0.91           | 1.08          |
 | YOLOXtiny | 416               | 32.8                              | -                                            | 5.06           | 6.45          |
 | YOLOXs    | 640               | 40.5                              | 2.56                                         | 9.0            | 26.8          |
@@ -102,7 +102,7 @@ YOLOX is suitable for applications that prioritize a balance of high accuracy an
 ## Comparison Table
 
 | Model     | size<sup>(pixels) | mAP<sup>val</sup><sub>50-95</sub> | Speed<sup>CPU ONNX</sup><sub>(ms)</sub> | Speed<sup>T4 TensorRT10</sup><sub>(ms)</sub> | params<sup>(M) | FLOPs<sup>(B) |
-| --------- | ----------------- | --------------------------------- | --------------------------------------- | -------------------------------------------- | -------------- | ------------- |
+|-----------|-------------------|-----------------------------------|-----------------------------------------|----------------------------------------------|----------------|---------------|
 | YOLO11n   | 640               | 39.5                              | 56.1                                    | 1.5                                          | 2.6            | 6.5           |
 | YOLO11s   | 640               | 47.0                              | 90.0                                    | 2.5                                          | 9.4            | 21.5          |
 | YOLO11m   | 640               | 51.5                              | 183.2                                   | 4.7                                          | 20.1           | 68.0          |
