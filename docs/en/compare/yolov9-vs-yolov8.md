@@ -64,7 +64,7 @@ YOLOv8's versatility and ease of use make it ideal for a broad spectrum of appli
 [Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv9t | 640                   | 38.3                 | -                              | 2.3                                 | 2.0                | 7.7               |
 | YOLOv9s | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
 | YOLOv9m | 640                   | 51.4                 | -                              | 6.43                                | 20.0               | 76.3              |

@@ -14,7 +14,7 @@ Choosing the right object detection model is crucial for computer vision project
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv7"]'></canvas>
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | RTDETRv2-s | 640                   | 48.1                 | -                              | 5.03                                | 20                 | 60                |
 | RTDETRv2-m | 640                   | 51.9                 | -                              | 7.51                                | 36                 | 100               |
 | RTDETRv2-l | 640                   | 53.4                 | -                              | 9.76                                | 42                 | 136               |

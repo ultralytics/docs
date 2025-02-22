@@ -84,7 +84,7 @@ YOLOX is well-suited for applications that demand high accuracy and efficient in
 Below is a comparison of YOLOv8 and YOLOX models based on performance metrics on the COCO dataset.
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv8n   | 640                   | 37.3                 | 80.4                           | 1.47                                | 3.2                | 8.7               |
 | YOLOv8s   | 640                   | 44.9                 | 128.4                          | 2.66                                | 11.2               | 28.6              |
 | YOLOv8m   | 640                   | 50.2                 | 234.7                          | 5.86                                | 25.9               | 78.9              |

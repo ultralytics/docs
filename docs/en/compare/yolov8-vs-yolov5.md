@@ -24,7 +24,7 @@ YOLOv8 adopts a flexible, modular architecture, allowing for easier adaptation a
 YOLOv8 demonstrates state-of-the-art performance, achieving a higher mAP with comparable or improved inference speeds compared to its predecessors. The performance table below illustrates the metrics for different YOLOv8 models:
 
 | Model   | size(pixels) | mAP<sup>val</sup><sub>50-95</sub> | Speed<sup>CPU ONNX</sup>(ms) | Speed<sup>T4 TensorRT10</sup>(ms) | params(M) | FLOPs(B) |
-|---------|--------------|-----------------------------------|------------------------------|-----------------------------------|-----------|----------|
+| ------- | ------------ | --------------------------------- | ---------------------------- | --------------------------------- | --------- | -------- |
 | YOLOv8n | 640          | 37.3                              | 80.4                         | 1.47                              | 3.2       | 8.7      |
 | YOLOv8s | 640          | 44.9                              | 128.4                        | 2.66                              | 11.2      | 28.6     |
 | YOLOv8m | 640          | 50.2                              | 234.7                        | 5.86                              | 25.9      | 78.9     |
@@ -63,7 +63,7 @@ YOLOv5 is built on PyTorch and is lauded for its efficient architecture that all
 YOLOv5 is celebrated for its speed and efficiency, providing a range of models that cater to different speed-accuracy trade-offs. The performance metrics for YOLOv5 models are detailed below:
 
 | Model   | size(pixels) | mAP<sup>val</sup><sub>50-95</sub> | Speed<sup>CPU ONNX</sup>(ms) | Speed<sup>T4 TensorRT10</sup>(ms) | params(M) | FLOPs(B) |
-|---------|--------------|-----------------------------------|------------------------------|-----------------------------------|-----------|----------|
+| ------- | ------------ | --------------------------------- | ---------------------------- | --------------------------------- | --------- | -------- |
 | YOLOv5n | 640          | 28.0                              | 73.6                         | 1.12                              | 2.6       | 7.7      |
 | YOLOv5s | 640          | 37.4                              | 120.7                        | 1.92                              | 9.1       | 24.0     |
 | YOLOv5m | 640          | 45.4                              | 233.9                        | 4.03                              | 25.1      | 64.2     |
@@ -94,7 +94,7 @@ YOLOv5 is optimally used in scenarios where speed and efficiency are paramount:
 ## Model Comparison Table
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val</sup><sub>50-95</sub> | Speed<sup>CPU ONNX</sup>(ms) | Speed<sup>T4 TensorRT10</sup>(ms) | params(M) | FLOPs(B) |
-|---------|-----------------------|-----------------------------------|------------------------------|-----------------------------------|-----------|----------|
+| ------- | --------------------- | --------------------------------- | ---------------------------- | --------------------------------- | --------- | -------- |
 | YOLOv8n | 640                   | 37.3                              | 80.4                         | 1.47                              | 3.2       | 8.7      |
 | YOLOv8s | 640                   | 44.9                              | 128.4                        | 2.66                              | 11.2      | 28.6     |
 | YOLOv8m | 640                   | 50.2                              | 234.7                        | 5.86                              | 25.9      | 78.9     |

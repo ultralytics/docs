@@ -14,7 +14,7 @@ Choosing the optimal object detection model is critical for successful computer 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "PP-YOLOE+"]'></canvas>
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv8n    | 640                   | 37.3                 | 80.4                           | 1.47                                | 3.2                | 8.7               |
 | YOLOv8s    | 640                   | 44.9                 | 128.4                          | 2.66                                | 11.2               | 28.6              |
 | YOLOv8m    | 640                   | 50.2                 | 234.7                          | 5.86                                | 25.9               | 78.9              |

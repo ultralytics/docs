@@ -14,7 +14,7 @@ Choosing the right object detection model is critical for computer vision projec
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv7"]'></canvas>
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv10n | 640                   | 39.5                 | -                              | 1.56                                | 2.3                | 6.7               |
 | YOLOv10s | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
 | YOLOv10m | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |

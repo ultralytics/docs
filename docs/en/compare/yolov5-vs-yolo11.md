@@ -38,7 +38,7 @@ In terms of performance, YOLO11 consistently outperforms YOLOv5 across various m
 It's important to note that the choice between YOLOv5 and YOLO11 may also depend on the specific task and deployment environment. For resource-constrained devices, the smaller variants of YOLOv5 might still be highly relevant due to their minimal size and respectable performance. For applications where absolute highest accuracy is paramount and computational resources are less limited, YOLO11 presents a compelling upgrade path.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv5n | 640                   | 28.0                 | 73.6                           | 1.12                                | 2.6                | 7.7               |
 | YOLOv5s | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |

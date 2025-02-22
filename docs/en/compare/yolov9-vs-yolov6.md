@@ -34,7 +34,7 @@ YOLOv6-3.0 is engineered for efficiency, prioritizing faster inference times and
 The table below compares the performance of YOLOv9 and YOLOv6-3.0 models on the COCO dataset.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv9t     | 640                   | 38.3                 | -                              | 2.3                                 | 2.0                | 7.7               |
 | YOLOv9s     | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
 | YOLOv9m     | 640                   | 51.4                 | -                              | 6.43                                | 20.0               | 76.3              |
