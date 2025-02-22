@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed technical comparison of YOLOv10 and PP-YOLOE+ object detection models. Learn their strengths, use cases, performance, and architecture.
 keywords: YOLOv10,PP-YOLOE+,object detection,model comparison,Ultralytics,YOLO,PP-YOLOE,computer vision,real-time object detection
 ---

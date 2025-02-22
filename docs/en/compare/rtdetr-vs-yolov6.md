@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore an in-depth comparison of RTDETRv2 and YOLOv6-3.0. Learn about architecture, performance, and use cases to choose the right object detection model.
 keywords: RTDETRv2, YOLOv6, object detection, model comparison, Vision Transformer, CNN, real-time AI, AI in computer vision, Ultralytics, accuracy vs speed
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the strengths, architectures, and performance metrics of DAMO-YOLO and YOLOv7 to choose the best object detection model for your project.
 keywords: DAMO-YOLO, YOLOv7, object detection, model comparison, computer vision, machine learning, real-time detection, accuracy, inference speed
 ---

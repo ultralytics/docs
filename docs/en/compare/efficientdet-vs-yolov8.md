@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare EfficientDet vs YOLOv8 for object detection. Explore their architecture, performance, and ideal use cases to make an informed choice.
 keywords: EfficientDet, YOLOv8, model comparison, object detection, computer vision, machine learning, EfficientDet vs YOLOv8, Ultralytics models, real-time detection
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv7 and PP-YOLOE+ for object detection. Explore their performance, architectures, and best use cases to select the ideal model for your needs.
 keywords: YOLOv7, PP-YOLOE+, object detection models, model comparison, YOLO models, AI benchmarking, computer vision, anchor-free detection, efficient models
 ---

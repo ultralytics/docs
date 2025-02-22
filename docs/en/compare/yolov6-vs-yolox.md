@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv6-3.0 and YOLOX architectures, performance, and applications. Find the best object detection model for your computer vision needs.
 keywords: YOLOv6-3.0, YOLOX, object detection, model comparison, computer vision, performance metrics, real-time applications, deep learning
 ---

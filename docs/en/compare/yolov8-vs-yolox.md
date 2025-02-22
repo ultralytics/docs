@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv8 and YOLOX models for object detection. Discover strengths, weaknesses, benchmarks, and choose the right model for your application.
 keywords: YOLOv8, YOLOX, object detection, model comparison, Ultralytics, computer vision, anchor-free models, AI benchmarks
 ---

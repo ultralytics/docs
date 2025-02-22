@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed comparison of YOLOv10 and RTDETRv2. Discover their strengths, weaknesses, performance metrics, and ideal applications for object detection.
 keywords: YOLOv10,RTDETRv2,object detection,model comparison,AI,computer vision,Ultralytics,real-time detection,transformer-based models,YOLO series
 ---

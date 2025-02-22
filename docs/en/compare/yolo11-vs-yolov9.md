@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLO11 and YOLOv9 in architecture, performance, and use cases. Learn which model suits your object detection and computer vision needs.
 keywords: YOLO11, YOLOv9, model comparison, object detection, computer vision, Ultralytics, YOLO architecture, YOLO performance, real-time processing
 ---

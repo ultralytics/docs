@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv6 and RTDETR for object detection. Explore their architectures, performances, and use cases to choose your optimal computer vision model.
 keywords: YOLOv6, RTDETR, object detection, model comparison, YOLO, Vision Transformers, CNN, real-time detection, Ultralytics, computer vision
 ---

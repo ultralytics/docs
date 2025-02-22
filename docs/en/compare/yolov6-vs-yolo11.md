@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLO11 and YOLOv6-3.0 for object detection. Explore architectures, metrics, and use cases to choose the best model for your needs.
 keywords: YOLO11, YOLOv6-3.0, object detection, model comparison, Ultralytics, computer vision, real-time detection, performance metrics, deep learning
 ---

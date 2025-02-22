@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare DAMO-YOLO and PP-YOLOE+ for object detection. Discover strengths, weaknesses, and use cases to choose the best model for your projects.
 keywords: DAMO-YOLO, PP-YOLOE+, object detection, model comparison, computer vision, YOLO models, AI, deep learning, PaddlePaddle, NAS backbone
 ---

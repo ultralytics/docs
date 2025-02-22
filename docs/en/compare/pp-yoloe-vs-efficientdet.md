@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare PP-YOLOE+ and EfficientDet for object detection. Explore architectures, benchmarks, and use cases to select the best model for your needs.
 keywords: PP-YOLOE+,EfficientDet,object detection,PP-YOLOE+m,EfficientDet-D7,AI models,computer vision,model comparison,efficient AI,deep learning
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover a detailed comparison of YOLOv9 and YOLOX, covering architectures, benchmarks, and use cases to help you choose the best object detection model.
 keywords: YOLOv9, YOLOX, object detection, model comparison, computer vision, YOLO models, architecture, benchmarks, deep learning
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv5 and EfficientDet for object detection. Explore architecture, performance, strengths, and use cases to choose the right model.
 keywords: YOLOv5, EfficientDet, object detection, model comparison, computer vision, performance metrics, Ultralytics, real-time detection, deep learning
 ---

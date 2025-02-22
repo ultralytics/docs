@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv11 and YOLOv9 for object detection. Explore innovations, benchmarks, and use cases to select the best model for your tasks.
 keywords: YOLOv11, YOLOv9, object detection, model comparison, benchmarks, Ultralytics, real-time processing, machine learning, computer vision
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare DAMO-YOLO and RTDETRv2 performance, accuracy, and use cases. Explore insights for efficient and high-accuracy object detection in real-time.
 keywords: DAMO-YOLO, RTDETRv2, object detection, YOLO models, real-time detection, transformer models, computer vision, model comparison, AI, machine learning
 ---

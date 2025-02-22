@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore the strengths, benchmarks, and use cases of YOLO11 and YOLOv7 object detection models. Find the best fit for your project in this in-depth guide.
 keywords: YOLO11, YOLOv7, object detection, model comparison, YOLO models, deep learning, computer vision, Ultralytics, benchmarks, real-time detection
 ---

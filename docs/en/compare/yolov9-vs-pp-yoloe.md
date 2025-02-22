@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv9 and PP-YOLOE+ models in architecture, performance, and use cases. Find the best object detection model for your needs.
 keywords: YOLOv9,PP-YOLOE+,object detection,model comparison,computer vision,AI,deep learning,YOLO,PP-YOLOE,performance comparison
 ---

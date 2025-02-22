@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore the differences between YOLOv7 and YOLOv9. Compare architecture, performance, and use cases to choose the best model for object detection.
 keywords: YOLOv7, YOLOv9, object detection, model comparison, YOLO architecture, AI models, computer vision, machine learning, Ultralytics
 ---

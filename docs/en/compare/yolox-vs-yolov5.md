@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed technical comparison of YOLOX vs YOLOv5. Learn their differences in architecture, performance, and ideal applications for object detection.
 keywords: YOLOX, YOLOv5, object detection, anchor-free model, real-time detection, computer vision, Ultralytics, model comparison, AI benchmark
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv10 and YOLOX for object detection. Explore architecture, benchmarks, and use cases to choose the best real-time detection model for your needs.
 keywords: YOLOv10, YOLOX, object detection, Ultralytics, real-time, model comparison, benchmark, computer vision, deep learning, AI
 ---

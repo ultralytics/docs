@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv6-3.0 and PP-YOLOE+ models. Explore performance, architecture, and use cases to choose the best object detection model for your needs.
 keywords: YOLOv6-3.0, PP-YOLOE+, object detection, model comparison, computer vision, AI models, inference speed, accuracy, architecture, benchmarking
 ---

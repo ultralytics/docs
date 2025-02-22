@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare DAMO-YOLO and EfficientDet for object detection. Explore architectures, metrics, and use cases to select the right model for your needs.
 keywords: DAMO-YOLO, EfficientDet, object detection, model comparison, performance metrics, computer vision, YOLO, EfficientNet, BiFPN, NAS, COCO dataset
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv10 and DAMO-YOLO object detection models. Explore architectures, performance metrics, and ideal use cases for your computer vision needs.
 keywords: YOLOv10, DAMO-YOLO, object detection comparison, YOLO models, DAMO-YOLO performance, YOLOv10 features, computer vision models, real-time object detection
 ---

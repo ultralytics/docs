@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed comparison of YOLOv10 and YOLOv6-3.0. Analyze their architectures, benchmarks, strengths, and use cases for your AI projects.
 keywords: YOLOv10, YOLOv6-3.0, model comparison, object detection, Ultralytics, computer vision, AI models, real-time detection, edge AI, industrial AI
 ---

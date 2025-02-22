@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv5 and YOLOv8 for speed, accuracy, and versatility. Learn which Ultralytics model is best for your object detection and vision tasks.
 keywords: YOLOv5, YOLOv8, Ultralytics, object detection, computer vision, YOLO models, model comparison, AI, machine learning, deep learning
 ---

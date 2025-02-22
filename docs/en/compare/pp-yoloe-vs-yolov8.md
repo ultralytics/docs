@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare PP-YOLOE+ and YOLOv8—two top object detection models. Discover their strengths, weaknesses, and ideal use cases for your applications.
 keywords: PP-YOLOE+, YOLOv8, object detection, computer vision, model comparison, YOLO models, Ultralytics, PaddlePaddle, machine learning, AI
 ---

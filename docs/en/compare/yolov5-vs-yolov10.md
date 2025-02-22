@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed YOLOv5 vs YOLOv10 comparison, analyzing architectures, performance, and ideal applications for cutting-edge object detection.
 keywords: YOLOv5, YOLOv10, object detection, Ultralytics, machine learning models, real-time detection, AI models comparison, computer vision
 ---

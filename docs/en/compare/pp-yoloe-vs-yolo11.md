@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare PP-YOLOE+ and YOLO11 object detection models. Explore performance, strengths, weaknesses, and ideal use cases to make informed choices.
 keywords: PP-YOLOE+, YOLO11, object detection, model comparison, computer vision, Ultralytics, PaddlePaddle, real-time AI, accuracy, speed, inference
 ---

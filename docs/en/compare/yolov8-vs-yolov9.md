@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv8 and YOLOv9 models for object detection. Explore their accuracy, speed, resources, and use cases to choose the best model for your needs.
 keywords: YOLOv8, YOLOv9, object detection, model comparison, Ultralytics, performance metrics, real-time AI, computer vision, YOLO series
 ---

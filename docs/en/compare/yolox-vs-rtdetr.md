@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the key differences between YOLOX and RTDETRv2. Compare performance, architecture, and use cases for optimal object detection model selection.
 keywords: YOLOX, RTDETRv2, object detection, YOLOX vs RTDETRv2, performance comparison, Ultralytics, machine learning, computer vision, object detection models
 ---

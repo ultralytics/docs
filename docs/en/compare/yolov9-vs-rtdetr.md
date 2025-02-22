@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv9 and RTDETRv2 for object detection. Explore speed, accuracy, use cases, and architectures to choose the best for your project.
 keywords: YOLOv9, RTDETRv2, object detection, model comparison, AI models, computer vision, YOLO, real-time detection, transformers, efficiency
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the key differences between YOLOv8 and PP-YOLOE+ in this technical comparison. Learn which model suits your object detection needs best.
 keywords: YOLOv8, PP-YOLOE+, object detection, computer vision, model comparison, YOLO models, Ultralytics, PaddlePaddle, deep learning
 ---

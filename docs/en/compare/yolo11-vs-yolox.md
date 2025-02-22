@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore YOLO11 and YOLOX, two leading object detection models. Compare architecture, performance, and use cases to select the best model for your needs.
 keywords: YOLO11, YOLOX, object detection, machine learning, computer vision, model comparison, deep learning, Ultralytics, real-time detection, anchor-free models
 ---

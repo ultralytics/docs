@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed comparison of YOLOv6-3.0 vs YOLOv9, highlighting performance, architecture, metrics, and use cases to choose the best object detection model.
 keywords: YOLOv6, YOLOv9, object detection, model comparison, performance metrics, computer vision, neural networks, Ultralytics, real-time detection
 ---

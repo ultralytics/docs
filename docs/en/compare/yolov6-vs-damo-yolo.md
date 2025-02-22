@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover a thorough technical comparison of YOLOv6-3.0 and DAMO-YOLO. Analyze architecture, performance, and use cases to pick the best object detection model.
 keywords: YOLOv6-3.0, DAMO-YOLO, object detection comparison, YOLO models, computer vision, machine learning, model performance, deep learning, industrial AI
 ---

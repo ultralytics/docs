@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed comparison of YOLOv7 and DAMO-YOLO, analyzing their architecture, performance, and best use cases for object detection projects.
 keywords: YOLOv7,DAMO-YOLO,object detection,YOLO comparison,AI models,deep learning,computer vision,model benchmarks,real-time detection
 ---

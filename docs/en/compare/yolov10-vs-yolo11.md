@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed comparison of YOLOv10 and YOLO11, two advanced object detection models. Understand their performance, strengths, and ideal use cases.
 keywords: YOLOv10, YOLO11, object detection, model comparison, computer vision, real-time detection, NMS-free training, Ultralytics models, edge computing, accuracy vs speed
 ---

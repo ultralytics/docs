@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed comparison of YOLO11 and DAMO-YOLO. Learn about their architectures, performance metrics, and use cases for object detection.
 keywords: YOLO11, DAMO-YOLO, object detection, model comparison, Ultralytics, performance benchmarks, machine learning, computer vision
 ---

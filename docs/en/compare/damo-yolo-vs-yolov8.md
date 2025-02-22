@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the key differences between DAMO-YOLO and YOLOv8. Compare accuracy, speed, architecture, and use cases to choose the best object detection model.
 keywords: DAMO-YOLO, YOLOv8, object detection, model comparison, accuracy, speed, AI, deep learning, computer vision, YOLO models
 ---

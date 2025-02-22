@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOX and DAMO-YOLO object detection models. Explore architecture, performance, use cases, and choose the best fit for your project.
 keywords: YOLOX, DAMO-YOLO, object detection, model comparison, YOLO models, deep learning, computer vision, machine learning, AI, real-time detection
 ---

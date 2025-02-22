@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare PP-YOLOE+ and YOLOv5 with insights into architecture, performance, and use cases. Discover the best object detection model for your needs.
 keywords: PP-YOLOE+, YOLOv5, object detection, model comparison, Ultralytics, AI models, computer vision, anchor-free, performance metrics
 ---

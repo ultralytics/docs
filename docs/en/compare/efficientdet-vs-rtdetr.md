@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed comparison of EfficientDet and RTDETRv2. Compare performance, architecture, and use cases to choose the right object detection model.
 keywords: EfficientDet, RTDETRv2, object detection, Ultralytics, EfficientDet comparison, RTDETRv2 comparison, computer vision, model performance
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Detailed technical comparison of YOLO11 and YOLOv10 for real-time object detection, covering performance, architecture, and ideal use cases.
 keywords: YOLO11, YOLOv10, Ultralytics comparison, object detection models, real-time AI, model architecture, performance benchmarks, computer vision
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed comparison of EfficientDet and YOLOX models. Learn about their architectures, performance, use cases, and which fits your needs best.
 keywords: EfficientDet, YOLOX, object detection, model comparison, EfficientDet vs YOLOX, machine learning, computer vision, deep learning, neural networks, object detection models
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed technical comparison of YOLOv9 and YOLOv10, covering architecture, performance, and use cases. Find the best model for your needs.
 keywords: YOLOv9, YOLOv10, object detection, Ultralytics, computer vision, model comparison, AI models, deep learning, efficiency, accuracy, real-time
 ---

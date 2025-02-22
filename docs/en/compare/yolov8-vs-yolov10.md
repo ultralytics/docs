@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare Ultralytics YOLOv8 and YOLOv10. Explore key differences in architecture, efficiency, use cases, and find the perfect model for your needs.
 keywords: YOLOv8 vs YOLOv10, YOLOv8 comparison, YOLOv10 performance, YOLO models, object detection, Ultralytics, computer vision, model efficiency, YOLO architecture
 ---

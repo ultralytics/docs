@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the key differences between PP-YOLOE+ and YOLOX models in architecture, performance, and applications for streamlined object detection.
 keywords: PP-YOLOE+, YOLOX, object detection, anchor-free models, model comparison, performance benchmarks, decoupled detection head, machine learning, computer vision
 ---

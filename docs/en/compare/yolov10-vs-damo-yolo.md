@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the key differences, performance benchmarks, and use cases of YOLOv10 and DAMO-YOLO in this detailed technical comparison.
 keywords: YOLOv10, DAMO-YOLO, object detection, YOLO comparison, computer vision, model benchmarking, NMS-free training, neural architecture search, RepGFPN, real-time detection, Ultralytics
 ---

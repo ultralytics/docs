@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed comparison of YOLOv5 and DAMO-YOLO, including architecture, accuracy, speed, and use cases for optimal object detection solutions.
 keywords: YOLOv5, DAMO-YOLO, object detection, computer vision, Ultralytics, model comparison, AI, real-time AI, deep learning
 ---

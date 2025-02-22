@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare EfficientDet and DAMO-YOLO object detection models in terms of accuracy, speed, and efficiency for real-time and resource-constrained applications.
 keywords: EfficientDet, DAMO-YOLO, object detection, model comparison, EfficientNet, BiFPN, real-time inference, AI, computer vision, deep learning, Ultralytics
 ---

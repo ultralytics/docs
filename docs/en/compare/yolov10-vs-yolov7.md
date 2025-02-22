@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv10 and YOLOv7 object detection models. Analyze performance, architecture, and use cases to choose the best fit for your AI project.
 keywords: YOLOv10, YOLOv7, object detection, model comparison, AI, deep learning, computer vision, performance metrics, architecture, edge AI, robotics, autonomous systems
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the key differences between YOLOv5 and RTDETRv2, from architecture to accuracy, and find the best object detection model for your project.
 keywords: YOLOv5, RTDETRv2, object detection comparison, YOLOv5 vs RTDETRv2, Ultralytics models, model performance, computer vision, object detection, RTDETR, YOLOv5 features, transformer architecture
 ---

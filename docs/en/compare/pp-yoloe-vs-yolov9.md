@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore the differences between PP-YOLOE+ and YOLOv9 with detailed architecture, performance benchmarks, and use case analysis for object detection.
 keywords: PP-YOLOE+, YOLOv9, object detection, model comparison, computer vision, anchor-free detector, programmable gradient information, AI models, benchmarking
 ---

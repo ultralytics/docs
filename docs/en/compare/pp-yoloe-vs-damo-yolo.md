@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare PP-YOLOE+ and DAMO-YOLO for object detection. Learn their strengths, weaknesses, and performance metrics to choose the right model.
 keywords: PP-YOLOE+, DAMO-YOLO, object detection, model comparison, computer vision, PaddlePaddle, Neural Architecture Search, Ultralytics YOLO, AI performance
 ---

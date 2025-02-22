@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the key differences between YOLOv7 and YOLOv10, from architecture to performance benchmarks, to choose the optimal model for your needs.
 keywords: YOLOv7, YOLOv10, object detection, model comparison, performance benchmarks, computer vision, Ultralytics YOLO, edge deployment, real-time AI
 ---

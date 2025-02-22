@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the key differences between YOLOv10 and PP-YOLOE+ with performance benchmarks, architecture insights, and ideal use cases for your projects.
 keywords: YOLOv10,PP-YOLOE+,object detection,model comparison,computer vision,Ultralytics,YOLO models,PaddlePaddle,performance benchmark
 ---

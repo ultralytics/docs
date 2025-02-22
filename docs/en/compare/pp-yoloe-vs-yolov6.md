@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the strengths, weaknesses, and performance metrics of PP-YOLOE+ and YOLOv6-3.0. Choose the best model for your object detection needs.
 keywords: PP-YOLOE+, YOLOv6-3.0, object detection, model comparison, machine learning, computer vision, YOLO, PaddlePaddle, Meituan, anchor-free models
 ---

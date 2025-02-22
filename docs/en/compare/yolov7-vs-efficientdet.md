@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv7 and EfficientDet for object detection. Discover their performance, features, strengths, and use cases to choose the best model for your needs.
 keywords: YOLOv7, EfficientDet, object detection, model comparison, computer vision, benchmark, real-time detection, AI models, machine learning
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed technical comparison of YOLOv8 and YOLOv6-3.0. Learn about architecture, performance, and use cases for real-time object detection.
 keywords: YOLOv8, YOLOv6-3.0, object detection, machine learning, computer vision, real-time detection, model comparison, Ultralytics
 ---

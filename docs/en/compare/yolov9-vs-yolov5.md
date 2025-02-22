@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv9 and YOLOv5 models for object detection. Explore their architecture, performance, use cases, and key differences to choose the best fit.
 keywords: YOLOv9 vs YOLOv5, YOLO comparison, Ultralytics models, YOLO object detection, YOLO performance, real-time detection, model differences, computer vision
 ---

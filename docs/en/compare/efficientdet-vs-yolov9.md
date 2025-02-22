@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare EfficientDet and YOLOv9 models in accuracy, speed, and use cases. Learn which object detection model suits your vision project best.
 keywords: EfficientDet, YOLOv9, object detection comparison, computer vision, model performance, AI benchmarks, real-time detection, edge deployments
 ---

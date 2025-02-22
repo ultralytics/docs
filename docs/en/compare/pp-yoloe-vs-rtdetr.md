@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore a detailed comparison of PP-YOLOE+ and RTDETRv2 object detection models, analyzing performance, accuracy, and use cases to guide your decision.
 keywords: PP-YOLOE+, RTDETRv2, object detection, model comparison, real-time detection, anchor-free detection, transformers, ultralytics, computer vision
 ---

@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore EfficientDet and YOLOv6-3.0 in a detailed comparison covering architecture, accuracy, speed, and best use cases to choose the right model for your needs.
 keywords: EfficientDet, YOLOv6, object detection, computer vision, model comparison, EfficientNet, BiFPN, real-time detection, performance benchmarks
 ---

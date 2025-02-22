@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare RTDETRv2 & YOLOX object detection models. Discover their strengths, performance, and use cases to choose the best model for your project.
 keywords: RTDETRv2,YOLOX,object detection,model comparison,Vision Transformers,real-time detection,Yolo models,Ultralytics computer vision
 ---

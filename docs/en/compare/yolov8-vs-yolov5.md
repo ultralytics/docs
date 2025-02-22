@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover key differences between YOLOv8 and YOLOv5. Compare speed, accuracy, use cases, and more to choose the ideal model for your computer vision needs.
 keywords: YOLOv8, YOLOv5, object detection, YOLO comparison, computer vision, model comparison, speed, accuracy, Ultralytics, deep learning
 ---

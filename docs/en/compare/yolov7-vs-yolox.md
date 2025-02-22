@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore YOLOv7 vs YOLOX in this detailed comparison. Learn their architectures, performance metrics, and best use cases for object detection.
 keywords: YOLOv7, YOLOX, object detection, YOLO comparison, YOLO models, computer vision, model benchmarks, real-time AI, machine learning
 ---

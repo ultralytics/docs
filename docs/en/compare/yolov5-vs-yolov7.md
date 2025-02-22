@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the technical comparison between YOLOv5 and YOLOv7, covering architectures, benchmarks, strengths, and ideal use cases for object detection.
 keywords: YOLOv5, YOLOv7, object detection, model comparison, AI, deep learning, computer vision, benchmarks, accuracy, inference speed, Ultralytics
 ---

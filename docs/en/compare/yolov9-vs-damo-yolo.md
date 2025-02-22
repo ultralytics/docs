@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv9 and DAMO-YOLO. Discover their architecture, performance, strengths, and use cases to find the best fit for your object detection needs.
 keywords: YOLOv9, DAMO-YOLO, object detection, neural networks, AI comparison, real-time detection, model efficiency, computer vision, YOLO comparison, Ultralytics
 ---

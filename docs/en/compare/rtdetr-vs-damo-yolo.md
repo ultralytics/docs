@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover a detailed comparison of RTDETRv2 and DAMO-YOLO for object detection. Learn about their performance, strengths, and ideal use cases.
 keywords: RTDETRv2,DAMO-YOLO,object detection,model comparison,Ultralytics,computer vision,real-time detection,AI models,deep learning
 ---

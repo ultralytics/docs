@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv10 and EfficientDet for object detection. Explore performance, use cases, and strengths to choose the best model for your needs.
 keywords: YOLOv10, EfficientDet, object detection, model comparison, real-time detection, computer vision, edge devices, accuracy, performance metrics
 ---

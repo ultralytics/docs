@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOX and EfficientDet for object detection. Explore architecture, performance, and use cases to pick the best model for your needs.
 keywords: YOLOX, EfficientDet, object detection, model comparison, deep learning, computer vision, performance benchmark, Ultralytics
 ---

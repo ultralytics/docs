@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover detailed insights comparing YOLOv9 and EfficientDet for object detection. Learn about their performance, architecture, and best use cases.
 keywords: YOLOv9,EfficientDet,object detection,model comparison,YOLO,EfficientDet models,deep learning,computer vision,benchmarking,Ultralytics
 ---

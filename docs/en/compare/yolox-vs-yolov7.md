@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Discover the differences between YOLOX and YOLOv7, two top computer vision models. Learn about their architecture, performance, and ideal use cases.
 keywords: YOLOX, YOLOv7, object detection, computer vision, model comparison, anchor-free, YOLO models, machine learning, AI performance
 ---

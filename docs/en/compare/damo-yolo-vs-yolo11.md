@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare Ultralytics YOLO11 and DAMO-YOLO models in performance, architecture, and use cases. Discover the best fit for your computer vision needs.
 keywords: YOLO11,DAMO-YOLO,object detection,Ultralytics,Deep Learning,Computer Vision,Model Comparison,Neural Networks,Performance Metrics,AI Models
 ---

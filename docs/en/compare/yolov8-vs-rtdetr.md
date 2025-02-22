@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore the detailed comparison of YOLOv8 and RTDETRv2 models for object detection. Discover their architecture, performance, and best use cases.
 keywords: YOLOv8,RTDETRv2,object detection,model comparison,performance metrics,real-time detection,transformer-based models,computer vision,Ultralytics
 ---

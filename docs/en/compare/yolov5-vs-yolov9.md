@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv5 and YOLOv9 - performance, architecture, and use cases. Find the best model for real-time object detection and computer vision tasks.
 keywords: YOLOv5, YOLOv9, object detection, model comparison, performance metrics, real-time detection, computer vision, Ultralytics, machine learning
 ---

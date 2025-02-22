@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore the technical comparison of RTDETRv2 and YOLO11. Discover strengths, weaknesses, and ideal use cases to choose the best detection model.
 keywords: RTDETRv2, YOLO11, object detection, model comparison, computer vision, real-time detection, accuracy, performance metrics, Ultralytics
 ---

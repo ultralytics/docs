@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOX and PP-YOLOE+, two anchor-free object detection models. Explore performance, architecture, and use cases to choose the best fit.
 keywords: YOLOX,PP-YOLOE,object detection,anchor-free models,AI comparison,YOLO models,computer vision,performance metrics,YOLOX features,PP-YOLOE+ use cases
 ---

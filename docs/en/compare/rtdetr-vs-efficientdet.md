@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Explore RTDETRv2 vs EfficientDet for object detection with insights on architecture, performance, and use cases. Make an informed choice for your projects.
 keywords: RTDETRv2, EfficientDet, object detection, model comparison, Vision Transformer, BiFPN, computer vision, real-time detection, efficient models, Ultralytics
 ---

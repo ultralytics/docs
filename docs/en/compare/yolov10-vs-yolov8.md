@@ -1,4 +1,5 @@
 ---
+comments: true
 description: Compare YOLOv10 and YOLOv8 for object detection. Discover differences in performance, architecture, and real-world applications to choose the best model.
 keywords: YOLOv10, YOLOv8, object detection, model comparison, computer vision, real-time detection, deep learning, AI efficiency, YOLO models
 ---
