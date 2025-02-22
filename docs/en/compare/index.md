@@ -1,12 +1,12 @@
 ---
 comments: true
 description: Explore comprehensive comparisons of Ultralytics YOLO models and other popular object detection models.  Dive into detailed analyses to help you select the optimal model for your computer vision tasks.
-keywords: YOLO model comparison, object detection benchmarks, YOLOv11, YOLOv10, YOLOv9, YOLOv8, YOLOv7, YOLOv6, YOLOv5, PP-YOLOE+, DAMO-YOLO, YOLOX, RTDETR, EfficientDet, Ultralytics, model selection, performance metrics
+keywords: YOLO model comparison, object detection benchmarks, YOLO11, YOLOv10, YOLOv9, YOLOv8, YOLOv7, YOLOv6, YOLOv5, PP-YOLOE+, DAMO-YOLO, YOLOX, RTDETR, EfficientDet, Ultralytics, model selection, performance metrics
 ---
 
 # Model Comparisons: Choose the Best YOLO Model for Your Project
 
-Welcome to the Ultralytics Model Comparison Hub! This page serves as your index to a wide range of detailed technical comparisons between various state-of-the-art object detection models, including the latest Ultralytics YOLO models and other popular architectures. Whether you're deciding between different YOLO versions or considering alternatives like RTDETR or EfficientDet, our comprehensive comparisons are designed to guide you in making an informed decision for your computer vision projects.
+Welcome to the [Ultralytics](https://www.ultralytics.com) Model Comparison Index! This page provides a centralized collection of detailed technical comparisons between state-of-the-art object detection models, including the latest Ultralytics YOLO models and other leading architectures. Whether you're evaluating different YOLO versions or exploring alternatives like RTDETR or EfficientDet, our in-depth analyses are designed to help you make informed decisions for your [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) projects.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
