@@ -1530,8 +1530,8 @@ SimpleNamespace object.</p>
 <div class="doc doc-contents first">
 <p>Checks configuration argument types and values for the Ultralytics library.</p>
 <p>This function validates the types and values of configuration arguments, ensuring correctness and converting
-them if necessary. It checks for specific key types defined in global variables such as CFG_FLOAT_KEYS,
-CFG_FRACTION_KEYS, CFG_INT_KEYS, and CFG_BOOL_KEYS.</p>
+them if necessary. It checks for specific key types defined in global variables such as <code>CFG_FLOAT_KEYS</code>,
+<code>CFG_FRACTION_KEYS</code>, <code>CFG_INT_KEYS</code>, and <code>CFG_BOOL_KEYS</code>.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1662,8 +1662,8 @@ CFG_FRACTION_KEYS, CFG_INT_KEYS, and CFG_BOOL_KEYS.</p>
 <a id="__codelineno-0-326" name="__codelineno-0-326"></a><span class="sd">    Checks configuration argument types and values for the Ultralytics library.</span>
 <a id="__codelineno-0-327" name="__codelineno-0-327"></a>
 <a id="__codelineno-0-328" name="__codelineno-0-328"></a><span class="sd">    This function validates the types and values of configuration arguments, ensuring correctness and converting</span>
-<a id="__codelineno-0-329" name="__codelineno-0-329"></a><span class="sd">    them if necessary. It checks for specific key types defined in global variables such as CFG_FLOAT_KEYS,</span>
-<a id="__codelineno-0-330" name="__codelineno-0-330"></a><span class="sd">    CFG_FRACTION_KEYS, CFG_INT_KEYS, and CFG_BOOL_KEYS.</span>
+<a id="__codelineno-0-329" name="__codelineno-0-329"></a><span class="sd">    them if necessary. It checks for specific key types defined in global variables such as `CFG_FLOAT_KEYS`,</span>
+<a id="__codelineno-0-330" name="__codelineno-0-330"></a><span class="sd">    `CFG_FRACTION_KEYS`, `CFG_INT_KEYS`, and `CFG_BOOL_KEYS`.</span>
 <a id="__codelineno-0-331" name="__codelineno-0-331"></a>
 <a id="__codelineno-0-332" name="__codelineno-0-332"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-333" name="__codelineno-0-333"></a><span class="sd">        cfg (Dict): Configuration dictionary to validate.</span>
@@ -2191,11 +2191,15 @@ messages for mismatched keys.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Merges arguments around isolated '=' in a list of strings and joins fragments with brackets.</p>
-<p>This function handles the following cases:
-1. ['arg', '=', 'val'] becomes ['arg=val']
-2. ['arg=', 'val'] becomes ['arg=val']
-3. ['arg', '=val'] becomes ['arg=val']
-4. Joins fragments with brackets, e.g., ['imgsz=[3,', '640,', '640]'] becomes ['imgsz=[3,640,640]']</p>
+<details class="this-function-handles-the-following-cases" open="">
+<summary>This function handles the following cases</summary>
+<ol>
+<li>['arg', '=', 'val'] becomes ['arg=val']</li>
+<li>['arg=', 'val'] becomes ['arg=val']</li>
+<li>['arg', '=val'] becomes ['arg=val']</li>
+<li>Joins fragments with brackets, e.g., ['imgsz=[3,', '640,', '640]'] becomes ['imgsz=[3,640,640]']</li>
+</ol>
+</details>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2314,10 +2318,10 @@ messages for mismatched keys.</p>
 <a id="__codelineno-0-498" name="__codelineno-0-498"></a><span class="sd">    Merges arguments around isolated '=' in a list of strings and joins fragments with brackets.</span>
 <a id="__codelineno-0-499" name="__codelineno-0-499"></a>
 <a id="__codelineno-0-500" name="__codelineno-0-500"></a><span class="sd">    This function handles the following cases:</span>
-<a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="sd">    1. ['arg', '=', 'val'] becomes ['arg=val']</span>
-<a id="__codelineno-0-502" name="__codelineno-0-502"></a><span class="sd">    2. ['arg=', 'val'] becomes ['arg=val']</span>
-<a id="__codelineno-0-503" name="__codelineno-0-503"></a><span class="sd">    3. ['arg', '=val'] becomes ['arg=val']</span>
-<a id="__codelineno-0-504" name="__codelineno-0-504"></a><span class="sd">    4. Joins fragments with brackets, e.g., ['imgsz=[3,', '640,', '640]'] becomes ['imgsz=[3,640,640]']</span>
+<a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="sd">        1. ['arg', '=', 'val'] becomes ['arg=val']</span>
+<a id="__codelineno-0-502" name="__codelineno-0-502"></a><span class="sd">        2. ['arg=', 'val'] becomes ['arg=val']</span>
+<a id="__codelineno-0-503" name="__codelineno-0-503"></a><span class="sd">        3. ['arg', '=val'] becomes ['arg=val']</span>
+<a id="__codelineno-0-504" name="__codelineno-0-504"></a><span class="sd">        4. Joins fragments with brackets, e.g., ['imgsz=[3,', '640,', '640]'] becomes ['imgsz=[3,640,640]']</span>
 <a id="__codelineno-0-505" name="__codelineno-0-505"></a>
 <a id="__codelineno-0-506" name="__codelineno-0-506"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-507" name="__codelineno-0-507"></a><span class="sd">        args (List[str]): A list of strings where each element represents an argument or fragment.</span>
