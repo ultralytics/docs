@@ -3509,7 +3509,7 @@ on the values provided in the <code>results</code> tuple.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.DetMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.DetMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">DetMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{})</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">DetMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{})</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -3561,22 +3561,6 @@ object detection model.</p>
 </tr>
 <tr class="doc-section-item">
 <td>
-<code>on_plot</code>
-</td>
-<td>
-<code><span title="func">func</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>An optional callback to pass plots path and data when they are rendered. Defaults to None.</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
 <code>names</code>
 </td>
 <td>
@@ -3622,17 +3606,6 @@ object detection model.</p>
 <td>
 <div class="doc-md-description">
 <p>A flag that indicates whether to plot the precision-recall curves for each class.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.metrics.DetMetrics.on_plot">on_plot</span></code></td>
-<td>
-<code><span title="func">func</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>An optional callback to pass plots path and data when they are rendered.</p>
 </div>
 </td>
 </tr>
@@ -3764,23 +3737,21 @@ object detection model.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-830">830</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-828">828</a></span>
+<span class="normal"><a href="#__codelineno-0-829">829</a></span>
+<span class="normal"><a href="#__codelineno-0-830">830</a></span>
 <span class="normal"><a href="#__codelineno-0-831">831</a></span>
 <span class="normal"><a href="#__codelineno-0-832">832</a></span>
 <span class="normal"><a href="#__codelineno-0-833">833</a></span>
 <span class="normal"><a href="#__codelineno-0-834">834</a></span>
-<span class="normal"><a href="#__codelineno-0-835">835</a></span>
-<span class="normal"><a href="#__codelineno-0-836">836</a></span>
-<span class="normal"><a href="#__codelineno-0-837">837</a></span>
-<span class="normal"><a href="#__codelineno-0-838">838</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-830" name="__codelineno-0-830"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-831" name="__codelineno-0-831"></a><span class="w">    </span><span class="sd">"""Initialize a DetMetrics instance with a save directory, plot flag, callback function, and class names."""</span>
-<a id="__codelineno-0-832" name="__codelineno-0-832"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
-<a id="__codelineno-0-833" name="__codelineno-0-833"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
-<a id="__codelineno-0-834" name="__codelineno-0-834"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span> <span class="o">=</span> <span class="n">on_plot</span>
-<a id="__codelineno-0-835" name="__codelineno-0-835"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
-<a id="__codelineno-0-836" name="__codelineno-0-836"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
-<a id="__codelineno-0-837" name="__codelineno-0-837"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
-<a id="__codelineno-0-838" name="__codelineno-0-838"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"detect"</span>
+<span class="normal"><a href="#__codelineno-0-835">835</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-828" name="__codelineno-0-828"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-829" name="__codelineno-0-829"></a><span class="w">    </span><span class="sd">"""Initialize a DetMetrics instance with a save directory, plot flag, callback function, and class names."""</span>
+<a id="__codelineno-0-830" name="__codelineno-0-830"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
+<a id="__codelineno-0-831" name="__codelineno-0-831"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
+<a id="__codelineno-0-832" name="__codelineno-0-832"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
+<a id="__codelineno-0-833" name="__codelineno-0-833"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
+<a id="__codelineno-0-834" name="__codelineno-0-834"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+<a id="__codelineno-0-835" name="__codelineno-0-835"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"detect"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -3885,11 +3856,11 @@ object detection model.</p>
 <p>Return the result of evaluating the performance of an object detection model on a specific class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-864">864</a></span>
-<span class="normal"><a href="#__codelineno-0-865">865</a></span>
-<span class="normal"><a href="#__codelineno-0-866">866</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-864" name="__codelineno-0-864"></a><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-<a id="__codelineno-0-865" name="__codelineno-0-865"></a><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
-<a id="__codelineno-0-866" name="__codelineno-0-866"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-861">861</a></span>
+<span class="normal"><a href="#__codelineno-0-862">862</a></span>
+<span class="normal"><a href="#__codelineno-0-863">863</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-861" name="__codelineno-0-861"></a><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-0-862" name="__codelineno-0-862"></a><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
+<a id="__codelineno-0-863" name="__codelineno-0-863"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3904,11 +3875,11 @@ object detection model.</p>
 <p>Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-860">860</a></span>
-<span class="normal"><a href="#__codelineno-0-861">861</a></span>
-<span class="normal"><a href="#__codelineno-0-862">862</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-860" name="__codelineno-0-860"></a><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-861" name="__codelineno-0-861"></a><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
-<a id="__codelineno-0-862" name="__codelineno-0-862"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-857">857</a></span>
+<span class="normal"><a href="#__codelineno-0-858">858</a></span>
+<span class="normal"><a href="#__codelineno-0-859">859</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-857" name="__codelineno-0-857"></a><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-858" name="__codelineno-0-858"></a><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
+<a id="__codelineno-0-859" name="__codelineno-0-859"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3917,13 +3888,16 @@ object detection model.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.metrics.DetMetrics.process">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">process</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">process</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">process</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process predicted results for object detection and update metrics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-840">840</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-837">837</a></span>
+<span class="normal"><a href="#__codelineno-0-838">838</a></span>
+<span class="normal"><a href="#__codelineno-0-839">839</a></span>
+<span class="normal"><a href="#__codelineno-0-840">840</a></span>
 <span class="normal"><a href="#__codelineno-0-841">841</a></span>
 <span class="normal"><a href="#__codelineno-0-842">842</a></span>
 <span class="normal"><a href="#__codelineno-0-843">843</a></span>
@@ -3933,23 +3907,20 @@ object detection model.</p>
 <span class="normal"><a href="#__codelineno-0-847">847</a></span>
 <span class="normal"><a href="#__codelineno-0-848">848</a></span>
 <span class="normal"><a href="#__codelineno-0-849">849</a></span>
-<span class="normal"><a href="#__codelineno-0-850">850</a></span>
-<span class="normal"><a href="#__codelineno-0-851">851</a></span>
-<span class="normal"><a href="#__codelineno-0-852">852</a></span>
-<span class="normal"><a href="#__codelineno-0-853">853</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-840" name="__codelineno-0-840"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">):</span>
-<a id="__codelineno-0-841" name="__codelineno-0-841"></a><span class="w">    </span><span class="sd">"""Process predicted results for object detection and update metrics."""</span>
-<a id="__codelineno-0-842" name="__codelineno-0-842"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
-<a id="__codelineno-0-843" name="__codelineno-0-843"></a>        <span class="n">tp</span><span class="p">,</span>
-<a id="__codelineno-0-844" name="__codelineno-0-844"></a>        <span class="n">conf</span><span class="p">,</span>
-<a id="__codelineno-0-845" name="__codelineno-0-845"></a>        <span class="n">pred_cls</span><span class="p">,</span>
-<a id="__codelineno-0-846" name="__codelineno-0-846"></a>        <span class="n">target_cls</span><span class="p">,</span>
-<a id="__codelineno-0-847" name="__codelineno-0-847"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
-<a id="__codelineno-0-848" name="__codelineno-0-848"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
-<a id="__codelineno-0-849" name="__codelineno-0-849"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
-<a id="__codelineno-0-850" name="__codelineno-0-850"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
-<a id="__codelineno-0-851" name="__codelineno-0-851"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-0-852" name="__codelineno-0-852"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-0-853" name="__codelineno-0-853"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-850">850</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-837" name="__codelineno-0-837"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-838" name="__codelineno-0-838"></a><span class="w">    </span><span class="sd">"""Process predicted results for object detection and update metrics."""</span>
+<a id="__codelineno-0-839" name="__codelineno-0-839"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
+<a id="__codelineno-0-840" name="__codelineno-0-840"></a>        <span class="n">tp</span><span class="p">,</span>
+<a id="__codelineno-0-841" name="__codelineno-0-841"></a>        <span class="n">conf</span><span class="p">,</span>
+<a id="__codelineno-0-842" name="__codelineno-0-842"></a>        <span class="n">pred_cls</span><span class="p">,</span>
+<a id="__codelineno-0-843" name="__codelineno-0-843"></a>        <span class="n">target_cls</span><span class="p">,</span>
+<a id="__codelineno-0-844" name="__codelineno-0-844"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
+<a id="__codelineno-0-845" name="__codelineno-0-845"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
+<a id="__codelineno-0-846" name="__codelineno-0-846"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+<a id="__codelineno-0-847" name="__codelineno-0-847"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="n">on_plot</span><span class="p">,</span>
+<a id="__codelineno-0-848" name="__codelineno-0-848"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+<a id="__codelineno-0-849" name="__codelineno-0-849"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+<a id="__codelineno-0-850" name="__codelineno-0-850"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3961,7 +3932,7 @@ object detection model.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.SegmentMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.SegmentMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">SegmentMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">SegmentMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -4012,22 +3983,6 @@ object detection model.</p>
 </tr>
 <tr class="doc-section-item">
 <td>
-<code>on_plot</code>
-</td>
-<td>
-<code><span title="func">func</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>An optional callback to pass plots path and data when they are rendered. Defaults to None.</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
 <code>names</code>
 </td>
 <td>
@@ -4073,17 +4028,6 @@ object detection model.</p>
 <td>
 <div class="doc-md-description">
 <p>Whether to save the detection and segmentation plots.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.metrics.SegmentMetrics.on_plot">on_plot</span></code></td>
-<td>
-<code><span title="func">func</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>An optional callback to pass plots path and data when they are rendered.</p>
 </div>
 </td>
 </tr>
@@ -4202,25 +4146,23 @@ object detection model.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-928">928</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-923">923</a></span>
+<span class="normal"><a href="#__codelineno-0-924">924</a></span>
+<span class="normal"><a href="#__codelineno-0-925">925</a></span>
+<span class="normal"><a href="#__codelineno-0-926">926</a></span>
+<span class="normal"><a href="#__codelineno-0-927">927</a></span>
+<span class="normal"><a href="#__codelineno-0-928">928</a></span>
 <span class="normal"><a href="#__codelineno-0-929">929</a></span>
 <span class="normal"><a href="#__codelineno-0-930">930</a></span>
-<span class="normal"><a href="#__codelineno-0-931">931</a></span>
-<span class="normal"><a href="#__codelineno-0-932">932</a></span>
-<span class="normal"><a href="#__codelineno-0-933">933</a></span>
-<span class="normal"><a href="#__codelineno-0-934">934</a></span>
-<span class="normal"><a href="#__codelineno-0-935">935</a></span>
-<span class="normal"><a href="#__codelineno-0-936">936</a></span>
-<span class="normal"><a href="#__codelineno-0-937">937</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-928" name="__codelineno-0-928"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-929" name="__codelineno-0-929"></a><span class="w">    </span><span class="sd">"""Initialize a SegmentMetrics instance with a save directory, plot flag, callback function, and class names."""</span>
-<a id="__codelineno-0-930" name="__codelineno-0-930"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
-<a id="__codelineno-0-931" name="__codelineno-0-931"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
-<a id="__codelineno-0-932" name="__codelineno-0-932"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span> <span class="o">=</span> <span class="n">on_plot</span>
-<a id="__codelineno-0-933" name="__codelineno-0-933"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
-<a id="__codelineno-0-934" name="__codelineno-0-934"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
-<a id="__codelineno-0-935" name="__codelineno-0-935"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">seg</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
-<a id="__codelineno-0-936" name="__codelineno-0-936"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
-<a id="__codelineno-0-937" name="__codelineno-0-937"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"segment"</span>
+<span class="normal"><a href="#__codelineno-0-931">931</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-923" name="__codelineno-0-923"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-924" name="__codelineno-0-924"></a><span class="w">    </span><span class="sd">"""Initialize a SegmentMetrics instance with a save directory, plot flag, callback function, and class names."""</span>
+<a id="__codelineno-0-925" name="__codelineno-0-925"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
+<a id="__codelineno-0-926" name="__codelineno-0-926"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
+<a id="__codelineno-0-927" name="__codelineno-0-927"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
+<a id="__codelineno-0-928" name="__codelineno-0-928"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
+<a id="__codelineno-0-929" name="__codelineno-0-929"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">seg</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
+<a id="__codelineno-0-930" name="__codelineno-0-930"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+<a id="__codelineno-0-931" name="__codelineno-0-931"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"segment"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -4325,11 +4267,11 @@ object detection model.</p>
 <p>Returns classification results for a specified class index.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-995">995</a></span>
-<span class="normal"><a href="#__codelineno-0-996">996</a></span>
-<span class="normal"><a href="#__codelineno-0-997">997</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-995" name="__codelineno-0-995"></a><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-<a id="__codelineno-0-996" name="__codelineno-0-996"></a><span class="w">    </span><span class="sd">"""Returns classification results for a specified class index."""</span>
-<a id="__codelineno-0-997" name="__codelineno-0-997"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-990">990</a></span>
+<span class="normal"><a href="#__codelineno-0-991">991</a></span>
+<span class="normal"><a href="#__codelineno-0-992">992</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-990" name="__codelineno-0-990"></a><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-0-991" name="__codelineno-0-991"></a><span class="w">    </span><span class="sd">"""Returns classification results for a specified class index."""</span>
+<a id="__codelineno-0-992" name="__codelineno-0-992"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4344,11 +4286,11 @@ object detection model.</p>
 <p>Return the mean metrics for bounding box and segmentation results.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-991">991</a></span>
-<span class="normal"><a href="#__codelineno-0-992">992</a></span>
-<span class="normal"><a href="#__codelineno-0-993">993</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-991" name="__codelineno-0-991"></a><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-992" name="__codelineno-0-992"></a><span class="w">    </span><span class="sd">"""Return the mean metrics for bounding box and segmentation results."""</span>
-<a id="__codelineno-0-993" name="__codelineno-0-993"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-986">986</a></span>
+<span class="normal"><a href="#__codelineno-0-987">987</a></span>
+<span class="normal"><a href="#__codelineno-0-988">988</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-986" name="__codelineno-0-986"></a><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-987" name="__codelineno-0-987"></a><span class="w">    </span><span class="sd">"""Return the mean metrics for bounding box and segmentation results."""</span>
+<a id="__codelineno-0-988" name="__codelineno-0-988"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4357,7 +4299,7 @@ object detection model.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.metrics.SegmentMetrics.process">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">process</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">process</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">tp_m</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">process</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">tp_m</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Processes the detection and segmentation metrics over the given set of predictions.</p>
@@ -4452,11 +4394,33 @@ object detection model.</p>
 <em>required</em>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td>
+<code>on_plot</code>
+</td>
+<td>
+<code><span title="func">func</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>An optional callback to pass plots path and data when they are rendered. Defaults to None.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-939">939</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-933">933</a></span>
+<span class="normal"><a href="#__codelineno-0-934">934</a></span>
+<span class="normal"><a href="#__codelineno-0-935">935</a></span>
+<span class="normal"><a href="#__codelineno-0-936">936</a></span>
+<span class="normal"><a href="#__codelineno-0-937">937</a></span>
+<span class="normal"><a href="#__codelineno-0-938">938</a></span>
+<span class="normal"><a href="#__codelineno-0-939">939</a></span>
 <span class="normal"><a href="#__codelineno-0-940">940</a></span>
 <span class="normal"><a href="#__codelineno-0-941">941</a></span>
 <span class="normal"><a href="#__codelineno-0-942">942</a></span>
@@ -4487,48 +4451,44 @@ object detection model.</p>
 <span class="normal"><a href="#__codelineno-0-967">967</a></span>
 <span class="normal"><a href="#__codelineno-0-968">968</a></span>
 <span class="normal"><a href="#__codelineno-0-969">969</a></span>
-<span class="normal"><a href="#__codelineno-0-970">970</a></span>
-<span class="normal"><a href="#__codelineno-0-971">971</a></span>
-<span class="normal"><a href="#__codelineno-0-972">972</a></span>
-<span class="normal"><a href="#__codelineno-0-973">973</a></span>
-<span class="normal"><a href="#__codelineno-0-974">974</a></span>
-<span class="normal"><a href="#__codelineno-0-975">975</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-939" name="__codelineno-0-939"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tp_m</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">):</span>
-<a id="__codelineno-0-940" name="__codelineno-0-940"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-941" name="__codelineno-0-941"></a><span class="sd">    Processes the detection and segmentation metrics over the given set of predictions.</span>
-<a id="__codelineno-0-942" name="__codelineno-0-942"></a>
-<a id="__codelineno-0-943" name="__codelineno-0-943"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-944" name="__codelineno-0-944"></a><span class="sd">        tp (list): List of True Positive boxes.</span>
-<a id="__codelineno-0-945" name="__codelineno-0-945"></a><span class="sd">        tp_m (list): List of True Positive masks.</span>
-<a id="__codelineno-0-946" name="__codelineno-0-946"></a><span class="sd">        conf (list): List of confidence scores.</span>
-<a id="__codelineno-0-947" name="__codelineno-0-947"></a><span class="sd">        pred_cls (list): List of predicted classes.</span>
-<a id="__codelineno-0-948" name="__codelineno-0-948"></a><span class="sd">        target_cls (list): List of target classes.</span>
-<a id="__codelineno-0-949" name="__codelineno-0-949"></a><span class="sd">    """</span>
-<a id="__codelineno-0-950" name="__codelineno-0-950"></a>    <span class="n">results_mask</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
-<a id="__codelineno-0-951" name="__codelineno-0-951"></a>        <span class="n">tp_m</span><span class="p">,</span>
-<a id="__codelineno-0-952" name="__codelineno-0-952"></a>        <span class="n">conf</span><span class="p">,</span>
-<a id="__codelineno-0-953" name="__codelineno-0-953"></a>        <span class="n">pred_cls</span><span class="p">,</span>
-<a id="__codelineno-0-954" name="__codelineno-0-954"></a>        <span class="n">target_cls</span><span class="p">,</span>
-<a id="__codelineno-0-955" name="__codelineno-0-955"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
-<a id="__codelineno-0-956" name="__codelineno-0-956"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
-<a id="__codelineno-0-957" name="__codelineno-0-957"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
-<a id="__codelineno-0-958" name="__codelineno-0-958"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
-<a id="__codelineno-0-959" name="__codelineno-0-959"></a>        <span class="n">prefix</span><span class="o">=</span><span class="s2">"Mask"</span><span class="p">,</span>
-<a id="__codelineno-0-960" name="__codelineno-0-960"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-0-961" name="__codelineno-0-961"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-0-962" name="__codelineno-0-962"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results_mask</span><span class="p">)</span>
-<a id="__codelineno-0-963" name="__codelineno-0-963"></a>    <span class="n">results_box</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
-<a id="__codelineno-0-964" name="__codelineno-0-964"></a>        <span class="n">tp</span><span class="p">,</span>
-<a id="__codelineno-0-965" name="__codelineno-0-965"></a>        <span class="n">conf</span><span class="p">,</span>
-<a id="__codelineno-0-966" name="__codelineno-0-966"></a>        <span class="n">pred_cls</span><span class="p">,</span>
-<a id="__codelineno-0-967" name="__codelineno-0-967"></a>        <span class="n">target_cls</span><span class="p">,</span>
-<a id="__codelineno-0-968" name="__codelineno-0-968"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
-<a id="__codelineno-0-969" name="__codelineno-0-969"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
-<a id="__codelineno-0-970" name="__codelineno-0-970"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
-<a id="__codelineno-0-971" name="__codelineno-0-971"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
-<a id="__codelineno-0-972" name="__codelineno-0-972"></a>        <span class="n">prefix</span><span class="o">=</span><span class="s2">"Box"</span><span class="p">,</span>
-<a id="__codelineno-0-973" name="__codelineno-0-973"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-0-974" name="__codelineno-0-974"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-0-975" name="__codelineno-0-975"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results_box</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-970">970</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-933" name="__codelineno-0-933"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tp_m</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-934" name="__codelineno-0-934"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-935" name="__codelineno-0-935"></a><span class="sd">    Processes the detection and segmentation metrics over the given set of predictions.</span>
+<a id="__codelineno-0-936" name="__codelineno-0-936"></a>
+<a id="__codelineno-0-937" name="__codelineno-0-937"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-938" name="__codelineno-0-938"></a><span class="sd">        tp (list): List of True Positive boxes.</span>
+<a id="__codelineno-0-939" name="__codelineno-0-939"></a><span class="sd">        tp_m (list): List of True Positive masks.</span>
+<a id="__codelineno-0-940" name="__codelineno-0-940"></a><span class="sd">        conf (list): List of confidence scores.</span>
+<a id="__codelineno-0-941" name="__codelineno-0-941"></a><span class="sd">        pred_cls (list): List of predicted classes.</span>
+<a id="__codelineno-0-942" name="__codelineno-0-942"></a><span class="sd">        target_cls (list): List of target classes.</span>
+<a id="__codelineno-0-943" name="__codelineno-0-943"></a><span class="sd">        on_plot (func): An optional callback to pass plots path and data when they are rendered. Defaults to None.</span>
+<a id="__codelineno-0-944" name="__codelineno-0-944"></a><span class="sd">    """</span>
+<a id="__codelineno-0-945" name="__codelineno-0-945"></a>    <span class="n">results_mask</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
+<a id="__codelineno-0-946" name="__codelineno-0-946"></a>        <span class="n">tp_m</span><span class="p">,</span>
+<a id="__codelineno-0-947" name="__codelineno-0-947"></a>        <span class="n">conf</span><span class="p">,</span>
+<a id="__codelineno-0-948" name="__codelineno-0-948"></a>        <span class="n">pred_cls</span><span class="p">,</span>
+<a id="__codelineno-0-949" name="__codelineno-0-949"></a>        <span class="n">target_cls</span><span class="p">,</span>
+<a id="__codelineno-0-950" name="__codelineno-0-950"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
+<a id="__codelineno-0-951" name="__codelineno-0-951"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="n">on_plot</span><span class="p">,</span>
+<a id="__codelineno-0-952" name="__codelineno-0-952"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
+<a id="__codelineno-0-953" name="__codelineno-0-953"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+<a id="__codelineno-0-954" name="__codelineno-0-954"></a>        <span class="n">prefix</span><span class="o">=</span><span class="s2">"Mask"</span><span class="p">,</span>
+<a id="__codelineno-0-955" name="__codelineno-0-955"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+<a id="__codelineno-0-956" name="__codelineno-0-956"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+<a id="__codelineno-0-957" name="__codelineno-0-957"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results_mask</span><span class="p">)</span>
+<a id="__codelineno-0-958" name="__codelineno-0-958"></a>    <span class="n">results_box</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
+<a id="__codelineno-0-959" name="__codelineno-0-959"></a>        <span class="n">tp</span><span class="p">,</span>
+<a id="__codelineno-0-960" name="__codelineno-0-960"></a>        <span class="n">conf</span><span class="p">,</span>
+<a id="__codelineno-0-961" name="__codelineno-0-961"></a>        <span class="n">pred_cls</span><span class="p">,</span>
+<a id="__codelineno-0-962" name="__codelineno-0-962"></a>        <span class="n">target_cls</span><span class="p">,</span>
+<a id="__codelineno-0-963" name="__codelineno-0-963"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
+<a id="__codelineno-0-964" name="__codelineno-0-964"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="n">on_plot</span><span class="p">,</span>
+<a id="__codelineno-0-965" name="__codelineno-0-965"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
+<a id="__codelineno-0-966" name="__codelineno-0-966"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+<a id="__codelineno-0-967" name="__codelineno-0-967"></a>        <span class="n">prefix</span><span class="o">=</span><span class="s2">"Box"</span><span class="p">,</span>
+<a id="__codelineno-0-968" name="__codelineno-0-968"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+<a id="__codelineno-0-969" name="__codelineno-0-969"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+<a id="__codelineno-0-970" name="__codelineno-0-970"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results_box</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4540,7 +4500,7 @@ object detection model.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.PoseMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.PoseMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">PoseMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">PoseMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -4591,22 +4551,6 @@ object detection model.</p>
 </tr>
 <tr class="doc-section-item">
 <td>
-<code>on_plot</code>
-</td>
-<td>
-<code><span title="func">func</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>An optional callback to pass plots path and data when they are rendered. Defaults to None.</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
 <code>names</code>
 </td>
 <td>
@@ -4652,17 +4596,6 @@ object detection model.</p>
 <td>
 <div class="doc-md-description">
 <p>Whether to save the detection and segmentation plots.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.metrics.PoseMetrics.on_plot">on_plot</span></code></td>
-<td>
-<code><span title="func">func</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>An optional callback to pass plots path and data when they are rendered.</p>
 </div>
 </td>
 </tr>
@@ -4781,27 +4714,25 @@ object detection model.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1068">1068</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1061">1061</a></span>
+<span class="normal"><a href="#__codelineno-0-1062">1062</a></span>
+<span class="normal"><a href="#__codelineno-0-1063">1063</a></span>
+<span class="normal"><a href="#__codelineno-0-1064">1064</a></span>
+<span class="normal"><a href="#__codelineno-0-1065">1065</a></span>
+<span class="normal"><a href="#__codelineno-0-1066">1066</a></span>
+<span class="normal"><a href="#__codelineno-0-1067">1067</a></span>
+<span class="normal"><a href="#__codelineno-0-1068">1068</a></span>
 <span class="normal"><a href="#__codelineno-0-1069">1069</a></span>
-<span class="normal"><a href="#__codelineno-0-1070">1070</a></span>
-<span class="normal"><a href="#__codelineno-0-1071">1071</a></span>
-<span class="normal"><a href="#__codelineno-0-1072">1072</a></span>
-<span class="normal"><a href="#__codelineno-0-1073">1073</a></span>
-<span class="normal"><a href="#__codelineno-0-1074">1074</a></span>
-<span class="normal"><a href="#__codelineno-0-1075">1075</a></span>
-<span class="normal"><a href="#__codelineno-0-1076">1076</a></span>
-<span class="normal"><a href="#__codelineno-0-1077">1077</a></span>
-<span class="normal"><a href="#__codelineno-0-1078">1078</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1068" name="__codelineno-0-1068"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1069" name="__codelineno-0-1069"></a><span class="w">    </span><span class="sd">"""Initialize the PoseMetrics class with directory path, class names, and plotting options."""</span>
-<a id="__codelineno-0-1070" name="__codelineno-0-1070"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-0-1071" name="__codelineno-0-1071"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
-<a id="__codelineno-0-1072" name="__codelineno-0-1072"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
-<a id="__codelineno-0-1073" name="__codelineno-0-1073"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span> <span class="o">=</span> <span class="n">on_plot</span>
-<a id="__codelineno-0-1074" name="__codelineno-0-1074"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
-<a id="__codelineno-0-1075" name="__codelineno-0-1075"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
-<a id="__codelineno-0-1076" name="__codelineno-0-1076"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pose</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
-<a id="__codelineno-0-1077" name="__codelineno-0-1077"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
-<a id="__codelineno-0-1078" name="__codelineno-0-1078"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"pose"</span>
+<span class="normal"><a href="#__codelineno-0-1070">1070</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1061" name="__codelineno-0-1061"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1062" name="__codelineno-0-1062"></a><span class="w">    </span><span class="sd">"""Initialize the PoseMetrics class with directory path, class names, and plotting options."""</span>
+<a id="__codelineno-0-1063" name="__codelineno-0-1063"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
+<a id="__codelineno-0-1064" name="__codelineno-0-1064"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
+<a id="__codelineno-0-1065" name="__codelineno-0-1065"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
+<a id="__codelineno-0-1066" name="__codelineno-0-1066"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
+<a id="__codelineno-0-1067" name="__codelineno-0-1067"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
+<a id="__codelineno-0-1068" name="__codelineno-0-1068"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pose</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
+<a id="__codelineno-0-1069" name="__codelineno-0-1069"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+<a id="__codelineno-0-1070" name="__codelineno-0-1070"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"pose"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -4880,11 +4811,11 @@ object detection model.</p>
 <p>Return the class-wise detection results for a specific class i.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1136">1136</a></span>
-<span class="normal"><a href="#__codelineno-0-1137">1137</a></span>
-<span class="normal"><a href="#__codelineno-0-1138">1138</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1136" name="__codelineno-0-1136"></a><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-<a id="__codelineno-0-1137" name="__codelineno-0-1137"></a><span class="w">    </span><span class="sd">"""Return the class-wise detection results for a specific class i."""</span>
-<a id="__codelineno-0-1138" name="__codelineno-0-1138"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1129">1129</a></span>
+<span class="normal"><a href="#__codelineno-0-1130">1130</a></span>
+<span class="normal"><a href="#__codelineno-0-1131">1131</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1129" name="__codelineno-0-1129"></a><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-0-1130" name="__codelineno-0-1130"></a><span class="w">    </span><span class="sd">"""Return the class-wise detection results for a specific class i."""</span>
+<a id="__codelineno-0-1131" name="__codelineno-0-1131"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4899,11 +4830,11 @@ object detection model.</p>
 <p>Return the mean results of box and pose.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1132">1132</a></span>
-<span class="normal"><a href="#__codelineno-0-1133">1133</a></span>
-<span class="normal"><a href="#__codelineno-0-1134">1134</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1132" name="__codelineno-0-1132"></a><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1133" name="__codelineno-0-1133"></a><span class="w">    </span><span class="sd">"""Return the mean results of box and pose."""</span>
-<a id="__codelineno-0-1134" name="__codelineno-0-1134"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1125">1125</a></span>
+<span class="normal"><a href="#__codelineno-0-1126">1126</a></span>
+<span class="normal"><a href="#__codelineno-0-1127">1127</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1125" name="__codelineno-0-1125"></a><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1126" name="__codelineno-0-1126"></a><span class="w">    </span><span class="sd">"""Return the mean results of box and pose."""</span>
+<a id="__codelineno-0-1127" name="__codelineno-0-1127"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4912,7 +4843,7 @@ object detection model.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.metrics.PoseMetrics.process">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">process</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">process</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">tp_p</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">process</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">tp_p</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Processes the detection and pose metrics over the given set of predictions.</p>
@@ -5007,11 +4938,35 @@ object detection model.</p>
 <em>required</em>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td>
+<code>on_plot</code>
+</td>
+<td>
+<code><span title="func">func</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>An optional callback to pass plots path and data when they are rendered. Defaults to None.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1080">1080</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1072">1072</a></span>
+<span class="normal"><a href="#__codelineno-0-1073">1073</a></span>
+<span class="normal"><a href="#__codelineno-0-1074">1074</a></span>
+<span class="normal"><a href="#__codelineno-0-1075">1075</a></span>
+<span class="normal"><a href="#__codelineno-0-1076">1076</a></span>
+<span class="normal"><a href="#__codelineno-0-1077">1077</a></span>
+<span class="normal"><a href="#__codelineno-0-1078">1078</a></span>
+<span class="normal"><a href="#__codelineno-0-1079">1079</a></span>
+<span class="normal"><a href="#__codelineno-0-1080">1080</a></span>
 <span class="normal"><a href="#__codelineno-0-1081">1081</a></span>
 <span class="normal"><a href="#__codelineno-0-1082">1082</a></span>
 <span class="normal"><a href="#__codelineno-0-1083">1083</a></span>
@@ -5040,50 +4995,44 @@ object detection model.</p>
 <span class="normal"><a href="#__codelineno-0-1106">1106</a></span>
 <span class="normal"><a href="#__codelineno-0-1107">1107</a></span>
 <span class="normal"><a href="#__codelineno-0-1108">1108</a></span>
-<span class="normal"><a href="#__codelineno-0-1109">1109</a></span>
-<span class="normal"><a href="#__codelineno-0-1110">1110</a></span>
-<span class="normal"><a href="#__codelineno-0-1111">1111</a></span>
-<span class="normal"><a href="#__codelineno-0-1112">1112</a></span>
-<span class="normal"><a href="#__codelineno-0-1113">1113</a></span>
-<span class="normal"><a href="#__codelineno-0-1114">1114</a></span>
-<span class="normal"><a href="#__codelineno-0-1115">1115</a></span>
-<span class="normal"><a href="#__codelineno-0-1116">1116</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1080" name="__codelineno-0-1080"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tp_p</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">):</span>
-<a id="__codelineno-0-1081" name="__codelineno-0-1081"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-1082" name="__codelineno-0-1082"></a><span class="sd">    Processes the detection and pose metrics over the given set of predictions.</span>
-<a id="__codelineno-0-1083" name="__codelineno-0-1083"></a>
-<a id="__codelineno-0-1084" name="__codelineno-0-1084"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-1085" name="__codelineno-0-1085"></a><span class="sd">        tp (list): List of True Positive boxes.</span>
-<a id="__codelineno-0-1086" name="__codelineno-0-1086"></a><span class="sd">        tp_p (list): List of True Positive keypoints.</span>
-<a id="__codelineno-0-1087" name="__codelineno-0-1087"></a><span class="sd">        conf (list): List of confidence scores.</span>
-<a id="__codelineno-0-1088" name="__codelineno-0-1088"></a><span class="sd">        pred_cls (list): List of predicted classes.</span>
-<a id="__codelineno-0-1089" name="__codelineno-0-1089"></a><span class="sd">        target_cls (list): List of target classes.</span>
-<a id="__codelineno-0-1090" name="__codelineno-0-1090"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1091" name="__codelineno-0-1091"></a>    <span class="n">results_pose</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
-<a id="__codelineno-0-1092" name="__codelineno-0-1092"></a>        <span class="n">tp_p</span><span class="p">,</span>
-<a id="__codelineno-0-1093" name="__codelineno-0-1093"></a>        <span class="n">conf</span><span class="p">,</span>
-<a id="__codelineno-0-1094" name="__codelineno-0-1094"></a>        <span class="n">pred_cls</span><span class="p">,</span>
-<a id="__codelineno-0-1095" name="__codelineno-0-1095"></a>        <span class="n">target_cls</span><span class="p">,</span>
-<a id="__codelineno-0-1096" name="__codelineno-0-1096"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
-<a id="__codelineno-0-1097" name="__codelineno-0-1097"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
-<a id="__codelineno-0-1098" name="__codelineno-0-1098"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
-<a id="__codelineno-0-1099" name="__codelineno-0-1099"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
-<a id="__codelineno-0-1100" name="__codelineno-0-1100"></a>        <span class="n">prefix</span><span class="o">=</span><span class="s2">"Pose"</span><span class="p">,</span>
-<a id="__codelineno-0-1101" name="__codelineno-0-1101"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-0-1102" name="__codelineno-0-1102"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-0-1103" name="__codelineno-0-1103"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results_pose</span><span class="p">)</span>
-<a id="__codelineno-0-1104" name="__codelineno-0-1104"></a>    <span class="n">results_box</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
-<a id="__codelineno-0-1105" name="__codelineno-0-1105"></a>        <span class="n">tp</span><span class="p">,</span>
-<a id="__codelineno-0-1106" name="__codelineno-0-1106"></a>        <span class="n">conf</span><span class="p">,</span>
-<a id="__codelineno-0-1107" name="__codelineno-0-1107"></a>        <span class="n">pred_cls</span><span class="p">,</span>
-<a id="__codelineno-0-1108" name="__codelineno-0-1108"></a>        <span class="n">target_cls</span><span class="p">,</span>
-<a id="__codelineno-0-1109" name="__codelineno-0-1109"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
-<a id="__codelineno-0-1110" name="__codelineno-0-1110"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
-<a id="__codelineno-0-1111" name="__codelineno-0-1111"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
-<a id="__codelineno-0-1112" name="__codelineno-0-1112"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
-<a id="__codelineno-0-1113" name="__codelineno-0-1113"></a>        <span class="n">prefix</span><span class="o">=</span><span class="s2">"Box"</span><span class="p">,</span>
-<a id="__codelineno-0-1114" name="__codelineno-0-1114"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-0-1115" name="__codelineno-0-1115"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-0-1116" name="__codelineno-0-1116"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results_box</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-1109">1109</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1072" name="__codelineno-0-1072"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tp_p</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-1073" name="__codelineno-0-1073"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-1074" name="__codelineno-0-1074"></a><span class="sd">    Processes the detection and pose metrics over the given set of predictions.</span>
+<a id="__codelineno-0-1075" name="__codelineno-0-1075"></a>
+<a id="__codelineno-0-1076" name="__codelineno-0-1076"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1077" name="__codelineno-0-1077"></a><span class="sd">        tp (list): List of True Positive boxes.</span>
+<a id="__codelineno-0-1078" name="__codelineno-0-1078"></a><span class="sd">        tp_p (list): List of True Positive keypoints.</span>
+<a id="__codelineno-0-1079" name="__codelineno-0-1079"></a><span class="sd">        conf (list): List of confidence scores.</span>
+<a id="__codelineno-0-1080" name="__codelineno-0-1080"></a><span class="sd">        pred_cls (list): List of predicted classes.</span>
+<a id="__codelineno-0-1081" name="__codelineno-0-1081"></a><span class="sd">        target_cls (list): List of target classes.</span>
+<a id="__codelineno-0-1082" name="__codelineno-0-1082"></a><span class="sd">        on_plot (func): An optional callback to pass plots path and data when they are rendered. Defaults to None.</span>
+<a id="__codelineno-0-1083" name="__codelineno-0-1083"></a><span class="sd">    """</span>
+<a id="__codelineno-0-1084" name="__codelineno-0-1084"></a>    <span class="n">results_pose</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
+<a id="__codelineno-0-1085" name="__codelineno-0-1085"></a>        <span class="n">tp_p</span><span class="p">,</span>
+<a id="__codelineno-0-1086" name="__codelineno-0-1086"></a>        <span class="n">conf</span><span class="p">,</span>
+<a id="__codelineno-0-1087" name="__codelineno-0-1087"></a>        <span class="n">pred_cls</span><span class="p">,</span>
+<a id="__codelineno-0-1088" name="__codelineno-0-1088"></a>        <span class="n">target_cls</span><span class="p">,</span>
+<a id="__codelineno-0-1089" name="__codelineno-0-1089"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
+<a id="__codelineno-0-1090" name="__codelineno-0-1090"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="n">on_plot</span><span class="p">,</span>
+<a id="__codelineno-0-1091" name="__codelineno-0-1091"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
+<a id="__codelineno-0-1092" name="__codelineno-0-1092"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+<a id="__codelineno-0-1093" name="__codelineno-0-1093"></a>        <span class="n">prefix</span><span class="o">=</span><span class="s2">"Pose"</span><span class="p">,</span>
+<a id="__codelineno-0-1094" name="__codelineno-0-1094"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+<a id="__codelineno-0-1095" name="__codelineno-0-1095"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+<a id="__codelineno-0-1096" name="__codelineno-0-1096"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results_pose</span><span class="p">)</span>
+<a id="__codelineno-0-1097" name="__codelineno-0-1097"></a>    <span class="n">results_box</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
+<a id="__codelineno-0-1098" name="__codelineno-0-1098"></a>        <span class="n">tp</span><span class="p">,</span>
+<a id="__codelineno-0-1099" name="__codelineno-0-1099"></a>        <span class="n">conf</span><span class="p">,</span>
+<a id="__codelineno-0-1100" name="__codelineno-0-1100"></a>        <span class="n">pred_cls</span><span class="p">,</span>
+<a id="__codelineno-0-1101" name="__codelineno-0-1101"></a>        <span class="n">target_cls</span><span class="p">,</span>
+<a id="__codelineno-0-1102" name="__codelineno-0-1102"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
+<a id="__codelineno-0-1103" name="__codelineno-0-1103"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="n">on_plot</span><span class="p">,</span>
+<a id="__codelineno-0-1104" name="__codelineno-0-1104"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
+<a id="__codelineno-0-1105" name="__codelineno-0-1105"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+<a id="__codelineno-0-1106" name="__codelineno-0-1106"></a>        <span class="n">prefix</span><span class="o">=</span><span class="s2">"Box"</span><span class="p">,</span>
+<a id="__codelineno-0-1107" name="__codelineno-0-1107"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+<a id="__codelineno-0-1108" name="__codelineno-0-1108"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+<a id="__codelineno-0-1109" name="__codelineno-0-1109"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results_box</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5200,17 +5149,17 @@ object detection model.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1186">1186</a></span>
-<span class="normal"><a href="#__codelineno-0-1187">1187</a></span>
-<span class="normal"><a href="#__codelineno-0-1188">1188</a></span>
-<span class="normal"><a href="#__codelineno-0-1189">1189</a></span>
-<span class="normal"><a href="#__codelineno-0-1190">1190</a></span>
-<span class="normal"><a href="#__codelineno-0-1191">1191</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1186" name="__codelineno-0-1186"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1187" name="__codelineno-0-1187"></a><span class="w">    </span><span class="sd">"""Initialize a ClassifyMetrics instance."""</span>
-<a id="__codelineno-0-1188" name="__codelineno-0-1188"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">top1</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-1189" name="__codelineno-0-1189"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">top5</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-1190" name="__codelineno-0-1190"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
-<a id="__codelineno-0-1191" name="__codelineno-0-1191"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"classify"</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1179">1179</a></span>
+<span class="normal"><a href="#__codelineno-0-1180">1180</a></span>
+<span class="normal"><a href="#__codelineno-0-1181">1181</a></span>
+<span class="normal"><a href="#__codelineno-0-1182">1182</a></span>
+<span class="normal"><a href="#__codelineno-0-1183">1183</a></span>
+<span class="normal"><a href="#__codelineno-0-1184">1184</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1179" name="__codelineno-0-1179"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1180" name="__codelineno-0-1180"></a><span class="w">    </span><span class="sd">"""Initialize a ClassifyMetrics instance."""</span>
+<a id="__codelineno-0-1181" name="__codelineno-0-1181"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">top1</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-1182" name="__codelineno-0-1182"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">top5</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-1183" name="__codelineno-0-1183"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+<a id="__codelineno-0-1184" name="__codelineno-0-1184"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"classify"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -5289,17 +5238,17 @@ object detection model.</p>
 <p>Target classes and predicted classes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1193">1193</a></span>
-<span class="normal"><a href="#__codelineno-0-1194">1194</a></span>
-<span class="normal"><a href="#__codelineno-0-1195">1195</a></span>
-<span class="normal"><a href="#__codelineno-0-1196">1196</a></span>
-<span class="normal"><a href="#__codelineno-0-1197">1197</a></span>
-<span class="normal"><a href="#__codelineno-0-1198">1198</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1193" name="__codelineno-0-1193"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">pred</span><span class="p">):</span>
-<a id="__codelineno-0-1194" name="__codelineno-0-1194"></a><span class="w">    </span><span class="sd">"""Target classes and predicted classes."""</span>
-<a id="__codelineno-0-1195" name="__codelineno-0-1195"></a>    <span class="n">pred</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">pred</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>
-<a id="__codelineno-0-1196" name="__codelineno-0-1196"></a>    <span class="n">correct</span> <span class="o">=</span> <span class="p">(</span><span class="n">targets</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">==</span> <span class="n">pred</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
-<a id="__codelineno-0-1197" name="__codelineno-0-1197"></a>    <span class="n">acc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">correct</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">correct</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (top1, top5) accuracy</span>
-<a id="__codelineno-0-1198" name="__codelineno-0-1198"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">top1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">top5</span> <span class="o">=</span> <span class="n">acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1186">1186</a></span>
+<span class="normal"><a href="#__codelineno-0-1187">1187</a></span>
+<span class="normal"><a href="#__codelineno-0-1188">1188</a></span>
+<span class="normal"><a href="#__codelineno-0-1189">1189</a></span>
+<span class="normal"><a href="#__codelineno-0-1190">1190</a></span>
+<span class="normal"><a href="#__codelineno-0-1191">1191</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1186" name="__codelineno-0-1186"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">pred</span><span class="p">):</span>
+<a id="__codelineno-0-1187" name="__codelineno-0-1187"></a><span class="w">    </span><span class="sd">"""Target classes and predicted classes."""</span>
+<a id="__codelineno-0-1188" name="__codelineno-0-1188"></a>    <span class="n">pred</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">pred</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>
+<a id="__codelineno-0-1189" name="__codelineno-0-1189"></a>    <span class="n">correct</span> <span class="o">=</span> <span class="p">(</span><span class="n">targets</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">==</span> <span class="n">pred</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+<a id="__codelineno-0-1190" name="__codelineno-0-1190"></a>    <span class="n">acc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">correct</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">correct</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (top1, top5) accuracy</span>
+<a id="__codelineno-0-1191" name="__codelineno-0-1191"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">top1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">top5</span> <span class="o">=</span> <span class="n">acc</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5311,7 +5260,7 @@ object detection model.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.OBBMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.OBBMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">OBBMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">OBBMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -5319,21 +5268,19 @@ object detection model.</p>
 <p>Metrics for evaluating oriented bounding box (OBB) detection, see <a href="https://arxiv.org/pdf/2106.06072.pdf">https://arxiv.org/pdf/2106.06072.pdf</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1229">1229</a></span>
-<span class="normal"><a href="#__codelineno-0-1230">1230</a></span>
-<span class="normal"><a href="#__codelineno-0-1231">1231</a></span>
-<span class="normal"><a href="#__codelineno-0-1232">1232</a></span>
-<span class="normal"><a href="#__codelineno-0-1233">1233</a></span>
-<span class="normal"><a href="#__codelineno-0-1234">1234</a></span>
-<span class="normal"><a href="#__codelineno-0-1235">1235</a></span>
-<span class="normal"><a href="#__codelineno-0-1236">1236</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1229" name="__codelineno-0-1229"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1230" name="__codelineno-0-1230"></a><span class="w">    </span><span class="sd">"""Initialize an OBBMetrics instance with directory, plotting, callback, and class names."""</span>
-<a id="__codelineno-0-1231" name="__codelineno-0-1231"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
-<a id="__codelineno-0-1232" name="__codelineno-0-1232"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
-<a id="__codelineno-0-1233" name="__codelineno-0-1233"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span> <span class="o">=</span> <span class="n">on_plot</span>
-<a id="__codelineno-0-1234" name="__codelineno-0-1234"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
-<a id="__codelineno-0-1235" name="__codelineno-0-1235"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
-<a id="__codelineno-0-1236" name="__codelineno-0-1236"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1222">1222</a></span>
+<span class="normal"><a href="#__codelineno-0-1223">1223</a></span>
+<span class="normal"><a href="#__codelineno-0-1224">1224</a></span>
+<span class="normal"><a href="#__codelineno-0-1225">1225</a></span>
+<span class="normal"><a href="#__codelineno-0-1226">1226</a></span>
+<span class="normal"><a href="#__codelineno-0-1227">1227</a></span>
+<span class="normal"><a href="#__codelineno-0-1228">1228</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1222" name="__codelineno-0-1222"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1223" name="__codelineno-0-1223"></a><span class="w">    </span><span class="sd">"""Initialize an OBBMetrics instance with directory, plotting, callback, and class names."""</span>
+<a id="__codelineno-0-1224" name="__codelineno-0-1224"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
+<a id="__codelineno-0-1225" name="__codelineno-0-1225"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
+<a id="__codelineno-0-1226" name="__codelineno-0-1226"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
+<a id="__codelineno-0-1227" name="__codelineno-0-1227"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
+<a id="__codelineno-0-1228" name="__codelineno-0-1228"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"preprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"inference"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"postprocess"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -5438,11 +5385,11 @@ object detection model.</p>
 <p>Return the result of evaluating the performance of an object detection model on a specific class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1262">1262</a></span>
-<span class="normal"><a href="#__codelineno-0-1263">1263</a></span>
-<span class="normal"><a href="#__codelineno-0-1264">1264</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1262" name="__codelineno-0-1262"></a><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-<a id="__codelineno-0-1263" name="__codelineno-0-1263"></a><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
-<a id="__codelineno-0-1264" name="__codelineno-0-1264"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1254">1254</a></span>
+<span class="normal"><a href="#__codelineno-0-1255">1255</a></span>
+<span class="normal"><a href="#__codelineno-0-1256">1256</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1254" name="__codelineno-0-1254"></a><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-0-1255" name="__codelineno-0-1255"></a><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
+<a id="__codelineno-0-1256" name="__codelineno-0-1256"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5457,11 +5404,11 @@ object detection model.</p>
 <p>Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1258">1258</a></span>
-<span class="normal"><a href="#__codelineno-0-1259">1259</a></span>
-<span class="normal"><a href="#__codelineno-0-1260">1260</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1258" name="__codelineno-0-1258"></a><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1259" name="__codelineno-0-1259"></a><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
-<a id="__codelineno-0-1260" name="__codelineno-0-1260"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1250">1250</a></span>
+<span class="normal"><a href="#__codelineno-0-1251">1251</a></span>
+<span class="normal"><a href="#__codelineno-0-1252">1252</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1250" name="__codelineno-0-1250"></a><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1251" name="__codelineno-0-1251"></a><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
+<a id="__codelineno-0-1252" name="__codelineno-0-1252"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5470,39 +5417,39 @@ object detection model.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.metrics.OBBMetrics.process">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">process</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">process</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">process</span><span class="p">(</span><span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process predicted results for object detection and update metrics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1238">1238</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1230">1230</a></span>
+<span class="normal"><a href="#__codelineno-0-1231">1231</a></span>
+<span class="normal"><a href="#__codelineno-0-1232">1232</a></span>
+<span class="normal"><a href="#__codelineno-0-1233">1233</a></span>
+<span class="normal"><a href="#__codelineno-0-1234">1234</a></span>
+<span class="normal"><a href="#__codelineno-0-1235">1235</a></span>
+<span class="normal"><a href="#__codelineno-0-1236">1236</a></span>
+<span class="normal"><a href="#__codelineno-0-1237">1237</a></span>
+<span class="normal"><a href="#__codelineno-0-1238">1238</a></span>
 <span class="normal"><a href="#__codelineno-0-1239">1239</a></span>
 <span class="normal"><a href="#__codelineno-0-1240">1240</a></span>
 <span class="normal"><a href="#__codelineno-0-1241">1241</a></span>
 <span class="normal"><a href="#__codelineno-0-1242">1242</a></span>
-<span class="normal"><a href="#__codelineno-0-1243">1243</a></span>
-<span class="normal"><a href="#__codelineno-0-1244">1244</a></span>
-<span class="normal"><a href="#__codelineno-0-1245">1245</a></span>
-<span class="normal"><a href="#__codelineno-0-1246">1246</a></span>
-<span class="normal"><a href="#__codelineno-0-1247">1247</a></span>
-<span class="normal"><a href="#__codelineno-0-1248">1248</a></span>
-<span class="normal"><a href="#__codelineno-0-1249">1249</a></span>
-<span class="normal"><a href="#__codelineno-0-1250">1250</a></span>
-<span class="normal"><a href="#__codelineno-0-1251">1251</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1238" name="__codelineno-0-1238"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">):</span>
-<a id="__codelineno-0-1239" name="__codelineno-0-1239"></a><span class="w">    </span><span class="sd">"""Process predicted results for object detection and update metrics."""</span>
-<a id="__codelineno-0-1240" name="__codelineno-0-1240"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
-<a id="__codelineno-0-1241" name="__codelineno-0-1241"></a>        <span class="n">tp</span><span class="p">,</span>
-<a id="__codelineno-0-1242" name="__codelineno-0-1242"></a>        <span class="n">conf</span><span class="p">,</span>
-<a id="__codelineno-0-1243" name="__codelineno-0-1243"></a>        <span class="n">pred_cls</span><span class="p">,</span>
-<a id="__codelineno-0-1244" name="__codelineno-0-1244"></a>        <span class="n">target_cls</span><span class="p">,</span>
-<a id="__codelineno-0-1245" name="__codelineno-0-1245"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
-<a id="__codelineno-0-1246" name="__codelineno-0-1246"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
-<a id="__codelineno-0-1247" name="__codelineno-0-1247"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
-<a id="__codelineno-0-1248" name="__codelineno-0-1248"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
-<a id="__codelineno-0-1249" name="__codelineno-0-1249"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-0-1250" name="__codelineno-0-1250"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-0-1251" name="__codelineno-0-1251"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-1243">1243</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1230" name="__codelineno-0-1230"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-1231" name="__codelineno-0-1231"></a><span class="w">    </span><span class="sd">"""Process predicted results for object detection and update metrics."""</span>
+<a id="__codelineno-0-1232" name="__codelineno-0-1232"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
+<a id="__codelineno-0-1233" name="__codelineno-0-1233"></a>        <span class="n">tp</span><span class="p">,</span>
+<a id="__codelineno-0-1234" name="__codelineno-0-1234"></a>        <span class="n">conf</span><span class="p">,</span>
+<a id="__codelineno-0-1235" name="__codelineno-0-1235"></a>        <span class="n">pred_cls</span><span class="p">,</span>
+<a id="__codelineno-0-1236" name="__codelineno-0-1236"></a>        <span class="n">target_cls</span><span class="p">,</span>
+<a id="__codelineno-0-1237" name="__codelineno-0-1237"></a>        <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span>
+<a id="__codelineno-0-1238" name="__codelineno-0-1238"></a>        <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span>
+<a id="__codelineno-0-1239" name="__codelineno-0-1239"></a>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
+<a id="__codelineno-0-1240" name="__codelineno-0-1240"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="n">on_plot</span><span class="p">,</span>
+<a id="__codelineno-0-1241" name="__codelineno-0-1241"></a>    <span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
+<a id="__codelineno-0-1242" name="__codelineno-0-1242"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
+<a id="__codelineno-0-1243" name="__codelineno-0-1243"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
