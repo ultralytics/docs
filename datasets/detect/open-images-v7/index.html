@@ -1700,16 +1700,16 @@
 <a href="#__codelineno-2-633" id="__codelineno-2-633" name="__codelineno-2-633"></a><span class="w">  </span><span class="no">import warnings</span>
 <a href="#__codelineno-2-634" id="__codelineno-2-634" name="__codelineno-2-634"></a>
 <a href="#__codelineno-2-635" id="__codelineno-2-635" name="__codelineno-2-635"></a><span class="w">  </span><span class="no">name = 'open-images-v7'</span>
-<a href="#__codelineno-2-636" id="__codelineno-2-636" name="__codelineno-2-636"></a><span class="w">  </span><span class="no">fraction = 1.0  # fraction of full dataset to use</span>
-<a href="#__codelineno-2-637" id="__codelineno-2-637" name="__codelineno-2-637"></a><span class="w">  </span><span class="no">LOGGER.warning('WARNING ⚠️ Open Images V7 dataset requires at least **561 GB of free space. Starting download...')</span>
-<a href="#__codelineno-2-638" id="__codelineno-2-638" name="__codelineno-2-638"></a><span class="w">  </span><span class="no">for split in 'train', 'validation':  # 1743042 train, 41620 val images</span>
-<a href="#__codelineno-2-639" id="__codelineno-2-639" name="__codelineno-2-639"></a><span class="w">      </span><span class="no">train = split == 'train'</span>
-<a href="#__codelineno-2-640" id="__codelineno-2-640" name="__codelineno-2-640"></a>
-<a href="#__codelineno-2-641" id="__codelineno-2-641" name="__codelineno-2-641"></a><span class="w">      </span><span class="no"># Load Open Images dataset</span>
-<a href="#__codelineno-2-642" id="__codelineno-2-642" name="__codelineno-2-642"></a><span class="w">      </span><span class="no">dataset = foz.load_zoo_dataset(name,</span>
-<a href="#__codelineno-2-643" id="__codelineno-2-643" name="__codelineno-2-643"></a><span class="w">                                     </span><span class="no">split=split,</span>
-<a href="#__codelineno-2-644" id="__codelineno-2-644" name="__codelineno-2-644"></a><span class="w">                                     </span><span class="no">label_types=['detections'],</span>
-<a href="#__codelineno-2-645" id="__codelineno-2-645" name="__codelineno-2-645"></a><span class="w">                                     </span><span class="no">dataset_dir=Path(SETTINGS['datasets_dir']) / 'fiftyone' / name,</span>
+<a href="#__codelineno-2-636" id="__codelineno-2-636" name="__codelineno-2-636"></a><span class="w">  </span><span class="no">fo.config.dataset_zoo_dir = Path(SETTINGS["datasets_dir"]) / "fiftyone" / name</span>
+<a href="#__codelineno-2-637" id="__codelineno-2-637" name="__codelineno-2-637"></a><span class="w">  </span><span class="no">fraction = 1.0  # fraction of full dataset to use</span>
+<a href="#__codelineno-2-638" id="__codelineno-2-638" name="__codelineno-2-638"></a><span class="w">  </span><span class="no">LOGGER.warning('WARNING ⚠️ Open Images V7 dataset requires at least **561 GB of free space. Starting download...')</span>
+<a href="#__codelineno-2-639" id="__codelineno-2-639" name="__codelineno-2-639"></a><span class="w">  </span><span class="no">for split in 'train', 'validation':  # 1743042 train, 41620 val images</span>
+<a href="#__codelineno-2-640" id="__codelineno-2-640" name="__codelineno-2-640"></a><span class="w">      </span><span class="no">train = split == 'train'</span>
+<a href="#__codelineno-2-641" id="__codelineno-2-641" name="__codelineno-2-641"></a>
+<a href="#__codelineno-2-642" id="__codelineno-2-642" name="__codelineno-2-642"></a><span class="w">      </span><span class="no"># Load Open Images dataset</span>
+<a href="#__codelineno-2-643" id="__codelineno-2-643" name="__codelineno-2-643"></a><span class="w">      </span><span class="no">dataset = foz.load_zoo_dataset(name,</span>
+<a href="#__codelineno-2-644" id="__codelineno-2-644" name="__codelineno-2-644"></a><span class="w">                                     </span><span class="no">split=split,</span>
+<a href="#__codelineno-2-645" id="__codelineno-2-645" name="__codelineno-2-645"></a><span class="w">                                     </span><span class="no">label_types=['detections'],</span>
 <a href="#__codelineno-2-646" id="__codelineno-2-646" name="__codelineno-2-646"></a><span class="w">                                     </span><span class="no">max_samples=round((1743042 if train else 41620) * fraction))</span>
 <a href="#__codelineno-2-647" id="__codelineno-2-647" name="__codelineno-2-647"></a>
 <a href="#__codelineno-2-648" id="__codelineno-2-648" name="__codelineno-2-648"></a><span class="w">      </span><span class="no"># Define classes</span>
