@@ -1053,19 +1053,22 @@
 <a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>
 <a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="c1"># Download script/URL (optional)</span>
 <a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
-<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
-<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>
-<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">  </span><span class="no"># Download labels</span>
-<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">  </span><span class="no">dir = Path(yaml['path'])  # dataset root dir</span>
-<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">  </span><span class="no">url = 'https://github.com/ultralytics/assets/releases/download/v0.0.0/'</span>
-<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">  </span><span class="no">urls = [url + 'coco2017labels-pose.zip']  # labels</span>
-<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">  </span><span class="no">download(urls, dir=dir.parent)</span>
-<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">  </span><span class="no"># Download data</span>
-<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">  </span><span class="no">urls = ['http://images.cocodataset.org/zips/train2017.zip',  # 19G, 118k images</span>
-<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">          </span><span class="no">'http://images.cocodataset.org/zips/val2017.zip',  # 1G, 5k images</span>
-<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">          </span><span class="no">'http://images.cocodataset.org/zips/test2017.zip']  # 7G, 41k images (optional)</span>
-<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">  </span><span class="no">download(urls, dir=dir / 'images', threads=3)</span>
+<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
+<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
+<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">  </span><span class="no"># Download labels</span>
+<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
+<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">  </span><span class="no">url = "https://github.com/ultralytics/assets/releases/download/v0.0.0/"</span>
+<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">  </span><span class="no">urls = [f"{url}coco2017labels-pose.zip"]</span>
+<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">  </span><span class="no">download(urls, dir=dir.parent)</span>
+<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">  </span><span class="no"># Download data</span>
+<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">  </span><span class="no">urls = [</span>
+<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">      </span><span class="no">"http://images.cocodataset.org/zips/train2017.zip",  # 19G, 118k images</span>
+<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">      </span><span class="no">"http://images.cocodataset.org/zips/val2017.zip",  # 1G, 5k images</span>
+<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">      </span><span class="no">"http://images.cocodataset.org/zips/test2017.zip",  # 7G, 41k images (optional)</span>
+<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">  </span><span class="no">]</span>
+<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">  </span><span class="no">download(urls, dir=dir / "images", threads=3)</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>

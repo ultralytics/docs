@@ -994,58 +994,64 @@
 <a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
 <a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">  </span><span class="no">import xml.etree.ElementTree as ET</span>
-<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">  </span><span class="no">from tqdm import tqdm</span>
-<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
-<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
-<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a>
-<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">  </span><span class="no">def convert_label(path, lb_path, year, image_id):</span>
-<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">      </span><span class="no">def convert_box(size, box):</span>
-<a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">          </span><span class="no">dw, dh = 1. / size[0], 1. / size[1]</span>
-<a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">          </span><span class="no">x, y, w, h = (box[0] + box[1]) / 2.0 - 1, (box[2] + box[3]) / 2.0 - 1, box[1] - box[0], box[3] - box[2]</span>
-<a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">          </span><span class="no">return x * dw, y * dh, w * dw, h * dh</span>
-<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a>
-<a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">      </span><span class="no">in_file = open(path / f'VOC{year}/Annotations/{image_id}.xml')</span>
-<a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">      </span><span class="no">out_file = open(lb_path, 'w')</span>
-<a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">      </span><span class="no">tree = ET.parse(in_file)</span>
-<a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">      </span><span class="no">root = tree.getroot()</span>
-<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">      </span><span class="no">size = root.find('size')</span>
-<a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">      </span><span class="no">w = int(size.find('width').text)</span>
-<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">      </span><span class="no">h = int(size.find('height').text)</span>
-<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a>
-<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">      </span><span class="no">names = list(yaml['names'].values())  # names list</span>
-<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">      </span><span class="no">for obj in root.iter('object'):</span>
-<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">          </span><span class="no">cls = obj.find('name').text</span>
-<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">          </span><span class="no">if cls in names and int(obj.find('difficult').text) != 1:</span>
-<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">              </span><span class="no">xmlbox = obj.find('bndbox')</span>
-<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">              </span><span class="no">bb = convert_box((w, h), [float(xmlbox.find(x).text) for x in ('xmin', 'xmax', 'ymin', 'ymax')])</span>
-<a href="#__codelineno-0-74" id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="w">              </span><span class="no">cls_id = names.index(cls)  # class id</span>
-<a href="#__codelineno-0-75" id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="w">              </span><span class="no">out_file.write(" ".join(str(a) for a in (cls_id, *bb)) + '\n')</span>
-<a href="#__codelineno-0-76" id="__codelineno-0-76" name="__codelineno-0-76"></a>
-<a href="#__codelineno-0-77" id="__codelineno-0-77" name="__codelineno-0-77"></a>
-<a href="#__codelineno-0-78" id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="w">  </span><span class="no"># Download</span>
-<a href="#__codelineno-0-79" id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="w">  </span><span class="no">dir = Path(yaml['path'])  # dataset root dir</span>
-<a href="#__codelineno-0-80" id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="w">  </span><span class="no">url = 'https://github.com/ultralytics/assets/releases/download/v0.0.0/'</span>
-<a href="#__codelineno-0-81" id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="w">  </span><span class="no">urls = [f'{url}VOCtrainval_06-Nov-2007.zip',  # 446MB, 5012 images</span>
-<a href="#__codelineno-0-82" id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="w">          </span><span class="no">f'{url}VOCtest_06-Nov-2007.zip',  # 438MB, 4953 images</span>
-<a href="#__codelineno-0-83" id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="w">          </span><span class="no">f'{url}VOCtrainval_11-May-2012.zip']  # 1.95GB, 17126 images</span>
-<a href="#__codelineno-0-84" id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="w">  </span><span class="no">download(urls, dir=dir / 'images', curl=True, threads=3, exist_ok=True)  # download and unzip over existing paths (required)</span>
-<a href="#__codelineno-0-85" id="__codelineno-0-85" name="__codelineno-0-85"></a>
-<a href="#__codelineno-0-86" id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="w">  </span><span class="no"># Convert</span>
-<a href="#__codelineno-0-87" id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="w">  </span><span class="no">path = dir / 'images/VOCdevkit'</span>
-<a href="#__codelineno-0-88" id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="w">  </span><span class="no">for year, image_set in ('2012', 'train'), ('2012', 'val'), ('2007', 'train'), ('2007', 'val'), ('2007', 'test'):</span>
-<a href="#__codelineno-0-89" id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="w">      </span><span class="no">imgs_path = dir / 'images' / f'{image_set}{year}'</span>
-<a href="#__codelineno-0-90" id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">      </span><span class="no">lbs_path = dir / 'labels' / f'{image_set}{year}'</span>
-<a href="#__codelineno-0-91" id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="w">      </span><span class="no">imgs_path.mkdir(exist_ok=True, parents=True)</span>
-<a href="#__codelineno-0-92" id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="w">      </span><span class="no">lbs_path.mkdir(exist_ok=True, parents=True)</span>
-<a href="#__codelineno-0-93" id="__codelineno-0-93" name="__codelineno-0-93"></a>
-<a href="#__codelineno-0-94" id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="w">      </span><span class="no">with open(path / f'VOC{year}/ImageSets/Main/{image_set}.txt') as f:</span>
-<a href="#__codelineno-0-95" id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">          </span><span class="no">image_ids = f.read().strip().split()</span>
-<a href="#__codelineno-0-96" id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="w">      </span><span class="no">for id in tqdm(image_ids, desc=f'{image_set}{year}'):</span>
-<a href="#__codelineno-0-97" id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">          </span><span class="no">f = path / f'VOC{year}/JPEGImages/{id}.jpg'  # old img path</span>
-<a href="#__codelineno-0-98" id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="w">          </span><span class="no">lb_path = (lbs_path / f.name).with_suffix('.txt')  # new label path</span>
-<a href="#__codelineno-0-99" id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="w">          </span><span class="no">f.rename(imgs_path / f.name)  # move image</span>
-<a href="#__codelineno-0-100" id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="w">          </span><span class="no">convert_label(path, lb_path, year, id)  # convert labels to YOLO format</span>
+<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
+<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a>
+<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">  </span><span class="no">from tqdm import tqdm</span>
+<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a>
+<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
+<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a>
+<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a>
+<a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">  </span><span class="no">def convert_label(path, lb_path, year, image_id):</span>
+<a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">      </span><span class="no">"""Converts XML annotations from VOC format to YOLO format by extracting bounding boxes and class IDs."""</span>
+<a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">      </span><span class="no">def convert_box(size, box):</span>
+<a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">          </span><span class="no">dw, dh = 1.0 / size[0], 1.0 / size[1]</span>
+<a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">          </span><span class="no">x, y, w, h = (box[0] + box[1]) / 2.0 - 1, (box[2] + box[3]) / 2.0 - 1, box[1] - box[0], box[3] - box[2]</span>
+<a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">          </span><span class="no">return x * dw, y * dh, w * dw, h * dh</span>
+<a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a>
+<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">      </span><span class="no">in_file = open(path / f"VOC{year}/Annotations/{image_id}.xml")</span>
+<a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">      </span><span class="no">out_file = open(lb_path, "w")</span>
+<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">      </span><span class="no">tree = ET.parse(in_file)</span>
+<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">      </span><span class="no">root = tree.getroot()</span>
+<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">      </span><span class="no">size = root.find("size")</span>
+<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">      </span><span class="no">w = int(size.find("width").text)</span>
+<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">      </span><span class="no">h = int(size.find("height").text)</span>
+<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a>
+<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">      </span><span class="no">names = list(yaml["names"].values())  # names list</span>
+<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">      </span><span class="no">for obj in root.iter("object"):</span>
+<a href="#__codelineno-0-74" id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="w">          </span><span class="no">cls = obj.find("name").text</span>
+<a href="#__codelineno-0-75" id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="w">          </span><span class="no">if cls in names and int(obj.find("difficult").text) != 1:</span>
+<a href="#__codelineno-0-76" id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="w">              </span><span class="no">xmlbox = obj.find("bndbox")</span>
+<a href="#__codelineno-0-77" id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="w">              </span><span class="no">bb = convert_box((w, h), [float(xmlbox.find(x).text) for x in ("xmin", "xmax", "ymin", "ymax")])</span>
+<a href="#__codelineno-0-78" id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="w">              </span><span class="no">cls_id = names.index(cls)  # class id</span>
+<a href="#__codelineno-0-79" id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="w">              </span><span class="no">out_file.write(" ".join(str(a) for a in (cls_id, *bb)) + "\n")</span>
+<a href="#__codelineno-0-80" id="__codelineno-0-80" name="__codelineno-0-80"></a>
+<a href="#__codelineno-0-81" id="__codelineno-0-81" name="__codelineno-0-81"></a>
+<a href="#__codelineno-0-82" id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="w">  </span><span class="no"># Download</span>
+<a href="#__codelineno-0-83" id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
+<a href="#__codelineno-0-84" id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="w">  </span><span class="no">url = "https://github.com/ultralytics/assets/releases/download/v0.0.0/"</span>
+<a href="#__codelineno-0-85" id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="w">  </span><span class="no">urls = [</span>
+<a href="#__codelineno-0-86" id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="w">      </span><span class="no">f"{url}VOCtrainval_06-Nov-2007.zip",  # 446MB, 5012 images</span>
+<a href="#__codelineno-0-87" id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="w">      </span><span class="no">f"{url}VOCtest_06-Nov-2007.zip",  # 438MB, 4953 images</span>
+<a href="#__codelineno-0-88" id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="w">      </span><span class="no">f"{url}VOCtrainval_11-May-2012.zip",  # 1.95GB, 17126 images</span>
+<a href="#__codelineno-0-89" id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="w">  </span><span class="no">]</span>
+<a href="#__codelineno-0-90" id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">  </span><span class="no">download(urls, dir=dir / "images", curl=True, threads=3, exist_ok=True)  # download and unzip over existing (required)</span>
+<a href="#__codelineno-0-91" id="__codelineno-0-91" name="__codelineno-0-91"></a>
+<a href="#__codelineno-0-92" id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="w">  </span><span class="no"># Convert</span>
+<a href="#__codelineno-0-93" id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="w">  </span><span class="no">path = dir / "images/VOCdevkit"</span>
+<a href="#__codelineno-0-94" id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="w">  </span><span class="no">for year, image_set in ("2012", "train"), ("2012", "val"), ("2007", "train"), ("2007", "val"), ("2007", "test"):</span>
+<a href="#__codelineno-0-95" id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">      </span><span class="no">imgs_path = dir / "images" / f"{image_set}{year}"</span>
+<a href="#__codelineno-0-96" id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="w">      </span><span class="no">lbs_path = dir / "labels" / f"{image_set}{year}"</span>
+<a href="#__codelineno-0-97" id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">      </span><span class="no">imgs_path.mkdir(exist_ok=True, parents=True)</span>
+<a href="#__codelineno-0-98" id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="w">      </span><span class="no">lbs_path.mkdir(exist_ok=True, parents=True)</span>
+<a href="#__codelineno-0-99" id="__codelineno-0-99" name="__codelineno-0-99"></a>
+<a href="#__codelineno-0-100" id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="w">      </span><span class="no">with open(path / f"VOC{year}/ImageSets/Main/{image_set}.txt") as f:</span>
+<a href="#__codelineno-0-101" id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="w">          </span><span class="no">image_ids = f.read().strip().split()</span>
+<a href="#__codelineno-0-102" id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="w">      </span><span class="no">for id in tqdm(image_ids, desc=f"{image_set}{year}"):</span>
+<a href="#__codelineno-0-103" id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="w">          </span><span class="no">f = path / f"VOC{year}/JPEGImages/{id}.jpg"  # old img path</span>
+<a href="#__codelineno-0-104" id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="w">          </span><span class="no">lb_path = (lbs_path / f.name).with_suffix(".txt")  # new label path</span>
+<a href="#__codelineno-0-105" id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="w">          </span><span class="no">f.rename(imgs_path / f.name)  # move image</span>
+<a href="#__codelineno-0-106" id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="w">          </span><span class="no">convert_label(path, lb_path, year, id)  # convert labels to YOLO format</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>

@@ -1687,45 +1687,50 @@
 <a href="#__codelineno-2-620" id="__codelineno-2-620" name="__codelineno-2-620"></a>
 <a href="#__codelineno-2-621" id="__codelineno-2-621" name="__codelineno-2-621"></a><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
 <a href="#__codelineno-2-622" id="__codelineno-2-622" name="__codelineno-2-622"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a href="#__codelineno-2-623" id="__codelineno-2-623" name="__codelineno-2-623"></a><span class="w">  </span><span class="no">from ultralytics.utils import LOGGER, SETTINGS, Path, is_ubuntu, get_ubuntu_version</span>
-<a href="#__codelineno-2-624" id="__codelineno-2-624" name="__codelineno-2-624"></a><span class="w">  </span><span class="no">from ultralytics.utils.checks import check_requirements, check_version</span>
-<a href="#__codelineno-2-625" id="__codelineno-2-625" name="__codelineno-2-625"></a>
-<a href="#__codelineno-2-626" id="__codelineno-2-626" name="__codelineno-2-626"></a><span class="w">  </span><span class="no">check_requirements('fiftyone')</span>
-<a href="#__codelineno-2-627" id="__codelineno-2-627" name="__codelineno-2-627"></a><span class="w">  </span><span class="no">if is_ubuntu() and check_version(get_ubuntu_version(), '&gt;=22.04'):</span>
-<a href="#__codelineno-2-628" id="__codelineno-2-628" name="__codelineno-2-628"></a><span class="w">      </span><span class="no"># Ubuntu&gt;=22.04 patch https://github.com/voxel51/fiftyone/issues/2961#issuecomment-1666519347</span>
-<a href="#__codelineno-2-629" id="__codelineno-2-629" name="__codelineno-2-629"></a><span class="w">      </span><span class="no">check_requirements('fiftyone-db-ubuntu2204')</span>
-<a href="#__codelineno-2-630" id="__codelineno-2-630" name="__codelineno-2-630"></a>
-<a href="#__codelineno-2-631" id="__codelineno-2-631" name="__codelineno-2-631"></a><span class="w">  </span><span class="no">import fiftyone as fo</span>
-<a href="#__codelineno-2-632" id="__codelineno-2-632" name="__codelineno-2-632"></a><span class="w">  </span><span class="no">import fiftyone.zoo as foz</span>
-<a href="#__codelineno-2-633" id="__codelineno-2-633" name="__codelineno-2-633"></a><span class="w">  </span><span class="no">import warnings</span>
-<a href="#__codelineno-2-634" id="__codelineno-2-634" name="__codelineno-2-634"></a>
-<a href="#__codelineno-2-635" id="__codelineno-2-635" name="__codelineno-2-635"></a><span class="w">  </span><span class="no">name = 'open-images-v7'</span>
-<a href="#__codelineno-2-636" id="__codelineno-2-636" name="__codelineno-2-636"></a><span class="w">  </span><span class="no">fo.config.dataset_zoo_dir = Path(SETTINGS["datasets_dir"]) / "fiftyone" / name</span>
-<a href="#__codelineno-2-637" id="__codelineno-2-637" name="__codelineno-2-637"></a><span class="w">  </span><span class="no">fraction = 1.0  # fraction of full dataset to use</span>
-<a href="#__codelineno-2-638" id="__codelineno-2-638" name="__codelineno-2-638"></a><span class="w">  </span><span class="no">LOGGER.warning('WARNING ⚠️ Open Images V7 dataset requires at least **561 GB of free space. Starting download...')</span>
-<a href="#__codelineno-2-639" id="__codelineno-2-639" name="__codelineno-2-639"></a><span class="w">  </span><span class="no">for split in 'train', 'validation':  # 1743042 train, 41620 val images</span>
-<a href="#__codelineno-2-640" id="__codelineno-2-640" name="__codelineno-2-640"></a><span class="w">      </span><span class="no">train = split == 'train'</span>
-<a href="#__codelineno-2-641" id="__codelineno-2-641" name="__codelineno-2-641"></a>
-<a href="#__codelineno-2-642" id="__codelineno-2-642" name="__codelineno-2-642"></a><span class="w">      </span><span class="no"># Load Open Images dataset</span>
-<a href="#__codelineno-2-643" id="__codelineno-2-643" name="__codelineno-2-643"></a><span class="w">      </span><span class="no">dataset = foz.load_zoo_dataset(name,</span>
-<a href="#__codelineno-2-644" id="__codelineno-2-644" name="__codelineno-2-644"></a><span class="w">                                     </span><span class="no">split=split,</span>
-<a href="#__codelineno-2-645" id="__codelineno-2-645" name="__codelineno-2-645"></a><span class="w">                                     </span><span class="no">label_types=['detections'],</span>
-<a href="#__codelineno-2-646" id="__codelineno-2-646" name="__codelineno-2-646"></a><span class="w">                                     </span><span class="no">max_samples=round((1743042 if train else 41620) * fraction))</span>
-<a href="#__codelineno-2-647" id="__codelineno-2-647" name="__codelineno-2-647"></a>
-<a href="#__codelineno-2-648" id="__codelineno-2-648" name="__codelineno-2-648"></a><span class="w">      </span><span class="no"># Define classes</span>
-<a href="#__codelineno-2-649" id="__codelineno-2-649" name="__codelineno-2-649"></a><span class="w">      </span><span class="no">if train:</span>
-<a href="#__codelineno-2-650" id="__codelineno-2-650" name="__codelineno-2-650"></a><span class="w">          </span><span class="no">classes = dataset.default_classes  # all classes</span>
-<a href="#__codelineno-2-651" id="__codelineno-2-651" name="__codelineno-2-651"></a><span class="w">          </span><span class="no"># classes = dataset.distinct('ground_truth.detections.label')  # only observed classes</span>
-<a href="#__codelineno-2-652" id="__codelineno-2-652" name="__codelineno-2-652"></a>
-<a href="#__codelineno-2-653" id="__codelineno-2-653" name="__codelineno-2-653"></a><span class="w">      </span><span class="no"># Export to YOLO format</span>
-<a href="#__codelineno-2-654" id="__codelineno-2-654" name="__codelineno-2-654"></a><span class="w">      </span><span class="no">with warnings.catch_warnings():</span>
-<a href="#__codelineno-2-655" id="__codelineno-2-655" name="__codelineno-2-655"></a><span class="w">          </span><span class="no">warnings.filterwarnings("ignore", category=UserWarning, module="fiftyone.utils.yolo")</span>
-<a href="#__codelineno-2-656" id="__codelineno-2-656" name="__codelineno-2-656"></a><span class="w">          </span><span class="no">dataset.export(export_dir=str(Path(SETTINGS['datasets_dir']) / name),</span>
-<a href="#__codelineno-2-657" id="__codelineno-2-657" name="__codelineno-2-657"></a><span class="w">                         </span><span class="no">dataset_type=fo.types.YOLOv5Dataset,</span>
-<a href="#__codelineno-2-658" id="__codelineno-2-658" name="__codelineno-2-658"></a><span class="w">                         </span><span class="no">label_field='ground_truth',</span>
-<a href="#__codelineno-2-659" id="__codelineno-2-659" name="__codelineno-2-659"></a><span class="w">                         </span><span class="no">split='val' if split == 'validation' else split,</span>
-<a href="#__codelineno-2-660" id="__codelineno-2-660" name="__codelineno-2-660"></a><span class="w">                         </span><span class="no">classes=classes,</span>
-<a href="#__codelineno-2-661" id="__codelineno-2-661" name="__codelineno-2-661"></a><span class="w">                         </span><span class="no">overwrite=train)</span>
+<a href="#__codelineno-2-623" id="__codelineno-2-623" name="__codelineno-2-623"></a><span class="w">  </span><span class="no">import warnings</span>
+<a href="#__codelineno-2-624" id="__codelineno-2-624" name="__codelineno-2-624"></a>
+<a href="#__codelineno-2-625" id="__codelineno-2-625" name="__codelineno-2-625"></a><span class="w">  </span><span class="no">from ultralytics.utils import LOGGER, SETTINGS, Path, get_ubuntu_version, is_ubuntu</span>
+<a href="#__codelineno-2-626" id="__codelineno-2-626" name="__codelineno-2-626"></a><span class="w">  </span><span class="no">from ultralytics.utils.checks import check_requirements, check_version</span>
+<a href="#__codelineno-2-627" id="__codelineno-2-627" name="__codelineno-2-627"></a>
+<a href="#__codelineno-2-628" id="__codelineno-2-628" name="__codelineno-2-628"></a><span class="w">  </span><span class="no">check_requirements("fiftyone")</span>
+<a href="#__codelineno-2-629" id="__codelineno-2-629" name="__codelineno-2-629"></a><span class="w">  </span><span class="no">if is_ubuntu() and check_version(get_ubuntu_version(), "&gt;=22.04"):</span>
+<a href="#__codelineno-2-630" id="__codelineno-2-630" name="__codelineno-2-630"></a><span class="w">      </span><span class="no"># Ubuntu&gt;=22.04 patch https://github.com/voxel51/fiftyone/issues/2961#issuecomment-1666519347</span>
+<a href="#__codelineno-2-631" id="__codelineno-2-631" name="__codelineno-2-631"></a><span class="w">      </span><span class="no">check_requirements("fiftyone-db-ubuntu2204")</span>
+<a href="#__codelineno-2-632" id="__codelineno-2-632" name="__codelineno-2-632"></a>
+<a href="#__codelineno-2-633" id="__codelineno-2-633" name="__codelineno-2-633"></a><span class="w">  </span><span class="no">import fiftyone as fo</span>
+<a href="#__codelineno-2-634" id="__codelineno-2-634" name="__codelineno-2-634"></a><span class="w">  </span><span class="no">import fiftyone.zoo as foz</span>
+<a href="#__codelineno-2-635" id="__codelineno-2-635" name="__codelineno-2-635"></a>
+<a href="#__codelineno-2-636" id="__codelineno-2-636" name="__codelineno-2-636"></a><span class="w">  </span><span class="no">name = "open-images-v7"</span>
+<a href="#__codelineno-2-637" id="__codelineno-2-637" name="__codelineno-2-637"></a><span class="w">  </span><span class="no">fo.config.dataset_zoo_dir = Path(SETTINGS["datasets_dir"]) / "fiftyone" / name</span>
+<a href="#__codelineno-2-638" id="__codelineno-2-638" name="__codelineno-2-638"></a><span class="w">  </span><span class="no">fraction = 1.0  # fraction of full dataset to use</span>
+<a href="#__codelineno-2-639" id="__codelineno-2-639" name="__codelineno-2-639"></a><span class="w">  </span><span class="no">LOGGER.warning("WARNING ⚠️ Open Images V7 dataset requires at least **561 GB of free space. Starting download...")</span>
+<a href="#__codelineno-2-640" id="__codelineno-2-640" name="__codelineno-2-640"></a><span class="w">  </span><span class="no">for split in "train", "validation":  # 1743042 train, 41620 val images</span>
+<a href="#__codelineno-2-641" id="__codelineno-2-641" name="__codelineno-2-641"></a><span class="w">      </span><span class="no">train = split == "train"</span>
+<a href="#__codelineno-2-642" id="__codelineno-2-642" name="__codelineno-2-642"></a>
+<a href="#__codelineno-2-643" id="__codelineno-2-643" name="__codelineno-2-643"></a><span class="w">      </span><span class="no"># Load Open Images dataset</span>
+<a href="#__codelineno-2-644" id="__codelineno-2-644" name="__codelineno-2-644"></a><span class="w">      </span><span class="no">dataset = foz.load_zoo_dataset(</span>
+<a href="#__codelineno-2-645" id="__codelineno-2-645" name="__codelineno-2-645"></a><span class="w">          </span><span class="no">name,</span>
+<a href="#__codelineno-2-646" id="__codelineno-2-646" name="__codelineno-2-646"></a><span class="w">          </span><span class="no">split=split,</span>
+<a href="#__codelineno-2-647" id="__codelineno-2-647" name="__codelineno-2-647"></a><span class="w">          </span><span class="no">label_types=["detections"],</span>
+<a href="#__codelineno-2-648" id="__codelineno-2-648" name="__codelineno-2-648"></a><span class="w">          </span><span class="no">max_samples=round((1743042 if train else 41620) * fraction),</span>
+<a href="#__codelineno-2-649" id="__codelineno-2-649" name="__codelineno-2-649"></a><span class="w">      </span><span class="no">)</span>
+<a href="#__codelineno-2-650" id="__codelineno-2-650" name="__codelineno-2-650"></a>
+<a href="#__codelineno-2-651" id="__codelineno-2-651" name="__codelineno-2-651"></a><span class="w">      </span><span class="no"># Define classes</span>
+<a href="#__codelineno-2-652" id="__codelineno-2-652" name="__codelineno-2-652"></a><span class="w">      </span><span class="no">if train:</span>
+<a href="#__codelineno-2-653" id="__codelineno-2-653" name="__codelineno-2-653"></a><span class="w">          </span><span class="no">classes = dataset.default_classes  # all classes</span>
+<a href="#__codelineno-2-654" id="__codelineno-2-654" name="__codelineno-2-654"></a><span class="w">          </span><span class="no"># classes = dataset.distinct('ground_truth.detections.label')  # only observed classes</span>
+<a href="#__codelineno-2-655" id="__codelineno-2-655" name="__codelineno-2-655"></a>
+<a href="#__codelineno-2-656" id="__codelineno-2-656" name="__codelineno-2-656"></a><span class="w">      </span><span class="no"># Export to YOLO format</span>
+<a href="#__codelineno-2-657" id="__codelineno-2-657" name="__codelineno-2-657"></a><span class="w">      </span><span class="no">with warnings.catch_warnings():</span>
+<a href="#__codelineno-2-658" id="__codelineno-2-658" name="__codelineno-2-658"></a><span class="w">          </span><span class="no">warnings.filterwarnings("ignore", category=UserWarning, module="fiftyone.utils.yolo")</span>
+<a href="#__codelineno-2-659" id="__codelineno-2-659" name="__codelineno-2-659"></a><span class="w">          </span><span class="no">dataset.export(</span>
+<a href="#__codelineno-2-660" id="__codelineno-2-660" name="__codelineno-2-660"></a><span class="w">              </span><span class="no">export_dir=str(Path(SETTINGS["datasets_dir"]) / name),</span>
+<a href="#__codelineno-2-661" id="__codelineno-2-661" name="__codelineno-2-661"></a><span class="w">              </span><span class="no">dataset_type=fo.types.YOLOv5Dataset,</span>
+<a href="#__codelineno-2-662" id="__codelineno-2-662" name="__codelineno-2-662"></a><span class="w">              </span><span class="no">label_field="ground_truth",</span>
+<a href="#__codelineno-2-663" id="__codelineno-2-663" name="__codelineno-2-663"></a><span class="w">              </span><span class="no">split="val" if split == "validation" else split,</span>
+<a href="#__codelineno-2-664" id="__codelineno-2-664" name="__codelineno-2-664"></a><span class="w">              </span><span class="no">classes=classes,</span>
+<a href="#__codelineno-2-665" id="__codelineno-2-665" name="__codelineno-2-665"></a><span class="w">              </span><span class="no">overwrite=train,</span>
+<a href="#__codelineno-2-666" id="__codelineno-2-666" name="__codelineno-2-666"></a><span class="w">          </span><span class="no">)</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>

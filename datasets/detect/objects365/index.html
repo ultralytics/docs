@@ -1331,58 +1331,58 @@
 <a href="#__codelineno-0-384" id="__codelineno-0-384" name="__codelineno-0-384"></a>
 <a href="#__codelineno-0-385" id="__codelineno-0-385" name="__codelineno-0-385"></a><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
 <a href="#__codelineno-0-386" id="__codelineno-0-386" name="__codelineno-0-386"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a href="#__codelineno-0-387" id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="w">  </span><span class="no">from tqdm import tqdm</span>
+<a href="#__codelineno-0-387" id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
 <a href="#__codelineno-0-388" id="__codelineno-0-388" name="__codelineno-0-388"></a>
-<a href="#__codelineno-0-389" id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="w">  </span><span class="no">from ultralytics.utils.checks import check_requirements</span>
-<a href="#__codelineno-0-390" id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
-<a href="#__codelineno-0-391" id="__codelineno-0-391" name="__codelineno-0-391"></a><span class="w">  </span><span class="no">from ultralytics.utils.ops import xyxy2xywhn</span>
-<a href="#__codelineno-0-392" id="__codelineno-0-392" name="__codelineno-0-392"></a>
-<a href="#__codelineno-0-393" id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="w">  </span><span class="no">import numpy as np</span>
-<a href="#__codelineno-0-394" id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
+<a href="#__codelineno-0-389" id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="w">  </span><span class="no">import numpy as np</span>
+<a href="#__codelineno-0-390" id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="w">  </span><span class="no">from tqdm import tqdm</span>
+<a href="#__codelineno-0-391" id="__codelineno-0-391" name="__codelineno-0-391"></a>
+<a href="#__codelineno-0-392" id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="w">  </span><span class="no">from ultralytics.utils.checks import check_requirements</span>
+<a href="#__codelineno-0-393" id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
+<a href="#__codelineno-0-394" id="__codelineno-0-394" name="__codelineno-0-394"></a><span class="w">  </span><span class="no">from ultralytics.utils.ops import xyxy2xywhn</span>
 <a href="#__codelineno-0-395" id="__codelineno-0-395" name="__codelineno-0-395"></a>
-<a href="#__codelineno-0-396" id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="w">  </span><span class="no">check_requirements(('pycocotools&gt;=2.0',))</span>
+<a href="#__codelineno-0-396" id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="w">  </span><span class="no">check_requirements(("pycocotools&gt;=2.0",))</span>
 <a href="#__codelineno-0-397" id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="w">  </span><span class="no">from pycocotools.coco import COCO</span>
 <a href="#__codelineno-0-398" id="__codelineno-0-398" name="__codelineno-0-398"></a>
 <a href="#__codelineno-0-399" id="__codelineno-0-399" name="__codelineno-0-399"></a><span class="w">  </span><span class="no"># Make Directories</span>
-<a href="#__codelineno-0-400" id="__codelineno-0-400" name="__codelineno-0-400"></a><span class="w">  </span><span class="no">dir = Path(yaml['path'])  # dataset root dir</span>
-<a href="#__codelineno-0-401" id="__codelineno-0-401" name="__codelineno-0-401"></a><span class="w">  </span><span class="no">for p in 'images', 'labels':</span>
+<a href="#__codelineno-0-400" id="__codelineno-0-400" name="__codelineno-0-400"></a><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
+<a href="#__codelineno-0-401" id="__codelineno-0-401" name="__codelineno-0-401"></a><span class="w">  </span><span class="no">for p in "images", "labels":</span>
 <a href="#__codelineno-0-402" id="__codelineno-0-402" name="__codelineno-0-402"></a><span class="w">      </span><span class="no">(dir / p).mkdir(parents=True, exist_ok=True)</span>
-<a href="#__codelineno-0-403" id="__codelineno-0-403" name="__codelineno-0-403"></a><span class="w">      </span><span class="no">for q in 'train', 'val':</span>
+<a href="#__codelineno-0-403" id="__codelineno-0-403" name="__codelineno-0-403"></a><span class="w">      </span><span class="no">for q in "train", "val":</span>
 <a href="#__codelineno-0-404" id="__codelineno-0-404" name="__codelineno-0-404"></a><span class="w">          </span><span class="no">(dir / p / q).mkdir(parents=True, exist_ok=True)</span>
 <a href="#__codelineno-0-405" id="__codelineno-0-405" name="__codelineno-0-405"></a>
 <a href="#__codelineno-0-406" id="__codelineno-0-406" name="__codelineno-0-406"></a><span class="w">  </span><span class="no"># Train, Val Splits</span>
-<a href="#__codelineno-0-407" id="__codelineno-0-407" name="__codelineno-0-407"></a><span class="w">  </span><span class="no">for split, patches in [('train', 50 + 1), ('val', 43 + 1)]:</span>
+<a href="#__codelineno-0-407" id="__codelineno-0-407" name="__codelineno-0-407"></a><span class="w">  </span><span class="no">for split, patches in [("train", 50 + 1), ("val", 43 + 1)]:</span>
 <a href="#__codelineno-0-408" id="__codelineno-0-408" name="__codelineno-0-408"></a><span class="w">      </span><span class="no">print(f"Processing {split} in {patches} patches ...")</span>
-<a href="#__codelineno-0-409" id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="w">      </span><span class="no">images, labels = dir / 'images' / split, dir / 'labels' / split</span>
+<a href="#__codelineno-0-409" id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="w">      </span><span class="no">images, labels = dir / "images" / split, dir / "labels" / split</span>
 <a href="#__codelineno-0-410" id="__codelineno-0-410" name="__codelineno-0-410"></a>
 <a href="#__codelineno-0-411" id="__codelineno-0-411" name="__codelineno-0-411"></a><span class="w">      </span><span class="no"># Download</span>
 <a href="#__codelineno-0-412" id="__codelineno-0-412" name="__codelineno-0-412"></a><span class="w">      </span><span class="no">url = f"https://dorc.ks3-cn-beijing.ksyun.com/data-set/2020Objects365%E6%95%B0%E6%8D%AE%E9%9B%86/{split}/"</span>
-<a href="#__codelineno-0-413" id="__codelineno-0-413" name="__codelineno-0-413"></a><span class="w">      </span><span class="no">if split == 'train':</span>
-<a href="#__codelineno-0-414" id="__codelineno-0-414" name="__codelineno-0-414"></a><span class="w">          </span><span class="no">download([f'{url}zhiyuan_objv2_{split}.tar.gz'], dir=dir)  # annotations json</span>
-<a href="#__codelineno-0-415" id="__codelineno-0-415" name="__codelineno-0-415"></a><span class="w">          </span><span class="no">download([f'{url}patch{i}.tar.gz' for i in range(patches)], dir=images, curl=True, threads=8)</span>
-<a href="#__codelineno-0-416" id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="w">      </span><span class="no">elif split == 'val':</span>
-<a href="#__codelineno-0-417" id="__codelineno-0-417" name="__codelineno-0-417"></a><span class="w">          </span><span class="no">download([f'{url}zhiyuan_objv2_{split}.json'], dir=dir)  # annotations json</span>
-<a href="#__codelineno-0-418" id="__codelineno-0-418" name="__codelineno-0-418"></a><span class="w">          </span><span class="no">download([f'{url}images/v1/patch{i}.tar.gz' for i in range(15 + 1)], dir=images, curl=True, threads=8)</span>
-<a href="#__codelineno-0-419" id="__codelineno-0-419" name="__codelineno-0-419"></a><span class="w">          </span><span class="no">download([f'{url}images/v2/patch{i}.tar.gz' for i in range(16, patches)], dir=images, curl=True, threads=8)</span>
+<a href="#__codelineno-0-413" id="__codelineno-0-413" name="__codelineno-0-413"></a><span class="w">      </span><span class="no">if split == "train":</span>
+<a href="#__codelineno-0-414" id="__codelineno-0-414" name="__codelineno-0-414"></a><span class="w">          </span><span class="no">download([f"{url}zhiyuan_objv2_{split}.tar.gz"], dir=dir)  # annotations json</span>
+<a href="#__codelineno-0-415" id="__codelineno-0-415" name="__codelineno-0-415"></a><span class="w">          </span><span class="no">download([f"{url}patch{i}.tar.gz" for i in range(patches)], dir=images, curl=True, threads=8)</span>
+<a href="#__codelineno-0-416" id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="w">      </span><span class="no">elif split == "val":</span>
+<a href="#__codelineno-0-417" id="__codelineno-0-417" name="__codelineno-0-417"></a><span class="w">          </span><span class="no">download([f"{url}zhiyuan_objv2_{split}.json"], dir=dir)  # annotations json</span>
+<a href="#__codelineno-0-418" id="__codelineno-0-418" name="__codelineno-0-418"></a><span class="w">          </span><span class="no">download([f"{url}images/v1/patch{i}.tar.gz" for i in range(15 + 1)], dir=images, curl=True, threads=8)</span>
+<a href="#__codelineno-0-419" id="__codelineno-0-419" name="__codelineno-0-419"></a><span class="w">          </span><span class="no">download([f"{url}images/v2/patch{i}.tar.gz" for i in range(16, patches)], dir=images, curl=True, threads=8)</span>
 <a href="#__codelineno-0-420" id="__codelineno-0-420" name="__codelineno-0-420"></a>
 <a href="#__codelineno-0-421" id="__codelineno-0-421" name="__codelineno-0-421"></a><span class="w">      </span><span class="no"># Move</span>
-<a href="#__codelineno-0-422" id="__codelineno-0-422" name="__codelineno-0-422"></a><span class="w">      </span><span class="no">for f in tqdm(images.rglob('*.jpg'), desc=f'Moving {split} images'):</span>
+<a href="#__codelineno-0-422" id="__codelineno-0-422" name="__codelineno-0-422"></a><span class="w">      </span><span class="no">for f in tqdm(images.rglob("*.jpg"), desc=f"Moving {split} images"):</span>
 <a href="#__codelineno-0-423" id="__codelineno-0-423" name="__codelineno-0-423"></a><span class="w">          </span><span class="no">f.rename(images / f.name)  # move to /images/{split}</span>
 <a href="#__codelineno-0-424" id="__codelineno-0-424" name="__codelineno-0-424"></a>
 <a href="#__codelineno-0-425" id="__codelineno-0-425" name="__codelineno-0-425"></a><span class="w">      </span><span class="no"># Labels</span>
-<a href="#__codelineno-0-426" id="__codelineno-0-426" name="__codelineno-0-426"></a><span class="w">      </span><span class="no">coco = COCO(dir / f'zhiyuan_objv2_{split}.json')</span>
+<a href="#__codelineno-0-426" id="__codelineno-0-426" name="__codelineno-0-426"></a><span class="w">      </span><span class="no">coco = COCO(dir / f"zhiyuan_objv2_{split}.json")</span>
 <a href="#__codelineno-0-427" id="__codelineno-0-427" name="__codelineno-0-427"></a><span class="w">      </span><span class="no">names = [x["name"] for x in coco.loadCats(coco.getCatIds())]</span>
 <a href="#__codelineno-0-428" id="__codelineno-0-428" name="__codelineno-0-428"></a><span class="w">      </span><span class="no">for cid, cat in enumerate(names):</span>
 <a href="#__codelineno-0-429" id="__codelineno-0-429" name="__codelineno-0-429"></a><span class="w">          </span><span class="no">catIds = coco.getCatIds(catNms=[cat])</span>
 <a href="#__codelineno-0-430" id="__codelineno-0-430" name="__codelineno-0-430"></a><span class="w">          </span><span class="no">imgIds = coco.getImgIds(catIds=catIds)</span>
-<a href="#__codelineno-0-431" id="__codelineno-0-431" name="__codelineno-0-431"></a><span class="w">          </span><span class="no">for im in tqdm(coco.loadImgs(imgIds), desc=f'Class {cid + 1}/{len(names)} {cat}'):</span>
+<a href="#__codelineno-0-431" id="__codelineno-0-431" name="__codelineno-0-431"></a><span class="w">          </span><span class="no">for im in tqdm(coco.loadImgs(imgIds), desc=f"Class {cid + 1}/{len(names)} {cat}"):</span>
 <a href="#__codelineno-0-432" id="__codelineno-0-432" name="__codelineno-0-432"></a><span class="w">              </span><span class="no">width, height = im["width"], im["height"]</span>
 <a href="#__codelineno-0-433" id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="w">              </span><span class="no">path = Path(im["file_name"])  # image filename</span>
 <a href="#__codelineno-0-434" id="__codelineno-0-434" name="__codelineno-0-434"></a><span class="w">              </span><span class="no">try:</span>
-<a href="#__codelineno-0-435" id="__codelineno-0-435" name="__codelineno-0-435"></a><span class="w">                  </span><span class="no">with open(labels / path.with_suffix('.txt').name, "a", encoding="utf-8") as file:</span>
+<a href="#__codelineno-0-435" id="__codelineno-0-435" name="__codelineno-0-435"></a><span class="w">                  </span><span class="no">with open(labels / path.with_suffix(".txt").name, "a", encoding="utf-8") as file:</span>
 <a href="#__codelineno-0-436" id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="w">                      </span><span class="no">annIds = coco.getAnnIds(imgIds=im["id"], catIds=catIds, iscrowd=None)</span>
 <a href="#__codelineno-0-437" id="__codelineno-0-437" name="__codelineno-0-437"></a><span class="w">                      </span><span class="no">for a in coco.loadAnns(annIds):</span>
-<a href="#__codelineno-0-438" id="__codelineno-0-438" name="__codelineno-0-438"></a><span class="w">                          </span><span class="no">x, y, w, h = a['bbox']  # bounding box in xywh (xy top-left corner)</span>
+<a href="#__codelineno-0-438" id="__codelineno-0-438" name="__codelineno-0-438"></a><span class="w">                          </span><span class="no">x, y, w, h = a["bbox"]  # bounding box in xywh (xy top-left corner)</span>
 <a href="#__codelineno-0-439" id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="w">                          </span><span class="no">xyxy = np.array([x, y, x + w, y + h])[None]  # pixels(1,4)</span>
 <a href="#__codelineno-0-440" id="__codelineno-0-440" name="__codelineno-0-440"></a><span class="w">                          </span><span class="no">x, y, w, h = xyxy2xywhn(xyxy, w=width, h=height, clip=True)[0]  # normalized and clipped</span>
 <a href="#__codelineno-0-441" id="__codelineno-0-441" name="__codelineno-0-441"></a><span class="w">                          </span><span class="no">file.write(f"{cid} {x:.5f} {y:.5f} {w:.5f} {h:.5f}\n")</span>

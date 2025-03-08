@@ -971,43 +971,47 @@
 <a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>
 <a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
 <a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">  </span><span class="no">def visdrone2yolo(dir):</span>
-<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">      </span><span class="no">from PIL import Image</span>
-<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">      </span><span class="no">from tqdm import tqdm</span>
-<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>
-<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">      </span><span class="no">def convert_box(size, box):</span>
-<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">          </span><span class="no"># Convert VisDrone box to YOLO xywh box</span>
-<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">          </span><span class="no">dw = 1. / size[0]</span>
-<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">          </span><span class="no">dh = 1. / size[1]</span>
-<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">          </span><span class="no">return (box[0] + box[2] / 2) * dw, (box[1] + box[3] / 2) * dh, box[2] * dw, box[3] * dh</span>
-<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">      </span><span class="no">(dir / 'labels').mkdir(parents=True, exist_ok=True)  # make labels directory</span>
-<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">      </span><span class="no">pbar = tqdm((dir / 'annotations').glob('*.txt'), desc=f'Converting {dir}')</span>
-<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">      </span><span class="no">for f in pbar:</span>
-<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">          </span><span class="no">img_size = Image.open((dir / 'images' / f.name).with_suffix('.jpg')).size</span>
-<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">          </span><span class="no">lines = []</span>
-<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">          </span><span class="no">with open(f, "r", encoding="utf-8") as file:  # read annotation.txt</span>
-<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">              </span><span class="no">for row in [x.split(',') for x in file.read().strip().splitlines()]:</span>
-<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">                  </span><span class="no">if row[4] == '0':  # VisDrone 'ignored regions' class 0</span>
-<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">                      </span><span class="no">continue</span>
-<a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">                  </span><span class="no">cls = int(row[5]) - 1</span>
-<a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">                  </span><span class="no">box = convert_box(img_size, tuple(map(int, row[:4])))</span>
-<a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">                  </span><span class="no">lines.append(f"{cls} {' '.join(f'{x:.6f}' for x in box)}\n")</span>
-<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">                  </span><span class="no">with open(str(f).replace(f'{os.sep}annotations{os.sep}', f'{os.sep}labels{os.sep}'), "w", encoding="utf-8") as fl:</span>
-<a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">                      </span><span class="no">fl.writelines(lines)  # write label.txt</span>
-<a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a>
-<a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">  </span><span class="no"># Download</span>
-<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">  </span><span class="no">dir = Path(yaml['path'])  # dataset root dir</span>
-<a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">  </span><span class="no">urls = ['https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-train.zip',</span>
-<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">          </span><span class="no">'https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-val.zip',</span>
-<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">          </span><span class="no">'https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-test-dev.zip',</span>
-<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">          </span><span class="no">'https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-test-challenge.zip']</span>
-<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">  </span><span class="no">download(urls, dir=dir, curl=True, threads=4)</span>
-<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a>
-<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">  </span><span class="no"># Convert</span>
-<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">  </span><span class="no">for d in 'VisDrone2019-DET-train', 'VisDrone2019-DET-val', 'VisDrone2019-DET-test-dev':</span>
-<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">      </span><span class="no">visdrone2yolo(dir / d)  # convert VisDrone annotations to YOLO labels</span>
+<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a>
+<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">  </span><span class="no">def visdrone2yolo(dir):</span>
+<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">      </span><span class="no">"""Convert VisDrone annotations to YOLO format, creating label files with normalized bounding box coordinates."""</span>
+<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">      </span><span class="no">from PIL import Image</span>
+<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">      </span><span class="no">from tqdm import tqdm</span>
+<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">      </span><span class="no">def convert_box(size, box):</span>
+<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">          </span><span class="no"># Convert VisDrone box to YOLO xywh box</span>
+<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">          </span><span class="no">dw = 1.0 / size[0]</span>
+<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">          </span><span class="no">dh = 1.0 / size[1]</span>
+<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">          </span><span class="no">return (box[0] + box[2] / 2) * dw, (box[1] + box[3] / 2) * dh, box[2] * dw, box[3] * dh</span>
+<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a>
+<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">      </span><span class="no">(dir / "labels").mkdir(parents=True, exist_ok=True)  # make labels directory</span>
+<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">      </span><span class="no">pbar = tqdm((dir / "annotations").glob("*.txt"), desc=f"Converting {dir}")</span>
+<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">      </span><span class="no">for f in pbar:</span>
+<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">          </span><span class="no">img_size = Image.open((dir / "images" / f.name).with_suffix(".jpg")).size</span>
+<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">          </span><span class="no">lines = []</span>
+<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">          </span><span class="no">with open(f, encoding="utf-8") as file:  # read annotation.txt</span>
+<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">              </span><span class="no">for row in [x.split(",") for x in file.read().strip().splitlines()]:</span>
+<a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">                  </span><span class="no">if row[4] == "0":  # VisDrone 'ignored regions' class 0</span>
+<a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">                      </span><span class="no">continue</span>
+<a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">                  </span><span class="no">cls = int(row[5]) - 1</span>
+<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">                  </span><span class="no">box = convert_box(img_size, tuple(map(int, row[:4])))</span>
+<a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">                  </span><span class="no">lines.append(f"{cls} {' '.join(f'{x:.6f}' for x in box)}\n")</span>
+<a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">                  </span><span class="no">with open(str(f).replace(f"{os.sep}annotations{os.sep}", f"{os.sep}labels{os.sep}"), "w", encoding="utf-8") as fl:</span>
+<a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">                      </span><span class="no">fl.writelines(lines)  # write label.txt</span>
+<a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a>
+<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a>
+<a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">  </span><span class="no"># Download</span>
+<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
+<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">  </span><span class="no">urls = [</span>
+<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-train.zip",</span>
+<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-val.zip",</span>
+<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-test-dev.zip",</span>
+<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-test-challenge.zip",</span>
+<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">  </span><span class="no">]</span>
+<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">  </span><span class="no">download(urls, dir=dir, curl=True, threads=4)</span>
+<a href="#__codelineno-0-74" id="__codelineno-0-74" name="__codelineno-0-74"></a>
+<a href="#__codelineno-0-75" id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="w">  </span><span class="no"># Convert</span>
+<a href="#__codelineno-0-76" id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="w">  </span><span class="no">for d in "VisDrone2019-DET-train", "VisDrone2019-DET-val", "VisDrone2019-DET-test-dev":</span>
+<a href="#__codelineno-0-77" id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="w">      </span><span class="no">visdrone2yolo(dir / d)  # convert VisDrone annotations to YOLO labels</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>
