@@ -1044,7 +1044,7 @@
 <a href="#__codelineno-0-94" id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="w">  </span><span class="no">def convert_labels(fname=Path('xView/xView_train.geojson')):</span>
 <a href="#__codelineno-0-95" id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">      </span><span class="no"># Convert xView geoJSON labels to YOLO format</span>
 <a href="#__codelineno-0-96" id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="w">      </span><span class="no">path = fname.parent</span>
-<a href="#__codelineno-0-97" id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">      </span><span class="no">with open(fname) as f:</span>
+<a href="#__codelineno-0-97" id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">      </span><span class="no">with open(fname, encoding="utf-8") as f:</span>
 <a href="#__codelineno-0-98" id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="w">          </span><span class="no">print(f'Loading {fname}...')</span>
 <a href="#__codelineno-0-99" id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="w">          </span><span class="no">data = json.load(f)</span>
 <a href="#__codelineno-0-100" id="__codelineno-0-100" name="__codelineno-0-100"></a>
@@ -1077,7 +1077,7 @@
 <a href="#__codelineno-0-127" id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="w">                      </span><span class="no">if id not in shapes:</span>
 <a href="#__codelineno-0-128" id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="w">                          </span><span class="no">shapes[id] = Image.open(file).size</span>
 <a href="#__codelineno-0-129" id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="w">                      </span><span class="no">box = xyxy2xywhn(box[None].astype(np.float), w=shapes[id][0], h=shapes[id][1], clip=True)</span>
-<a href="#__codelineno-0-130" id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="w">                      </span><span class="no">with open((labels / id).with_suffix('.txt'), 'a') as f:</span>
+<a href="#__codelineno-0-130" id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="w">                      </span><span class="no">with open((labels / id).with_suffix('.txt'), "a", encoding="utf-8") as f:</span>
 <a href="#__codelineno-0-131" id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="w">                          </span><span class="no">f.write(f"{cls} {' '.join(f'{x:.6f}' for x in box[0])}\n")  # write label.txt</span>
 <a href="#__codelineno-0-132" id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="w">                  </span><span class="no">except Exception as e:</span>
 <a href="#__codelineno-0-133" id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="w">                      </span><span class="no">print(f'WARNING: skipping one label for {file}: {e}')</span>

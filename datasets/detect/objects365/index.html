@@ -1379,7 +1379,7 @@
 <a href="#__codelineno-0-432" id="__codelineno-0-432" name="__codelineno-0-432"></a><span class="w">              </span><span class="no">width, height = im["width"], im["height"]</span>
 <a href="#__codelineno-0-433" id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="w">              </span><span class="no">path = Path(im["file_name"])  # image filename</span>
 <a href="#__codelineno-0-434" id="__codelineno-0-434" name="__codelineno-0-434"></a><span class="w">              </span><span class="no">try:</span>
-<a href="#__codelineno-0-435" id="__codelineno-0-435" name="__codelineno-0-435"></a><span class="w">                  </span><span class="no">with open(labels / path.with_suffix('.txt').name, 'a') as file:</span>
+<a href="#__codelineno-0-435" id="__codelineno-0-435" name="__codelineno-0-435"></a><span class="w">                  </span><span class="no">with open(labels / path.with_suffix('.txt').name, "a", encoding="utf-8") as file:</span>
 <a href="#__codelineno-0-436" id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="w">                      </span><span class="no">annIds = coco.getAnnIds(imgIds=im["id"], catIds=catIds, iscrowd=None)</span>
 <a href="#__codelineno-0-437" id="__codelineno-0-437" name="__codelineno-0-437"></a><span class="w">                      </span><span class="no">for a in coco.loadAnns(annIds):</span>
 <a href="#__codelineno-0-438" id="__codelineno-0-438" name="__codelineno-0-438"></a><span class="w">                          </span><span class="no">x, y, w, h = a['bbox']  # bounding box in xywh (xy top-left corner)</span>

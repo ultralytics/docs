@@ -986,14 +986,14 @@
 <a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">      </span><span class="no">for f in pbar:</span>
 <a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">          </span><span class="no">img_size = Image.open((dir / 'images' / f.name).with_suffix('.jpg')).size</span>
 <a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">          </span><span class="no">lines = []</span>
-<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">          </span><span class="no">with open(f, 'r') as file:  # read annotation.txt</span>
+<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">          </span><span class="no">with open(f, "r", encoding="utf-8") as file:  # read annotation.txt</span>
 <a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">              </span><span class="no">for row in [x.split(',') for x in file.read().strip().splitlines()]:</span>
 <a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">                  </span><span class="no">if row[4] == '0':  # VisDrone 'ignored regions' class 0</span>
 <a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">                      </span><span class="no">continue</span>
 <a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">                  </span><span class="no">cls = int(row[5]) - 1</span>
 <a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">                  </span><span class="no">box = convert_box(img_size, tuple(map(int, row[:4])))</span>
 <a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">                  </span><span class="no">lines.append(f"{cls} {' '.join(f'{x:.6f}' for x in box)}\n")</span>
-<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">                  </span><span class="no">with open(str(f).replace(f'{os.sep}annotations{os.sep}', f'{os.sep}labels{os.sep}'), 'w') as fl:</span>
+<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">                  </span><span class="no">with open(str(f).replace(f'{os.sep}annotations{os.sep}', f'{os.sep}labels{os.sep}'), "w", encoding="utf-8") as fl:</span>
 <a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">                      </span><span class="no">fl.writelines(lines)  # write label.txt</span>
 <a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a>
 <a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a>
