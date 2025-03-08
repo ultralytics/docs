@@ -3376,7 +3376,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 <a id="__codelineno-0-580" name="__codelineno-0-580"></a>    <span class="p">)</span>
 <a id="__codelineno-0-581" name="__codelineno-0-581"></a>
 <a id="__codelineno-0-582" name="__codelineno-0-582"></a>    <span class="c1"># Divide coordinates by stride</span>
-<a id="__codelineno-0-583" name="__codelineno-0-583"></a>    <span class="n">selected_keypoints</span> <span class="o">/=</span> <span class="n">stride_tensor</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-583" name="__codelineno-0-583"></a>    <span class="n">selected_keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">/=</span> <span class="n">stride_tensor</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-0-584" name="__codelineno-0-584"></a>
 <a id="__codelineno-0-585" name="__codelineno-0-585"></a>    <span class="n">kpts_loss</span> <span class="o">=</span> <span class="mi">0</span>
 <a id="__codelineno-0-586" name="__codelineno-0-586"></a>    <span class="n">kpts_obj_loss</span> <span class="o">=</span> <span class="mi">0</span>
