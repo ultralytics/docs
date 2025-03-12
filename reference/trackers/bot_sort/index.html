@@ -1348,7 +1348,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.bot_sort.BOTrack.predict" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;predict&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.bot_sort.BOTrack.predict&lt;/code&gt;)'>predict</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Predicts the mean and covariance using Kalman filter.</p>
+<p>Predict the mean and covariance using Kalman filter.</p>
 </div>
 </td>
 </tr>
@@ -1356,7 +1356,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.bot_sort.BOTrack.re_activate" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;re_activate&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.bot_sort.BOTrack.re_activate&lt;/code&gt;)'>re_activate</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Reactivates a track with updated features and optionally new ID.</p>
+<p>Reactivate a track with updated features and optionally new ID.</p>
 </div>
 </td>
 </tr>
@@ -1364,7 +1364,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.bot_sort.BOTrack.update" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;update&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.bot_sort.BOTrack.update&lt;/code&gt;)'>update</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Update the YOLOv8 instance with new track and frame ID.</p>
+<p>Update the track with new detection and frame ID.</p>
 </div>
 </td>
 </tr>
@@ -1386,7 +1386,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
   &lt;/span&gt; (&lt;code&gt;ultralytics.trackers.bot_sort.BOTrack.multi_predict&lt;/code&gt;)'>multi_predict</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Predicts the mean and covariance of multiple object tracks using shared Kalman filter.</p>
+<p>Predict the mean and covariance of multiple object tracks using shared Kalman filter.</p>
 </div>
 </td>
 </tr>
@@ -1394,7 +1394,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.bot_sort.BOTrack.convert_coords" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;convert_coords&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.bot_sort.BOTrack.convert_coords&lt;/code&gt;)'>convert_coords</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Converts tlwh bounding box coordinates to xywh format.</p>
+<p>Convert tlwh bounding box coordinates to xywh format.</p>
 </div>
 </td>
 </tr>
@@ -1587,7 +1587,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">tlwh</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the current bounding box position in <code>(top left x, top left y, width, height)</code> format.</p>
+<p>Return the current bounding box position in <code>(top left x, top left y, width, height)</code> format.</p>
 </div>
 </div>
 <div class="doc doc-object doc-function">
@@ -1597,13 +1597,13 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">convert_coords</span><span class="p">(</span><span class="n">tlwh</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Converts tlwh bounding box coordinates to xywh format.</p>
+<p>Convert tlwh bounding box coordinates to xywh format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-135">135</a></span>
 <span class="normal"><a href="#__codelineno-0-136">136</a></span>
 <span class="normal"><a href="#__codelineno-0-137">137</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="k">def</span><span class="w"> </span><span class="nf">convert_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tlwh</span><span class="p">):</span>
-<a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="w">    </span><span class="sd">"""Converts tlwh bounding box coordinates to xywh format."""</span>
+<a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="w">    </span><span class="sd">"""Convert tlwh bounding box coordinates to xywh format."""</span>
 <a id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tlwh_to_xywh</span><span class="p">(</span><span class="n">tlwh</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1619,7 +1619,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">multi_predict</span><span class="p">(</span><span class="n">stracks</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Predicts the mean and covariance for multiple object tracks using a shared Kalman filter.</p>
+<p>Predict the mean and covariance for multiple object tracks using a shared Kalman filter.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-119">119</a></span>
@@ -1638,7 +1638,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <span class="normal"><a href="#__codelineno-0-132">132</a></span>
 <span class="normal"><a href="#__codelineno-0-133">133</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="nd">@staticmethod</span>
 <a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="n">stracks</span><span class="p">):</span>
-<a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="w">    </span><span class="sd">"""Predicts the mean and covariance for multiple object tracks using a shared Kalman filter."""</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="w">    </span><span class="sd">"""Predict the mean and covariance for multiple object tracks using a shared Kalman filter."""</span>
 <a id="__codelineno-0-122" name="__codelineno-0-122"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stracks</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
 <a id="__codelineno-0-123" name="__codelineno-0-123"></a>        <span class="k">return</span>
 <a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="n">multi_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">st</span><span class="o">.</span><span class="n">mean</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">st</span> <span class="ow">in</span> <span class="n">stracks</span><span class="p">])</span>
@@ -1662,7 +1662,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">predict</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Predicts the object's future state using the Kalman filter to update its mean and covariance.</p>
+<p>Predict the object's future state using the Kalman filter to update its mean and covariance.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-89">89</a></span>
@@ -1673,7 +1673,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <span class="normal"><a href="#__codelineno-0-94">94</a></span>
 <span class="normal"><a href="#__codelineno-0-95">95</a></span>
 <span class="normal"><a href="#__codelineno-0-96">96</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">    </span><span class="sd">"""Predicts the object's future state using the Kalman filter to update its mean and covariance."""</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">    </span><span class="sd">"""Predict the object's future state using the Kalman filter to update its mean and covariance."""</span>
 <a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="n">mean_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">TrackState</span><span class="o">.</span><span class="n">Tracked</span><span class="p">:</span>
 <a id="__codelineno-0-93" name="__codelineno-0-93"></a>        <span class="n">mean_state</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1691,7 +1691,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">re_activate</span><span class="p">(</span><span class="n">new_track</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">,</span> <span class="n">new_id</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Reactivates a track with updated features and optionally assigns a new ID.</p>
+<p>Reactivate a track with updated features and optionally assign a new ID.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
@@ -1699,7 +1699,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <span class="normal"><a href="#__codelineno-0-100">100</a></span>
 <span class="normal"><a href="#__codelineno-0-101">101</a></span>
 <span class="normal"><a href="#__codelineno-0-102">102</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="k">def</span><span class="w"> </span><span class="nf">re_activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_track</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">,</span> <span class="n">new_id</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="w">    </span><span class="sd">"""Reactivates a track with updated features and optionally assigns a new ID."""</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="w">    </span><span class="sd">"""Reactivate a track with updated features and optionally assign a new ID."""</span>
 <a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="k">if</span> <span class="n">new_track</span><span class="o">.</span><span class="n">curr_feat</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">update_features</span><span class="p">(</span><span class="n">new_track</span><span class="o">.</span><span class="n">curr_feat</span><span class="p">)</span>
 <a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">re_activate</span><span class="p">(</span><span class="n">new_track</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">,</span> <span class="n">new_id</span><span class="p">)</span>
@@ -1742,7 +1742,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">update</span><span class="p">(</span><span class="n">new_track</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Updates the YOLOv8 instance with new track information and the current frame ID.</p>
+<p>Update the track with new detection information and the current frame ID.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-104">104</a></span>
@@ -1750,7 +1750,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <span class="normal"><a href="#__codelineno-0-106">106</a></span>
 <span class="normal"><a href="#__codelineno-0-107">107</a></span>
 <span class="normal"><a href="#__codelineno-0-108">108</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_track</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">):</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="w">    </span><span class="sd">"""Updates the YOLOv8 instance with new track information and the current frame ID."""</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="w">    </span><span class="sd">"""Update the track with new detection information and the current frame ID."""</span>
 <a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="k">if</span> <span class="n">new_track</span><span class="o">.</span><span class="n">curr_feat</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-107" name="__codelineno-0-107"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">update_features</span><span class="p">(</span><span class="n">new_track</span><span class="o">.</span><span class="n">curr_feat</span><span class="p">)</span>
 <a id="__codelineno-0-108" name="__codelineno-0-108"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new_track</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">)</span>
@@ -1884,7 +1884,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.bot_sort.BOTSORT.get_kalmanfilter" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_kalmanfilter&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.bot_sort.BOTSORT.get_kalmanfilter&lt;/code&gt;)'>get_kalmanfilter</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns an instance of KalmanFilterXYWH for object tracking.</p>
+<p>Return an instance of KalmanFilterXYWH for object tracking.</p>
 </div>
 </td>
 </tr>
@@ -1909,6 +1909,14 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <td>
 <div class="doc-md-description">
 <p>Predict and track multiple objects with YOLOv8 model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.bot_sort.BOTSORT.reset" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;reset&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.bot_sort.BOTSORT.reset&lt;/code&gt;)'>reset</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Reset the BOTSORT tracker to its initial state.</p>
 </div>
 </td>
 </tr>
@@ -1976,8 +1984,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-174">174</a></span>
-<span class="normal"><a href="#__codelineno-0-175">175</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-175">175</a></span>
 <span class="normal"><a href="#__codelineno-0-176">176</a></span>
 <span class="normal"><a href="#__codelineno-0-177">177</a></span>
 <span class="normal"><a href="#__codelineno-0-178">178</a></span>
@@ -1997,28 +2004,29 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <span class="normal"><a href="#__codelineno-0-192">192</a></span>
 <span class="normal"><a href="#__codelineno-0-193">193</a></span>
 <span class="normal"><a href="#__codelineno-0-194">194</a></span>
-<span class="normal"><a href="#__codelineno-0-195">195</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-174" name="__codelineno-0-174"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">frame_rate</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
-<a id="__codelineno-0-175" name="__codelineno-0-175"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-176" name="__codelineno-0-176"></a><span class="sd">    Initialize YOLOv8 object with ReID module and GMC algorithm.</span>
-<a id="__codelineno-0-177" name="__codelineno-0-177"></a>
-<a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-179" name="__codelineno-0-179"></a><span class="sd">        args (object): Parsed command-line arguments containing tracking parameters.</span>
-<a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">        frame_rate (int): Frame rate of the video being processed.</span>
-<a id="__codelineno-0-181" name="__codelineno-0-181"></a>
-<a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="sd">        Initialize BOTSORT with command-line arguments and a specified frame rate:</span>
-<a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">        &gt;&gt;&gt; args = parse_args()</span>
-<a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="sd">        &gt;&gt;&gt; bot_sort = BOTSORT(args, frame_rate=30)</span>
-<a id="__codelineno-0-186" name="__codelineno-0-186"></a><span class="sd">    """</span>
-<a id="__codelineno-0-187" name="__codelineno-0-187"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">frame_rate</span><span class="p">)</span>
-<a id="__codelineno-0-188" name="__codelineno-0-188"></a>    <span class="c1"># ReID module</span>
-<a id="__codelineno-0-189" name="__codelineno-0-189"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">proximity_thresh</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">proximity_thresh</span>
-<a id="__codelineno-0-190" name="__codelineno-0-190"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">appearance_thresh</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">appearance_thresh</span>
-<a id="__codelineno-0-191" name="__codelineno-0-191"></a>
-<a id="__codelineno-0-192" name="__codelineno-0-192"></a>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">with_reid</span><span class="p">:</span>
-<a id="__codelineno-0-193" name="__codelineno-0-193"></a>        <span class="c1"># Haven't supported BoT-SORT(reid) yet</span>
-<a id="__codelineno-0-194" name="__codelineno-0-194"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-195" name="__codelineno-0-195"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">gmc</span> <span class="o">=</span> <span class="n">GMC</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">gmc_method</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-195">195</a></span>
+<span class="normal"><a href="#__codelineno-0-196">196</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-175" name="__codelineno-0-175"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">frame_rate</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<a id="__codelineno-0-176" name="__codelineno-0-176"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="sd">    Initialize BOTSORT object with ReID module and GMC algorithm.</span>
+<a id="__codelineno-0-178" name="__codelineno-0-178"></a>
+<a id="__codelineno-0-179" name="__codelineno-0-179"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">        args (object): Parsed command-line arguments containing tracking parameters.</span>
+<a id="__codelineno-0-181" name="__codelineno-0-181"></a><span class="sd">        frame_rate (int): Frame rate of the video being processed.</span>
+<a id="__codelineno-0-182" name="__codelineno-0-182"></a>
+<a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">        Initialize BOTSORT with command-line arguments and a specified frame rate:</span>
+<a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="sd">        &gt;&gt;&gt; args = parse_args()</span>
+<a id="__codelineno-0-186" name="__codelineno-0-186"></a><span class="sd">        &gt;&gt;&gt; bot_sort = BOTSORT(args, frame_rate=30)</span>
+<a id="__codelineno-0-187" name="__codelineno-0-187"></a><span class="sd">    """</span>
+<a id="__codelineno-0-188" name="__codelineno-0-188"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">frame_rate</span><span class="p">)</span>
+<a id="__codelineno-0-189" name="__codelineno-0-189"></a>    <span class="c1"># ReID module</span>
+<a id="__codelineno-0-190" name="__codelineno-0-190"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">proximity_thresh</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">proximity_thresh</span>
+<a id="__codelineno-0-191" name="__codelineno-0-191"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">appearance_thresh</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">appearance_thresh</span>
+<a id="__codelineno-0-192" name="__codelineno-0-192"></a>
+<a id="__codelineno-0-193" name="__codelineno-0-193"></a>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">with_reid</span><span class="p">:</span>
+<a id="__codelineno-0-194" name="__codelineno-0-194"></a>        <span class="c1"># Haven't supported BoT-SORT(reid) yet</span>
+<a id="__codelineno-0-195" name="__codelineno-0-195"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-196" name="__codelineno-0-196"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">gmc</span> <span class="o">=</span> <span class="n">GMC</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">gmc_method</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2029,11 +2037,10 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">get_dists</span><span class="p">(</span><span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Calculates distances between tracks and detections using IoU and optionally ReID embeddings.</p>
+<p>Calculate distances between tracks and detections using IoU and optionally ReID embeddings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-211">211</a></span>
-<span class="normal"><a href="#__codelineno-0-212">212</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-212">212</a></span>
 <span class="normal"><a href="#__codelineno-0-213">213</a></span>
 <span class="normal"><a href="#__codelineno-0-214">214</a></span>
 <span class="normal"><a href="#__codelineno-0-215">215</a></span>
@@ -2045,20 +2052,21 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <span class="normal"><a href="#__codelineno-0-221">221</a></span>
 <span class="normal"><a href="#__codelineno-0-222">222</a></span>
 <span class="normal"><a href="#__codelineno-0-223">223</a></span>
-<span class="normal"><a href="#__codelineno-0-224">224</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-211" name="__codelineno-0-211"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_dists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">):</span>
-<a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="w">    </span><span class="sd">"""Calculates distances between tracks and detections using IoU and optionally ReID embeddings."""</span>
-<a id="__codelineno-0-213" name="__codelineno-0-213"></a>    <span class="n">dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">iou_distance</span><span class="p">(</span><span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span>
-<a id="__codelineno-0-214" name="__codelineno-0-214"></a>    <span class="n">dists_mask</span> <span class="o">=</span> <span class="n">dists</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">proximity_thresh</span>
-<a id="__codelineno-0-215" name="__codelineno-0-215"></a>
-<a id="__codelineno-0-216" name="__codelineno-0-216"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">fuse_score</span><span class="p">:</span>
-<a id="__codelineno-0-217" name="__codelineno-0-217"></a>        <span class="n">dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">fuse_score</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span>
-<a id="__codelineno-0-218" name="__codelineno-0-218"></a>
-<a id="__codelineno-0-219" name="__codelineno-0-219"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">with_reid</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-220" name="__codelineno-0-220"></a>        <span class="n">emb_dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">embedding_distance</span><span class="p">(</span><span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
-<a id="__codelineno-0-221" name="__codelineno-0-221"></a>        <span class="n">emb_dists</span><span class="p">[</span><span class="n">emb_dists</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">appearance_thresh</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-<a id="__codelineno-0-222" name="__codelineno-0-222"></a>        <span class="n">emb_dists</span><span class="p">[</span><span class="n">dists_mask</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-<a id="__codelineno-0-223" name="__codelineno-0-223"></a>        <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span> <span class="n">emb_dists</span><span class="p">)</span>
-<a id="__codelineno-0-224" name="__codelineno-0-224"></a>    <span class="k">return</span> <span class="n">dists</span>
+<span class="normal"><a href="#__codelineno-0-224">224</a></span>
+<span class="normal"><a href="#__codelineno-0-225">225</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_dists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">):</span>
+<a id="__codelineno-0-213" name="__codelineno-0-213"></a><span class="w">    </span><span class="sd">"""Calculate distances between tracks and detections using IoU and optionally ReID embeddings."""</span>
+<a id="__codelineno-0-214" name="__codelineno-0-214"></a>    <span class="n">dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">iou_distance</span><span class="p">(</span><span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span>
+<a id="__codelineno-0-215" name="__codelineno-0-215"></a>    <span class="n">dists_mask</span> <span class="o">=</span> <span class="n">dists</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">proximity_thresh</span>
+<a id="__codelineno-0-216" name="__codelineno-0-216"></a>
+<a id="__codelineno-0-217" name="__codelineno-0-217"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">fuse_score</span><span class="p">:</span>
+<a id="__codelineno-0-218" name="__codelineno-0-218"></a>        <span class="n">dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">fuse_score</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span>
+<a id="__codelineno-0-219" name="__codelineno-0-219"></a>
+<a id="__codelineno-0-220" name="__codelineno-0-220"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">with_reid</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-221" name="__codelineno-0-221"></a>        <span class="n">emb_dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">embedding_distance</span><span class="p">(</span><span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
+<a id="__codelineno-0-222" name="__codelineno-0-222"></a>        <span class="n">emb_dists</span><span class="p">[</span><span class="n">emb_dists</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">appearance_thresh</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a>        <span class="n">emb_dists</span><span class="p">[</span><span class="n">dists_mask</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<a id="__codelineno-0-224" name="__codelineno-0-224"></a>        <span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">dists</span><span class="p">,</span> <span class="n">emb_dists</span><span class="p">)</span>
+<a id="__codelineno-0-225" name="__codelineno-0-225"></a>    <span class="k">return</span> <span class="n">dists</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2070,14 +2078,14 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">get_kalmanfilter</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns an instance of KalmanFilterXYWH for predicting and updating object states in the tracking process.</p>
+<p>Return an instance of KalmanFilterXYWH for predicting and updating object states in the tracking process.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-197">197</a></span>
-<span class="normal"><a href="#__codelineno-0-198">198</a></span>
-<span class="normal"><a href="#__codelineno-0-199">199</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_kalmanfilter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="w">    </span><span class="sd">"""Returns an instance of KalmanFilterXYWH for predicting and updating object states in the tracking process."""</span>
-<a id="__codelineno-0-199" name="__codelineno-0-199"></a>    <span class="k">return</span> <span class="n">KalmanFilterXYWH</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-198">198</a></span>
+<span class="normal"><a href="#__codelineno-0-199">199</a></span>
+<span class="normal"><a href="#__codelineno-0-200">200</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_kalmanfilter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="w">    </span><span class="sd">"""Return an instance of KalmanFilterXYWH for predicting and updating object states in the tracking process."""</span>
+<a id="__codelineno-0-200" name="__codelineno-0-200"></a>    <span class="k">return</span> <span class="n">KalmanFilterXYWH</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2092,23 +2100,23 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <p>Initialize object tracks using detection bounding boxes, scores, class labels, and optional ReID features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-201">201</a></span>
-<span class="normal"><a href="#__codelineno-0-202">202</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-202">202</a></span>
 <span class="normal"><a href="#__codelineno-0-203">203</a></span>
 <span class="normal"><a href="#__codelineno-0-204">204</a></span>
 <span class="normal"><a href="#__codelineno-0-205">205</a></span>
 <span class="normal"><a href="#__codelineno-0-206">206</a></span>
 <span class="normal"><a href="#__codelineno-0-207">207</a></span>
 <span class="normal"><a href="#__codelineno-0-208">208</a></span>
-<span class="normal"><a href="#__codelineno-0-209">209</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="k">def</span><span class="w"> </span><span class="nf">init_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dets</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">img</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-202" name="__codelineno-0-202"></a><span class="w">    </span><span class="sd">"""Initialize object tracks using detection bounding boxes, scores, class labels, and optional ReID features."""</span>
-<a id="__codelineno-0-203" name="__codelineno-0-203"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dets</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-204" name="__codelineno-0-204"></a>        <span class="k">return</span> <span class="p">[]</span>
-<a id="__codelineno-0-205" name="__codelineno-0-205"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">with_reid</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-206" name="__codelineno-0-206"></a>        <span class="n">features_keep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">dets</span><span class="p">)</span>
-<a id="__codelineno-0-207" name="__codelineno-0-207"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">BOTrack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dets</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">features_keep</span><span class="p">)]</span>  <span class="c1"># detections</span>
-<a id="__codelineno-0-208" name="__codelineno-0-208"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-209" name="__codelineno-0-209"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">BOTrack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dets</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)]</span>  <span class="c1"># detections</span>
+<span class="normal"><a href="#__codelineno-0-209">209</a></span>
+<span class="normal"><a href="#__codelineno-0-210">210</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-202" name="__codelineno-0-202"></a><span class="k">def</span><span class="w"> </span><span class="nf">init_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dets</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">img</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a><span class="w">    </span><span class="sd">"""Initialize object tracks using detection bounding boxes, scores, class labels, and optional ReID features."""</span>
+<a id="__codelineno-0-204" name="__codelineno-0-204"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dets</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a>        <span class="k">return</span> <span class="p">[]</span>
+<a id="__codelineno-0-206" name="__codelineno-0-206"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">with_reid</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-207" name="__codelineno-0-207"></a>        <span class="n">features_keep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">dets</span><span class="p">)</span>
+<a id="__codelineno-0-208" name="__codelineno-0-208"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">BOTrack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dets</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">features_keep</span><span class="p">)]</span>  <span class="c1"># detections</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-210" name="__codelineno-0-210"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">BOTrack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dets</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)]</span>  <span class="c1"># detections</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2120,14 +2128,14 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">multi_predict</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Predicts the mean and covariance of multiple object tracks using a shared Kalman filter.</p>
+<p>Predict the mean and covariance of multiple object tracks using a shared Kalman filter.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-226">226</a></span>
-<span class="normal"><a href="#__codelineno-0-227">227</a></span>
-<span class="normal"><a href="#__codelineno-0-228">228</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-226" name="__codelineno-0-226"></a><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">):</span>
-<a id="__codelineno-0-227" name="__codelineno-0-227"></a><span class="w">    </span><span class="sd">"""Predicts the mean and covariance of multiple object tracks using a shared Kalman filter."""</span>
-<a id="__codelineno-0-228" name="__codelineno-0-228"></a>    <span class="n">BOTrack</span><span class="o">.</span><span class="n">multi_predict</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-227">227</a></span>
+<span class="normal"><a href="#__codelineno-0-228">228</a></span>
+<span class="normal"><a href="#__codelineno-0-229">229</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-227" name="__codelineno-0-227"></a><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">):</span>
+<a id="__codelineno-0-228" name="__codelineno-0-228"></a><span class="w">    </span><span class="sd">"""Predict the mean and covariance of multiple object tracks using a shared Kalman filter."""</span>
+<a id="__codelineno-0-229" name="__codelineno-0-229"></a>    <span class="n">BOTrack</span><span class="o">.</span><span class="n">multi_predict</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2139,16 +2147,16 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">reset</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Resets the BOTSORT tracker to its initial state, clearing all tracked objects and internal states.</p>
+<p>Reset the BOTSORT tracker to its initial state, clearing all tracked objects and internal states.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-230">230</a></span>
-<span class="normal"><a href="#__codelineno-0-231">231</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-231">231</a></span>
 <span class="normal"><a href="#__codelineno-0-232">232</a></span>
-<span class="normal"><a href="#__codelineno-0-233">233</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-230" name="__codelineno-0-230"></a><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="w">    </span><span class="sd">"""Resets the BOTSORT tracker to its initial state, clearing all tracked objects and internal states."""</span>
-<a id="__codelineno-0-232" name="__codelineno-0-232"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-<a id="__codelineno-0-233" name="__codelineno-0-233"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">gmc</span><span class="o">.</span><span class="n">reset_params</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-233">233</a></span>
+<span class="normal"><a href="#__codelineno-0-234">234</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="w">    </span><span class="sd">"""Reset the BOTSORT tracker to its initial state, clearing all tracked objects and internal states."""</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">gmc</span><span class="o">.</span><span class="n">reset_params</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

@@ -1079,7 +1079,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>(n, 4)</p>
+<p>Bounding boxes with shape (n, 4) in xyxy format.</p>
 </div>
 </td>
 <td>
@@ -1091,11 +1091,11 @@
 <code>image_shape</code>
 </td>
 <td>
-<code><span title="tuple">tuple</span></code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>(height, width)</p>
+<p>Image dimensions as (height, width).</p>
 </div>
 </td>
 <td>
@@ -1111,7 +1111,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>pixel threshold</p>
+<p>Pixel threshold for considering a box close to the border.</p>
 </div>
 </td>
 <td>
@@ -1130,12 +1130,12 @@
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>adjusted_boxes</code></td> <td>
+<td><code>boxes</code></td> <td>
 <code><span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>adjusted bounding boxes</p>
+<p>Adjusted bounding boxes with shape (n, 4).</p>
 </div>
 </td>
 </tr>
@@ -1168,17 +1168,17 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="sd">    Adjust bounding boxes to stick to image border if they are within a certain threshold.</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">        boxes (torch.Tensor): (n, 4)</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="sd">        image_shape (tuple): (height, width)</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">        threshold (int): pixel threshold</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">        boxes (torch.Tensor): Bounding boxes with shape (n, 4) in xyxy format.</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="sd">        image_shape (Tuple[int, int]): Image dimensions as (height, width).</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">        threshold (int): Pixel threshold for considering a box close to the border.</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">        adjusted_boxes (torch.Tensor): adjusted bounding boxes</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">       boxes (torch.Tensor): Adjusted bounding boxes with shape (n, 4).</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    """</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="c1"># Image dimensions</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">image_shape</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="c1"># Adjust boxes</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="c1"># Adjust boxes that are close to image borders</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="n">boxes</span><span class="p">[</span><span class="n">boxes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># x1</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="n">boxes</span><span class="p">[</span><span class="n">boxes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># y1</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="n">boxes</span><span class="p">[</span><span class="n">boxes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">w</span> <span class="o">-</span> <span class="n">threshold</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>  <span class="c1"># x2</span>

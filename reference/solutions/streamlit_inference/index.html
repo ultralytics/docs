@@ -1225,7 +1225,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.streamlit_inference.Inference.vid_file_name">vid_file_name</span></code></td>
 <td>
-<code><span title="Union">Union</span>[<span title="str">str</span>, <span title="int">int</span>]</code>
+<code><span title="str">str</span> | <span title="int">int</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1360,7 +1360,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span class="normal"><a href="#__codelineno-0-72">72</a></span>
 <span class="normal"><a href="#__codelineno-0-73">73</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    Initializes the Inference class, checking Streamlit requirements and setting up the model path.</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    Initialize the Inference class, checking Streamlit requirements and setting up the model path.</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        **kwargs (Any): Additional keyword arguments for model configuration.</span>
@@ -1395,7 +1395,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">configure</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Configures the model and loads selected classes for inference.</p>
+<p>Configure the model and load selected classes for inference.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/streamlit_inference.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-128">128</a></span>
@@ -1417,7 +1417,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span class="normal"><a href="#__codelineno-0-144">144</a></span>
 <span class="normal"><a href="#__codelineno-0-145">145</a></span>
 <span class="normal"><a href="#__codelineno-0-146">146</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="w">    </span><span class="sd">"""Configures the model and loads selected classes for inference."""</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="w">    </span><span class="sd">"""Configure the model and load selected classes for inference."""</span>
 <a id="__codelineno-0-130" name="__codelineno-0-130"></a>    <span class="c1"># Add dropdown menu for model selection</span>
 <a id="__codelineno-0-131" name="__codelineno-0-131"></a>    <span class="n">available_models</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"yolo"</span><span class="p">,</span> <span class="s2">"YOLO"</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">GITHUB_ASSETS_STEMS</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"yolo11"</span><span class="p">)]</span>
 <a id="__codelineno-0-132" name="__codelineno-0-132"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_path</span><span class="p">:</span>  <span class="c1"># If user provided the custom model, insert model without suffix as *.pt is added later</span>
@@ -1446,7 +1446,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">inference</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Performs real-time object detection inference on video or webcam feed.</p>
+<p>Perform real-time object detection inference on video or webcam feed.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/streamlit_inference.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-148">148</a></span>
@@ -1488,7 +1488,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span class="normal"><a href="#__codelineno-0-184">184</a></span>
 <span class="normal"><a href="#__codelineno-0-185">185</a></span>
 <span class="normal"><a href="#__codelineno-0-186">186</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="w">    </span><span class="sd">"""Performs real-time object detection inference on video or webcam feed."""</span>
+<a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="w">    </span><span class="sd">"""Perform real-time object detection inference on video or webcam feed."""</span>
 <a id="__codelineno-0-150" name="__codelineno-0-150"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">web_ui</span><span class="p">()</span>  <span class="c1"># Initialize the web interface</span>
 <a id="__codelineno-0-151" name="__codelineno-0-151"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sidebar</span><span class="p">()</span>  <span class="c1"># Create the sidebar</span>
 <a id="__codelineno-0-152" name="__codelineno-0-152"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">source_upload</span><span class="p">()</span>  <span class="c1"># Upload the video source</span>
@@ -1537,7 +1537,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">sidebar</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Configures the Streamlit sidebar for model and inference settings.</p>
+<p>Configure the Streamlit sidebar for model and inference settings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/streamlit_inference.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
@@ -1560,7 +1560,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span class="normal"><a href="#__codelineno-0-111">111</a></span>
 <span class="normal"><a href="#__codelineno-0-112">112</a></span>
 <span class="normal"><a href="#__codelineno-0-113">113</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="k">def</span><span class="w"> </span><span class="nf">sidebar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">    </span><span class="sd">"""Configures the Streamlit sidebar for model and inference settings."""</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">    </span><span class="sd">"""Configure the Streamlit sidebar for model and inference settings."""</span>
 <a id="__codelineno-0-96" name="__codelineno-0-96"></a>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="p">:</span>  <span class="c1"># Add Ultralytics LOGO</span>
 <a id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="n">logo</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Original.svg"</span>
 <a id="__codelineno-0-98" name="__codelineno-0-98"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">logo</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
@@ -1590,7 +1590,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">source_upload</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Handles video file uploads through the Streamlit interface.</p>
+<p>Handle video file uploads through the Streamlit interface.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/streamlit_inference.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-115">115</a></span>
@@ -1605,7 +1605,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span class="normal"><a href="#__codelineno-0-124">124</a></span>
 <span class="normal"><a href="#__codelineno-0-125">125</a></span>
 <span class="normal"><a href="#__codelineno-0-126">126</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="k">def</span><span class="w"> </span><span class="nf">source_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="w">    </span><span class="sd">"""Handles video file uploads through the Streamlit interface."""</span>
+<a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="w">    </span><span class="sd">"""Handle video file uploads through the Streamlit interface."""</span>
 <a id="__codelineno-0-117" name="__codelineno-0-117"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">vid_file_name</span> <span class="o">=</span> <span class="s2">""</span>
 <a id="__codelineno-0-118" name="__codelineno-0-118"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s2">"video"</span><span class="p">:</span>
 <a id="__codelineno-0-119" name="__codelineno-0-119"></a>        <span class="n">vid_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">file_uploader</span><span class="p">(</span><span class="s2">"Upload Video File"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="p">[</span><span class="s2">"mp4"</span><span class="p">,</span> <span class="s2">"mov"</span><span class="p">,</span> <span class="s2">"avi"</span><span class="p">,</span> <span class="s2">"mkv"</span><span class="p">])</span>

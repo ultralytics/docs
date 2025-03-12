@@ -1063,9 +1063,30 @@
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">find_free_network_port</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Finds a free port on localhost.</p>
+<p>Find a free port on localhost.</p>
 <p>It is useful in single-node training when we don't want to connect to a real main node but have to set the
 <code>MASTER_PORT</code> environment variable.</p>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The available network port number.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/dist.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-13">13</a></span>
@@ -1077,16 +1098,22 @@
 <span class="normal"><a href="#__codelineno-0-19">19</a></span>
 <span class="normal"><a href="#__codelineno-0-20">20</a></span>
 <span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">find_free_network_port</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">find_free_network_port</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    Finds a free port on localhost.</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">    Find a free port on localhost.</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    It is useful in single-node training when we don't want to connect to a real main node but have to set the</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">    `MASTER_PORT` environment variable.</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    """</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="k">with</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># port</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        (int): The available network port number.</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    """</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">with</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># port</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1101,10 +1128,7 @@
 <p>Generates a DDP file and returns its file name.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/dist.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-28">28</a></span>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
 <span class="normal"><a href="#__codelineno-0-30">30</a></span>
 <span class="normal"><a href="#__codelineno-0-31">31</a></span>
@@ -1129,35 +1153,38 @@
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
 <span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_file</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="sd">"""Generates a DDP file and returns its file name."""</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="n">module</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__module__</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="n">content</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="s2"># Ultralytics Multi-GPU training temp file (should be automatically deleted after use)</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="s2">overrides = </span><span class="si">{</span><span class="nb">vars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span><span class="si">}</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="s2">if __name__ == "__main__":</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="s2">    from </span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s2"> import </span><span class="si">{</span><span class="n">name</span><span class="si">}</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="s2">    from ultralytics.utils import DEFAULT_CFG_DICT</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="s2">    cfg = DEFAULT_CFG_DICT.copy()</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="s2">    cfg.update(save_dir='')   # handle the extra key 'save_dir'</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="s2">    trainer = </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">(cfg=cfg, overrides=overrides)</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="s2">    trainer.args.model = "</span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">hub_session</span><span class="p">,</span><span class="w"> </span><span class="s2">"model_url"</span><span class="p">,</span><span class="w"> </span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="s2">    results = trainer.train()</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="s2">"""</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="p">(</span><span class="n">USER_CONFIG_DIR</span> <span class="o">/</span> <span class="s2">"DDP"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="n">prefix</span><span class="o">=</span><span class="s2">"_temp_"</span><span class="p">,</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="n">suffix</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span><span class="si">}</span><span class="s2">.py"</span><span class="p">,</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="n">mode</span><span class="o">=</span><span class="s2">"w+"</span><span class="p">,</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="nb">dir</span><span class="o">=</span><span class="n">USER_CONFIG_DIR</span> <span class="o">/</span> <span class="s2">"DDP"</span><span class="p">,</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="n">name</span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_file</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="sd">"""Generates a DDP file and returns its file name."""</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="n">module</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__module__</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="n">content</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="s2"># Ultralytics Multi-GPU training temp file (should be automatically deleted after use)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="s2">overrides = </span><span class="si">{</span><span class="nb">vars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span><span class="si">}</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="s2">if __name__ == "__main__":</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="s2">    from </span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="s2"> import </span><span class="si">{</span><span class="n">name</span><span class="si">}</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="s2">    from ultralytics.utils import DEFAULT_CFG_DICT</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="s2">    cfg = DEFAULT_CFG_DICT.copy()</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="s2">    cfg.update(save_dir='')   # handle the extra key 'save_dir'</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="s2">    trainer = </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">(cfg=cfg, overrides=overrides)</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="s2">    trainer.args.model = "</span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">hub_session</span><span class="p">,</span><span class="w"> </span><span class="s2">"model_url"</span><span class="p">,</span><span class="w"> </span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="s2">    results = trainer.train()</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="s2">"""</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="p">(</span><span class="n">USER_CONFIG_DIR</span> <span class="o">/</span> <span class="s2">"DDP"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">prefix</span><span class="o">=</span><span class="s2">"_temp_"</span><span class="p">,</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="n">suffix</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span><span class="si">}</span><span class="s2">.py"</span><span class="p">,</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="n">mode</span><span class="o">=</span><span class="s2">"w+"</span><span class="p">,</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="nb">dir</span><span class="o">=</span><span class="n">USER_CONFIG_DIR</span> <span class="o">/</span> <span class="s2">"DDP"</span><span class="p">,</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="n">name</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1169,30 +1196,126 @@
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">generate_ddp_command</span><span class="p">(</span><span class="n">world_size</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Generates and returns command for distributed training.</p>
+<p>Generate command for distributed training.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>world_size</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of processes to spawn for distributed training.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>trainer</code>
+</td>
+<td>
+<code><span title="object">object</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The trainer object containing configuration for distributed training.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th> <th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code>cmd</code></td> <td>
+<code><span title="List">List</span>[<span title="str">str</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The command to execute for distributed training.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code>file</code></td> <td>
+<code><span title="str">str</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to the temporary file created for DDP training.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/dist.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span>
-<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-59">59</a></span>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
 <span class="normal"><a href="#__codelineno-0-61">61</a></span>
 <span class="normal"><a href="#__codelineno-0-62">62</a></span>
 <span class="normal"><a href="#__codelineno-0-63">63</a></span>
 <span class="normal"><a href="#__codelineno-0-64">64</a></span>
 <span class="normal"><a href="#__codelineno-0-65">65</a></span>
-<span class="normal"><a href="#__codelineno-0-66">66</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_command</span><span class="p">(</span><span class="n">world_size</span><span class="p">,</span> <span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">    </span><span class="sd">"""Generates and returns command for distributed training."""</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">__main__</span>  <span class="c1"># noqa local import to avoid https://github.com/Lightning-AI/lightning/issues/15218</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">trainer</span><span class="o">.</span><span class="n">resume</span><span class="p">:</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span>  <span class="c1"># remove the save_dir</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="n">file</span> <span class="o">=</span> <span class="n">generate_ddp_file</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="n">dist_cmd</span> <span class="o">=</span> <span class="s2">"torch.distributed.run"</span> <span class="k">if</span> <span class="n">TORCH_1_9</span> <span class="k">else</span> <span class="s2">"torch.distributed.launch"</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="n">port</span> <span class="o">=</span> <span class="n">find_free_network_port</span><span class="p">()</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">"-m"</span><span class="p">,</span> <span class="n">dist_cmd</span><span class="p">,</span> <span class="s2">"--nproc_per_node"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">world_size</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"--master_port"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">file</span><span class="p">]</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="k">return</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">file</span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span>
+<span class="normal"><a href="#__codelineno-0-69">69</a></span>
+<span class="normal"><a href="#__codelineno-0-70">70</a></span>
+<span class="normal"><a href="#__codelineno-0-71">71</a></span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span>
+<span class="normal"><a href="#__codelineno-0-74">74</a></span>
+<span class="normal"><a href="#__codelineno-0-75">75</a></span>
+<span class="normal"><a href="#__codelineno-0-76">76</a></span>
+<span class="normal"><a href="#__codelineno-0-77">77</a></span>
+<span class="normal"><a href="#__codelineno-0-78">78</a></span>
+<span class="normal"><a href="#__codelineno-0-79">79</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_command</span><span class="p">(</span><span class="n">world_size</span><span class="p">,</span> <span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    Generate command for distributed training.</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">        world_size (int): Number of processes to spawn for distributed training.</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        trainer (object): The trainer object containing configuration for distributed training.</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">        cmd (List[str]): The command to execute for distributed training.</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        file (str): Path to the temporary file created for DDP training.</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">    """</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">__main__</span>  <span class="c1"># noqa local import to avoid https://github.com/Lightning-AI/lightning/issues/15218</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">trainer</span><span class="o">.</span><span class="n">resume</span><span class="p">:</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span>  <span class="c1"># remove the save_dir</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="n">file</span> <span class="o">=</span> <span class="n">generate_ddp_file</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="n">dist_cmd</span> <span class="o">=</span> <span class="s2">"torch.distributed.run"</span> <span class="k">if</span> <span class="n">TORCH_1_9</span> <span class="k">else</span> <span class="s2">"torch.distributed.launch"</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="n">port</span> <span class="o">=</span> <span class="n">find_free_network_port</span><span class="p">()</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">,</span> <span class="s2">"-m"</span><span class="p">,</span> <span class="n">dist_cmd</span><span class="p">,</span> <span class="s2">"--nproc_per_node"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">world_size</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"--master_port"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">file</span><span class="p">]</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="k">return</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">file</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1207,13 +1330,13 @@
 <p>Delete temp file if created.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/dist.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-69">69</a></span>
-<span class="normal"><a href="#__codelineno-0-70">70</a></span>
-<span class="normal"><a href="#__codelineno-0-71">71</a></span>
-<span class="normal"><a href="#__codelineno-0-72">72</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="k">def</span><span class="w"> </span><span class="nf">ddp_cleanup</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">    </span><span class="sd">"""Delete temp file if created."""</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="k">if</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span><span class="si">}</span><span class="s2">.py"</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>  <span class="c1"># if temp_file suffix in file</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-82">82</a></span>
+<span class="normal"><a href="#__codelineno-0-83">83</a></span>
+<span class="normal"><a href="#__codelineno-0-84">84</a></span>
+<span class="normal"><a href="#__codelineno-0-85">85</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="k">def</span><span class="w"> </span><span class="nf">ddp_cleanup</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="w">    </span><span class="sd">"""Delete temp file if created."""</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="k">if</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span><span class="si">}</span><span class="s2">.py"</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>  <span class="c1"># if temp_file suffix in file</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

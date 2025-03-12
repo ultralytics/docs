@@ -1316,7 +1316,7 @@
 <code>atracks</code>
 </td>
 <td>
-<code><span title="list">list</span>[<span title="STrack">STrack</span>] | <span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="List">List</span>[<span title="STrack">STrack</span>] | <span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1332,7 +1332,7 @@
 <code>btracks</code>
 </td>
 <td>
-<code><span title="list">list</span>[<span title="STrack">STrack</span>] | <span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="List">List</span>[<span title="STrack">STrack</span>] | <span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1360,7 +1360,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>Cost matrix computed based on IoU.</p>
+<p>Cost matrix computed based on IoU with shape (len(atracks), len(btracks)).</p>
 </div>
 </td>
 </tr>
@@ -1416,11 +1416,11 @@
 <a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">    Compute cost based on Intersection over Union (IoU) between tracks.</span>
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        atracks (list[STrack] | list[np.ndarray]): List of tracks 'a' or bounding boxes.</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        btracks (list[STrack] | list[np.ndarray]): List of tracks 'b' or bounding boxes.</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        atracks (List[STrack] | List[np.ndarray]): List of tracks 'a' or bounding boxes.</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        btracks (List[STrack] | List[np.ndarray]): List of tracks 'b' or bounding boxes.</span>
 <a id="__codelineno-0-71" name="__codelineno-0-71"></a>
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        (np.ndarray): Cost matrix computed based on IoU.</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        (np.ndarray): Cost matrix computed based on IoU with shape (len(atracks), len(btracks)).</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a>
 <a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        Compute IoU distance between two sets of tracks</span>
@@ -1479,7 +1479,7 @@
 <code>tracks</code>
 </td>
 <td>
-<code><span title="list">list</span>[<span title="STrack">STrack</span>]</code>
+<code><span title="List">List</span>[<span title="STrack">STrack</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1495,7 +1495,7 @@
 <code>detections</code>
 </td>
 <td>
-<code><span title="list">list</span>[<span title="BaseTrack">BaseTrack</span>]</code>
+<code><span title="List">List</span>[<span title="BaseTrack">BaseTrack</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1586,8 +1586,8 @@ and M is the number of detections.</p>
 <a id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="sd">    Compute distance between tracks and detections based on embeddings.</span>
 <a id="__codelineno-0-107" name="__codelineno-0-107"></a>
 <a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">        tracks (list[STrack]): List of tracks, where each track contains embedding features.</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">        detections (list[BaseTrack]): List of detections, where each detection contains embedding features.</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">        tracks (List[STrack]): List of tracks, where each track contains embedding features.</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">        detections (List[BaseTrack]): List of detections, where each detection contains embedding features.</span>
 <a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">        metric (str): Metric for distance computation. Supported metrics include 'cosine', 'euclidean', etc.</span>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a>
 <a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">    Returns:</span>
@@ -1620,7 +1620,7 @@ and M is the number of detections.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">fuse_score</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">detections</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Fuses cost matrix with detection scores to produce a single similarity matrix.</p>
+<p>Fuse cost matrix with detection scores to produce a single similarity matrix.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1653,7 +1653,7 @@ and M is the number of detections.</p>
 <code>detections</code>
 </td>
 <td>
-<code><span title="list">list</span>[<span title="BaseTrack">BaseTrack</span>]</code>
+<code><span title="List">List</span>[<span title="BaseTrack">BaseTrack</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1720,11 +1720,11 @@ and M is the number of detections.</p>
 <span class="normal"><a href="#__codelineno-0-156">156</a></span>
 <span class="normal"><a href="#__codelineno-0-157">157</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-134" name="__codelineno-0-134"></a><span class="k">def</span><span class="w"> </span><span class="nf">fuse_score</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">detections</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="sd">    Fuses cost matrix with detection scores to produce a single similarity matrix.</span>
+<a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="sd">    Fuse cost matrix with detection scores to produce a single similarity matrix.</span>
 <a id="__codelineno-0-137" name="__codelineno-0-137"></a>
 <a id="__codelineno-0-138" name="__codelineno-0-138"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-139" name="__codelineno-0-139"></a><span class="sd">        cost_matrix (np.ndarray): The matrix containing cost values for assignments, with shape (N, M).</span>
-<a id="__codelineno-0-140" name="__codelineno-0-140"></a><span class="sd">        detections (list[BaseTrack]): List of detections, each containing a score attribute.</span>
+<a id="__codelineno-0-140" name="__codelineno-0-140"></a><span class="sd">        detections (List[BaseTrack]): List of detections, each containing a score attribute.</span>
 <a id="__codelineno-0-141" name="__codelineno-0-141"></a>
 <a id="__codelineno-0-142" name="__codelineno-0-142"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-143" name="__codelineno-0-143"></a><span class="sd">        (np.ndarray): Fused similarity matrix with shape (N, M).</span>

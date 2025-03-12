@@ -1096,7 +1096,43 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'>Model</a></code></p>
-<p>FastSAM model interface.</p>
+<p>FastSAM model interface for segment anything tasks.</p>
+<p>This class extends the base Model class to provide specific functionality for the FastSAM (Fast Segment Anything Model)
+implementation, allowing for efficient and accurate image segmentation.</p>
+<p><span class="doc-section-title">Attributes:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.fastsam.model.FastSAM.model">model</span></code></td>
+<td>
+<code><span title="str">str</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to the pre-trained FastSAM model file.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.fastsam.model.FastSAM.task">task</span></code></td>
+<td>
+<code><span title="str">str</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The task type, set to "segment" for FastSAM models.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastSAM</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">FastSAM</span><span class="p">(</span><span class="s2">"last.pt"</span><span class="p">)</span>
@@ -1104,17 +1140,17 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"FastSAM-x.pt"</span><span class="p">):</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="sd">"""Call the __init__ method of the parent class (YOLO) with the updated default model."""</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"FastSAM.pt"</span><span class="p">:</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="n">model</span> <span class="o">=</span> <span class="s2">"FastSAM-x.pt"</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">".yml"</span><span class="p">},</span> <span class="s2">"FastSAM models only support pre-trained models."</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"segment"</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"FastSAM-x.pt"</span><span class="p">):</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="sd">"""Initialize the FastSAM model with the specified pre-trained weights."""</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"FastSAM.pt"</span><span class="p">:</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="n">model</span> <span class="o">=</span> <span class="s2">"FastSAM-x.pt"</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">".yml"</span><span class="p">},</span> <span class="s2">"FastSAM models only support pre-trained models."</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"segment"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1147,7 +1183,8 @@
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Perform segmentation prediction on image or video source.</p>
-<p>Supports prompted segmentation with bounding boxes, points, labels, and texts.</p>
+<p>Supports prompted segmentation with bounding boxes, points, labels, and texts. The method packages these
+prompts and passes them to the parent class predict method.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1168,7 +1205,8 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>Input source.</p>
+<p>Input source for prediction, can be a file path, URL, PIL image,
+or numpy array.</p>
 </div>
 </td>
 <td>
@@ -1184,7 +1222,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>Enable real-time streaming.</p>
+<p>Whether to enable real-time streaming mode for video inputs.</p>
 </div>
 </td>
 <td>
@@ -1196,11 +1234,11 @@
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="List">List</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Bounding box coordinates for prompted segmentation.</p>
+<p>Bounding box coordinates for prompted segmentation in format [[x1, y1, x2, y2], ...].</p>
 </div>
 </td>
 <td>
@@ -1212,11 +1250,11 @@
 <code>points</code>
 </td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="List">List</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Points for prompted segmentation.</p>
+<p>Point coordinates for prompted segmentation in format [[x, y], ...].</p>
 </div>
 </td>
 <td>
@@ -1228,11 +1266,11 @@
 <code>labels</code>
 </td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="List">List</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Labels for prompted segmentation.</p>
+<p>Class labels for prompted segmentation.</p>
 </div>
 </td>
 <td>
@@ -1244,11 +1282,11 @@
 <code>texts</code>
 </td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="List">List</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Texts for prompted segmentation.</p>
+<p>Text prompts for segmentation guidance.</p>
 </div>
 </td>
 <td>
@@ -1264,7 +1302,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>Additional keyword arguments.</p>
+<p>Additional keyword arguments passed to the predictor.</p>
 </div>
 </td>
 <td>
@@ -1284,11 +1322,11 @@
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="list">list</span></code>
+<code><span title="List">List</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Model predictions.</p>
+<p>List of Results objects containing the prediction results.</p>
 </div>
 </td>
 </tr>
@@ -1296,14 +1334,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-35">35</a></span>
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span>
 <span class="normal"><a href="#__codelineno-0-38">38</a></span>
@@ -1315,26 +1346,37 @@
 <span class="normal"><a href="#__codelineno-0-44">44</a></span>
 <span class="normal"><a href="#__codelineno-0-45">45</a></span>
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    Perform segmentation prediction on image or video source.</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">    Supports prompted segmentation with bounding boxes, points, labels, and texts.</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        source (str | PIL.Image | numpy.ndarray): Input source.</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        stream (bool): Enable real-time streaming.</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        bboxes (list): Bounding box coordinates for prompted segmentation.</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        points (list): Points for prompted segmentation.</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        labels (list): Labels for prompted segmentation.</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        texts (list): Texts for prompted segmentation.</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">        **kwargs (Any): Additional keyword arguments.</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        (list): Model predictions.</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    """</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="n">prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">bboxes</span><span class="o">=</span><span class="n">bboxes</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="n">points</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">)</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">prompts</span><span class="o">=</span><span class="n">prompts</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    Perform segmentation prediction on image or video source.</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    Supports prompted segmentation with bounding boxes, points, labels, and texts. The method packages these</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    prompts and passes them to the parent class predict method.</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        source (str | PIL.Image | numpy.ndarray): Input source for prediction, can be a file path, URL, PIL image,</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">            or numpy array.</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        stream (bool): Whether to enable real-time streaming mode for video inputs.</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        bboxes (List): Bounding box coordinates for prompted segmentation in format [[x1, y1, x2, y2], ...].</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">        points (List): Point coordinates for prompted segmentation in format [[x, y], ...].</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        labels (List): Class labels for prompted segmentation.</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        texts (List): Text prompts for segmentation guidance.</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        **kwargs (Any): Additional keyword arguments passed to the predictor.</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        (List): List of Results objects containing the prediction results.</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    """</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="n">prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">bboxes</span><span class="o">=</span><span class="n">bboxes</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="n">points</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">)</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">prompts</span><span class="o">=</span><span class="n">prompts</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

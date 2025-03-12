@@ -1032,7 +1032,7 @@
 <a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Automatically annotates images using a YOLO object detection model and a SAM segmentation model.</p>
+<p>Automatically annotate images using a YOLO object detection model and a SAM segmentation model.</p>
 <p>This function processes images in a specified directory, detects objects using a YOLO model, and then generates
 segmentation masks using a SAM model. The resulting annotations are saved as text files.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1051,7 +1051,7 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 <code>data</code>
 </td>
 <td>
-<code><span title="str">str</span></code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1119,7 +1119,7 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 </td>
 <td>
 <div class="doc-md-description">
-<p>Confidence threshold for detection model; default is 0.25.</p>
+<p>Confidence threshold for detection model.</p>
 </div>
 </td>
 <td>
@@ -1135,7 +1135,7 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 </td>
 <td>
 <div class="doc-md-description">
-<p>IoU threshold for filtering overlapping boxes in detection results; default is 0.45.</p>
+<p>IoU threshold for filtering overlapping boxes in detection results.</p>
 </div>
 </td>
 <td>
@@ -1151,7 +1151,7 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 </td>
 <td>
 <div class="doc-md-description">
-<p>Input image resize dimension; default is 640.</p>
+<p>Input image resize dimension.</p>
 </div>
 </td>
 <td>
@@ -1167,7 +1167,7 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 </td>
 <td>
 <div class="doc-md-description">
-<p>Limits detections per image to control outputs in dense scenes.</p>
+<p>Maximum number of detections per image.</p>
 </div>
 </td>
 <td>
@@ -1179,11 +1179,11 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 <code>classes</code>
 </td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="List">List</span>[<span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Filters predictions to specified class IDs, returning only relevant detections.</p>
+<p>Filter predictions to specified class IDs, returning only relevant detections.</p>
 </div>
 </td>
 <td>
@@ -1195,7 +1195,7 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 <code>output_dir</code>
 </td>
 <td>
-<code><span title="str">str</span> | None</code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1212,14 +1212,6 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.annotator</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_annotate</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">auto_annotate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"ultralytics/assets"</span><span class="p">,</span> <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s2">"mobile_sam.pt"</span><span class="p">)</span>
 </code></pre></div>
-<details class="notes" open="">
-<summary>Notes</summary>
-<ul>
-<li>The function creates a new directory for output if not specified.</li>
-<li>Annotation results are saved as text files with the same names as the input images.</li>
-<li>Each line in the output text file represents a detected object with its class ID and segmentation points.</li>
-</ul>
-</details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/annotator.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
@@ -1279,12 +1271,7 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 <span class="normal"><a href="#__codelineno-0-62">62</a></span>
 <span class="normal"><a href="#__codelineno-0-63">63</a></span>
 <span class="normal"><a href="#__codelineno-0-64">64</a></span>
-<span class="normal"><a href="#__codelineno-0-65">65</a></span>
-<span class="normal"><a href="#__codelineno-0-66">66</a></span>
-<span class="normal"><a href="#__codelineno-0-67">67</a></span>
-<span class="normal"><a href="#__codelineno-0-68">68</a></span>
-<span class="normal"><a href="#__codelineno-0-69">69</a></span>
-<span class="normal"><a href="#__codelineno-0-70">70</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">auto_annotate</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">auto_annotate</span><span class="p">(</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">data</span><span class="p">,</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolo11x.pt"</span><span class="p">,</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">sam_model</span><span class="o">=</span><span class="s2">"sam_b.pt"</span><span class="p">,</span>
@@ -1297,56 +1284,51 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="n">output_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="p">):</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    Automatically annotates images using a YOLO object detection model and a SAM segmentation model.</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">    Automatically annotate images using a YOLO object detection model and a SAM segmentation model.</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    This function processes images in a specified directory, detects objects using a YOLO model, and then generates</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">    segmentation masks using a SAM model. The resulting annotations are saved as text files.</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a>
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        data (str): Path to a folder containing images to be annotated.</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        data (str | Path): Path to a folder containing images to be annotated.</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">        det_model (str): Path or name of the pre-trained YOLO detection model.</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        sam_model (str): Path or name of the pre-trained SAM segmentation model.</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        device (str): Device to run the models on (e.g., 'cpu', 'cuda', '0').</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        conf (float): Confidence threshold for detection model; default is 0.25.</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">        iou (float): IoU threshold for filtering overlapping boxes in detection results; default is 0.45.</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">        imgsz (int): Input image resize dimension; default is 640.</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        max_det (int): Limits detections per image to control outputs in dense scenes.</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        classes (list): Filters predictions to specified class IDs, returning only relevant detections.</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        output_dir (str | None): Directory to save the annotated results. If None, a default directory is created.</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        conf (float): Confidence threshold for detection model.</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">        iou (float): IoU threshold for filtering overlapping boxes in detection results.</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">        imgsz (int): Input image resize dimension.</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        max_det (int): Maximum number of detections per image.</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        classes (List[int] | None): Filter predictions to specified class IDs, returning only relevant detections.</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        output_dir (str | Path | None): Directory to save the annotated results. If None, a default directory is created.</span>
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        &gt;&gt;&gt; from ultralytics.data.annotator import auto_annotate</span>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">        &gt;&gt;&gt; auto_annotate(data="ultralytics/assets", det_model="yolo11n.pt", sam_model="mobile_sam.pt")</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        - The function creates a new directory for output if not specified.</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        - Annotation results are saved as text files with the same names as the input images.</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        - Each line in the output text file represents a detected object with its class ID and segmentation points.</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    """</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="n">det_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">det_model</span><span class="p">)</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="n">sam_model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="n">sam_model</span><span class="p">)</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    """</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="n">det_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">det_model</span><span class="p">)</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="n">sam_model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="n">sam_model</span><span class="p">)</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="p">:</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="n">output_dir</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_auto_annotate_labels"</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="p">:</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="n">output_dir</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_auto_annotate_labels"</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="n">det_results</span> <span class="o">=</span> <span class="n">det_model</span><span class="p">(</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="n">data</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span> <span class="n">iou</span><span class="o">=</span><span class="n">iou</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">max_det</span><span class="o">=</span><span class="n">max_det</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">classes</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="p">)</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">det_results</span><span class="p">:</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="n">class_ids</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="k">if</span> <span class="n">class_ids</span><span class="p">:</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>            <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span>  <span class="c1"># Boxes object for bbox outputs</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>            <span class="n">sam_results</span> <span class="o">=</span> <span class="n">sam_model</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="n">boxes</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>            <span class="n">segments</span> <span class="o">=</span> <span class="n">sam_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">xyn</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Path</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>                    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>                        <span class="n">segment</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">class_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> "</span> <span class="o">+</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="n">det_results</span> <span class="o">=</span> <span class="n">det_model</span><span class="p">(</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="n">data</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span> <span class="n">iou</span><span class="o">=</span><span class="n">iou</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">max_det</span><span class="o">=</span><span class="n">max_det</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">classes</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="p">)</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">det_results</span><span class="p">:</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="n">class_ids</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="k">if</span> <span class="n">class_ids</span><span class="p">:</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>            <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span>  <span class="c1"># Boxes object for bbox outputs</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>            <span class="n">sam_results</span> <span class="o">=</span> <span class="n">sam_model</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="n">boxes</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>            <span class="n">segments</span> <span class="o">=</span> <span class="n">sam_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">xyn</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">Path</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>                    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>                        <span class="n">segment</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>                        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">class_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> "</span> <span class="o">+</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

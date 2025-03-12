@@ -1085,8 +1085,9 @@
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">Events</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>A class for collecting anonymous event analytics. Event analytics are enabled when sync=True in settings and
-disabled when sync=False. Run 'yolo settings' to see and update settings.</p>
+<p>A class for collecting anonymous event analytics.</p>
+<p>Event analytics are enabled when sync=True in settings and disabled when sync=False. Run 'yolo settings' to see and
+update settings.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1122,7 +1123,7 @@ disabled when sync=False. Run 'yolo settings' to see and update settings.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.hub.utils.Events.metadata">metadata</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="Dict">Dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1145,9 +1146,7 @@ disabled when sync=False. Run 'yolo settings' to see and update settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-184">184</a></span>
-<span class="normal"><a href="#__codelineno-0-185">185</a></span>
-<span class="normal"><a href="#__codelineno-0-186">186</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-186">186</a></span>
 <span class="normal"><a href="#__codelineno-0-187">187</a></span>
 <span class="normal"><a href="#__codelineno-0-188">188</a></span>
 <span class="normal"><a href="#__codelineno-0-189">189</a></span>
@@ -1165,27 +1164,29 @@ disabled when sync=False. Run 'yolo settings' to see and update settings.</p>
 <span class="normal"><a href="#__codelineno-0-201">201</a></span>
 <span class="normal"><a href="#__codelineno-0-202">202</a></span>
 <span class="normal"><a href="#__codelineno-0-203">203</a></span>
-<span class="normal"><a href="#__codelineno-0-204">204</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="w">    </span><span class="sd">"""Initializes the Events object with default values for events, rate_limit, and metadata."""</span>
-<a id="__codelineno-0-186" name="__codelineno-0-186"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># events list</span>
-<a id="__codelineno-0-187" name="__codelineno-0-187"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">rate_limit</span> <span class="o">=</span> <span class="mf">30.0</span>  <span class="c1"># rate limit (seconds)</span>
-<a id="__codelineno-0-188" name="__codelineno-0-188"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># rate limit timer (seconds)</span>
-<a id="__codelineno-0-189" name="__codelineno-0-189"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-190" name="__codelineno-0-190"></a>        <span class="s2">"cli"</span><span class="p">:</span> <span class="n">Path</span><span class="p">(</span><span class="n">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"yolo"</span><span class="p">,</span>
-<a id="__codelineno-0-191" name="__codelineno-0-191"></a>        <span class="s2">"install"</span><span class="p">:</span> <span class="s2">"git"</span> <span class="k">if</span> <span class="n">IS_GIT_DIR</span> <span class="k">else</span> <span class="s2">"pip"</span> <span class="k">if</span> <span class="n">IS_PIP_PACKAGE</span> <span class="k">else</span> <span class="s2">"other"</span><span class="p">,</span>
-<a id="__codelineno-0-192" name="__codelineno-0-192"></a>        <span class="s2">"python"</span><span class="p">:</span> <span class="s2">"."</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">platform</span><span class="o">.</span><span class="n">python_version_tuple</span><span class="p">()[:</span><span class="mi">2</span><span class="p">]),</span>  <span class="c1"># i.e. 3.10</span>
-<a id="__codelineno-0-193" name="__codelineno-0-193"></a>        <span class="s2">"version"</span><span class="p">:</span> <span class="n">__version__</span><span class="p">,</span>
-<a id="__codelineno-0-194" name="__codelineno-0-194"></a>        <span class="s2">"env"</span><span class="p">:</span> <span class="n">ENVIRONMENT</span><span class="p">,</span>
-<a id="__codelineno-0-195" name="__codelineno-0-195"></a>        <span class="s2">"session_id"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e15</span><span class="p">),</span>
-<a id="__codelineno-0-196" name="__codelineno-0-196"></a>        <span class="s2">"engagement_time_msec"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
-<a id="__codelineno-0-197" name="__codelineno-0-197"></a>    <span class="p">}</span>
-<a id="__codelineno-0-198" name="__codelineno-0-198"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-199" name="__codelineno-0-199"></a>        <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"sync"</span><span class="p">]</span>
-<a id="__codelineno-0-200" name="__codelineno-0-200"></a>        <span class="ow">and</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
-<a id="__codelineno-0-201" name="__codelineno-0-201"></a>        <span class="ow">and</span> <span class="ow">not</span> <span class="n">TESTS_RUNNING</span>
-<a id="__codelineno-0-202" name="__codelineno-0-202"></a>        <span class="ow">and</span> <span class="n">ONLINE</span>
-<a id="__codelineno-0-203" name="__codelineno-0-203"></a>        <span class="ow">and</span> <span class="p">(</span><span class="n">IS_PIP_PACKAGE</span> <span class="ow">or</span> <span class="n">get_git_origin_url</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"https://github.com/ultralytics/ultralytics.git"</span><span class="p">)</span>
-<a id="__codelineno-0-204" name="__codelineno-0-204"></a>    <span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-204">204</a></span>
+<span class="normal"><a href="#__codelineno-0-205">205</a></span>
+<span class="normal"><a href="#__codelineno-0-206">206</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-186" name="__codelineno-0-186"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-187" name="__codelineno-0-187"></a><span class="w">    </span><span class="sd">"""Initialize the Events object with default values for events, rate_limit, and metadata."""</span>
+<a id="__codelineno-0-188" name="__codelineno-0-188"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># events list</span>
+<a id="__codelineno-0-189" name="__codelineno-0-189"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">rate_limit</span> <span class="o">=</span> <span class="mf">30.0</span>  <span class="c1"># rate limit (seconds)</span>
+<a id="__codelineno-0-190" name="__codelineno-0-190"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># rate limit timer (seconds)</span>
+<a id="__codelineno-0-191" name="__codelineno-0-191"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-192" name="__codelineno-0-192"></a>        <span class="s2">"cli"</span><span class="p">:</span> <span class="n">Path</span><span class="p">(</span><span class="n">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"yolo"</span><span class="p">,</span>
+<a id="__codelineno-0-193" name="__codelineno-0-193"></a>        <span class="s2">"install"</span><span class="p">:</span> <span class="s2">"git"</span> <span class="k">if</span> <span class="n">IS_GIT_DIR</span> <span class="k">else</span> <span class="s2">"pip"</span> <span class="k">if</span> <span class="n">IS_PIP_PACKAGE</span> <span class="k">else</span> <span class="s2">"other"</span><span class="p">,</span>
+<a id="__codelineno-0-194" name="__codelineno-0-194"></a>        <span class="s2">"python"</span><span class="p">:</span> <span class="s2">"."</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">platform</span><span class="o">.</span><span class="n">python_version_tuple</span><span class="p">()[:</span><span class="mi">2</span><span class="p">]),</span>  <span class="c1"># i.e. 3.10</span>
+<a id="__codelineno-0-195" name="__codelineno-0-195"></a>        <span class="s2">"version"</span><span class="p">:</span> <span class="n">__version__</span><span class="p">,</span>
+<a id="__codelineno-0-196" name="__codelineno-0-196"></a>        <span class="s2">"env"</span><span class="p">:</span> <span class="n">ENVIRONMENT</span><span class="p">,</span>
+<a id="__codelineno-0-197" name="__codelineno-0-197"></a>        <span class="s2">"session_id"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e15</span><span class="p">),</span>
+<a id="__codelineno-0-198" name="__codelineno-0-198"></a>        <span class="s2">"engagement_time_msec"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+<a id="__codelineno-0-199" name="__codelineno-0-199"></a>    <span class="p">}</span>
+<a id="__codelineno-0-200" name="__codelineno-0-200"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-201" name="__codelineno-0-201"></a>        <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"sync"</span><span class="p">]</span>
+<a id="__codelineno-0-202" name="__codelineno-0-202"></a>        <span class="ow">and</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a>        <span class="ow">and</span> <span class="ow">not</span> <span class="n">TESTS_RUNNING</span>
+<a id="__codelineno-0-204" name="__codelineno-0-204"></a>        <span class="ow">and</span> <span class="n">ONLINE</span>
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a>        <span class="ow">and</span> <span class="p">(</span><span class="n">IS_PIP_PACKAGE</span> <span class="ow">or</span> <span class="n">get_git_origin_url</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"https://github.com/ultralytics/ultralytics.git"</span><span class="p">)</span>
+<a id="__codelineno-0-206" name="__codelineno-0-206"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1196,7 +1197,7 @@ disabled when sync=False. Run 'yolo settings' to see and update settings.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="fm">__call__</span><span class="p">(</span><span class="nf">cfg</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Attempts to add a new event to the events list and send events if the rate limit is reached.</p>
+<p>Attempt to add a new event to the events list and send events if the rate limit is reached.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1228,9 +1229,7 @@ disabled when sync=False. Run 'yolo settings' to see and update settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-206">206</a></span>
-<span class="normal"><a href="#__codelineno-0-207">207</a></span>
-<span class="normal"><a href="#__codelineno-0-208">208</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-208">208</a></span>
 <span class="normal"><a href="#__codelineno-0-209">209</a></span>
 <span class="normal"><a href="#__codelineno-0-210">210</a></span>
 <span class="normal"><a href="#__codelineno-0-211">211</a></span>
@@ -1264,43 +1263,45 @@ disabled when sync=False. Run 'yolo settings' to see and update settings.</p>
 <span class="normal"><a href="#__codelineno-0-239">239</a></span>
 <span class="normal"><a href="#__codelineno-0-240">240</a></span>
 <span class="normal"><a href="#__codelineno-0-241">241</a></span>
-<span class="normal"><a href="#__codelineno-0-242">242</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">):</span>
-<a id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="sd">    Attempts to add a new event to the events list and send events if the rate limit is reached.</span>
-<a id="__codelineno-0-209" name="__codelineno-0-209"></a>
-<a id="__codelineno-0-210" name="__codelineno-0-210"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-211" name="__codelineno-0-211"></a><span class="sd">        cfg (IterableSimpleNamespace): The configuration object containing mode and task information.</span>
-<a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="sd">    """</span>
-<a id="__codelineno-0-213" name="__codelineno-0-213"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span><span class="p">:</span>
-<a id="__codelineno-0-214" name="__codelineno-0-214"></a>        <span class="c1"># Events disabled, do nothing</span>
-<a id="__codelineno-0-215" name="__codelineno-0-215"></a>        <span class="k">return</span>
-<a id="__codelineno-0-216" name="__codelineno-0-216"></a>
-<a id="__codelineno-0-217" name="__codelineno-0-217"></a>    <span class="c1"># Attempt to add to events</span>
-<a id="__codelineno-0-218" name="__codelineno-0-218"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>  <span class="c1"># Events list limited to 25 events (drop any events past this)</span>
-<a id="__codelineno-0-219" name="__codelineno-0-219"></a>        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-220" name="__codelineno-0-220"></a>            <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
-<a id="__codelineno-0-221" name="__codelineno-0-221"></a>            <span class="s2">"task"</span><span class="p">:</span> <span class="n">cfg</span><span class="o">.</span><span class="n">task</span><span class="p">,</span>
-<a id="__codelineno-0-222" name="__codelineno-0-222"></a>            <span class="s2">"model"</span><span class="p">:</span> <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="ow">in</span> <span class="n">GITHUB_ASSETS_NAMES</span> <span class="k">else</span> <span class="s2">"custom"</span><span class="p">,</span>
-<a id="__codelineno-0-223" name="__codelineno-0-223"></a>        <span class="p">}</span>
-<a id="__codelineno-0-224" name="__codelineno-0-224"></a>        <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"export"</span><span class="p">:</span>
-<a id="__codelineno-0-225" name="__codelineno-0-225"></a>            <span class="n">params</span><span class="p">[</span><span class="s2">"format"</span><span class="p">]</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">format</span>
-<a id="__codelineno-0-226" name="__codelineno-0-226"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"name"</span><span class="p">:</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span> <span class="s2">"params"</span><span class="p">:</span> <span class="n">params</span><span class="p">})</span>
-<a id="__codelineno-0-227" name="__codelineno-0-227"></a>
-<a id="__codelineno-0-228" name="__codelineno-0-228"></a>    <span class="c1"># Check rate limit</span>
-<a id="__codelineno-0-229" name="__codelineno-0-229"></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<a id="__codelineno-0-230" name="__codelineno-0-230"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate_limit</span><span class="p">:</span>
-<a id="__codelineno-0-231" name="__codelineno-0-231"></a>        <span class="c1"># Time is under rate limiter, wait to send</span>
-<a id="__codelineno-0-232" name="__codelineno-0-232"></a>        <span class="k">return</span>
-<a id="__codelineno-0-233" name="__codelineno-0-233"></a>
-<a id="__codelineno-0-234" name="__codelineno-0-234"></a>    <span class="c1"># Time is over rate limiter, send now</span>
-<a id="__codelineno-0-235" name="__codelineno-0-235"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"client_id"</span><span class="p">:</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"uuid"</span><span class="p">],</span> <span class="s2">"events"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">}</span>  <span class="c1"># SHA-256 anonymized UUID hash and events list</span>
-<a id="__codelineno-0-236" name="__codelineno-0-236"></a>
-<a id="__codelineno-0-237" name="__codelineno-0-237"></a>    <span class="c1"># POST equivalent to requests.post(self.url, json=data)</span>
-<a id="__codelineno-0-238" name="__codelineno-0-238"></a>    <span class="n">smart_request</span><span class="p">(</span><span class="s2">"post"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-239" name="__codelineno-0-239"></a>
-<a id="__codelineno-0-240" name="__codelineno-0-240"></a>    <span class="c1"># Reset events and rate limit timer</span>
-<a id="__codelineno-0-241" name="__codelineno-0-241"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-242" name="__codelineno-0-242"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
+<span class="normal"><a href="#__codelineno-0-242">242</a></span>
+<span class="normal"><a href="#__codelineno-0-243">243</a></span>
+<span class="normal"><a href="#__codelineno-0-244">244</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">):</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-210" name="__codelineno-0-210"></a><span class="sd">    Attempt to add a new event to the events list and send events if the rate limit is reached.</span>
+<a id="__codelineno-0-211" name="__codelineno-0-211"></a>
+<a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-213" name="__codelineno-0-213"></a><span class="sd">        cfg (IterableSimpleNamespace): The configuration object containing mode and task information.</span>
+<a id="__codelineno-0-214" name="__codelineno-0-214"></a><span class="sd">    """</span>
+<a id="__codelineno-0-215" name="__codelineno-0-215"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span><span class="p">:</span>
+<a id="__codelineno-0-216" name="__codelineno-0-216"></a>        <span class="c1"># Events disabled, do nothing</span>
+<a id="__codelineno-0-217" name="__codelineno-0-217"></a>        <span class="k">return</span>
+<a id="__codelineno-0-218" name="__codelineno-0-218"></a>
+<a id="__codelineno-0-219" name="__codelineno-0-219"></a>    <span class="c1"># Attempt to add to events</span>
+<a id="__codelineno-0-220" name="__codelineno-0-220"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>  <span class="c1"># Events list limited to 25 events (drop any events past this)</span>
+<a id="__codelineno-0-221" name="__codelineno-0-221"></a>        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-222" name="__codelineno-0-222"></a>            <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a>            <span class="s2">"task"</span><span class="p">:</span> <span class="n">cfg</span><span class="o">.</span><span class="n">task</span><span class="p">,</span>
+<a id="__codelineno-0-224" name="__codelineno-0-224"></a>            <span class="s2">"model"</span><span class="p">:</span> <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="ow">in</span> <span class="n">GITHUB_ASSETS_NAMES</span> <span class="k">else</span> <span class="s2">"custom"</span><span class="p">,</span>
+<a id="__codelineno-0-225" name="__codelineno-0-225"></a>        <span class="p">}</span>
+<a id="__codelineno-0-226" name="__codelineno-0-226"></a>        <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"export"</span><span class="p">:</span>
+<a id="__codelineno-0-227" name="__codelineno-0-227"></a>            <span class="n">params</span><span class="p">[</span><span class="s2">"format"</span><span class="p">]</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">format</span>
+<a id="__codelineno-0-228" name="__codelineno-0-228"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"name"</span><span class="p">:</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span> <span class="s2">"params"</span><span class="p">:</span> <span class="n">params</span><span class="p">})</span>
+<a id="__codelineno-0-229" name="__codelineno-0-229"></a>
+<a id="__codelineno-0-230" name="__codelineno-0-230"></a>    <span class="c1"># Check rate limit</span>
+<a id="__codelineno-0-231" name="__codelineno-0-231"></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<a id="__codelineno-0-232" name="__codelineno-0-232"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate_limit</span><span class="p">:</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a>        <span class="c1"># Time is under rate limiter, wait to send</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a>        <span class="k">return</span>
+<a id="__codelineno-0-235" name="__codelineno-0-235"></a>
+<a id="__codelineno-0-236" name="__codelineno-0-236"></a>    <span class="c1"># Time is over rate limiter, send now</span>
+<a id="__codelineno-0-237" name="__codelineno-0-237"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"client_id"</span><span class="p">:</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"uuid"</span><span class="p">],</span> <span class="s2">"events"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">}</span>  <span class="c1"># SHA-256 anonymized UUID hash and events list</span>
+<a id="__codelineno-0-238" name="__codelineno-0-238"></a>
+<a id="__codelineno-0-239" name="__codelineno-0-239"></a>    <span class="c1"># POST equivalent to requests.post(self.url, json=data)</span>
+<a id="__codelineno-0-240" name="__codelineno-0-240"></a>    <span class="n">smart_request</span><span class="p">(</span><span class="s2">"post"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-241" name="__codelineno-0-241"></a>
+<a id="__codelineno-0-242" name="__codelineno-0-242"></a>    <span class="c1"># Reset events and rate limit timer</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-244" name="__codelineno-0-244"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1356,7 +1357,7 @@ disabled when sync=False. Run 'yolo settings' to see and update settings.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="any">any</span></code>
+<code><span title="Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1435,7 +1436,7 @@ disabled when sync=False. Run 'yolo settings' to see and update settings.</p>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        url (str): The URL to make the request to.</span>
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        (any): The response data from the AJAX request.</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        (Any): The response data from the AJAX request.</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    Raises:</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        OSError: If the function is not run in a Google Colab environment.</span>
@@ -1526,7 +1527,7 @@ disabled when sync=False. Run 'yolo settings' to see and update settings.</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="any">any</span></code>
+<code><span title="Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1560,11 +1561,11 @@ disabled when sync=False. Run 'yolo settings' to see and update settings.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <ul>
 <li>If 'progress' is set to True, the progress bar will display the download progress for responses with a known
-content length.</li>
+  content length.</li>
 <li>If 'progress' is a number then progress bar will display assuming content length = progress.</li>
 </ul>
 </details>
@@ -1606,14 +1607,14 @@ content length.</li>
 <a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="sd">        method (str): The HTTP method to use (e.g. 'GET', 'POST').</span>
 <a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">        url (str): The URL to send the request to.</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">        **kwargs (any): Additional keyword arguments to pass to the underlying `requests.request` function.</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">        **kwargs (Any): Additional keyword arguments to pass to the underlying `requests.request` function.</span>
 <a id="__codelineno-0-87" name="__codelineno-0-87"></a>
 <a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="sd">        (requests.Response): The response object from the HTTP request.</span>
 <a id="__codelineno-0-90" name="__codelineno-0-90"></a>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">    Note:</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">    Notes:</span>
 <a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="sd">        - If 'progress' is set to True, the progress bar will display the download progress for responses with a known</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="sd">        content length.</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="sd">          content length.</span>
 <a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">        - If 'progress' is a number then progress bar will display assuming content length = progress.</span>
 <a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="sd">    """</span>
 <a id="__codelineno-0-96" name="__codelineno-0-96"></a>    <span class="n">progress</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"progress"</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
@@ -1650,7 +1651,7 @@ content length.</li>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Makes an HTTP request using the 'requests' library, with exponential backoff retries up to a specified timeout.</p>
+<p>Make an HTTP request using the 'requests' library, with exponential backoff retries up to a specified timeout.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1703,7 +1704,7 @@ content length.</li>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Number of retries to attempt before giving up. Default is 3.</p>
+<p>Number of retries to attempt before giving up.</p>
 </div>
 </td>
 <td>
@@ -1719,7 +1720,7 @@ content length.</li>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Timeout in seconds after which the function will give up retrying. Default is 30.</p>
+<p>Timeout in seconds after which the function will give up retrying.</p>
 </div>
 </td>
 <td>
@@ -1735,7 +1736,7 @@ content length.</li>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Whether to execute the request in a separate daemon thread. Default is True.</p>
+<p>Whether to execute the request in a separate daemon thread.</p>
 </div>
 </td>
 <td>
@@ -1751,7 +1752,7 @@ content length.</li>
 </td>
 <td>
 <div class="doc-md-description">
-<p>An identifier for the request, used for logging purposes. Default is -1.</p>
+<p>An identifier for the request, used for logging purposes.</p>
 </div>
 </td>
 <td>
@@ -1767,7 +1768,7 @@ content length.</li>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A flag to determine whether to print out to console or not. Default is True.</p>
+<p>A flag to determine whether to print out to console or not.</p>
 </div>
 </td>
 <td>
@@ -1783,7 +1784,7 @@ content length.</li>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Whether to show a progress bar during the request. Default is False.</p>
+<p>Whether to show a progress bar during the request.</p>
 </div>
 </td>
 <td>
@@ -1795,7 +1796,7 @@ content length.</li>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="any">any</span></code>
+<code><span title="Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1889,18 +1890,18 @@ content length.</li>
 <span class="normal"><a href="#__codelineno-0-166">166</a></span>
 <span class="normal"><a href="#__codelineno-0-167">167</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="k">def</span><span class="w"> </span><span class="nf">smart_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">code</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">    Makes an HTTP request using the 'requests' library, with exponential backoff retries up to a specified timeout.</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">    Make an HTTP request using the 'requests' library, with exponential backoff retries up to a specified timeout.</span>
 <a id="__codelineno-0-114" name="__codelineno-0-114"></a>
 <a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="sd">        method (str): The HTTP method to use for the request. Choices are 'post' and 'get'.</span>
 <a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">        url (str): The URL to make the request to.</span>
-<a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="sd">        retry (int, optional): Number of retries to attempt before giving up. Default is 3.</span>
-<a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="sd">        timeout (int, optional): Timeout in seconds after which the function will give up retrying. Default is 30.</span>
-<a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="sd">        thread (bool, optional): Whether to execute the request in a separate daemon thread. Default is True.</span>
-<a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="sd">        code (int, optional): An identifier for the request, used for logging purposes. Default is -1.</span>
-<a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="sd">        verbose (bool, optional): A flag to determine whether to print out to console or not. Default is True.</span>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a><span class="sd">        progress (bool, optional): Whether to show a progress bar during the request. Default is False.</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="sd">        **kwargs (any): Keyword arguments to be passed to the requests function specified in method.</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="sd">        retry (int, optional): Number of retries to attempt before giving up.</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="sd">        timeout (int, optional): Timeout in seconds after which the function will give up retrying.</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="sd">        thread (bool, optional): Whether to execute the request in a separate daemon thread.</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="sd">        code (int, optional): An identifier for the request, used for logging purposes.</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="sd">        verbose (bool, optional): A flag to determine whether to print out to console or not.</span>
+<a id="__codelineno-0-123" name="__codelineno-0-123"></a><span class="sd">        progress (bool, optional): Whether to show a progress bar during the request.</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="sd">        **kwargs (Any): Keyword arguments to be passed to the requests function specified in method.</span>
 <a id="__codelineno-0-125" name="__codelineno-0-125"></a>
 <a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="sd">        (requests.Response): The HTTP response object. If the request is executed in a separate thread, returns None.</span>

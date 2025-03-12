@@ -1365,9 +1365,9 @@ different classes.</p>
 <a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        x (List): Values for the x-axis; expected to have length N.</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">        y (List): Corresponding values for the y-axis; also expected to have length N.</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">        classes (List): Labels identifying the class of each point; length N.</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        title (str, optional): Title for the plot; defaults to 'Precision Recall Curve'.</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        x_title (str, optional): Label for the x-axis; defaults to 'Recall'.</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">        y_title (str, optional): Label for the y-axis; defaults to 'Precision'.</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        title (str): Title for the plot; defaults to 'Precision Recall Curve'.</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        x_title (str): Label for the x-axis; defaults to 'Recall'.</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">        y_title (str): Label for the y-axis; defaults to 'Precision'.</span>
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        (wandb.Object): A wandb object suitable for logging, showcasing the crafted metric visualization.</span>
@@ -1440,7 +1440,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 </td>
 <td>
 <div class="doc-md-description">
-<p>Corresponding data points for the y-axis with shape CxN, where C is the number of classes.</p>
+<p>Corresponding data points for the y-axis with shape (C, N), where C is the number of classes.</p>
 </div>
 </td>
 <td>
@@ -1452,11 +1452,11 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 <code>names</code>
 </td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="List">List</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Names of the classes corresponding to the y-axis data; length C. Defaults to [].</p>
+<p>Names of the classes corresponding to the y-axis data; length C.</p>
 </div>
 </td>
 <td>
@@ -1472,7 +1472,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 </td>
 <td>
 <div class="doc-md-description">
-<p>Unique identifier for the logged data in wandb. Defaults to 'precision-recall'.</p>
+<p>Unique identifier for the logged data in wandb.</p>
 </div>
 </td>
 <td>
@@ -1488,7 +1488,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 </td>
 <td>
 <div class="doc-md-description">
-<p>Title for the visualization plot. Defaults to 'Precision Recall Curve'.</p>
+<p>Title for the visualization plot.</p>
 </div>
 </td>
 <td>
@@ -1504,7 +1504,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 </td>
 <td>
 <div class="doc-md-description">
-<p>Label for the x-axis. Defaults to 'Recall'.</p>
+<p>Label for the x-axis.</p>
 </div>
 </td>
 <td>
@@ -1520,7 +1520,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 </td>
 <td>
 <div class="doc-md-description">
-<p>Label for the y-axis. Defaults to 'Precision'.</p>
+<p>Label for the y-axis.</p>
 </div>
 </td>
 <td>
@@ -1536,7 +1536,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 </td>
 <td>
 <div class="doc-md-description">
-<p>Number of interpolated data points for visualization. Defaults to 100.</p>
+<p>Number of interpolated data points for visualization.</p>
 </div>
 </td>
 <td>
@@ -1552,7 +1552,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 </td>
 <td>
 <div class="doc-md-description">
-<p>Flag to indicate if only the mean curve should be plotted. Defaults to True.</p>
+<p>Flag to indicate if only the mean curve should be plotted.</p>
 </div>
 </td>
 <td>
@@ -1561,8 +1561,8 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>The function leverages the '_custom_table' function to generate the actual visualization.</p>
 </details>
 <details class="quote">
@@ -1637,16 +1637,16 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 <a id="__codelineno-0-63" name="__codelineno-0-63"></a>
 <a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        x (np.ndarray): Data points for the x-axis with length N.</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">        y (np.ndarray): Corresponding data points for the y-axis with shape CxN, where C is the number of classes.</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        names (list, optional): Names of the classes corresponding to the y-axis data; length C. Defaults to [].</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">        id (str, optional): Unique identifier for the logged data in wandb. Defaults to 'precision-recall'.</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        title (str, optional): Title for the visualization plot. Defaults to 'Precision Recall Curve'.</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        x_title (str, optional): Label for the x-axis. Defaults to 'Recall'.</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        y_title (str, optional): Label for the y-axis. Defaults to 'Precision'.</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        num_x (int, optional): Number of interpolated data points for visualization. Defaults to 100.</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        only_mean (bool, optional): Flag to indicate if only the mean curve should be plotted. Defaults to True.</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">        y (np.ndarray): Corresponding data points for the y-axis with shape (C, N), where C is the number of classes.</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        names (List): Names of the classes corresponding to the y-axis data; length C.</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">        id (str): Unique identifier for the logged data in wandb.</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        title (str): Title for the visualization plot.</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        x_title (str): Label for the x-axis.</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        y_title (str): Label for the y-axis.</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        num_x (int): Number of interpolated data points for visualization.</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        only_mean (bool): Flag to indicate if only the mean curve should be plotted.</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    Note:</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    Notes:</span>
 <a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        The function leverages the '_custom_table' function to generate the actual visualization.</span>
 <a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">    """</span>
 <a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1708,7 +1708,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Initiate and start project if module is present.</p>
+<p>Initiate and start wandb project if module is present.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/wb.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-110">110</a></span>
@@ -1719,7 +1719,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 <span class="normal"><a href="#__codelineno-0-115">115</a></span>
 <span class="normal"><a href="#__codelineno-0-116">116</a></span>
 <span class="normal"><a href="#__codelineno-0-117">117</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="w">    </span><span class="sd">"""Initiate and start project if module is present."""</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="w">    </span><span class="sd">"""Initiate and start wandb project if module is present."""</span>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">wb</span><span class="o">.</span><span class="n">run</span><span class="p">:</span>
 <a id="__codelineno-0-113" name="__codelineno-0-113"></a>        <span class="n">wb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
 <a id="__codelineno-0-114" name="__codelineno-0-114"></a>            <span class="n">project</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">project</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">)</span> <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">project</span> <span class="k">else</span> <span class="s2">"Ultralytics"</span><span class="p">,</span>
@@ -1737,7 +1737,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Logs training metrics and model information at the end of an epoch.</p>
+<p>Log training metrics and model information at the end of an epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/wb.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-120">120</a></span>
@@ -1747,7 +1747,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 <span class="normal"><a href="#__codelineno-0-124">124</a></span>
 <span class="normal"><a href="#__codelineno-0-125">125</a></span>
 <span class="normal"><a href="#__codelineno-0-126">126</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="w">    </span><span class="sd">"""Logs training metrics and model information at the end of an epoch."""</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="w">    </span><span class="sd">"""Log training metrics and model information at the end of an epoch."""</span>
 <a id="__codelineno-0-122" name="__codelineno-0-122"></a>    <span class="n">wb</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -1789,7 +1789,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Save the best model as an artifact at end of training.</p>
+<p>Save the best model as an artifact and log final plots at the end of training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/wb.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-137">137</a></span>
@@ -1814,7 +1814,7 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 <span class="normal"><a href="#__codelineno-0-156">156</a></span>
 <span class="normal"><a href="#__codelineno-0-157">157</a></span>
 <span class="normal"><a href="#__codelineno-0-158">158</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-137" name="__codelineno-0-137"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-138" name="__codelineno-0-138"></a><span class="w">    </span><span class="sd">"""Save the best model as an artifact at end of training."""</span>
+<a id="__codelineno-0-138" name="__codelineno-0-138"></a><span class="w">    </span><span class="sd">"""Save the best model as an artifact and log final plots at the end of training."""</span>
 <a id="__codelineno-0-139" name="__codelineno-0-139"></a>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-0-140" name="__codelineno-0-140"></a>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-0-141" name="__codelineno-0-141"></a>    <span class="n">art</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">Artifact</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"model"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">"run_</span><span class="si">{</span><span class="n">wb</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">_model"</span><span class="p">)</span>

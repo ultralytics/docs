@@ -1313,7 +1313,7 @@ COCO class names.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">set_classes</span><span class="p">(</span><span class="n">classes</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Set classes.</p>
+<p>Set the model's class names for detection.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1361,10 +1361,9 @@ COCO class names.</p>
 <span class="normal"><a href="#__codelineno-0-107">107</a></span>
 <span class="normal"><a href="#__codelineno-0-108">108</a></span>
 <span class="normal"><a href="#__codelineno-0-109">109</a></span>
-<span class="normal"><a href="#__codelineno-0-110">110</a></span>
-<span class="normal"><a href="#__codelineno-0-111">111</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classes</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-110">110</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classes</span><span class="p">):</span>
 <a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">    Set classes.</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">    Set the model's class names for detection.</span>
 <a id="__codelineno-0-97" name="__codelineno-0-97"></a>
 <a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="sd">        classes (List(str)): A list of categories i.e. ["person"].</span>
@@ -1377,9 +1376,8 @@ COCO class names.</p>
 <a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">classes</span>
 <a id="__codelineno-0-107" name="__codelineno-0-107"></a>
 <a id="__codelineno-0-108" name="__codelineno-0-108"></a>    <span class="c1"># Reset method class names</span>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="c1"># self.predictor = None  # reset predictor otherwise old names remain</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">:</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">classes</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">:</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">classes</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

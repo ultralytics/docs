@@ -1114,7 +1114,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>Flag that can take values of cv2.IMREAD_*. Defaults to cv2.IMREAD_COLOR.</p>
+<p>Flag that can take values of cv2.IMREAD_*.</p>
 </div>
 </td>
 <td>
@@ -1163,7 +1163,7 @@
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        filename (str): Path to the file to read.</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        flags (int, optional): Flag that can take values of cv2.IMREAD_*. Defaults to cv2.IMREAD_COLOR.</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        flags (int, optional): Flag that can take values of cv2.IMREAD_*.</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        (np.ndarray): The read image.</span>
@@ -1229,11 +1229,11 @@
 <code>params</code>
 </td>
 <td>
-<code>list of ints</code>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Additional parameters. See OpenCV documentation.</p>
+<p>Additional parameters for image encoding.</p>
 </div>
 </td>
 <td>
@@ -1288,7 +1288,7 @@
 <a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        filename (str): Path to the file to write.</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">        img (np.ndarray): Image to write.</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        params (list of ints, optional): Additional parameters. See OpenCV documentation.</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        params (List[int], optional): Additional parameters for image encoding.</span>
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a>
 <a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        (bool): True if the file was written, False otherwise.</span>
@@ -1309,7 +1309,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">imshow</span><span class="p">(</span><span class="n">winname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mat</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Displays an image in the specified window.</p>
+<p>Display an image in the specified window.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1367,7 +1367,7 @@
 <span class="normal"><a href="#__codelineno-0-55">55</a></span>
 <span class="normal"><a href="#__codelineno-0-56">56</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="k">def</span><span class="w"> </span><span class="nf">imshow</span><span class="p">(</span><span class="n">winname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    Displays an image in the specified window.</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    Display an image in the specified window.</span>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a>
 <a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        winname (str): Name of the window.</span>
@@ -1516,8 +1516,9 @@ if the argument is not provided, to avoid deprecation warnings.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">torch_save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Optionally use dill to serialize lambda functions where pickle does not, adding robustness with 3 retries and
-exponential standoff in case of save failure.</p>
+<p>Save PyTorch objects with retry mechanism for robustness.</p>
+<p>This function wraps torch.save with 3 retries and exponential backoff in case of save failures, which can occur
+due to device flushing delays or antivirus scanning.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1534,7 +1535,7 @@ exponential standoff in case of save failure.</p>
 <code>*args</code>
 </td>
 <td>
-<code><span title="tuple">tuple</span></code>
+<code><span title="Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1580,22 +1581,26 @@ exponential standoff in case of save failure.</p>
 <span class="normal"><a href="#__codelineno-0-101">101</a></span>
 <span class="normal"><a href="#__codelineno-0-102">102</a></span>
 <span class="normal"><a href="#__codelineno-0-103">103</a></span>
-<span class="normal"><a href="#__codelineno-0-104">104</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="k">def</span><span class="w"> </span><span class="nf">torch_save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-104">104</a></span>
+<span class="normal"><a href="#__codelineno-0-105">105</a></span>
+<span class="normal"><a href="#__codelineno-0-106">106</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="k">def</span><span class="w"> </span><span class="nf">torch_save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">    Optionally use dill to serialize lambda functions where pickle does not, adding robustness with 3 retries and</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="sd">    exponential standoff in case of save failure.</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="sd">        *args (tuple): Positional arguments to pass to torch.save.</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">        **kwargs (Any): Keyword arguments to pass to torch.save.</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="sd">    """</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>  <span class="c1"># 3 retries</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>            <span class="k">return</span> <span class="n">_torch_save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># unable to save, possibly waiting for device to flush or antivirus scan</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>                <span class="k">raise</span> <span class="n">e</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">((</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># exponential standoff: 0.5s, 1.0s, 2.0s</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">    Save PyTorch objects with retry mechanism for robustness.</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="sd">    This function wraps torch.save with 3 retries and exponential backoff in case of save failures, which can occur</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">    due to device flushing delays or antivirus scanning.</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="sd">        *args (Any): Positional arguments to pass to torch.save.</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="sd">        **kwargs (Any): Keyword arguments to pass to torch.save.</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="sd">    """</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>  <span class="c1"># 3 retries</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>            <span class="k">return</span> <span class="n">_torch_save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>        <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  <span class="c1"># unable to save, possibly waiting for device to flush or antivirus scan</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>                <span class="k">raise</span> <span class="n">e</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">((</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># exponential standoff: 0.5s, 1.0s, 2.0s</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

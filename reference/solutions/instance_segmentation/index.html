@@ -1069,6 +1069,61 @@ drawing segmented masks with bounding boxes and labels.</p>
 </div>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.instance_segmentation.InstanceSegmentation.line_width">line_width</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Width of the bounding box and text lines.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.instance_segmentation.InstanceSegmentation.names">names</span></code></td>
+<td>
+<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Dictionary mapping class indices to class names.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.instance_segmentation.InstanceSegmentation.clss">clss</span></code></td>
+<td>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>List of detected class indices.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.instance_segmentation.InstanceSegmentation.track_ids">track_ids</span></code></td>
+<td>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>List of track IDs for detected instances.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.instance_segmentation.InstanceSegmentation.masks">masks</span></code></td>
+<td>
+<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>List of segmentation masks for detected instances.</p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Methods:</span></p>
@@ -1084,7 +1139,15 @@ drawing segmented masks with bounding boxes and labels.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.instance_segmentation.InstanceSegmentation.process" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;process&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.instance_segmentation.InstanceSegmentation.process&lt;/code&gt;)'>process</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Processes the input image to perform instance segmentation and annotate results.</p>
+<p>Process the input image to perform instance segmentation and annotate results.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="../solutions/#ultralytics.solutions.solutions.BaseSolution.extract_tracks" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;extract_tracks&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.instance_segmentation.InstanceSegmentation.extract_tracks&lt;/code&gt;)'>extract_tracks</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Extract tracks including bounding boxes, classes, and masks from model predictions.</p>
 </div>
 </td>
 </tr>
@@ -1128,25 +1191,25 @@ model (str): Model name or path, defaults to "yolo11n-seg.pt".</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/instance_segmentation.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-33">33</a></span>
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    Initializes the InstanceSegmentation class for detecting and annotating segmented instances.</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">        **kwargs (Any): Keyword arguments passed to the BaseSolution parent class.</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">            model (str): Model name or path, defaults to "yolo11n-seg.pt".</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    """</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="n">kwargs</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"model"</span><span class="p">,</span> <span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">    Initialize the InstanceSegmentation class for detecting and annotating segmented instances.</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        **kwargs (Any): Keyword arguments passed to the BaseSolution parent class.</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">            model (str): Model name or path, defaults to "yolo11n-seg.pt".</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    """</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="n">kwargs</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"model"</span><span class="p">,</span> <span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1157,7 +1220,7 @@ model (str): Model name or path, defaults to "yolo11n-seg.pt".</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">process</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Performs instance segmentation on the input image and annotates the results.</p>
+<p>Perform instance segmentation on the input image and annotate the results.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1216,13 +1279,7 @@ model (str): Model name or path, defaults to "yolo11n-seg.pt".</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/instance_segmentation.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-44">44</a></span>
 <span class="normal"><a href="#__codelineno-0-45">45</a></span>
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
 <span class="normal"><a href="#__codelineno-0-47">47</a></span>
@@ -1247,38 +1304,44 @@ model (str): Model name or path, defaults to "yolo11n-seg.pt".</p>
 <span class="normal"><a href="#__codelineno-0-66">66</a></span>
 <span class="normal"><a href="#__codelineno-0-67">67</a></span>
 <span class="normal"><a href="#__codelineno-0-68">68</a></span>
-<span class="normal"><a href="#__codelineno-0-69">69</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    Performs instance segmentation on the input image and annotates the results.</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        im0 (numpy.ndarray): The input image for segmentation.</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        (SolutionResults): Object containing the annotated image and total number of tracked instances.</span>
+<span class="normal"><a href="#__codelineno-0-69">69</a></span>
+<span class="normal"><a href="#__codelineno-0-70">70</a></span>
+<span class="normal"><a href="#__codelineno-0-71">71</a></span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span>
+<span class="normal"><a href="#__codelineno-0-74">74</a></span>
+<span class="normal"><a href="#__codelineno-0-75">75</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    Perform instance segmentation on the input image and annotate the results.</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        &gt;&gt;&gt; segmenter = InstanceSegmentation()</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        &gt;&gt;&gt; frame = cv2.imread("image.jpg")</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        &gt;&gt;&gt; summary = segmenter.segment(frame)</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        &gt;&gt;&gt; print(summary)</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    """</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks (bounding boxes, classes, and masks)</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">SolutionAnnotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="c1"># Iterate over detected classes, track IDs, and segmentation masks</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">masks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"⚠️ No masks detected! Ensure you're using a supported Ultralytics segmentation model."</span><span class="p">)</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="k">for</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">t_id</span><span class="p">,</span> <span class="n">mask</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">masks</span><span class="p">):</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>            <span class="c1"># Annotate the image with segmentation mask, mask color, and label</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>            <span class="n">annotator</span><span class="o">.</span><span class="n">segmentation_mask</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">mask_color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">t_id</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">cls</span><span class="p">])</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>    <span class="n">plot_im</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">display_output</span><span class="p">(</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># Display the annotated output using the base class function</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="c1"># Return SolutionResults</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="k">return</span> <span class="n">SolutionResults</span><span class="p">(</span><span class="n">plot_im</span><span class="o">=</span><span class="n">plot_im</span><span class="p">,</span> <span class="n">total_tracks</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">))</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        im0 (numpy.ndarray): The input image for segmentation.</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        (SolutionResults): Object containing the annotated image and total number of tracked instances.</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="sd">        &gt;&gt;&gt; segmenter = InstanceSegmentation()</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="sd">        &gt;&gt;&gt; frame = cv2.imread("image.jpg")</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">        &gt;&gt;&gt; summary = segmenter.segment(frame)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">        &gt;&gt;&gt; print(summary)</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    """</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks (bounding boxes, classes, and masks)</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">SolutionAnnotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="c1"># Iterate over detected classes, track IDs, and segmentation masks</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">masks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"⚠️ No masks detected! Ensure you're using a supported Ultralytics segmentation model."</span><span class="p">)</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="k">for</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">t_id</span><span class="p">,</span> <span class="n">mask</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">masks</span><span class="p">):</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>            <span class="c1"># Annotate the image with segmentation mask, mask color, and label</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>            <span class="n">annotator</span><span class="o">.</span><span class="n">segmentation_mask</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">mask_color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">t_id</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">cls</span><span class="p">])</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="n">plot_im</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">display_output</span><span class="p">(</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># Display the annotated output using the base class function</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="c1"># Return SolutionResults</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="k">return</span> <span class="n">SolutionResults</span><span class="p">(</span><span class="n">plot_im</span><span class="o">=</span><span class="n">plot_im</span><span class="p">,</span> <span class="n">total_tracks</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
