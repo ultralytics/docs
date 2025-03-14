@@ -1016,6 +1016,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.callbacks.comet._log_image_batches">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> _log_image_batches
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.utils.callbacks.comet.on_pretrain_routine_start">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> on_pretrain_routine_start
@@ -1368,6 +1375,13 @@
 <a class="md-nav__link" href="#ultralytics.utils.callbacks.comet._log_model">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> _log_model
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.callbacks.comet._log_image_batches">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> _log_image_batches
     </span>
 </a>
 </li>
@@ -2365,6 +2379,27 @@
 </div>
 </div><p><br/><br/><hr/><br/></p>
 <div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="ultralytics.utils.callbacks.comet._log_image_batches">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.callbacks.comet._log_image_batches</span>
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">_log_image_batches</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<div class="doc doc-contents first">
+<p>Log samples of images batches for train, validation, and test.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-381">381</a></span>
+<span class="normal"><a href="#__codelineno-0-382">382</a></span>
+<span class="normal"><a href="#__codelineno-0-383">383</a></span>
+<span class="normal"><a href="#__codelineno-0-384">384</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="k">def</span><span class="w"> </span><span class="nf">_log_image_batches</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-382" name="__codelineno-0-382"></a><span class="w">    </span><span class="sd">"""Log samples of images batches for train, validation, and test."""</span>
+<a id="__codelineno-0-383" name="__codelineno-0-383"></a>    <span class="n">_log_images</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"train_batch*.jpg"</span><span class="p">),</span> <span class="n">curr_step</span><span class="p">)</span>
+<a id="__codelineno-0-384" name="__codelineno-0-384"></a>    <span class="n">_log_images</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"val_batch*.jpg"</span><span class="p">),</span> <span class="n">curr_step</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><p><br/><br/><hr/><br/></p>
+<div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="ultralytics.utils.callbacks.comet.on_pretrain_routine_start">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.callbacks.comet.on_pretrain_routine_start</span>
 </h2>
@@ -2374,11 +2409,11 @@
 <p>Creates or resumes a CometML experiment at the start of a YOLO pre-training routine.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-381">381</a></span>
-<span class="normal"><a href="#__codelineno-0-382">382</a></span>
-<span class="normal"><a href="#__codelineno-0-383">383</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-381" name="__codelineno-0-381"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-382" name="__codelineno-0-382"></a><span class="w">    </span><span class="sd">"""Creates or resumes a CometML experiment at the start of a YOLO pre-training routine."""</span>
-<a id="__codelineno-0-383" name="__codelineno-0-383"></a>    <span class="n">_resume_or_create_experiment</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-387">387</a></span>
+<span class="normal"><a href="#__codelineno-0-388">388</a></span>
+<span class="normal"><a href="#__codelineno-0-389">389</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="w">    </span><span class="sd">"""Creates or resumes a CometML experiment at the start of a YOLO pre-training routine."""</span>
+<a id="__codelineno-0-389" name="__codelineno-0-389"></a>    <span class="n">_resume_or_create_experiment</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2393,27 +2428,27 @@
 <p>Log metrics and save batch images at the end of training epochs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-386">386</a></span>
-<span class="normal"><a href="#__codelineno-0-387">387</a></span>
-<span class="normal"><a href="#__codelineno-0-388">388</a></span>
-<span class="normal"><a href="#__codelineno-0-389">389</a></span>
-<span class="normal"><a href="#__codelineno-0-390">390</a></span>
-<span class="normal"><a href="#__codelineno-0-391">391</a></span>
-<span class="normal"><a href="#__codelineno-0-392">392</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-392">392</a></span>
 <span class="normal"><a href="#__codelineno-0-393">393</a></span>
 <span class="normal"><a href="#__codelineno-0-394">394</a></span>
 <span class="normal"><a href="#__codelineno-0-395">395</a></span>
-<span class="normal"><a href="#__codelineno-0-396">396</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-386" name="__codelineno-0-386"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-387" name="__codelineno-0-387"></a><span class="w">    </span><span class="sd">"""Log metrics and save batch images at the end of training epochs."""</span>
-<a id="__codelineno-0-388" name="__codelineno-0-388"></a>    <span class="n">experiment</span> <span class="o">=</span> <span class="n">comet_ml</span><span class="o">.</span><span class="n">get_running_experiment</span><span class="p">()</span>
-<a id="__codelineno-0-389" name="__codelineno-0-389"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">experiment</span><span class="p">:</span>
-<a id="__codelineno-0-390" name="__codelineno-0-390"></a>        <span class="k">return</span>
-<a id="__codelineno-0-391" name="__codelineno-0-391"></a>
-<a id="__codelineno-0-392" name="__codelineno-0-392"></a>    <span class="n">metadata</span> <span class="o">=</span> <span class="n">_fetch_trainer_metadata</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
-<a id="__codelineno-0-393" name="__codelineno-0-393"></a>    <span class="n">curr_epoch</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_epoch"</span><span class="p">]</span>
-<a id="__codelineno-0-394" name="__codelineno-0-394"></a>    <span class="n">curr_step</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_step"</span><span class="p">]</span>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a>    <span class="n">experiment</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="n">curr_step</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">curr_epoch</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-396">396</a></span>
+<span class="normal"><a href="#__codelineno-0-397">397</a></span>
+<span class="normal"><a href="#__codelineno-0-398">398</a></span>
+<span class="normal"><a href="#__codelineno-0-399">399</a></span>
+<span class="normal"><a href="#__codelineno-0-400">400</a></span>
+<span class="normal"><a href="#__codelineno-0-401">401</a></span>
+<span class="normal"><a href="#__codelineno-0-402">402</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="w">    </span><span class="sd">"""Log metrics and save batch images at the end of training epochs."""</span>
+<a id="__codelineno-0-394" name="__codelineno-0-394"></a>    <span class="n">experiment</span> <span class="o">=</span> <span class="n">comet_ml</span><span class="o">.</span><span class="n">get_running_experiment</span><span class="p">()</span>
+<a id="__codelineno-0-395" name="__codelineno-0-395"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">experiment</span><span class="p">:</span>
+<a id="__codelineno-0-396" name="__codelineno-0-396"></a>        <span class="k">return</span>
+<a id="__codelineno-0-397" name="__codelineno-0-397"></a>
+<a id="__codelineno-0-398" name="__codelineno-0-398"></a>    <span class="n">metadata</span> <span class="o">=</span> <span class="n">_fetch_trainer_metadata</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
+<a id="__codelineno-0-399" name="__codelineno-0-399"></a>    <span class="n">curr_epoch</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_epoch"</span><span class="p">]</span>
+<a id="__codelineno-0-400" name="__codelineno-0-400"></a>    <span class="n">curr_step</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_step"</span><span class="p">]</span>
+<a id="__codelineno-0-401" name="__codelineno-0-401"></a>
+<a id="__codelineno-0-402" name="__codelineno-0-402"></a>    <span class="n">experiment</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="n">curr_step</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">curr_epoch</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2428,13 +2463,7 @@
 <p>Logs model assets at the end of each epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-399">399</a></span>
-<span class="normal"><a href="#__codelineno-0-400">400</a></span>
-<span class="normal"><a href="#__codelineno-0-401">401</a></span>
-<span class="normal"><a href="#__codelineno-0-402">402</a></span>
-<span class="normal"><a href="#__codelineno-0-403">403</a></span>
-<span class="normal"><a href="#__codelineno-0-404">404</a></span>
-<span class="normal"><a href="#__codelineno-0-405">405</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-405">405</a></span>
 <span class="normal"><a href="#__codelineno-0-406">406</a></span>
 <span class="normal"><a href="#__codelineno-0-407">407</a></span>
 <span class="normal"><a href="#__codelineno-0-408">408</a></span>
@@ -2453,32 +2482,38 @@
 <span class="normal"><a href="#__codelineno-0-421">421</a></span>
 <span class="normal"><a href="#__codelineno-0-422">422</a></span>
 <span class="normal"><a href="#__codelineno-0-423">423</a></span>
-<span class="normal"><a href="#__codelineno-0-424">424</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-399" name="__codelineno-0-399"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-400" name="__codelineno-0-400"></a><span class="w">    </span><span class="sd">"""Logs model assets at the end of each epoch."""</span>
-<a id="__codelineno-0-401" name="__codelineno-0-401"></a>    <span class="n">experiment</span> <span class="o">=</span> <span class="n">comet_ml</span><span class="o">.</span><span class="n">get_running_experiment</span><span class="p">()</span>
-<a id="__codelineno-0-402" name="__codelineno-0-402"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">experiment</span><span class="p">:</span>
-<a id="__codelineno-0-403" name="__codelineno-0-403"></a>        <span class="k">return</span>
-<a id="__codelineno-0-404" name="__codelineno-0-404"></a>
-<a id="__codelineno-0-405" name="__codelineno-0-405"></a>    <span class="n">metadata</span> <span class="o">=</span> <span class="n">_fetch_trainer_metadata</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
-<a id="__codelineno-0-406" name="__codelineno-0-406"></a>    <span class="n">curr_epoch</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_epoch"</span><span class="p">]</span>
-<a id="__codelineno-0-407" name="__codelineno-0-407"></a>    <span class="n">curr_step</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_step"</span><span class="p">]</span>
-<a id="__codelineno-0-408" name="__codelineno-0-408"></a>    <span class="n">save_assets</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"save_assets"</span><span class="p">]</span>
-<a id="__codelineno-0-409" name="__codelineno-0-409"></a>
-<a id="__codelineno-0-410" name="__codelineno-0-410"></a>    <span class="n">experiment</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">curr_step</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">curr_epoch</span><span class="p">)</span>
-<a id="__codelineno-0-411" name="__codelineno-0-411"></a>    <span class="n">experiment</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">curr_step</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">curr_epoch</span><span class="p">)</span>
-<a id="__codelineno-0-412" name="__codelineno-0-412"></a>    <span class="k">if</span> <span class="n">curr_epoch</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-413" name="__codelineno-0-413"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.torch_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">model_info_for_loggers</span>
-<a id="__codelineno-0-414" name="__codelineno-0-414"></a>
-<a id="__codelineno-0-415" name="__codelineno-0-415"></a>        <span class="n">experiment</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">model_info_for_loggers</span><span class="p">(</span><span class="n">trainer</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="n">curr_step</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">curr_epoch</span><span class="p">)</span>
-<a id="__codelineno-0-416" name="__codelineno-0-416"></a>
-<a id="__codelineno-0-417" name="__codelineno-0-417"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">save_assets</span><span class="p">:</span>
-<a id="__codelineno-0-418" name="__codelineno-0-418"></a>        <span class="k">return</span>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a>
-<a id="__codelineno-0-420" name="__codelineno-0-420"></a>    <span class="n">_log_model</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span>
-<a id="__codelineno-0-421" name="__codelineno-0-421"></a>    <span class="k">if</span> <span class="n">_should_log_confusion_matrix</span><span class="p">():</span>
-<a id="__codelineno-0-422" name="__codelineno-0-422"></a>        <span class="n">_log_confusion_matrix</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">,</span> <span class="n">curr_epoch</span><span class="p">)</span>
-<a id="__codelineno-0-423" name="__codelineno-0-423"></a>    <span class="k">if</span> <span class="n">_should_log_image_predictions</span><span class="p">():</span>
-<a id="__codelineno-0-424" name="__codelineno-0-424"></a>        <span class="n">_log_image_predictions</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-424">424</a></span>
+<span class="normal"><a href="#__codelineno-0-425">425</a></span>
+<span class="normal"><a href="#__codelineno-0-426">426</a></span>
+<span class="normal"><a href="#__codelineno-0-427">427</a></span>
+<span class="normal"><a href="#__codelineno-0-428">428</a></span>
+<span class="normal"><a href="#__codelineno-0-429">429</a></span>
+<span class="normal"><a href="#__codelineno-0-430">430</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-405" name="__codelineno-0-405"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-406" name="__codelineno-0-406"></a><span class="w">    </span><span class="sd">"""Logs model assets at the end of each epoch."""</span>
+<a id="__codelineno-0-407" name="__codelineno-0-407"></a>    <span class="n">experiment</span> <span class="o">=</span> <span class="n">comet_ml</span><span class="o">.</span><span class="n">get_running_experiment</span><span class="p">()</span>
+<a id="__codelineno-0-408" name="__codelineno-0-408"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">experiment</span><span class="p">:</span>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a>        <span class="k">return</span>
+<a id="__codelineno-0-410" name="__codelineno-0-410"></a>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>    <span class="n">metadata</span> <span class="o">=</span> <span class="n">_fetch_trainer_metadata</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
+<a id="__codelineno-0-412" name="__codelineno-0-412"></a>    <span class="n">curr_epoch</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_epoch"</span><span class="p">]</span>
+<a id="__codelineno-0-413" name="__codelineno-0-413"></a>    <span class="n">curr_step</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_step"</span><span class="p">]</span>
+<a id="__codelineno-0-414" name="__codelineno-0-414"></a>    <span class="n">save_assets</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"save_assets"</span><span class="p">]</span>
+<a id="__codelineno-0-415" name="__codelineno-0-415"></a>
+<a id="__codelineno-0-416" name="__codelineno-0-416"></a>    <span class="n">experiment</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">curr_step</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">curr_epoch</span><span class="p">)</span>
+<a id="__codelineno-0-417" name="__codelineno-0-417"></a>    <span class="n">experiment</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">curr_step</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">curr_epoch</span><span class="p">)</span>
+<a id="__codelineno-0-418" name="__codelineno-0-418"></a>    <span class="k">if</span> <span class="n">curr_epoch</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.torch_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">model_info_for_loggers</span>
+<a id="__codelineno-0-420" name="__codelineno-0-420"></a>
+<a id="__codelineno-0-421" name="__codelineno-0-421"></a>        <span class="n">experiment</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">model_info_for_loggers</span><span class="p">(</span><span class="n">trainer</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="n">curr_step</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="n">curr_epoch</span><span class="p">)</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>
+<a id="__codelineno-0-423" name="__codelineno-0-423"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">save_assets</span><span class="p">:</span>
+<a id="__codelineno-0-424" name="__codelineno-0-424"></a>        <span class="k">return</span>
+<a id="__codelineno-0-425" name="__codelineno-0-425"></a>
+<a id="__codelineno-0-426" name="__codelineno-0-426"></a>    <span class="n">_log_model</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span>
+<a id="__codelineno-0-427" name="__codelineno-0-427"></a>    <span class="k">if</span> <span class="n">_should_log_confusion_matrix</span><span class="p">():</span>
+<a id="__codelineno-0-428" name="__codelineno-0-428"></a>        <span class="n">_log_confusion_matrix</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">,</span> <span class="n">curr_epoch</span><span class="p">)</span>
+<a id="__codelineno-0-429" name="__codelineno-0-429"></a>    <span class="k">if</span> <span class="n">_should_log_image_predictions</span><span class="p">():</span>
+<a id="__codelineno-0-430" name="__codelineno-0-430"></a>        <span class="n">_log_image_predictions</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2493,13 +2528,7 @@
 <p>Perform operations at the end of training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-427">427</a></span>
-<span class="normal"><a href="#__codelineno-0-428">428</a></span>
-<span class="normal"><a href="#__codelineno-0-429">429</a></span>
-<span class="normal"><a href="#__codelineno-0-430">430</a></span>
-<span class="normal"><a href="#__codelineno-0-431">431</a></span>
-<span class="normal"><a href="#__codelineno-0-432">432</a></span>
-<span class="normal"><a href="#__codelineno-0-433">433</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-433">433</a></span>
 <span class="normal"><a href="#__codelineno-0-434">434</a></span>
 <span class="normal"><a href="#__codelineno-0-435">435</a></span>
 <span class="normal"><a href="#__codelineno-0-436">436</a></span>
@@ -2515,29 +2544,33 @@
 <span class="normal"><a href="#__codelineno-0-446">446</a></span>
 <span class="normal"><a href="#__codelineno-0-447">447</a></span>
 <span class="normal"><a href="#__codelineno-0-448">448</a></span>
-<span class="normal"><a href="#__codelineno-0-449">449</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-427" name="__codelineno-0-427"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-428" name="__codelineno-0-428"></a><span class="w">    </span><span class="sd">"""Perform operations at the end of training."""</span>
-<a id="__codelineno-0-429" name="__codelineno-0-429"></a>    <span class="n">experiment</span> <span class="o">=</span> <span class="n">comet_ml</span><span class="o">.</span><span class="n">get_running_experiment</span><span class="p">()</span>
-<a id="__codelineno-0-430" name="__codelineno-0-430"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">experiment</span><span class="p">:</span>
-<a id="__codelineno-0-431" name="__codelineno-0-431"></a>        <span class="k">return</span>
-<a id="__codelineno-0-432" name="__codelineno-0-432"></a>
-<a id="__codelineno-0-433" name="__codelineno-0-433"></a>    <span class="n">metadata</span> <span class="o">=</span> <span class="n">_fetch_trainer_metadata</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
-<a id="__codelineno-0-434" name="__codelineno-0-434"></a>    <span class="n">curr_epoch</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_epoch"</span><span class="p">]</span>
-<a id="__codelineno-0-435" name="__codelineno-0-435"></a>    <span class="n">curr_step</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_step"</span><span class="p">]</span>
-<a id="__codelineno-0-436" name="__codelineno-0-436"></a>    <span class="n">plots</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span>
-<a id="__codelineno-0-437" name="__codelineno-0-437"></a>
-<a id="__codelineno-0-438" name="__codelineno-0-438"></a>    <span class="n">_log_model</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span>
-<a id="__codelineno-0-439" name="__codelineno-0-439"></a>    <span class="k">if</span> <span class="n">plots</span><span class="p">:</span>
-<a id="__codelineno-0-440" name="__codelineno-0-440"></a>        <span class="n">_log_plots</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span>
-<a id="__codelineno-0-441" name="__codelineno-0-441"></a>
-<a id="__codelineno-0-442" name="__codelineno-0-442"></a>    <span class="n">_log_confusion_matrix</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">,</span> <span class="n">curr_epoch</span><span class="p">)</span>
-<a id="__codelineno-0-443" name="__codelineno-0-443"></a>    <span class="n">_log_image_predictions</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">)</span>
-<a id="__codelineno-0-444" name="__codelineno-0-444"></a>    <span class="n">_log_images</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"train_batch*.jpg"</span><span class="p">),</span> <span class="n">curr_step</span><span class="p">)</span>
-<a id="__codelineno-0-445" name="__codelineno-0-445"></a>    <span class="n">_log_images</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"val_batch*.jpg"</span><span class="p">),</span> <span class="n">curr_step</span><span class="p">)</span>
-<a id="__codelineno-0-446" name="__codelineno-0-446"></a>    <span class="n">experiment</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-449">449</a></span>
+<span class="normal"><a href="#__codelineno-0-450">450</a></span>
+<span class="normal"><a href="#__codelineno-0-451">451</a></span>
+<span class="normal"><a href="#__codelineno-0-452">452</a></span>
+<span class="normal"><a href="#__codelineno-0-453">453</a></span>
+<span class="normal"><a href="#__codelineno-0-454">454</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-434" name="__codelineno-0-434"></a><span class="w">    </span><span class="sd">"""Perform operations at the end of training."""</span>
+<a id="__codelineno-0-435" name="__codelineno-0-435"></a>    <span class="n">experiment</span> <span class="o">=</span> <span class="n">comet_ml</span><span class="o">.</span><span class="n">get_running_experiment</span><span class="p">()</span>
+<a id="__codelineno-0-436" name="__codelineno-0-436"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">experiment</span><span class="p">:</span>
+<a id="__codelineno-0-437" name="__codelineno-0-437"></a>        <span class="k">return</span>
+<a id="__codelineno-0-438" name="__codelineno-0-438"></a>
+<a id="__codelineno-0-439" name="__codelineno-0-439"></a>    <span class="n">metadata</span> <span class="o">=</span> <span class="n">_fetch_trainer_metadata</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
+<a id="__codelineno-0-440" name="__codelineno-0-440"></a>    <span class="n">curr_epoch</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_epoch"</span><span class="p">]</span>
+<a id="__codelineno-0-441" name="__codelineno-0-441"></a>    <span class="n">curr_step</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">"curr_step"</span><span class="p">]</span>
+<a id="__codelineno-0-442" name="__codelineno-0-442"></a>    <span class="n">plots</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span>
+<a id="__codelineno-0-443" name="__codelineno-0-443"></a>
+<a id="__codelineno-0-444" name="__codelineno-0-444"></a>    <span class="n">_log_model</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span>
+<a id="__codelineno-0-445" name="__codelineno-0-445"></a>    <span class="k">if</span> <span class="n">plots</span><span class="p">:</span>
+<a id="__codelineno-0-446" name="__codelineno-0-446"></a>        <span class="n">_log_plots</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span>
 <a id="__codelineno-0-447" name="__codelineno-0-447"></a>
-<a id="__codelineno-0-448" name="__codelineno-0-448"></a>    <span class="k">global</span> <span class="n">_comet_image_prediction_count</span>
-<a id="__codelineno-0-449" name="__codelineno-0-449"></a>    <span class="n">_comet_image_prediction_count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-448" name="__codelineno-0-448"></a>    <span class="n">_log_confusion_matrix</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">,</span> <span class="n">curr_epoch</span><span class="p">)</span>
+<a id="__codelineno-0-449" name="__codelineno-0-449"></a>    <span class="n">_log_image_predictions</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">)</span>
+<a id="__codelineno-0-450" name="__codelineno-0-450"></a>    <span class="n">_log_image_batches</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">)</span>
+<a id="__codelineno-0-451" name="__codelineno-0-451"></a>    <span class="n">experiment</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+<a id="__codelineno-0-452" name="__codelineno-0-452"></a>
+<a id="__codelineno-0-453" name="__codelineno-0-453"></a>    <span class="k">global</span> <span class="n">_comet_image_prediction_count</span>
+<a id="__codelineno-0-454" name="__codelineno-0-454"></a>    <span class="n">_comet_image_prediction_count</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2552,7 +2585,7 @@
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
+<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (1 change)">
 <img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/jk4e" title="jk4e (1 change)">
