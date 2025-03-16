@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn to customize the YOLO11 Trainer for specific tasks. Step-by-step instructions with Python examples for maximum model performance." name="description"/>
+<meta content="Learn to customize the Ultralytics YOLO Trainer for specific tasks. Step-by-step instructions with Python examples for maximum model performance." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/usage/engine/" rel="canonical"/>
 <link href="../simple-utilities/" rel="prev"/>
@@ -22,13 +22,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Advanced Customization" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO11, Trainer Customization, Python, Machine Learning, AI, Model Training, DetectionTrainer, Custom Models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/usage/engine" property="og:url"/><meta content="Advanced Customization" property="og:title"/><meta content="Learn to customize the YOLO11 Trainer for specific tasks. Step-by-step instructions with Python examples for maximum model performance." property="og:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/usage/engine" property="twitter:url"/><meta content="Advanced Customization" property="twitter:title"/><meta content="Learn to customize the YOLO11 Trainer for specific tasks. Step-by-step instructions with Python examples for maximum model performance." property="twitter:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Advanced Customization", "image": ["https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-10-01 15:41:15 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to customize the YOLO11 Trainer for specific tasks. Step-by-step instructions with Python examples for maximum model performance.", "mainEntity": [{"@type": "Question", "name": "How do I customize the Ultralytics YOLO11 DetectionTrainer for specific tasks?", "acceptedAnswer": {"@type": "Answer", "text": "To customize the Ultralytics YOLO11 DetectionTrainer for a specific task, you can override its methods to adapt to your custom model and dataloader. Start by inheriting from DetectionTrainer and then redefine methods like get_model to implement your custom functionalities. Here's an example: For further customization like changing the loss function or adding a callback, you can reference our Callbacks Guide."}}, {"@type": "Question", "name": "What are the key components of the BaseTrainer in Ultralytics YOLO11?", "acceptedAnswer": {"@type": "Answer", "text": "The BaseTrainer in Ultralytics YOLO11 serves as the foundation for training routines and can be customized for various tasks by overriding its generic methods. Key components include: For more details on the customization and source code, see the BaseTrainer Reference."}}, {"@type": "Question", "name": "How can I add a callback to the Ultralytics YOLO11 DetectionTrainer?", "acceptedAnswer": {"@type": "Answer", "text": "You can add callbacks to monitor and modify the training process in Ultralytics YOLO11 DetectionTrainer. For instance, here's how you can add a callback to log model weights after every training epoch: For further details on callback events and entry points, refer to our Callbacks Guide."}}, {"@type": "Question", "name": "Why should I use Ultralytics YOLO11 for model training?", "acceptedAnswer": {"@type": "Answer", "text": "Ultralytics YOLO11 offers a high-level abstraction on powerful engine executors, making it ideal for rapid development and customization. Key benefits include: Learn more about YOLO11's capabilities by visiting Ultralytics YOLO."}}, {"@type": "Question", "name": "Can I use the Ultralytics YOLO11 DetectionTrainer for non-standard models?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, Ultralytics YOLO11 DetectionTrainer is highly flexible and can be customized for non-standard models. By inheriting from DetectionTrainer, you can overload different methods to support your specific model's needs. Here's a simple example: For more comprehensive instructions and examples, review the DetectionTrainer documentation."}}]}</script></head>
+<meta content="Advanced Customization" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, Trainer Customization, Python, Machine Learning, AI, Model Training, DetectionTrainer, Custom Models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/usage/engine" property="og:url"/><meta content="Advanced Customization" property="og:title"/><meta content="Learn to customize the Ultralytics YOLO Trainer for specific tasks. Step-by-step instructions with Python examples for maximum model performance." property="og:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/usage/engine" property="twitter:url"/><meta content="Advanced Customization" property="twitter:title"/><meta content="Learn to customize the Ultralytics YOLO Trainer for specific tasks. Step-by-step instructions with Python examples for maximum model performance." property="twitter:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Advanced Customization", "image": ["https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-16 19:43:41 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to customize the Ultralytics YOLO Trainer for specific tasks. Step-by-step instructions with Python examples for maximum model performance.", "mainEntity": [{"@type": "Question", "name": "How do I customize the Ultralytics YOLO DetectionTrainer for specific tasks?", "acceptedAnswer": {"@type": "Answer", "text": "Customize the DetectionTrainer for specific tasks by overriding its methods to adapt to your custom model and dataloader. Start by inheriting from DetectionTrainer and redefine methods like get_model to implement custom functionalities. Here's an example: For further customization, such as changing the loss function or adding a callback, refer to the Callbacks Guide."}}, {"@type": "Question", "name": "What are the key components of the BaseTrainer in Ultralytics YOLO?", "acceptedAnswer": {"@type": "Answer", "text": "The BaseTrainer serves as the foundation for training routines, customizable for various tasks by overriding its generic methods. Key components include: For more details on customization and source code, see the BaseTrainer Reference."}}, {"@type": "Question", "name": "How can I add a callback to the Ultralytics YOLO DetectionTrainer?", "acceptedAnswer": {"@type": "Answer", "text": "Add callbacks to monitor and modify the training process in DetectionTrainer. Here's how to add a callback to log model weights after every training epoch: For more details on callback events and entry points, refer to the Callbacks Guide."}}, {"@type": "Question", "name": "Why should I use Ultralytics YOLO for model training?", "acceptedAnswer": {"@type": "Answer", "text": "Ultralytics YOLO provides a high-level abstraction over powerful engine executors, making it ideal for rapid development and customization. Key benefits include: Learn more about YOLO's capabilities by exploring the main Ultralytics YOLO page."}}, {"@type": "Question", "name": "Can I use the Ultralytics YOLO DetectionTrainer for non-standard models?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the DetectionTrainer is highly flexible and customizable for non-standard models. Inherit from DetectionTrainer and overload methods to support your specific model's needs. Here's a simple example: For comprehensive instructions and examples, review the DetectionTrainer Reference."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#basetrainer">
+<a class="md-skip" href="#advanced-customization">
           Skip to content
         </a>
 </div>
@@ -308,7 +308,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#other-engine-components">
 <span class="md-ellipsis">
-      Other engine components
+      Other Engine Components
     </span>
 </a>
 </li>
@@ -321,37 +321,37 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-customize-the-ultralytics-yolo11-detectiontrainer-for-specific-tasks">
+<a class="md-nav__link" href="#how-do-i-customize-the-ultralytics-yolo-detectiontrainer-for-specific-tasks">
 <span class="md-ellipsis">
-      How do I customize the Ultralytics YOLO11 DetectionTrainer for specific tasks?
+      How do I customize the Ultralytics YOLO DetectionTrainer for specific tasks?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-key-components-of-the-basetrainer-in-ultralytics-yolo11">
+<a class="md-nav__link" href="#what-are-the-key-components-of-the-basetrainer-in-ultralytics-yolo">
 <span class="md-ellipsis">
-      What are the key components of the BaseTrainer in Ultralytics YOLO11?
+      What are the key components of the BaseTrainer in Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-add-a-callback-to-the-ultralytics-yolo11-detectiontrainer">
+<a class="md-nav__link" href="#how-can-i-add-a-callback-to-the-ultralytics-yolo-detectiontrainer">
 <span class="md-ellipsis">
-      How can I add a callback to the Ultralytics YOLO11 DetectionTrainer?
+      How can I add a callback to the Ultralytics YOLO DetectionTrainer?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-i-use-ultralytics-yolo11-for-model-training">
+<a class="md-nav__link" href="#why-should-i-use-ultralytics-yolo-for-model-training">
 <span class="md-ellipsis">
-      Why should I use Ultralytics YOLO11 for model training?
+      Why should I use Ultralytics YOLO for model training?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#can-i-use-the-ultralytics-yolo11-detectiontrainer-for-non-standard-models">
+<a class="md-nav__link" href="#can-i-use-the-ultralytics-yolo-detectiontrainer-for-non-standard-models">
 <span class="md-ellipsis">
-      Can I use the Ultralytics YOLO11 DetectionTrainer for non-standard models?
+      Can I use the Ultralytics YOLO DetectionTrainer for non-standard models?
     </span>
 </a>
 </li>
@@ -680,7 +680,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#other-engine-components">
 <span class="md-ellipsis">
-      Other engine components
+      Other Engine Components
     </span>
 </a>
 </li>
@@ -693,37 +693,37 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-customize-the-ultralytics-yolo11-detectiontrainer-for-specific-tasks">
+<a class="md-nav__link" href="#how-do-i-customize-the-ultralytics-yolo-detectiontrainer-for-specific-tasks">
 <span class="md-ellipsis">
-      How do I customize the Ultralytics YOLO11 DetectionTrainer for specific tasks?
+      How do I customize the Ultralytics YOLO DetectionTrainer for specific tasks?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-key-components-of-the-basetrainer-in-ultralytics-yolo11">
+<a class="md-nav__link" href="#what-are-the-key-components-of-the-basetrainer-in-ultralytics-yolo">
 <span class="md-ellipsis">
-      What are the key components of the BaseTrainer in Ultralytics YOLO11?
+      What are the key components of the BaseTrainer in Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-add-a-callback-to-the-ultralytics-yolo11-detectiontrainer">
+<a class="md-nav__link" href="#how-can-i-add-a-callback-to-the-ultralytics-yolo-detectiontrainer">
 <span class="md-ellipsis">
-      How can I add a callback to the Ultralytics YOLO11 DetectionTrainer?
+      How can I add a callback to the Ultralytics YOLO DetectionTrainer?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-i-use-ultralytics-yolo11-for-model-training">
+<a class="md-nav__link" href="#why-should-i-use-ultralytics-yolo-for-model-training">
 <span class="md-ellipsis">
-      Why should I use Ultralytics YOLO11 for model training?
+      Why should I use Ultralytics YOLO for model training?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#can-i-use-the-ultralytics-yolo11-detectiontrainer-for-non-standard-models">
+<a class="md-nav__link" href="#can-i-use-the-ultralytics-yolo-detectiontrainer-for-non-standard-models">
 <span class="md-ellipsis">
-      Can I use the Ultralytics YOLO11 DetectionTrainer for non-standard models?
+      Can I use the Ultralytics YOLO DetectionTrainer for non-standard models?
     </span>
 </a>
 </li>
@@ -740,8 +740,8 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/usage/engine.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1>Advanced Customization</h1>
-<p>Both the Ultralytics YOLO command-line and Python interfaces are simply a high-level abstraction on the base engine executors. Let's take a look at the Trainer engine.</p>
+<h1 id="advanced-customization">Advanced Customization</h1>
+<p>Both the Ultralytics YOLO command-line and Python interfaces are high-level abstractions built upon base engine executors. This guide focuses on the <code>Trainer</code> engine, explaining how to customize it for your specific needs.</p>
 <p align="center">
 <br/>
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" loading="lazy" src="https://www.youtube.com/embed/GsXGnb-A4Kc?start=104" title="YouTube video player" width="720">
@@ -750,21 +750,22 @@
 <strong>Watch:</strong> Mastering Ultralytics YOLO: Advanced Customization
 </p>
 <h2 id="basetrainer">BaseTrainer</h2>
-<p>BaseTrainer contains the generic boilerplate training routine. It can be customized for any task based over overriding the required functions or operations as long the as correct formats are followed. For example, you can support your own custom model and dataloader by just overriding these functions:</p>
+<p>The <code>BaseTrainer</code> class provides a generic training routine adaptable for various tasks. Customize it by overriding specific functions or operations while adhering to the required formats. For example, integrate your own custom model and dataloader by overriding these functions:</p>
 <ul>
-<li><code>get_model(cfg, weights)</code> - The function that builds the model to be trained</li>
-<li><code>get_dataloader()</code> - The function that builds the dataloader More details and source code can be found in <a href="../../reference/engine/trainer/"><code>BaseTrainer</code> Reference</a></li>
+<li><code>get_model(cfg, weights)</code>: Builds the model to be trained.</li>
+<li><code>get_dataloader()</code>: Builds the dataloader.</li>
 </ul>
+<p>For more details and source code, see the <a href="../../reference/engine/trainer/"><code>BaseTrainer</code> Reference</a>.</p>
 <h2 id="detectiontrainer">DetectionTrainer</h2>
-<p>Here's how you can use the YOLO11 <code>DetectionTrainer</code> and customize it.</p>
+<p>Here's how to use and customize the Ultralytics YOLO <code>DetectionTrainer</code>:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">trained_model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span>  <span class="c1"># get best model</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">trained_model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span>  <span class="c1"># Get the best model</span>
 </code></pre></div>
 <h3 id="customizing-the-detectiontrainer">Customizing the DetectionTrainer</h3>
-<p>Let's customize the trainer <strong>to train a custom detection model</strong> that is not supported directly. You can do this by simply overloading the existing the <code>get_model</code> functionality:</p>
+<p>To train a custom detection model not directly supported, overload the existing <code>get_model</code> functionality:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
@@ -777,11 +778,7 @@
 <a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
 <a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></div>
-<p>You now realize that you need to customize the trainer further to:</p>
-<ul>
-<li>Customize the <code>loss function</code>.</li>
-<li>Add <code>callback</code> that uploads model to your Google Drive after every 10 <code>epochs</code> Here's how you can do it:</li>
-</ul>
+<p>Further customize the trainer by modifying the <a href="https://www.ultralytics.com/glossary/loss-function">loss function</a> or adding a <a href="https://www.ultralytics.com/glossary/callback">callback</a> to upload the model to Google Drive every 10 <a href="https://www.ultralytics.com/glossary/epoch">epochs</a>. Here's an example:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.nn.tasks</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionModel</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
@@ -798,7 +795,7 @@
 <a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>        <span class="k">return</span> <span class="n">MyCustomModel</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 <a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>
 <a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="c1"># callback to upload model weights</span>
+<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="c1"># Callback to upload model weights</span>
 <a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_model</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="sd">"""Logs the path of the last model weight used by the trainer."""</span>
 <a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>    <span class="n">last_weight_path</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
@@ -806,15 +803,15 @@
 <a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a>
 <a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a>
 <a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
-<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="n">trainer</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_epoch_end"</span><span class="p">,</span> <span class="n">log_model</span><span class="p">)</span>  <span class="c1"># Adds to existing callback</span>
+<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="n">trainer</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_epoch_end"</span><span class="p">,</span> <span class="n">log_model</span><span class="p">)</span>  <span class="c1"># Adds to existing callbacks</span>
 <a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></div>
-<p>To know more about Callback triggering events and entry point, checkout our <a href="../callbacks/">Callbacks Guide</a></p>
-<h2 id="other-engine-components">Other engine components</h2>
-<p>There are other components that can be customized similarly like <code>Validators</code> and <code>Predictors</code>. See Reference section for more information on these.</p>
+<p>For more information on callback triggering events and entry points, see the <a href="../callbacks/">Callbacks Guide</a>.</p>
+<h2 id="other-engine-components">Other Engine Components</h2>
+<p>Customize other components like <code>Validators</code> and <code>Predictors</code> similarly. For more information, refer to the documentation for <a href="../../reference/engine/validator/">Validators</a> and <a href="../../reference/engine/predictor/">Predictors</a>.</p>
 <h2 id="faq">FAQ</h2>
-<h3 id="how-do-i-customize-the-ultralytics-yolo11-detectiontrainer-for-specific-tasks">How do I customize the Ultralytics YOLO11 DetectionTrainer for specific tasks?</h3>
-<p>To customize the Ultralytics YOLO11 <code>DetectionTrainer</code> for a specific task, you can override its methods to adapt to your custom model and dataloader. Start by inheriting from <code>DetectionTrainer</code> and then redefine methods like <code>get_model</code> to implement your custom functionalities. Here's an example:</p>
+<h3 id="how-do-i-customize-the-ultralytics-yolo-detectiontrainer-for-specific-tasks">How do I customize the Ultralytics YOLO DetectionTrainer for specific tasks?</h3>
+<p>Customize the <code>DetectionTrainer</code> for specific tasks by overriding its methods to adapt to your custom model and dataloader. Start by inheriting from <code>DetectionTrainer</code> and redefine methods like <code>get_model</code> to implement custom functionalities. Here's an example:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
@@ -826,22 +823,22 @@
 <a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>
 <a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
 <a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="n">trained_model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span>  <span class="c1"># get best model</span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="n">trained_model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span>  <span class="c1"># Get the best model</span>
 </code></pre></div>
-<p>For further customization like changing the <code>loss function</code> or adding a <code>callback</code>, you can reference our <a href="../callbacks/">Callbacks Guide</a>.</p>
-<h3 id="what-are-the-key-components-of-the-basetrainer-in-ultralytics-yolo11">What are the key components of the BaseTrainer in Ultralytics YOLO11?</h3>
-<p>The <code>BaseTrainer</code> in Ultralytics YOLO11 serves as the foundation for training routines and can be customized for various tasks by overriding its generic methods. Key components include:</p>
+<p>For further customization, such as changing the <a href="https://www.ultralytics.com/glossary/loss-function">loss function</a> or adding a <a href="https://www.ultralytics.com/glossary/callback">callback</a>, refer to the <a href="../callbacks/">Callbacks Guide</a>.</p>
+<h3 id="what-are-the-key-components-of-the-basetrainer-in-ultralytics-yolo">What are the key components of the BaseTrainer in Ultralytics YOLO?</h3>
+<p>The <code>BaseTrainer</code> serves as the foundation for training routines, customizable for various tasks by overriding its generic methods. Key components include:</p>
 <ul>
-<li><code>get_model(cfg, weights)</code> to build the model to be trained.</li>
-<li><code>get_dataloader()</code> to build the dataloader.</li>
+<li><code>get_model(cfg, weights)</code>: Builds the model to be trained.</li>
+<li><code>get_dataloader()</code>: Builds the dataloader.</li>
 </ul>
-<p>For more details on the customization and source code, see the <a href="../../reference/engine/trainer/"><code>BaseTrainer</code> Reference</a>.</p>
-<h3 id="how-can-i-add-a-callback-to-the-ultralytics-yolo11-detectiontrainer">How can I add a callback to the Ultralytics YOLO11 DetectionTrainer?</h3>
-<p>You can add callbacks to monitor and modify the training process in Ultralytics YOLO11 <code>DetectionTrainer</code>. For instance, here's how you can add a callback to log model weights after every training <a href="https://www.ultralytics.com/glossary/epoch">epoch</a>:</p>
+<p>For more details on customization and source code, see the <a href="../../reference/engine/trainer/"><code>BaseTrainer</code> Reference</a>.</p>
+<h3 id="how-can-i-add-a-callback-to-the-ultralytics-yolo-detectiontrainer">How can I add a callback to the Ultralytics YOLO DetectionTrainer?</h3>
+<p>Add callbacks to monitor and modify the training process in <code>DetectionTrainer</code>. Here's how to add a callback to log model weights after every training <a href="https://www.ultralytics.com/glossary/epoch">epoch</a>:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># callback to upload model weights</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># Callback to upload model weights</span>
 <a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_model</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="sd">"""Logs the path of the last model weight used by the trainer."""</span>
 <a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="n">last_weight_path</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
@@ -852,17 +849,17 @@
 <a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="n">trainer</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_epoch_end"</span><span class="p">,</span> <span class="n">log_model</span><span class="p">)</span>  <span class="c1"># Adds to existing callbacks</span>
 <a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></div>
-<p>For further details on callback events and entry points, refer to our <a href="../callbacks/">Callbacks Guide</a>.</p>
-<h3 id="why-should-i-use-ultralytics-yolo11-for-model-training">Why should I use Ultralytics YOLO11 for model training?</h3>
-<p>Ultralytics YOLO11 offers a high-level abstraction on powerful engine executors, making it ideal for rapid development and customization. Key benefits include:</p>
+<p>For more details on callback events and entry points, refer to the <a href="../callbacks/">Callbacks Guide</a>.</p>
+<h3 id="why-should-i-use-ultralytics-yolo-for-model-training">Why should I use Ultralytics YOLO for model training?</h3>
+<p>Ultralytics YOLO provides a high-level abstraction over powerful engine executors, making it ideal for rapid development and customization. Key benefits include:</p>
 <ul>
 <li><strong>Ease of Use</strong>: Both command-line and Python interfaces simplify complex tasks.</li>
 <li><strong>Performance</strong>: Optimized for real-time <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> and various vision AI applications.</li>
 <li><strong>Customization</strong>: Easily extendable for custom models, <a href="https://www.ultralytics.com/glossary/loss-function">loss functions</a>, and dataloaders.</li>
 </ul>
-<p>Learn more about YOLO11's capabilities by visiting <a href="https://www.ultralytics.com/yolo">Ultralytics YOLO</a>.</p>
-<h3 id="can-i-use-the-ultralytics-yolo11-detectiontrainer-for-non-standard-models">Can I use the Ultralytics YOLO11 DetectionTrainer for non-standard models?</h3>
-<p>Yes, Ultralytics YOLO11 <code>DetectionTrainer</code> is highly flexible and can be customized for non-standard models. By inheriting from <code>DetectionTrainer</code>, you can overload different methods to support your specific model's needs. Here's a simple example:</p>
+<p>Learn more about YOLO's capabilities by exploring the main <a href="https://www.ultralytics.com/yolo">Ultralytics YOLO</a> page.</p>
+<h3 id="can-i-use-the-ultralytics-yolo-detectiontrainer-for-non-standard-models">Can I use the Ultralytics YOLO DetectionTrainer for non-standard models?</h3>
+<p>Yes, the <code>DetectionTrainer</code> is highly flexible and customizable for non-standard models. Inherit from <code>DetectionTrainer</code> and overload methods to support your specific model's needs. Here's a simple example:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
 <a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
@@ -875,22 +872,22 @@
 <a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomDetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
 <a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></div>
-<p>For more comprehensive instructions and examples, review the <a href="../../reference/engine/trainer/">DetectionTrainer</a> documentation.</p>
+<p>For comprehensive instructions and examples, review the <a href="../../reference/models/yolo/detect/train/"><code>DetectionTrainer</code> Reference</a>.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on October 01, 2024">
-<span class="hover-item">✏️</span> Updated 5 months ago
+<span class="date-item" title="This page was last updated on March 16, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (9 changes)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (1 change)">
 <img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (8 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>

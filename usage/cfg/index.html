@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Optimize your YOLO model's performance with the right settings and hyperparameters. Learn about training, validation, and prediction configurations." name="description"/>
+<meta content="Optimize your Ultralytics YOLO model's performance with the right settings and hyperparameters. Learn about training, validation, and prediction configurations." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/usage/cfg/" rel="canonical"/>
 <link href="../callbacks/" rel="prev"/>
@@ -22,13 +22,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Configuration" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO, hyperparameters, configuration, training, validation, prediction, model settings, Ultralytics, performance optimization, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/usage/cfg" property="og:url"/><meta content="Configuration" property="og:title"/><meta content="Optimize your YOLO model's performance with the right settings and hyperparameters. Learn about training, validation, and prediction configurations." property="og:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/usage/cfg" property="twitter:url"/><meta content="Configuration" property="twitter:title"/><meta content="Optimize your YOLO model's performance with the right settings and hyperparameters. Learn about training, validation, and prediction configurations." property="twitter:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Configuration", "image": ["https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-11 21:44:10 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Optimize your YOLO model's performance with the right settings and hyperparameters. Learn about training, validation, and prediction configurations.", "mainEntity": [{"@type": "Question", "name": "How do I improve the performance of my YOLO model during training?", "acceptedAnswer": {"@type": "Answer", "text": "Improving YOLO model performance involves tuning hyperparameters like batch size, learning rate, momentum, and weight decay. Adjusting augmentation settings, selecting the right optimizer, and employing techniques like early stopping or mixed precision can also help. For detailed guidance on training settings, refer to the Train Guide."}}, {"@type": "Question", "name": "What are the key hyperparameters to consider for YOLO model accuracy?", "acceptedAnswer": {"@type": "Answer", "text": "Key hyperparameters affecting YOLO model accuracy include: Adjust these values based on your dataset and hardware capabilities. Explore more in the Train Settings section."}}, {"@type": "Question", "name": "How do I set the learning rate for training a YOLO model?", "acceptedAnswer": {"@type": "Answer", "text": "The learning rate (lr0) is crucial for optimization. A common starting point is 0.01 for SGD or 0.001 for Adam. It's essential to monitor training metrics and adjust if necessary. Use cosine learning rate schedulers (cos_lr) or warmup techniques (warmup_epochs, warmup_momentum) to dynamically modify the rate during training. Find more details in the Train Guide."}}, {"@type": "Question", "name": "What are the default inference settings for YOLO models?", "acceptedAnswer": {"@type": "Answer", "text": "Default inference settings include: For a comprehensive overview, visit the Predict Settings section and the Predict Guide."}}, {"@type": "Question", "name": "Why should I use mixed precision training with YOLO models?", "acceptedAnswer": {"@type": "Answer", "text": "Mixed precision training, enabled with amp=True, helps reduce memory usage and can speed up training by utilizing the advantages of both FP16 and FP32. This is beneficial for modern GPUs, which support mixed precision natively, allowing more models to fit in memory and enable faster computations without significant loss in accuracy. Learn more about this in the Train Guide."}}]}</script></head>
+<meta content="Configuration" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO, hyperparameters, configuration, training, validation, prediction, model settings, Ultralytics, performance optimization, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/usage/cfg" property="og:url"/><meta content="Configuration" property="og:title"/><meta content="Optimize your Ultralytics YOLO model's performance with the right settings and hyperparameters. Learn about training, validation, and prediction configurations." property="og:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/usage/cfg" property="twitter:url"/><meta content="Configuration" property="twitter:title"/><meta content="Optimize your Ultralytics YOLO model's performance with the right settings and hyperparameters. Learn about training, validation, and prediction configurations." property="twitter:description"/><meta content="https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Configuration", "image": ["https://img.youtube.com/vi/GsXGnb-A4Kc/maxresdefault.jpg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-16 19:43:41 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Optimize your Ultralytics YOLO model's performance with the right settings and hyperparameters. Learn about training, validation, and prediction configurations.", "mainEntity": [{"@type": "Question", "name": "How do I improve my YOLO model's performance during training?", "acceptedAnswer": {"@type": "Answer", "text": "Improve performance by tuning hyperparameters like batch size, learning rate, momentum, and weight decay. Adjust augmentation settings, select the right optimizer, and use techniques like early stopping or mixed precision. For details, see the Train Guide."}}, {"@type": "Question", "name": "What are the key hyperparameters for YOLO model accuracy?", "acceptedAnswer": {"@type": "Answer", "text": "Key hyperparameters affecting accuracy include: Adjust these based on your dataset and hardware. Learn more in Train Settings."}}, {"@type": "Question", "name": "How do I set the learning rate for training a YOLO model?", "acceptedAnswer": {"@type": "Answer", "text": "The learning rate (lr0) is crucial; start with 0.01 for SGD or 0.001 for Adam. Monitor metrics and adjust as needed. Use cosine learning rate schedulers (cos_lr) or warmup (warmup_epochs, warmup_momentum). Details are in the Train Guide."}}, {"@type": "Question", "name": "What are the default inference settings for YOLO models?", "acceptedAnswer": {"@type": "Answer", "text": "Default settings include: For a full overview, see Predict Settings and the Predict Guide."}}, {"@type": "Question", "name": "Why use mixed precision training with YOLO models?", "acceptedAnswer": {"@type": "Answer", "text": "Mixed precision training (amp=True) reduces memory usage and speeds up training using FP16 and FP32. It's beneficial for modern GPUs, allowing larger models and faster computations without significant accuracy loss. Learn more in the Train Guide."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#tasks">
+<a class="md-skip" href="#configuration">
           Skip to content
         </a>
 </div>
@@ -338,16 +338,16 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-improve-the-performance-of-my-yolo-model-during-training">
+<a class="md-nav__link" href="#how-do-i-improve-my-yolo-models-performance-during-training">
 <span class="md-ellipsis">
-      How do I improve the performance of my YOLO model during training?
+      How do I improve my YOLO model's performance during training?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-key-hyperparameters-to-consider-for-yolo-model-accuracy">
+<a class="md-nav__link" href="#what-are-the-key-hyperparameters-for-yolo-model-accuracy">
 <span class="md-ellipsis">
-      What are the key hyperparameters to consider for YOLO model accuracy?
+      What are the key hyperparameters for YOLO model accuracy?
     </span>
 </a>
 </li>
@@ -366,9 +366,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-i-use-mixed-precision-training-with-yolo-models">
+<a class="md-nav__link" href="#why-use-mixed-precision-training-with-yolo-models">
 <span class="md-ellipsis">
-      Why should I use mixed precision training with YOLO models?
+      Why use mixed precision training with YOLO models?
     </span>
 </a>
 </li>
@@ -755,16 +755,16 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-improve-the-performance-of-my-yolo-model-during-training">
+<a class="md-nav__link" href="#how-do-i-improve-my-yolo-models-performance-during-training">
 <span class="md-ellipsis">
-      How do I improve the performance of my YOLO model during training?
+      How do I improve my YOLO model's performance during training?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-key-hyperparameters-to-consider-for-yolo-model-accuracy">
+<a class="md-nav__link" href="#what-are-the-key-hyperparameters-for-yolo-model-accuracy">
 <span class="md-ellipsis">
-      What are the key hyperparameters to consider for YOLO model accuracy?
+      What are the key hyperparameters for YOLO model accuracy?
     </span>
 </a>
 </li>
@@ -783,9 +783,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-i-use-mixed-precision-training-with-yolo-models">
+<a class="md-nav__link" href="#why-use-mixed-precision-training-with-yolo-models">
 <span class="md-ellipsis">
-      Why should I use mixed precision training with YOLO models?
+      Why use mixed precision training with YOLO models?
     </span>
 </a>
 </li>
@@ -802,8 +802,9 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/usage/cfg.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1>Configuration</h1>
-<p>YOLO settings and hyperparameters play a critical role in the model's performance, speed, and <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>. These settings and hyperparameters can affect the model's behavior at various stages of the model development process, including training, validation, and prediction.</p>
+<h1 id="configuration">Configuration</h1>
+<p>YOLO settings and hyperparameters play a critical role in the model's performance, speed, and <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>. These settings can affect the model's behavior at various stages, including training, validation, and prediction.</p>
+<p><strong>Watch:</strong> Mastering Ultralytics YOLO: Configuration</p>
 <p align="center">
 <br/>
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" loading="lazy" src="https://www.youtube.com/embed/GsXGnb-A4Kc?start=87" title="YouTube video player" width="720">
@@ -823,7 +824,7 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a YOLO11 model from a pre-trained weights file</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a YOLO model from a pre-trained weights file</span>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Run MODE mode using the custom arguments ARGS (guess TASK)</span>
@@ -839,15 +840,15 @@
 <li><code>MODE</code> (required) is one of (<a href="../../modes/train/">train</a>, <a href="../../modes/val/">val</a>, <a href="../../modes/predict/">predict</a>, <a href="../../modes/export/">export</a>, <a href="../../modes/track/">track</a>, <a href="../../modes/benchmark/">benchmark</a>)</li>
 <li><code>ARGS</code> (optional) are <code>arg=value</code> pairs like <code>imgsz=640</code> that override defaults.</li>
 </ul>
-<p>Default <code>ARG</code> values are defined on this page from the <code>cfg/defaults.yaml</code> <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/default.yaml">file</a>.</p>
-<h4 id="tasks">Tasks</h4>
-<p>YOLO models can be used for a variety of tasks, including detection, segmentation, classification and pose. These tasks differ in the type of output they produce and the specific problem they are designed to solve.</p>
+<p>Default <code>ARG</code> values are defined on this page and come from the <code>cfg/defaults.yaml</code> <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/default.yaml">file</a>.</p>
+<h2 id="tasks">Tasks</h2>
+<p>Ultralytics YOLO models can perform a variety of computer vision tasks, including:</p>
 <ul>
-<li><strong>Detect</strong>: For identifying and localizing objects or regions of interest in an image or video.</li>
-<li><strong>Segment</strong>: For dividing an image or video into regions or pixels that correspond to different objects or classes.</li>
-<li><strong>Classify</strong>: For predicting the class label of an input image.</li>
-<li><strong>Pose</strong>: For identifying objects and estimating their keypoints in an image or video.</li>
-<li><strong>OBB</strong>: Oriented (i.e. rotated) bounding boxes suitable for satellite or medical imagery.</li>
+<li><strong>Detect</strong>: <a href="https://docs.ultralytics.com/tasks/detect/">Object detection</a> identifies and localizes objects within an image or video.</li>
+<li><strong>Segment</strong>: <a href="https://docs.ultralytics.com/tasks/segment/">Instance segmentation</a> divides an image or video into regions corresponding to different objects or classes.</li>
+<li><strong>Classify</strong>: <a href="https://docs.ultralytics.com/tasks/classify/">Image classification</a> predicts the class label of an input image.</li>
+<li><strong>Pose</strong>: <a href="https://docs.ultralytics.com/tasks/pose/">Pose estimation</a> identifies objects and estimates their keypoints in an image or video.</li>
+<li><strong>OBB</strong>: <a href="https://docs.ultralytics.com/tasks/obb/">Oriented Bounding Boxes</a> uses rotated bounding boxes, suitable for satellite or medical imagery.</li>
 </ul>
 <table>
 <thead>
@@ -861,20 +862,20 @@
 <tr>
 <td><code>task</code></td>
 <td><code>'detect'</code></td>
-<td>Specifies the YOLO task to be executed. Options include <code>detect</code> for <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a>, <code>segment</code> for segmentation, <code>classify</code> for classification, <code>pose</code> for pose estimation and <code>obb</code> for oriented bounding boxes. Each task is tailored to specific types of output and problems within image and video analysis.</td>
+<td>Specifies the YOLO task: <code>detect</code> for <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a>, <code>segment</code> for segmentation, <code>classify</code> for classification, <code>pose</code> for pose estimation, and <code>obb</code> for oriented bounding boxes. Each task is tailored to specific outputs and problems in image and video analysis.</td>
 </tr>
 </tbody>
 </table>
 <p><a class="md-button" href="../../tasks/">Tasks Guide</a></p>
-<h4 id="modes">Modes</h4>
-<p>YOLO models can be used in different modes depending on the specific problem you are trying to solve. These modes include:</p>
+<h2 id="modes">Modes</h2>
+<p>Ultralytics YOLO models operate in different modes, each designed for a specific stage of the model lifecycle:</p>
 <ul>
-<li><strong>Train</strong>: For training a YOLO11 model on a custom dataset.</li>
-<li><strong>Val</strong>: For validating a YOLO11 model after it has been trained.</li>
-<li><strong>Predict</strong>: For making predictions using a trained YOLO11 model on new images or videos.</li>
-<li><strong>Export</strong>: For exporting a YOLO11 model to a format that can be used for deployment.</li>
-<li><strong>Track</strong>: For tracking objects in real-time using a YOLO11 model.</li>
-<li><strong>Benchmark</strong>: For benchmarking YOLO11 exports (ONNX, TensorRT, etc.) speed and accuracy.</li>
+<li><strong>Train</strong>: Train a YOLO model on a custom dataset.</li>
+<li><strong>Val</strong>: Validate a trained YOLO model.</li>
+<li><strong>Predict</strong>: Use a trained YOLO model to make predictions on new images or videos.</li>
+<li><strong>Export</strong>: Export a YOLO model for deployment.</li>
+<li><strong>Track</strong>: Track objects in real-time using a YOLO model.</li>
+<li><strong>Benchmark</strong>: Benchmark the speed and accuracy of YOLO exports (ONNX, TensorRT, etc.).</li>
 </ul>
 <table>
 <thead>
@@ -888,13 +889,13 @@
 <tr>
 <td><code>mode</code></td>
 <td><code>'train'</code></td>
-<td>Specifies the mode in which the YOLO model operates. Options are <code>train</code> for model training, <code>val</code> for validation, <code>predict</code> for inference on new data, <code>export</code> for model conversion to deployment formats, <code>track</code> for object tracking, and <code>benchmark</code> for performance evaluation. Each mode is designed for different stages of the model lifecycle, from development through deployment.</td>
+<td>Specifies the YOLO model's operating mode: <code>train</code> for model training, <code>val</code> for validation, <code>predict</code> for inference, <code>export</code> for converting to deployment formats, <code>track</code> for object tracking, and <code>benchmark</code> for performance evaluation. Each mode supports different stages, from development to deployment.</td>
 </tr>
 </tbody>
 </table>
 <p><a class="md-button" href="../../modes/">Modes Guide</a></p>
 <h2 id="train-settings">Train Settings</h2>
-<p>The training settings for YOLO models encompass various hyperparameters and configurations used during the training process. These settings influence the model's performance, speed, and accuracy. Key training settings include batch size, <a href="https://www.ultralytics.com/glossary/learning-rate">learning rate</a>, momentum, and weight decay. Additionally, the choice of optimizer, <a href="https://www.ultralytics.com/glossary/loss-function">loss function</a>, and training dataset composition can impact the training process. Careful tuning and experimentation with these settings are crucial for optimizing performance.</p>
+<p>Training settings for YOLO models include hyperparameters and configurations that affect the model's performance, speed, and <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>. Key settings include <a href="https://www.ultralytics.com/glossary/batch-size">batch size</a>, <a href="https://www.ultralytics.com/glossary/learning-rate">learning rate</a>, momentum, and weight decay. The choice of optimizer, <a href="https://www.ultralytics.com/glossary/loss-function">loss function</a>, and dataset composition also impact training. Tuning and experimentation are crucial for optimal performance. For more details, see the <a href="https://docs.ultralytics.com/reference/cfg/__init__/">Ultralytics entrypoint function</a>.</p>
 <table>
 <thead>
 <tr>
@@ -1197,16 +1198,16 @@
 </table>
 <div class="admonition info">
 <p class="admonition-title">Note on Batch-size Settings</p>
-<p>The <code>batch</code> argument can be configured in three ways:</p>
+<p>The <code>batch</code> argument offers three configuration options:</p>
 <ul>
-<li><strong>Fixed <a href="https://www.ultralytics.com/glossary/batch-size">Batch Size</a></strong>: Set an integer value (e.g., <code>batch=16</code>), specifying the number of images per batch directly.</li>
-<li><strong>Auto Mode (60% GPU Memory)</strong>: Use <code>batch=-1</code> to automatically adjust batch size for approximately 60% CUDA memory utilization.</li>
-<li><strong>Auto Mode with Utilization Fraction</strong>: Set a fraction value (e.g., <code>batch=0.70</code>) to adjust batch size based on the specified fraction of GPU memory usage.</li>
+<li><strong>Fixed Batch Size</strong>: Specify the number of images per batch with an integer (e.g., <code>batch=16</code>).</li>
+<li><strong>Auto Mode (60% GPU Memory)</strong>: Use <code>batch=-1</code> for automatic adjustment to approximately 60% CUDA memory utilization.</li>
+<li><strong>Auto Mode with Utilization Fraction</strong>: Set a fraction (e.g., <code>batch=0.70</code>) to adjust based on a specified GPU memory usage.</li>
 </ul>
 </div>
 <p><a class="md-button" href="../../modes/train/">Train Guide</a></p>
 <h2 id="predict-settings">Predict Settings</h2>
-<p>The prediction settings for YOLO models encompass a range of hyperparameters and configurations that influence the model's performance, speed, and accuracy during inference on new data. Careful tuning and experimentation with these settings are essential to achieve optimal performance for a specific task. Key settings include the confidence threshold, Non-Maximum Suppression (NMS) threshold, and the number of classes considered. Additional factors affecting the prediction process are input data size and format, the presence of supplementary features such as masks or multiple labels per box, and the particular task the model is employed for.</p>
+<p>Prediction settings for YOLO models include hyperparameters and configurations that influence performance, speed, and <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a> during inference. Key settings include the confidence threshold, <a href="https://www.ultralytics.com/glossary/non-maximum-suppression-nms">Non-Maximum Suppression (NMS)</a> threshold, and the number of classes. Input data size, format, and supplementary features like masks also affect predictions. Tuning these settings is essential for optimal performance.</p>
 <p>Inference arguments:</p>
 <table>
 <thead>
@@ -1403,7 +1404,7 @@
 </table>
 <p><a class="md-button" href="../../modes/predict/">Predict Guide</a></p>
 <h2 id="validation-settings">Validation Settings</h2>
-<p>The val (validation) settings for YOLO models involve various hyperparameters and configurations used to evaluate the model's performance on a validation dataset. These settings influence the model's performance, speed, and accuracy. Common YOLO validation settings include batch size, validation frequency during training, and performance evaluation metrics. Other factors affecting the validation process include the validation dataset's size and composition, as well as the specific task the model is employed for.</p>
+<p>Validation settings for YOLO models involve hyperparameters and configurations to evaluate performance on a <a href="https://www.ultralytics.com/glossary/validation-data">validation dataset</a>. These settings influence performance, speed, and <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>. Common settings include batch size, validation frequency, and performance metrics. The validation dataset's size and composition, along with the specific task, also affect the process.</p>
 <table>
 <thead>
 <tr>
@@ -1512,10 +1513,10 @@
 </tr>
 </tbody>
 </table>
-<p>Careful tuning and experimentation with these settings are crucial to ensure optimal performance on the validation dataset and detect and prevent <a href="https://www.ultralytics.com/glossary/overfitting">overfitting</a>.</p>
+<p>Careful tuning and experimentation are crucial to ensure optimal performance and to detect and prevent <a href="https://www.ultralytics.com/glossary/overfitting">overfitting</a>.</p>
 <p><a class="md-button" href="../../modes/val/">Val Guide</a></p>
 <h2 id="export-settings">Export Settings</h2>
-<p>Export settings for YOLO models encompass configurations and options related to saving or exporting the model for use in different environments or platforms. These settings can impact the model's performance, size, and compatibility with various systems. Key export settings include the exported model file format (e.g., ONNX, TensorFlow SavedModel), the target device (e.g., CPU, GPU), and additional features such as masks or multiple labels per box. The export process may also be affected by the model's specific task and the requirements or constraints of the destination environment or platform.</p>
+<p>Export settings for YOLO models include configurations for saving or exporting the model for use in different environments. These settings impact performance, size, and compatibility. Key settings include the exported file format (e.g., ONNX, TensorFlow SavedModel), the target device (e.g., CPU, GPU), and features like masks. The model's task and the destination environment's constraints also affect the export process.</p>
 <table>
 <thead>
 <tr>
@@ -1612,10 +1613,10 @@
 </tr>
 </tbody>
 </table>
-<p>It is crucial to thoughtfully configure these settings to ensure the exported model is optimized for the intended use case and functions effectively in the target environment.</p>
+<p>Thoughtful configuration ensures the exported model is optimized for its use case and functions effectively in the target environment.</p>
 <p><a class="md-button" href="../../modes/export/">Export Guide</a></p>
 <h2 id="solutions-settings">Solutions Settings</h2>
-<p>The configuration settings for Ultralytics Solutions offer a flexible way to customize the model for various tasks like object counting, heatmap creation, workout tracking, data analysis, zone tracking, queue management, and region-based counting. These options make it easy to adjust the setup for accurate and useful results tailored to specific needs.</p>
+<p>Ultralytics Solutions configuration settings offer flexibility to customize models for tasks like object counting, heatmap creation, workout tracking, data analysis, zone tracking, queue management, and region-based counting. These options allow easy adjustments for accurate and useful results tailored to specific needs.</p>
 <table>
 <thead>
 <tr>
@@ -1714,7 +1715,7 @@
 </table>
 <p><a class="md-button" href="../../solutions/">Solutions Guide</a></p>
 <h2 id="augmentation-settings">Augmentation Settings</h2>
-<p>Augmentation techniques are essential for improving the robustness and performance of YOLO models by introducing variability into the <a href="https://www.ultralytics.com/glossary/training-data">training data</a>, helping the model generalize better to unseen data. The following table outlines the purpose and effect of each augmentation argument:</p>
+<p><a href="https://www.ultralytics.com/glossary/data-augmentation">Data augmentation</a> techniques are essential for improving YOLO model robustness and performance by introducing variability into the <a href="https://www.ultralytics.com/glossary/training-data">training data</a>, helping the model generalize better to unseen data. The following table outlines each augmentation argument's purpose and effect:</p>
 <table>
 <thead>
 <tr>
@@ -1854,16 +1855,16 @@
 </tr>
 </tbody>
 </table>
-<p>These settings can be adjusted to meet the specific requirements of the dataset and task at hand. Experimenting with different values can help find the optimal augmentation strategy that leads to the best model performance.</p>
+<p>Adjust these settings to meet dataset and task requirements. Experimenting with different values can help find the optimal augmentation strategy for the best model performance.</p>
 <h2 id="logging-checkpoints-and-plotting-settings">Logging, Checkpoints and Plotting Settings</h2>
-<p>Logging, checkpoints, plotting, and file management are important considerations when training a YOLO model.</p>
+<p>Logging, checkpoints, plotting, and file management are important when training a YOLO model:</p>
 <ul>
-<li>Logging: It is often helpful to log various metrics and statistics during training to track the model's progress and diagnose any issues that may arise. This can be done using a logging library such as TensorBoard or by writing log messages to a file.</li>
-<li>Checkpoints: It is a good practice to save checkpoints of the model at regular intervals during training. This allows you to resume training from a previous point if the training process is interrupted or if you want to experiment with different training configurations.</li>
-<li>Plotting: Visualizing the model's performance and training progress can be helpful for understanding how the model is behaving and identifying potential issues. This can be done using a plotting library such as matplotlib or by generating plots using a logging library such as TensorBoard.</li>
-<li>File management: Managing the various files generated during the training process, such as model checkpoints, log files, and plots, can be challenging. It is important to have a clear and organized file structure to keep track of these files and make it easy to access and analyze them as needed.</li>
+<li><strong>Logging</strong>: Track the model's progress and diagnose issues using libraries like <a href="https://www.ultralytics.com/integrations/tensorboard">TensorBoard</a> or by writing to a file.</li>
+<li><strong>Checkpoints</strong>: Save the model at regular intervals to resume training or experiment with different configurations.</li>
+<li><strong>Plotting</strong>: Visualize performance and training progress using libraries like matplotlib or TensorBoard.</li>
+<li><strong>File management</strong>: Organize files generated during training, such as checkpoints, log files, and plots, for easy access and analysis.</li>
 </ul>
-<p>Effective logging, checkpointing, plotting, and file management can help you keep track of the model's progress and make it easier to debug and optimize the training process.</p>
+<p>Effective management of these aspects helps track progress and makes debugging and optimization easier.</p>
 <table>
 <thead>
 <tr>
@@ -1876,70 +1877,70 @@
 <tr>
 <td><code>project</code></td>
 <td><code>'runs'</code></td>
-<td>Specifies the root directory for saving training runs. Each run will be saved in a separate subdirectory within this directory.</td>
+<td>Specifies the root directory for saving training runs. Each run is saved in a separate subdirectory.</td>
 </tr>
 <tr>
 <td><code>name</code></td>
 <td><code>'exp'</code></td>
-<td>Defines the name of the experiment. If not specified, YOLO automatically increments this name for each run, e.g., <code>exp</code>, <code>exp2</code>, etc., to avoid overwriting previous experiments.</td>
+<td>Defines the experiment name. If unspecified, YOLO increments this name for each run (e.g., <code>exp</code>, <code>exp2</code>) to avoid overwriting.</td>
 </tr>
 <tr>
 <td><code>exist_ok</code></td>
 <td><code>False</code></td>
-<td>Determines whether to overwrite an existing experiment directory if one with the same name already exists. Setting this to <code>True</code> allows overwriting, while <code>False</code> prevents it.</td>
+<td>Determines whether to overwrite an existing experiment directory. <code>True</code> allows overwriting; <code>False</code> prevents it.</td>
 </tr>
 <tr>
 <td><code>plots</code></td>
 <td><code>False</code></td>
-<td>Controls the generation and saving of training and validation plots. Set to <code>True</code> to create plots such as loss curves, <a href="https://www.ultralytics.com/glossary/precision">precision</a>-<a href="https://www.ultralytics.com/glossary/recall">recall</a> curves, and sample predictions. Useful for visually tracking model performance over time.</td>
+<td>Controls the generation and saving of training and validation plots. Set to <code>True</code> to create plots like loss curves, <a href="https://www.ultralytics.com/glossary/precision">precision</a>-<a href="https://www.ultralytics.com/glossary/recall">recall</a> curves, and sample predictions for visual tracking of performance.</td>
 </tr>
 <tr>
 <td><code>save</code></td>
 <td><code>False</code></td>
-<td>Enables the saving of training checkpoints and final model weights. Set to <code>True</code> to periodically save model states, allowing training to be resumed from these checkpoints or models to be deployed.</td>
+<td>Enables saving training checkpoints and final model weights. Set to <code>True</code> to save model states periodically, allowing training resumption or model deployment.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="faq">FAQ</h2>
-<h3 id="how-do-i-improve-the-performance-of-my-yolo-model-during-training">How do I improve the performance of my YOLO model during training?</h3>
-<p>Improving YOLO model performance involves tuning hyperparameters like batch size, learning rate, momentum, and weight decay. Adjusting augmentation settings, selecting the right optimizer, and employing techniques like early stopping or <a href="https://www.ultralytics.com/glossary/mixed-precision">mixed precision</a> can also help. For detailed guidance on training settings, refer to the <a href="../../modes/train/">Train Guide</a>.</p>
-<h3 id="what-are-the-key-hyperparameters-to-consider-for-yolo-model-accuracy">What are the key hyperparameters to consider for YOLO model accuracy?</h3>
-<p>Key hyperparameters affecting YOLO model accuracy include:</p>
+<h3 id="how-do-i-improve-my-yolo-models-performance-during-training">How do I improve my YOLO model's performance during training?</h3>
+<p>Improve performance by tuning hyperparameters like batch size, learning rate, momentum, and weight decay. Adjust augmentation settings, select the right optimizer, and use techniques like early stopping or <a href="https://www.ultralytics.com/glossary/mixed-precision">mixed precision</a>. For details, see the <a href="../../modes/train/">Train Guide</a>.</p>
+<h3 id="what-are-the-key-hyperparameters-for-yolo-model-accuracy">What are the key hyperparameters for YOLO model accuracy?</h3>
+<p>Key hyperparameters affecting accuracy include:</p>
 <ul>
-<li><strong>Batch Size (<code>batch</code>)</strong>: Larger batch sizes can stabilize training but may require more memory.</li>
-<li><strong>Learning Rate (<code>lr0</code>)</strong>: Controls the step size for weight updates; smaller rates offer fine adjustments but slow convergence.</li>
-<li><strong>Momentum (<code>momentum</code>)</strong>: Helps accelerate gradient vectors in the right directions, dampening oscillations.</li>
-<li><strong>Image Size (<code>imgsz</code>)</strong>: Larger image sizes can improve accuracy but increase computational load.</li>
+<li><strong>Batch Size (<code>batch</code>)</strong>: Larger sizes can stabilize training but need more memory.</li>
+<li><strong>Learning Rate (<code>lr0</code>)</strong>: Smaller rates offer fine adjustments but slower convergence.</li>
+<li><strong>Momentum (<code>momentum</code>)</strong>: Accelerates gradient vectors, dampening oscillations.</li>
+<li><strong>Image Size (<code>imgsz</code>)</strong>: Larger sizes improve accuracy but increase computational load.</li>
 </ul>
-<p>Adjust these values based on your dataset and hardware capabilities. Explore more in the <a href="#train-settings">Train Settings</a> section.</p>
+<p>Adjust these based on your dataset and hardware. Learn more in <a href="#train-settings">Train Settings</a>.</p>
 <h3 id="how-do-i-set-the-learning-rate-for-training-a-yolo-model">How do I set the learning rate for training a YOLO model?</h3>
-<p>The learning rate (<code>lr0</code>) is crucial for optimization. A common starting point is <code>0.01</code> for SGD or <code>0.001</code> for Adam. It's essential to monitor training metrics and adjust if necessary. Use cosine learning rate schedulers (<code>cos_lr</code>) or warmup techniques (<code>warmup_epochs</code>, <code>warmup_momentum</code>) to dynamically modify the rate during training. Find more details in the <a href="../../modes/train/">Train Guide</a>.</p>
+<p>The learning rate (<code>lr0</code>) is crucial; start with <code>0.01</code> for SGD or <code>0.001</code> for Adam. Monitor metrics and adjust as needed. Use cosine learning rate schedulers (<code>cos_lr</code>) or warmup (<code>warmup_epochs</code>, <code>warmup_momentum</code>). Details are in the <a href="../../modes/train/">Train Guide</a>.</p>
 <h3 id="what-are-the-default-inference-settings-for-yolo-models">What are the default inference settings for YOLO models?</h3>
-<p>Default inference settings include:</p>
+<p>Default settings include:</p>
 <ul>
 <li><strong>Confidence Threshold (<code>conf=0.25</code>)</strong>: Minimum confidence for detections.</li>
-<li><strong>IoU Threshold (<code>iou=0.7</code>)</strong>: For Non-Maximum Suppression (NMS).</li>
-<li><strong>Image Size (<code>imgsz=640</code>)</strong>: Resizes input images prior to inference.</li>
-<li><strong>Device (<code>device=None</code>)</strong>: Selects CPU or GPU for inference.</li>
+<li><strong>IoU Threshold (<code>iou=0.7</code>)</strong>: For <a href="https://www.ultralytics.com/glossary/non-maximum-suppression-nms">Non-Maximum Suppression (NMS)</a>.</li>
+<li><strong>Image Size (<code>imgsz=640</code>)</strong>: Resizes input images.</li>
+<li><strong>Device (<code>device=None</code>)</strong>: Selects CPU or GPU.</li>
 </ul>
-<p>For a comprehensive overview, visit the <a href="#predict-settings">Predict Settings</a> section and the <a href="../../modes/predict/">Predict Guide</a>.</p>
-<h3 id="why-should-i-use-mixed-precision-training-with-yolo-models">Why should I use mixed precision training with YOLO models?</h3>
-<p>Mixed precision training, enabled with <code>amp=True</code>, helps reduce memory usage and can speed up training by utilizing the advantages of both FP16 and FP32. This is beneficial for modern GPUs, which support mixed precision natively, allowing more models to fit in memory and enable faster computations without significant loss in accuracy. Learn more about this in the <a href="../../modes/train/">Train Guide</a>.</p>
+<p>For a full overview, see <a href="#predict-settings">Predict Settings</a> and the <a href="../../modes/predict/">Predict Guide</a>.</p>
+<h3 id="why-use-mixed-precision-training-with-yolo-models">Why use mixed precision training with YOLO models?</h3>
+<p><a href="https://www.ultralytics.com/glossary/mixed-precision">Mixed precision</a> training (<code>amp=True</code>) reduces memory usage and speeds up training using FP16 and FP32. It's beneficial for modern GPUs, allowing larger models and faster computations without significant accuracy loss. Learn more in the <a href="../../modes/train/">Train Guide</a>.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on March 11, 2025">
-<span class="hover-item">✏️</span> Updated 5 days ago
+<span class="date-item" title="This page was last updated on March 16, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (21 changes)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (20 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/jk4e" title="jk4e (1 change)">
 <img alt="jk4e" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/116908874?v=4&amp;s=96"/>
