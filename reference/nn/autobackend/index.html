@@ -2055,7 +2055,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <a id="__codelineno-0-281" name="__codelineno-0-281"></a>    <span class="k">elif</span> <span class="n">engine</span><span class="p">:</span>
 <a id="__codelineno-0-282" name="__codelineno-0-282"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loading </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2"> for TensorRT inference..."</span><span class="p">)</span>
 <a id="__codelineno-0-283" name="__codelineno-0-283"></a>
-<a id="__codelineno-0-284" name="__codelineno-0-284"></a>        <span class="k">if</span> <span class="n">IS_JETSON</span> <span class="ow">and</span> <span class="n">PYTHON_VERSION</span> <span class="o">&lt;=</span> <span class="s2">"3.8.0"</span><span class="p">:</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a>        <span class="k">if</span> <span class="n">IS_JETSON</span> <span class="ow">and</span> <span class="n">check_version</span><span class="p">(</span><span class="n">PYTHON_VERSION</span><span class="p">,</span> <span class="s2">"&lt;=3.8.0"</span><span class="p">):</span>
 <a id="__codelineno-0-285" name="__codelineno-0-285"></a>            <span class="c1"># fix error: `np.bool` was a deprecated alias for the builtin `bool` for JetPack 4 with Python &lt;= 3.8.0</span>
 <a id="__codelineno-0-286" name="__codelineno-0-286"></a>            <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"numpy==1.23.5"</span><span class="p">)</span>
 <a id="__codelineno-0-287" name="__codelineno-0-287"></a>
